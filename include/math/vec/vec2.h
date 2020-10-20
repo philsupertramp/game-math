@@ -1,7 +1,7 @@
 #pragma once
 
 #include <ostream>
-#include <math.h>
+#include <cmath>
 
 template<class T>
 class vec2
@@ -25,7 +25,6 @@ public:
     }
 
     /* Misc functions */
-    inline float cross(vec2<T>& rhs){ return ((float)x*rhs.y - (float)y*rhs.x); }
     inline float length(){ return sqrtf(x*x+y*y); }
     inline vec2<T> normalize(){ return *this / length(); }
 
@@ -59,12 +58,14 @@ public:
     }
 
     /* comparison operators */
+
+    friend bool operator==(const vec2<T>& lhs, const vec2<T>& rhs){ return lhs.x==rhs.x&&lhs.y==rhs.y; }
     /* explicit type casts */
 
 
     /* Member access */
-    T* operator[](int index){
-        return values[index];
+    T& operator[](int index){
+        return *values[index];
     }
 
     /* stream operators */

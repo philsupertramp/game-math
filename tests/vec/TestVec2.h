@@ -1,17 +1,15 @@
 #pragma once
 
 #include <iostream>
-#include "cassert"
-#include "../include/vec2.h"
-#include "Test.h"
+#include <math/math.h>
+#include <cassert>
+#include "../Test.h"
 
 
 template<class T>
 class Vec2TestCase
 : public Test
 {
-    bool extended = false;
-
     bool testInitialization(){
         vec2<T> foo;
         assert(foo.x == (T)0);
@@ -36,6 +34,12 @@ class Vec2TestCase
 
         assert(foo.x == (T)1);
         assert(foo.y == (T)2);
+
+        foo[0] = (T)3;
+        foo[1] = (T)4;
+
+        assert(foo.x == (T)3);
+        assert(foo.y == (T)4);
         return true;
     }
     bool testMemberAccess(){
@@ -44,8 +48,8 @@ class Vec2TestCase
         foo.x = (T)1;
         foo.y = (T)2;
 
-        assert(*foo[0] == 1);
-        assert(*foo[1] == 2);
+        assert(foo[0] == 1);
+        assert(foo[1] == 2);
         return true;
     }
     bool testMisc(){
@@ -56,14 +60,6 @@ class Vec2TestCase
         assert(foo.length() == 2.82842708f);
         assert(bar.length() == 2.82842708f);
         assert(baz.length() == 10.0f);
-
-        assert(foo.cross(foo) == 0.0f);
-        assert(foo.cross(bar) == -8.0f);
-        assert(foo.cross(baz) == -20.0f);
-        assert(bar.cross(foo) == 8.0f);
-        assert(bar.cross(baz) == 20.0f);
-        assert(baz.cross(foo) == 20.0f);
-        assert(baz.cross(bar) == -20.0f);
 
         if(extended) {
             vec2<T> normFoo = foo.normalize();
@@ -126,7 +122,7 @@ class Vec2TestCase
         assert(fooCopy.y == (T)0.5f);
 
         // ostream<<
-        std::cout << foo;
+        std::cout << "vec2:\n" << foo;
 
         return true;
     }

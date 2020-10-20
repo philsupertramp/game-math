@@ -1,7 +1,7 @@
 #pragma once
 
 #include <ostream>
-#include <math.h>
+#include <cmath>
 
 template<class T>
 class vec3
@@ -30,7 +30,7 @@ public:
     }
 
     /* Misc functions */
-    inline float cross(vec3<T>& rhs){ return ((float)x*rhs.y - (float)y*rhs.x); }
+    inline vec3<T> cross(vec3<T>& rhs){ return vec3<T>((float)y*rhs.z - (float)z*rhs.y, (float)x*rhs.z - (float)z*rhs.x, (float)x*rhs.y-y*rhs.x); }
     inline float length(){ return sqrtf(x*x+y*y+z*z); }
     inline vec3<T> normalize(){ return *this / length(); }
 
@@ -68,12 +68,13 @@ public:
     }
 
     /* comparison operators */
+    friend bool operator==(const vec3<T>& lhs, const vec3<T>& rhs){ return lhs.x==rhs.x&&lhs.y==rhs.y&&lhs.z==rhs.z; }
     /* explicit type casts */
 
 
     /* Member access */
-    T* operator[](int index){
-        return values[index];
+    T& operator[](int index){
+        return *values[index];
     }
 
     /* stream operators */
