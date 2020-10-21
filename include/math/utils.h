@@ -12,13 +12,13 @@ namespace Math::Utils {
     float distance(V a, V b);
 
     template<class T>
-    float normalize(vec2<T> a){ return a.normalize(); }
+    vec2<T> normalize(vec2<T> a){ return a.normalize(); }
 
     template<class T>
-    float normalize(vec3<T> a){ return a.normalize(); }
+    vec3<T> normalize(vec3<T> a){ return a.normalize(); }
 
     template<class T>
-    float normalize(vec4<T> a){ return a.normalize(); }
+    vec4<T> normalize(vec4<T> a){ return a.normalize(); }
 
     template<class T>
     mat4<T> translate(mat4<T> M, vec3<T> V){
@@ -30,7 +30,7 @@ namespace Math::Utils {
         vec3<T> zaxis = normalize(center - eye); vec3<T> xaxis = normalize(up.cross(zaxis)); vec3<T> yaxis = zaxis.cross(xaxis);
         mat4<T> out = mat4<T>::Transformation(mat3<T>(xaxis, yaxis, zaxis));
         mat4<T> translation = mat4<T>::Unit();
-        translation[2][0] = -1 * eye.x; translation[2][1] = -1 * eye.y; translation[2][2] = -1 * eye.z;
+        translation.m = (T)(-1.0f * eye.x); translation.n = (T)(-1.0f * eye.y); translation.o = (T)(-1.0f * eye.z);
         return translation * out;
     }
 

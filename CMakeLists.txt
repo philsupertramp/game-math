@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
-project(math-lib)
+project(math-lib CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -14,5 +14,7 @@ set(LIB_SOURCES
         include/math/utils.h)
 
 add_library(math-lib SHARED ${LIB_SOURCES})
-add_subdirectory(tests)
-target_include_directories(math-tests PUBLIC include)
+set_target_properties(math-lib PROPERTIES LINKER_LANGUAGE CXX)
+
+#add_subdirectory(tests)
+#target_include_directories(math-tests PUBLIC include)
