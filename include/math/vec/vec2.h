@@ -12,16 +12,12 @@ public:
     T y;
 
     vec2(){
-        x = static_cast<T>(0.0f);
-        y = static_cast<T>(0.0f);
-        values[0] = &x;
-        values[1] = &y;
+        x = static_cast<T>(0.0f); values[0] = &x;
+        y = static_cast<T>(0.0f); values[1] = &y;
     }
     vec2(T _x, T _y){
-        x = _x;
-        y = _y;
-        values[0] = &x;
-        values[1] = &y;
+        x = _x; values[0] = &x;
+        y = _y; values[1] = &y;
     }
 
     /* Misc functions */
@@ -47,13 +43,11 @@ public:
         return *this;
     }
     vec2<T>& operator*=(const T& rhs){
-        x *= rhs;
-        y *= rhs;
+        x *= rhs; y *= rhs;
         return *this;
     }
     vec2<T>& operator/=(const T& rhs){
-        x /= rhs;
-        y /= rhs;
+        x /= rhs; y /= rhs;
         return *this;
     }
 

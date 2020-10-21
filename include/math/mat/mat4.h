@@ -61,6 +61,14 @@ public:
                 static_cast<T>(0),static_cast<T>(0),static_cast<T>(0),static_cast<T>(1));
     }
 
+    static inline mat4<T> Transformation(mat3<T> m){
+        return mat4<T>(
+                static_cast<T>(m.a),static_cast<T>(m.b),static_cast<T>(m.c),static_cast<T>(0),
+                static_cast<T>(m.d),static_cast<T>(m.e),static_cast<T>(m.f),static_cast<T>(0),
+                static_cast<T>(m.g),static_cast<T>(m.h),static_cast<T>(m.i),static_cast<T>(0),
+                static_cast<T>(  0),static_cast<T>(  0),static_cast<T>(  0),static_cast<T>(1));
+    }
+
     inline mat4<T> Transpose(){ return mat4<T>(a,e,i,m,b,f,j,n,c,g,k,o,d,h,l,p); }
 
     inline bool IsSymmetric(){ return b==e&&c==i&&d==m&&j==g&&h==n&&o==l; }

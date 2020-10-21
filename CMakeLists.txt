@@ -11,7 +11,7 @@ set(LIB_SOURCES
         include/math/mat/mat2.h
         include/math/mat/mat3.h
         include/math/mat/mat4.h
-)
+        include/math/utils.h)
 
 add_library(math-lib SHARED ${LIB_SOURCES})
 add_subdirectory(tests)
