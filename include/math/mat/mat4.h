@@ -50,6 +50,19 @@ public:
         values[2][0] = &i; values[2][1] = &j; values[2][2] = &k; values[2][3] = &l;
         values[3][0] = &m; values[3][1] = &n; values[3][2] = &o; values[3][3] = &p;
     }
+    mat4(T _a){
+        values[0] = new T*[4]; values[1] = new T*[4];
+        values[2] = new T*[4]; values[3] = new T*[4];
+        a = _a;  b = 0;  c = 0;  d = 0;
+        e = 0;  f = _a;  g = 0;  h = 0;
+        i = 0;  j = 0;  k = _a;  l = 0;
+        m = 0;  n = 0;  o = 0;  p = _a;
+
+        values[0][0] = &a; values[0][1] = &b; values[0][2] = &c; values[0][3] = &d;
+        values[1][0] = &e; values[1][1] = &f; values[1][2] = &g; values[1][3] = &h;
+        values[2][0] = &i; values[2][1] = &j; values[2][2] = &k; values[2][3] = &l;
+        values[3][0] = &m; values[3][1] = &n; values[3][2] = &o; values[3][3] = &p;
+    }
     ~mat4(){
     }
 
@@ -148,7 +161,7 @@ public:
     }
 
     /* Member access */
-    T** operator[](int index){
+    T*& operator[](int index){
         return values[index];
     }
 

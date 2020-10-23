@@ -56,4 +56,19 @@ namespace Math::Utils {
         float aspect = width / height;
         return mat4<T>(f / aspect, 0, 0, 0, 0, f, 0, 0, 0, 0, (zFar + zNear)*nf, -1, 0, 0, (2*zFar*zNear) * nf, 0);
     }
+
+    template<class T>
+    mat4<T> angleAxis(float angle, vec3<T> axis){
+        vec4<T> q(axis.x, axis.y, axis.z, angle);
+    }
+
+    template<class T>
+    mat4<T> scale(mat4<T> mat, float factor){
+        return mat4<T>::Unit() * factor * mat;
+    }
+
+    template<class T>
+    mat4<T> rotate(mat4<T> mat, float rad, vec3<T> axis){
+
+    }
 }

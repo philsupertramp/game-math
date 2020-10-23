@@ -2,6 +2,7 @@
 
 #include <ostream>
 #include <cmath>
+#include "vec4.h"
 
 template<class T>
 class vec3
@@ -28,10 +29,26 @@ public:
         values[1] = &y;
         values[2] = &z;
     }
+    vec3(vec4<T> a){
+        x = a.x;
+        y = a.y;
+        z = a.z;
+        values[0] = &x;
+        values[1] = &y;
+        values[2] = &z;
+    }
+    vec3(T _x){
+        x = _x;
+        y = _x;
+        z = _x;
+        values[0] = &x;
+        values[1] = &y;
+        values[2] = &z;
+    }
 
     /* Misc functions */
-    inline vec3<T> cross(vec3<T>& rhs){ return vec3<T>((float)y*rhs.z - (float)z*rhs.y, (float)z*rhs.x - (float)x*rhs.z, (float)x*rhs.y-y*rhs.x); }
-    inline float length(){ return sqrtf(x*x+y*y+z*z); }
+    inline vec3<T> cross(vec3<T> rhs){ return vec3<T>((float)y*rhs.z - (float)z*rhs.y, (float)z*rhs.x - (float)x*rhs.z, (float)x*rhs.y-y*rhs.x); }
+    inline float length() const { return sqrtf(x*x+y*y+z*z); }
     inline vec3<T> normalize(){ return *this / length(); }
 
     /* Arithmetic operators */
