@@ -56,5 +56,4 @@ namespace Math::Utils {
         float aspect = width / height;
         return mat4<T>(f / aspect, 0, 0, 0, 0, f, 0, 0, 0, 0, (zFar + zNear)*nf, -1, 0, 0, (2*zFar*zNear) * nf, 0);
     }
-
 }
