@@ -27,7 +27,7 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> lookAt(vec3<T> eye, vec3<T> center, vec3<T> up){
-        vec3<T> zaxis = normalize(center - eye); vec3<T> xaxis = normalize(up.cross(zaxis)); vec3<T> yaxis = zaxis.cross(xaxis);
+        vec3<T> zaxis = normalize(eye-center); vec3<T> xaxis = normalize(up.cross(zaxis)); vec3<T> yaxis = zaxis.cross(xaxis);
         return mat4<T>(
             xaxis.x, yaxis.x, zaxis.x, 0.0f,
             xaxis.y, yaxis.y, zaxis.y, 0.0f,
