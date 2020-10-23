@@ -71,4 +71,10 @@ namespace Math::Utils {
     mat4<T> rotate(mat4<T> mat, float rad, vec3<T> axis){
 
     }
+
+    // Possibly wrong
+    template<class T>
+    vec3<T> max(vec3<T> a, vec3<T> b){
+        return a.length() > b.length() ? a : b;
+    }
 }
