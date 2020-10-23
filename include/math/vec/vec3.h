@@ -30,7 +30,7 @@ public:
     }
 
     /* Misc functions */
-    inline vec3<T> cross(vec3<T>& rhs){ return vec3<T>((float)y*rhs.z - (float)z*rhs.y, (float)x*rhs.z - (float)z*rhs.x, (float)x*rhs.y-y*rhs.x); }
+    inline vec3<T> cross(vec3<T>& rhs){ return vec3<T>((float)y*rhs.z - (float)z*rhs.y, (float)z*rhs.x - (float)x*rhs.z, (float)x*rhs.y-y*rhs.x); }
     inline float length(){ return sqrtf(x*x+y*y+z*z); }
     inline vec3<T> normalize(){ return *this / length(); }
 

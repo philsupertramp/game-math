@@ -28,15 +28,25 @@ namespace Math::Utils {
     template<class T>
     mat4<T> lookAt(vec3<T> eye, vec3<T> center, vec3<T> up){
         vec3<T> zaxis = normalize(center - eye); vec3<T> xaxis = normalize(up.cross(zaxis)); vec3<T> yaxis = zaxis.cross(xaxis);
-        mat4<T> out = mat4<T>::Transformation(mat3<T>(xaxis, yaxis, zaxis));
-        mat4<T> translation = mat4<T>::Unit();
-        translation.m = (T)(-1.0f * eye.x); translation.n = (T)(-1.0f * eye.y); translation.o = (T)(-1.0f * eye.z);
-        return translation * out;
+        return mat4<T>(
+            xaxis.x, yaxis.x, zaxis.x, 0.0f,
+            xaxis.y, yaxis.y, zaxis.y, 0.0f,
+            xaxis.z, yaxis.z, zaxis.z, 0.0f,
+            -(xaxis * eye), -(yaxis * eye), -(zaxis * eye), 1.0f
+        );
     }
 
     template<class T>
     mat4<T> ortho(float left, float right , float bottom, float top , float zNear , float zFar){
-
+        mat4<T> mat;
+        mat.a =(T) 2.0f / (right - left);
+        mat.f =(T) 2.0f / (top - bottom);
+        mat.k =(T) -2.0f / (zFar-zNear);
+        mat.m =(T) (right+left) / (left-right);
+        mat.n =(T) (top+bottom) / (bottom - top);
+        mat.o =(T) (zFar + zNear) / (zNear - zFar);
+        mat.p =(T) 1.0f;
+        return mat;
     }
 
     template<class T>
