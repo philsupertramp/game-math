@@ -51,7 +51,10 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> perspective(float FOV, float width, float height, float zNear, float zFar){
-
+        float f = 1.0f / tanf(FOV / 2.0f);
+        float nf = 1.0f / (zNear - zFar);
+        float aspect = width / height;
+        return mat4<T>(f / aspect, 0, 0, 0, 0, f, 0, 0, 0, 0, (zFar + zNear)*nf, -1, 0, 0, (2*zFar*zNear) * nf, 0);
     }
 
 }
