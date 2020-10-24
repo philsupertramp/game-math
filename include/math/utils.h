@@ -113,3 +113,29 @@ namespace Math::Utils {
         return vec3<T>(ax + v * (p2[0] - ax), ay + v * (p2[0] - ay), az + v * (p2[0] - az));
     }
 }
+
+template<class T>
+T* value_ptr(vec2<T> &vec){ return &(vec.x);}
+template<class T>
+T* value_ptr(vec3<T> &vec){ return &(vec.x);}
+template<class T>
+T* value_ptr(vec4<T> &vec){ return &(vec.x);}
+template<class T>
+T* value_ptr(mat2<T> &mat){ return &(mat[0].x);}
+template<class T>
+T* value_ptr(mat3<T> &mat){ return &(mat[0].x);}
+template<class T>
+T* value_ptr(mat4<T> &mat){ return &(mat[0].x);}
+
+template<class T>
+T const* value_ptr(vec2<T> const& vec){ return &(vec.x);}
+template<class T>
+T const* value_ptr(vec3<T> const& vec){ return &(vec.x);}
+template<class T>
+T const* value_ptr(vec4<T> const& vec){ return &(vec.x);}
+template<class T>
+T const* value_ptr(mat2<T> const& mat){ return &(mat[0].x);}
+template<class T>
+T const* value_ptr(mat3<T> const& mat){ return &(mat[0].x);}
+template<class T>
+T const* value_ptr(mat4<T> const& mat){ return &(mat[0].x);}
