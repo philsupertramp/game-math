@@ -55,10 +55,12 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> perspective(float FOV, float width, float height, float zNear, float zFar){
-        float f = 1.0f / tanf(FOV / 2.0f);
-        float nf = 1.0f / (zNear - zFar);
+        float halfTanFOV = 1.0f / tanf(FOV / 2.0f);
         float aspect = width / height;
-        return mat4<T>(f / aspect, 0, 0, 0, 0, f, 0, 0, 0, 0, (zFar + zNear)*nf, -1, 0, 0, (2*zFar*zNear) * nf, 0);
+        return mat4<T>(static_cast<T>(1) / (aspect* halfTanFOV), 0, 0, 0,
+                       0, static_cast<T>(1) / (halfTanFOV), 0, 0,
+                       0, 0, (zFar/(zFar-zNear)), static_cast<T>(1),
+                       0, 0, -(zFar * zNear)/(zFar - zNear), 0);
     }
 
     template<class T>
@@ -72,8 +74,32 @@ namespace Math::Utils {
     }
 
     template<class T>
-    mat4<T> rotate(mat4<T> mat, float rad, vec3<T> axis){
+    mat4<T> rotate(mat4<T> m, float angle, vec3<T> u){
+        T const cosAngle = cosf(angle);
+        T const sinAngle = sinf(angle);
 
+        vec3<T> axis = u.normalize();
+        vec3<T> temp((T(1) - cosAngle) * axis);
+
+        mat4<T> rot;
+        rot[0][0] = cosAngle + temp[0] * axis[0];
+        rot[0][1] = temp[0] * axis[1] + sinAngle * axis[2];
+        rot[0][2] = temp[0] * axis[2] - sinAngle * axis[1];
+
+        rot[1][0] = temp[1] * axis[0] - sinAngle * axis[2];
+        rot[1][1] = cosAngle + temp[1] * axis[1];
+        rot[1][2] = temp[1] * axis[2] + sinAngle * axis[0];
+
+        rot[2][0] = temp[2] * axis[0] + sinAngle * axis[1];
+        rot[2][1] = temp[2] * axis[1] - sinAngle * axis[0];
+        rot[2][2] = cosAngle + temp[2] * axis[2];
+
+        mat4<T> out;
+        out[0] = m[0] * rot[0][0] + m[1] * rot[0][1] + m[2] * rot[0][2];
+        out[1] = m[0] * rot[1][0] + m[1] * rot[1][1] + m[2] * rot[1][2];
+        out[2] = m[0] * rot[2][0] + m[1] * rot[2][1] + m[2] * rot[2][2];
+        out[3] = m[3];
+        return out;
     }
 
     // Possibly wrong
