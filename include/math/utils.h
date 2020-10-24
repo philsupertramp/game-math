@@ -31,24 +31,23 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> lookAt(vec3<T> eye, vec3<T> center, vec3<T> up){
-        vec3<T> zaxis = normalize(eye-center); vec3<T> xaxis = normalize(up.cross(zaxis)); vec3<T> yaxis = zaxis.cross(xaxis);
+        vec3<T> zaxis = normalize(center-eye); vec3<T> xaxis = normalize(zaxis.cross(up)); vec3<T> yaxis = xaxis.cross(zaxis);
         return mat4<T>(
-            xaxis.x, yaxis.x, zaxis.x, 0.0f,
-            xaxis.y, yaxis.y, zaxis.y, 0.0f,
-            xaxis.z, yaxis.z, zaxis.z, 0.0f,
+            xaxis.x, yaxis.x, -zaxis.x, 0.0f,
+            xaxis.y, yaxis.y, -zaxis.y, 0.0f,
+            xaxis.z, yaxis.z, -zaxis.z, 0.0f,
             -(xaxis * eye), -(yaxis * eye), -(zaxis * eye), 1.0f
         );
     }
 
     template<class T>
-    mat4<T> ortho(float left, float right , float bottom, float top , float zNear , float zFar){
+    mat4<T> ortho(float left, float right , float bottom, float top){
         mat4<T> mat;
-        mat[0][0] =(T) 2.0f / (right - left);
-        mat[1][1] =(T) 2.0f / (top - bottom);
-        mat[2][2] =(T) -2.0f / (zFar-zNear);
-        mat[3][0] =(T) (right+left) / (left-right);
-        mat[3][1] =(T) (top+bottom) / (bottom - top);
-        mat[3][2] =(T) (zFar + zNear) / (zNear - zFar);
+        mat[0][0] =(T) static_cast<T>(2) / (right - left);
+        mat[1][1] =(T) static_cast<T>(2) / (top - bottom);
+        mat[2][2] =(T) -static_cast<T>(1);
+        mat[3][0] =(T) -(right+left) / (left-right);
+        mat[3][1] =(T) -(top+bottom) / (bottom - top);
         mat[3][3] =(T) 1.0f;
         return mat;
     }
@@ -70,7 +69,7 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> scale(mat4<T> mat, float factor){
-        return mat4<T>::Unit() * factor * mat;
+        return (mat4<T>::Unit() * factor) * mat;
     }
 
     template<class T>
