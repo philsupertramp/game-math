@@ -4,30 +4,24 @@
 #include <cmath>
 
 template<class T>
-class vec4
+struct vec4
 {
-    T* values[4];
 public:
-    T x;
-    T y;
-    T z;
-    T w;
+    union {
+        struct { T x, y, z, w; };
+    };
 
     vec4(){
         x = static_cast<T>(0.0f);
         y = static_cast<T>(0.0f);
         z = static_cast<T>(0.0f);
         w = static_cast<T>(0.0f);
-        values[0] = &x;
-        values[1] = &y;
-        values[2] = &z;
-        values[3] = &w;
     }
     vec4(T _x, T _y, T _z, T _w){
-        x = _x; values[0] = &x;
-        y = _y; values[1] = &y;
-        z = _z; values[2] = &z;
-        w = _w; values[3] = &w;
+        x = _x;
+        y = _y;
+        z = _z;
+        w = _w;
     }
 
     /* Misc functions */
@@ -38,6 +32,7 @@ public:
     friend vec4<T> operator+(vec4<T> lhs, const vec4<T>& rhs){ return lhs += rhs; }
     friend vec4<T> operator-(vec4<T> lhs, const vec4<T>& rhs){ return lhs -= rhs; }
     friend vec4<T> operator*(vec4<T> lhs, const T& rhs){ return lhs *= rhs; }
+    friend vec4<T> operator*(const T& lhs, vec4<T> rhs){ return rhs *= lhs; }
     friend T operator*(vec4<T> lhs, const vec4<T>& rhs){ return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * lhs.w; }
     friend vec4<T> operator/(vec4<T> lhs, const T& rhs){ return lhs /= rhs; }
 
@@ -75,10 +70,32 @@ public:
     friend bool operator==(const vec4<T>& lhs, const vec4<T>& rhs){ return lhs.x==rhs.x&&lhs.y==rhs.y&&lhs.z==rhs.z&&lhs.w==rhs.w; }
     /* explicit type casts */
 
+    vec4<T>& operator=(vec4<T> const& V){
+        this->x = static_cast<T>(V.x);
+        this->y = static_cast<T>(V.y);
+        this->z = static_cast<T>(V.z);
+        this->w = static_cast<T>(V.w);
+        return *this;
+    }
 
     /* Member access */
     T& operator[](int index){
-        return *values[index];
+        switch (index) {
+            default:
+            case 0: return x;
+            case 1: return y;
+            case 2: return z;
+            case 3: return w;
+        }
+    }
+    const T& operator[](int index) const {
+        switch (index) {
+            default:
+            case 0: return x;
+            case 1: return y;
+            case 2: return z;
+            case 3: return w;
+        }
     }
 
     /* stream operators */

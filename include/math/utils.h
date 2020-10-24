@@ -9,7 +9,9 @@
 namespace Math::Utils {
 
     template<class V>
-    float distance(V a, V b);
+    float distance(V a, V b){
+        return (a - b).length();
+    }
 
     template<class T>
     vec2<T> normalize(vec2<T> a){ return a.normalize(); }
@@ -22,7 +24,9 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> translate(mat4<T> M, vec3<T> V){
-        return M + mat4<T>::Unit() * V;
+        mat4<T> translation = mat4<T>::Unit();
+        translation[0][0] = V.x; translation[1][1] = V.y; translation[2][2] = V.z;
+        return M + translation;
     }
 
     template<class T>
@@ -39,13 +43,13 @@ namespace Math::Utils {
     template<class T>
     mat4<T> ortho(float left, float right , float bottom, float top , float zNear , float zFar){
         mat4<T> mat;
-        mat.a =(T) 2.0f / (right - left);
-        mat.f =(T) 2.0f / (top - bottom);
-        mat.k =(T) -2.0f / (zFar-zNear);
-        mat.m =(T) (right+left) / (left-right);
-        mat.n =(T) (top+bottom) / (bottom - top);
-        mat.o =(T) (zFar + zNear) / (zNear - zFar);
-        mat.p =(T) 1.0f;
+        mat[0][0] =(T) 2.0f / (right - left);
+        mat[1][1] =(T) 2.0f / (top - bottom);
+        mat[2][2] =(T) -2.0f / (zFar-zNear);
+        mat[3][0] =(T) (right+left) / (left-right);
+        mat[3][1] =(T) (top+bottom) / (bottom - top);
+        mat[3][2] =(T) (zFar + zNear) / (zNear - zFar);
+        mat[3][3] =(T) 1.0f;
         return mat;
     }
 
@@ -76,5 +80,11 @@ namespace Math::Utils {
     template<class T>
     vec3<T> max(vec3<T> a, vec3<T> b){
         return a.length() > b.length() ? a : b;
+    }
+
+    template<class T>
+    vec3<T> lerp(vec3<T> p1, vec3<T> p2, float v){
+        T ax = p1[0]; T ay = p1[1]; T az = p1[2];
+        return vec3<T>(ax + v * (p2[0] - ax), ay + v * (p2[0] - ay), az + v * (p2[0] - az));
     }
 }

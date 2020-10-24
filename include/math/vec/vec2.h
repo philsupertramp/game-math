@@ -4,20 +4,25 @@
 #include <cmath>
 
 template<class T>
-class vec2
+struct vec2
 {
-    T* values[2];
 public:
-    T x;
-    T y;
+
+    union {
+        struct { T x, y; };
+    };
 
     vec2(){
-        x = static_cast<T>(0.0f); values[0] = &x;
-        y = static_cast<T>(0.0f); values[1] = &y;
+        x = static_cast<T>(0.0f);
+        y = static_cast<T>(0.0f);
     }
     vec2(T _x, T _y){
-        x = _x; values[0] = &x;
-        y = _y; values[1] = &y;
+        x = _x;
+        y = _y;
+    }
+    vec2(T _x){
+        x = _x;
+        y = _x;
     }
 
     /* Misc functions */
@@ -28,6 +33,7 @@ public:
     friend vec2<T> operator+(vec2<T> lhs, const vec2<T>& rhs){ return lhs += rhs; }
     friend vec2<T> operator-(vec2<T> lhs, const vec2<T>& rhs){ return lhs -= rhs; }
     friend vec2<T> operator*(vec2<T> lhs, const T& rhs){ return lhs *= rhs; }
+    friend vec2<T> operator*(const T& lhs, vec2<T> rhs){ return rhs *= lhs; }
     friend T operator*(vec2<T> lhs, const vec2<T>& rhs){ return lhs.x * rhs.x + lhs.y * rhs.y; }
     friend vec2<T> operator/(vec2<T> lhs, const T& rhs){ return lhs /= rhs; }
 
@@ -56,10 +62,26 @@ public:
     friend bool operator==(const vec2<T>& lhs, const vec2<T>& rhs){ return lhs.x==rhs.x&&lhs.y==rhs.y; }
     /* explicit type casts */
 
+    vec2<T>& operator=(vec2<T> const& V){
+        this->x = static_cast<T>(V.x);
+        this->y = static_cast<T>(V.y);
+        return *this;
+    }
 
     /* Member access */
     T& operator[](int index){
-        return *values[index];
+        switch (index) {
+            default:
+            case 0: return x;
+            case 1: return y;
+        }
+    }
+    const T& operator[](int index) const {
+        switch (index) {
+            default:
+            case 0: return x;
+            case 1: return y;
+        }
     }
 
     /* stream operators */

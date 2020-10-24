@@ -4,64 +4,38 @@
 #include "mat3.h"
 
 template<class T>
-class mat4
+struct mat4
 {
-    T** values[4];
 
+    typedef vec4<T> col_type;
+    
 public:
-    T a,b,c,d, e,f,g,h, i,j,k,l, m,n,o,p;
+
+    col_type values[4];
 
     mat4(){
-        values[0] = new T*[4]; values[1] = new T*[4];
-        values[2] = new T*[4]; values[3] = new T*[4];
-        a = static_cast<T>(0);  b = static_cast<T>(0);  c = static_cast<T>(0);  d = static_cast<T>(0);
-        e = static_cast<T>(0);  f = static_cast<T>(0);  g = static_cast<T>(0);  h = static_cast<T>(0);
-        i = static_cast<T>(0);  j = static_cast<T>(0);  k = static_cast<T>(0);  l = static_cast<T>(0);
-        m = static_cast<T>(0);  n = static_cast<T>(0);  o = static_cast<T>(0);  p = static_cast<T>(0);
-        
-        values[0][0] = &a; values[0][1] = &b; values[0][2] = &c; values[0][3] = &d;
-        values[1][0] = &e; values[1][1] = &f; values[1][2] = &g; values[1][3] = &h;
-        values[2][0] = &i; values[2][1] = &j; values[2][2] = &k; values[2][3] = &l;
-        values[3][0] = &m; values[3][1] = &n; values[3][2] = &o; values[3][3] = &p;
+        values[0][0] = static_cast<T>(0); values[0][1] = static_cast<T>(0); values[0][2] = static_cast<T>(0); values[0][3] = static_cast<T>(0);
+        values[1][0] = static_cast<T>(0); values[1][1] = static_cast<T>(0); values[1][2] = static_cast<T>(0); values[1][3] = static_cast<T>(0);
+        values[2][0] = static_cast<T>(0); values[2][1] = static_cast<T>(0); values[2][2] = static_cast<T>(0); values[2][3] = static_cast<T>(0);
+        values[3][0] = static_cast<T>(0); values[3][1] = static_cast<T>(0); values[3][2] = static_cast<T>(0); values[3][3] = static_cast<T>(0);
     }
     mat4(T _a, T _b, T _c, T _d, T _e, T _f, T _g, T _h, T _i, T _j, T _k, T _l, T _m, T _n, T _o, T _p){
-        values[0] = new T*[4]; values[1] = new T*[4];
-        values[2] = new T*[4]; values[3] = new T*[4];
-        a = _a;  b = _b;  c = _c;  d = _d;
-        e = _e;  f = _f;  g = _g;  h = _h;
-        i = _i;  j = _j;  k = _k;  l = _l;
-        m = _m;  n = _n;  o = _o;  p = _p;
-
-        values[0][0] = &a; values[0][1] = &b; values[0][2] = &c; values[0][3] = &d;
-        values[1][0] = &e; values[1][1] = &f; values[1][2] = &g; values[1][3] = &h;
-        values[2][0] = &i; values[2][1] = &j; values[2][2] = &k; values[2][3] = &l;
-        values[3][0] = &m; values[3][1] = &n; values[3][2] = &o; values[3][3] = &p;
+        values[0][0] = _a; values[0][1] = _b; values[0][2] = _c; values[0][3] = _d;
+        values[1][0] = _e; values[1][1] = _f; values[1][2] = _g; values[1][3] = _h;
+        values[2][0] = _i; values[2][1] = _j; values[2][2] = _k; values[2][3] = _l;
+        values[3][0] = _m; values[3][1] = _n; values[3][2] = _o; values[3][3] = _p;
     }
     mat4(vec4<T> A, vec4<T> B, vec4<T> C, vec4<T> D){
-        values[0] = new T*[4]; values[1] = new T*[4];
-        values[2] = new T*[4]; values[3] = new T*[4];
-        a = A.x;  b = A.y;  c = A.z;  d = A.w;
-        e = B.x;  f = B.y;  g = B.z;  h = B.w;
-        i = C.x;  j = C.y;  k = C.z;  l = C.w;
-        m = D.x;  n = D.y;  o = D.z;  p = D.w;
-
-        values[0][0] = &a; values[0][1] = &b; values[0][2] = &c; values[0][3] = &d;
-        values[1][0] = &e; values[1][1] = &f; values[1][2] = &g; values[1][3] = &h;
-        values[2][0] = &i; values[2][1] = &j; values[2][2] = &k; values[2][3] = &l;
-        values[3][0] = &m; values[3][1] = &n; values[3][2] = &o; values[3][3] = &p;
+        values[0][0] = A.x; values[0][1] = A.y; values[0][2] = A.z; values[0][3] = A.w;
+        values[1][0] = B.x; values[1][1] = B.y; values[1][2] = B.z; values[1][3] = B.w;
+        values[2][0] = C.x; values[2][1] = C.y; values[2][2] = C.z; values[2][3] = C.w;
+        values[3][0] = D.x; values[3][1] = D.y; values[3][2] = D.z; values[3][3] = D.w;
     }
     mat4(T _a){
-        values[0] = new T*[4]; values[1] = new T*[4];
-        values[2] = new T*[4]; values[3] = new T*[4];
-        a = _a;  b = 0;  c = 0;  d = 0;
-        e = 0;  f = _a;  g = 0;  h = 0;
-        i = 0;  j = 0;  k = _a;  l = 0;
-        m = 0;  n = 0;  o = 0;  p = _a;
-
-        values[0][0] = &a; values[0][1] = &b; values[0][2] = &c; values[0][3] = &d;
-        values[1][0] = &e; values[1][1] = &f; values[1][2] = &g; values[1][3] = &h;
-        values[2][0] = &i; values[2][1] = &j; values[2][2] = &k; values[2][3] = &l;
-        values[3][0] = &m; values[3][1] = &n; values[3][2] = &o; values[3][3] = &p;
+        values[0][0] = _a; values[0][1] = static_cast<T>(0); values[0][2] = static_cast<T>(0); values[0][3] = static_cast<T>(0);
+        values[1][0] = static_cast<T>(0); values[1][1] = _a; values[1][2] = static_cast<T>(0); values[1][3] = static_cast<T>(0);
+        values[2][0] = static_cast<T>(0); values[2][1] = static_cast<T>(0); values[2][2] = _a; values[2][3] = static_cast<T>(0);
+        values[3][0] = static_cast<T>(0); values[3][1] = static_cast<T>(0); values[3][2] = static_cast<T>(0); values[3][3] = _a;
     }
     ~mat4(){
     }
@@ -76,18 +50,29 @@ public:
 
     static inline mat4<T> Transformation(mat3<T> m){
         return mat4<T>(
-                static_cast<T>(m.a),static_cast<T>(m.b),static_cast<T>(m.c),static_cast<T>(0),
-                static_cast<T>(m.d),static_cast<T>(m.e),static_cast<T>(m.f),static_cast<T>(0),
-                static_cast<T>(m.g),static_cast<T>(m.h),static_cast<T>(m.i),static_cast<T>(0),
+                m[0][0],m[0][1],m[0][2],static_cast<T>(0),
+                m[1][0],m[1][1],m[1][2],static_cast<T>(0),
+                m[2][0],m[2][1],m[2][2],static_cast<T>(0),
                 static_cast<T>(  0),static_cast<T>(  0),static_cast<T>(  0),static_cast<T>(1));
     }
 
-    inline mat4<T> Transpose(){ return mat4<T>(a,e,i,m,b,f,j,n,c,g,k,o,d,h,l,p); }
+    inline mat4<T> Transpose(){
+        return mat4<T>(
+                values[0][0],values[1][0],values[2][0],values[3][0],
+                values[0][1],values[1][1],values[2][1],values[3][1],
+                values[0][2],values[1][2],values[2][2],values[3][2],
+                values[0][3],values[1][3],values[2][3],values[3][3]);
+    }
 
-    inline bool IsSymmetric(){ return b==e&&c==i&&d==m&&j==g&&h==n&&o==l; }
+    inline bool IsSymmetric(){
+        return values[0][1]==values[1][0]&&values[0][2]==values[2][0]&&values[0][3]==values[3][0]&&values[2][1]==values[1][2]&&values[1][3]==values[3][1]&&values[3][2]==values[2][3];
+    }
 
     inline float Determinant(){
-        return i * mat3<T>(b,c,d,f,g,h,n,o,p).Determinant() - j * mat3<T>(a,c,d,e,g,h,m,o,p).Determinant() + k*mat3<T>(a,b,d,e,f,h,m,n,p).Determinant() - l * mat3<T>(a,b,c,e,f,g,m,n,o).Determinant() ;
+        return values[2][0] * mat3<T>(values[0][1],values[0][2],values[0][3],values[1][1],values[1][2],values[1][3],values[2][1],values[2][2],values[2][3]).Determinant()
+        - values[2][1] * mat3<T>(values[0][0],values[0][2],values[0][3],values[1][0],values[1][2],values[1][3],values[3][0],values[3][2],values[3][3]).Determinant()
+        + values[2][2] * mat3<T>(values[0][0],values[0][1],values[0][3],values[1][0],values[1][1],values[1][3],values[3][0],values[3][1],values[3][3]).Determinant()
+        - values[2][3] * mat3<T>(values[0][0],values[0][1],values[0][2],values[1][0],values[1][1],values[1][2],values[3][0],values[3][1],values[3][2]).Determinant() ;
     }
 
 
@@ -96,10 +81,10 @@ public:
     friend mat4<T> operator*(mat4<T> lhs, const T& rhs){ return lhs *= rhs; }
     friend vec4<T> operator*(mat4<T> lhs, const vec4<T>& rhs){
         return vec4<T>(
-                lhs.a * rhs.x + lhs.b * rhs.y + lhs.c * rhs.z + lhs.d * rhs.w,
-                lhs.e * rhs.x + lhs.f * rhs.y + lhs.g * rhs.z + lhs.h * rhs.w,
-                lhs.i * rhs.x + lhs.j * rhs.y + lhs.k * rhs.z + lhs.l * rhs.w,
-                lhs.m * rhs.x + lhs.n * rhs.y + lhs.o * rhs.z + lhs.p * rhs.w
+                lhs[0][0] * rhs.x + lhs[0][1] * rhs.y + lhs[0][2] * rhs.z + lhs[0][3] * rhs.w,
+                lhs[1][0] * rhs.x + lhs[1][1] * rhs.y + lhs[1][2] * rhs.z + lhs[1][3] * rhs.w,
+                lhs[2][0] * rhs.x + lhs[2][1] * rhs.y + lhs[2][2] * rhs.z + lhs[2][3] * rhs.w,
+                lhs[3][0] * rhs.x + lhs[3][1] * rhs.y + lhs[3][2] * rhs.z + lhs[3][3] * rhs.w
         );
     }
     friend mat4<T> operator*(mat4<T> lhs, const mat4<T>& rhs){return lhs *= rhs;}
@@ -108,60 +93,65 @@ public:
 
     /* compound assignment */
     mat4<T>& operator+=(const mat4<T>& rhs){
-        a+=rhs.a; b+=rhs.b; c+=rhs.c; d+=rhs.d;
-        e+=rhs.e; f+=rhs.f; g+=rhs.g; h+=rhs.h;
-        i+=rhs.i; j+=rhs.j; k+=rhs.k; l+=rhs.l;
-        m+=rhs.m; n+=rhs.n; o+=rhs.o; p+=rhs.p;
+        values[0][0]+=rhs[0][0]; values[0][1]+=rhs[0][1]; values[0][2]+=rhs[0][2]; values[0][3]+=rhs[0][3];
+        values[1][0]+=rhs[1][0]; values[1][1]+=rhs[1][1]; values[1][2]+=rhs[1][2]; values[1][3]+=rhs[1][3];
+        values[2][0]+=rhs[2][0]; values[2][1]+=rhs[2][1]; values[2][2]+=rhs[2][2]; values[2][3]+=rhs[2][3];
+        values[3][0]+=rhs[3][0]; values[3][1]+=rhs[3][1]; values[3][2]+=rhs[3][2]; values[3][3]+=rhs[3][3];
         return *this;
     }
     mat4<T>& operator-=(const mat4<T>& rhs){
-        a-=rhs.a; b-=rhs.b; c-=rhs.c; d-=rhs.d;
-        e-=rhs.e; f-=rhs.f; g-=rhs.g; h-=rhs.h;
-        i-=rhs.i; j-=rhs.j; k-=rhs.k; l-=rhs.l;
-        m-=rhs.m; n-=rhs.n; o-=rhs.o; p-=rhs.p;
+        values[0][0]-=rhs[0][0]; values[0][1]-=rhs[0][1]; values[0][2]-=rhs[0][2]; values[0][3]-=rhs[0][3];
+        values[1][0]-=rhs[1][0]; values[1][1]-=rhs[1][1]; values[1][2]-=rhs[1][2]; values[1][3]-=rhs[1][3];
+        values[2][0]-=rhs[2][0]; values[2][1]-=rhs[2][1]; values[2][2]-=rhs[2][2]; values[2][3]-=rhs[2][3];
+        values[3][0]-=rhs[3][0]; values[3][1]-=rhs[3][1]; values[3][2]-=rhs[3][2]; values[3][3]-=rhs[3][3];
         return *this;
     }
     mat4<T>& operator*=(const mat4<T>& rhs){
-        T _a = a, _b = b, _c = c, _d = d, _e = e, _f=f,_g=g,_h=h,_i=i,_j=j,_k=k,_l=l,_m=m,_n=n,_o=o,_p=p;
-        a = _a * rhs.a + _b*rhs.e + _c * rhs.i + _d*rhs.m;
-        b = _a * rhs.b + _b*rhs.f + _c * rhs.j + _d*rhs.n;
-        c = _a * rhs.c + _b*rhs.g + _c * rhs.k + _d*rhs.o;
-        d = _a * rhs.d + _b*rhs.h + _c * rhs.l + _d*rhs.p;
+        T _a = values[0][0], _b = values[0][1], _c = values[0][2], _d = values[0][3], _e = values[1][0],
+                _f=values[1][1],_g=values[1][2],_h=values[1][3],_i=values[2][0],_j=values[2][1],_k=values[2][2],_l=values[2][3],_m=values[3][0],
+                _n=values[3][1],_o=values[3][2],_p=values[3][3];
+        values[0][0] = _a * rhs[0][0] + _b*rhs[1][0] + _c * rhs[2][0] + _d*rhs[3][0];
+        values[0][1] = _a * rhs[0][1] + _b*rhs[1][1] + _c * rhs[2][1] + _d*rhs[3][1];
+        values[0][2] = _a * rhs[0][2] + _b*rhs[1][2] + _c * rhs[2][2] + _d*rhs[3][2];
+        values[0][3] = _a * rhs[0][3] + _b*rhs[1][3] + _c * rhs[2][3] + _d*rhs[3][3];
 
-        e = _e * rhs.a + _f*rhs.e + _g * rhs.i + _h*rhs.m;
-        f = _e * rhs.b + _f*rhs.f + _g * rhs.j + _h*rhs.n;
-        g = _e * rhs.c + _f*rhs.g + _g * rhs.k + _h*rhs.o;
-        h = _e * rhs.d + _f*rhs.h + _g * rhs.l + _h*rhs.p;
+        values[1][0] = _e * rhs[0][0] + _f*rhs[1][0] + _g * rhs[2][0] + _h*rhs[3][0];
+        values[1][1] = _e * rhs[0][1] + _f*rhs[1][1] + _g * rhs[2][1] + _h*rhs[3][1];
+        values[1][2] = _e * rhs[0][2] + _f*rhs[1][2] + _g * rhs[2][2] + _h*rhs[3][2];
+        values[1][3] = _e * rhs[0][3] + _f*rhs[1][3] + _g * rhs[2][3] + _h*rhs[3][3];
 
-        i = _i * rhs.a + _j*rhs.e + _k * rhs.i + _l*rhs.m;
-        j = _i * rhs.b + _j*rhs.f + _k * rhs.j + _l*rhs.n;
-        k = _i * rhs.c + _j*rhs.g + _k * rhs.k + _l*rhs.o;
-        l = _i * rhs.d + _j*rhs.h + _k * rhs.l + _l*rhs.p;
+        values[2][0] = _i * rhs[0][0] + _j*rhs[1][0] + _k * rhs[2][0] + _l*rhs[3][0];
+        values[2][1] = _i * rhs[0][1] + _j*rhs[1][1] + _k * rhs[2][1] + _l*rhs[3][1];
+        values[2][2] = _i * rhs[0][2] + _j*rhs[1][2] + _k * rhs[2][2] + _l*rhs[3][2];
+        values[2][3] = _i * rhs[0][3] + _j*rhs[1][3] + _k * rhs[2][3] + _l*rhs[3][3];
 
-        m = _m * rhs.a + _n*rhs.e + _o * rhs.i + _p*rhs.m;
-        n = _m * rhs.b + _n*rhs.f + _o * rhs.j + _p*rhs.n;
-        o = _m * rhs.c + _n*rhs.g + _o * rhs.k + _p*rhs.o;
-        p = _m * rhs.d + _n*rhs.h + _o * rhs.l + _p*rhs.p;
+        values[3][0] = _m * rhs[0][0] + _n*rhs[1][0] + _o * rhs[2][0] + _p*rhs[3][0];
+        values[3][1] = _m * rhs[0][1] + _n*rhs[1][1] + _o * rhs[2][1] + _p*rhs[3][1];
+        values[3][2] = _m * rhs[0][2] + _n*rhs[1][2] + _o * rhs[2][2] + _p*rhs[3][2];
+        values[3][3] = _m * rhs[0][3] + _n*rhs[1][3] + _o * rhs[2][3] + _p*rhs[3][3];
 
         return *this;
     }
     mat4<T>& operator*=(const T& rhs){
-        a*=rhs; b*=rhs; c*=rhs; d*=rhs;
-        e*=rhs; f*=rhs; g*=rhs; h*=rhs;
-        i*=rhs; j*=rhs; k*=rhs; l*=rhs;
-        m*=rhs; n*=rhs; o*=rhs; p*=rhs;
+        values[0][0]*=rhs; values[0][1]*=rhs; values[0][2]*=rhs; values[0][3]*=rhs;
+        values[1][0]*=rhs; values[1][1]*=rhs; values[1][2]*=rhs; values[1][3]*=rhs;
+        values[2][0]*=rhs; values[2][1]*=rhs; values[2][2]*=rhs; values[2][3]*=rhs;
+        values[3][0]*=rhs; values[3][1]*=rhs; values[3][2]*=rhs; values[3][3]*=rhs;
         return *this;
     }
     mat4<T>& operator/=(const T& rhs){
-        a/=rhs; b/=rhs; c/=rhs; d/=rhs;
-        e/=rhs; f/=rhs; g/=rhs; h/=rhs;
-        i/=rhs; j/=rhs; k/=rhs; l/=rhs;
-        m/=rhs; n/=rhs; o/=rhs; p/=rhs;
+        values[0][0]/=rhs; values[0][1]/=rhs; values[0][2]/=rhs; values[0][3]/=rhs;
+        values[1][0]/=rhs; values[1][1]/=rhs; values[1][2]/=rhs; values[1][3]/=rhs;
+        values[2][0]/=rhs; values[2][1]/=rhs; values[2][2]/=rhs; values[2][3]/=rhs;
+        values[3][0]/=rhs; values[3][1]/=rhs; values[3][2]/=rhs; values[3][3]/=rhs;
         return *this;
     }
 
     /* Member access */
-    T*& operator[](int index){
+    col_type& operator[](int index){
+        return values[index];
+    }
+    const col_type& operator[](int index) const {
         return values[index];
     }
 
@@ -172,9 +162,9 @@ public:
 
 template<class U>
 std::ostream &operator<<(std::ostream &out, const mat4 <U> &mat) {
-    out << "[\n\t" << mat.a << ", " << mat.b << ", " << mat.c << ", " << mat.d << ";\n\t"
-        << mat.e << ", " << mat.f << ", " << mat.g << ", " << mat.h << ";\n\t"
-        << mat.i << ", " << mat.j << ", " << mat.k << ", " << mat.l << ";\n\t"
-        << mat.m << ", " << mat.n << ", " << mat.o << ", " << mat.p << "\n]\n";
+    out << "[\n\t" << mat[0][0] << ", " << mat[0][1] << ", " << mat[0][2] << ", " << mat[0][3] << ";\n\t"
+        << mat[1][0] << ", " << mat[1][1] << ", " << mat[1][2] << ", " << mat[1][3] << ";\n\t"
+        << mat[2][0] << ", " << mat[2][1] << ", " << mat[2][2] << ", " << mat[2][3] << ";\n\t"
+        << mat[3][0] << ", " << mat[3][1] << ", " << mat[3][2] << ", " << mat[3][3] << "\n]\n";
     return out;
 }
