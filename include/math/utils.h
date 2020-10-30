@@ -24,9 +24,10 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> translate(mat4<T> M, vec3<T> V){
-        mat4<T> translation = mat4<T>::Unit();
-        translation[0][0] = V.x; translation[1][1] = V.y; translation[2][2] = V.z;
-        return M + translation;
+        mat4<T> translation = M;
+        vec3<T> res = vec3<T>(M[0]) * V.x + vec3<T>(M[1]) * V.y + vec3<T>(M[2]) * V.z + vec3<T>(M[3]);
+        translation[3][0] = res.x; translation[3][1] = res.y; translation[3][2] = res.z;
+        return translation;
     }
 
     template<class T>
@@ -54,12 +55,12 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> perspective(float FOV, float width, float height, float zNear, float zFar){
-        float halfTanFOV = 1.0f / tanf(FOV / 2.0f);
+        float halfTanFOV = tanf(FOV / static_cast<T>(2));
         float aspect = width / height;
         return mat4<T>(static_cast<T>(1) / (aspect* halfTanFOV), 0, 0, 0,
                        0, static_cast<T>(1) / (halfTanFOV), 0, 0,
-                       0, 0, (zFar/(zFar-zNear)), static_cast<T>(1),
-                       0, 0, -(zFar * zNear)/(zFar - zNear), 0);
+                       0, 0, -(zFar+zNear)/(zFar-zNear), -static_cast<T>(1),
+                       0, 0, -(static_cast<T>(2) * zFar * zNear)/(zFar - zNear), 0);
     }
 
     template<class T>
