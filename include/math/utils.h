@@ -93,12 +93,11 @@ namespace Math::Utils {
         rot[2][1] = temp[2] * axis[1] - sinAngle * axis[0];
         rot[2][2] = cosAngle + temp[2] * axis[2];
 
-        mat4<T> out;
-        out[0] = m[0] * rot[0][0] + m[1] * rot[0][1] + m[2] * rot[0][2];
-        out[1] = m[0] * rot[1][0] + m[1] * rot[1][1] + m[2] * rot[1][2];
-        out[2] = m[0] * rot[2][0] + m[1] * rot[2][1] + m[2] * rot[2][2];
-        out[3] = m[3];
-        return out;
+        vec4<T> out0 = vec4(m[0]) * rot[0][0] + vec4(m[1]) * rot[0][1] + vec4(m[2]) * rot[0][2];
+        vec4<T> out1 = vec4(m[0]) * rot[1][0] + vec4(m[1]) * rot[1][1] + vec4(m[2]) * rot[1][2];
+        vec4<T> out2 = vec4(m[0]) * rot[2][0] + vec4(m[1]) * rot[2][1] + vec4(m[2]) * rot[2][2];
+
+        return mat4<T>(out0, out1, out2, vec4(m[3]));;
     }
 
     // Possibly wrong
@@ -115,27 +114,27 @@ namespace Math::Utils {
 }
 
 template<class T>
-T* value_ptr(vec2<T> &vec){ return &(vec.x);}
+void* value_ptr(vec2<T> &vec){ return &(vec.x);}
 template<class T>
-T* value_ptr(vec3<T> &vec){ return &(vec.x);}
+void* value_ptr(vec3<T> &vec){ return &(vec.x);}
 template<class T>
-T* value_ptr(vec4<T> &vec){ return &(vec.x);}
+void* value_ptr(vec4<T> &vec){ return &(vec.x);}
 template<class T>
-T* value_ptr(mat2<T> &mat){ return &(mat[0].x);}
+void* value_ptr(mat2<T> &mat){ return &(mat[0][0]);}
 template<class T>
-T* value_ptr(mat3<T> &mat){ return &(mat[0].x);}
+void* value_ptr(mat3<T> &mat){ return &(mat[0][0]);}
 template<class T>
-T* value_ptr(mat4<T> &mat){ return &(mat[0].x);}
+void* value_ptr(mat4<T> &mat){ return &(mat[0][0]);}
 
 template<class T>
-T const* value_ptr(vec2<T> const& vec){ return &(vec.x);}
+void* const value_ptr(vec2<T> const& vec){ return &(vec.x);}
 template<class T>
-T const* value_ptr(vec3<T> const& vec){ return &(vec.x);}
+void* const value_ptr(vec3<T> const& vec){ return &(vec.x);}
 template<class T>
-T const* value_ptr(vec4<T> const& vec){ return &(vec.x);}
+void* const value_ptr(vec4<T> const& vec){ return &(vec.x);}
 template<class T>
-T const* value_ptr(mat2<T> const& mat){ return &(mat[0].x);}
+void* const value_ptr(mat2<T> const& mat){ return &(mat[0][0]);}
 template<class T>
-T const* value_ptr(mat3<T> const& mat){ return &(mat[0].x);}
+void* const value_ptr(mat3<T> const& mat){ return &(mat[0][0]);}
 template<class T>
-T const* value_ptr(mat4<T> const& mat){ return &(mat[0].x);}
+void* const value_ptr(mat4<T> const& mat){ return &(mat[0][0]);}

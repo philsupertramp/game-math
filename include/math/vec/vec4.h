@@ -23,6 +23,10 @@ public:
         z = _z;
         w = _w;
     }
+    vec4(T* v){
+        x = v[0]; y = v[1];
+        z = v[2]; w = v[3];
+    }
 
     /* Misc functions */
     inline float length(){ return sqrtf(x*x+y*y+z*z+w*w); }
