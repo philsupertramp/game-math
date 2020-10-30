@@ -5,9 +5,8 @@
 template<class T>
 struct mat3
 {
-    typedef vec3<T> col_type;
 public:
-    col_type values[3];
+    T values[3][3];
 
     /**
      * default constructor, initializes null matrix
@@ -56,7 +55,7 @@ public:
                                                values[0][1],values[1][1],values[2][1],
                                                values[0][2],values[1][2],values[2][2]); }
 
-    inline bool IsSymmetric(){ return values[0][1]==values[1][0] && values[0][2] == values[2][0] && values[2][3] == values[3][2]; }
+    inline bool IsSymmetric(){ return values[0][1]==values[1][0] && values[0][2] == values[2][0] && values[1][2] == values[2][1]; }
 
     inline float Determinant(){ return values[0][0]*values[1][1]*values[2][2]+values[0][1]*values[1][2]*values[2][0]+values[0][2]*values[1][0]*values[2][1]-values[0][2]*values[1][1]*values[2][0]-values[2][1]*values[1][0]*values[2][2]-values[0][0]*values[1][2]*values[2][1]; }
 
@@ -117,10 +116,10 @@ public:
     }
 
     /* Member access */
-    col_type& operator[](int index){
+    T* operator[](int index){
         return values[index];
     }
-    const col_type& operator[](int index) const {
+    const T* operator[](int index) const {
         return values[index];
     }
 

@@ -74,11 +74,11 @@ class Vec3TestCase
 
         assert(foo.cross(foo) == vec3<T>());
         assert(foo.cross(bar) == vec3<T>(8,0,-8));
-        assert(foo.cross(baz) == vec3<T>(4,-16,-20));
+        assert(foo.cross(baz) == vec3<T>(4,16,-20));
         assert(bar.cross(foo) == vec3<T>(-8,0,8));
-        assert(bar.cross(baz) == vec3<T>(-4,-16,20));
-        assert(baz.cross(foo) == vec3<T>(-4,16,20));
-        assert(baz.cross(bar) == vec3<T>(4,16,-20));
+        assert(bar.cross(baz) == vec3<T>(-4,16,20));
+        assert(baz.cross(foo) == vec3<T>(-4,-16,20));
+        assert(baz.cross(bar) == vec3<T>(4,-16,-20));
 
         if(extended) {
             vec3<T> normFoo = foo.normalize();

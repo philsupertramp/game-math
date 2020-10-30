@@ -7,11 +7,9 @@ template<class T>
 struct mat4
 {
 
-    typedef vec4<T> col_type;
-    
 public:
 
-    col_type values[4];
+    T values[4][4];
 
     mat4(){
         values[0][0] = static_cast<T>(0); values[0][1] = static_cast<T>(0); values[0][2] = static_cast<T>(0); values[0][3] = static_cast<T>(0);
@@ -148,10 +146,10 @@ public:
     }
 
     /* Member access */
-    col_type& operator[](int index){
+    T* operator[](int index){
         return values[index];
     }
-    const col_type& operator[](int index) const {
+    const T* operator[](int index) const {
         return values[index];
     }
 

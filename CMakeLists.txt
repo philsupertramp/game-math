@@ -16,5 +16,5 @@ set(LIB_SOURCES
 add_library(math-lib SHARED ${LIB_SOURCES})
 set_target_properties(math-lib PROPERTIES LINKER_LANGUAGE CXX)
 
-#add_subdirectory(tests)
-#target_include_directories(math-tests PUBLIC include)
+add_subdirectory(tests)
+target_include_directories(math-tests PUBLIC include)

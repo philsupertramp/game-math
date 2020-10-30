@@ -5,9 +5,8 @@
 template<class T>
 struct mat2
 {
-    typedef vec2<T> col_type;
 public:
-    col_type values[2];
+    T values[2][2];
 
     /**
      * default constructor, initializes null matrix
@@ -98,10 +97,10 @@ public:
     }
 
     /* Member access */
-    col_type& operator[](int index){
+    T* operator[](int index){
         return values[index];
     }
-    const col_type& operator[](int index) const {
+    const T* operator[](int index) const {
         return values[index];
     }
     /* stream operators */
