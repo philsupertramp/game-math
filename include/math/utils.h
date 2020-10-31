@@ -128,14 +128,14 @@ template<class T>
 void* value_ptr(mat4<T> &mat){ return &(mat[0][0]);}
 
 template<class T>
-void* const value_ptr(vec2<T> const& vec){ return &(vec.x);}
+const void* value_ptr(vec2<T> const& vec){ return &(vec.x);}
 template<class T>
-void* const value_ptr(vec3<T> const& vec){ return &(vec.x);}
+const void* value_ptr(vec3<T> const& vec){ return &(vec.x);}
 template<class T>
-void* const value_ptr(vec4<T> const& vec){ return &(vec.x);}
+const void* value_ptr(vec4<T> const& vec){ return &(vec.x);}
 template<class T>
-void* const value_ptr(mat2<T> const& mat){ return &(mat[0][0]);}
+const void* value_ptr(mat2<T> const& mat){ return &(mat[0][0]);}
 template<class T>
-void* const value_ptr(mat3<T> const& mat){ return &(mat[0][0]);}
+const void* value_ptr(mat3<T> const& mat){ return &(mat[0][0]);}
 template<class T>
-void* const value_ptr(mat4<T> const& mat){ return &(mat[0][0]);}
+const void* value_ptr(mat4<T> const& mat){ return &(mat[0][0]);}
