@@ -44,72 +44,84 @@ public:
         values[1][0] = A.y;
         values[1][1] = B.y;
     }
-    ~mat2(){
+    ~mat2() { }
+
+    static inline mat2<T> Unit()
+    {
+        return mat2<T>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
     }
 
-    static inline mat2<T> Unit(){ return mat2<T>(static_cast<T>(1),static_cast<T>(0),static_cast<T>(0),static_cast<T>(1)); }
+    inline mat2<T> Transpose() { return mat2<T>(values[0][0], values[1][0], values[0][1], values[1][1]); }
 
-    inline mat2<T> Transpose(){ return mat2<T>(values[0][0],values[1][0],values[0][1],values[1][1]); }
+    inline bool IsSymmetric() { return values[1][0] == values[0][1]; }
 
-    inline bool IsSymmetric(){ return values[1][0] == values[0][1]; }
+    inline float Determinant() { return values[0][0] * values[1][1] - values[0][1] * values[1][0]; }
 
-    inline float Determinant(){ return values[0][0]*values[1][1]-values[0][1]*values[1][0]; }
-
-    friend mat2<T> operator+(mat2<T> lhs, const mat2<T>& rhs){ return lhs += rhs; }
-    friend mat2<T> operator-(mat2<T> lhs, const mat2<T>& rhs){ return lhs -= rhs; }
-    friend mat2<T> operator*(mat2<T> lhs, const T& rhs){ return lhs *= rhs; }
-    friend vec2<T> operator*(mat2<T> lhs, const vec2<T>& rhs){
-        return vec2<T>(
-            lhs[0][0] * rhs.x + lhs[0][1] * rhs.y,
-            lhs[1][0] * rhs.x + lhs[1][1] * rhs.y
-        );
+    friend mat2<T> operator+(mat2<T> lhs, const mat2<T>& rhs) { return lhs += rhs; }
+    friend mat2<T> operator-(mat2<T> lhs, const mat2<T>& rhs) { return lhs -= rhs; }
+    friend mat2<T> operator*(mat2<T> lhs, const T& rhs) { return lhs *= rhs; }
+    friend vec2<T> operator*(mat2<T> lhs, const vec2<T>& rhs)
+    {
+        return vec2<T>(lhs[0][0] * rhs.x + lhs[0][1] * rhs.y, lhs[1][0] * rhs.x + lhs[1][1] * rhs.y);
     }
-    friend mat2<T> operator*(mat2<T> lhs, const mat2<T>& rhs){return lhs *= rhs;}
-    friend mat2<T> operator/(mat2<T> lhs, const T& rhs){ return lhs /= rhs; }
+    friend mat2<T> operator*(mat2<T> lhs, const mat2<T>& rhs) { return lhs *= rhs; }
+    friend mat2<T> operator/(mat2<T> lhs, const T& rhs) { return lhs /= rhs; }
 
 
     /* compound assignment */
-    mat2<T>& operator+=(const mat2<T>& rhs){
-        values[0][0]+=rhs[0][0]; values[0][1]+=rhs[0][1];
-        values[1][0]+=rhs[1][0]; values[1][1]+=rhs[1][1];
+    mat2<T>& operator+=(const mat2<T>& rhs)
+    {
+        values[0][0] += rhs[0][0];
+        values[0][1] += rhs[0][1];
+        values[1][0] += rhs[1][0];
+        values[1][1] += rhs[1][1];
         return *this;
     }
-    mat2<T>& operator-=(const mat2<T>& rhs){
-        values[0][0]-=rhs[0][0]; values[0][1]-=rhs[0][1];
-        values[1][0]-=rhs[1][0]; values[1][1]-=rhs[1][1];
+    mat2<T>& operator-=(const mat2<T>& rhs)
+    {
+        values[0][0] -= rhs[0][0];
+        values[0][1] -= rhs[0][1];
+        values[1][0] -= rhs[1][0];
+        values[1][1] -= rhs[1][1];
         return *this;
     }
-    mat2<T>& operator*=(const mat2<T>& rhs){
+    mat2<T>& operator*=(const mat2<T>& rhs)
+    {
         T _a = values[0][0], _b = values[0][1], _c = values[1][0], _d = values[1][1];
-        values[0][0] = _a * rhs[0][0] + _b * rhs[1][0]; values[0][1] = _a * rhs[0][1] + _b * rhs[1][1];
-        values[1][0] = _c * rhs[0][0] + _d * rhs[1][0]; values[1][1] = _c * rhs[0][1] + _d * rhs[1][1];
+        values[0][0] = _a * rhs[0][0] + _b * rhs[1][0];
+        values[0][1] = _a * rhs[0][1] + _b * rhs[1][1];
+        values[1][0] = _c * rhs[0][0] + _d * rhs[1][0];
+        values[1][1] = _c * rhs[0][1] + _d * rhs[1][1];
         return *this;
     }
-    mat2<T>& operator*=(const T& rhs){
-        values[0][0]*=rhs; values[0][1]*=rhs;
-        values[1][0]*=rhs; values[1][1]*=rhs;
+    mat2<T>& operator*=(const T& rhs)
+    {
+        values[0][0] *= rhs;
+        values[0][1] *= rhs;
+        values[1][0] *= rhs;
+        values[1][1] *= rhs;
         return *this;
     }
-    mat2<T>& operator/=(const T& rhs){
-        values[0][0]/=rhs; values[0][1]/=rhs;
-        values[1][0]/=rhs; values[1][1]/=rhs;
+    mat2<T>& operator/=(const T& rhs)
+    {
+        values[0][0] /= rhs;
+        values[0][1] /= rhs;
+        values[1][0] /= rhs;
+        values[1][1] /= rhs;
         return *this;
     }
 
     /* Member access */
-    T* operator[](int index){
-        return values[index];
-    }
-    const T* operator[](int index) const {
-        return values[index];
-    }
+    T* operator[](int index) { return values[index]; }
+    const T* operator[](int index) const { return values[index]; }
     /* stream operators */
     template<class U>
     friend std::ostream& operator<<(std::ostream&, const mat2<U>&);
 };
 
 template<class U>
-std::ostream &operator<<(std::ostream &out, const mat2<U> &mat) {
+std::ostream& operator<<(std::ostream& out, const mat2<U>& mat)
+{
     out << "[\n\t" << mat[0][0] << ", " << mat[0][1] << ";\n\t" << mat[1][0] << ", " << mat[1][1] << "\n]\n";
     return out;
 }
