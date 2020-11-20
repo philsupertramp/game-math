@@ -21,10 +21,10 @@ public:
 
     /**
      * mat2(a, b, c, d) -> [a, b, c, d]
-     * @param _a  m_11
-     * @param _b  m_12
-     * @param _c  m_21
-     * @param _d  m_22
+     * @param _a m_11
+     * @param _b m_12
+     * @param _c m_21
+     * @param _d m_22
      */
     mat2(T _a, T _b, T _c, T _d)
     {
@@ -55,11 +55,8 @@ public:
     }
 
     inline mat2<T> Transpose() { return mat2<T>(values[0][0], values[1][0], values[0][1], values[1][1]); }
-
     inline bool IsSymmetric() { return values[1][0] == values[0][1]; }
-
     inline float Determinant() { return values[0][0] * values[1][1] - values[0][1] * values[1][0]; }
-
     friend mat2<T> operator+(mat2<T> lhs, const mat2<T>& rhs) { return lhs += rhs; }
     friend mat2<T> operator-(mat2<T> lhs, const mat2<T>& rhs) { return lhs -= rhs; }
     friend mat2<T> operator*(mat2<T> lhs, const T& rhs) { return lhs *= rhs; }

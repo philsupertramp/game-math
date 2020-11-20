@@ -65,7 +65,7 @@ public:
             m[0][0], m[0][1], m[0][2], static_cast<T>(0), 
             m[1][0], m[1][1], m[1][2], static_cast<T>(0), 
             m[2][0], m[2][1], m[2][2], static_cast<T>(0), 
-            static_cast<T>(  0), static_cast<T>(  0), static_cast<T>(  0), static_cast<T>(1)); // clang-format on
+            static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1)); // clang-format on
     }
 
     inline mat4<T> Transpose()
@@ -113,20 +113,20 @@ public:
     mat4<T>& operator+=(const mat4<T>& rhs)
     {
         // clang-format off
-        values[0][0]+=rhs[0][0]; values[0][1]+=rhs[0][1]; values[0][2]+=rhs[0][2]; values[0][3]+=rhs[0][3];
-        values[1][0]+=rhs[1][0]; values[1][1]+=rhs[1][1]; values[1][2]+=rhs[1][2]; values[1][3]+=rhs[1][3];
-        values[2][0]+=rhs[2][0]; values[2][1]+=rhs[2][1]; values[2][2]+=rhs[2][2]; values[2][3]+=rhs[2][3];
-        values[3][0]+=rhs[3][0]; values[3][1]+=rhs[3][1]; values[3][2]+=rhs[3][2]; values[3][3]+=rhs[3][3]; // clang-format on
+        values[0][0] += rhs[0][0]; values[0][1] += rhs[0][1]; values[0][2] += rhs[0][2]; values[0][3] += rhs[0][3];
+        values[1][0] += rhs[1][0]; values[1][1] += rhs[1][1]; values[1][2] += rhs[1][2]; values[1][3] += rhs[1][3];
+        values[2][0] += rhs[2][0]; values[2][1] += rhs[2][1]; values[2][2] += rhs[2][2]; values[2][3] += rhs[2][3];
+        values[3][0] += rhs[3][0]; values[3][1] += rhs[3][1]; values[3][2] += rhs[3][2]; values[3][3] += rhs[3][3]; // clang-format on
         return *this;
     }
 
     mat4<T>& operator-=(const mat4<T>& rhs)
     {
         // clang-format off
-        values[0][0]-=rhs[0][0]; values[0][1]-=rhs[0][1]; values[0][2]-=rhs[0][2]; values[0][3]-=rhs[0][3];
-        values[1][0]-=rhs[1][0]; values[1][1]-=rhs[1][1]; values[1][2]-=rhs[1][2]; values[1][3]-=rhs[1][3];
-        values[2][0]-=rhs[2][0]; values[2][1]-=rhs[2][1]; values[2][2]-=rhs[2][2]; values[2][3]-=rhs[2][3];
-        values[3][0]-=rhs[3][0]; values[3][1]-=rhs[3][1]; values[3][2]-=rhs[3][2]; values[3][3]-=rhs[3][3]; // clang-format on
+        values[0][0] -= rhs[0][0]; values[0][1] -= rhs[0][1]; values[0][2] -= rhs[0][2]; values[0][3] -= rhs[0][3];
+        values[1][0] -= rhs[1][0]; values[1][1] -= rhs[1][1]; values[1][2] -= rhs[1][2]; values[1][3] -= rhs[1][3];
+        values[2][0] -= rhs[2][0]; values[2][1] -= rhs[2][1]; values[2][2] -= rhs[2][2]; values[2][3] -= rhs[2][3];
+        values[3][0] -= rhs[3][0]; values[3][1] -= rhs[3][1]; values[3][2] -= rhs[3][2]; values[3][3] -= rhs[3][3]; // clang-format on
         return *this;
     }
 
@@ -173,10 +173,10 @@ public:
     mat4<T>& operator/=(const T& rhs)
     {
         // clang-format off
-        values[0][0]/=rhs; values[0][1]/=rhs; values[0][2]/=rhs; values[0][3]/=rhs;
-        values[1][0]/=rhs; values[1][1]/=rhs; values[1][2]/=rhs; values[1][3]/=rhs;
-        values[2][0]/=rhs; values[2][1]/=rhs; values[2][2]/=rhs; values[2][3]/=rhs;
-        values[3][0]/=rhs; values[3][1]/=rhs; values[3][2]/=rhs; values[3][3]/=rhs; // clang-format on
+        values[0][0] /= rhs; values[0][1] /= rhs; values[0][2] /= rhs; values[0][3] /= rhs;
+        values[1][0] /= rhs; values[1][1] /= rhs; values[1][2] /= rhs; values[1][3] /= rhs;
+        values[2][0] /= rhs; values[2][1] /= rhs; values[2][2] /= rhs; values[2][3] /= rhs;
+        values[3][0] /= rhs; values[3][1] /= rhs; values[3][2] /= rhs; values[3][3] /= rhs; // clang-format on
         return *this;
     }
 

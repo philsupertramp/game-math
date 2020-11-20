@@ -21,10 +21,10 @@ public:
 
     /**
      * mat3(a, b, c, d) -> [a, b, c, d]
-     * @param _a  m_11
-     * @param _b  m_12
-     * @param _c  m_21
-     * @param _d  m_22
+     * @param _a m_11
+     * @param _b m_12
+     * @param _c m_21
+     * @param _d m_22
      */
     // clang-format off
     mat3(T _a, T _b, T _c, 
@@ -32,9 +32,9 @@ public:
          T _g, T _h, T _i)
     {
 
-        values[0][0] =  _a;  values[0][1] = _b;   values[0][2] =_c;
-        values[1][0] =  _d;  values[1][1] = _e;   values[1][2] =_f;
-        values[2][0] =  _g;  values[2][1] = _h;   values[2][2] =_i; // clang-format on
+        values[0][0] = _a; values[0][1] = _b; values[0][2] =_c;
+        values[1][0] = _d; values[1][1] = _e; values[1][2] =_f;
+        values[2][0] = _g; values[2][1] = _h; values[2][2] =_i; // clang-format on
     }
 
     /**
@@ -45,9 +45,9 @@ public:
     mat3(vec3<T> A, vec3<T> B, vec3<T> C)
     {
         // clang-format off
-        values[0][0] = A.x;  values[0][1] =  A.y;  values[0][2] = A.z;
-        values[1][0] = B.x;  values[1][1] =  B.y;  values[1][2] = B.z;
-        values[2][0] = C.x;  values[2][1] =  C.y;  values[2][2] = C.z; // clang-format on
+        values[0][0] = A.x; values[0][1] = A.y; values[0][2] = A.z;
+        values[1][0] = B.x; values[1][1] = B.y; values[1][2] = B.z;
+        values[2][0] = C.x; values[2][1] = C.y; values[2][2] = C.z; // clang-format on
     }
 
     ~mat3() = default;
