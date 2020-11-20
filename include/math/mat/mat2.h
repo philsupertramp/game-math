@@ -13,10 +13,10 @@ public:
      */
     mat2()
     {
-        values[0][0] = static_cast<T>(0);
-        values[0][1] = static_cast<T>(0);
-        values[1][0] = static_cast<T>(0);
-        values[1][1] = static_cast<T>(0);
+        // clang-format off
+        values[0][0] = static_cast<T>(0); values[0][1] = static_cast<T>(0);
+        values[1][0] = static_cast<T>(0); values[1][1] = static_cast<T>(0);
+        // clang-format on
     }
     /**
      * mat2(a,b,c,d) -> [a,b,c,d]
@@ -27,10 +27,10 @@ public:
      */
     mat2(T _a, T _b, T _c, T _d)
     {
-        values[0][0] = _a;
-        values[0][1] = _b;
-        values[1][0] = _c;
-        values[1][1] = _d;
+        // clang-format off
+        values[0][0] = _a; values[0][1] = _b;
+        values[1][0] = _c; values[1][1] = _d;
+        // clang-format on
     }
     /**
      * mat2(A,B) -> [A.x, B.x, A.y, B.y]
@@ -39,10 +39,10 @@ public:
      */
     mat2(vec2<T> A, vec2<T> B)
     {
-        values[0][0] = A.x;
-        values[0][1] = B.x;
-        values[1][0] = A.y;
-        values[1][1] = B.y;
+        // clang-format off
+        values[0][0] = A.x; values[0][1] = B.x;
+        values[1][0] = A.y; values[1][1] = B.y;
+        // clang-format on
     }
     ~mat2() { }
 
@@ -71,43 +71,44 @@ public:
     /* compound assignment */
     mat2<T>& operator+=(const mat2<T>& rhs)
     {
-        values[0][0] += rhs[0][0];
-        values[0][1] += rhs[0][1];
-        values[1][0] += rhs[1][0];
-        values[1][1] += rhs[1][1];
+        // clang-format off
+        values[0][0] += rhs[0][0]; values[0][1] += rhs[0][1];
+        values[1][0] += rhs[1][0]; values[1][1] += rhs[1][1];
+        // clang-format on
         return *this;
     }
     mat2<T>& operator-=(const mat2<T>& rhs)
     {
-        values[0][0] -= rhs[0][0];
-        values[0][1] -= rhs[0][1];
-        values[1][0] -= rhs[1][0];
-        values[1][1] -= rhs[1][1];
+        // clang-format off
+        values[0][0] -= rhs[0][0]; values[0][1] -= rhs[0][1];
+        values[1][0] -= rhs[1][0]; values[1][1] -= rhs[1][1];
+        // clang-format off
         return *this;
     }
     mat2<T>& operator*=(const mat2<T>& rhs)
     {
-        T _a = values[0][0], _b = values[0][1], _c = values[1][0], _d = values[1][1];
-        values[0][0] = _a * rhs[0][0] + _b * rhs[1][0];
-        values[0][1] = _a * rhs[0][1] + _b * rhs[1][1];
-        values[1][0] = _c * rhs[0][0] + _d * rhs[1][0];
-        values[1][1] = _c * rhs[0][1] + _d * rhs[1][1];
+        // clang-format off
+        T _a = values[0][0], _b = values[0][1], 
+          _c = values[1][0], _d = values[1][1];
+        values[0][0] = _a * rhs[0][0] + _b * rhs[1][0]; values[0][1] = _a * rhs[0][1] + _b * rhs[1][1];
+        values[1][0] = _c * rhs[0][0] + _d * rhs[1][0]; values[1][1] = _c * rhs[0][1] + _d * rhs[1][1];
+        // clang-format on
         return *this;
     }
     mat2<T>& operator*=(const T& rhs)
     {
-        values[0][0] *= rhs;
-        values[0][1] *= rhs;
-        values[1][0] *= rhs;
-        values[1][1] *= rhs;
+        // clang-format off
+        values[0][0] *= rhs; values[0][1] *= rhs;
+        values[1][0] *= rhs; values[1][1] *= rhs;
+        // clang-format on
         return *this;
     }
     mat2<T>& operator/=(const T& rhs)
     {
-        values[0][0] /= rhs;
-        values[0][1] /= rhs;
-        values[1][0] /= rhs;
-        values[1][1] /= rhs;
+        // clang-format off
+        values[0][0] /= rhs; values[0][1] /= rhs;
+        values[1][0] /= rhs; values[1][1] /= rhs;
+        // clang-format on
         return *this;
     }
 
