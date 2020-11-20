@@ -10,6 +10,7 @@ int main(int nargs, char* argv[])
     TestVec2();
     TestVec3();
     TestVec4();
+
     TestMat2();
     TestMat3();
     TestMat4();

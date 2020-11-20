@@ -118,6 +118,5 @@ template<class T>
 vec2<T> build_vec2(void* in)
 {
     T* values = (T*)in;
-    vec2<T> out(values[0], values[1]);
-    return out;
+    return vec2<T>(values[0], values[1]);
 }

@@ -44,7 +44,7 @@ public:
         values[1][0] = A.y; values[1][1] = B.y; // clang-format on
     }
 
-    ~mat2() = default
+    ~mat2() = default;
 
     static inline mat2<T> Unit()
     {
