@@ -15,8 +15,7 @@ public:
     {
         // clang-format off
         values[0][0] = static_cast<T>(0); values[0][1] = static_cast<T>(0);
-        values[1][0] = static_cast<T>(0); values[1][1] = static_cast<T>(0);
-        // clang-format on
+        values[1][0] = static_cast<T>(0); values[1][1] = static_cast<T>(0); // clang-format on
     }
 
     /**
@@ -30,8 +29,7 @@ public:
     {
         // clang-format off
         values[0][0] = _a; values[0][1] = _b;
-        values[1][0] = _c; values[1][1] = _d;
-        // clang-format on
+        values[1][0] = _c; values[1][1] = _d; // clang-format on
     }
 
     /**
@@ -43,8 +41,7 @@ public:
     {
         // clang-format off
         values[0][0] = A.x; values[0][1] = B.x;
-        values[1][0] = A.y; values[1][1] = B.y;
-        // clang-format on
+        values[1][0] = A.y; values[1][1] = B.y; // clang-format on
     }
 
     ~mat2() = default
@@ -74,8 +71,7 @@ public:
     {
         // clang-format off
         values[0][0] += rhs[0][0]; values[0][1] += rhs[0][1];
-        values[1][0] += rhs[1][0]; values[1][1] += rhs[1][1];
-        // clang-format on
+        values[1][0] += rhs[1][0]; values[1][1] += rhs[1][1]; // clang-format on
         return *this;
     }
 
@@ -83,8 +79,7 @@ public:
     {
         // clang-format off
         values[0][0] -= rhs[0][0]; values[0][1] -= rhs[0][1];
-        values[1][0] -= rhs[1][0]; values[1][1] -= rhs[1][1];
-        // clang-format on
+        values[1][0] -= rhs[1][0]; values[1][1] -= rhs[1][1]; // clang-format on
         return *this;
     }
 
@@ -94,8 +89,7 @@ public:
         T _a = values[0][0], _b = values[0][1], 
           _c = values[1][0], _d = values[1][1];
         values[0][0] = _a * rhs[0][0] + _b * rhs[1][0]; values[0][1] = _a * rhs[0][1] + _b * rhs[1][1];
-        values[1][0] = _c * rhs[0][0] + _d * rhs[1][0]; values[1][1] = _c * rhs[0][1] + _d * rhs[1][1];
-        // clang-format on
+        values[1][0] = _c * rhs[0][0] + _d * rhs[1][0]; values[1][1] = _c * rhs[0][1] + _d * rhs[1][1]; // clang-format on
         return *this;
     }
 
@@ -103,8 +97,7 @@ public:
     {
         // clang-format off
         values[0][0] *= rhs; values[0][1] *= rhs;
-        values[1][0] *= rhs; values[1][1] *= rhs;
-        // clang-format on
+        values[1][0] *= rhs; values[1][1] *= rhs; // clang-format on
         return *this;
     }
 
@@ -112,8 +105,7 @@ public:
     {
         // clang-format off
         values[0][0] /= rhs; values[0][1] /= rhs;
-        values[1][0] /= rhs; values[1][1] /= rhs;
-        // clang-format on
+        values[1][0] /= rhs; values[1][1] /= rhs; // clang-format on
         return *this;
     }
 
