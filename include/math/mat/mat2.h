@@ -18,8 +18,9 @@ public:
         values[1][0] = static_cast<T>(0); values[1][1] = static_cast<T>(0);
         // clang-format on
     }
+
     /**
-     * mat2(a,b,c,d) -> [a,b,c,d]
+     * mat2(a, b, c, d) -> [a, b, c, d]
      * @param _a  m_11
      * @param _b  m_12
      * @param _c  m_21
@@ -32,8 +33,9 @@ public:
         values[1][0] = _c; values[1][1] = _d;
         // clang-format on
     }
+
     /**
-     * mat2(A,B) -> [A.x, B.x, A.y, B.y]
+     * mat2(A, B) -> [A.x, B.x, A.y, B.y]
      * @param A first column vector
      * @param B second column vector
      */
@@ -44,7 +46,8 @@ public:
         values[1][0] = A.y; values[1][1] = B.y;
         // clang-format on
     }
-    ~mat2() { }
+
+    ~mat2() = default
 
     static inline mat2<T> Unit()
     {
@@ -60,13 +63,14 @@ public:
     friend mat2<T> operator+(mat2<T> lhs, const mat2<T>& rhs) { return lhs += rhs; }
     friend mat2<T> operator-(mat2<T> lhs, const mat2<T>& rhs) { return lhs -= rhs; }
     friend mat2<T> operator*(mat2<T> lhs, const T& rhs) { return lhs *= rhs; }
+
     friend vec2<T> operator*(mat2<T> lhs, const vec2<T>& rhs)
     {
         return vec2<T>(lhs[0][0] * rhs.x + lhs[0][1] * rhs.y, lhs[1][0] * rhs.x + lhs[1][1] * rhs.y);
     }
+
     friend mat2<T> operator*(mat2<T> lhs, const mat2<T>& rhs) { return lhs *= rhs; }
     friend mat2<T> operator/(mat2<T> lhs, const T& rhs) { return lhs /= rhs; }
-
 
     /* compound assignment */
     mat2<T>& operator+=(const mat2<T>& rhs)
@@ -77,6 +81,7 @@ public:
         // clang-format on
         return *this;
     }
+
     mat2<T>& operator-=(const mat2<T>& rhs)
     {
         // clang-format off
@@ -85,6 +90,7 @@ public:
         // clang-format off
         return *this;
     }
+
     mat2<T>& operator*=(const mat2<T>& rhs)
     {
         // clang-format off
@@ -95,6 +101,7 @@ public:
         // clang-format on
         return *this;
     }
+
     mat2<T>& operator*=(const T& rhs)
     {
         // clang-format off
@@ -103,6 +110,7 @@ public:
         // clang-format on
         return *this;
     }
+
     mat2<T>& operator/=(const T& rhs)
     {
         // clang-format off
@@ -115,6 +123,7 @@ public:
     /* Member access */
     T* operator[](int index) { return values[index]; }
     const T* operator[](int index) const { return values[index]; }
+
     /* stream operators */
     template<class U>
     friend std::ostream& operator<<(std::ostream&, const mat2<U>&);

@@ -20,7 +20,7 @@ public:
     }
 
     /**
-     * mat3(a,b,c,d) -> [a,b,c,d]
+     * mat3(a, b, c, d) -> [a, b, c, d]
      * @param _a  m_11
      * @param _b  m_12
      * @param _c  m_21
@@ -38,7 +38,7 @@ public:
     }
 
     /**
-     * mat3(A,B) -> [A.x, B.x, A.y, B.y]
+     * mat3(A, B) -> [A.x, B.x, A.y, B.y]
      * @param A first column vector
      * @param B second column vector
      */
@@ -50,23 +50,23 @@ public:
         values[2][0] = C.x;  values[2][1] =  C.y;  values[2][2] = C.z; // clang-format on
     }
 
-    ~mat3() { }
+    ~mat3() = default;
 
     static inline mat3<T> Unit()
     {
         return mat3<T>( // clang-format off
-            static_cast<T>(1),static_cast<T>(0),static_cast<T>(0),
-            static_cast<T>(0),static_cast<T>(1),static_cast<T>(0),
-            static_cast<T>(0),static_cast<T>(0),static_cast<T>(1)); // clang-format on
+            static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), 
+            static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), 
+            static_cast<T>(0), static_cast<T>(0), static_cast<T>(1)); // clang-format on
     }
 
     inline mat3<T> Transpose()
     {
         // clang-format off
         return mat3<T>(
-            values[0][0],values[1][0],values[2][0],
-            values[0][1],values[1][1],values[2][1],
-            values[0][2],values[1][2],values[2][2]); // clang-format on
+            values[0][0], values[1][0], values[2][0], 
+            values[0][1], values[1][1], values[2][1], 
+            values[0][2], values[1][2], values[2][2]); // clang-format on
     }
 
     inline bool IsSymmetric()
@@ -89,8 +89,8 @@ public:
     friend vec3<T> operator*(mat3<T> lhs, const vec3<T>& rhs)
     {
         return vec3<T>( // clang-format off
-            lhs.values[0][0] * rhs.x + lhs.values[0][1] * rhs.y + lhs.values[0][2] * rhs.z,
-            lhs.values[1][0] * rhs.x + lhs.values[1][1] * rhs.y + lhs.values[1][2] * rhs.z,
+            lhs.values[0][0] * rhs.x + lhs.values[0][1] * rhs.y + lhs.values[0][2] * rhs.z, 
+            lhs.values[1][0] * rhs.x + lhs.values[1][1] * rhs.y + lhs.values[1][2] * rhs.z, 
             lhs.values[2][0] * rhs.x + lhs.values[2][1] * rhs.y + lhs.values[2][2] * rhs.z // clang-format on
         );
     }
@@ -122,7 +122,7 @@ public:
     {
         // clang-format off
         T _a = values[0][0], _b = values[0][1], _c = values[0][2], 
-          _d = values[1][0], _e = values[1][1], _f = values[1][2],
+          _d = values[1][0], _e = values[1][1], _f = values[1][2], 
           _g = values[2][0], _h = values[2][1], _i = values[2][2];
 
         values[0][0] = _a * rhs[0][0] + _b * rhs[1][0] + _c * rhs[2][0];
