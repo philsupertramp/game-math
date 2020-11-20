@@ -84,7 +84,7 @@ public:
         // clang-format off
         values[0][0] -= rhs[0][0]; values[0][1] -= rhs[0][1];
         values[1][0] -= rhs[1][0]; values[1][1] -= rhs[1][1];
-        // clang-format off
+        // clang-format on
         return *this;
     }
 
