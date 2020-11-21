@@ -1,3 +1,14 @@
+/**
+ * ODE Solver
+ * implementation based on Dormand-Prince Method to solve ordinary differential equations
+ * https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method
+ *
+ * Current state:
+ * - implemented 7 function evaluations
+ * - using 6/7 evaluations for 5th order RK
+ *
+ * TODO: use calculated error of 5th order - 4th order to alter step width `h` dynamically to fully implement dp-method.
+ */
 #pragma once
 
 #include "../ode.h"
@@ -18,50 +29,47 @@ ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::
     std::vector<std::vector<float>> y = zeros(n, elem_size);
 
     // clang-format off
-    float a[8][7] = {
-            {              0.f,               0.f,             0.f,            0.f,               0.f,         0.f, 0.f},
-            {              0.f,               0.f,             0.f,            0.f,               0.f,         0.f, 0.f},
-            {        1.f / 5.f,               0.f,             0.f,            0.f,               0.f,         0.f, 0.f},
-            {       3.f / 40.f,        9.f / 40.f,             0.f,            0.f,               0.f,         0.f, 0.f},
-            {      44.f / 45.f,      -56.f / 15.f,      32.f / 9.f,            0.f,               0.f,         0.f, 0.f},
-            { 19372.f / 6561.f, -25360.f / 2187.f,  64448.f / 6561, -212.f / 729.f,               0.f,         0.f, 0.f},
-            {  9017.f / 3168.f,     -355.f / 33.f,  46732.f / 5247,   49.f / 176.f, -5103.f / 18656.f,         0.f, 0.f},
-            {     35.f / 384.f,               0.f,  500.f / 1113.f,  125.f / 192.f,  -2187.f / 6784.f, 11.f / 84.f, 0.f}
+    float a[7][7] = {
+        {0, 0, 0, 0, 0, 0, 0},
+        {1.f/5.f, 0, 0, 0, 0, 0, 0},
+        {3.f/40.f, 9.f/40.f, 0, 0, 0, 0, 0},
+        {44.f/45.f, -56.f/15.f,  32.f/9.f, 0, 0, 0, 0},
+        {19372.f/6561.f, -25360.f/2187.f,  64448.f/6561.f, -212.f/729.f, 0, 0, 0},
+        {9017.f/3168.f, -355.f/33.f, 46732.f/5247.f, 49.f/176.f, -5103.f/18656.f, 0, 0},
+        {35.f/384.f, 0, 500.f/1113.f,  125.f/192.f, -2187.f/6784.f, 11.f/84.f, 0}
     };
-    float c[7]={0.f, 1.f/5.f, 3.f/10.f, 4.f/5.f, 8.f/9.f, 1.f, 1.f};
 
-    [[maybe_unused]] float b4[6] = { 35.f / 384.f, 0.f, 500.f / 1113.f, 125.f / 192.f, -2187.f / 6784.f, 11.f / 84.f };
-    float b5[7]                  = { 5179.f / 57600.f, 0.f,       7571.f / 16695.f, 393.f / 640.f, -92097.f / 339200.f,
-                    187.f / 2100.f,   1.f / 40.f };
+    float c[7]={0, 1.f/5.f, 3.f/10.f, 4.f/5.f, 8.f/9.f, 1.f, 1.f};
+
+    float b5[6]={35.f/384.f, 0, 500.f/1113.f,  125.f/192.f, -2187.f/6784.f, 11.f/84.f};
+    [[maybe_unused]] float b4[7]={5179.f/57600.f, 0, 7571.f/16695.f, 393.f/640.f, -92097.f/339200.f, 187.f/2100.f, 1.f/40.f};
 
     // clang-format on
 
     y[0] = y0;
     t[0] = tInterval[0];
-
-    for(size_t i = 0; i < n - 1; i++)
+    for(size_t l = 0; l < n - 1; l++)
     {
-        std::vector<std::vector<float>> k;
-        auto cur_t = t[i];
-        k.resize(6);
-        for(size_t j = 0; j < 6; j++)
+        t[l + 1] = t[l] + h;
+        auto k   = zeros(6, elem_size);
+        for(size_t i_k = 0; i_k < 6; i_k++)
         {
-            auto y_k = y[i];
-            for(size_t q = 0; q < j; q++)
+            std::vector<float> y_k = y[l];
+
+            for(size_t j = 0; j < i_k; j++)
             {
-                for(size_t v = 0; v < elem_size; v++) { y_k[v] += a[j][q] * k[q][v]; }
+                for(size_t elem = 0; elem < elem_size; elem++) { y_k[elem] += +h * a[i_k][j] * k[j][elem]; }
             }
-            k[j] = fun(cur_t + c[j] * h, y_k);
+            k[i_k] = fun(t[l] + c[i_k] * h, y_k);
         }
-
-        y[i + 1] = y[i];
-        for(size_t j = 0; j < 6; j++)
+        for(size_t elem = 0; elem < elem_size; elem++)
         {
-            for(size_t v = 0; v < elem_size; v++) { y[i + 1][v] += h * b5[0] * k[j][v]; }
+            // clang-format off
+            y[l + 1][elem] = (y[l][elem]
+                              + h * (b5[0] * k[0][elem] + b5[1] * k[1][elem]
+                                   + b5[2] * k[2][elem] + b5[3] * k[3][elem]
+                                   + b5[4] * k[4][elem] + b5[5] * k[5][elem])); // clang-format on
         }
-        t[i + 1] = t[i] + h;
-
-        //        y_exakt=y(l,:) + h* (b4(1)*k1+b4(2)*k2+b4(3)*k3+b4(4)*k4+b4(5)*k5+b4(6)*k6+b4(7)*k7);
     }
     return { y, t };
 }

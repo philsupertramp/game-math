@@ -7,10 +7,7 @@
 bool TestExplicitEuler()
 {
     auto ode = []([[maybe_unused]] float t, std::vector<float> y) {
-        std::vector<float> result;
-        result.reserve(y.size());
-        for(size_t i = 0; i < y.size(); i++) { result[i] = y[i]; }
-        return result;
+        return y;
     };
     std::vector<float> tInterval = { 0.0f, 5.0f };
     std::vector<float> y0        = { 5.0f };

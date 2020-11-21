@@ -17,8 +17,11 @@ int main([[maybe_unused]] int nargs, [[maybe_unused]] char* argv[])
     TestMat2();
     TestMat3();
     TestMat4();
+
     TestExplicitEuler();
     TestExplicitEulerRB();
+
     TestOde45();
+    TestOde45RB();
     return 0;
 }
