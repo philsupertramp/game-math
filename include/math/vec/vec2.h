@@ -48,15 +48,15 @@ public:
         x = _x;
         y = _y;
     }
-    explicit vec2(T _x)
+    explicit vec2(T _v)
     {
-        x = _x;
-        y = _x;
+        x = _v;
+        y = _v;
     }
-    constexpr vec2(const vec2<T>& _x)
+    constexpr vec2(const vec2<T>& _v)
     {
-        x = _x.x;
-        y = _x.y;
+        x = _v.x;
+        y = _v.y;
     }
 
     /* Misc functions */

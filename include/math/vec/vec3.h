@@ -57,11 +57,11 @@ public:
         this->y = a.y;
         this->z = a.z;
     }
-    vec3(T _x)
+    vec3(T _v)
     {
-        this->x = _x;
-        this->y = _x;
-        this->z = _x;
+        this->x = _v;
+        this->y = _v;
+        this->z = _v;
     }
     constexpr vec3(const vec3<T>& v)
     {
