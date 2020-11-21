@@ -39,7 +39,7 @@ public:
 
     /* Misc functions */
     inline float length() { return sqrtf(x * x + y * y + z * z + w * w); }
-    inline vec4<T> normalize() { return *this / length(); }
+    inline vec4<T> normalized() { return *this / length(); }
 
     /* Arithmetic operators */
     friend vec4<T> operator+(vec4<T> lhs, const vec4<T>& rhs) { return lhs += rhs; }

@@ -48,7 +48,7 @@ public:
         (float)y * rhs.z - (float)z * rhs.y, (float)z * rhs.x - (float)x * rhs.z, (float)x * rhs.y - y * rhs.x);
     }
     inline float length() const { return sqrtf(x * x + y * y + z * z); }
-    inline vec3<T> normalize()
+    inline vec3<T> normalized()
     {
         float len = length();
         return ((len != 0.0f) ? (*this / len) : *this);

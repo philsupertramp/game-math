@@ -17,19 +17,19 @@ namespace Math::Utils
     template<class T>
     vec2<T> normalize(vec2<T> a)
     {
-        return a.normalize();
+        return a.normalized();
     }
 
     template<class T>
     vec3<T> normalize(vec3<T> a)
     {
-        return a.normalize();
+        return a.normalized();
     }
 
     template<class T>
     vec4<T> normalize(vec4<T> a)
     {
-        return a.normalize();
+        return a.normalized();
     }
 
     template<class T>
@@ -121,7 +121,7 @@ namespace Math::Utils
         T const cosAngle = cosf(angle);
         T const sinAngle = sinf(angle);
 
-        vec3<T> axis = u.normalize();
+        vec3<T> axis = u.normalized();
         vec3<T> temp((T(1) - cosAngle) * axis);
 
         mat4<T> rot;

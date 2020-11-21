@@ -32,16 +32,16 @@ public:
     }
 
     /* Misc functions */
-    inline float length() { return sqrtf(x * x + y * y); }
-    inline vec2<T> normalize() { return *this / length(); }
+    inline float length() const { return sqrtf(x * x + y * y); }
+    inline vec2<T> normalized() { return *this / length(); }
 
     /* Arithmetic operators */
-    friend vec2<T> operator+(vec2<T> lhs, const vec2<T>& rhs) { return lhs += rhs; }
-    friend vec2<T> operator-(vec2<T> lhs, const vec2<T>& rhs) { return lhs -= rhs; }
-    friend vec2<T> operator*(vec2<T> lhs, const T& rhs) { return lhs *= rhs; }
-    friend vec2<T> operator*(const T& lhs, vec2<T> rhs) { return rhs *= lhs; }
-    friend T operator*(vec2<T> lhs, const vec2<T>& rhs) { return lhs.x * rhs.x + lhs.y * rhs.y; }
-    friend vec2<T> operator/(vec2<T> lhs, const T& rhs) { return lhs /= rhs; }
+    auto operator+(const vec2<T>& other) const { return vec2{ this->x + other.x, this->y + other.y }; }
+    friend vec2 operator-(vec2 lhs, const vec2& rhs) { return lhs -= rhs; }
+    friend vec2 operator*(vec2 lhs, const T& rhs) { return lhs *= rhs; }
+    friend vec2 operator*(const T& lhs, vec2 rhs) { return rhs *= lhs; }
+    friend T operator*(vec2 lhs, const vec2& rhs) { return lhs.x * rhs.x + lhs.y * rhs.y; }
+    friend vec2 operator/(vec2 lhs, const T& rhs) { return lhs /= rhs; }
 
     /* compound assignment */
     vec2<T>& operator+=(const vec2<T>& rhs)
@@ -71,7 +71,8 @@ public:
 
     /* comparison operators */
 
-    friend bool operator==(const vec2<T>& lhs, const vec2<T>& rhs) { return lhs.x == rhs.x && lhs.y == rhs.y; }
+    bool operator==(const vec2<T>& other) const { return this->x == other.x && this->y == other.y; }
+    bool operator!=(const vec2<T>& other) const { return !operator==(other); }
     /* explicit type casts */
 
     vec2<T>& operator=(vec2<T> const& V)
@@ -109,8 +110,7 @@ public:
 template<class T>
 std::ostream& operator<<(std::ostream& os, const vec2<T>& obj)
 {
-    os << obj.x << ", " << obj.y << std::endl;
-    return os;
+    return os << obj.x << ", " << obj.y << std::endl;
 }
 
 

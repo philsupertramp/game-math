@@ -24,6 +24,14 @@ class Vec2TestCase : public Test
         assert(vec.x == (T)2);
         assert(vec.y == (T)4);
 
+        vec2 vec_2{ 5, 6 };
+        assert(vec_2.x == (T)5);
+        assert(vec_2.y == (T)6);
+
+        vec2<T> vec_3({ 7, 8 });
+        assert(vec_3.x == (T)7);
+        assert(vec_3.y == (T)8);
+
         return true;
     }
     bool testAssignment()
@@ -41,6 +49,18 @@ class Vec2TestCase : public Test
 
         assert(foo.x == (T)3);
         assert(foo.y == (T)4);
+
+        vec2<T> bar(7, 8);
+        foo = bar;
+        assert(foo.x == (T)7);
+        assert(foo.y == (T)8);
+        assert(bar.x == (T)7);
+        assert(bar.y == (T)8);
+
+        bar = bar;
+        assert(bar.x == (T)7);
+        assert(bar.y == (T)8);
+
         return true;
     }
     bool testMemberAccess()
@@ -66,9 +86,9 @@ class Vec2TestCase : public Test
 
         if(extended)
         {
-            vec2<T> normFoo = foo.normalize();
-            vec2<T> normBar = bar.normalize();
-            vec2<T> normBaz = baz.normalize();
+            vec2<T> normFoo = foo.normalized();
+            vec2<T> normBar = bar.normalized();
+            vec2<T> normBaz = baz.normalized();
 
             // floating point precision 1e-7
             assert(normFoo.x - (T)0.70710679328816484f < 1e-7);

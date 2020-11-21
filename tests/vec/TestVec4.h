@@ -86,9 +86,9 @@ class Vec4TestCase : public Test
 
         if(extended)
         {
-            vec4<T> normFoo = foo.normalize();
-            vec4<T> normBar = bar.normalize();
-            vec4<T> normBaz = baz.normalize();
+            vec4<T> normFoo = foo.normalized();
+            vec4<T> normBar = bar.normalized();
+            vec4<T> normBaz = baz.normalized();
 
             // floating point precision 1e-7
             assert(normFoo.x - (T)0.5f < 1e-7);
