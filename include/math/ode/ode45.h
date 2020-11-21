@@ -14,7 +14,8 @@ ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::
 
 //    % initialize result vectors
     auto result_dim = ((tInterval[dim-1] - tInterval[0])/h)+1;
-    auto t = linspace(tInterval[0], tInterval[dim-1], result_dim);
+    std::vector<float> t;
+    t.resize(result_dim);
     size_t n = result_dim;
     std::vector<std::vector<float>> y = zeros(n, elem_size);
 
@@ -34,9 +35,11 @@ ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::
     float b5[7]={5179.f/57600.f, 0.f, 7571.f/16695.f, 393.f/640.f, -92097.f/339200.f, 187.f/2100.f, 1.f/40.f};
 
     y[0] = y0;
+    t[0] = tInterval[0];
 
     for(size_t i = 0; i < n-1; i++){
         std::vector<std::vector<float>> k;
+        auto cur_t = t[i];
         k.resize(6);
         for(size_t j = 0; j<6;j++){
             auto y_k = y[i];
@@ -45,7 +48,7 @@ ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::
                     y_k[v] += a[j][q] * k[q][v];
                 }
             }
-            k[j] = fun(t[i] + c[j] * h, y_k);
+            k[j] = fun(cur_t + c[j] * h, y_k);
         }
 
         y[i+1] = y[i];
@@ -54,6 +57,7 @@ ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::
                 y[i + 1][v] += h * b5[0] * k[j][v];
             }
         }
+        t[i+1] = t[i] + h;
 
 //        y_exakt=y(l,:) + h* (b4(1)*k1+b4(2)*k2+b4(3)*k3+b4(4)*k4+b4(5)*k5+b4(6)*k6+b4(7)*k7);
 

@@ -3,13 +3,7 @@ project(math-lib CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    set(COMPILER_CLANG)
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    set(COMPILER_GCC)
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    set(COMPILER_VC)
-endif()
+set(MATH_SILENCE_WARNING)
 
 set(LIB_SOURCES
         include/math/math.h

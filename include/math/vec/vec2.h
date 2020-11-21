@@ -7,7 +7,7 @@ template<class T>
 struct vec2
 {
 public:
-#       if MATH_SILENCE_WARNING
+#       ifdef MATH_SILENCE_WARNING
 #			if COMPILER_GCC
 #				pragma GCC diagnostic push
 #				pragma GCC diagnostic ignored "-Wpedantic"
@@ -28,7 +28,7 @@ public:
         };
     };
 
-#       if MATH_SILENCE_WARNING
+#       ifdef MATH_SILENCE_WARNING
 #			if COMPILER_CLANG
 #				pragma clang diagnostic pop
 #			elif COMPILER_GCC
