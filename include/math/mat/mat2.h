@@ -44,8 +44,7 @@ public:
         values[1][0] = A.y;
         values[1][1] = B.y;
     }
-    ~mat2(){
-    }
+    ~mat2() = default;
 
     static inline mat2<T> Unit(){ return mat2<T>(static_cast<T>(1),static_cast<T>(0),static_cast<T>(0),static_cast<T>(1)); }
 

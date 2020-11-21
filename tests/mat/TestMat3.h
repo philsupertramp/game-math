@@ -1,8 +1,9 @@
 #pragma once
 
-#include <cassert>
-#include <math/math.h>  // NOLINT
 #include "../Test.h"
+#include <iostream>
+#include <cassert>
+#include <math/math.h> // NOLINT
 
 template<class T>
 class Mat3TestCase
