@@ -3,6 +3,14 @@ project(math-lib CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    set(COMPILER_CLANG)
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(COMPILER_GCC)
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    set(COMPILER_VC)
+endif()
+
 set(LIB_SOURCES
         include/math/math.h
         include/math/vec/vec2.h
@@ -11,7 +19,11 @@ set(LIB_SOURCES
         include/math/mat/mat2.h
         include/math/mat/mat3.h
         include/math/mat/mat4.h
-        include/math/utils.h)
+        include/math/utils.h
+        include/math/ode/ExplicitEuler.h
+        include/math/ode.h
+        include/math/ode/ode45.h
+)
 
 add_library(math-lib SHARED ${LIB_SOURCES})
 set_target_properties(math-lib PROPERTIES LINKER_LANGUAGE CXX)

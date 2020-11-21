@@ -8,9 +8,32 @@ template<class T>
 struct vec3
 {
 public:
+#       if MATH_SILENCE_WARNING
+    #			if COMPILER_GCC
+#				pragma GCC diagnostic push
+#				pragma GCC diagnostic ignored "-Wpedantic"
+#			elif COMPILER_CLANG
+#				pragma clang diagnostic push
+#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
+#				pragma clang diagnostic ignored "-Wnested-anon-types"
+#			elif COMPILER_VC
+#				pragma warning(push)
+#				pragma warning(disable: 4201)  // nonstandard extension used : nameless struct/union
+#			endif
+#       endif
     union {
         struct { T x, y, z; };
     };
+
+#       if MATH_SILENCE_WARNING
+#			if COMPILER_CLANG
+#				pragma clang diagnostic pop
+#			elif COMPILER_GCC
+#				pragma GCC diagnostic pop
+#			elif COMPILER_VC
+#				pragma warning(pop)
+#			endif
+#       endif
 
     vec3(){
         x = static_cast<T>(0.0f);
@@ -32,6 +55,10 @@ public:
         this->y = _x;
         this->z = _x;
     }
+    constexpr vec3(const vec3<T>& v){
+        x = v[0]; y = v[1]; z = v[2];
+    }
+
 
     /* Misc functions */
     inline vec3<T> cross(vec3<T> rhs){ return vec3<T>((float)y*rhs.z - (float)z*rhs.y, (float)z*rhs.x - (float)x*rhs.z, (float)x*rhs.y-y*rhs.x); }
@@ -80,7 +107,7 @@ public:
     /* explicit type casts */
 
 
-    vec3<T>& operator=(vec3<T> const& V){
+    constexpr vec3<T>& operator=(vec3<T> const& V){
         this->x = static_cast<T>(V.x);
         this->y = static_cast<T>(V.y);
         this->z = static_cast<T>(V.z);

@@ -4,8 +4,10 @@
 #include "mat/TestMat2.h"
 #include "mat/TestMat3.h"
 #include "mat/TestMat4.h"
+#include "ode/TestExplicitEuler.h"
+#include "ode/TestODE45.h"
 
-int main(int nargs, char* argv[]) {
+int main([[maybe_unused]] int nargs,[[maybe_unused]] char* argv[]) {
     TestVec2();
     TestVec3();
     TestVec4();
@@ -13,6 +15,8 @@ int main(int nargs, char* argv[]) {
     TestMat2();
     TestMat3();
     TestMat4();
-
+    TestExplicitEuler();
+    TestExplicitEulerRB();
+    TestOde45();
     return 0;
 }

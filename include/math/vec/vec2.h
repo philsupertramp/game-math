@@ -7,10 +7,32 @@ template<class T>
 struct vec2
 {
 public:
-
+#       if MATH_SILENCE_WARNING
+#			if COMPILER_GCC
+#				pragma GCC diagnostic push
+#				pragma GCC diagnostic ignored "-Wpedantic"
+#			elif COMPILER_CLANG
+#				pragma clang diagnostic push
+#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
+#				pragma clang diagnostic ignored "-Wnested-anon-types"
+#			elif COMPILER_VC
+#				pragma warning(push)
+#				pragma warning(disable: 4201)  // nonstandard extension used : nameless struct/union
+#			endif
+#       endif
     union {
         struct { T x, y; };
     };
+
+#       if MATH_SILENCE_WARNING
+#			if COMPILER_CLANG
+#				pragma clang diagnostic pop
+#			elif COMPILER_GCC
+#				pragma GCC diagnostic pop
+#			elif COMPILER_VC
+#				pragma warning(pop)
+#			endif
+#       endif
 
     vec2(){
         x = static_cast<T>(0.0f);
@@ -20,9 +42,12 @@ public:
         x = _x;
         y = _y;
     }
-    vec2(T _x){
+    explicit vec2(T _x){
         x = _x;
         y = _x;
+    }
+    constexpr vec2(const vec2<T>& _x){
+        x = _x.x; y = _x.y;
     }
 
     /* Misc functions */
@@ -62,7 +87,7 @@ public:
     friend bool operator==(const vec2<T>& lhs, const vec2<T>& rhs){ return lhs.x==rhs.x&&lhs.y==rhs.y; }
     /* explicit type casts */
 
-    vec2<T>& operator=(vec2<T> const& V){
+    constexpr vec2<T>& operator=(vec2<T> const& V){
         this->x = static_cast<T>(V.x);
         this->y = static_cast<T>(V.y);
         return *this;
