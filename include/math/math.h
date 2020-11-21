@@ -1,12 +1,12 @@
 #pragma once
 
-#include "vec/vec2.h"
-#include "vec/vec3.h"
-#include "vec/vec4.h"
 #include "mat/mat2.h"
 #include "mat/mat3.h"
 #include "mat/mat4.h"
 #include "utils.h"
+#include "vec/vec2.h"
+#include "vec/vec3.h"
+#include "vec/vec4.h"
 
 using vec2f = vec2<float>;
 using vec2i = vec2<int>;

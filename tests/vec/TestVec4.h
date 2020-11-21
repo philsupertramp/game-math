@@ -1,31 +1,31 @@
 #pragma once
 
-#include <iostream>
-#include <cassert>
-#include <math/math.h> // NOLINT
 #include "../Test.h"
+#include <cassert>
+#include <iostream>
+#include <math/math.h> // NOLINT
 
 
 template<class T>
-class Vec4TestCase
-: public Test
+class Vec4TestCase : public Test
 {
     bool extended = false;
 
-    bool testInitialization(){
+    bool testInitialization()
+    {
         vec4<T> foo;
         assert(foo.x == (T)0);
         assert(foo.y == (T)0);
         assert(foo.z == (T)0);
         assert(foo.w == (T)0);
 
-        vec4<T> foo2((T) 1, (T) 2, (T) 3, (T) 4);
+        vec4<T> foo2((T)1, (T)2, (T)3, (T)4);
         assert(foo2.x == (T)1);
         assert(foo2.y == (T)2);
         assert(foo2.z == (T)3);
         assert(foo2.w == (T)4);
 
-        T vals[4] = {2,4,6,8};
+        T vals[4]   = { 2, 4, 6, 8 };
         vec4<T> vec = build_vec4<T>((void*)vals);
         assert(vec.x == (T)2);
         assert(vec.y == (T)4);
@@ -34,7 +34,8 @@ class Vec4TestCase
 
         return true;
     }
-    bool testAssignment(){
+    bool testAssignment()
+    {
         vec4<T> foo;
 
         foo.x = (T)1;
@@ -58,7 +59,8 @@ class Vec4TestCase
         assert(foo.w == (T)8);
         return true;
     }
-    bool testMemberAccess(){
+    bool testMemberAccess()
+    {
         vec4<T> foo;
 
         foo.x = (T)1;
@@ -72,7 +74,8 @@ class Vec4TestCase
         assert(foo[3] == 4);
         return true;
     }
-    bool testMisc(){
+    bool testMisc()
+    {
         vec4<T> foo(2, 2, 2, 2);
         vec4<T> bar(2, -2, 2, 2);
         vec4<T> baz(10, 0, 2, 2);
@@ -81,28 +84,30 @@ class Vec4TestCase
         assert(bar.length() == 4.0f);
         assert(baz.length() == 10.3923044f);
 
-        if(extended) {
+        if(extended)
+        {
             vec4<T> normFoo = foo.normalize();
             vec4<T> normBar = bar.normalize();
             vec4<T> normBaz = baz.normalize();
 
             // floating point precision 1e-7
-            assert(normFoo.x - (T) 0.5f < 1e-7);
-            assert(normFoo.y - (T) 0.5f < 1e-7);
-            assert(normFoo.z - (T) 0.5f < 1e-7);
-            assert(normFoo.w - (T) 0.5f < 1e-7);
-            assert(normBar.x - (T) 0.5f < 1e-7);
-            assert(normBar.y - (T) -0.5f < 1e-7);
-            assert(normBar.z - (T) 0.5f < 1e-7);
-            assert(normBar.w - (T) 0.5f < 1e-7);
-            assert(normBaz.x - (T) 0.962250471f < 1e-7);
-            assert(normBaz.y - (T) 0.0f < 1e-7);
-            assert(normBaz.z - (T) 0.192450091f < 1e-7);
-            assert(normBaz.w - (T) 0.192450091f < 1e-7);
+            assert(normFoo.x - (T)0.5f < 1e-7);
+            assert(normFoo.y - (T)0.5f < 1e-7);
+            assert(normFoo.z - (T)0.5f < 1e-7);
+            assert(normFoo.w - (T)0.5f < 1e-7);
+            assert(normBar.x - (T)0.5f < 1e-7);
+            assert(normBar.y - (T)-0.5f < 1e-7);
+            assert(normBar.z - (T)0.5f < 1e-7);
+            assert(normBar.w - (T)0.5f < 1e-7);
+            assert(normBaz.x - (T)0.962250471f < 1e-7);
+            assert(normBaz.y - (T)0.0f < 1e-7);
+            assert(normBaz.z - (T)0.192450091f < 1e-7);
+            assert(normBaz.w - (T)0.192450091f < 1e-7);
         }
         return true;
     }
-    bool testOperators(){
+    bool testOperators()
+    {
         vec4<T> foo(1, 1, 1, 1);
         vec4<T> bar(1, -1, 1, 1);
         vec4<T> baz(10, 0, 0, 0);
@@ -168,8 +173,10 @@ class Vec4TestCase
 
         return true;
     }
+
 public:
-    void run(bool _extended = false) override{
+    void run(bool _extended = false) override
+    {
         extended = _extended;
 
         testInitialization();
@@ -180,7 +187,8 @@ public:
     }
 };
 
-bool TestVec4(){
+bool TestVec4()
+{
     Vec4TestCase<int>().run();
     Vec4TestCase<float>().run(true);
     Vec4TestCase<double>().run(true);
