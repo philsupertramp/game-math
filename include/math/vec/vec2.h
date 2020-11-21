@@ -7,19 +7,19 @@ template<class T>
 struct vec2
 {
 public:
-#       ifdef MATH_SILENCE_WARNING
-#			if COMPILER_GCC
-#				pragma GCC diagnostic push
-#				pragma GCC diagnostic ignored "-Wpedantic"
-#			elif COMPILER_CLANG
-#				pragma clang diagnostic push
-#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
-#				pragma clang diagnostic ignored "-Wnested-anon-types"
-#			elif COMPILER_VC
-#				pragma warning(push)
-#				pragma warning(disable: 4201)  // nonstandard extension used : nameless struct/union
-#			endif
-#       endif
+#ifdef MATH_SILENCE_WARNING
+    #if COMPILER_GCC
+        #pragma GCC diagnostic push
+        #pragma GCC diagnostic ignored "-Wpedantic"
+    #elif COMPILER_CLANG
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
+        #pragma clang diagnostic ignored "-Wnested-anon-types"
+    #elif COMPILER_VC
+        #pragma warning(push)
+        #pragma warning(disable : 4201) // nonstandard extension used : nameless struct/union
+    #endif
+#endif
     union
     {
         struct
@@ -28,15 +28,15 @@ public:
         };
     };
 
-#       ifdef MATH_SILENCE_WARNING
-#			if COMPILER_CLANG
-#				pragma clang diagnostic pop
-#			elif COMPILER_GCC
-#				pragma GCC diagnostic pop
-#			elif COMPILER_VC
-#				pragma warning(pop)
-#			endif
-#       endif
+#ifdef MATH_SILENCE_WARNING
+    #if COMPILER_CLANG
+        #pragma clang diagnostic pop
+    #elif COMPILER_GCC
+        #pragma GCC diagnostic pop
+    #elif COMPILER_VC
+        #pragma warning(pop)
+    #endif
+#endif
 
     vec2()
     {
@@ -55,7 +55,8 @@ public:
     }
     constexpr vec2(const vec2<T>& _x)
     {
-        x = _x.x; y = _x.y;
+        x = _x.x;
+        y = _x.y;
     }
 
     /* Misc functions */
@@ -113,18 +114,18 @@ public:
     {
         switch(index)
         {
-        default:
-        case 0: return x;
-        case 1: return y;
+            default:
+            case 0: return x;
+            case 1: return y;
         }
     }
     const T& operator[](int index) const
     {
         switch(index)
         {
-        default:
-        case 0: return x;
-        case 1: return y;
+            default:
+            case 0: return x;
+            case 1: return y;
         }
     }
 

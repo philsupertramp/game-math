@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../Test.h"
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include <math/math.h> // NOLINT
 
 template<class T>

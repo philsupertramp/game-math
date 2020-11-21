@@ -28,10 +28,9 @@ BinPackParameters: false
 AlwaysBreakAfterReturnType: None
 
 #https://stackoverflow.com/questions/32970045/how-to-prevent-clang-format-to-add-space-after-comment-char
-CommentPragmas:  '^[^ ]'
+CommentPragmas: '^[^ ]'
 
 #https://stackoverflow.com/questions/39858266/using-clang-format-keep-empty-braces-on-the-same-line
-BreakBeforeBraces: Allman
 BreakBeforeBraces: Custom
 BraceWrapping:
   AfterCaseLabel: true
@@ -45,12 +44,12 @@ BraceWrapping:
   AfterExternBlock: true
   BeforeCatch: false
   BeforeElse: true
-#  BeforeLambdaBody: true
+  #  BeforeLambdaBody: true
   IndentBraces: false
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
-  
+
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: true
 AlignConsecutiveDeclarations: false
@@ -63,10 +62,13 @@ AllowAllConstructorInitializersOnNextLine: true
 AllowAllParametersOfDeclarationOnNextLine: true
 AllowShortBlocksOnASingleLine: Always
 AllowShortCaseLabelsOnASingleLine: true
+IndentCaseBlocks: true
+IndentCaseLabels: true
 AllowShortFunctionsOnASingleLine: All
 AllowShortIfStatementsOnASingleLine: Always
 AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: true
+AllowShortEnumsOnASingleLine: true
 #AlwaysBreakAfterDefinitionReturnType 
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: Yes
@@ -84,7 +86,6 @@ DisableFormat: false
 FixNamespaceComments: true
 IncludeBlocks: Preserve
 #hmm, this doesnt work for me: IndentCaseBlocks: false
-IndentCaseLabels: false
 IndentPPDirectives: BeforeHash
 IndentWrappedFunctionNames: true
 KeepEmptyLinesAtTheStartOfBlocks: false

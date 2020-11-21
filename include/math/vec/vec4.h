@@ -7,19 +7,19 @@ template<class T>
 struct vec4
 {
 public:
-#       if MATH_SILENCE_WARNING
-#			if COMPILER_GCC
-#				pragma GCC diagnostic push
-#				pragma GCC diagnostic ignored "-Wpedantic"
-#			elif COMPILER_CLANG
-#				pragma clang diagnostic push
-#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
-#				pragma clang diagnostic ignored "-Wnested-anon-types"
-#			elif COMPILER_VC
-#				pragma warning(push)
-#				pragma warning(disable: 4201)  // nonstandard extension used : nameless struct/union
-#			endif
-#       endif
+#if MATH_SILENCE_WARNING
+    #if COMPILER_GCC
+        #pragma GCC diagnostic push
+        #pragma GCC diagnostic ignored "-Wpedantic"
+    #elif COMPILER_CLANG
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
+        #pragma clang diagnostic ignored "-Wnested-anon-types"
+    #elif COMPILER_VC
+        #pragma warning(push)
+        #pragma warning(disable : 4201) // nonstandard extension used : nameless struct/union
+    #endif
+#endif
     union
     {
         struct
@@ -28,15 +28,15 @@ public:
         };
     };
 
-#       if MATH_SILENCE_WARNING
-#			if COMPILER_CLANG
-#				pragma clang diagnostic pop
-#			elif COMPILER_GCC
-#				pragma GCC diagnostic pop
-#			elif COMPILER_VC
-#				pragma warning(pop)
-#			endif
-#       endif
+#if MATH_SILENCE_WARNING
+    #if COMPILER_CLANG
+        #pragma clang diagnostic pop
+    #elif COMPILER_GCC
+        #pragma GCC diagnostic pop
+    #elif COMPILER_VC
+        #pragma warning(pop)
+    #endif
+#endif
 
     vec4()
     {
@@ -61,8 +61,10 @@ public:
     }
     constexpr vec4(const vec4<T>& v)
     {
-        x = v[0]; y = v[1];
-        z = v[2]; w = v[3];
+        x = v[0];
+        y = v[1];
+        z = v[2];
+        w = v[3];
     }
 
     /* Misc functions */
@@ -135,22 +137,22 @@ public:
     {
         switch(index)
         {
-        default:
-        case 0: return x;
-        case 1: return y;
-        case 2: return z;
-        case 3: return w;
+            default:
+            case 0: return x;
+            case 1: return y;
+            case 2: return z;
+            case 3: return w;
         }
     }
     const T& operator[](int index) const
     {
         switch(index)
         {
-        default:
-        case 0: return x;
-        case 1: return y;
-        case 2: return z;
-        case 3: return w;
+            default:
+            case 0: return x;
+            case 1: return y;
+            case 2: return z;
+            case 3: return w;
         }
     }
 
