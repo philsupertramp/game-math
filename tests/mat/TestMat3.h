@@ -1,24 +1,25 @@
 #pragma once
 
 #include "../Test.h"
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include <math/math.h> // NOLINT
 
 template<class T>
-class Mat3TestCase
-: public Test
+class Mat3TestCase : public Test
 {
-    bool TestInitialization() {
+    bool TestInitialization()
+    {
         mat3<T> foo;
-        assert(foo[0][0] == (T) 0);
-        assert(foo[0][1] == (T) 0);
-        assert(foo[0][2] == (T) 0);
-        assert(foo[1][0] == (T) 0);
+        assert(foo[0][0] == (T)0);
+        assert(foo[0][1] == (T)0);
+        assert(foo[0][2] == (T)0);
+        assert(foo[1][0] == (T)0);
 
         return true;
     }
-    bool TestUtils(){
+    bool TestUtils()
+    {
         mat3<T> foo = mat3<T>::Unit();
         assert(foo[0][0] == (T)1);
         assert(foo[0][1] == (T)0);
@@ -30,9 +31,7 @@ class Mat3TestCase
         assert(foo[2][1] == (T)0);
         assert(foo[2][2] == (T)1);
 
-        foo = mat3<T>((T) 1, (T) 2, (T) 2,
-                      (T) 2,(T)1,(T)2,
-                      (T)2,(T)2,(T)1);
+        foo = mat3<T>((T)1, (T)2, (T)2, (T)2, (T)1, (T)2, (T)2, (T)2, (T)1);
         assert(foo[0][0] == (T)1);
         assert(foo[0][1] == (T)2);
         assert(foo[0][2] == (T)2);
@@ -68,27 +67,28 @@ class Mat3TestCase
         assert(fooCopy[2][1] == foo[2][1]);
         assert(fooCopy[2][2] == foo[2][2]);
 
-        fooCopy = mat3<T>((T)0,(T)-1,(T)-1,(T)1,(T)0,(T)-1,(T)1,(T)1,(T)0);
+        fooCopy = mat3<T>((T)0, (T)-1, (T)-1, (T)1, (T)0, (T)-1, (T)1, (T)1, (T)0);
         fooCopy = fooCopy.Transpose();
-        assert(fooCopy[0][0] == (T) 0);
-        assert(fooCopy[0][1] == (T) 1);
-        assert(fooCopy[0][2] == (T) 1);
+        assert(fooCopy[0][0] == (T)0);
+        assert(fooCopy[0][1] == (T)1);
+        assert(fooCopy[0][2] == (T)1);
         assert(fooCopy[1][0] == (T)-1);
-        assert(fooCopy[1][1] == (T) 0);
-        assert(fooCopy[1][2] == (T) 1);
+        assert(fooCopy[1][1] == (T)0);
+        assert(fooCopy[1][2] == (T)1);
         assert(fooCopy[2][0] == (T)-1);
         assert(fooCopy[2][1] == (T)-1);
-        assert(fooCopy[2][2] == (T) 0);
+        assert(fooCopy[2][2] == (T)0);
 
         std::cout << "mat3\n" << foo;
 
         return true;
     }
 
-    bool TestMath(){
-        mat3<T> foo(1,2,3,4,5,6,7,8,9);
-        mat3<T> bar(10,11,12,13,14,15,16,17,18);
-        vec3<T> vec(1,2,3);
+    bool TestMath()
+    {
+        mat3<T> foo(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        mat3<T> bar(10, 11, 12, 13, 14, 15, 16, 17, 18);
+        vec3<T> vec(1, 2, 3);
         float delta = 2.0f;
         mat3<T> fooBar;
 
@@ -216,8 +216,10 @@ class Mat3TestCase
 
         return true;
     }
+
 public:
-    void run(bool _extended) override{
+    void run(bool _extended) override
+    {
         extended = _extended;
         TestInitialization();
         TestUtils();
@@ -225,7 +227,8 @@ public:
     }
 };
 
-bool TestMat3(){
+bool TestMat3()
+{
     Mat3TestCase<int>().run(false);
     Mat3TestCase<float>().run(true);
     Mat3TestCase<double>().run(true);

@@ -1,75 +1,72 @@
 #pragma once
 
+#include "../Test.h"
 #include <cassert>
 #include <iostream>
-#include <math/math.h>  // NOLINT
-#include "../Test.h"
+#include <math/math.h> // NOLINT
 
 template<class T>
-class Mat4TestCase
-: public Test
+class Mat4TestCase : public Test
 {
-    bool TestInitialization() {
+    bool TestInitialization()
+    {
         mat4<T> foo;
-        assert(foo[0][0] == (T) 0);
-        assert(foo[0][1] == (T) 0);
-        assert(foo[0][2] == (T) 0);
-        assert(foo[0][3] == (T) 0);
-        assert(foo[1][0] == (T) 0);
-        assert(foo[1][1] == (T) 0);
-        assert(foo[1][2] == (T) 0);
-        assert(foo[1][3] == (T) 0);
-        assert(foo[2][0] == (T) 0);
-        assert(foo[2][1] == (T) 0);
-        assert(foo[2][2] == (T) 0);
-        assert(foo[2][3] == (T) 0);
-        assert(foo[3][0] == (T) 0);
-        assert(foo[3][1] == (T) 0);
-        assert(foo[3][2] == (T) 0);
-        assert(foo[3][3] == (T) 0);
+        assert(foo[0][0] == (T)0);
+        assert(foo[0][1] == (T)0);
+        assert(foo[0][2] == (T)0);
+        assert(foo[0][3] == (T)0);
+        assert(foo[1][0] == (T)0);
+        assert(foo[1][1] == (T)0);
+        assert(foo[1][2] == (T)0);
+        assert(foo[1][3] == (T)0);
+        assert(foo[2][0] == (T)0);
+        assert(foo[2][1] == (T)0);
+        assert(foo[2][2] == (T)0);
+        assert(foo[2][3] == (T)0);
+        assert(foo[3][0] == (T)0);
+        assert(foo[3][1] == (T)0);
+        assert(foo[3][2] == (T)0);
+        assert(foo[3][3] == (T)0);
 
         return true;
     }
-    bool TestUtils(){
+    bool TestUtils()
+    {
         mat4<T> foo = mat4<T>::Unit();
-        assert(foo[0][0] == (T) 1);
-        assert(foo[0][1] == (T) 0);
-        assert(foo[0][2] == (T) 0);
-        assert(foo[0][3] == (T) 0);
-        assert(foo[1][0] == (T) 0);
-        assert(foo[1][1] == (T) 1);
-        assert(foo[1][2] == (T) 0);
-        assert(foo[1][3] == (T) 0);
-        assert(foo[2][0] == (T) 0);
-        assert(foo[2][1] == (T) 0);
-        assert(foo[2][2] == (T) 1);
-        assert(foo[2][3] == (T) 0);
-        assert(foo[3][0] == (T) 0);
-        assert(foo[3][1] == (T) 0);
-        assert(foo[3][2] == (T) 0);
-        assert(foo[3][3] == (T) 1);
+        assert(foo[0][0] == (T)1);
+        assert(foo[0][1] == (T)0);
+        assert(foo[0][2] == (T)0);
+        assert(foo[0][3] == (T)0);
+        assert(foo[1][0] == (T)0);
+        assert(foo[1][1] == (T)1);
+        assert(foo[1][2] == (T)0);
+        assert(foo[1][3] == (T)0);
+        assert(foo[2][0] == (T)0);
+        assert(foo[2][1] == (T)0);
+        assert(foo[2][2] == (T)1);
+        assert(foo[2][3] == (T)0);
+        assert(foo[3][0] == (T)0);
+        assert(foo[3][1] == (T)0);
+        assert(foo[3][2] == (T)0);
+        assert(foo[3][3] == (T)1);
 
-        foo = mat4<T>(
-                (T) 1, (T) 2, (T) 2, (T) 2,
-                (T) 2, (T) 1, (T) 2, (T) 2,
-                (T) 2, (T) 2, (T) 1, (T) 2,
-                (T) 2, (T) 2, (T) 2, (T)1);
-        assert(foo[0][0] == (T) 1);
-        assert(foo[0][1] == (T) 2);
-        assert(foo[0][2] == (T) 2);
-        assert(foo[0][3] == (T) 2);
-        assert(foo[1][0] == (T) 2);
-        assert(foo[1][1] == (T) 1);
-        assert(foo[1][2] == (T) 2);
-        assert(foo[1][3] == (T) 2);
-        assert(foo[2][0] == (T) 2);
-        assert(foo[2][1] == (T) 2);
-        assert(foo[2][2] == (T) 1);
-        assert(foo[2][3] == (T) 2);
-        assert(foo[3][0] == (T) 2);
-        assert(foo[3][1] == (T) 2);
-        assert(foo[3][2] == (T) 2);
-        assert(foo[3][3] == (T) 1);
+        foo = mat4<T>((T)1, (T)2, (T)2, (T)2, (T)2, (T)1, (T)2, (T)2, (T)2, (T)2, (T)1, (T)2, (T)2, (T)2, (T)2, (T)1);
+        assert(foo[0][0] == (T)1);
+        assert(foo[0][1] == (T)2);
+        assert(foo[0][2] == (T)2);
+        assert(foo[0][3] == (T)2);
+        assert(foo[1][0] == (T)2);
+        assert(foo[1][1] == (T)1);
+        assert(foo[1][2] == (T)2);
+        assert(foo[1][3] == (T)2);
+        assert(foo[2][0] == (T)2);
+        assert(foo[2][1] == (T)2);
+        assert(foo[2][2] == (T)1);
+        assert(foo[2][3] == (T)2);
+        assert(foo[3][0] == (T)2);
+        assert(foo[3][1] == (T)2);
+        assert(foo[3][2] == (T)2);
+        assert(foo[3][3] == (T)1);
 
         assert(foo.IsSymmetric());
 
@@ -110,38 +107,36 @@ class Mat4TestCase
         assert(fooCopy[3][2] == foo[3][2]);
         assert(fooCopy[3][3] == foo[3][3]);
 
-        fooCopy = mat4<T>(
-                (T) 0, (T) 1, (T) 1, (T) 1,
-                (T) -1, (T) 0, (T) 1, (T) 1,
-                (T) -1, (T) -1, (T) 0, (T) 1,
-                (T) -1, (T) -1, (T) -1, (T)0);
+        fooCopy =
+        mat4<T>((T)0, (T)1, (T)1, (T)1, (T)-1, (T)0, (T)1, (T)1, (T)-1, (T)-1, (T)0, (T)1, (T)-1, (T)-1, (T)-1, (T)0);
         fooCopy = fooCopy.Transpose();
-        assert(fooCopy[0][0] == (T)  0);
-        assert(fooCopy[0][1] == (T) -1);
-        assert(fooCopy[0][2] == (T) -1);
-        assert(fooCopy[0][3] == (T) -1);
-        assert(fooCopy[1][0] == (T)  1);
-        assert(fooCopy[1][1] == (T)  0);
-        assert(fooCopy[1][2] == (T) -1);
-        assert(fooCopy[1][3] == (T) -1);
-        assert(fooCopy[2][0] == (T) 1);
-        assert(fooCopy[2][1] == (T) 1);
-        assert(fooCopy[2][2] == (T) 0);
-        assert(fooCopy[2][3] == (T) -1);
-        assert(fooCopy[3][0] == (T) 1);
-        assert(fooCopy[3][1] == (T) 1);
-        assert(fooCopy[3][2] == (T) 1);
-        assert(fooCopy[3][3] == (T) 0);
+        assert(fooCopy[0][0] == (T)0);
+        assert(fooCopy[0][1] == (T)-1);
+        assert(fooCopy[0][2] == (T)-1);
+        assert(fooCopy[0][3] == (T)-1);
+        assert(fooCopy[1][0] == (T)1);
+        assert(fooCopy[1][1] == (T)0);
+        assert(fooCopy[1][2] == (T)-1);
+        assert(fooCopy[1][3] == (T)-1);
+        assert(fooCopy[2][0] == (T)1);
+        assert(fooCopy[2][1] == (T)1);
+        assert(fooCopy[2][2] == (T)0);
+        assert(fooCopy[2][3] == (T)-1);
+        assert(fooCopy[3][0] == (T)1);
+        assert(fooCopy[3][1] == (T)1);
+        assert(fooCopy[3][2] == (T)1);
+        assert(fooCopy[3][3] == (T)0);
 
         std::cout << "mat4\n" << foo;
 
         return true;
     }
 
-    bool TestMath(){
-        mat4<T> foo(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
-        mat4<T> bar(17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32);
-        vec4<T> vec(1,2,3,4);
+    bool TestMath()
+    {
+        mat4<T> foo(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+        mat4<T> bar(17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32);
+        vec4<T> vec(1, 2, 3, 4);
         float delta = 2.0f;
         mat4<T> fooBar;
 
@@ -342,8 +337,10 @@ class Mat4TestCase
 
         return true;
     }
+
 public:
-    void run(bool _extended) override{
+    void run(bool _extended) override
+    {
         extended = _extended;
         TestInitialization();
         TestUtils();
@@ -351,7 +348,8 @@ public:
     }
 };
 
-bool TestMat4(){
+bool TestMat4()
+{
     Mat4TestCase<int>().run(false);
     Mat4TestCase<float>().run(true);
     Mat4TestCase<double>().run(true);
