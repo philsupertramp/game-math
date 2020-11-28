@@ -35,6 +35,8 @@ if(MATH_EXTENSIONS MATCHES "(linA)")
             include/math/numerics/lin_alg/backwardSub.cpp
             include/math/numerics/lin_alg/forwardSub.h
             include/math/numerics/lin_alg/forwardSub.cpp
+            include/math/numerics/lin_alg/LU.h
+            include/math/numerics/lin_alg/LU.cpp
             )
 endif()
 

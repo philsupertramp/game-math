@@ -6,6 +6,7 @@
 #include "numerics/ode/TestODE45.h"
 #include "numerics/lin_alg/TestBackwardSub.h"
 #include "numerics/lin_alg/TestForwardSub.h"
+#include "numerics/lin_alg/TestLU.h"
 #include "vec/TestVec2.h"
 #include "vec/TestVec3.h"
 #include "vec/TestVec4.h"
@@ -29,6 +30,8 @@ int main([[maybe_unused]] int nargs, [[maybe_unused]] char* argv[])
     TestBackwardSub();
 
     TestForwardSub();
+
+    TestLU();
 
     return 0;
 }
