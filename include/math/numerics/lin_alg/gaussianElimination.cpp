@@ -1,3 +1,8 @@
+/**
+ * Gaussian elimination to solve systems of linear equations.
+ * Uses column major pivot elements to reduce number of operations.
+ */
+
 #include "gaussianElimination.h"
 
 std::vector<float> gaussianElimination(std::vector<std::vector<float>> A, std::vector<float> b)

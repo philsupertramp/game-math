@@ -1,3 +1,8 @@
+/**
+ * Regular forward substitution.
+ * Calculates result given lower left triangular matrix b=L*c => L^-1b = c
+ */
+
 #pragma once
 #include "../utils.h"
 #include <iostream>
