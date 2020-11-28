@@ -28,6 +28,14 @@ set(LINA_EXTENSION_SOURCES
         include/math/numerics/utils.cpp
         )
 
+if(MATH_EXTENSIONS MATCHES "(linA)")
+    set(LINA_EXTENSION_SOURCES
+            ${LINA_EXTENSION_SOURCES}
+            include/math/numerics/lin_alg/backwardSub.h
+            include/math/numerics/lin_alg/backwardSub.cpp
+            )
+endif()
+
 if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_SOURCES
             ${LIB_SOURCES}
