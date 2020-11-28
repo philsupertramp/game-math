@@ -1,21 +1,7 @@
-/**
- * ODE Solver
- * implementation based on Dormand-Prince Method to solve ordinary differential equations
- * https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method
- *
- * Current state:
- * - implemented 7 function evaluations
- * - using 6/7 evaluations for 5th order RK
- *
- * TODO: use calculated error of 5th order - 4th order to alter step width `h` dynamically to fully implement dp-method.
- */
-#pragma once
+#include "ode45.h"
 
-#include "../ode.h"
-#include <functional>
-#include <vector>
 
-ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::vector<float>& y0, float h = 0)
+ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::vector<float>& y0, float h)
 {
     size_t dim       = tInterval.size();
     size_t elem_size = y0.size();
@@ -30,13 +16,13 @@ ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::
 
     // clang-format off
     float a[7][7] = {
-        {0, 0, 0, 0, 0, 0, 0},
-        {1.f/5.f, 0, 0, 0, 0, 0, 0},
-        {3.f/40.f, 9.f/40.f, 0, 0, 0, 0, 0},
-        {44.f/45.f, -56.f/15.f,  32.f/9.f, 0, 0, 0, 0},
-        {19372.f/6561.f, -25360.f/2187.f,  64448.f/6561.f, -212.f/729.f, 0, 0, 0},
-        {9017.f/3168.f, -355.f/33.f, 46732.f/5247.f, 49.f/176.f, -5103.f/18656.f, 0, 0},
-        {35.f/384.f, 0, 500.f/1113.f,  125.f/192.f, -2187.f/6784.f, 11.f/84.f, 0}
+    {0, 0, 0, 0, 0, 0, 0},
+    {1.f/5.f, 0, 0, 0, 0, 0, 0},
+    {3.f/40.f, 9.f/40.f, 0, 0, 0, 0, 0},
+    {44.f/45.f, -56.f/15.f,  32.f/9.f, 0, 0, 0, 0},
+    {19372.f/6561.f, -25360.f/2187.f,  64448.f/6561.f, -212.f/729.f, 0, 0, 0},
+    {9017.f/3168.f, -355.f/33.f, 46732.f/5247.f, 49.f/176.f, -5103.f/18656.f, 0, 0},
+    {35.f/384.f, 0, 500.f/1113.f,  125.f/192.f, -2187.f/6784.f, 11.f/84.f, 0}
     };
 
     float c[7]={0, 1.f/5.f, 3.f/10.f, 4.f/5.f, 8.f/9.f, 1.f, 1.f};
@@ -67,8 +53,8 @@ ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::
             // clang-format off
             y[l + 1][elem] = (y[l][elem]
                               + h * (b5[0] * k[0][elem] + b5[1] * k[1][elem]
-                                   + b5[2] * k[2][elem] + b5[3] * k[3][elem]
-                                   + b5[4] * k[4][elem] + b5[5] * k[5][elem])); // clang-format on
+                                     + b5[2] * k[2][elem] + b5[3] * k[3][elem]
+                                     + b5[4] * k[4][elem] + b5[5] * k[5][elem])); // clang-format on
         }
     }
     return { y, t };

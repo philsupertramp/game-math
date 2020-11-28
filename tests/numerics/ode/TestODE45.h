@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Test.h"
+#include <math/numerics/ode/ode45.h>
+#include "../../Test.h"
 #include <cassert>
-#include <math/ode/ode45.h>
 
 bool TestOde45()
 {

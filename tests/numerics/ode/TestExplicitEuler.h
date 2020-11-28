@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../Test.h"
-#include <math/ode/ExplicitEuler.h>
+#include <math/numerics/ode/ExplicitEuler.h>
+#include "../../Test.h"
 
 
 bool TestExplicitEuler()
