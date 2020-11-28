@@ -23,24 +23,6 @@ set(LIB_SOURCES
         include/math/mat/mat4.h
         include/math/utils.h
 )
-set(LINA_EXTENSION_SOURCES
-        include/math/numerics/utils.h
-        include/math/numerics/utils.cpp
-        )
-
-if(MATH_EXTENSIONS MATCHES "(linA)")
-    set(LINA_EXTENSION_SOURCES
-            ${LINA_EXTENSION_SOURCES}
-            include/math/numerics/lin_alg/backwardSub.h
-            include/math/numerics/lin_alg/backwardSub.cpp
-            include/math/numerics/lin_alg/forwardSub.h
-            include/math/numerics/lin_alg/forwardSub.cpp
-            include/math/numerics/lin_alg/LU.h
-            include/math/numerics/lin_alg/LU.cpp
-            include/math/numerics/lin_alg/gaussianElimination.h
-            include/math/numerics/lin_alg/gaussianElimination.cpp
-            )
-endif()
 
 if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_SOURCES
@@ -50,7 +32,16 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/ode/ode.h
             include/math/numerics/ode/ode45.h
             include/math/numerics/ode/ode45.cpp
-            ${LINA_EXTENSION_SOURCES}
+            include/math/numerics/utils.h
+            include/math/numerics/utils.cpp
+            include/math/numerics/lin_alg/backwardSub.h
+            include/math/numerics/lin_alg/backwardSub.cpp
+            include/math/numerics/lin_alg/forwardSub.h
+            include/math/numerics/lin_alg/forwardSub.cpp
+            include/math/numerics/lin_alg/LU.h
+            include/math/numerics/lin_alg/LU.cpp
+            include/math/numerics/lin_alg/gaussianElimination.h
+            include/math/numerics/lin_alg/gaussianElimination.cpp
             )
 endif()
 
