@@ -37,3 +37,17 @@ cmake -DMATH_EXTENSIONS=numerics --build /home/phil/work/private/games/fawxy/src
 - Numerical Methods:
     - Newtons method for finding roots
     - More ode solver (see [here](http://www.netlib.org/ode/))
+
+
+# Development
+Feel free to contribute to the project!
+
+### How to contribute
+- first time contributers
+    - fork the project
+    - create a PR based on your repository
+- known contributers
+    - create PR based on `master` branch
+
+**NOTE: please run `make lint` prior to submitting your code!**  
+This requires `clang-format>=11.0.0`
