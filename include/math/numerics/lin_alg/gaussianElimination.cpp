@@ -5,8 +5,7 @@
 
 #include "gaussianElimination.h"
 
-std::vector<float> gaussianElimination(std::vector<std::vector<float>> A, std::vector<float> b)
-{
+std::vector<float> gaussianElimination(std::vector<std::vector<float>> A, std::vector<float> b) {
     auto LR = LU(A);
 
     auto bCopy = b;

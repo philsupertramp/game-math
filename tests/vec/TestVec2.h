@@ -9,8 +9,7 @@
 template<class T>
 class Vec2TestCase : public Test
 {
-    bool testInitialization()
-    {
+    bool testInitialization() {
         vec2<T> foo;
         assert(foo.x == (T)0);
         assert(foo.y == (T)0);
@@ -26,8 +25,7 @@ class Vec2TestCase : public Test
 
         return true;
     }
-    bool testAssignment()
-    {
+    bool testAssignment() {
         vec2<T> foo;
 
         foo.x = (T)1;
@@ -43,8 +41,7 @@ class Vec2TestCase : public Test
         assert(foo.y == (T)4);
         return true;
     }
-    bool testMemberAccess()
-    {
+    bool testMemberAccess() {
         vec2<T> foo;
 
         foo.x = (T)1;
@@ -54,8 +51,7 @@ class Vec2TestCase : public Test
         assert(foo[1] == 2);
         return true;
     }
-    bool testMisc()
-    {
+    bool testMisc() {
         vec2<T> foo(2, 2);
         vec2<T> bar(2, -2);
         vec2<T> baz(10, 0);
@@ -64,8 +60,7 @@ class Vec2TestCase : public Test
         assert(bar.length() == 2.82842708f);
         assert(baz.length() == 10.0f);
 
-        if(extended)
-        {
+        if(extended) {
             vec2<T> normFoo = foo.normalize();
             vec2<T> normBar = bar.normalize();
             vec2<T> normBaz = baz.normalize();
@@ -80,8 +75,7 @@ class Vec2TestCase : public Test
         }
         return true;
     }
-    bool testOperators()
-    {
+    bool testOperators() {
         vec2<T> foo(1, 1);
         vec2<T> bar(1, -1);
         vec2<T> baz(10, 0);
@@ -133,8 +127,7 @@ class Vec2TestCase : public Test
     }
 
 public:
-    virtual void run(bool _extended = false) override
-    {
+    virtual void run(bool _extended = false) override {
         extended = _extended;
 
         testInitialization();
@@ -145,8 +138,7 @@ public:
     }
 };
 
-bool TestVec2()
-{
+bool TestVec2() {
     Vec2TestCase<int>().run();
     Vec2TestCase<float>().run(true);
     Vec2TestCase<double>().run(true);

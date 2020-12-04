@@ -3,16 +3,14 @@
 #include "../vec/vec3.h"
 
 template<class T>
-struct mat3
-{
+struct mat3 {
 public:
     T values[3][3];
 
     /**
      * default constructor, initializes null matrix
      */
-    mat3()
-    {
+    mat3() {
         // clang-format off
         values[0][0] = static_cast<T>(0); values[0][1] = static_cast<T>(0); values[0][2] = static_cast<T>(0);
         values[1][0] = static_cast<T>(0); values[1][1] = static_cast<T>(0); values[1][2] = static_cast<T>(0);
@@ -42,8 +40,7 @@ public:
      * @param A first column vector
      * @param B second column vector
      */
-    mat3(vec3<T> A, vec3<T> B, vec3<T> C)
-    {
+    mat3(vec3<T> A, vec3<T> B, vec3<T> C) {
         // clang-format off
         values[0][0] = A.x; values[0][1] = A.y; values[0][2] = A.z;
         values[1][0] = B.x; values[1][1] = B.y; values[1][2] = B.z;
@@ -52,16 +49,14 @@ public:
 
     ~mat3() = default;
 
-    static inline mat3<T> Unit()
-    {
+    static inline mat3<T> Unit() {
         return mat3<T>( // clang-format off
             static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), 
             static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), 
             static_cast<T>(0), static_cast<T>(0), static_cast<T>(1)); // clang-format on
     }
 
-    inline mat3<T> Transpose()
-    {
+    inline mat3<T> Transpose() {
         // clang-format off
         return mat3<T>(
             values[0][0], values[1][0], values[2][0], 
@@ -69,13 +64,11 @@ public:
             values[0][2], values[1][2], values[2][2]); // clang-format on
     }
 
-    inline bool IsSymmetric()
-    {
+    inline bool IsSymmetric() {
         return values[0][1] == values[1][0] && values[0][2] == values[2][0] && values[1][2] == values[2][1];
     }
 
-    inline float Determinant()
-    {
+    inline float Determinant() {
         return // clang-format off
           values[0][0] * values[1][1] * values[2][2] + values[0][1] * values[1][2] * values[2][0]
         + values[0][2] * values[1][0] * values[2][1] - values[0][2] * values[1][1] * values[2][0]
@@ -86,8 +79,7 @@ public:
     friend mat3<T> operator-(mat3<T> lhs, const mat3<T>& rhs) { return lhs -= rhs; }
     friend mat3<T> operator*(mat3<T> lhs, const T& rhs) { return lhs *= rhs; }
 
-    friend vec3<T> operator*(mat3<T> lhs, const vec3<T>& rhs)
-    {
+    friend vec3<T> operator*(mat3<T> lhs, const vec3<T>& rhs) {
         return vec3<T>( // clang-format off
             lhs.values[0][0] * rhs.x + lhs.values[0][1] * rhs.y + lhs.values[0][2] * rhs.z, 
             lhs.values[1][0] * rhs.x + lhs.values[1][1] * rhs.y + lhs.values[1][2] * rhs.z, 
@@ -100,8 +92,7 @@ public:
     friend mat3<T> operator/(mat3<T> lhs, const T& rhs) { return lhs /= rhs; }
 
     /* compound assignment */
-    mat3<T>& operator+=(const mat3<T>& rhs)
-    {
+    mat3<T>& operator+=(const mat3<T>& rhs) {
         // clang-format off
         values[0][0]+=rhs[0][0]; values[0][1]+=rhs[0][1]; values[0][2]+=rhs[0][2];
         values[1][0]+=rhs[1][0]; values[1][1]+=rhs[1][1]; values[1][2]+=rhs[1][2];
@@ -109,8 +100,7 @@ public:
         return *this;
     }
 
-    mat3<T>& operator-=(const mat3<T>& rhs)
-    {
+    mat3<T>& operator-=(const mat3<T>& rhs) {
         // clang-format off
         values[0][0]-=rhs[0][0]; values[0][1]-=rhs[0][1]; values[0][2]-=rhs[0][2];
         values[1][0]-=rhs[1][0]; values[1][1]-=rhs[1][1]; values[1][2]-=rhs[1][2];
@@ -118,8 +108,7 @@ public:
         return *this;
     }
 
-    mat3<T>& operator*=(const mat3<T>& rhs)
-    {
+    mat3<T>& operator*=(const mat3<T>& rhs) {
         // clang-format off
         T _a = values[0][0], _b = values[0][1], _c = values[0][2], 
           _d = values[1][0], _e = values[1][1], _f = values[1][2], 
@@ -139,8 +128,7 @@ public:
         return *this;
     }
 
-    mat3<T>& operator*=(const T& rhs)
-    {
+    mat3<T>& operator*=(const T& rhs) {
         // clang-format off
         values[0][0] *= rhs; values[0][1] *= rhs; values[0][2] *= rhs; 
         values[1][0] *= rhs; values[1][1] *= rhs; values[1][2] *= rhs; 
@@ -148,8 +136,7 @@ public:
         return *this;
     }
 
-    mat3<T>& operator/=(const T& rhs)
-    {
+    mat3<T>& operator/=(const T& rhs) {
         // clang-format off
         values[0][0] /= rhs; values[0][1] /= rhs; values[0][2] /= rhs;
         values[1][0] /= rhs; values[1][1] /= rhs; values[1][2] /= rhs;
@@ -167,8 +154,7 @@ public:
 };
 
 template<class U>
-std::ostream& operator<<(std::ostream& out, const mat3<U>& mat)
-{
+std::ostream& operator<<(std::ostream& out, const mat3<U>& mat) {
     out << "[\n\t" // clang-format off
         << mat[0][0] << ", " << mat[0][1] << ", " << mat[0][2] << ";\n\t" 
         << mat[1][0] << ", " << mat[1][1] << ", " << mat[1][2] << ";\n\t" 

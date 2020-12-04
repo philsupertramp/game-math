@@ -3,16 +3,14 @@
 #include "../vec/vec2.h"
 
 template<class T>
-struct mat2
-{
+struct mat2 {
 public:
     T values[2][2];
 
     /**
      * default constructor, initializes null matrix
      */
-    mat2()
-    {
+    mat2() {
         // clang-format off
         values[0][0] = static_cast<T>(0); values[0][1] = static_cast<T>(0);
         values[1][0] = static_cast<T>(0); values[1][1] = static_cast<T>(0); // clang-format on
@@ -25,8 +23,7 @@ public:
      * @param _c m_21
      * @param _d m_22
      */
-    mat2(T _a, T _b, T _c, T _d)
-    {
+    mat2(T _a, T _b, T _c, T _d) {
         // clang-format off
         values[0][0] = _a; values[0][1] = _b;
         values[1][0] = _c; values[1][1] = _d; // clang-format on
@@ -37,8 +34,7 @@ public:
      * @param A first column vector
      * @param B second column vector
      */
-    mat2(vec2<T> A, vec2<T> B)
-    {
+    mat2(vec2<T> A, vec2<T> B) {
         // clang-format off
         values[0][0] = A.x; values[0][1] = B.x;
         values[1][0] = A.y; values[1][1] = B.y; // clang-format on
@@ -46,8 +42,7 @@ public:
 
     ~mat2() = default;
 
-    static inline mat2<T> Unit()
-    {
+    static inline mat2<T> Unit() {
         return mat2<T>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
     }
 
@@ -58,8 +53,7 @@ public:
     friend mat2<T> operator-(mat2<T> lhs, const mat2<T>& rhs) { return lhs -= rhs; }
     friend mat2<T> operator*(mat2<T> lhs, const T& rhs) { return lhs *= rhs; }
 
-    friend vec2<T> operator*(mat2<T> lhs, const vec2<T>& rhs)
-    {
+    friend vec2<T> operator*(mat2<T> lhs, const vec2<T>& rhs) {
         return vec2<T>(lhs[0][0] * rhs.x + lhs[0][1] * rhs.y, lhs[1][0] * rhs.x + lhs[1][1] * rhs.y);
     }
 
@@ -67,24 +61,21 @@ public:
     friend mat2<T> operator/(mat2<T> lhs, const T& rhs) { return lhs /= rhs; }
 
     /* compound assignment */
-    mat2<T>& operator+=(const mat2<T>& rhs)
-    {
+    mat2<T>& operator+=(const mat2<T>& rhs) {
         // clang-format off
         values[0][0] += rhs[0][0]; values[0][1] += rhs[0][1];
         values[1][0] += rhs[1][0]; values[1][1] += rhs[1][1]; // clang-format on
         return *this;
     }
 
-    mat2<T>& operator-=(const mat2<T>& rhs)
-    {
+    mat2<T>& operator-=(const mat2<T>& rhs) {
         // clang-format off
         values[0][0] -= rhs[0][0]; values[0][1] -= rhs[0][1];
         values[1][0] -= rhs[1][0]; values[1][1] -= rhs[1][1]; // clang-format on
         return *this;
     }
 
-    mat2<T>& operator*=(const mat2<T>& rhs)
-    {
+    mat2<T>& operator*=(const mat2<T>& rhs) {
         // clang-format off
         T _a = values[0][0], _b = values[0][1],
           _c = values[1][0], _d = values[1][1];
@@ -93,16 +84,14 @@ public:
         return *this;
     }
 
-    mat2<T>& operator*=(const T& rhs)
-    {
+    mat2<T>& operator*=(const T& rhs) {
         // clang-format off
         values[0][0] *= rhs; values[0][1] *= rhs;
         values[1][0] *= rhs; values[1][1] *= rhs; // clang-format on
         return *this;
     }
 
-    mat2<T>& operator/=(const T& rhs)
-    {
+    mat2<T>& operator/=(const T& rhs) {
         // clang-format off
         values[0][0] /= rhs; values[0][1] /= rhs;
         values[1][0] /= rhs; values[1][1] /= rhs; // clang-format on
@@ -119,8 +108,7 @@ public:
 };
 
 template<class U>
-std::ostream& operator<<(std::ostream& out, const mat2<U>& mat)
-{
+std::ostream& operator<<(std::ostream& out, const mat2<U>& mat) {
     out << "[\n\t" << mat[0][0] << ", " << mat[0][1] << ";\n\t" << mat[1][0] << ", " << mat[1][1] << "\n]\n";
     return out;
 }

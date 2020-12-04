@@ -4,13 +4,11 @@
 #include "mat3.h"
 
 template<class T>
-struct mat4
-{
+struct mat4 {
 public:
     T values[4][4];
 
-    mat4()
-    {
+    mat4() {
         // clang-format off
         values[0][0] = static_cast<T>(0); values[0][1] = static_cast<T>(0); values[0][2] = static_cast<T>(0); values[0][3] = static_cast<T>(0);
         values[1][0] = static_cast<T>(0); values[1][1] = static_cast<T>(0); values[1][2] = static_cast<T>(0); values[1][3] = static_cast<T>(0);
@@ -30,8 +28,7 @@ public:
         values[3][0] = _m; values[3][1] = _n; values[3][2] = _o; values[3][3] = _p; // clang-format on
     }
 
-    mat4(vec4<T> A, vec4<T> B, vec4<T> C, vec4<T> D)
-    {
+    mat4(vec4<T> A, vec4<T> B, vec4<T> C, vec4<T> D) {
         // clang-format off
         values[0][0] = A.x; values[0][1] = A.y; values[0][2] = A.z; values[0][3] = A.w;
         values[1][0] = B.x; values[1][1] = B.y; values[1][2] = B.z; values[1][3] = B.w;
@@ -39,8 +36,7 @@ public:
         values[3][0] = D.x; values[3][1] = D.y; values[3][2] = D.z; values[3][3] = D.w; // clang-format on
     }
 
-    mat4(T _a)
-    {
+    mat4(T _a) {
         // clang-format off
         values[0][0] = _a; values[0][1] = static_cast<T>(0); values[0][2] = static_cast<T>(0); values[0][3] = static_cast<T>(0);
         values[1][0] = static_cast<T>(0); values[1][1] = _a; values[1][2] = static_cast<T>(0); values[1][3] = static_cast<T>(0);
@@ -50,8 +46,7 @@ public:
 
     ~mat4() = default;
 
-    static inline mat4<T> Unit()
-    {
+    static inline mat4<T> Unit() {
         return mat4<T>( // clang-format off
             static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), 
             static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), 
@@ -59,8 +54,7 @@ public:
             static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1)); // clang-format on
     }
 
-    static inline mat4<T> Transformation(mat3<T> m)
-    {
+    static inline mat4<T> Transformation(mat3<T> m) {
         return mat4<T>( // clang-format off
             m[0][0], m[0][1], m[0][2], static_cast<T>(0), 
             m[1][0], m[1][1], m[1][2], static_cast<T>(0), 
@@ -68,8 +62,7 @@ public:
             static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1)); // clang-format on
     }
 
-    inline mat4<T> Transpose()
-    {
+    inline mat4<T> Transpose() {
         return mat4<T>( // clang-format off
             values[0][0], values[1][0], values[2][0], values[3][0], 
             values[0][1], values[1][1], values[2][1], values[3][1], 
@@ -77,14 +70,12 @@ public:
             values[0][3], values[1][3], values[2][3], values[3][3]); // clang-format on
     }
 
-    inline bool IsSymmetric()
-    {
+    inline bool IsSymmetric() {
         return values[0][1] == values[1][0] && values[0][2] == values[2][0] && values[0][3] == values[3][0]
                && values[2][1] == values[1][2] && values[1][3] == values[3][1] && values[3][2] == values[2][3];
     }
 
-    inline float Determinant()
-    {
+    inline float Determinant() {
         return // clang-format off
           values[2][0] * mat3<T>(values[0][1], values[0][2], values[0][3], values[1][1], values[1][2], values[1][3], values[2][1], values[2][2], values[2][3]).Determinant()
         - values[2][1] * mat3<T>(values[0][0], values[0][2], values[0][3], values[1][0], values[1][2], values[1][3], values[3][0], values[3][2], values[3][3]).Determinant()
@@ -96,8 +87,7 @@ public:
     friend mat4<T> operator-(mat4<T> lhs, const mat4<T>& rhs) { return lhs -= rhs; }
     friend mat4<T> operator*(mat4<T> lhs, const T& rhs) { return lhs *= rhs; }
 
-    friend vec4<T> operator*(mat4<T> lhs, const vec4<T>& rhs)
-    {
+    friend vec4<T> operator*(mat4<T> lhs, const vec4<T>& rhs) {
         return vec4<T>( // clang-format off
             lhs[0][0] * rhs.x + lhs[0][1] * rhs.y + lhs[0][2] * rhs.z + lhs[0][3] * rhs.w, 
             lhs[1][0] * rhs.x + lhs[1][1] * rhs.y + lhs[1][2] * rhs.z + lhs[1][3] * rhs.w, 
@@ -110,8 +100,7 @@ public:
     friend mat4<T> operator/(mat4<T> lhs, const T& rhs) { return lhs /= rhs; }
 
     /* compound assignment */
-    mat4<T>& operator+=(const mat4<T>& rhs)
-    {
+    mat4<T>& operator+=(const mat4<T>& rhs) {
         // clang-format off
         values[0][0] += rhs[0][0]; values[0][1] += rhs[0][1]; values[0][2] += rhs[0][2]; values[0][3] += rhs[0][3];
         values[1][0] += rhs[1][0]; values[1][1] += rhs[1][1]; values[1][2] += rhs[1][2]; values[1][3] += rhs[1][3];
@@ -120,8 +109,7 @@ public:
         return *this;
     }
 
-    mat4<T>& operator-=(const mat4<T>& rhs)
-    {
+    mat4<T>& operator-=(const mat4<T>& rhs) {
         // clang-format off
         values[0][0] -= rhs[0][0]; values[0][1] -= rhs[0][1]; values[0][2] -= rhs[0][2]; values[0][3] -= rhs[0][3];
         values[1][0] -= rhs[1][0]; values[1][1] -= rhs[1][1]; values[1][2] -= rhs[1][2]; values[1][3] -= rhs[1][3];
@@ -130,8 +118,7 @@ public:
         return *this;
     }
 
-    mat4<T>& operator*=(const mat4<T>& rhs)
-    {
+    mat4<T>& operator*=(const mat4<T>& rhs) {
         // clang-format off
         T _a = values[0][0], _b = values[0][1], _c = values[0][2], _d = values[0][3], 
           _e = values[1][0], _f = values[1][1], _g = values[1][2], _h = values[1][3], 
@@ -160,8 +147,7 @@ public:
         return *this;
     }
 
-    mat4<T>& operator*=(const T& rhs)
-    {
+    mat4<T>& operator*=(const T& rhs) {
         // clang-format off
         values[0][0]*=rhs; values[0][1]*=rhs; values[0][2]*=rhs; values[0][3]*=rhs;
         values[1][0]*=rhs; values[1][1]*=rhs; values[1][2]*=rhs; values[1][3]*=rhs;
@@ -170,8 +156,7 @@ public:
         return *this;
     }
 
-    mat4<T>& operator/=(const T& rhs)
-    {
+    mat4<T>& operator/=(const T& rhs) {
         // clang-format off
         values[0][0] /= rhs; values[0][1] /= rhs; values[0][2] /= rhs; values[0][3] /= rhs;
         values[1][0] /= rhs; values[1][1] /= rhs; values[1][2] /= rhs; values[1][3] /= rhs;
@@ -190,8 +175,7 @@ public:
 };
 
 template<class U>
-std::ostream& operator<<(std::ostream& out, const mat4<U>& mat)
-{
+std::ostream& operator<<(std::ostream& out, const mat4<U>& mat) {
     out << "[\n\t" // clang-format off
         << mat[0][0] << ", " << mat[0][1] << ", " << mat[0][2] << ", " << mat[0][3] << ";\n\t"
         << mat[1][0] << ", " << mat[1][1] << ", " << mat[1][2] << ", " << mat[1][3] << ";\n\t"

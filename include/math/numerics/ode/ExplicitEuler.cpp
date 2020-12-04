@@ -1,8 +1,7 @@
 #include "ExplicitEuler.h"
 
 
-ODEResult odeEulerExp(const ODE& fun, const std::vector<float>& tInterval, const std::vector<float>& y0, float h)
-{
+ODEResult odeEulerExp(const ODE& fun, const std::vector<float>& tInterval, const std::vector<float>& y0, float h) {
     size_t dim       = tInterval.size();
     size_t elem_size = y0.size();
     if(h == 0) { h = (tInterval[dim - 1] - tInterval[0]) / 1000; }
@@ -17,8 +16,7 @@ ODEResult odeEulerExp(const ODE& fun, const std::vector<float>& tInterval, const
     t[0] = tInterval[0];
     y[0] = y0;
 
-    for(size_t i = 1; i < n; i++)
-    {
+    for(size_t i = 1; i < n; i++) {
         auto cur_t                   = t[i - 1];
         std::vector<float> cur_y     = y[i - 1];
         std::vector<float> fun_value = fun(cur_t, cur_y);

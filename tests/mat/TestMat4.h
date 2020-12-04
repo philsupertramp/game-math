@@ -8,8 +8,7 @@
 template<class T>
 class Mat4TestCase : public Test
 {
-    bool TestInitialization()
-    {
+    bool TestInitialization() {
         mat4<T> foo;
         assert(foo[0][0] == (T)0);
         assert(foo[0][1] == (T)0);
@@ -30,8 +29,7 @@ class Mat4TestCase : public Test
 
         return true;
     }
-    bool TestUtils()
-    {
+    bool TestUtils() {
         mat4<T> foo = mat4<T>::Unit();
         assert(foo[0][0] == (T)1);
         assert(foo[0][1] == (T)0);
@@ -132,8 +130,7 @@ class Mat4TestCase : public Test
         return true;
     }
 
-    bool TestMath()
-    {
+    bool TestMath() {
         mat4<T> foo(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
         mat4<T> bar(17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32);
         vec4<T> vec(1, 2, 3, 4);
@@ -339,8 +336,7 @@ class Mat4TestCase : public Test
     }
 
 public:
-    void run(bool _extended) override
-    {
+    void run(bool _extended) override {
         extended = _extended;
         TestInitialization();
         TestUtils();
@@ -348,8 +344,7 @@ public:
     }
 };
 
-bool TestMat4()
-{
+bool TestMat4() {
     Mat4TestCase<int>().run(false);
     Mat4TestCase<float>().run(true);
     Mat4TestCase<double>().run(true);

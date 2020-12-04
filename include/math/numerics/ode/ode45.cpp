@@ -1,8 +1,7 @@
 #include "ode45.h"
 
 
-ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::vector<float>& y0, float h)
-{
+ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::vector<float>& y0, float h) {
     size_t dim       = tInterval.size();
     size_t elem_size = y0.size();
     if(h == 0) { h = (tInterval[dim - 1] - tInterval[0]) / 1000; }
@@ -34,22 +33,18 @@ ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::
 
     y[0] = y0;
     t[0] = tInterval[0];
-    for(size_t l = 0; l < n - 1; l++)
-    {
+    for(size_t l = 0; l < n - 1; l++) {
         t[l + 1] = t[l] + h;
         auto k   = zeros(6, elem_size);
-        for(size_t i_k = 0; i_k < 6; i_k++)
-        {
+        for(size_t i_k = 0; i_k < 6; i_k++) {
             std::vector<float> y_k = y[l];
 
-            for(size_t j = 0; j < i_k; j++)
-            {
+            for(size_t j = 0; j < i_k; j++) {
                 for(size_t elem = 0; elem < elem_size; elem++) { y_k[elem] += +h * a[i_k][j] * k[j][elem]; }
             }
             k[i_k] = fun(t[l] + c[i_k] * h, y_k);
         }
-        for(size_t elem = 0; elem < elem_size; elem++)
-        {
+        for(size_t elem = 0; elem < elem_size; elem++) {
             // clang-format off
             y[l + 1][elem] = (y[l][elem]
                               + h * (b5[0] * k[0][elem] + b5[1] * k[1][elem]

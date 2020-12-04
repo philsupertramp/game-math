@@ -8,8 +8,7 @@
 template<class T>
 class Mat3TestCase : public Test
 {
-    bool TestInitialization()
-    {
+    bool TestInitialization() {
         mat3<T> foo;
         assert(foo[0][0] == (T)0);
         assert(foo[0][1] == (T)0);
@@ -18,8 +17,7 @@ class Mat3TestCase : public Test
 
         return true;
     }
-    bool TestUtils()
-    {
+    bool TestUtils() {
         mat3<T> foo = mat3<T>::Unit();
         assert(foo[0][0] == (T)1);
         assert(foo[0][1] == (T)0);
@@ -84,8 +82,7 @@ class Mat3TestCase : public Test
         return true;
     }
 
-    bool TestMath()
-    {
+    bool TestMath() {
         mat3<T> foo(1, 2, 3, 4, 5, 6, 7, 8, 9);
         mat3<T> bar(10, 11, 12, 13, 14, 15, 16, 17, 18);
         vec3<T> vec(1, 2, 3);
@@ -218,8 +215,7 @@ class Mat3TestCase : public Test
     }
 
 public:
-    void run(bool _extended) override
-    {
+    void run(bool _extended) override {
         extended = _extended;
         TestInitialization();
         TestUtils();
@@ -227,8 +223,7 @@ public:
     }
 };
 
-bool TestMat3()
-{
+bool TestMat3() {
     Mat3TestCase<int>().run(false);
     Mat3TestCase<float>().run(true);
     Mat3TestCase<double>().run(true);

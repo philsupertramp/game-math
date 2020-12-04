@@ -1,8 +1,8 @@
 /**
  * In place LU decomposition, places L and U in resulting matrix
- * 
+ *
  * A = L * U
- * 
+ *
  * L = [
  *        1, 0, 0, ...
  *        l_{2,1}, 1, 0, ...
@@ -23,4 +23,4 @@
 #pragma once
 #include <vector>
 
-std::pair<std::vector<std::vector<float>>, std::vector<unsigned int>> LU(std::vector<std::vector<float>> &A);
+std::pair<std::vector<std::vector<float>>, std::vector<unsigned int>> LU(std::vector<std::vector<float>>& A);

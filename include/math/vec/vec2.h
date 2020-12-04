@@ -4,8 +4,7 @@
 #include <ostream>
 
 template<class T>
-struct vec2
-{
+struct vec2 {
 public:
 #ifdef MATH_SILENCE_WARNING
     #if COMPILER_GCC
@@ -20,10 +19,8 @@ public:
         #pragma warning(disable : 4201) // nonstandard extension used : nameless struct/union
     #endif
 #endif
-    union
-    {
-        struct
-        {
+    union {
+        struct {
             T x, y;
         };
     };
@@ -38,23 +35,19 @@ public:
     #endif
 #endif
 
-    vec2()
-    {
+    vec2() {
         x = static_cast<T>(0.0f);
         y = static_cast<T>(0.0f);
     }
-    vec2(T _x, T _y)
-    {
+    vec2(T _x, T _y) {
         x = _x;
         y = _y;
     }
-    explicit vec2(T _v)
-    {
+    explicit vec2(T _v) {
         x = _v;
         y = _v;
     }
-    constexpr vec2(const vec2<T>& _v)
-    {
+    constexpr vec2(const vec2<T>& _v) {
         x = _v.x;
         y = _v.y;
     }
@@ -72,26 +65,22 @@ public:
     friend vec2<T> operator/(vec2<T> lhs, const T& rhs) { return lhs /= rhs; }
 
     /* compound assignment */
-    vec2<T>& operator+=(const vec2<T>& rhs)
-    {
+    vec2<T>& operator+=(const vec2<T>& rhs) {
         x += rhs.x;
         y += rhs.y;
         return *this;
     }
-    vec2<T>& operator-=(const vec2<T>& rhs)
-    {
+    vec2<T>& operator-=(const vec2<T>& rhs) {
         x -= rhs.x;
         y -= rhs.y;
         return *this;
     }
-    vec2<T>& operator*=(const T& rhs)
-    {
+    vec2<T>& operator*=(const T& rhs) {
         x *= rhs;
         y *= rhs;
         return *this;
     }
-    vec2<T>& operator/=(const T& rhs)
-    {
+    vec2<T>& operator/=(const T& rhs) {
         x /= rhs;
         y /= rhs;
         return *this;
@@ -102,27 +91,22 @@ public:
     friend bool operator==(const vec2<T>& lhs, const vec2<T>& rhs) { return lhs.x == rhs.x && lhs.y == rhs.y; }
     /* explicit type casts */
 
-    constexpr vec2<T>& operator=(vec2<T> const& V)
-    {
+    constexpr vec2<T>& operator=(vec2<T> const& V) {
         this->x = static_cast<T>(V.x);
         this->y = static_cast<T>(V.y);
         return *this;
     }
 
     /* Member access */
-    T& operator[](int index)
-    {
-        switch(index)
-        {
+    T& operator[](int index) {
+        switch(index) {
             default:
             case 0: return x;
             case 1: return y;
         }
     }
-    const T& operator[](int index) const
-    {
-        switch(index)
-        {
+    const T& operator[](int index) const {
+        switch(index) {
             default:
             case 0: return x;
             case 1: return y;
@@ -135,16 +119,14 @@ public:
 };
 
 template<class T>
-std::ostream& operator<<(std::ostream& os, const vec2<T>& obj)
-{
+std::ostream& operator<<(std::ostream& os, const vec2<T>& obj) {
     os << obj.x << ", " << obj.y << std::endl;
     return os;
 }
 
 
 template<class T>
-vec2<T> build_vec2(void* in)
-{
+vec2<T> build_vec2(void* in) {
     T* values = (T*)in;
     return vec2<T>(values[0], values[1]);
 }

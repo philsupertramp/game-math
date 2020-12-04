@@ -11,8 +11,7 @@ class Vec4TestCase : public Test
 {
     bool extended = false;
 
-    bool testInitialization()
-    {
+    bool testInitialization() {
         vec4<T> foo;
         assert(foo.x == (T)0);
         assert(foo.y == (T)0);
@@ -34,8 +33,7 @@ class Vec4TestCase : public Test
 
         return true;
     }
-    bool testAssignment()
-    {
+    bool testAssignment() {
         vec4<T> foo;
 
         foo.x = (T)1;
@@ -59,8 +57,7 @@ class Vec4TestCase : public Test
         assert(foo.w == (T)8);
         return true;
     }
-    bool testMemberAccess()
-    {
+    bool testMemberAccess() {
         vec4<T> foo;
 
         foo.x = (T)1;
@@ -74,8 +71,7 @@ class Vec4TestCase : public Test
         assert(foo[3] == 4);
         return true;
     }
-    bool testMisc()
-    {
+    bool testMisc() {
         vec4<T> foo(2, 2, 2, 2);
         vec4<T> bar(2, -2, 2, 2);
         vec4<T> baz(10, 0, 2, 2);
@@ -84,8 +80,7 @@ class Vec4TestCase : public Test
         assert(bar.length() == 4.0f);
         assert(baz.length() == 10.3923044f);
 
-        if(extended)
-        {
+        if(extended) {
             vec4<T> normFoo = foo.normalize();
             vec4<T> normBar = bar.normalize();
             vec4<T> normBaz = baz.normalize();
@@ -106,8 +101,7 @@ class Vec4TestCase : public Test
         }
         return true;
     }
-    bool testOperators()
-    {
+    bool testOperators() {
         vec4<T> foo(1, 1, 1, 1);
         vec4<T> bar(1, -1, 1, 1);
         vec4<T> baz(10, 0, 0, 0);
@@ -175,8 +169,7 @@ class Vec4TestCase : public Test
     }
 
 public:
-    void run(bool _extended = false) override
-    {
+    void run(bool _extended = false) override {
         extended = _extended;
 
         testInitialization();
@@ -187,8 +180,7 @@ public:
     }
 };
 
-bool TestVec4()
-{
+bool TestVec4() {
     Vec4TestCase<int>().run();
     Vec4TestCase<float>().run(true);
     Vec4TestCase<double>().run(true);

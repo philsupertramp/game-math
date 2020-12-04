@@ -6,35 +6,29 @@
 #include "vec/vec3.h"
 #include "vec/vec4.h"
 
-namespace Math::Utils
-{
+namespace Math::Utils {
     template<class V>
-    float distance(V a, V b)
-    {
+    float distance(V a, V b) {
         return (a - b).length();
     }
 
     template<class T>
-    vec2<T> normalize(vec2<T> a)
-    {
+    vec2<T> normalize(vec2<T> a) {
         return a.normalize();
     }
 
     template<class T>
-    vec3<T> normalize(vec3<T> a)
-    {
+    vec3<T> normalize(vec3<T> a) {
         return a.normalize();
     }
 
     template<class T>
-    vec4<T> normalize(vec4<T> a)
-    {
+    vec4<T> normalize(vec4<T> a) {
         return a.normalize();
     }
 
     template<class T>
-    mat4<T> translate(mat4<T> M, vec3<T> V)
-    {
+    mat4<T> translate(mat4<T> M, vec3<T> V) {
         mat4<T> translation = M;
         vec3<T> res         = vec3<T>(M[0]) * V.x + vec3<T>(M[1]) * V.y + vec3<T>(M[2]) * V.z + vec3<T>(M[3]);
         translation[3][0]   = res.x;
@@ -44,32 +38,31 @@ namespace Math::Utils
     }
 
     template<class T>
-    mat4<T> lookAt(vec3<T> eye, vec3<T> center, vec3<T> up)
-    {
+    mat4<T> lookAt(vec3<T> eye, vec3<T> center, vec3<T> up) {
         vec3<T> zaxis = normalize(center - eye);
         vec3<T> xaxis = normalize(zaxis.cross(up));
         vec3<T> yaxis = xaxis.cross(zaxis);
-        return mat4<T>(xaxis.x,
-                       yaxis.x,
-                       -zaxis.x,
-                       0.0f,
-                       xaxis.y,
-                       yaxis.y,
-                       -zaxis.y,
-                       0.0f,
-                       xaxis.z,
-                       yaxis.z,
-                       -zaxis.z,
-                       0.0f,
-                       -(xaxis * eye),
-                       -(yaxis * eye),
-                       -(zaxis * eye),
-                       1.0f);
+        return mat4<T>(
+        xaxis.x,
+        yaxis.x,
+        -zaxis.x,
+        0.0f,
+        xaxis.y,
+        yaxis.y,
+        -zaxis.y,
+        0.0f,
+        xaxis.z,
+        yaxis.z,
+        -zaxis.z,
+        0.0f,
+        -(xaxis * eye),
+        -(yaxis * eye),
+        -(zaxis * eye),
+        1.0f);
     }
 
     template<class T>
-    mat4<T> ortho(float left, float right, float bottom, float top)
-    {
+    mat4<T> ortho(float left, float right, float bottom, float top) {
         mat4<T> mat;
         mat[0][0] = (T) static_cast<T>(2) / (right - left);
         mat[1][1] = (T) static_cast<T>(2) / (top - bottom);
@@ -81,43 +74,40 @@ namespace Math::Utils
     }
 
     template<class T>
-    mat4<T> perspective(float FOV, float width, float height, float zNear, float zFar)
-    {
+    mat4<T> perspective(float FOV, float width, float height, float zNear, float zFar) {
         float halfTanFOV = tanf(FOV / static_cast<T>(2));
         float aspect     = width / height;
-        return mat4<T>(static_cast<T>(1) / (aspect * halfTanFOV),
-                       0,
-                       0,
-                       0,
-                       0,
-                       static_cast<T>(1) / (halfTanFOV),
-                       0,
-                       0,
-                       0,
-                       0,
-                       -(zFar + zNear) / (zFar - zNear),
-                       -static_cast<T>(1),
-                       0,
-                       0,
-                       -(static_cast<T>(2) * zFar * zNear) / (zFar - zNear),
-                       0);
+        return mat4<T>(
+        static_cast<T>(1) / (aspect * halfTanFOV),
+        0,
+        0,
+        0,
+        0,
+        static_cast<T>(1) / (halfTanFOV),
+        0,
+        0,
+        0,
+        0,
+        -(zFar + zNear) / (zFar - zNear),
+        -static_cast<T>(1),
+        0,
+        0,
+        -(static_cast<T>(2) * zFar * zNear) / (zFar - zNear),
+        0);
     }
 
     template<class T>
-    mat4<T> angleAxis(float angle, vec3<T> axis)
-    {
+    mat4<T> angleAxis(float angle, vec3<T> axis) {
         vec4<T> q(axis.x, axis.y, axis.z, angle);
     }
 
     template<class T>
-    mat4<T> scale(mat4<T> mat, float factor)
-    {
+    mat4<T> scale(mat4<T> mat, float factor) {
         return (mat4<T>::Unit() * factor) * mat;
     }
 
     template<class T>
-    mat4<T> rotate(mat4<T> m, float angle, vec3<T> u)
-    {
+    mat4<T> rotate(mat4<T> m, float angle, vec3<T> u) {
         T const cosAngle = cosf(angle);
         T const sinAngle = sinf(angle);
 
@@ -147,14 +137,12 @@ namespace Math::Utils
 
     // Possibly wrong
     template<class T>
-    vec3<T> max(vec3<T> a, vec3<T> b)
-    {
+    vec3<T> max(vec3<T> a, vec3<T> b) {
         return a.length() > b.length() ? a : b;
     }
 
     template<class T>
-    vec3<T> lerp(vec3<T> p1, vec3<T> p2, float v)
-    {
+    vec3<T> lerp(vec3<T> p1, vec3<T> p2, float v) {
         T ax = p1[0];
         T ay = p1[1];
         T az = p1[2];
@@ -163,63 +151,51 @@ namespace Math::Utils
 } // namespace Math::Utils
 
 template<class T>
-void* value_ptr(vec2<T>& vec)
-{
+void* value_ptr(vec2<T>& vec) {
     return &(vec.x);
 }
 template<class T>
-void* value_ptr(vec3<T>& vec)
-{
+void* value_ptr(vec3<T>& vec) {
     return &(vec.x);
 }
 template<class T>
-void* value_ptr(vec4<T>& vec)
-{
+void* value_ptr(vec4<T>& vec) {
     return &(vec.x);
 }
 template<class T>
-void* value_ptr(mat2<T>& mat)
-{
+void* value_ptr(mat2<T>& mat) {
     return &(mat[0][0]);
 }
 template<class T>
-void* value_ptr(mat3<T>& mat)
-{
+void* value_ptr(mat3<T>& mat) {
     return &(mat[0][0]);
 }
 template<class T>
-void* value_ptr(mat4<T>& mat)
-{
+void* value_ptr(mat4<T>& mat) {
     return &(mat[0][0]);
 }
 
 template<class T>
-const void* value_ptr(vec2<T> const& vec)
-{
+const void* value_ptr(vec2<T> const& vec) {
     return &(vec.x);
 }
 template<class T>
-const void* value_ptr(vec3<T> const& vec)
-{
+const void* value_ptr(vec3<T> const& vec) {
     return &(vec.x);
 }
 template<class T>
-const void* value_ptr(vec4<T> const& vec)
-{
+const void* value_ptr(vec4<T> const& vec) {
     return &(vec.x);
 }
 template<class T>
-const void* value_ptr(mat2<T> const& mat)
-{
+const void* value_ptr(mat2<T> const& mat) {
     return &(mat[0][0]);
 }
 template<class T>
-const void* value_ptr(mat3<T> const& mat)
-{
+const void* value_ptr(mat3<T> const& mat) {
     return &(mat[0][0]);
 }
 template<class T>
-const void* value_ptr(mat4<T> const& mat)
-{
+const void* value_ptr(mat4<T> const& mat) {
     return &(mat[0][0]);
 }

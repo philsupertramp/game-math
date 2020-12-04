@@ -11,8 +11,7 @@ class Vec3TestCase : public Test
 {
     bool extended = false;
 
-    bool testInitialization()
-    {
+    bool testInitialization() {
         vec3<T> foo;
         assert(foo.x == (T)0);
         assert(foo.y == (T)0);
@@ -31,8 +30,7 @@ class Vec3TestCase : public Test
 
         return true;
     }
-    bool testAssignment()
-    {
+    bool testAssignment() {
         vec3<T> foo;
 
         foo.x = (T)1;
@@ -52,8 +50,7 @@ class Vec3TestCase : public Test
         assert(foo.z == (T)6);
         return true;
     }
-    bool testMemberAccess()
-    {
+    bool testMemberAccess() {
         vec3<T> foo;
 
         foo.x = (T)1;
@@ -65,8 +62,7 @@ class Vec3TestCase : public Test
         assert(foo[2] == 3);
         return true;
     }
-    bool testMisc()
-    {
+    bool testMisc() {
         vec3<T> foo(2, 2, 2);
         vec3<T> bar(2, -2, 2);
         vec3<T> baz(10, 0, 2);
@@ -83,8 +79,7 @@ class Vec3TestCase : public Test
         assert(baz.cross(foo) == vec3<T>(-4, -16, 20));
         assert(baz.cross(bar) == vec3<T>(4, -16, -20));
 
-        if(extended)
-        {
+        if(extended) {
             vec3<T> normFoo = foo.normalize();
             vec3<T> normBar = bar.normalize();
             vec3<T> normBaz = baz.normalize();
@@ -102,8 +97,7 @@ class Vec3TestCase : public Test
         }
         return true;
     }
-    bool testOperators()
-    {
+    bool testOperators() {
         vec3<T> foo(1, 1, 1);
         vec3<T> bar(1, -1, 1);
         vec3<T> baz(10, 0, 0);
@@ -163,8 +157,7 @@ class Vec3TestCase : public Test
     }
 
 public:
-    virtual void run(bool _extended = false) override
-    {
+    virtual void run(bool _extended = false) override {
         extended = _extended;
 
         testInitialization();
@@ -175,8 +168,7 @@ public:
     }
 };
 
-bool TestVec3()
-{
+bool TestVec3() {
     Vec3TestCase<int>().run();
     Vec3TestCase<float>().run(true);
     Vec3TestCase<double>().run(true);
