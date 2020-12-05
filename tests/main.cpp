@@ -1,6 +1,6 @@
 
-#include "ds/TestMatrixDS.h"
 #include "ds/TestClassifier.h"
+#include "ds/TestMatrixDS.h"
 #include "mat/TestMat2.h"
 #include "mat/TestMat3.h"
 #include "mat/TestMat4.h"

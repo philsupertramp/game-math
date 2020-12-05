@@ -102,27 +102,28 @@ bool TestHadamardMultiplication() {
     return true;
 }
 
-bool TestKroneckerMultiplication(){
-    MatrixDS<1,2> A(1.0);
-    MatrixDS<2,1> B(2.0);
-    MatrixDS<2,2> C(2.0);
+bool TestKroneckerMultiplication() {
+    MatrixDS<1, 2> A(1.0);
+    MatrixDS<2, 1> B(2.0);
+    MatrixDS<2, 2> C(2.0);
 
     auto resA = A.KroneckerMulti(B);
 
     assert(resA == C);
 
-    MatrixDS<2,2> A2({{1,2},{3,4}});
-    MatrixDS<2,2> B2({{0,5},{6,7}});
-    MatrixDS<4,4> C2({{0, 5, 0, 10},{6, 7, 12, 14},{0, 15, 0, 20},{18, 21, 24, 28}});
+    MatrixDS<2, 2> A2({ { 1, 2 }, { 3, 4 } });
+    MatrixDS<2, 2> B2({ { 0, 5 }, { 6, 7 } });
+    MatrixDS<4, 4> C2({ { 0, 5, 0, 10 }, { 6, 7, 12, 14 }, { 0, 15, 0, 20 }, { 18, 21, 24, 28 } });
 
-    MatrixDS<4,4> resB = A2.KroneckerMulti(B2);
+    MatrixDS<4, 4> resB = A2.KroneckerMulti(B2);
 
     assert(resB == C2);
 
-    MatrixDS<3,2> A3({{1,2}, {3,4}, {5,6}});
-    MatrixDS<3,2> A32({{1,2}, {3,4}, {5,6}});
-    MatrixDS<2,2> B3({{7, 8}, {9, 0}});
-    MatrixDS<6,4> C3({{7,8,14,16},{9, 0, 18, 0}, {21, 24, 28, 32}, {27, 0, 36, 0}, {35, 40, 42, 48}, {45, 0, 54, 0}});
+    MatrixDS<3, 2> A3({ { 1, 2 }, { 3, 4 }, { 5, 6 } });
+    MatrixDS<3, 2> A32({ { 1, 2 }, { 3, 4 }, { 5, 6 } });
+    MatrixDS<2, 2> B3({ { 7, 8 }, { 9, 0 } });
+    MatrixDS<6, 4> C3(
+    { { 7, 8, 14, 16 }, { 9, 0, 18, 0 }, { 21, 24, 28, 32 }, { 27, 0, 36, 0 }, { 35, 40, 42, 48 }, { 45, 0, 54, 0 } });
 
     auto resC = A3.KroneckerMulti(B3);
     assert(resC == C3);
@@ -133,11 +134,11 @@ bool TestKroneckerMultiplication(){
     return true;
 }
 
-bool TestHorizontalConcat(){
-    MatrixDS<2,2> A(1.0);
-    MatrixDS<2,2> A2(1.0);
+bool TestHorizontalConcat() {
+    MatrixDS<2, 2> A(1.0);
+    MatrixDS<2, 2> A2(1.0);
     MatrixDS<2> B(2.0);
-    MatrixDS<2,3> C({{1.0,1.0,2.0},{1.0,1.0,2.0}});
+    MatrixDS<2, 3> C({ { 1.0, 1.0, 2.0 }, { 1.0, 1.0, 2.0 } });
 
     auto res1 = A.HorizontalConcat(B);
 
