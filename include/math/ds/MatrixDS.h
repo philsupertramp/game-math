@@ -75,6 +75,17 @@ public:
         return res;
     }
 
+    template<size_t C>
+    MatrixDS<Rows, Columns + C, T> HorizontalConcat(const MatrixDS<Rows,C,T> &other){
+        auto result = new MatrixDS<Rows, Columns + C, T>();
+        for(size_t i = 0; i < Rows; ++i) {
+            for(size_t j = 0; j < Columns + C; ++j) {
+                (*result)[i][j] = j < columns() ? _data[i][j] : other[i][j-columns()];
+            }
+        }
+        return *result;
+    }
+
     /** OPERATORS **/
 
     // Comparison
@@ -248,6 +259,17 @@ MatrixDS<Rows * R, Columns * C, T>& KroneckerMulti(const MatrixDS<Rows,Columns,T
                     (*result)[m*rhs.rows() + p][n*rhs.columns() + q] = lhs[m][n] * rhs[p][q];
                 }
             }
+        }
+    }
+    return *result;
+}
+
+template<size_t Rows, size_t Columns, typename T, size_t C>
+MatrixDS<Rows, Columns + C, T> HorizontalConcat(const MatrixDS<Rows, Columns, T> &lhs, const MatrixDS<Rows,C,T> &rhs){
+    auto result = new MatrixDS<Rows, Columns + C, T>();
+    for(size_t i = 0; i < Rows; ++i) {
+        for(size_t j = 0; j < Columns + C; ++j) {
+            (*result)[i][j] = j < lhs.columns() ? lhs[i][j] : rhs[i][j-lhs.columns()];
         }
     }
     return *result;
