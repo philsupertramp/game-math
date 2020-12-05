@@ -44,6 +44,12 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/lin_alg/gaussianElimination.cpp
             )
 endif()
+if (MATH_EXTENSIONS MATCHES "(ds)")
+    set(LIB_SOURCES
+        ${LIB_SOURCES}
+            include/math/ds/MatrixDS.h
+    )
+endif ()
 
 add_library(math-lib SHARED ${LIB_SOURCES})
 set_target_properties(math-lib PROPERTIES LINKER_LANGUAGE CXX)

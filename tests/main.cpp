@@ -1,4 +1,5 @@
 
+#include "ds/TestMatrixDS.h"
 #include "mat/TestMat2.h"
 #include "mat/TestMat3.h"
 #include "mat/TestMat4.h"
@@ -34,6 +35,8 @@ int main([[maybe_unused]] int nargs, [[maybe_unused]] char* argv[]) {
     TestLU();
 
     TestGaussianElimination();
+
+    TestMatrixDS();
 
     return 0;
 }
