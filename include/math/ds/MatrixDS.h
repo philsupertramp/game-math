@@ -2,6 +2,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <initializer_list>
+#include <iostream>
 #include <type_traits>
 
 
@@ -188,6 +189,16 @@ public:
         return *result;
     }
 
+    double& sumElements(){
+        auto result = new T(0.0);
+        for(size_t i = 0; i < Rows; i++){
+            for(size_t j = 0; j < Columns; j++){
+                (*result) += _data[i][j];
+            }
+        }
+        return *result;
+    }
+
     friend MatrixDS<Rows, Columns, T> operator+(MatrixDS<Rows, Columns, T> lhs, const MatrixDS<Rows, Columns, T>& rhs) {
         return lhs += rhs;
     }
@@ -197,10 +208,34 @@ public:
         }
         return *this;
     }
+    friend MatrixDS<Rows, Columns, T> operator-(MatrixDS<Rows, Columns, T> lhs, const MatrixDS<Rows, Columns, T>& rhs) {
+        return lhs -= rhs;
+    }
+    MatrixDS<Rows, Columns, T>& operator-=(const MatrixDS<Rows, Columns, T>& rhs) {
+        for(size_t i = 0; i < Rows; i++) {
+            for(size_t j = 0; j < Columns; j++) { _data[i][j] -= rhs[i][j]; }
+        }
+        return *this;
+    }
 
     // Access
     T* operator[](size_t index) { return _data[index]; }
     const T* operator[](size_t index) const { return _data[index]; }
+
+    friend std::ostream &operator<<(std::ostream &ostr, MatrixDS const &m) {
+        ostr << "[\n";
+        for (size_t col = 0; col < m.columns(); col++) {
+            ostr << '\t';
+            for (size_t row = 0; row < m.rows(); row++) {
+                ostr << m._data[row][col];
+                if (row < m.rows() - 1)
+                    ostr << ", ";
+            }
+            ostr << "\n";
+        }
+        ostr << "]\n";
+        return ostr;
+    }
 
 private:
     [[nodiscard]] constexpr bool HasDet() const { return Columns > 1 && Rows > 1; }
@@ -212,6 +247,7 @@ class MatrixDS<1, 1, T>
 {
 public:
     explicit MatrixDS(T val) { _data = val; }
+    MatrixDS() = default;
 
     [[nodiscard]] constexpr inline size_t rows() const { return 1; }
     [[nodiscard]] constexpr inline size_t columns() const { return 1; }
@@ -240,6 +276,10 @@ double MatrixDS<3, 3, double>::Determinant() const {
     + _data[0][2] * _data[1][0] * _data[2][1] - _data[0][2] * _data[1][1] * _data[2][0]
     - _data[0][1] * _data[1][0] * _data[2][2] - _data[0][0] * _data[1][2] * _data[2][1]);
 }
+
+/**
+ * Helper utilities
+ */
 template<size_t R, size_t C, typename T>
 MatrixDS<R, C, T>& HadamardMulti(const MatrixDS<R, C, T>& lhs, const MatrixDS<R, C, T>& rhs) {
     auto result = new MatrixDS<R, C, T>(0.0);

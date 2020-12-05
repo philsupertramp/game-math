@@ -1,5 +1,6 @@
 
 #include "ds/TestMatrixDS.h"
+#include "ds/TestClassifier.h"
 #include "mat/TestMat2.h"
 #include "mat/TestMat3.h"
 #include "mat/TestMat4.h"
@@ -37,6 +38,8 @@ int main([[maybe_unused]] int nargs, [[maybe_unused]] char* argv[]) {
     TestGaussianElimination();
 
     TestMatrixDS();
+
+    TestClassifier();
 
     return 0;
 }
