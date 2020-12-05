@@ -8,7 +8,7 @@
 template<size_t Rows, size_t Columns = 1, typename T = double>
 class MatrixDS
 {
-//    static_assert(Columns > 0 && Rows > 0, "Cannot initialize empty matrix.");
+    //    static_assert(Columns > 0 && Rows > 0, "Cannot initialize empty matrix.");
 
 public:
     explicit MatrixDS(T val) {
@@ -29,7 +29,7 @@ public:
             ++i;
         }
     }
-    MatrixDS(MatrixDS const &) = default;
+    MatrixDS(MatrixDS const&) = default;
 
     ~MatrixDS() {
         if(_data != nullptr) { }
@@ -43,10 +43,10 @@ public:
      * @return
      */
 
-    inline T Determinant() const {
+    [[nodiscard]] inline T Determinant() const {
         if(!HasDet()) return 0;
 
-        MatrixDS<Rows-1,Columns-1,T>submat(0);
+        MatrixDS<Rows - 1, Columns - 1, T> submat(0);
         T d = 0;
         {
             for(size_t c = 0; c < Columns; c++) {
@@ -67,12 +67,10 @@ public:
     }
 
 
-    [[nodiscard]] constexpr MatrixDS<Columns,Rows,T> Transpose() const {
+    [[nodiscard]] constexpr MatrixDS<Columns, Rows, T> Transpose() const {
         MatrixDS<Columns, Rows, T> res;
         for(size_t i = 0; i < Columns; ++i) {
-            for(size_t j = 0; j < Rows; ++j) {
-                res[i][j] = this->_data[j][i];
-            }
+            for(size_t j = 0; j < Rows; ++j) { res[i][j] = this->_data[j][i]; }
         }
         return res;
     }
@@ -81,12 +79,12 @@ public:
 
     // Comparison
 
-    bool operator==(const MatrixDS<Rows,Columns,T>& rhs) const {
+    bool operator==(const MatrixDS<Rows, Columns, T>& rhs) const {
         // Just need to check element-wise
         // Dimensions handled by implementation.
         return elementWiseCompare(rhs);
     }
-    bool operator!=(const MatrixDS<Rows,Columns,T>& rhs) const {
+    bool operator!=(const MatrixDS<Rows, Columns, T>& rhs) const {
         return !(rhs == *this); // NOLINT
     }
 
@@ -95,7 +93,7 @@ public:
      * @param rhs
      * @return
      */
-    [[nodiscard]] bool elementWiseCompare(const MatrixDS<Rows,Columns,T>& rhs) const {
+    [[nodiscard]] bool elementWiseCompare(const MatrixDS<Rows, Columns, T>& rhs) const {
         for(size_t i = 0; i < Rows; i++) {
             for(size_t j = 0; j < Columns; j++) {
                 if(_data[i][j] != rhs[i][j]) { return false; }
@@ -142,12 +140,10 @@ public:
      */
     template<size_t R, size_t C, class = typename std::enable_if_t<Columns == R>>
     friend MatrixDS<Rows, C, T>& operator*(const MatrixDS<Rows, Columns, T>& lhs, const MatrixDS<R, C, T>& rhs) {
-        auto result = new MatrixDS<Rows,C,T>(0.0);
+        auto result = new MatrixDS<Rows, C, T>(0.0);
         for(size_t i = 0; i < Rows; i++) {
             for(size_t j = 0; j < C; j++) {
-                for(size_t k = 0; k < R; k++) {
-                    (*result)[i][j] += (T)(lhs[k][i] * rhs[j][k]);
-                }
+                for(size_t k = 0; k < R; k++) { (*result)[i][j] += (T)(lhs[k][i] * rhs[j][k]); }
             }
         }
         return *result;
@@ -159,21 +155,19 @@ public:
      * @param other
      * @return
      */
-    MatrixDS& HadamardMulti(const MatrixDS& other){
-        for(size_t i = 0; i < Rows; i++){
-            for(size_t j = 0; j < Columns; j++){
-                _data[i][j] *= other[i][j];
-            }
+    MatrixDS& HadamardMulti(const MatrixDS& other) {
+        for(size_t i = 0; i < Rows; i++) {
+            for(size_t j = 0; j < Columns; j++) { _data[i][j] *= other[i][j]; }
         }
         return *this;
     }
 
-    friend MatrixDS<Rows, Columns, T> operator+(MatrixDS<Rows, Columns, T> lhs, const MatrixDS<Rows,Columns,T>& rhs) { return lhs += rhs; }
+    friend MatrixDS<Rows, Columns, T> operator+(MatrixDS<Rows, Columns, T> lhs, const MatrixDS<Rows, Columns, T>& rhs) {
+        return lhs += rhs;
+    }
     MatrixDS<Rows, Columns, T>& operator+=(const MatrixDS<Rows, Columns, T>& rhs) {
         for(size_t i = 0; i < Rows; i++) {
-            for(size_t j = 0; j < Columns; j++) {
-                _data[i][j] += rhs[i][j];
-            }
+            for(size_t j = 0; j < Columns; j++) { _data[i][j] += rhs[i][j]; }
         }
         return *this;
     }
@@ -183,17 +177,15 @@ public:
     const T* operator[](size_t index) const { return _data[index]; }
 
 private:
-    [[nodiscard]] constexpr bool HasDet() const {
-        return Columns > 1 && Rows > 1;
-    }
+    [[nodiscard]] constexpr bool HasDet() const { return Columns > 1 && Rows > 1; }
     T _data[Rows][Columns];
 };
 
 template<typename T>
-class MatrixDS<1,1,T>
+class MatrixDS<1, 1, T>
 {
 public:
-    explicit MatrixDS(T val) {_data = val;}
+    explicit MatrixDS(T val) { _data = val; }
 
     [[nodiscard]] constexpr inline size_t rows() const { return 1; }
     [[nodiscard]] constexpr inline size_t columns() const { return 1; }
@@ -201,9 +193,7 @@ public:
     T* operator[]([[maybe_unused]] size_t index) { return &_data; }
     const T* operator[]([[maybe_unused]] size_t index) const { return &_data; }
 
-    inline T Determinant() const {
-        return 0;
-    }
+    inline T Determinant() const { return 0; }
 
 private:
     T _data = {};
@@ -214,21 +204,21 @@ private:
  */
 
 template<>
-double MatrixDS<2,2,double>::Determinant() const {
+double MatrixDS<2, 2, double>::Determinant() const {
     return _data[0][0] * _data[1][1] - _data[0][1] * _data[1][0];
 }
 template<>
-double MatrixDS<3,3,double>::Determinant() const {
-    return ( _data[0][0] * _data[1][1] * _data[2][2] + _data[0][1] * _data[1][2] * _data[2][0] + _data[0][2] * _data[1][0] * _data[2][1]
-             - _data[0][2] * _data[1][1] * _data[2][0] - _data[0][1] * _data[1][0] * _data[2][2] - _data[0][0] * _data[1][2] * _data[2][1]);
+double MatrixDS<3, 3, double>::Determinant() const {
+    return (
+    _data[0][0] * _data[1][1] * _data[2][2] + _data[0][1] * _data[1][2] * _data[2][0]
+    + _data[0][2] * _data[1][0] * _data[2][1] - _data[0][2] * _data[1][1] * _data[2][0]
+    - _data[0][1] * _data[1][0] * _data[2][2] - _data[0][0] * _data[1][2] * _data[2][1]);
 }
 template<size_t R, size_t C, typename T>
-MatrixDS<R,C,T>& HadamardMulti(const MatrixDS<R,C,T> &lhs, const MatrixDS<R,C,T>& rhs){
-    auto result = new MatrixDS<R,C,T>(0.0);
-    for(size_t i = 0; i < R; i++){
-        for(size_t j = 0; j < C; j++){
-            (*result)[i][j] = lhs[i][j] * rhs[i][j];
-        }
+MatrixDS<R, C, T>& HadamardMulti(const MatrixDS<R, C, T>& lhs, const MatrixDS<R, C, T>& rhs) {
+    auto result = new MatrixDS<R, C, T>(0.0);
+    for(size_t i = 0; i < R; i++) {
+        for(size_t j = 0; j < C; j++) { (*result)[i][j] = lhs[i][j] * rhs[i][j]; }
     }
     return *result;
 }

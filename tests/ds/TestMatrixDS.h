@@ -16,7 +16,7 @@ bool TestMatrixDSMultiplication() {
         for(size_t j = 0; j < D.rows(); ++j) { assert(D[i][j] == 2.0); }
     }
     //    B * C; <- not possible
-    C * C2;
+    C* C2;
 
     MatrixDS<2, 2, double> C3;
     C3 = C * C2;
@@ -29,8 +29,8 @@ bool TestMatrixDSMultiplication() {
         for(size_t j = 0; j < E.rows(); ++j) { assert(E[i][j] == 4.0); }
     }
 
-    MatrixDS<10,1> vec(1.0);
-    MatrixDS<1,10> vec2(2.0);
+    MatrixDS<10, 1> vec(1.0);
+    MatrixDS<1, 10> vec2(2.0);
 
     auto resVec = vec * vec2;
     assert(resVec.rows() == 10);
@@ -40,7 +40,7 @@ bool TestMatrixDSMultiplication() {
     assert(resVec2.columns() == 1);
 
     MatrixDS<2> vec2A(2.0);
-    MatrixDS<2,2> mat2(1.0);
+    MatrixDS<2, 2> mat2(1.0);
     MatrixDS<2> vec2b(4.0);
     MatrixDS<2> resA = mat2 * vec2A;
 
@@ -48,7 +48,7 @@ bool TestMatrixDSMultiplication() {
     return true;
 }
 
-bool TestMatrixAddition(){
+bool TestMatrixAddition() {
     MatrixDS<2, 2, double> A(2.0);
     MatrixDS<2, 2, double> B(2.0);
     MatrixDS<2, 2, double> C;
@@ -70,7 +70,7 @@ bool TestMatrixAddition(){
     return true;
 }
 
-bool TestHadamardMultiplication(){
+bool TestHadamardMultiplication() {
     MatrixDS<2, 2, double> A(1.0);
     MatrixDS<2, 2, double> B(2.015);
 
@@ -78,11 +78,11 @@ bool TestHadamardMultiplication(){
 
     assert(C == B);
 
-    MatrixDS<2, 2, double> D({{0, 1}, {0, 0}});
-    MatrixDS<2, 2, double> D2({{0, 1}, {0, 0}});
+    MatrixDS<2, 2, double> D({ { 0, 1 }, { 0, 0 } });
+    MatrixDS<2, 2, double> D2({ { 0, 1 }, { 0, 0 } });
     MatrixDS<2, 2, double> E(5.0);
-    MatrixDS<2, 2, double> resultA({{0, 5.0}, { 0, 0 } });
-    MatrixDS<2, 2, double> resultB({{0, 25.0}, { 0, 0 } });
+    MatrixDS<2, 2, double> resultA({ { 0, 5.0 }, { 0, 0 } });
+    MatrixDS<2, 2, double> resultB({ { 0, 25.0 }, { 0, 0 } });
 
     assert(D.HadamardMulti(E) == resultA);
     D.HadamardMulti(E);
@@ -96,43 +96,39 @@ bool TestHadamardMultiplication(){
     MatrixDS<5, 2, double> Q3(10.0);
 
     // Impossible
-//    Q1.HadamardMulti(Q2);
-//    Q1.HadamardMulti(Q3);
-//    HadamardMulti(Q1, Q2);
+    //    Q1.HadamardMulti(Q2);
+    //    Q1.HadamardMulti(Q3);
+    //    HadamardMulti(Q1, Q2);
     return true;
 }
 
-bool TestMatrixDSCompare(){
+bool TestMatrixDSCompare() {
     MatrixDS<2, 2, double> A(2.0);
     MatrixDS<2, 2, double> B(2.0);
     MatrixDS<2, 2, double> C;
     MatrixDS<2, 3, double> D(2.0);
     MatrixDS<3, 2, double> E(2.0);
-    MatrixDS<3, 3, double> F({
-        {1, 0, 0},
-        {0, 1, 0},
-        {0, 0, 1}
-    });
-    MatrixDS<3, 3, double> G({ {1, 0, 0}, {0, 1, 1}, {0, 0, 1} });
+    MatrixDS<3, 3, double> F({ { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } });
+    MatrixDS<3, 3, double> G({ { 1, 0, 0 }, { 0, 1, 1 }, { 0, 0, 1 } });
 
     assert(A == B);
     assert(A != C);
     // cannot be compared by implementation
-//    assert(A != D);
-//    assert(A != E);
-//    assert(D == E);
+    //    assert(A != D);
+    //    assert(A != E);
+    //    assert(D == E);
     assert(F != G);
     assert(F.Determinant() == G.Determinant());
 
     return true;
 }
 
-bool TestMatrixDSDeterminant(){
-    MatrixDS<3, 3, double> A({ {1, 0, 0}, {0, 1, 0}, {0, 0, 1} });
-    MatrixDS<3, 3, double> B({ {-1, 0, 0}, {0, 1, 0}, {0, 0, 1} });
+bool TestMatrixDSDeterminant() {
+    MatrixDS<3, 3, double> A({ { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } });
+    MatrixDS<3, 3, double> B({ { -1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } });
     MatrixDS<3, 3, double> C({ { 3, 5, 2 }, { 8, 4, 8 }, { 2, 4, 7 } });
-    MatrixDS<4,4,double> D({ { 9, 5, 2, 5 }, { 9, 5, 3, 7 }, { 6, 5, 4, 8 }, { 1, 5, 3, 7 } });
-    MatrixDS<2,2,double> E({{1,2},{3,4}});
+    MatrixDS<4, 4, double> D({ { 9, 5, 2, 5 }, { 9, 5, 3, 7 }, { 6, 5, 4, 8 }, { 1, 5, 3, 7 } });
+    MatrixDS<2, 2, double> E({ { 1, 2 }, { 3, 4 } });
     assert(A.Determinant() == 1.0);
     assert(B.Determinant() == -1.0);
     assert(C.Determinant() == -164);
@@ -141,25 +137,23 @@ bool TestMatrixDSDeterminant(){
     return true;
 }
 
-bool TestMatrixDSTranspose(){
+bool TestMatrixDSTranspose() {
     // Vector
-    MatrixDS<1,3,double> vec({ { 1, 2, 3 } });
+    MatrixDS<1, 3, double> vec({ { 1, 2, 3 } });
     MatrixDS<3, 1, double> vec2 = vec.Transpose();
     assert(vec2.columns() == vec.rows());
     assert(vec2.rows() == vec.columns());
-    for(size_t i = 0; i < 3; ++i) {
-        assert(vec[0][i] == vec2[i][0]);
-    }
+    for(size_t i = 0; i < 3; ++i) { assert(vec[0][i] == vec2[i][0]); }
     // Matrix
-    MatrixDS<2,2,double> A(1);
+    MatrixDS<2, 2, double> A(1);
     assert(A == A.Transpose());
-    MatrixDS<2,2,double> B({{1,1},{2,2}});
-    MatrixDS<2,2,double> C({{1,2},{1,2}});
+    MatrixDS<2, 2, double> B({ { 1, 1 }, { 2, 2 } });
+    MatrixDS<2, 2, double> C({ { 1, 2 }, { 1, 2 } });
 
     assert(B.Transpose() == C);
 
-    MatrixDS<3,2,double> D({{1,1},{2,2},{3,3}});
-    MatrixDS<2,3,double> E({{1,2,3},{1,2,3}});
+    MatrixDS<3, 2, double> D({ { 1, 1 }, { 2, 2 }, { 3, 3 } });
+    MatrixDS<2, 3, double> E({ { 1, 2, 3 }, { 1, 2, 3 } });
     assert(D.Transpose() == E);
     return true;
 }
