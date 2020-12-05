@@ -153,6 +153,21 @@ public:
         return *result;
     }
 
+    /**
+     * Hadamard Multiplication
+     * Z[i][j] = A[i][j] * B[i][j]
+     * @param other
+     * @return
+     */
+    MatrixDS& HadamardMulti(const MatrixDS& other){
+        for(size_t i = 0; i < Rows; i++){
+            for(size_t j = 0; j < Columns; j++){
+                _data[i][j] *= other[i][j];
+            }
+        }
+        return *this;
+    }
+
     friend MatrixDS<Rows, Columns, T> operator+(MatrixDS<Rows, Columns, T> lhs, const MatrixDS<Rows,Columns,T>& rhs) { return lhs += rhs; }
     MatrixDS<Rows, Columns, T>& operator+=(const MatrixDS<Rows, Columns, T>& rhs) {
         for(size_t i = 0; i < Rows; i++) {
@@ -206,4 +221,14 @@ template<>
 double MatrixDS<3,3,double>::Determinant() const {
     return ( _data[0][0] * _data[1][1] * _data[2][2] + _data[0][1] * _data[1][2] * _data[2][0] + _data[0][2] * _data[1][0] * _data[2][1]
              - _data[0][2] * _data[1][1] * _data[2][0] - _data[0][1] * _data[1][0] * _data[2][2] - _data[0][0] * _data[1][2] * _data[2][1]);
+}
+template<size_t R, size_t C, typename T>
+MatrixDS<R,C,T>& HadamardMulti(const MatrixDS<R,C,T> &lhs, const MatrixDS<R,C,T>& rhs){
+    auto result = new MatrixDS<R,C,T>(0.0);
+    for(size_t i = 0; i < R; i++){
+        for(size_t j = 0; j < C; j++){
+            (*result)[i][j] = lhs[i][j] * rhs[i][j];
+        }
+    }
+    return *result;
 }
