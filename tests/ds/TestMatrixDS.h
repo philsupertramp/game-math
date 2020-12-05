@@ -70,6 +70,38 @@ bool TestMatrixAddition(){
     return true;
 }
 
+bool TestHadamardMultiplication(){
+    MatrixDS<2, 2, double> A(1.0);
+    MatrixDS<2, 2, double> B(2.015);
+
+    auto C = A.HadamardMulti(B);
+
+    assert(C == B);
+
+    MatrixDS<2, 2, double> D({{0, 1}, {0, 0}});
+    MatrixDS<2, 2, double> D2({{0, 1}, {0, 0}});
+    MatrixDS<2, 2, double> E(5.0);
+    MatrixDS<2, 2, double> resultA({{0, 5.0}, { 0, 0 } });
+    MatrixDS<2, 2, double> resultB({{0, 25.0}, { 0, 0 } });
+
+    assert(D.HadamardMulti(E) == resultA);
+    D.HadamardMulti(E);
+    assert(D == resultB);
+
+    auto resD2E = HadamardMulti(D2, E);
+    assert(resD2E == resultA);
+
+    MatrixDS<2, 5, double> Q1(10.0);
+    MatrixDS<3, 5, double> Q2(10.0);
+    MatrixDS<5, 2, double> Q3(10.0);
+
+    // Impossible
+//    Q1.HadamardMulti(Q2);
+//    Q1.HadamardMulti(Q3);
+//    HadamardMulti(Q1, Q2);
+    return true;
+}
+
 bool TestMatrixDSCompare(){
     MatrixDS<2, 2, double> A(2.0);
     MatrixDS<2, 2, double> B(2.0);
@@ -166,5 +198,6 @@ bool TestMatrixDS() {
     TestMatrixDSCompare();
     TestMatrixDSDeterminant();
     TestMatrixDSTranspose();
+    TestHadamardMultiplication();
     return true;
 }
