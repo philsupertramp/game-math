@@ -133,6 +133,23 @@ bool TestKroneckerMultiplication(){
     return true;
 }
 
+bool TestHorizontalConcat(){
+    MatrixDS<2,2> A(1.0);
+    MatrixDS<2,2> A2(1.0);
+    MatrixDS<2> B(2.0);
+    MatrixDS<2,3> C({{1.0,1.0,2.0},{1.0,1.0,2.0}});
+
+    auto res1 = A.HorizontalConcat(B);
+
+    assert(res1 == C);
+
+    auto res2 = HorizontalConcat(A2, B);
+
+    assert(res2 == C);
+
+    return true;
+}
+
 bool TestMatrixDSCompare() {
     MatrixDS<2, 2, double> A(2.0);
     MatrixDS<2, 2, double> B(2.0);
@@ -225,5 +242,6 @@ bool TestMatrixDS() {
     TestMatrixDSTranspose();
     TestHadamardMultiplication();
     TestKroneckerMultiplication();
+    TestHorizontalConcat();
     return true;
 }
