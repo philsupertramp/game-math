@@ -162,6 +162,21 @@ public:
         return *this;
     }
 
+    template<size_t R, size_t C>
+    MatrixDS<Rows * R, Columns * C, T>& KroneckerMulti(const MatrixDS<R,C,T> &other){
+        auto result = new MatrixDS<Rows * R, Columns * C, T>(0);
+        for(size_t m = 0; m < rows(); m++){
+            for(size_t n = 0; n < columns(); n++){
+                for(size_t p = 0; p < other.rows(); p++){
+                    for(size_t q = 0; q < other.columns(); q++){
+                        (*result)[m*other.rows() + p][n*other.columns() + q] = _data[m][n] * other[p][q];
+                    }
+                }
+            }
+        }
+        return *result;
+    }
+
     friend MatrixDS<Rows, Columns, T> operator+(MatrixDS<Rows, Columns, T> lhs, const MatrixDS<Rows, Columns, T>& rhs) {
         return lhs += rhs;
     }
@@ -219,6 +234,21 @@ MatrixDS<R, C, T>& HadamardMulti(const MatrixDS<R, C, T>& lhs, const MatrixDS<R,
     auto result = new MatrixDS<R, C, T>(0.0);
     for(size_t i = 0; i < R; i++) {
         for(size_t j = 0; j < C; j++) { (*result)[i][j] = lhs[i][j] * rhs[i][j]; }
+    }
+    return *result;
+}
+
+template<size_t Rows, size_t Columns, typename T, size_t R, size_t C>
+MatrixDS<Rows * R, Columns * C, T>& KroneckerMulti(const MatrixDS<Rows,Columns,T> &lhs, const MatrixDS<R,C,T> &rhs){
+    auto result = new MatrixDS<Rows * R, Columns * C, T>(0);
+    for(size_t m = 0; m < lhs.rows(); m++){
+        for(size_t n = 0; n < lhs.columns(); n++){
+            for(size_t p = 0; p < rhs.rows(); p++){
+                for(size_t q = 0; q < rhs.columns(); q++){
+                    (*result)[m*rhs.rows() + p][n*rhs.columns() + q] = lhs[m][n] * rhs[p][q];
+                }
+            }
+        }
     }
     return *result;
 }
