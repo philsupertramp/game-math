@@ -1,6 +1,6 @@
 #pragma once
-#include "MatrixDS.h"
 #include "Evaluation.h"
+#include "MatrixDS.h"
 #include <array>
 #include <ctime>
 #include <fstream>
@@ -43,7 +43,6 @@ void InitTime(bool useSeed = true) {
 template<size_t InputCount, size_t OutputCount, size_t TrainingSetSize, size_t ValidationSetSize, size_t TestSetSize>
 class Classifier
 {
-
     template<size_t N>
     struct DataSet {
         MatrixDS<N, InputCount, double> Inputs;
@@ -79,9 +78,7 @@ class Classifier
                     ++count;
                 }
                 dataFile.close();
-                if(count != N){
-                    std::cout << "Found less data then expected!\n";
-                }
+                if(count != N) { std::cout << "Found less data then expected!\n"; }
                 Classes = OutputToClass(Outputs);
             } else {
                 std::cout << "Unable to open file";
@@ -89,11 +86,11 @@ class Classifier
         }
 
         EvaluationError EvaluateNetworkError(const MatrixDS<InputCount + 1, OutputCount, double>& weights) {
-            auto outputNet = feedForward(Inputs, weights, Biases);
-            auto output    = outputNet.first;
-            auto net       = outputNet.second;
-            auto error     = output - Outputs;
-            auto errorSqr  = HadamardMulti(error, error);
+            auto outputNet      = feedForward(Inputs, weights, Biases);
+            auto output         = outputNet.first;
+            auto net            = outputNet.second;
+            auto error          = output - Outputs;
+            auto errorSqr       = HadamardMulti(error, error);
             auto regression     = errorSqr.sumElements() / (double)(N * OutputCount);
             auto classes        = OutputToClass(output);
             auto classification = (double)Corr(classes, Classes) / (double)N;
@@ -293,11 +290,12 @@ MatrixDS<M, 1, double>& OutputToClass(const MatrixDS<M, N, double>& in) {
         int rowMax       = -1;
         double rowMaxVal = -1;
         for(size_t j = 0; j < in.columns(); j++) {
-            if(in[i][j] > rowMaxVal) { rowMaxVal = in[i][j]; rowMax = j; }
+            if(in[i][j] > rowMaxVal) {
+                rowMaxVal = in[i][j];
+                rowMax    = j;
+            }
         }
-        if(rowMax != -1){
-            (*result)[i][0] = rowMax;
-        }
+        if(rowMax != -1) { (*result)[i][0] = rowMax; }
     }
     return *result;
 }

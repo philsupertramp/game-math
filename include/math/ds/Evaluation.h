@@ -29,8 +29,7 @@ struct EvaluationStatistics {
         RegressionMean     = RegressionSum / ElementCount;
         ClassificationMean = ClassificationSum / ElementCount;
 
-        RegressionStd =
-        (RegressionSumSquared - (RegressionSum * RegressionSum) / ElementCount) / (ElementCount - 1);
+        RegressionStd = (RegressionSumSquared - (RegressionSum * RegressionSum) / ElementCount) / (ElementCount - 1);
         ClassificationStd =
         (ClassificationSumSquared - (ClassificationSum * ClassificationSum) / ElementCount) / (ElementCount - 1);
     }

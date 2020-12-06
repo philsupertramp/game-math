@@ -18,7 +18,7 @@ bool TestInToOutConversion() {
 bool TestClassifierConstruction() {
     Classifier<4, 3, 75, 37, 38> C;
 
-    C.Train(750, 1.0/2.0, 0.1);
+    C.Train(750, 1.0 / 2.0, 0.1);
     assert(C.finalErrors.Training.Regression == 0.21519289280901185);
     assert(C.finalErrors.Training.Classification == 0.41333333333333333);
     assert(C.finalErrors.Validation.Regression == 0.24089840689879136);
@@ -60,7 +60,8 @@ bool TestActivate() {
 }
 bool TestActivateDerivative() {
     MatrixDS<2, 2> A({ { 1, 2 }, { 3, 4 } });
-    MatrixDS<2, 2> C({ { 0.20998717080701307, 0.035325412426582214 }, { 0.0049330185827201056, 0.00067047534151293275 } });
+    MatrixDS<2, 2> C(
+    { { 0.20998717080701307, 0.035325412426582214 }, { 0.0049330185827201056, 0.00067047534151293275 } });
     auto B = ActivateDerivative(A);
 
     assert(B == C);
@@ -69,19 +70,16 @@ bool TestActivateDerivative() {
     MatrixDS<2, 2> D2(-1);
     MatrixDS<2, 2> E(0.20998717080701307);
 
-    auto F = ActivateDerivative(D);
+    auto F  = ActivateDerivative(D);
     auto F2 = ActivateDerivative(D2);
     assert(F == E);
     assert(F2 == E);
     return true;
 }
 
-bool TestFeedForward() {
+bool TestFeedForward() { return true; }
 
-    return true;
-}
-
-bool TestEvaluationStatistics(){
+bool TestEvaluationStatistics() {
     EvaluationStatistics stats;
 
     return true;
