@@ -39,7 +39,7 @@ void InitTime(bool useSeed = true) {
     TimeInitialized = true;
 }
 
-template<size_t InputCount, size_t OutputCount>
+template<size_t InputCount, size_t OutputCount, size_t TrainingSetSize, size_t ValidationSetSize, size_t TestSetSize>
 class Classifier
 {
     struct EvaluationError {
@@ -151,9 +151,9 @@ class Classifier
 
 public:
     Classifier() {
-        trainingSet   = new DataSet<75>("../../resources/iris_data_files/iris_training.dat");
-        validationSet = new DataSet<37>("../../resources/iris_data_files/iris_validation.dat");
-        testSet       = new DataSet<38>("../../resources/iris_data_files/iris_test.dat");
+        trainingSet   = new DataSet<TrainingSetSize>("../../resources/iris_data_files/iris_training.dat");
+        validationSet = new DataSet<ValidationSetSize>("../../resources/iris_data_files/iris_validation.dat");
+        testSet       = new DataSet<TestSetSize>("../../resources/iris_data_files/iris_test.dat");
     }
 
     template<size_t N, typename T>
@@ -167,17 +167,16 @@ public:
         size_t sampleIndex = ((rand() % 100) / 100.0) * sampleCount;
         std::cout << "sampleIndex: " << sampleIndex << std::endl;
         MatrixDS<1, InputCount> randomInput;
-        size_t i, j;
+        size_t i;
         for(i = 0; i < cols; i++) {
-            for(j = 0; j < 1; j++) { randomInput[j][i] = ds.Inputs[sampleIndex + j][i]; }
+            randomInput[0][i] = ds.Inputs[sampleIndex][i];
         }
         MatrixDS<1, 1> bias;
-        for(i = 0; i < cols; i++) {
-            for(j = 0; j < 1; j++) { bias[j][i] = ds.Biases[sampleIndex + j][0]; }
-        }
+
+        bias[0][0] = ds.Biases[sampleIndex][0];
         MatrixDS<1, OutputCount> localErr;
-        for(i = 0; i < cols; i++) {
-            for(j = 0; j < 1; j++) { localErr[j][i] = ds.Outputs[sampleIndex + j][i]; }
+        for(i = 0; i < OutputCount; i++) {
+            localErr[0][i] = ds.Outputs[sampleIndex][i];
         }
         auto q            = feedForward(randomInput, weight, bias);
         auto error        = localErr - q.first;
@@ -315,9 +314,9 @@ public:
     }
 
 private:
-    DataSet<75>* trainingSet   = nullptr;
-    DataSet<37>* validationSet = nullptr;
-    DataSet<38>* testSet       = nullptr;
+    DataSet<TrainingSetSize>* trainingSet   = nullptr;
+    DataSet<ValidationSetSize>* validationSet = nullptr;
+    DataSet<TestSetSize>* testSet       = nullptr;
 
     std::vector<EvaluationErrorSet> trainingErrors;
     MatrixDS<InputCount + 1, OutputCount, double> modelWeights = MatrixDS<InputCount + 1, OutputCount, double>();

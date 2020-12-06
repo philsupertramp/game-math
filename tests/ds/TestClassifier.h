@@ -16,9 +16,9 @@ bool TestInToOutConversion() {
 }
 
 bool TestClassifierConstruction() {
-    Classifier<4, 3> C;
+    Classifier<4, 3, 75, 37, 38> C;
 
-    C.Train();
+    C.Train(500, 0.5, 0.1);
     return true;
 }
 
