@@ -190,15 +190,13 @@ public:
     void Train(const size_t maxIterations = 5000, const double maxWeight = 0.5, const double eta = 0.01) {
         if(trainingSet == nullptr || validationSet == nullptr || testSet == nullptr) { return; }
         trainingErrors.clear();
-        // TODO:
-        //        const size_t maxEpoch = 5;
         InitializeWeights(modelWeights, -maxWeight, maxWeight);
         trainingErrors.resize(maxIterations + 1);
         size_t iter          = 0;
         double stopThreshold = 0.1;
 
         std::cout << "Training:\n";
-        while(1) {
+        while(iter < maxIterations) {
             std::cout << "Epoch: " << iter << '\n';
             modelWeights = BackPropagate(*trainingSet, modelWeights, eta);
             EvaluationErrorSet errorSet;
@@ -207,7 +205,7 @@ public:
             errorSet.Test = testSet->EvaluateNetworkError(modelWeights);
             trainingErrors[iter] = errorSet;
 
-            if(errorSet.Validation.Regression < stopThreshold || iter >= maxIterations) { break; }
+            if(errorSet.Validation.Regression < stopThreshold) { break; }
 
             if(iter % 30 == 0 && iter != 0) {
                 EvaluationStatistics stats;
