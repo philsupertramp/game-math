@@ -1,14 +1,20 @@
 #pragma once
+#include "../Random.h"
 #include "Evaluation.h"
 #include "MatrixDS.h"
 #include <array>
+#include <cstring>
 #include <ctime>
 #include <fstream>
 #include <iostream>
+#include <random>
 #include <unistd.h>
 #include <vector>
 
-static bool TimeInitialized = false;
+#ifndef EPS
+#define EPS 1e-12
+#endif
+
 
 template<size_t M, size_t N>
 MatrixDS<M, 1, double>& OutputToClass(const MatrixDS<M, N, double>& in);
@@ -35,14 +41,21 @@ const MatrixDS<N, InputCount, double>& inputs,
 const MatrixDS<InputCount + 1, OutputCount, double>& weights,
 const MatrixDS<N, 1, double>& biases);
 
-void InitTime(bool useSeed = true) {
-    std::srand(useSeed ? (int)std::time(0) : 2);
-    TimeInitialized = true;
-}
-
-template<size_t InputCount, size_t OutputCount, size_t TrainingSetSize, size_t ValidationSetSize, size_t TestSetSize>
+/**
+ * TODO:
+ * @tparam InputCount
+ * @tparam OutputCount
+ * @tparam TrainingSetSize
+ * @tparam ValidationSetSize
+ * @tparam TestSetSize
+ */
+template<size_t InputCount, size_t OutputCount>
 class Classifier
 {
+    /**
+     *
+     * @tparam N
+     */
     template<size_t N>
     struct DataSet {
         MatrixDS<N, InputCount, double> Inputs;
@@ -60,28 +73,24 @@ class Classifier
             if(dataFile.is_open()) {
                 while(getline(dataFile, line)) {
                     std::string val;
-                    std::getline(dataFile, val, '\t');
-                    Inputs[count][0] = std::atof(val.c_str());
-                    std::getline(dataFile, val, '\t');
-                    Inputs[count][1] = std::atof(val.c_str());
-                    std::getline(dataFile, val, '\t');
-                    Inputs[count][2] = std::atof(val.c_str());
-                    std::getline(dataFile, val, '\t');
-                    Inputs[count][3] = std::atof(val.c_str());
-                    std::getline(dataFile, val, '\t');
-                    Outputs[count][0] = std::atoi(val.c_str());
-                    std::getline(dataFile, val, '\t');
-                    Outputs[count][1] = std::atoi(val.c_str());
-                    val               = line;
-                    Outputs[count][2] = std::atoi(val.c_str());
-
+                    for(size_t i = 0; i < InputCount + OutputCount; i++) {
+                        if(i < InputCount + OutputCount - 1) { std::getline(dataFile, val, '\t'); }
+                        else { val = line; }
+                        if(i < InputCount){
+                            Inputs[count][i]  = std::atof(val.c_str());
+                        } else {
+                            Outputs[count][i - InputCount] = std::atoi(val.c_str());
+                        }
+                    }
                     ++count;
                 }
                 dataFile.close();
-                if(count != N) { std::cout << "Found less data then expected!\n"; }
+                if(count != N) {
+                    std::cerr << "Found less data then expected!\n";
+                }
                 Classes = OutputToClass(Outputs);
             } else {
-                std::cout << "Unable to open file";
+                std::cerr << "Unable to open file";
             }
         }
 
@@ -98,12 +107,27 @@ class Classifier
             return EvaluationError(regression, classification);
         }
     };
+    template<size_t TrainingSetSize, size_t ValidationSetSize, size_t TestSetSize>
+    struct DataSetSet {
+        DataSet<TrainingSetSize>* trainingSet     = nullptr;
+        DataSet<ValidationSetSize>* validationSet = nullptr;
+        DataSet<TestSetSize>* testSet             = nullptr;
+
+        explicit DataSetSet(const char* filePath){
+            char trainingsFile[55];
+            strcpy(trainingsFile, filePath); strcat(trainingsFile, "training.dat");
+            char validationFile[55];
+            strcpy(validationFile, filePath);  strcat(validationFile, "validation.dat");
+            char testFile[55];
+            strcpy(testFile, filePath);  strcat(testFile, "test.dat");
+            trainingSet   = new DataSet<TrainingSetSize>(trainingsFile);
+            validationSet = new DataSet<ValidationSetSize>(validationFile);
+            testSet       = new DataSet<TestSetSize>(testFile);
+        }
+    };
 
 public:
     Classifier() {
-        trainingSet   = new DataSet<TrainingSetSize>("../../resources/iris_data_files/iris_training.dat");
-        validationSet = new DataSet<ValidationSetSize>("../../resources/iris_data_files/iris_validation.dat");
-        testSet       = new DataSet<TestSetSize>("../../resources/iris_data_files/iris_test.dat");
     }
 
     template<size_t N, typename T>
@@ -114,8 +138,7 @@ public:
         auto sampleCount = N;
         auto cols        = InputCount;
 
-        size_t sampleIndex = ((rand() % 100) / 100.0) * sampleCount;
-        //        std::cout << "sampleIndex: " << sampleIndex << std::endl;
+        size_t sampleIndex = Random::Get(0, sampleCount-1);
         MatrixDS<1, InputCount> randomInput;
         size_t i;
         for(i = 0; i < cols; i++) { randomInput[0][i] = ds.Inputs[sampleIndex][i]; }
@@ -133,56 +156,53 @@ public:
         return weights;
     }
 
-    void Train(const size_t maxIterations = 5000, const double maxWeight = 0.5, const double eta = 0.01) {
-        if(trainingSet == nullptr || validationSet == nullptr || testSet == nullptr) { return; }
+    template<size_t TrainingSetSize, size_t ValidationSetSize, size_t TestSetSize>
+    void Train(const char* filePath, const size_t maxIterations = 5000, const double maxWeight = 0.5, const double eta = 0.01, const double stopThreshold = 0.1) {
+        DataSetSet<TrainingSetSize, ValidationSetSize, TestSetSize> DS(filePath);
         trainingErrors.clear();
         InitializeWeights(modelWeights, -maxWeight, maxWeight);
         trainingErrors.resize(maxIterations + 1);
         size_t iter          = 0;
-        double stopThreshold = 0.10;
 
-        std::cout << "Training:\n";
+        EvaluationStatistics currentStats;
         while(iter < maxIterations) {
-            //            std::cout << "Epoch: " << iter << '\n';
-            modelWeights = BackPropagate(*trainingSet, modelWeights, eta);
-            EvaluationErrorSet errorSet;
-            errorSet.Training    = trainingSet->EvaluateNetworkError(modelWeights);
-            errorSet.Validation  = validationSet->EvaluateNetworkError(modelWeights);
-            errorSet.Test        = testSet->EvaluateNetworkError(modelWeights);
+            modelWeights = BackPropagate(*DS.trainingSet, modelWeights, eta);
+            EvaluationErrorSet errorSet = EvaluationErrorSet();
+            errorSet.Training    = DS.trainingSet->EvaluateNetworkError(modelWeights);
+            errorSet.Validation  = DS.validationSet->EvaluateNetworkError(modelWeights);
+            errorSet.Test        = DS.testSet->EvaluateNetworkError(modelWeights);
             trainingErrors[iter] = errorSet;
 
             if(errorSet.Validation.Regression < stopThreshold) {
-                std::cout << "Met threshold\n";
+                std::cout << "Met threshold!\n";
                 break;
             }
 
             if(iter % 30 == 0 && iter != 0) {
-                EvaluationStatistics stats;
-                stats.ElementCount = 30;
+                currentStats = EvaluationStatistics();
+                currentStats.ElementCount = 30;
                 for(size_t i = iter - 30; i < iter; i++) {
-                    stats.RegressionSum += trainingErrors[i].Validation.Regression;
-                    stats.ClassificationSum += trainingErrors[i].Validation.Classification;
-                    stats.RegressionSumSquared +=
+                    currentStats.RegressionSum += trainingErrors[i].Validation.Regression;
+                    currentStats.ClassificationSum += trainingErrors[i].Validation.Classification;
+                    currentStats.RegressionSumSquared +=
                     (trainingErrors[i].Validation.Regression * trainingErrors[i].Validation.Regression);
-                    stats.ClassificationSumSquared +=
+                    currentStats.ClassificationSumSquared +=
                     (trainingErrors[i].Validation.Classification * trainingErrors[i].Validation.Classification);
-                    if(trainingErrors[i].Validation.Regression > stats.RegressionMax) {
-                        stats.RegressionMax = trainingErrors[i].Validation.Regression;
+                    if(trainingErrors[i].Validation.Regression > currentStats.RegressionMax) {
+                        currentStats.RegressionMax = trainingErrors[i].Validation.Regression;
                     }
-                    if(trainingErrors[i].Validation.Classification > stats.ClassificationMax) {
-                        stats.ClassificationMax = trainingErrors[i].Validation.Classification;
+                    if(trainingErrors[i].Validation.Classification > currentStats.ClassificationMax) {
+                        currentStats.ClassificationMax = trainingErrors[i].Validation.Classification;
                     }
                 }
-                stats.Calc();
-
-                std::cout << stats;
+                currentStats.Calc();
             }
 
             iter++;
         }
-        finalErrors.Training   = trainingSet->EvaluateNetworkError(modelWeights);
-        finalErrors.Validation = validationSet->EvaluateNetworkError(modelWeights);
-        finalErrors.Test       = testSet->EvaluateNetworkError(modelWeights);
+        finalErrors.Training   = DS.trainingSet->EvaluateNetworkError(modelWeights);
+        finalErrors.Validation = DS.validationSet->EvaluateNetworkError(modelWeights);
+        finalErrors.Test       = DS.testSet->EvaluateNetworkError(modelWeights);
 
         std::cout << "Training: " << finalErrors.Training.Regression << ", " << finalErrors.Training.Classification
                   << '\n';
@@ -244,7 +264,7 @@ public:
                         "legend(\"Regression Training\", \"Classification Training\", \"Regression Validation\", "
                         "\"Classification Validation\", \"Regression Test\", \"Validation Test\");";
         } else {
-            std::cout << "Could not open file.\n";
+            std::cerr << "Could not open file.\n";
         }
         {
             finalStats              = EvaluationStatistics();
@@ -264,19 +284,13 @@ public:
                 }
             }
             finalStats.Calc();
-
-            std::cout << finalStats;
         }
-        std::cout << "Weights:\n" << modelWeights;
     }
 
     EvaluationErrorSet finalErrors;
     EvaluationStatistics finalStats;
 
 private:
-    DataSet<TrainingSetSize>* trainingSet     = nullptr;
-    DataSet<ValidationSetSize>* validationSet = nullptr;
-    DataSet<TestSetSize>* testSet             = nullptr;
 
     std::vector<EvaluationErrorSet> trainingErrors;
     MatrixDS<InputCount + 1, OutputCount, double> modelWeights = MatrixDS<InputCount + 1, OutputCount, double>();
@@ -332,12 +346,8 @@ MatrixDS<N, M>& ActivateDerivative(const MatrixDS<N, M, double>& in) {
 
 template<size_t N, size_t M>
 void InitializeWeights(MatrixDS<N, M, double>& weights, const double& minWeight, const double& maxWeight) {
-    if(!TimeInitialized) InitTime(true);
-
-    const double diff = maxWeight - minWeight;
-
     for(size_t i = 0; i < N; ++i) {
-        for(size_t j = 0; j < M; ++j) { weights[i][j] = (double)minWeight + ((rand() % 100) * diff / 100.0); }
+        for(size_t j = 0; j < M; ++j) { weights[i][j] = Random::Get(minWeight, maxWeight); }
     }
 }
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <limits>
+#include <ostream>
 struct EvaluationError {
     double Regression;
     double Classification;
@@ -29,9 +31,9 @@ struct EvaluationStatistics {
         RegressionMean     = RegressionSum / ElementCount;
         ClassificationMean = ClassificationSum / ElementCount;
 
-        RegressionStd = (RegressionSumSquared - (RegressionSum * RegressionSum) / ElementCount) / (ElementCount - 1);
+        RegressionStd = (RegressionSumSquared - (RegressionSum * RegressionSum) / ElementCount) / (double)(ElementCount - 1);
         ClassificationStd =
-        (ClassificationSumSquared - (ClassificationSum * ClassificationSum) / ElementCount) / (ElementCount - 1);
+        (ClassificationSumSquared - (ClassificationSum * ClassificationSum) / ElementCount) / (double)(ElementCount - 1);
     }
 
     friend std::ostream& operator<<(std::ostream& ostr, const EvaluationStatistics& err) {

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Random.h"
 #include "mat/mat2.h"
 #include "mat/mat3.h"
 #include "mat/mat4.h"

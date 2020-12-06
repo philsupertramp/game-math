@@ -48,6 +48,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
     set(LIB_SOURCES
         ${LIB_SOURCES}
             include/math/ds/MatrixDS.h
+            include/math/ds/Evaluation.h
             include/math/ds/Classifier.h
             include/math/ds/Classifier.cpp
     )

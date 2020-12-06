@@ -16,15 +16,11 @@ bool TestInToOutConversion() {
 }
 
 bool TestClassifierConstruction() {
-    Classifier<4, 3, 75, 37, 38> C;
+    Classifier<4, 3> C;
 
-    C.Train(750, 1.0 / 2.0, 0.1);
-    assert(C.finalErrors.Training.Regression == 0.21519289280901185);
-    assert(C.finalErrors.Training.Classification == 0.41333333333333333);
-    assert(C.finalErrors.Validation.Regression == 0.24089840689879136);
-    assert(C.finalErrors.Validation.Classification == 0.21621621621621623);
-    assert(C.finalErrors.Test.Regression == 0.22624711842133263);
-    assert(C.finalErrors.Test.Classification == 0.23684210526315788);
+    C.Train<75, 37, 38>("../../resources/iris_data_files/", 1000, 0.5, 0.1, 0.2);
+    Classifier<9, 2> C2;
+    C2.Train<350, 175, 174>("../../resources/cancer/set1/", 10000, 1/sqrt(350), 0.01);
     return true;
 }
 
