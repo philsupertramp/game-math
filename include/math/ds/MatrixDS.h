@@ -155,7 +155,7 @@ public:
         auto result = new MatrixDS<Rows, C, T>(0.0);
         for(size_t i = 0; i < Rows; i++) {
             for(size_t j = 0; j < C; j++) {
-                for(size_t k = 0; k < R; k++) { (*result)[i][j] += (T)(lhs[k][i] * rhs[j][k]); }
+                for(size_t k = 0; k < R; k++) { (*result)[i][j] += (T)(lhs[i][k] * rhs[k][j]); }
             }
         }
         return *result;
