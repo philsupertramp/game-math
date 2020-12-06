@@ -18,7 +18,13 @@ bool TestInToOutConversion() {
 bool TestClassifierConstruction() {
     Classifier<4, 3, 75, 37, 38> C;
 
-    C.Train(500, 0.5, 0.1);
+    C.Train(700, 0.05, 0.01);
+    assert(C.finalErrors.Training.Regression == 0.21519289280901185);
+    assert(C.finalErrors.Training.Classification == 0.41333333333333333);
+    assert(C.finalErrors.Validation.Regression == 0.24089840689879136);
+    assert(C.finalErrors.Validation.Classification == 0.21621621621621623);
+    assert(C.finalErrors.Test.Regression == 0.22624711842133263);
+    assert(C.finalErrors.Test.Classification == 0.23684210526315788);
     return true;
 }
 

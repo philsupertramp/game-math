@@ -193,7 +193,7 @@ public:
         InitializeWeights(modelWeights, -maxWeight, maxWeight);
         trainingErrors.resize(maxIterations + 1);
         size_t iter          = 0;
-        double stopThreshold = 0.1;
+        double stopThreshold = 0.2;
 
         std::cout << "Training:\n";
         while(iter < maxIterations) {
@@ -205,7 +205,7 @@ public:
             errorSet.Test = testSet->EvaluateNetworkError(modelWeights);
             trainingErrors[iter] = errorSet;
 
-            if(errorSet.Validation.Regression < stopThreshold) { break; }
+            if(errorSet.Validation.Regression < stopThreshold) { std::cout << "Met threshold\n"; break; }
 
             if(iter % 30 == 0 && iter != 0) {
                 EvaluationStatistics stats;
@@ -227,13 +227,13 @@ public:
 
             iter++;
         }
-        auto trainingError   = trainingSet->EvaluateNetworkError(modelWeights);
-        auto validationError = validationSet->EvaluateNetworkError(modelWeights);
-        auto testError       = testSet->EvaluateNetworkError(modelWeights);
+        finalErrors.Training   = trainingSet->EvaluateNetworkError(modelWeights);
+        finalErrors.Validation = validationSet->EvaluateNetworkError(modelWeights);
+        finalErrors.Test       = testSet->EvaluateNetworkError(modelWeights);
 
-        std::cout << "Training: " << trainingError.Regression << ", " << trainingError.Classification << '\n';
-        std::cout << "Validation: " << validationError.Regression << ", " << validationError.Classification << '\n';
-        std::cout << "Test: " << testError.Regression << ", " << testError.Classification << '\n';
+        std::cout << "Training: " << finalErrors.Training.Regression << ", " << finalErrors.Training.Classification << '\n';
+        std::cout << "Validation: " << finalErrors.Validation.Regression << ", " << finalErrors.Validation.Classification << '\n';
+        std::cout << "Test: " << finalErrors.Test.Regression << ", " << finalErrors.Test.Classification << '\n';
 
         std::vector<double> x1;
         std::vector<double> y1;
@@ -311,6 +311,7 @@ public:
         std::cout << "Weights:\n" << modelWeights;
     }
 
+    EvaluationErrorSet finalErrors;
 private:
     DataSet<TrainingSetSize>* trainingSet   = nullptr;
     DataSet<ValidationSetSize>* validationSet = nullptr;
