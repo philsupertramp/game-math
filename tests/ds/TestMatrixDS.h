@@ -237,7 +237,7 @@ bool TestMatrixDSInit() {
 }
 bool TestMatrixDS() {
     TestMatrixDSInit();
-//    TestMatrixDSMultiplication();
+    TestMatrixDSMultiplication();
     TestMatrixAddition();
     TestMatrixDSCompare();
     TestMatrixDSDeterminant();
