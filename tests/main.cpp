@@ -15,29 +15,29 @@
 #include "vec/TestVec4.h"
 
 int main([[maybe_unused]] int nargs, [[maybe_unused]] char* argv[]) {
-    TestVec2();
-    TestVec3();
-    TestVec4();
-
-    TestMat2();
-    TestMat3();
-    TestMat4();
-
-    TestExplicitEuler();
-    TestExplicitEulerRB();
-
-    TestOde45();
-    TestOde45RB();
-
-    TestBackwardSub();
-
-    TestForwardSub();
-
-    TestLU();
-
-    TestGaussianElimination();
-
-    TestMatrixDS();
+//    TestVec2();
+//    TestVec3();
+//    TestVec4();
+//
+//    TestMat2();
+//    TestMat3();
+//    TestMat4();
+//
+//    TestExplicitEuler();
+//    TestExplicitEulerRB();
+//
+//    TestOde45();
+//    TestOde45RB();
+//
+//    TestBackwardSub();
+//
+//    TestForwardSub();
+//
+//    TestLU();
+//
+//    TestGaussianElimination();
+//
+//    TestMatrixDS();
 
     TestClassifier();
 

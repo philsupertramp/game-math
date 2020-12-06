@@ -222,11 +222,11 @@ public:
 
     friend std::ostream& operator<<(std::ostream& ostr, MatrixDS const& m) {
         ostr << "[\n";
-        for(size_t col = 0; col < m.columns(); col++) {
+        for(size_t row = 0; row < m.rows(); row++) {
             ostr << '\t';
-            for(size_t row = 0; row < m.rows(); row++) {
+            for(size_t col = 0; col < m.columns(); col++) {
                 ostr << m._data[row][col];
-                if(row < m.rows() - 1) ostr << ", ";
+                if(col < m.columns() - 1) ostr << ", ";
             }
             ostr << "\n";
         }
@@ -312,4 +312,13 @@ HorizontalConcat(const MatrixDS<Rows, Columns, T>& lhs, const MatrixDS<Rows, C, 
         }
     }
     return *result;
+}
+
+template<size_t N, size_t M, typename T>
+size_t& Corr(const MatrixDS<N, M, T>& A, const MatrixDS<N, M, T>& B) {
+    auto count = new size_t(0);
+    for(size_t i = 0; i < N; i++) {
+        for(size_t j = 0; j < M; j++) { (*count) += (A[i][j] == B[i][j]); }
+    }
+    return *count;
 }
