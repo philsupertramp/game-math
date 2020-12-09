@@ -254,6 +254,35 @@ public:
 
     inline T Determinant() const { return 0; }
 
+    template<size_t C>
+    MatrixDS<1, C + 1, T> HorizontalConcat(const MatrixDS<1,C, T>& other) {
+        auto result = new MatrixDS<1, C + 1, T>();
+        for(size_t i = 0; i < 1; ++i) {
+            for(size_t j = 0; j < C + 1; ++j) {
+                (*result)[i][j] = j < columns() ? _data : other[i][j - columns()];
+            }
+        }
+        return *result;
+    }
+
+    friend MatrixDS<1, 1, T> operator-(MatrixDS<1, 1, T> lhs, const MatrixDS<1, 1, T>& rhs) {
+        return lhs -= rhs;
+    }
+    MatrixDS<1, 1, T>& operator-=(const MatrixDS<1, 1, T>& rhs) {
+        _data -= *rhs[0];
+        return *this;
+    }
+
+    template<size_t R, size_t C, class = typename std::enable_if_t<R == 1>>
+    friend MatrixDS<R, R, T>& operator*(const MatrixDS<R, 1, T>& lhs, const MatrixDS<R, C, T>& rhs) {
+        auto result = new MatrixDS<R, R, T>(0.0);
+        for(size_t i = 0; i < R; i++) {
+            for(size_t j = 0; j < C; j++) {
+                for(size_t k = 0; k < R; k++) { (*result)[i][j] += (T)(lhs[i][k] * rhs[k][j]); }
+            }
+        }
+        return *result;
+    }
 private:
     T _data = {};
 };

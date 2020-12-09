@@ -1,5 +1,6 @@
 #pragma once
 #include "../Random.h"
+#include "../format.h"
 #include "Evaluation.h"
 #include "MatrixDS.h"
 #include <array>
@@ -127,29 +128,29 @@ class Classifier
     };
 
 public:
-    Classifier() {
-    }
+    Classifier() = default;
 
     template<size_t N, typename T>
     MatrixDS<InputCount + 1, OutputCount, T> BackPropagate(
     [[maybe_unused]] const DataSet<N>& ds,
     const MatrixDS<InputCount + 1, OutputCount, T>& weight,
     [[maybe_unused]] const double eta) {
+        /** generate necessary  */
         auto sampleCount = N;
         auto cols        = InputCount;
-
-        size_t sampleIndex = Random::Get(0, sampleCount-1);
+        size_t sampleIndex = Random::Get(0, (double)sampleCount-1.0);
         MatrixDS<1, InputCount> randomInput;
         size_t i;
         for(i = 0; i < cols; i++) { randomInput[0][i] = ds.Inputs[sampleIndex][i]; }
         MatrixDS<1, 1> bias;
-
         bias[0][0] = ds.Biases[sampleIndex][0];
         MatrixDS<1, OutputCount> localErr;
         for(i = 0; i < OutputCount; i++) { localErr[0][i] = ds.Outputs[sampleIndex][i]; }
+
+        /** actual back propagation */
         auto q            = feedForward(randomInput, weight, bias);
         auto error        = localErr - q.first;
-        auto delta        = HadamardMulti(error, ActivateDerivative(q.second));
+        auto delta        = HadamardMulti(error, q.second);
         auto out          = HorizontalConcat(bias, randomInput).Transpose();
         auto weightsDelta = KroneckerMulti(delta, out) * eta;
         auto weights      = weight + weightsDelta;
@@ -157,10 +158,11 @@ public:
     }
 
     template<size_t TrainingSetSize, size_t ValidationSetSize, size_t TestSetSize>
-    void Train(const char* filePath, const size_t maxIterations = 5000, const double maxWeight = 0.5, const double eta = 0.01, const double stopThreshold = 0.1) {
+    void Train(const char* filePath, const size_t maxIterations = 5000, const double maxWeight = 0.5, const double eta = 0.01, const double stopThreshold = 0.1, bool reuseWeights = false) {
         DataSetSet<TrainingSetSize, ValidationSetSize, TestSetSize> DS(filePath);
         trainingErrors.clear();
-        InitializeWeights(modelWeights, -maxWeight, maxWeight);
+        if(!reuseWeights) InitializeWeights(modelWeights, -maxWeight, maxWeight);
+
         trainingErrors.resize(maxIterations + 1);
         size_t iter          = 0;
 
@@ -251,7 +253,7 @@ public:
             printVec(x3, dataFile);
             dataFile << "x6=";
             printVec(y3, dataFile);
-            dataFile << "\n"
+            dataFile << format("\n"
                         "figure()\n"
                         "hold on\n"
                         "plot(y,x1)\n"
@@ -261,8 +263,10 @@ public:
                         "plot(y,x5)\n"
                         "plot(y,x6)\n"
                         "ylim([0,1])\n"
+                        "xlim([0, %d])\n"
                         "legend(\"Regression Training\", \"Classification Training\", \"Regression Validation\", "
-                        "\"Classification Validation\", \"Regression Test\", \"Validation Test\");";
+                        "\"Classification Validation\", \"Regression Test\", \"Validation Test\")\n"
+                        "title(\"Error vs Epoch, conversion after %d iterations\")", iter, iter);
         } else {
             std::cerr << "Could not open file.\n";
         }
@@ -287,7 +291,11 @@ public:
         }
     }
 
-    EvaluationErrorSet finalErrors;
+    MatrixDS<OutputCount, 1, double> Evaluate(MatrixDS<InputCount, 1, double> input){
+        return input.HorizontalConcat(MatrixDS<InputCount, 1, double>(1.0)) * modelWeights;
+    }
+
+    EvaluationErrorSet finalErrors{};
     EvaluationStatistics finalStats;
 
 private:
@@ -358,6 +366,6 @@ const MatrixDS<N, InputCount, double>& inputs,
 const MatrixDS<InputCount + 1, OutputCount, double>& weights,
 const MatrixDS<N, 1, double>& biases) {
     auto net    = HorizontalConcat(inputs, biases) * weights;
-    auto output = Activate(net);
+    auto output = net; //Activate(net);
     return std::make_pair(output, net);
 }

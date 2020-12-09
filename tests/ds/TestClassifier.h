@@ -16,11 +16,19 @@ bool TestInToOutConversion() {
 }
 
 bool TestClassifierConstruction() {
-    Classifier<4, 3> C;
+    Classifier<1, 1> C;
 
-    C.Train<75, 37, 38>("../../resources/iris_data_files/", 1000, 0.5, 0.1, 0.2);
-    Classifier<9, 2> C2;
-    C2.Train<350, 175, 174>("../../resources/cancer/set1/", 10000, 1/sqrt(350), 0.01);
+    C.Train<360, 150, 140>("../../tests/ds/", 1000, 2.0, 0.01, 0.1);
+    C.Train<360, 150, 140>("../../tests/ds/", 2000, 1.0, 0.01, 0.1, true);
+    C.Train<360, 150, 140>("../../tests/ds/", 10000, 1.0, 0.01, 0.1, true);
+//    C.Train<75, 37, 38>("../../resources/iris_data_files/", 1000, 0.5, 0.1, 0.2);
+//    Classifier<9, 2> C2;
+//    C2.Train<350, 175, 174>("../../resources/cancer/set1/", 10000, 1/sqrt(350), 0.01);
+    auto res = C.Evaluate(MatrixDS<1,1,double>(0));
+    auto res2 = C.Evaluate(MatrixDS<1,1,double>(1));
+    auto res3 = C.Evaluate(MatrixDS<1,1,double>(2));
+    auto res4 = C.Evaluate(MatrixDS<1,1,double>(6));
+    auto res5 = C.Evaluate(MatrixDS<1,1,double>(5.5));
     return true;
 }
 
