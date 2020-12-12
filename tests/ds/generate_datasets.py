@@ -4,13 +4,14 @@ import random
 
 
 class DataSet:
-    def __init__(self, input_count, output_count, target_method):
+    def __init__(self, input_count, output_count, target_method, step_width):
         self.Training = dict()
         self.Validation = dict()
         self.Test = dict()
         self.target_method = target_method
         self.input_count = input_count
         self.output_count = output_count
+        self.step_width = step_width
 
     def generate(self, train_count, validation_count, test_count):
         self.Training['input'] = list()
@@ -20,8 +21,8 @@ class DataSet:
         self.Test['input'] = list()
         self.Test['output'] = list()
         index = 0
-        i = -1.
-        stepwidth = 2./train_count
+        stepwidth = self.step_width or 2./train_count
+        i = -(train_count*stepwidth/2.)
         while index < train_count:
             self.Training['input'].append(i)
             self.Training['output'].append(self.target_method(self.Training['input'][index]))
@@ -29,19 +30,19 @@ class DataSet:
             index += 1
 
         index = 0
-        i = -1.
-        stepwidth = 2./validation_count
+        stepwidth = self.step_width or 2./validation_count
+        i = -(validation_count*stepwidth/2.)
         while index < validation_count:
-            self.Validation['input'].append(-1.0 + random.random() * 2.)
+            self.Validation['input'].append(i + random.random())
             self.Validation['output'].append(self.target_method(self.Validation['input'][index]))
             i += stepwidth
             index += 1
 
         index = 0
-        i = -1.
-        stepwidth = 2./test_count
+        stepwidth = self.step_width or 2./test_count
+        i = -(test_count*stepwidth/2.)
         while index < test_count:
-            self.Test['input'].append(-1.0 + random.random() * 2.)
+            self.Test['input'].append(i + random.random())
             self.Test['output'].append(self.target_method(self.Test['input'][index]))
             i += stepwidth
             index += 1
@@ -61,6 +62,6 @@ class DataSet:
 
 
 if __name__ == '__main__':
-    ds = DataSet(1, 1, lambda x: x * x)
+    ds = DataSet(1, 1, lambda x: x * x, 0.1)
     ds.generate(360, 150, 140)
     ds.write('.')

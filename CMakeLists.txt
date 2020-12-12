@@ -49,8 +49,8 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
         ${LIB_SOURCES}
             include/math/ds/MatrixDS.h
             include/math/ds/Evaluation.h
-            include/math/ds/Classifier.h
-            include/math/ds/Classifier.cpp
+            include/math/ds/NNModel.h
+            include/math/ds/NNModel.cpp
     )
 endif ()
 
