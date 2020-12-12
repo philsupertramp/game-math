@@ -1,6 +1,7 @@
 #pragma once
 #include "../Random.h"
 #include "../format.h"
+#include "BaseNNModel.h"
 #include "Evaluation.h"
 #include "MatrixDS.h"
 #include <array>
@@ -66,83 +67,14 @@ const MatrixDS<N, 1, double>& biases);
  */
 template<size_t InputCount, size_t OutputCount>
 class NNModel
+: public BaseNNModel<InputCount, OutputCount>
 {
-    template<size_t N>
-    struct DataSet {
-        MatrixDS<N, InputCount, double> Inputs;
-        MatrixDS<N, OutputCount, double> Outputs;
-        // classes
-        MatrixDS<N, 1, double> Classes;
-        size_t count                  = 0;
-        MatrixDS<N, 1, double> Biases = MatrixDS<N, 1, double>(1.0);
-
-        explicit DataSet(const char* fileName) { ReadFromFile(fileName); }
-
-        void ReadFromFile(const char* fileName) {
-            std::string line;
-            std::ifstream dataFile(fileName);
-            if(dataFile.is_open()) {
-                while(getline(dataFile, line)) {
-                    std::string val;
-                    for(size_t i = 0; i < InputCount + OutputCount; i++) {
-                        if(i < InputCount + OutputCount - 1) { std::getline(dataFile, val, '\t'); }
-                        else { val = line; }
-                        if(i < InputCount){
-                            Inputs[count][i]  = std::atof(val.c_str());
-                        } else {
-                            Outputs[count][i - InputCount] = std::atoi(val.c_str());
-                        }
-                    }
-                    ++count;
-                }
-                dataFile.close();
-                if(count != N) {
-                    std::cerr << "Found less data then expected!\n";
-                }
-                Classes = OutputToClass(Outputs);
-            } else {
-                std::cerr << "Unable to open file";
-            }
-        }
-
-        EvaluationError EvaluateNetworkError(const MatrixDS<InputCount + 1, OutputCount, double>& weights) {
-            auto outputNet      = feedForward(Inputs, weights, Biases);
-            auto output         = outputNet.Output;
-            auto net            = outputNet.Net;
-            auto error          = output - Outputs;
-            auto errorSqr       = HadamardMulti(error, error);
-            auto regression     = errorSqr.sumElements() / (double)(N * OutputCount);
-            auto classes        = OutputToClass(output);
-            auto classification = (double)Corr(classes, Classes) / (double)N;
-
-            return EvaluationError(regression, classification);
-        }
-    };
-    template<size_t TrainingSetSize, size_t ValidationSetSize, size_t TestSetSize>
-    struct DataSetSet {
-        DataSet<TrainingSetSize>* trainingSet     = nullptr;
-        DataSet<ValidationSetSize>* validationSet = nullptr;
-        DataSet<TestSetSize>* testSet             = nullptr;
-
-        explicit DataSetSet(const char* filePath){
-            char trainingsFile[55];
-            strcpy(trainingsFile, filePath); strcat(trainingsFile, "training.dat");
-            char validationFile[55];
-            strcpy(validationFile, filePath);  strcat(validationFile, "validation.dat");
-            char testFile[55];
-            strcpy(testFile, filePath);  strcat(testFile, "test.dat");
-            trainingSet   = new DataSet<TrainingSetSize>(trainingsFile);
-            validationSet = new DataSet<ValidationSetSize>(validationFile);
-            testSet       = new DataSet<TestSetSize>(testFile);
-        }
-    };
-
 public:
     NNModel() = default;
 
     template<size_t N, typename T>
     MatrixDS<InputCount + 1, OutputCount, T> BackPropagate(
-    [[maybe_unused]] const DataSet<N>& ds,
+    [[maybe_unused]] const DataSet<InputCount, OutputCount, N>& ds,
     const MatrixDS<InputCount + 1, OutputCount, T>& weight,
     [[maybe_unused]] const double eta) {
         /** generate necessary  */
@@ -181,7 +113,7 @@ public:
      */
     template<size_t TrainingSetSize, size_t ValidationSetSize, size_t TestSetSize>
     void Train(const char* filePath, const size_t maxIterations = 5000, const double maxWeight = 0.5, const double eta = 0.01, const double stopThreshold = 0.1, bool reuseWeights = false, bool printStatistics = false) {
-        DataSetSet<TrainingSetSize, ValidationSetSize, TestSetSize> DS(filePath);
+        DataSetSet<InputCount, OutputCount, TrainingSetSize, ValidationSetSize, TestSetSize> DS(filePath);
         trainingErrors.clear();
         if(!reuseWeights) InitializeWeights(modelWeights, -maxWeight, maxWeight);
 
@@ -197,7 +129,7 @@ public:
             errorSet.Test        = DS.testSet->EvaluateNetworkError(modelWeights);
             trainingErrors[iter] = errorSet;
 
-            if(errorSet.Validation.Regression < stopThreshold) {
+            if(errorSet.Validation.Classification < stopThreshold) {
                 std::cout << "Met threshold!\n";
                 break;
             }
@@ -308,7 +240,7 @@ public:
     }
 
 
-    auto Predict(MatrixDS<1, InputCount, double> input){
+    MatrixDS<1, 1> Predict(MatrixDS<1, InputCount, double> input) override {
         auto net    = HorizontalConcat(input, MatrixDS<1, 1>(1.0)) * modelWeights;
         return OutputToClass(Activate(net));
     }
@@ -332,7 +264,7 @@ MatrixDS<M, 1, double>& OutputToClass(const MatrixDS<M, N, double>& in) {
         for(size_t j = 0; j < in.columns(); j++) {
             if(in[i][j] > rowMaxVal) {
                 rowMaxVal = in[i][j];
-                rowMax    = j;
+                rowMax    = j+1;
             }
         }
         if(rowMax != -1) { (*result)[i][0] = rowMax; }
@@ -343,7 +275,7 @@ MatrixDS<M, 1, double>& OutputToClass(const MatrixDS<M, N, double>& in) {
 template<size_t N, size_t M>
 auto ClassToOutput(const MatrixDS<M, 1, double>& in) {
     auto result = new MatrixDS<M, N, double>(0);
-    for(size_t i = 0; i < M; i++) { (*result)[i][(size_t)in[i][0]] = 1; }
+    for(size_t i = 0; i < M; i++) { (*result)[i][(size_t)in[i][0]-1] = 1; }
     return *result;
 }
 

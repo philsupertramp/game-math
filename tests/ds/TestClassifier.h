@@ -7,7 +7,7 @@
 
 bool TestInToOutConversion() {
     const MatrixDS<5, 3> A({ { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 }, { 1, 0, 0 }, { 0, 0, 1 } });
-    const MatrixDS<5, 1> B({ { 0 }, { 1 }, { 2 }, { 0 }, { 2 } });
+    const MatrixDS<5, 1> B({ { 1 }, { 2 }, { 3 }, { 1 }, { 3 } });
     auto resultIn = OutputToClass(A);
     assert(resultIn == B);
     auto resultOut = ClassToOutput<3>(B);
@@ -19,11 +19,14 @@ bool TestClassifierConstruction() {
     NNModel<4, 3> C;
 
 //    C.Train<360, 150, 140>("../../tests/ds/", 1000, 0.5, 0.1, 0.1, false, true);
-    C.Train<75, 37, 38>("../../resources/iris_data_files/", 100000, 0.5, 0.125, 0.1, false, true);
+    C.Train<75, 37, 38>("../../resources/iris_data_files/", 1000, 0.5, 1.0, 0.1, false, true);
 //    Classifier<9, 2> C2;
 //    C2.Train<350, 175, 174>("../../resources/cancer/set1/", 10000, 1/sqrt(350), 0.01);
-    auto res = C.Predict(MatrixDS<1,4,double>(0));
-    auto res2 = C.Predict(MatrixDS<1,4,double>({{0.790235, 0.480944,	0.82379,	0.828996}}));
+    auto res = C.Predict(MatrixDS<1,4,double>(0)); // 0
+    auto res2 = C.Predict(MatrixDS<1,4,double>({{0.790235, 0.480944,	0.82379,	0.828996}})); // 3
+    auto res3 = C.Predict(MatrixDS<1,4,double>({{0.928809,	0.339785,	0.975,	0.901998}})); // 3
+    auto res4 = C.Predict(MatrixDS<1,4,double>({{0.328323,	0.304495,	0.385282,	0.463986}})); // 2
+    auto res5 = C.Predict(MatrixDS<1,4,double>({{0.305227,	0.586813,	0.143347,	0.135476}})); // 1
 //    auto res2 = C.Predict(MatrixDS<1,1,double>(1));
 //    auto res3 = C.Predict(MatrixDS<1,1,double>(2));
 //    auto res4 = C.Predict(MatrixDS<1,1,double>(6));
