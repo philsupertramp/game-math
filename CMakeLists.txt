@@ -51,7 +51,6 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/MatrixDS.h
             include/math/ds/Evaluation.h
             include/math/ds/NN.h
-            include/math/ds/utils.h
             )
 endif ()
 
