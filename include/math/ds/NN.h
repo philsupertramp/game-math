@@ -1,60 +1,139 @@
 #pragma once
 #include <stdlib.h>
 #include "MatrixDS.h"
+#include "../format.h"
 #include "any.h"
 #include <ranges>
 
-double sigmoid(const double &in){return 1.0/(1.0+exp(in));}
-double sigmoidDX(const double &in){return in * (1.0-in);}
+double sigmoid(const double &in){return 1.0/(1.0+exp(-in));}
+double sigmoidDx(const double &in){return in * (1.0-in);}
 
-template<size_t N, size_t M>
-MatrixDS<N, M, double> Activate(const MatrixDS<N, M, double> &in){
-    auto out = new MatrixDS<N, M, double>();
-    for(size_t i = 0; i < N; i++){
-        for(size_t j = 0; j < M; j++){
+MatrixDS<double> Activate(const MatrixDS<double> &in){
+    auto out = new MatrixDS<double>(0, in.rows(), in.columns());
+    for(size_t i = 0; i < out->rows(); i++){
+        for(size_t j = 0; j < out->columns(); j++){
             (*out)[i][j] = sigmoid(in[i][j]);
         }
     }
     return *out;
 }
+MatrixDS<double> ActivateDerivative(const MatrixDS<double> &in){
+    auto out = new MatrixDS<double>(0, in.rows(), in.columns());
+    for(size_t i = 0; i < out->rows(); i++){
+        for(size_t j = 0; j < out->columns(); j++){
+            (*out)[i][j] = sigmoidDx(in[i][j]);
+        }
+    }
+    return *out;
+}
 
-template<size_t In, size_t Out>
 class NNLayer
 {
 public:
-    NNLayer(){ }
+    NNLayer(size_t in, size_t out): in(in), out(out){
+        weights = MatrixDS<double>::Random(in, out);
+        bias = MatrixDS<double>::Random(out, 1);
+    }
+    NNLayer() = default;
+    NNLayer(const NNLayer& other) = default;
 
-    MatrixDS<Out, 1, double> Evaluate(const MatrixDS<In, 1, double>& input){
-        return Activate((weights * input) + bias);
+    [[nodiscard]] MatrixDS<double>
+    Evaluate(const MatrixDS<double>& input) const {
+        return Activate(HorizontalConcat(weights.Transpose(), bias) * input);
     }
 
-    MatrixDS<In, Out, double> weights = MatrixDS<In, Out, double>::Random();
-    MatrixDS<In, 1, double> bias = MatrixDS<In, 1, double>::Random();
+    [[nodiscard]] constexpr size_t Prev() const { return in; }
+    [[nodiscard]] constexpr size_t Next() const { return out; }
 
-    constexpr size_t Prev() { return in; }
-    constexpr size_t Next() { return out; }
+    size_t in = 0;
+    size_t out = 0;
 
-    const size_t in = In;
-    const size_t out = Out;
+    MatrixDS<double> weights;
+    MatrixDS<double> bias;
 };
 
-template<size_t In, size_t Out>
+struct DataSet{
+    MatrixDS<double> Input;
+    MatrixDS<double> Output;
+};
+
+template<size_t FeatureCount, size_t OutputCount>
 class NN
 {
 
 public:
-    NN(){
+    NN(size_t numNeurons = 2){
         numLayers = 1;
-        layers.resize(1);
-        layers[0] = NNLayer<In, Out>();
+        weights = MatrixDS<double>::Random(FeatureCount, numNeurons);
+        bias = MatrixDS<double>::Random(numNeurons, 1);
+        layers.push_back(MatrixDS<double>::Random(FeatureCount, numNeurons));
     }
 
-    std::tuple<MatrixDS<Out,1,double>,MatrixDS<Out,1,double>> FeedForward(){
-        MatrixDS<In, 1, double> in(0);
-        auto out = any_cast<NNLayer<In,Out>>(layers[0]).Evaluate(in);
-        MatrixDS<Out, 1, double> expectedOut(0);
-        auto err = expectedOut - out;
-        return std::make_tuple(out, err);
+    MatrixDS<double> FeedForward(const DataSet& ds){
+        auto layer = MatrixDS<double>(0, ds.Input.rows(), weights.columns());
+        for(size_t i = 0; i < layers.size(); i++){
+            auto newLayer = Activate(ds.Input * weights);
+            layers[i] = newLayer;
+            layer = layer + newLayer;
+        }
+
+        MatrixDS<double> out;
+        if(bias.columns() == 1 && bias.rows() == 1){
+            out = Activate(layer * bias[0][0]);
+        } else {
+            out = Activate(layer * bias);
+        }
+
+        return out;
+    }
+
+    void BackPropagate(const DataSet& dataSet, const MatrixDS<double>& out, double eta = 0.5){
+         for(size_t i = 0; i < layers.size(); i++){
+             auto& layer = layers[i];
+             auto scaledError = (dataSet.Output - out) * eta;
+             auto d_bias = (layer.Transpose() *  HadamardMulti(scaledError, ActivateDerivative(out)));
+             auto d_weights = dataSet.Input.Transpose() * HadamardMulti(HadamardMulti(scaledError, ActivateDerivative(out)) * bias.Transpose(), ActivateDerivative(layer));
+
+             weights = weights + d_weights;
+             bias = bias + d_bias;
+         }
+    }
+
+    void Train(int maxEpoch = 10000){
+        DataSet training{
+            MatrixDS<double>({
+                {0.0,   0.0,   1.0},
+                {0.0,   1.0,   1.0},
+                {1.0,   0.0, 1.0 },
+                { 1.0,  1.0, 1.0 }
+            }),
+            MatrixDS<double>({
+                             {0},
+                             {1},
+                             {1},
+                             {0}
+            })
+        };
+        double stopThreshold = 0.001;
+        MatrixDS<double> currentOut(0, 4, 1);
+        for(int i = 0; i < maxEpoch; ++i) {
+            currentOut = FeedForward(training);
+            BackPropagate(training, currentOut);
+
+            MatrixDS<double>currentError = training.Output - currentOut;
+            // Calculate loss
+            if(i % 30 == 0) {
+                auto loss = (HadamardMulti(currentError, currentError).sumElements()) / (double)currentError.rows();
+
+                std::cout << format("Current loss: %.8f", loss) << std::endl;
+                std::cout << "Current prediction: " << currentOut << std::endl;
+                std::cout << "Actual output: " << training.Output << std::endl;
+                if(loss < stopThreshold) {
+                    std::cout<<"Threshold met at " << i << " iterations\n";
+                    break;
+                }
+            }
+        }
     }
 
     /**
@@ -62,18 +141,21 @@ public:
      * @tparam Prev
      * @tparam Next
      */
-    template<size_t Prev, size_t Next>
     void AddLayer(){
-        auto curSize = layers.size();
-        layers.resize(curSize + 1);
-        if(curSize >= 1){
-            auto prevLayer = any_cast<NNLayer<In,Out>>(layers[curSize-1]);
-            layers[curSize-1] = NNLayer<In, Prev>();
-        }
-        layers[curSize] = NNLayer<Prev, Next>();
+        layers.push_back(MatrixDS<double>(0,weights.rows(),weights.columns()));
         numLayers++;
+    }
+    void SetLayers(size_t numNewLayers){
+        if(numLayers != numNewLayers){
+            layers.clear();
+            for(size_t i = 0; i < numNewLayers; i++){
+                layers.push_back(MatrixDS<double>(0, weights.rows(),weights.columns()));
+            }
+        }
     }
 
     size_t numLayers;
-    std::vector<any> layers;
+    std::vector<MatrixDS<double>> layers;
+    MatrixDS<double> weights;
+    MatrixDS<double> bias;
 };

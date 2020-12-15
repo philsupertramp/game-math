@@ -7,8 +7,8 @@
 
 
 bool TestClassifier() {
-    auto nn = NN<2,2>();
-    nn.AddLayer<4,2>();
-    auto res = nn.FeedForward();
+    NN<3,1> nn(5);
+    nn.SetLayers(5);
+    nn.Train();
     return true;
 }
