@@ -39,7 +39,7 @@ bool TestMatrixDSMultiplication() {
     }
 
     MatrixDS<double> vec(1.0, 10, 1);
-    MatrixDS<double> vec2(2.0, 1,10 );
+    MatrixDS<double> vec2(2.0, 1, 10);
 
     auto resVec = vec * vec2;
     assert(resVec.rows() == 10);
@@ -58,12 +58,12 @@ bool TestMatrixDSMultiplication() {
 }
 
 bool TestMatrixAddition() {
-    MatrixDS<double> A(2.0,2 ,2);
-    MatrixDS<double> B(2.0,2 ,2);
+    MatrixDS<double> A(2.0, 2, 2);
+    MatrixDS<double> B(2.0, 2, 2);
     MatrixDS<double> C(0, 2, 2);
     auto D = A + B;
 
-    MatrixDS<double> E(4.0,2,2);
+    MatrixDS<double> E(4.0, 2, 2);
     assert(D == E);
     C += A;
     assert(C == B);
@@ -222,11 +222,11 @@ bool TestMatrixDSInit() {
     assert(matrix.rows() == 2);
     assert(matrix.columns() == 2);
 
-    MatrixDS<double> m2({{1,1,1,1,1,1,1,1,1,1,1}, {1,1,1,1,1,1,1,1,1,1,1}});
+    MatrixDS<double> m2({ { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } });
     assert(m2.rows() == 2);
     assert(m2.columns() == 11);
 
-    MatrixDS<double> m3({{1},{1}});
+    MatrixDS<double> m3({ { 1 }, { 1 } });
     assert(m3.rows() == 2);
     assert(m3.columns() == 1);
 

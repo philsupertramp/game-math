@@ -8,11 +8,13 @@
 #include <type_traits>
 
 
+/**
+ *
+ * @tparam T
+ */
 template<typename T = double>
 class MatrixDS
 {
-    //    assert(Columns > 0 && Rows > 0, "Cannot initialize empty matrix.");
-
 public:
     explicit MatrixDS(T val, size_t rowCount, size_t colCount = 1) {
         Resize(rowCount, colCount);
@@ -36,17 +38,17 @@ public:
             ++i;
         }
     }
-    MatrixDS(MatrixDS const& other){
-        this->_rows = other._rows;
+    MatrixDS(MatrixDS const& other) {
+        this->_rows    = other._rows;
         this->_columns = other._columns;
-        this->_data = std::move(other._data);
+        this->_data    = std::move(other._data);
     };
 
     ~MatrixDS() {
         if(_data != nullptr) { }
     }
 
-    static MatrixDS Random(size_t rows, size_t columns, double minWeight = 0.0, double maxWeight = 1.0){
+    static MatrixDS Random(size_t rows, size_t columns, double minWeight = 0.0, double maxWeight = 1.0) {
         MatrixDS<double> matrix(0, rows, columns);
         for(size_t i = 0; i < rows; ++i) {
             for(size_t j = 0; j < columns; ++j) { matrix[i][j] = Random::Get(minWeight, maxWeight); }
@@ -65,17 +67,15 @@ public:
     [[nodiscard]] inline T Determinant() const {
         if(!HasDet()) return 0;
 
-        if(rows() == 3 && columns() == 3){
+        if(rows() == 3 && columns() == 3) {
             return (
             _data[0][0] * _data[1][1] * _data[2][2] + _data[0][1] * _data[1][2] * _data[2][0]
             + _data[0][2] * _data[1][0] * _data[2][1] - _data[0][2] * _data[1][1] * _data[2][0]
             - _data[0][1] * _data[1][0] * _data[2][2] - _data[0][0] * _data[1][2] * _data[2][1]);
         }
-        if(rows() == 2 && columns() == 2){
-            return _data[0][0] * _data[1][1] - _data[0][1] * _data[1][0];
-        }
+        if(rows() == 2 && columns() == 2) { return _data[0][0] * _data[1][1] - _data[0][1] * _data[1][0]; }
 
-        MatrixDS<T> submat(0.0, rows()-1, columns()-1);
+        MatrixDS<T> submat(0.0, rows() - 1, columns() - 1);
         T d = 0;
         {
             for(size_t c = 0; c < columns(); c++) {
@@ -175,22 +175,16 @@ public:
      */
     friend MatrixDS<T> operator*(MatrixDS<T> lhs, const T& rhs) {
         auto result = new MatrixDS<T>(0.0, lhs.rows(), lhs.columns());
-        for(size_t i = 0; i < lhs.rows(); i++){
-            for(size_t j = 0; j < lhs.columns(); j++){
-                (*result)[i][j] = lhs[i][j] * rhs;
-            }
+        for(size_t i = 0; i < lhs.rows(); i++) {
+            for(size_t j = 0; j < lhs.columns(); j++) { (*result)[i][j] = lhs[i][j] * rhs; }
         }
         return *result;
     }
-    MatrixDS<T>& operator*=(const T& rhs) {
-        return *this * rhs;
-    }
+    MatrixDS<T>& operator*=(const T& rhs) { return *this * rhs; }
 
     /**
      * Regular Matrix-Matrix multiplication
      * Calculates LHS * RHS
-     * @tparam R
-     * @tparam C
      * @param lhs
      * @param rhs
      * @return Rows x C result matrix
@@ -284,113 +278,32 @@ public:
         return ostr;
     }
 
-    void Resize(size_t rows, size_t cols){
-        _rows = rows;
+    void Resize(size_t rows, size_t cols) {
+        _rows    = rows;
         _columns = cols;
-        _data = new T*[rows];
-        for(size_t i = 0; i < rows; i++){
-            _data[i] = new T[cols];
-        }
+        _data    = new T*[rows];
+        for(size_t i = 0; i < rows; i++) { _data[i] = new T[cols]; }
     }
 
 private:
     [[nodiscard]] bool HasDet() const { return columns() > 1 && rows() > 1; }
 
-    size_t _rows = 0;
+    size_t _rows    = 0;
     size_t _columns = 0;
     T** _data;
-
 };
 
-/**
-template<typename T>
-class MatrixDS<T>
-{
-public:
-    explicit MatrixDS(T val) { _data = val; }
-    MatrixDS() = default;
-
-    [[nodiscard]] constexpr inline size_t rows() const { return 1; }
-    [[nodiscard]] constexpr inline size_t columns() const { return 1; }
-
-    T* operator[]([[maybe_unused]] size_t index) { return &_data; }
-    const T* operator[]([[maybe_unused]] size_t index) const { return &_data; }
-
-    inline T Determinant() const { return 0; }
-
-    template<size_t C>
-    MatrixDS<1, C + 1, T> HorizontalConcat(const MatrixDS<1,C, T>& other) {
-        auto result = new MatrixDS<1, C + 1, T>();
-        for(size_t i = 0; i < 1; ++i) {
-            for(size_t j = 0; j < C + 1; ++j) {
-                (*result)[i][j] = j < columns() ? _data : other[i][j - columns()];
-            }
-        }
-        return *result;
-    }
-
-    static MatrixDS<1,1,double> Random(double minWeight, double maxWeight){
-        return MatrixDS<1,1,double>(Random::Get(minWeight, maxWeight));
-    }
-
-    [[nodiscard]] constexpr MatrixDS<1, 1, T> Transpose() const {
-        return *this;
-    }
-
-    friend MatrixDS<1, 1, T> operator-(MatrixDS<1, 1, T> lhs, const MatrixDS<1, 1, T>& rhs) {
-        return lhs -= rhs;
-    }
-    MatrixDS<1, 1, T>& operator-=(const MatrixDS<1, 1, T>& rhs) {
-        _data -= *rhs[0];
-        return *this;
-    }
-    friend MatrixDS<1, 1, T> operator+(MatrixDS<1, 1, T> lhs, const MatrixDS<1, 1, T>& rhs) {
-        return lhs += rhs;
-    }
-    MatrixDS<1, 1, T>& operator+=(const MatrixDS<1, 1, T>& rhs) {
-        _data += *rhs[0];
-        return *this;
-    }
-
-    template<size_t R, size_t C, class = typename std::enable_if_t<R == 1>>
-    friend MatrixDS<R, R, T>& operator*(const MatrixDS<R, 1, T>& lhs, const MatrixDS<R, C, T>& rhs) {
-        auto result = new MatrixDS<R, R, T>(0.0);
-        for(size_t i = 0; i < R; i++) {
-            for(size_t j = 0; j < C; j++) {
-                for(size_t k = 0; k < R; k++) { (*result)[i][j] += (T)(lhs[i][k] * rhs[k][j]); }
-            }
-        }
-        return *result;
-    }
-private:
-    T _data = {};
-};
-*/
-
-/**
- * Determinant overrides for faster calculation of 2x2 and 3x3 matrices
- */
-/*
-template<>
-double MatrixDS<double>::Determinant() const {
-}
-template<>
-double MatrixDS<3, 3, double>::Determinant() const {
-}
-*/
 /**
  * Helper utilities
  */
 
 /**
  * Element wise multiplication
- * @tparam R
- * @tparam C
  * @tparam T
  * @param lhs
  * @param rhs
  * @return
- */
+*/
 template<typename T>
 MatrixDS<T>& HadamardMulti(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
     lhs.assertSize(rhs);
@@ -403,18 +316,13 @@ MatrixDS<T>& HadamardMulti(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
 
 /**
  *
- * @tparam Rows
- * @tparam Columns
  * @tparam T
- * @tparam R
- * @tparam C
  * @param lhs
  * @param rhs
  * @return
  */
 template<typename T>
-MatrixDS<T>&
-KroneckerMulti(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
+MatrixDS<T>& KroneckerMulti(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
     auto result = new MatrixDS<T>(0, lhs.rows() * rhs.rows(), lhs.columns() * rhs.columns());
     for(size_t m = 0; m < lhs.rows(); m++) {
         for(size_t n = 0; n < lhs.columns(); n++) {
@@ -430,17 +338,13 @@ KroneckerMulti(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
 
 /**
  * Horizontal concatenation of 2 matrices of same Row size
- * @tparam Rows
- * @tparam Columns
  * @tparam T
- * @tparam C
  * @param lhs
  * @param rhs
  * @return
  */
 template<typename T>
-MatrixDS<T>
-HorizontalConcat(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
+MatrixDS<T> HorizontalConcat(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
     assert(lhs.rows() == rhs.rows());
     auto result = new MatrixDS<T>(0.0, lhs.rows(), lhs.columns() + rhs.columns());
     for(size_t i = 0; i < lhs.rows(); ++i) {
@@ -453,8 +357,6 @@ HorizontalConcat(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
 
 /**
  *
- * @tparam N
- * @tparam M
  * @tparam T
  * @param A
  * @param B

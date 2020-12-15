@@ -1,30 +1,25 @@
 #pragma once
 #include "../format.h"
 #include "MatrixDS.h"
-#include "any.h"
 #include <fstream>
 #include <ranges>
 #include <sstream>
-#include <stdlib.h>
+#include <cstdlib>
 
-double sigmoid(const double &in){return 1.0/(1.0+exp(-in));}
-double sigmoidDx(const double &in){return in * (1.0-in);}
+double sigmoid(const double& in) { return 1.0 / (1.0 + exp(-in)); }
+double sigmoidDx(const double& in) { return in * (1.0 - in); }
 
-MatrixDS<double> Activate(const MatrixDS<double> &in){
+MatrixDS<double> Activate(const MatrixDS<double>& in) {
     auto out = new MatrixDS<double>(0, in.rows(), in.columns());
-    for(size_t i = 0; i < out->rows(); i++){
-        for(size_t j = 0; j < out->columns(); j++){
-            (*out)[i][j] = sigmoid(in[i][j]);
-        }
+    for(size_t i = 0; i < out->rows(); i++) {
+        for(size_t j = 0; j < out->columns(); j++) { (*out)[i][j] = sigmoid(in[i][j]); }
     }
     return *out;
 }
-MatrixDS<double> ActivateDerivative(const MatrixDS<double> &in){
+MatrixDS<double> ActivateDerivative(const MatrixDS<double>& in) {
     auto out = new MatrixDS<double>(0, in.rows(), in.columns());
-    for(size_t i = 0; i < out->rows(); i++){
-        for(size_t j = 0; j < out->columns(); j++){
-            (*out)[i][j] = sigmoidDx(in[i][j]);
-        }
+    for(size_t i = 0; i < out->rows(); i++) {
+        for(size_t j = 0; j < out->columns(); j++) { (*out)[i][j] = sigmoidDx(in[i][j]); }
     }
     return *out;
 }
@@ -32,36 +27,37 @@ MatrixDS<double> ActivateDerivative(const MatrixDS<double> &in){
 class NNLayer
 {
 public:
-    NNLayer(size_t in, size_t out): in(in), out(out){
+    NNLayer(size_t in, size_t out)
+        : in(in)
+        , out(out) {
         weights = MatrixDS<double>::Random(in, out);
-        bias = MatrixDS<double>::Random(out, 1);
+        bias    = MatrixDS<double>::Random(out, 1);
     }
-    NNLayer() = default;
+    NNLayer()                     = default;
     NNLayer(const NNLayer& other) = default;
 
-    [[nodiscard]] MatrixDS<double>
-    Evaluate(const MatrixDS<double>& input) const {
+    [[nodiscard]] MatrixDS<double> Evaluate(const MatrixDS<double>& input) const {
         return Activate(HorizontalConcat(weights.Transpose(), bias) * input);
     }
 
     [[nodiscard]] constexpr size_t Prev() const { return in; }
     [[nodiscard]] constexpr size_t Next() const { return out; }
 
-    size_t in = 0;
+    size_t in  = 0;
     size_t out = 0;
 
     MatrixDS<double> weights;
     MatrixDS<double> bias;
 };
 
-struct DataSet{
+struct DataSet {
     MatrixDS<double> Input;
     MatrixDS<double> Output;
     size_t InputCount;
     size_t OutputCount;
 
     DataSet(const char* fileName, size_t inputCount, size_t outputCount) {
-        InputCount = inputCount;
+        InputCount  = inputCount;
         OutputCount = outputCount;
         ReadFromFile(fileName);
     }
@@ -71,26 +67,27 @@ struct DataSet{
         size_t lineCount = 0;
 
         std::ifstream dataFile2(fileName);
-        if(dataFile2.is_open()){
-            while(getline(dataFile2, line, '\n')) {
-                lineCount++;
-            }
+        if(dataFile2.is_open()) {
+            while(getline(dataFile2, line, '\n')) { lineCount++; }
             dataFile2.close();
         }
         std::ifstream dataFile(fileName);
         size_t count = 0;
-        Input = MatrixDS<double>(0, lineCount, InputCount);
-        Output = MatrixDS<double>(0, lineCount, OutputCount);
+        Input        = MatrixDS<double>(0, lineCount, InputCount);
+        Output       = MatrixDS<double>(0, lineCount, OutputCount);
         if(dataFile.is_open()) {
             line = "";
             while(getline(dataFile, line, '\n')) {
                 std::string val;
                 std::stringstream lineStream(line);
                 for(size_t i = 0; i < InputCount + OutputCount; i++) {
-                    if(i < InputCount + OutputCount - 1) { std::getline(lineStream, val, '\t'); }
-                    else { std::getline(lineStream, val); }
-                    if(i < InputCount){
-                        Input[count][i]  = std::atof(val.c_str());
+                    if(i < InputCount + OutputCount - 1) {
+                        std::getline(lineStream, val, '\t');
+                    } else {
+                        std::getline(lineStream, val);
+                    }
+                    if(i < InputCount) {
+                        Input[count][i] = std::atof(val.c_str());
                     } else {
                         Output[count][i - InputCount] = std::atoi(val.c_str());
                     }
@@ -98,7 +95,7 @@ struct DataSet{
                 ++count;
             }
             dataFile.close();
-//            Classes = OutputToClass(Output);
+            //            Classes = OutputToClass(Output);
         } else {
             std::cerr << "Unable to open file";
         }
@@ -108,25 +105,24 @@ struct DataSet{
 template<size_t FeatureCount, size_t OutputCount>
 class NN
 {
-
 public:
-    explicit NN(size_t numNeurons = 2){
+    explicit NN(size_t numNeurons = 2) {
         numLayers = 1;
-        weights = MatrixDS<double>::Random(FeatureCount, numNeurons);
-        bias = MatrixDS<double>::Random(numNeurons, OutputCount);
+        weights   = MatrixDS<double>::Random(FeatureCount, numNeurons);
+        bias      = MatrixDS<double>::Random(numNeurons, OutputCount);
         layers.push_back(MatrixDS<double>::Random(FeatureCount, numNeurons));
     }
 
-    MatrixDS<double> FeedForward(const DataSet& ds){
+    MatrixDS<double> FeedForward(const DataSet& ds) {
         auto layer = MatrixDS<double>(0, ds.Input.rows(), weights.columns());
-        for(size_t i = 0; i < layers.size(); i++){
+        for(size_t i = 0; i < layers.size(); i++) {
             auto newLayer = Activate(ds.Input * weights);
-            layers[i] = newLayer;
-            layer = layer + newLayer;
+            layers[i]     = newLayer;
+            layer         = layer + newLayer;
         }
 
         MatrixDS<double> out;
-        if(bias.columns() == 1 && bias.rows() == 1){
+        if(bias.columns() == 1 && bias.rows() == 1) {
             out = Activate(layer * bias[0][0]);
         } else {
             out = Activate(layer * bias);
@@ -135,24 +131,27 @@ public:
         return out;
     }
 
-    void BackPropagate(const DataSet& dataSet, const MatrixDS<double>& out, double eta = 0.0051){
-         for(auto & layer : layers){
-             auto scaledError = (dataSet.Output - out) * eta;
-             auto d_bias = (layer.Transpose() *  HadamardMulti(scaledError, ActivateDerivative(out)));
-             auto d_weights = dataSet.Input.Transpose() * HadamardMulti(HadamardMulti(scaledError, ActivateDerivative(out)) * bias.Transpose(), ActivateDerivative(layer));
+    void BackPropagate(const DataSet& dataSet, const MatrixDS<double>& out, double eta = 0.0051) {
+        for(auto& layer : layers) {
+            auto scaledError = (dataSet.Output - out) * eta;
+            auto d_bias      = (layer.Transpose() * HadamardMulti(scaledError, ActivateDerivative(out)));
+            auto d_weights =
+            dataSet.Input.Transpose()
+            * HadamardMulti(
+            HadamardMulti(scaledError, ActivateDerivative(out)) * bias.Transpose(), ActivateDerivative(layer));
 
-             weights = weights + d_weights;
-             bias = bias + d_bias;
-         }
+            weights = weights + d_weights;
+            bias    = bias + d_bias;
+        }
     }
 
-    void Train(const DataSet& ds, int maxEpoch = 1000, double stopThreshold = 0.001, double eta = 0.0051){
+    void Train(const DataSet& ds, int maxEpoch = 1000, double stopThreshold = 0.001, double eta = 0.0051) {
         MatrixDS<double> currentOut(0, ds.InputCount, ds.OutputCount);
         for(int i = 0; i < maxEpoch; ++i) {
             currentOut = FeedForward(ds);
             BackPropagate(ds, currentOut, eta);
 
-            MatrixDS<double>currentError = ds.Output - currentOut;
+            MatrixDS<double> currentError = ds.Output - currentOut;
             // Calculate loss
             if(i % 30 == 0) {
                 auto loss = (HadamardMulti(currentError, currentError).sumElements()) / (double)currentError.rows();
@@ -161,7 +160,7 @@ public:
                 std::cout << "Current prediction: " << currentOut << std::endl;
                 std::cout << "Actual output: " << ds.Output << std::endl;
                 if(loss < stopThreshold) {
-                    std::cout<<"Threshold met at " << i << " iterations\n";
+                    std::cout << "Threshold met at " << i << " iterations\n";
                     break;
                 }
             }
@@ -173,15 +172,15 @@ public:
      * @tparam Prev
      * @tparam Next
      */
-    void AddLayer(){
-        layers.push_back(MatrixDS<double>(0,weights.rows(),weights.columns()));
+    void AddLayer() {
+        layers.push_back(MatrixDS<double>(0, weights.rows(), weights.columns()));
         numLayers++;
     }
-    void SetLayers(size_t numNewLayers){
-        if(numLayers != numNewLayers){
+    void SetLayers(size_t numNewLayers) {
+        if(numLayers != numNewLayers) {
             layers.clear();
-            for(size_t i = 0; i < numNewLayers; i++){
-                layers.push_back(MatrixDS<double>(0, weights.rows(),weights.columns()));
+            for(size_t i = 0; i < numNewLayers; i++) {
+                layers.push_back(MatrixDS<double>(0, weights.rows(), weights.columns()));
             }
         }
     }

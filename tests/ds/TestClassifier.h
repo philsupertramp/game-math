@@ -7,7 +7,7 @@
 
 
 bool TestClassifier() {
-    NN<4,3> nn(2);
+    NN<4, 3> nn(2);
     nn.SetLayers(7);
     DataSet training("../../resources/iris_data_files/training.dat", 4, 3);
     nn.Train(training);
