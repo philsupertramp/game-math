@@ -303,7 +303,7 @@ private:
  * @param lhs
  * @param rhs
  * @return
-*/
+ */
 template<typename T>
 MatrixDS<T>& HadamardMulti(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
     lhs.assertSize(rhs);

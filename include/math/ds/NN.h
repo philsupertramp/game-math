@@ -1,10 +1,10 @@
 #pragma once
 #include "../format.h"
 #include "MatrixDS.h"
+#include <cstdlib>
 #include <fstream>
 #include <ranges>
 #include <sstream>
-#include <cstdlib>
 
 double sigmoid(const double& in) { return 1.0 / (1.0 + exp(-in)); }
 double sigmoidDx(const double& in) { return in * (1.0 - in); }
