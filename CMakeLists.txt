@@ -22,6 +22,7 @@ set(LIB_SOURCES
         include/math/mat/mat3.h
         include/math/mat/mat4.h
         include/math/utils.h
+        include/math/Random.h
 )
 
 if(MATH_EXTENSIONS MATCHES "(numerics)")
@@ -49,9 +50,9 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
         ${LIB_SOURCES}
             include/math/ds/MatrixDS.h
             include/math/ds/Evaluation.h
-            include/math/ds/Classifier.h
-            include/math/ds/Classifier.cpp
-    )
+            include/math/ds/NN.h
+            include/math/ds/utils.h
+            )
 endif ()
 
 add_library(math-lib SHARED ${LIB_SOURCES})

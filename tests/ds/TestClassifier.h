@@ -2,103 +2,27 @@
 
 #include "../Test.h"
 #include <cassert>
-#include <math/ds/Classifier.h>
+#include <math/ds/MatrixDS.h>
+#include <math/ds/NN.h>
 
 
-bool TestInToOutConversion() {
-    const MatrixDS<5, 3> A({ { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 }, { 1, 0, 0 }, { 0, 0, 1 } });
-    const MatrixDS<5, 1> B({ { 0 }, { 1 }, { 2 }, { 0 }, { 2 } });
-    auto resultIn = OutputToClass(A);
-    assert(resultIn == B);
-    auto resultOut = ClassToOutput<3>(B);
-    assert(resultOut == A);
-    return true;
-}
-
-bool TestClassifierConstruction() {
-    Classifier<4, 3> C;
-
-    C.Train<75, 37, 38>("../../resources/iris_data_files/", 1000, 0.5, 0.1, 0.2);
-    Classifier<9, 2> C2;
-    C2.Train<350, 175, 174>("../../resources/cancer/set1/", 10000, 1/sqrt(350), 0.01);
-    return true;
-}
-
-bool TestSigmoid() {
-    assert(sigmoid(1.0) == 0.88079707797788243);
-    assert(sigmoid(2.0) == 0.98201379003790845);
-    assert(sigmoid(3.0) == 0.99752737684336523);
-    assert(sigmoid(4.0) == 0.99966464986953352);
-    assert(sigmoid(-1.0) == 0.11920292202211757);
-    return true;
-}
-bool TestSigmoidDx() {
-    assert(sigmoidDx(1.0) == 0.20998717080701307);
-    assert(sigmoidDx(2.0) == 0.035325412426582214);
-    assert(sigmoidDx(3.0) == 0.0049330185827201056);
-    assert(sigmoidDx(4.0) == 0.00067047534151293275);
-    assert(sigmoidDx(-1.0) == 0.20998717080701307);
-    return true;
-}
-bool TestActivate() {
-    MatrixDS<2, 2> A({ { 1, 2 }, { 3, 4 } });
-    MatrixDS<2, 2> C({ { 0.88079707797788243, 0.98201379003790845 }, { 0.99752737684336523, 0.99966464986953352 } });
-    auto B = Activate(A);
-
-    assert(C == B);
-
-    MatrixDS<2, 2> D(1);
-    MatrixDS<2, 2> E(0.88079707797788243);
-
-    auto F = Activate(D);
-    assert(F == E);
-    return true;
-}
-bool TestActivateDerivative() {
-    MatrixDS<2, 2> A({ { 1, 2 }, { 3, 4 } });
-    MatrixDS<2, 2> C(
-    { { 0.20998717080701307, 0.035325412426582214 }, { 0.0049330185827201056, 0.00067047534151293275 } });
-    auto B = ActivateDerivative(A);
-
-    assert(B == C);
-
-    MatrixDS<2, 2> D(1);
-    MatrixDS<2, 2> D2(-1);
-    MatrixDS<2, 2> E(0.20998717080701307);
-
-    auto F  = ActivateDerivative(D);
-    auto F2 = ActivateDerivative(D2);
-    assert(F == E);
-    assert(F2 == E);
-    return true;
-}
-
-bool TestFeedForward() { return true; }
-
-bool TestEvaluationStatistics() {
-    EvaluationStatistics stats;
-
-    return true;
-}
-bool TestInitializeWeights() {
-    MatrixDS<2, 2, double> A;
-    InitializeWeights(A, 0.0, 1.0);
-    std::cout << A;
-    InitializeWeights(A, 0.0, 1.0);
-    std::cout << A;
-    InitializeWeights(A, 0.0, 1.0);
-    std::cout << A;
-    InitializeWeights(A, 0.0, 1.0);
-    std::cout << A;
-    return true;
-}
 bool TestClassifier() {
-    TestInToOutConversion();
-    TestSigmoid();
-    TestActivate();
-    TestSigmoidDx();
-    TestActivateDerivative();
-    TestClassifierConstruction();
-    TestInitializeWeights();
+    NN<4, 3> nn(2);
+    nn.SetLayers(7);
+    DataSet training("../../resources/iris_data_files/training.dat", 4, 3);
+    nn.Train(training);
+    nn.Train(training);
+    nn.Train(training);
+    nn.Train(training);
+
+    //    NN<3, 1> nn2(5);
+    //    nn2.SetLayers(5);
+    //    DataSet training2("../../resources/simple_ds/training.dat", 3, 1);
+    //    nn2.Train(training2, 1000, 0.01, 0.001);
+    //
+    //    NN<10, 2> nn3(7);
+    //    nn3.SetLayers(10);
+    //    DataSet training3("../../resources/cancer/set1/training.dat", 10, 2);
+    //    nn3.Train(training3, 100);
     return true;
 }
