@@ -4,6 +4,7 @@
 #include <initializer_list>
 #include <iostream>
 #include <type_traits>
+#include "../Random.h"
 
 
 template<size_t Rows, size_t Columns = 1, typename T = double>
@@ -34,6 +35,14 @@ public:
 
     ~MatrixDS() {
         if(_data != nullptr) { }
+    }
+
+    static MatrixDS Random(double minWeight = 0.0, double maxWeight = 1.0){
+        MatrixDS<Rows,Columns,double> matrix;
+        for(size_t i = 0; i < Rows; ++i) {
+            for(size_t j = 0; j < Columns; ++j) { matrix[i][j] = Random::Get(minWeight, maxWeight); }
+        }
+        return matrix;
     }
 
     [[nodiscard]] constexpr inline size_t rows() const { return Rows; }
@@ -265,11 +274,26 @@ public:
         return *result;
     }
 
+    static MatrixDS<1,1,double> Random(double minWeight, double maxWeight){
+        return MatrixDS<1,1,double>(Random::Get(minWeight, maxWeight));
+    }
+
+    [[nodiscard]] constexpr MatrixDS<1, 1, T> Transpose() const {
+        return *this;
+    }
+
     friend MatrixDS<1, 1, T> operator-(MatrixDS<1, 1, T> lhs, const MatrixDS<1, 1, T>& rhs) {
         return lhs -= rhs;
     }
     MatrixDS<1, 1, T>& operator-=(const MatrixDS<1, 1, T>& rhs) {
         _data -= *rhs[0];
+        return *this;
+    }
+    friend MatrixDS<1, 1, T> operator+(MatrixDS<1, 1, T> lhs, const MatrixDS<1, 1, T>& rhs) {
+        return lhs += rhs;
+    }
+    MatrixDS<1, 1, T>& operator+=(const MatrixDS<1, 1, T>& rhs) {
+        _data += *rhs[0];
         return *this;
     }
 
@@ -306,6 +330,16 @@ double MatrixDS<3, 3, double>::Determinant() const {
 /**
  * Helper utilities
  */
+
+/**
+ * Element wise multiplication
+ * @tparam R
+ * @tparam C
+ * @tparam T
+ * @param lhs
+ * @param rhs
+ * @return
+ */
 template<size_t R, size_t C, typename T>
 MatrixDS<R, C, T>& HadamardMulti(const MatrixDS<R, C, T>& lhs, const MatrixDS<R, C, T>& rhs) {
     auto result = new MatrixDS<R, C, T>(0.0);
@@ -315,6 +349,17 @@ MatrixDS<R, C, T>& HadamardMulti(const MatrixDS<R, C, T>& lhs, const MatrixDS<R,
     return *result;
 }
 
+/**
+ *
+ * @tparam Rows
+ * @tparam Columns
+ * @tparam T
+ * @tparam R
+ * @tparam C
+ * @param lhs
+ * @param rhs
+ * @return
+ */
 template<size_t Rows, size_t Columns, typename T, size_t R, size_t C>
 MatrixDS<Rows * R, Columns * C, T>&
 KroneckerMulti(const MatrixDS<Rows, Columns, T>& lhs, const MatrixDS<R, C, T>& rhs) {
@@ -331,6 +376,16 @@ KroneckerMulti(const MatrixDS<Rows, Columns, T>& lhs, const MatrixDS<R, C, T>& r
     return *result;
 }
 
+/**
+ * Horizontal concatenation of 2 matrices of same Row size
+ * @tparam Rows
+ * @tparam Columns
+ * @tparam T
+ * @tparam C
+ * @param lhs
+ * @param rhs
+ * @return
+ */
 template<size_t Rows, size_t Columns, typename T, size_t C>
 MatrixDS<Rows, Columns + C, T>
 HorizontalConcat(const MatrixDS<Rows, Columns, T>& lhs, const MatrixDS<Rows, C, T>& rhs) {
@@ -343,6 +398,15 @@ HorizontalConcat(const MatrixDS<Rows, Columns, T>& lhs, const MatrixDS<Rows, C, 
     return *result;
 }
 
+/**
+ *
+ * @tparam N
+ * @tparam M
+ * @tparam T
+ * @param A
+ * @param B
+ * @return
+ */
 template<size_t N, size_t M, typename T>
 size_t& Corr(const MatrixDS<N, M, T>& A, const MatrixDS<N, M, T>& B) {
     auto count = new size_t(0);
