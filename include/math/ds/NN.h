@@ -55,6 +55,7 @@ struct DataSet {
     MatrixDS<double> Output;
     size_t InputCount;
     size_t OutputCount;
+    size_t count;
 
     DataSet(const char* fileName, size_t inputCount, size_t outputCount) {
         InputCount  = inputCount;
@@ -72,7 +73,7 @@ struct DataSet {
             dataFile2.close();
         }
         std::ifstream dataFile(fileName);
-        size_t count = 0;
+        count = 0;
         Input        = MatrixDS<double>(0, lineCount, InputCount);
         Output       = MatrixDS<double>(0, lineCount, OutputCount);
         if(dataFile.is_open()) {
@@ -98,6 +99,12 @@ struct DataSet {
             //            Classes = OutputToClass(Output);
         } else {
             std::cerr << "Unable to open file";
+        }
+    }
+
+    const DataSet& GetBatch(int batchSize) const {
+        if(batchSize == -1 || batchSize == (int)count){
+            return *this;
         }
     }
 };
@@ -145,20 +152,29 @@ public:
         }
     }
 
-    void Train(const DataSet& ds, int maxEpoch = 1000, double stopThreshold = 0.001, double eta = 0.0051) {
+    /**
+     *
+     * @param ds
+     * @param maxEpoch
+     * @param stopThreshold
+     * @param eta
+     * @param batchSize [ == -1 || > 0]
+     */
+    void Train(const DataSet& ds, int maxEpoch = 1000, double stopThreshold = 0.001, double eta = 0.0051, int batchSize = -1) {
         MatrixDS<double> currentOut(0, ds.InputCount, ds.OutputCount);
         for(int i = 0; i < maxEpoch; ++i) {
-            currentOut = FeedForward(ds);
-            BackPropagate(ds, currentOut, eta);
+            auto batch = ds.GetBatch(batchSize);
+            currentOut = FeedForward(batch);
+            BackPropagate(batch, currentOut, eta);
 
-            MatrixDS<double> currentError = ds.Output - currentOut;
+            MatrixDS<double> currentError = batch.Output - currentOut;
             // Calculate loss
             if(i % 30 == 0) {
                 auto loss = (HadamardMulti(currentError, currentError).sumElements()) / (double)currentError.rows();
 
                 std::cout << format("Current loss: %.8f", loss) << std::endl;
                 std::cout << "Current prediction: " << currentOut << std::endl;
-                std::cout << "Actual output: " << ds.Output << std::endl;
+                std::cout << "Actual output: " << batch.Output << std::endl;
                 if(loss < stopThreshold) {
                     std::cout << "Threshold met at " << i << " iterations\n";
                     break;
