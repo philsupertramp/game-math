@@ -55,7 +55,12 @@ struct DataSet {
     MatrixDS<double> Output;
     size_t InputCount;
     size_t OutputCount;
-    size_t count;
+    size_t count = 0;
+
+    DataSet(size_t inputCount, size_t outputCount) {
+        InputCount  = inputCount;
+        OutputCount = outputCount;
+    }
 
     DataSet(const char* fileName, size_t inputCount, size_t outputCount) {
         InputCount  = inputCount;
@@ -102,10 +107,18 @@ struct DataSet {
         }
     }
 
-    const DataSet& GetBatch(int batchSize) const {
+    [[nodiscard]] DataSet GetBatch(int batchSize) const {
         if(batchSize == -1 || batchSize == (int)count){
             return *this;
         }
+
+        auto newDS = DataSet(InputCount, OutputCount);
+        newDS.Input = MatrixDS<double>(0, batchSize, InputCount);
+        newDS.Output = MatrixDS<double>(0, batchSize, OutputCount);
+        for(size_t i = 0; i < batchSize; i++){
+            int index = (int)(Random::Get() * count);
+        }
+
     }
 };
 
