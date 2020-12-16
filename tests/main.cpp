@@ -13,8 +13,14 @@
 #include "vec/TestVec2.h"
 #include "vec/TestVec3.h"
 #include "vec/TestVec4.h"
+#include <Magick++.h>
+
+#define PLATFORM_UNIX
 
 int main([[maybe_unused]] int nargs, [[maybe_unused]] char* argv[]) {
+#ifndef PLATFORM_UNIX
+    Magick::InitializeMagick(*argv);
+#endif
     TestVec2();
     TestVec3();
     TestVec4();

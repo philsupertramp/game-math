@@ -7,22 +7,31 @@
 
 
 bool TestClassifier() {
-    NN<4, 3> nn(2);
-    nn.SetLayers(7);
-    DataSet training("../../resources/iris_data_files/training.dat", 4, 3);
-    nn.Train(training);
-    nn.Train(training);
-    nn.Train(training);
-    nn.Train(training);
+    size_t batchSize = 32;
+    size_t imageHeight = 180;
+    size_t imageWidth = 180;
+    ImageDataSet ds(imageHeight * imageWidth, 1);
+    ds.PrepareDirectory("../../resources/image_classification/flower_photos/");
+    /**
+     This API would be nice!
 
-    //    NN<3, 1> nn2(5);
-    //    nn2.SetLayers(5);
-    //    DataSet training2("../../resources/simple_ds/training.dat", 3, 1);
-    //    nn2.Train(training2, 1000, 0.01, 0.001);
-    //
-    //    NN<10, 2> nn3(7);
-    //    nn3.SetLayers(10);
-    //    DataSet training3("../../resources/cancer/set1/training.dat", 10, 2);
-    //    nn3.Train(training3, 100);
+     num_classes = 5
+
+        model = Sequential([
+            # rescaling
+            layers.experimental.preprocessing.Rescaling(1./255, input_shape=(img_height, img_width, 3)),
+            layers.Conv2D(16, 3, padding='same', activation='relu'),
+          layers.MaxPooling2D(),
+          layers.Conv2D(32, 3, padding='same', activation='relu'),
+          layers.MaxPooling2D(),
+          layers.Conv2D(64, 3, padding='same', activation='relu'),
+          layers.MaxPooling2D(),
+          layers.Flatten(),
+          layers.Dense(128, activation='relu'),
+          layers.Dense(num_classes)
+        ])
+
+     */
+
     return true;
 }

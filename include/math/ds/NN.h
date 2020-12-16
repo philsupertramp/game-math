@@ -1,6 +1,7 @@
 #pragma once
 #include "../format.h"
 #include "MatrixDS.h"
+#include "DataSet.h"
 #include <cstdlib>
 #include <fstream>
 #include <ranges>
@@ -50,77 +51,6 @@ public:
     MatrixDS<double> bias;
 };
 
-struct DataSet {
-    MatrixDS<double> Input;
-    MatrixDS<double> Output;
-    size_t InputCount;
-    size_t OutputCount;
-    size_t count = 0;
-
-    DataSet(size_t inputCount, size_t outputCount) {
-        InputCount  = inputCount;
-        OutputCount = outputCount;
-    }
-
-    DataSet(const char* fileName, size_t inputCount, size_t outputCount) {
-        InputCount  = inputCount;
-        OutputCount = outputCount;
-        ReadFromFile(fileName);
-    }
-
-    void ReadFromFile(const char* fileName) {
-        std::string line;
-        size_t lineCount = 0;
-
-        std::ifstream dataFile2(fileName);
-        if(dataFile2.is_open()) {
-            while(getline(dataFile2, line, '\n')) { lineCount++; }
-            dataFile2.close();
-        }
-        std::ifstream dataFile(fileName);
-        count = 0;
-        Input        = MatrixDS<double>(0, lineCount, InputCount);
-        Output       = MatrixDS<double>(0, lineCount, OutputCount);
-        if(dataFile.is_open()) {
-            line = "";
-            while(getline(dataFile, line, '\n')) {
-                std::string val;
-                std::stringstream lineStream(line);
-                for(size_t i = 0; i < InputCount + OutputCount; i++) {
-                    if(i < InputCount + OutputCount - 1) {
-                        std::getline(lineStream, val, '\t');
-                    } else {
-                        std::getline(lineStream, val);
-                    }
-                    if(i < InputCount) {
-                        Input[count][i] = std::atof(val.c_str());
-                    } else {
-                        Output[count][i - InputCount] = std::atoi(val.c_str());
-                    }
-                }
-                ++count;
-            }
-            dataFile.close();
-            //            Classes = OutputToClass(Output);
-        } else {
-            std::cerr << "Unable to open file";
-        }
-    }
-
-    [[nodiscard]] DataSet GetBatch(int batchSize) const {
-        if(batchSize == -1 || batchSize == (int)count){
-            return *this;
-        }
-
-        auto newDS = DataSet(InputCount, OutputCount);
-        newDS.Input = MatrixDS<double>(0, batchSize, InputCount);
-        newDS.Output = MatrixDS<double>(0, batchSize, OutputCount);
-        for(size_t i = 0; i < batchSize; i++){
-            int index = (int)(Random::Get() * count);
-        }
-
-    }
-};
 
 template<size_t FeatureCount, size_t OutputCount>
 class NN
@@ -133,7 +63,7 @@ public:
         layers.push_back(MatrixDS<double>::Random(FeatureCount, numNeurons));
     }
 
-    MatrixDS<double> FeedForward(const DataSet& ds) {
+    MatrixDS<double> FeedForward(const Set& ds) {
         auto layer = MatrixDS<double>(0, ds.Input.rows(), weights.columns());
         for(size_t i = 0; i < layers.size(); i++) {
             auto newLayer = Activate(ds.Input * weights);
@@ -151,7 +81,7 @@ public:
         return out;
     }
 
-    void BackPropagate(const DataSet& dataSet, const MatrixDS<double>& out, double eta = 0.0051) {
+    void BackPropagate(const Set& dataSet, const MatrixDS<double>& out, double eta = 0.0051) {
         for(auto& layer : layers) {
             auto scaledError = (dataSet.Output - out) * eta;
             auto d_bias      = (layer.Transpose() * HadamardMulti(scaledError, ActivateDerivative(out)));
@@ -173,22 +103,27 @@ public:
      * @param eta
      * @param batchSize [ == -1 || > 0]
      */
-    void Train(const DataSet& ds, int maxEpoch = 1000, double stopThreshold = 0.001, double eta = 0.0051, int batchSize = -1) {
+    void Train(const DataSet& ds) {
         MatrixDS<double> currentOut(0, ds.InputCount, ds.OutputCount);
-        for(int i = 0; i < maxEpoch; ++i) {
-            auto batch = ds.GetBatch(batchSize);
+        bool firstHit = false;
+        for(int i = 0; i < ds.maxEpoch; ++i) {
+            auto batch = ds.Training.GetBatch(ds.batchSize);
             currentOut = FeedForward(batch);
-            BackPropagate(batch, currentOut, eta);
+            BackPropagate(batch, currentOut, ds.eta);
 
-            MatrixDS<double> currentError = batch.Output - currentOut;
             // Calculate loss
-            if(i % 30 == 0) {
+            if(i % 30 == 0 || i == ds.maxEpoch - 1) {
+                MatrixDS<double> currentError = batch.Output - currentOut;
                 auto loss = (HadamardMulti(currentError, currentError).sumElements()) / (double)currentError.rows();
 
                 std::cout << format("Current loss: %.8f", loss) << std::endl;
                 std::cout << "Current prediction: " << currentOut << std::endl;
                 std::cout << "Actual output: " << batch.Output << std::endl;
-                if(loss < stopThreshold) {
+                if(loss < ds.stopThreshold) {
+                    if(!firstHit){
+                        firstHit = true;
+                        continue;
+                    }
                     std::cout << "Threshold met at " << i << " iterations\n";
                     break;
                 }
@@ -205,6 +140,10 @@ public:
         layers.push_back(MatrixDS<double>(0, weights.rows(), weights.columns()));
         numLayers++;
     }
+    /**
+     * sets #numNewLayers identical sequential layers
+     * @param numNewLayers
+     */
     void SetLayers(size_t numNewLayers) {
         if(numLayers != numNewLayers) {
             layers.clear();
