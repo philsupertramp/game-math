@@ -13,6 +13,7 @@ bool TestClassifier() {
     ImageDataSet ds(imageHeight * imageWidth, 1);
     // get files using  `wget https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz`
     ds.PrepareDirectory("../../resources/image_classification/flower_photos/");
+    ds.Cache();
     /**
      This API would be nice!
 

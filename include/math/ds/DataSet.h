@@ -121,6 +121,8 @@ public:
     double stopThreshold = 0.001;
     double eta = 0.0051;
     int batchSize = 5;
+
+    bool verbose = false;
 };
 
 class ImageDataSet
@@ -133,12 +135,6 @@ public:
     { }
 
     /**
-     * we split the directory into
-     * - 80% training
-     * - 20% validation
-     * -  0% test
-     *
-     * Example: 100 images => 80 training, 20 validation, 0 test
      * @param filePath
      */
     virtual void PrepareDirectory(const char* filePath) override {
@@ -151,23 +147,24 @@ public:
         trainDirectory,
         std::filesystem::copy_options::update_existing | std::filesystem::copy_options::recursive);
 
-        size_t totalCount = 0;
+        totalCount = 0;
         size_t classCount = 0;
+        classNames.clear();
         for(const auto& entry : std::filesystem::directory_iterator(trainDirectory)) {
             if(entry.is_directory()) {
+                classNames.push_back(entry.path().filename());
                 auto dirIter =  std::filesystem::directory_iterator(entry);
                 totalCount += std::count_if(begin(dirIter), end(dirIter), [](auto& elem) { return elem.is_regular_file(); });
                 classCount += 1;
             }
         }
-        int trainingCount = (int)(totalCount * 0.8);
-        int validationCount = (int)(totalCount - trainingCount);
+        trainingCount = (int)(totalCount * 0.8);
+        validationCount = (int)(totalCount - trainingCount);
         Training.Input = MatrixDS<double>(0, trainingCount, InputCount);
         Training.Output = MatrixDS<double>(0, trainingCount, OutputCount);
         Validation.Input = MatrixDS<double>(0, validationCount, InputCount);
         Validation.Output = MatrixDS<double>(0, validationCount, OutputCount);
 
-        std::vector<MatrixDS<bool>> classes;
         size_t index = 0;
         for(const auto& entry : std::filesystem::directory_iterator(trainDirectory)) {
             if(entry.is_directory()) {
@@ -177,18 +174,27 @@ public:
                 index += 1;
             }
         }
-        // for now we can assume all files are image files
-        std::map<std::string, size_t> counter;
+        std::cout << "done!\nDirectory \"" << trainDirectory << "\" ready." << std::endl;
+         std::cout << "Found " << totalCount
+                  << " files belonging to " << classCount
+                  << " classes.\nUsing " << validationCount
+                  << " files for validation\n" << std::flush;
+    }
 
-        auto trainingDirectory = std::string(trainDirectory) + "ds/training/";
-        auto validationDirectory = std::string(trainDirectory) + "ds/validation/";
-        std::filesystem::create_directory(std::string(trainDirectory) + "ds");
-        std::filesystem::create_directory(trainingDirectory);
-        std::filesystem::create_directory(validationDirectory);
-        std::filesystem::create_directory(std::string(trainDirectory) + "ds/test");
-
-        std::cout << "done\nResizing files and saving into memory..." << std::flush;
-        size_t count = 0, i = 0; classCount = 0;
+    /**
+     * loads data set into memory
+     *
+     *
+     * we split the dataset into
+     * - 80% training
+     * - 20% validation
+     * -  0% test
+     *
+     * Example: 100 images => 80 training, 20 validation, 0 test
+     */
+    void Cache(){
+        std::cout << "Resizing files and saving into memory..." << std::flush;
+        size_t count = 0, i = 0, classCount = 0;
         size_t trainingIter = 0, validationIter = 0;
         for(const auto& classDirectory : std::filesystem::directory_iterator(trainDirectory)) {
             bool hadEntry = false;
@@ -197,9 +203,8 @@ public:
                 if(!entry.is_regular_file()) continue;
 
                 hadEntry = true;
-
                 Magick::Image image;
-                image.verbose(true);
+                image.verbose(verbose);
                 image.magick("JPG");
                 image.read(std::string(entry.path()));
                 // PZ: we don't scale but resample, to enforce dimension width * height and ignore loss in content
@@ -227,11 +232,16 @@ public:
             }
             classCount += hadEntry;
         }
-        std::cout << "done!\nDirectory \"" << trainDirectory << "\" ready.\n";
     }
 public:
     size_t imageHeight = 180;
     size_t imageWidth = 180;
     double validationShare = 0.2;
     const char* trainDirectory = "../../resources/image_classification/training/";
+    std::vector<MatrixDS<bool>> classes;
+    std::vector<std::string> classNames;
+    size_t totalCount = 0;
+    size_t trainingCount = 0;
+    size_t validationCount = 0;
+
 };
