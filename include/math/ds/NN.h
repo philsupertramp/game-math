@@ -25,30 +25,85 @@ MatrixDS<double> ActivateDerivative(const MatrixDS<double>& in) {
     return *out;
 }
 
-class NNLayer
+class Layer
 {
 public:
-    NNLayer(size_t in, size_t out)
-        : in(in)
-        , out(out) {
-        weights = MatrixDS<double>::Random(in, out);
-        bias    = MatrixDS<double>::Random(out, 1);
+    Layer(size_t in, size_t out)
+    : in(in)
+    , out(out) 
+    {
+        weights   = MatrixDS<double>::Random(in, out);
+        bias      = MatrixDS<double>::Random(out, 1);
+        output = MatrixDS<double>(0, out, 1);
     }
-    NNLayer()                     = default;
-    NNLayer(const NNLayer& other) = default;
+    Layer()                     = default;
+    Layer(const Layer& other) = default;
 
-    [[nodiscard]] MatrixDS<double> Evaluate(const MatrixDS<double>& input) const {
-        return Activate(HorizontalConcat(weights.Transpose(), bias) * input);
+    [[nodiscard]] constexpr size_t In() const { return in; }
+    [[nodiscard]] constexpr size_t Out() const { return out; }
+
+    [[nodiscard]] MatrixDS<double> Evaluate(const MatrixDS<double>& input) const{
+        auto a = (input * weights);
+        for(size_t i = 0; i < a.columns(); i++){
+            for(size_t j = 0; j < a.rows(); j++){
+                a[j][i] += bias[i][0];
+            }
+        }
+        return  a;
     }
-
-    [[nodiscard]] constexpr size_t Prev() const { return in; }
-    [[nodiscard]] constexpr size_t Next() const { return out; }
 
     size_t in  = 0;
     size_t out = 0;
 
     MatrixDS<double> weights;
     MatrixDS<double> bias;
+    MatrixDS<double> output;
+};
+
+class LinearLayer
+: public Layer
+{
+public:
+    LinearLayer(size_t numNeurons, size_t inputCount)
+    : Layer(inputCount, numNeurons)
+    {
+
+    }
+};
+
+class LayerConfiguration
+{
+public:
+    LayerConfiguration(std::initializer_list<Layer> layerConfig){
+        validateLayerConfig(layerConfig);
+        layers = layerConfig;
+    }
+
+    void validateLayerConfig(std::initializer_list<Layer> layerConfig){
+        assert(layerConfig.size() > 0);
+
+        auto inputSize = layerConfig.begin()->in;
+        for(auto layer : layerConfig){
+
+        }
+    }
+
+    inline std::vector<Layer>::iterator begin() noexcept { return layers.begin(); }
+    [[nodiscard]] inline std::vector<Layer>::const_iterator cbegin() const noexcept { return layers.cbegin(); }
+    inline std::vector<Layer>::iterator end() noexcept { return layers.end(); }
+    [[nodiscard]] inline std::vector<Layer>::const_iterator cend() const noexcept { return layers.cend(); }
+
+    Layer operator[](size_t index){
+        return layers[index];
+    }
+    Layer operator[](size_t index) const {
+        return layers[index];
+    }
+
+    [[nodiscard]] size_t size() const { return layers.size(); }
+
+private:
+    std::vector<Layer> layers;
 };
 
 
@@ -58,40 +113,26 @@ class NN
 public:
     explicit NN(size_t numNeurons = 2) {
         numLayers = 1;
-        weights   = MatrixDS<double>::Random(FeatureCount, numNeurons);
-        bias      = MatrixDS<double>::Random(numNeurons, OutputCount);
-        layers.push_back(MatrixDS<double>::Random(FeatureCount, numNeurons));
     }
 
     MatrixDS<double> FeedForward(const Set& ds) {
-        auto layer = MatrixDS<double>(0, ds.Input.rows(), weights.columns());
-        for(size_t i = 0; i < layers.size(); i++) {
-            auto newLayer = Activate(ds.Input * weights);
-            layers[i]     = newLayer;
-            layer         = layer + newLayer;
+        for(auto & layer : *layers) {
+            layer.output = layer.Evaluate(ds.Input);
+//            layer         = layer + newLayer;
         }
-
-        MatrixDS<double> out;
-        if(bias.columns() == 1 && bias.rows() == 1) {
-            out = Activate(layer * bias[0][0]);
-        } else {
-            out = Activate(layer * bias);
-        }
-
-        return out;
+        return (*layers)[layers->size()-1].output;
     }
 
     void BackPropagate(const Set& dataSet, const MatrixDS<double>& out, double eta = 0.0051) {
-        for(auto& layer : layers) {
-            auto scaledError = (dataSet.Output - out) * eta;
-            auto d_bias      = (layer.Transpose() * HadamardMulti(scaledError, ActivateDerivative(out)));
-            auto d_weights =
-            dataSet.Input.Transpose()
-            * HadamardMulti(
-            HadamardMulti(scaledError, ActivateDerivative(out)) * bias.Transpose(), ActivateDerivative(layer));
+        auto scaledError = (dataSet.Output - out) * eta;
+        auto outputError = HadamardMulti(scaledError, ActivateDerivative(out));
+        for(auto layer : *layers) {
+            auto d_bias      = (layer.output.Transpose() * outputError);
+            auto d_weights = dataSet.Input.Transpose()
+            * HadamardMulti(outputError * layer.bias.Transpose(), ActivateDerivative(layer.output));
 
-            weights = weights + d_weights;
-            bias    = bias + d_bias;
+            layer.weights = layer.weights + d_weights;
+            layer.bias    = layer.bias + d_bias;
         }
     }
 
@@ -131,30 +172,10 @@ public:
         }
     }
 
-    /**
-     * Keep in mind, prev and next need to match in and output!
-     * @tparam Prev
-     * @tparam Next
-     */
-    void AddLayer() {
-        layers.push_back(MatrixDS<double>(0, weights.rows(), weights.columns()));
-        numLayers++;
-    }
-    /**
-     * sets #numNewLayers identical sequential layers
-     * @param numNewLayers
-     */
-    void SetLayers(size_t numNewLayers) {
-        if(numLayers != numNewLayers) {
-            layers.clear();
-            for(size_t i = 0; i < numNewLayers; i++) {
-                layers.push_back(MatrixDS<double>(0, weights.rows(), weights.columns()));
-            }
-        }
+    void SetSequentialLayers(const LayerConfiguration& config) {
+        layers = std::make_shared<LayerConfiguration>(config);
     }
 
-    size_t numLayers;
-    std::vector<MatrixDS<double>> layers;
-    MatrixDS<double> weights;
-    MatrixDS<double> bias;
+    size_t numLayers = 0;
+    std::shared_ptr<LayerConfiguration> layers;
 };

@@ -1,226 +1,26 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tuesday Oct 2, 2018
-@author: Madhuri Suthar, PhD Candidate in Electrical and Computer Engineering, UCLA
-"""
+import tensorflow as tf
+from tensorflow import keras
 
-# Imports
-import numpy as np
+class Linear(keras.layers.Layer):
+    def __init__(self, units=32, input_dim=32):
+        super(Linear, self).__init__()
+        w_init = tf.random_normal_initializer()
+        self.w = tf.Variable(
+            initial_value=w_init(shape=(input_dim, units), dtype="float32"),
+            trainable=True,
+        )
+        b_init = tf.ones_initializer()
+        self.b = tf.Variable(
+            initial_value=b_init(shape=(units,), dtype="float32"), trainable=True
+        )
 
-# Each row is a training example, each column is a feature  [X1, X2, X3]
-X=np.array((
-    [0.282131, 0.269205, 0.430645, 0.427485],
-[0.582374, 0.445654, 0.581855, 0.536988],
-[0.466896, 0.480944, 0.566734, 0.500487],
-[0.744044, 0.516233, 0.672581, 0.60999],
-[0.212844, 0.516233, 0.158468, 0.135476],
-[0.536183, 0.198626, 0.687702, 0.60999],
-[0.305227, 0.657392, 0.128226, 0.171977],
-[0.651661, 0.410364, 0.627218, 0.60999],
-[0.489992, 0.375074, 0.702823, 0.755994],
-[0.351418, 0.375074, 0.521371, 0.573489],
-[0.697853, 0.304495, 0.808669, 0.719493],
-[0.536183, 0.198626, 0.536492, 0.427485],
-[0.166653, 0.480944, 0.128226, 0.135476],
-[0.420705, 0.269205, 0.491129, 0.427485],
-[0.697853, 0.516233, 0.778427, 0.938499],
-[0.720948, 0.410364, 0.65746, 0.573489],
-[0.60547, 0.304495, 0.687702, 0.755994],
-[0.443801, 0.304495, 0.521371, 0.463986],
-[0.513088, 0.480944, 0.566734, 0.60999],
-[0.674757, 0.480944, 0.596976, 0.573489],
-[0.489992, 0.375074, 0.521371, 0.500487],
-[0.836426, 0.445654, 0.884274, 0.719493],
-[0.305227, 0.233915, 0.430645, 0.427485],
-[0.975, 0.763262, 0.899395, 0.792495],
-[0.466896, 0.445654, 0.566734, 0.536988],
-[0.628566, 0.410364, 0.778427, 0.865497],
-[0.489992, 0.339785, 0.536492, 0.500487],
-[0.328323, 0.622103, 0.158468, 0.135476],
-[0.305227, 0.551523, 0.113105, 0.135476],
-[0.420705, 0.304495, 0.536492, 0.536988],
-[0.559279, 0.410364, 0.642339, 0.500487],
-[0.559279, 0.339785, 0.778427, 0.573489],
-[0.697853, 0.516233, 0.642339, 0.60999],
-[0.559279, 0.480944, 0.672581, 0.719493],
-[0.767139, 0.551523, 0.642339, 0.573489],
-[0.189749, 0.233915, 0.128226, 0.171977],
-[0.744044, 0.516233, 0.702823, 0.901998],
-[0.720948, 0.551523, 0.82379, 0.901998],
-[0.397609, 0.798551, 0.128226, 0.208478],
-[0.397609, 0.622103, 0.18871, 0.135476],
-[0.328323, 0.763262, 0.158468, 0.171977],
-[0.674757, 0.445654, 0.627218, 0.536988],
-[0.651661, 0.551523, 0.702823, 0.792495],
-[0.582374, 0.198626, 0.612097, 0.60999],
-[0.536183, 0.375074, 0.702823, 0.646491],
-[0.697853, 0.586813, 0.793548, 0.975],
-[0.928809, 0.480944, 0.854032, 0.901998],
-[0.282131, 0.516233, 0.158468, 0.0989754],
-[0.744044, 0.516233, 0.748185, 0.828996],
-[0.397609, 0.480944, 0.612097, 0.60999],
-[0.489992, 0.833841, 0.113105, 0.135476],
-[0.628566, 0.516233, 0.763306, 0.719493],
-[0.443801, 0.410364, 0.672581, 0.792495],
-[0.489992, 0.410364, 0.702823, 0.938499],
-[0.305227, 0.622103, 0.158468, 0.135476],
-[0.628566, 0.551523, 0.612097, 0.60999],
-[0.328323, 0.727972, 0.158468, 0.208478],
-[0.374514, 0.727972, 0.158468, 0.135476],
-[0.282131, 0.516233, 0.158468, 0.0989754],
-[0.60547, 0.233915, 0.596976, 0.536988],
-[0.559279, 0.410364, 0.536492, 0.536988],
-[0.697853, 0.480944, 0.687702, 0.682992],
-[0.582374, 0.622103, 0.748185, 0.901998],
-[0.420705, 0.904421, 0.143347, 0.135476],
-[0.282131, 0.516233, 0.158468, 0.0989754],
-[0.928809, 0.410364, 0.944758, 0.792495],
-[0.60547, 0.304495, 0.672581, 0.60999],
-[0.443801, 0.375074, 0.566734, 0.536988],
-[0.305227, 0.657392, 0.173589, 0.281481],
-[0.628566, 0.445654, 0.581855, 0.536988],
-[0.259036, 0.622103, 0.173589, 0.135476],
-[0.143558, 0.480944, 0.0979839, 0.0989754],
-[0.905713, 0.480944, 0.929637, 0.828996],
-[0.582374, 0.410364, 0.65746, 0.719493],
-[0.443801, 0.480944, 0.551613, 0.536988],
-), dtype=float)
-
-y=np.array((
-    [0, 1, 0],
-[0, 1, 0],
-[0, 1, 0],
-[0, 1, 0],
-[1, 0, 0],
-[0, 0, 1],
-[1, 0, 0],
-[0, 1, 0],
-[0, 0, 1],
-[0, 1, 0],
-[0, 0, 1],
-[0, 1, 0],
-[1, 0, 0],
-[0, 1, 0],
-[0, 0, 1],
-[0, 1, 0],
-[0, 0, 1],
-[0, 1, 0],
-[0, 1, 0],
-[0, 1, 0],
-[0, 1, 0],
-[0, 0, 1],
-[0, 1, 0],
-[0, 0, 1],
-[0, 1, 0],
-[0, 0, 1],
-[0, 1, 0],
-[1, 0, 0],
-[1, 0, 0],
-[0, 1, 0],
-[0, 1, 0],
-[0, 0, 1],
-[0, 1, 0],
-[0, 0, 1],
-[0, 1, 0],
-[1, 0, 0],
-[0, 0, 1],
-[0, 0, 1],
-[1, 0, 0],
-[1, 0, 0],
-[1, 0, 0],
-[0, 1, 0],
-[0, 0, 1],
-[0, 1, 0],
-[0, 1, 0],
-[0, 0, 1],
-[0, 0, 1],
-[1, 0, 0],
-[0, 0, 1],
-[0, 1, 0],
-[1, 0, 0],
-[0, 0, 1],
-[0, 0, 1],
-[0, 0, 1],
-[1, 0, 0],
-[0, 1, 0],
-[1, 0, 0],
-[1, 0, 0],
-[1, 0, 0],
-[0, 1, 0],
-[0, 1, 0],
-[0, 1, 0],
-[0, 0, 1],
-[1, 0, 0],
-[1, 0, 0],
-[0, 0, 1],
-[0, 1, 0],
-[0, 1, 0],
-[1, 0, 0],
-[0, 1, 0],
-[1, 0, 0],
-[1, 0, 0],
-[0, 0, 1],
-[0, 0, 1],
-[0, 1, 0],
-), dtype=float)
-
-# Define useful functions    
-
-# Activation function
-def sigmoid(t):
-    return 1/(1+np.exp(-t))
-
-# Derivative of sigmoid
-def sigmoid_derivative(p):
-    return p * (1 - p)
+    def call(self, inputs):
+        print(tf.matmul(inputs, self.w))
+        print(self.b)
+        print(tf.matmul(inputs, self.w) + self.b)
+        return tf.matmul(inputs, self.w) + self.b
 
 
-# Class definition
-class NeuralNetwork:
-    def __init__(self, trainingInput, validationOutput, layers = 2):
-        self.trainingInput = trainingInput
-        self.validationOutput = validationOutput
-        self.weights = np.random.rand(self.trainingInput.shape[1], 2)  # considering we have 4 nodes in the hidden layer
-        self.bias = np.random.rand(2, self.validationOutput.shape[1])
-        self.output = np. zeros(validationOutput.shape)
-        self.num_layers = layers
-        self.layers = [None for _ in range(self.num_layers)]
-        self.output_layer = None
-
-    def feedforward(self):
-        layer = np.zeros((self.weights.shape[1]))
-        for index in range(self.num_layers):
-            newLayer = sigmoid(np.dot(self.trainingInput, self.weights))
-            self.layers[index] = newLayer
-            layer = layer + newLayer
-        self.output_layer = sigmoid(np.dot(layer, self.bias))
-        return self.output_layer
-
-    def backprop(self, eta=2.0):
-        for index in range(len(self.layers)):
-            d_bias = np.dot(self.layers[index].T, eta*(self.validationOutput -self.output)*sigmoid_derivative(self.output))
-            d_weights = np.dot(self.trainingInput.T, np.dot(eta*(self.validationOutput -self.output)*sigmoid_derivative(self.output), self.bias.T)*sigmoid_derivative(self.layers[index]))
-            # breakpoint()
-            self.weights += d_weights
-            self.bias += d_bias
-
-    def train(self):
-        self.output = self.feedforward()
-        self.backprop(0.0051)
-
-
-NN = NeuralNetwork(X,y, 7)
-for i in range(50000): # trains the NN 1,000 times
-    if i % 100 ==0:
-        print ("for iteration # " + str(i) + "\n")
-        print ("Input : \n" + str(X))
-        print ("Actual Output: \n" + str(y))
-        out = NN.feedforward()
-        print ("Predicted Output: \n" + str(out))
-        print ("Loss: \n" + str(np.mean(np.square(y - out)))) # mean sum squared loss
-        print ("\n")
-
-    NN.train()
-
-print(NN.weights)
+x = tf.ones((15, 5))
+linear_layer = Linear(4, 5)
+y = linear_layer(x)

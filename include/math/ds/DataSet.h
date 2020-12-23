@@ -84,28 +84,31 @@ struct Set {
     }
 };
 
+/**
+ *
+ */
 class DataSet {
     friend class ImageDataSet;
 public:
     DataSet(const char* filePath, size_t inputCount, size_t outputCount)
-    : Training(format("%s%s", filePath, "training.dat").c_str(), inputCount, outputCount)
+    : InputCount(inputCount)
+    , OutputCount(outputCount)
+    , Training(format("%s%s", filePath, "training.dat").c_str(), inputCount, outputCount)
     , Validation(format("%s%s", filePath, "validation.dat").c_str(), inputCount, outputCount)
     , Test(format("%s%s", filePath, "test.dat").c_str(), inputCount, outputCount)
-    , InputCount(inputCount)
-    , OutputCount(outputCount)
     { }
 
     DataSet(size_t inputCount, size_t outputCount)
-    : Training(inputCount, outputCount)
+    : InputCount(inputCount)
+    , OutputCount(outputCount)
+    , Training(inputCount, outputCount)
     , Validation(inputCount, outputCount)
     , Test(inputCount, outputCount)
-    , InputCount(inputCount)
-    , OutputCount(outputCount)
     {
 
     }
 
-    virtual void PrepareDirectory(const char* filePath){
+    virtual void PrepareDirectory([[maybe_unused]] const char* filePath){
 
     }
 
