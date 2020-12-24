@@ -7,12 +7,12 @@
 
 
 bool TestClassifier() {
-    NN<3, 1> nn(5);
+    NN<3, 1> nn;
     DataSet training("../../resources/simple_ds/", 3, 1);
-    training.maxEpoch = 5000;
+    training.maxEpoch = 100;
     training.eta = 0.02;
     training.batchSize = -1;
-    nn.SetSequentialLayers({{3,2},{3,2},{3,2},{3,2}, {3, 1}});
+    nn.SetSequentialLayers({ {3, 1}});
     nn.Train(training);
 //    size_t batchSize = 32;
 //    size_t imageHeight = 180;

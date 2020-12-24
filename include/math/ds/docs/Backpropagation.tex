@@ -1,0 +1,65 @@
+\documentclass[10pt]{book}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{calc}
+\usepackage{listings}
+\usepackage{tikz-network}
+
+\newcommand{\ueberschrift}{How does a neural net, work?}
+
+\title{\ueberschrift}
+\author{Philipp Zettl}
+
+\begin{document}
+    \pagestyle{fancy}
+    \maketitle
+
+    At some point one can write a preamble to explain what a NN is, what to use it for
+    and why it's actually better for us to use them then old numerical methods like the euler method to
+    calculate the root(s) of a function
+
+    \chapter{FFNN}
+    \textbf{F}eed \textbf{f}orward \textbf{n}eural \textbf{n}etworks are a great entry point to start discovering
+    neural networks. The following chapter will introduce the idea of general neural networks and use this motivation
+    to discover the first type of neural networks.
+    \section{Using NNs to recognize handwritten digits}
+    Unlike us humans computers have rather a hard time recognizing handwritten characters, digits or even full words.
+    Humans taught themselves over millions of years of evolution how to recognize things.\\
+    Since handwriting is mostly unique to a person one will have a hard time implementing an algorithm to detect digits from handwritten text,
+    using an enormous amount of \lstinline{if/else} conditions will be the least problem, but figuring out how to provide a stable algorithmically solution
+    to this problem seems impossible.
+    Nowadays we can use neural networks to mock this behavior and create models to do that task for us.
+    In the following chapter I will describe how to create such model as well as how to train it using real live
+    examples.
+
+    To train a NN one uses a so called \dq Training-Set\dq of data to \dq teach\dq the network what prediction to give for a given input. In some way we can assume
+    achieving similar results using equal training data sets.\\
+    But wait, how does a neural net, work?\\    
+    Now let us construct a basic neural network.
+    \section{General NN}
+    To define the structure of Neural Networks we need to define a bunch of
+    technical terms. In biology we differentiate between perceptrons and neurons.
+    Perceptrons are basically binary decision makers having \(n\) input values and a single output value.
+    We can illustrate them using the following notation.
+    \begin{center}
+        \begin{tikzpicture}
+            \Vertex[x=0,y=0]{A}
+            \Vertex[x=0,y=-1]{B}
+            \Vertex[x=0,y=-2]{C}
+        \end{tikzpicture}
+    \end{center}
+    When we talk about NNs we differentiate between perceptrons and neurons.
+
+    \section{Backpropagation}
+    \subsection{Notation}
+
+    Das Gewicht \(w\), welches die Verbindung zwischen dem \(k\)-ten Neuron des \(l-1\)-ten Layers und dem \(j\)-ten Neuron des \(l\)-ten Layers
+    wird geschrieben als
+    \begin{align}
+        w_{jk}^l
+    \end{align}
+
+
+\end{document}

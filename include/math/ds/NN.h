@@ -64,7 +64,7 @@ class LinearLayer
 : public Layer
 {
 public:
-    LinearLayer(size_t numNeurons, size_t inputCount)
+    LinearLayer(size_t inputCount, size_t numNeurons)
     : Layer(inputCount, numNeurons)
     {
 
@@ -79,12 +79,12 @@ public:
         layers = layerConfig;
     }
 
-    void validateLayerConfig(std::initializer_list<Layer> layerConfig){
+    static void validateLayerConfig(std::initializer_list<Layer> layerConfig){
         assert(layerConfig.size() > 0);
 
         auto inputSize = layerConfig.begin()->in;
-        for(auto layer : layerConfig){
-
+        for(const auto& layer : layerConfig){
+            assert(layer.in == inputSize);
         }
     }
 
@@ -92,6 +92,11 @@ public:
     [[nodiscard]] inline std::vector<Layer>::const_iterator cbegin() const noexcept { return layers.cbegin(); }
     inline std::vector<Layer>::iterator end() noexcept { return layers.end(); }
     [[nodiscard]] inline std::vector<Layer>::const_iterator cend() const noexcept { return layers.cend(); }
+
+    inline std::vector<Layer>::reverse_iterator rbegin() noexcept { return layers.rbegin(); }
+    [[nodiscard]] inline std::vector<Layer>::const_reverse_iterator crbegin() const noexcept { return layers.crbegin(); }
+    inline std::vector<Layer>::reverse_iterator rend() noexcept { return layers.rend(); }
+    [[nodiscard]] inline std::vector<Layer>::const_reverse_iterator crend() const noexcept { return layers.crend(); }
 
     Layer operator[](size_t index){
         return layers[index];
@@ -111,7 +116,7 @@ template<size_t FeatureCount, size_t OutputCount>
 class NN
 {
 public:
-    explicit NN(size_t numNeurons = 2) {
+    explicit NN() {
         numLayers = 1;
     }
 
@@ -126,13 +131,13 @@ public:
     void BackPropagate(const Set& dataSet, const MatrixDS<double>& out, double eta = 0.0051) {
         auto scaledError = (dataSet.Output - out) * eta;
         auto outputError = HadamardMulti(scaledError, ActivateDerivative(out));
-        for(auto layer : *layers) {
-            auto d_bias      = (layer.output.Transpose() * outputError);
+        for(auto layer = layers->rbegin(); layer != layers->rend(); layer++) {
+            auto d_bias      = (layer->output.Transpose() * outputError);
             auto d_weights = dataSet.Input.Transpose()
-            * HadamardMulti(outputError * layer.bias.Transpose(), ActivateDerivative(layer.output));
+            * HadamardMulti(outputError * layer->bias.Transpose(), ActivateDerivative(layer->output));
 
-            layer.weights = layer.weights + d_weights;
-            layer.bias    = layer.bias + d_bias;
+            layer->weights = layer->weights + d_weights;
+            layer->bias    = layer->bias + d_bias;
         }
     }
 
@@ -153,7 +158,7 @@ public:
             BackPropagate(batch, currentOut, ds.eta);
 
             // Calculate loss
-            if(i % 30 == 0 || i == ds.maxEpoch - 1) {
+            if(i % 10 == 0 || i == ds.maxEpoch - 1) {
                 MatrixDS<double> currentError = batch.Output - currentOut;
                 auto loss = (HadamardMulti(currentError, currentError).sumElements()) / (double)currentError.rows();
 
