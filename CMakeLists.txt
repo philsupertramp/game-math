@@ -52,7 +52,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/Evaluation.h
             include/math/ds/NN.h
             include/math/ds/DataSet.h
-            )
+            include/math/ds/Layer.h include/math/ds/Neuron.h)
 
     add_definitions( -DMAGICKCORE_QUANTUM_DEPTH=16 )
     add_definitions( -DMAGICKCORE_HDRI_ENABLE=0 )

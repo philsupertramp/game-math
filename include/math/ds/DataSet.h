@@ -82,6 +82,10 @@ struct Set {
         }
         return newDS;
     }
+
+    void Shuffle(){
+
+    }
 };
 
 /**

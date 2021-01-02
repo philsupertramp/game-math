@@ -499,8 +499,8 @@
     \section{Gradient decent}
     After we defined the design of our network, how can we train it?\\
     Hold your horses, first we need a dataset which we want to use to train our model. For this purpose we use
-    the dataset provided by MINST for \href{http://yann.lecun.com/exdb/mnist/}{handwritten digits}.
-    The MINST dataset comes in split into two parts, training with 60k images of handwritten digits by 25 individuals. The images are greyscaled and 28 by 28 pixel in size.
+    the dataset provided by MNIST for \href{http://yann.lecun.com/exdb/mnist/}{handwritten digits}.
+    The MNIST dataset comes in split into two parts, training with 60k images of handwritten digits by 25 individuals. The images are greyscaled and 28 by 28 pixel in size.
     The second part is a test set containing 10k images with the same features.
     We will use the test set to validate the quality of our network. To make it a good test set it has been acquired by
     250 individuals. This helps building confidence in the current state during the training phase.
@@ -564,14 +564,14 @@
     Conceptually this makes little difference in the result, since it's equivalent of scaling the learning rate \(\eta\).
 
     \section{Implementation}
-    Alright, lets get them hands dirty and implement a program which learns how to recognize handwritten digits using gradient decision and the MINST dataset.
+    Alright, lets get them hands dirty and implement a program which learns how to recognize handwritten digits using gradient decision and the MNIST dataset.
     
     Download the repository
 
     \begin{lstlisting}[basicstyle=\tiny]{language=bash}
 git clone https://github.com/MichalDanielDobrzanski/DeepLearningPython35
     \end{lstlisting}
-    which contains python 3 compatible code for a neural network as well as the training dataset by MINST.
+    which contains python 3 compatible code for a neural network as well as the training dataset by MNIST.
     Initially I stated that we split the training set into 60k training and 10k testing sets, but that's the official
     dataset form. We'll do it a bit different and keep the test set as is and split the training set into 50k training and 10k
     validation sets. We won't use the validation set for now, but later on it will come in handy.
@@ -593,7 +593,7 @@ git clone https://github.com/MichalDanielDobrzanski/DeepLearningPython35
 >>> nn=network.Network([784,30,10])
 >>> nn.SGD(training_data, 30, 10, 3.0, test_data=test_data)
 \end{lstlisting}
-http://neuralnetworksanddeeplearning.com/chap1.html#MathJax-Span-788
+%http://neuralnetworksanddeeplearning.com/chap1.html#MathJax-Span-788
     
     \section{Backpropagation}
     \subsection{Notation}

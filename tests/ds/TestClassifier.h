@@ -7,20 +7,11 @@
 
 
 bool TestClassifier() {
-    NN<3, 1> nn;
-    DataSet training("../../resources/simple_ds/", 3, 1);
-    training.maxEpoch = 100;
-    training.eta = 0.02;
-    training.batchSize = -1;
-    nn.SetSequentialLayers({ {3, 1}});
-    nn.Train(training);
-//    size_t batchSize = 32;
-//    size_t imageHeight = 180;
-//    size_t imageWidth = 180;
-//    ImageDataSet ds(imageHeight * imageWidth, 1);
-//    // get files using  `wget https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz`
-//    ds.PrepareDirectory("../../resources/image_classification/flower_photos/");
-//    ds.Cache();
+    NN nn;
+    nn.SetSequentialLayers({{784, 30},{30, 10}});
+    ImageDataSet ds(784, 10);
+
+    nn.SGD(ds, 30, 10, 3.0);
     /**
      This API would be nice!
 
