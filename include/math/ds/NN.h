@@ -9,6 +9,11 @@
 #include <sstream>
 
 
+struct LayerStruct {
+    size_t in;
+    size_t out;
+};
+
 class NN
 {
 public:
@@ -105,8 +110,7 @@ public:
              // build mini batches
              auto miniBatches = buildMiniBatches(training, mini_batch_size);
              // iterate through batch list
-             std::vector<MatrixDS<double>> batches;
-             for(auto& batch : batches){
+             for(auto& batch : miniBatches){
                  updateMiniBatch(batch, eta);
              }
          }
@@ -120,7 +124,7 @@ public:
     std::shared_ptr<LayerConfiguration> layers;
 
 private:
-    void updateMiniBatch(MatrixDS<double>& batch, double eta){
+    void updateMiniBatch(Set& batch, double eta){
         /**
          *
         nabla_b = [np.zeros(b.shape) for b in self.biases]
@@ -129,23 +133,49 @@ private:
             delta_nabla_b, delta_nabla_w = self.backprop(x, y)
             nabla_b = [nb+dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
             nabla_w = [nw+dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]
-        self.weights = [w-(eta/len(mini_batch))*nw
-                        for w, nw in zip(self.weights, nabla_w)]
-        self.biases = [b-(eta/len(mini_batch))*nb
-                       for b, nb in zip(self.biases, nabla_b)]
+        self.weights = [w-(eta/len(mini_batch))*nw for w, nw in zip(self.weights, nabla_w)]
+        self.biases = [b-(eta/len(mini_batch))*nb for b, nb in zip(self.biases, nabla_b)]
          */
 
+        auto nablaW = initDeltaW();
+        auto nablaB = initDeltaB();
+        for(auto elem : batch){
+
+        }
+
+        updateWeights();
+        updateBiases();
+
     }
-    std::vector<MatrixDS<double>> buildMiniBatches(const Set& set, int mini_batch_size){
+    std::vector<MatrixDS<double>> initDeltaW(){
+        std::vector<MatrixDS<double>> out;
+        size_t i = 0;
+        for(const auto& layer : *layers){
+            out[i] = MatrixDS<double>(0, layer.weights.rows(), layer.weights.columns());
+            i++;
+        }
+        return out;
+    }
+    std::vector<MatrixDS<double>> initDeltaB(){
+        std::vector<MatrixDS<double>> out;
+        size_t i = 0;
+        for(const auto& layer : *layers){
+            out[i] = MatrixDS<double>(0, layer.bias.rows(), layer.bias.columns());
+            i++;
+        }
+        return out;
+    }
+    static std::vector<Set> buildMiniBatches(const Set& set, int mini_batch_size){
         //mini_batches = [
         //                training_data[k:k+mini_batch_size]
         //                for k in range(0, n, mini_batch_size)]
-        std::vector<MatrixDS<double>> out;
+        std::vector<Set> out;
         for(size_t k = 0; k < set.count; k+=mini_batch_size){
             MatrixDS<double> newElement;
             for(size_t elem = 0; elem < k+mini_batch_size; elem++){
-                out[k]
+                out[k] = set.GetBatch(mini_batch_size);
             }
         }
+        return out;
     }
 };

@@ -8,7 +8,7 @@
 
 bool TestClassifier() {
     NN nn;
-    nn.SetSequentialLayers({{784, 30},{30, 10}});
+    nn.SetLayers({{784, 30},{30, 10}});
     ImageDataSet ds(784, 10);
 
     nn.SGD(ds, 30, 10, 3.0);
