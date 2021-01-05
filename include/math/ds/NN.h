@@ -81,20 +81,6 @@ public:
     void SGD(const DataSet& ds, int epochs, int mini_batch_size, double eta){
         /**
          *
-        training_data = list(training_data)
-        n = len(training_data)
-
-        if test_data:
-            test_data = list(test_data)
-            n_test = len(test_data)
-
-        for j in range(epochs):
-            random.shuffle(training_data)
-            mini_batches = [
-                training_data[k:k+mini_batch_size]
-                for k in range(0, n, mini_batch_size)]
-            for mini_batch in mini_batches:
-                self.update_mini_batch(mini_batch, eta)
             if test_data:
                 print("Epoch {} : {} / {}".format(j,self.evaluate(test_data),n_test));
             else:
@@ -113,7 +99,28 @@ public:
              for(auto& batch : miniBatches){
                  updateMiniBatch(batch, eta);
              }
+             if(ds.verbose){
+                 std::cout << format("Epoch %d : %d / %d", j, evaluate(test), n_test);
+             }
          }
+    }
+
+    double evaluate(const Set& ds){
+        /**
+         *
+        test_results = [(np.argmax(self.feedforward(x)), y)
+                        for (x, y) in test_data]
+        return sum(int(x == y) for (x, y) in test_results)
+         */
+         double out = 0;
+         for(size_t i = 0; i < ds.count; i++){
+             out += (int)(argmax(feedforward(ds.Input)) == ds.Output);
+         }
+         return out;
+    }
+
+    MatrixDS<double> feedforward(const MatrixDS<double>& input){
+        return Activate()
     }
 
     void SetSequentialLayers(const LayerConfiguration& config) {
@@ -125,26 +132,59 @@ public:
 
 private:
     void updateMiniBatch(Set& batch, double eta){
-        /**
-         *
-        nabla_b = [np.zeros(b.shape) for b in self.biases]
-        nabla_w = [np.zeros(w.shape) for w in self.weights]
-        for x, y in mini_batch:
-            delta_nabla_b, delta_nabla_w = self.backprop(x, y)
-            nabla_b = [nb+dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
-            nabla_w = [nw+dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]
-        self.weights = [w-(eta/len(mini_batch))*nw for w, nw in zip(self.weights, nabla_w)]
-        self.biases = [b-(eta/len(mini_batch))*nb for b, nb in zip(self.biases, nabla_b)]
-         */
-
         auto nablaW = initDeltaW();
         auto nablaB = initDeltaB();
-        for(auto elem : batch){
-
+        for(size_t i = 0; i < batch.Input.rows(); i++){
+            auto result = backprop(from_vptr(batch.Input[i], {1, batch.Input.columns()}), from_vptr(batch.Output[i], {1, batch.Output.columns()}));
+            for(size_t j = 0; j < result.first.size(); j++){
+                nablaB[j] = nablaB[j] + result.first[j];
+                nablaW[j] = nablaW[j] + result.second[j];
+            }
         }
 
-        updateWeights();
-        updateBiases();
+        updateWeights(nablaW, eta, batch.count);
+        updateBiases(nablaB, eta, batch.count);
+
+    }
+    std::pair<std::vector<MatrixDS<double>>,std::vector<MatrixDS<double>>> backprop(const MatrixDS<double>& input, const MatrixDS<double>& output){
+        auto nablaB = initDeltaB();
+        auto nablaW = initDeltaW();
+        auto activation = input;
+        std::vector<MatrixDS<double>> activations({input});
+        std::vector<MatrixDS<double>> zs(layers->size());
+        size_t index = 0;
+        for(const auto& layer : *layers){
+            auto z = layer.weights * activation + layer.bias;
+            zs[index] = z;
+            activation = Activate(z);
+            activations[index];
+
+            index++;
+        }
+        auto delta = costDerivative(activations[index-1], output) * ActivateDerivative(activations[index-1]);
+        nablaB[nablaB.size()-1] = delta;
+        nablaW[nablaW.size()-1] = delta * activations[index-2].Transpose();
+
+        for(size_t l = 2; l < layers->size(); l++){
+            auto z = zs[-l];
+            auto sp = ActivateDerivative(z);
+            delta = (*layers)[layers->size()-l].weights.Transpose() * delta * sp;
+        }
+
+        return std::make_pair(nablaB, nablaW);
+    }
+    static MatrixDS<double> costDerivative(const MatrixDS<double>& output_activations, const MatrixDS<double>& y){
+        return output_activations - y;
+    }
+    void updateWeights(std::vector<MatrixDS<double>> nablaW, double eta, size_t batch_size){
+        for(size_t i=0;i<nablaW.size(); i++){
+            (*layers)[i].weights = (*layers)[i].weights-nablaW[i]*(eta/batch_size);
+        }
+    }
+    void updateBiases(std::vector<MatrixDS<double>> nablaB, double eta, size_t batch_size){
+        for(size_t i=0;i<nablaB.size(); i++){
+            (*layers)[i].bias = (*layers)[i].bias-nablaB[i]*(eta/batch_size);
+        }
 
     }
     std::vector<MatrixDS<double>> initDeltaW(){
@@ -166,16 +206,21 @@ private:
         return out;
     }
     static std::vector<Set> buildMiniBatches(const Set& set, int mini_batch_size){
-        //mini_batches = [
-        //                training_data[k:k+mini_batch_size]
-        //                for k in range(0, n, mini_batch_size)]
-        std::vector<Set> out;
+        std::vector<Set> output(set.count / mini_batch_size + 1);
         for(size_t k = 0; k < set.count; k+=mini_batch_size){
-            MatrixDS<double> newElement;
-            for(size_t elem = 0; elem < k+mini_batch_size; elem++){
-                out[k] = set.GetBatch(mini_batch_size);
+            auto newDS = Set(set.InputCount, set.OutputCount);
+            newDS.Input = MatrixDS<double>(0, mini_batch_size, set.InputCount);
+            newDS.Output = MatrixDS<double>(0, mini_batch_size, set.OutputCount);
+            for(int i = 0; i < mini_batch_size; i++){
+                for(size_t in = 0; in < set.InputCount; in++){
+                    newDS.Input[i][in] = set.Input[i + k][in];
+                }
+                for(size_t out = 0; out < set.OutputCount; out++){
+                    newDS.Output[i][out] = set.Output[i + k][out];
+                }
             }
+            output[k / mini_batch_size] = newDS;
         }
-        return out;
+        return output;
     }
 };

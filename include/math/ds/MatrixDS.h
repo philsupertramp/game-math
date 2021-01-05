@@ -8,6 +8,10 @@
 #include <type_traits>
 
 
+struct MatrixDimension {
+    size_t rows;
+    size_t columns;
+};
 /**
  *
  * @tparam T
@@ -370,4 +374,26 @@ size_t& Corr(const MatrixDS<T>& A, const MatrixDS<T>& B) {
         for(size_t j = 0; j < A.columns(); j++) { (*count) += (A[i][j] == B[i][j]); }
     }
     return *count;
+}
+
+template<typename T>
+MatrixDS<T> from_vptr(T* value, MatrixDimension size){
+    auto out = new MatrixDS<T>(size.rows, size.columns);
+    if(size.rows > 1 && size.columns > 1) {
+        for(size_t i = 0; i < size.rows; i++) {
+            for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i][j]; }
+        }
+    } else {
+        if(size.rows > 1 && size.columns > 1) {
+            for(size_t i = 0; i < size.rows; i++) {
+                for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i+j]; }
+            }
+        }
+    }
+    return &out;
+}
+
+template <typename T>
+size_t argmax(MatrixDS<T> mat){
+
 }
