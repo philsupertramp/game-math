@@ -8,8 +8,9 @@
 
 bool TestClassifier() {
     NN nn;
-    nn.SetLayers({{30, 784},{10, 30}});
+    nn.SetLayers({{ 784, 30},{30, 10}});
     DataSet ds("../../tests/ds/pyDS/DeepLearningPython35/",784, 10);
+    ds.verbose = true;
 
     nn.SGD(ds, 1, 10, 3.0);
     /**

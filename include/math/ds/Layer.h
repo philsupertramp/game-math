@@ -8,7 +8,7 @@ public:
     : in(in)
     , out(out)
     {
-        weights   = MatrixDS<double>::Random(in, out);
+        weights   = MatrixDS<double>::Random(out, in);
         bias      = MatrixDS<double>::Random(out, 1);
         output = MatrixDS<double>(0, out, 1);
     }

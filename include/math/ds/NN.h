@@ -93,7 +93,7 @@ public:
                  updateMiniBatch(batch, eta);
              }
              if(ds.verbose){
-                 std::cout << format("Epoch %d : %d / %d", j, evaluate(test), n_test);
+                 std::cout << format("Epoch %d : %d / %d", j, evaluate(test), n_test) << std::flush;
              }
          }
     }
@@ -163,7 +163,6 @@ private:
             nablaB.push_back(delta);
             nablaW.push_back(delta * activations[activations.size()-l-1].Transpose());
         }
-
         std::reverse(nablaB.begin(), nablaB.end());
         std::reverse(nablaW.begin(), nablaW.end());
         return std::make_pair(nablaB, nablaW);
@@ -186,7 +185,7 @@ private:
         std::vector<MatrixDS<double>> out;
         size_t i = 0;
         for(const auto& layer : *layers){
-            out.push_back(MatrixDS<double>(0, layer.weights.columns(), layer.weights.rows()));
+            out.push_back(MatrixDS<double>(0, layer.weights.rows(), layer.weights.columns()));
             i++;
         }
         return out;
