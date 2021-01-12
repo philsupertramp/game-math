@@ -79,13 +79,6 @@ public:
     }
 
     void SGD(const DataSet& ds, int epochs, int mini_batch_size, double eta){
-        /**
-         *
-            if test_data:
-                print("Epoch {} : {} / {}".format(j,self.evaluate(test_data),n_test));
-            else:
-                print("Epoch {} complete".format(j))
-         */
          auto training = ds.Training;
          auto test = ds.Test;
          size_t n_test = test.count;
@@ -106,24 +99,22 @@ public:
     }
 
     double evaluate(const Set& ds){
-        /**
-         *
-        test_results = [(np.argmax(self.feedforward(x)), y)
-                        for (x, y) in test_data]
-        return sum(int(x == y) for (x, y) in test_results)
-         */
          double out = 0;
          for(size_t i = 0; i < ds.count; i++){
-             out += (int)(argmax(feedforward(ds.Input)) == ds.Output);
+             out += (int)(argmax(feedforward(from_vptr(ds.Input[i], { 1, ds.Input.columns() }))) == from_vptr(ds.Output[i], {1, ds.Output.colums()}));
          }
          return out;
     }
 
     MatrixDS<double> feedforward(const MatrixDS<double>& input){
-        return Activate()
+        MatrixDS<double> out = input;
+        for(const auto& layer : *layers){
+            out = Activate(layer.weights * out  + layer.bias);
+        }
+        return out;
     }
 
-    void SetSequentialLayers(const LayerConfiguration& config) {
+    void SetLayers(const LayerConfiguration& config) {
         layers = std::make_shared<LayerConfiguration>(config);
     }
 

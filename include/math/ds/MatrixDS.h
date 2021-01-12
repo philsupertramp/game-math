@@ -377,7 +377,7 @@ size_t& Corr(const MatrixDS<T>& A, const MatrixDS<T>& B) {
 }
 
 template<typename T>
-MatrixDS<T> from_vptr(T* value, MatrixDimension size){
+const MatrixDS<T>& from_vptr(const T* value, MatrixDimension size){
     auto out = new MatrixDS<T>(size.rows, size.columns);
     if(size.rows > 1 && size.columns > 1) {
         for(size_t i = 0; i < size.rows; i++) {
@@ -395,5 +395,15 @@ MatrixDS<T> from_vptr(T* value, MatrixDimension size){
 
 template <typename T>
 size_t argmax(MatrixDS<T> mat){
-
+    T maxVal = std::numeric_limits<T>::min();
+    size_t maxIndex = -1;
+    for(size_t i = 0; i< mat.rows(); i++){
+        for(size_t j = 0; j < mat.columns(); j++){
+            if(mat[i][j] > maxVal){
+                maxVal = mat[i][j];
+                maxIndex = i + j * mat.columns();
+            }
+        }
+    }
+    return maxIndex;
 }
