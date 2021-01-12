@@ -40,7 +40,7 @@ class LayerConfiguration
 {
 public:
     LayerConfiguration(std::initializer_list<Layer> layerConfig){
-        validateLayerConfig(layerConfig);
+//        validateLayerConfig(layerConfig);
         layers = layerConfig;
     }
 

@@ -161,7 +161,7 @@ public:
      */
     MatrixDS& operator=(const MatrixDS& other) {
         if(this != &other) {
-            if(rows() != other.rows() || columns() != other.columns()) { Resize(other.rows(), other.columns()); }
+            if((this == NULL) || (rows() != other.rows() || columns() != other.columns())) { Resize(other.rows(), other.columns()); }
             for(size_t i = 0; i < rows(); i++) {
                 for(size_t j = 0; j < columns(); j++) { _data[i][j] = other[i][j]; }
             }
@@ -377,20 +377,20 @@ size_t& Corr(const MatrixDS<T>& A, const MatrixDS<T>& B) {
 }
 
 template<typename T>
-const MatrixDS<T>& from_vptr(const T* value, MatrixDimension size){
+MatrixDS<T>& from_vptr(const T* value, MatrixDimension size){
     auto out = new MatrixDS<T>(size.rows, size.columns);
     if(size.rows > 1 && size.columns > 1) {
         for(size_t i = 0; i < size.rows; i++) {
-            for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i][j]; }
+            for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i*size.rows+j]; }
         }
     } else {
         if(size.rows > 1 && size.columns > 1) {
             for(size_t i = 0; i < size.rows; i++) {
-                for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i+j]; }
+                for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i*size.rows+j]; }
             }
         }
     }
-    return &out;
+    return *out;
 }
 
 template <typename T>

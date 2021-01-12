@@ -9,9 +9,11 @@ struct Set {
 
     MatrixDS<double> Input;
     MatrixDS<double> Output;
-    size_t InputCount;
-    size_t OutputCount;
+    size_t InputCount = 0;
+    size_t OutputCount = 0;
     size_t count = 0;
+
+    Set() = default;
 
     Set(size_t inputCount, size_t outputCount) {
         InputCount  = inputCount;

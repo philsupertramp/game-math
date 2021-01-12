@@ -101,7 +101,7 @@ public:
     double evaluate(const Set& ds){
          double out = 0;
          for(size_t i = 0; i < ds.count; i++){
-             out += (int)(argmax(feedforward(from_vptr(ds.Input[i], { 1, ds.Input.columns() }))) == from_vptr(ds.Output[i], {1, ds.Output.colums()}));
+             out += (int)(argmax(feedforward(from_vptr(ds.Input[i], { 1, ds.Input.columns() }))) == ds.Output[i][0]);
          }
          return out;
     }
@@ -109,7 +109,7 @@ public:
     MatrixDS<double> feedforward(const MatrixDS<double>& input){
         MatrixDS<double> out = input;
         for(const auto& layer : *layers){
-            out = Activate(layer.weights * out  + layer.bias);
+            out = Activate((layer.weights.Transpose() * out)  + layer.bias);
         }
         return out;
     }
@@ -138,30 +138,34 @@ private:
 
     }
     std::pair<std::vector<MatrixDS<double>>,std::vector<MatrixDS<double>>> backprop(const MatrixDS<double>& input, const MatrixDS<double>& output){
-        auto nablaB = initDeltaB();
-        auto nablaW = initDeltaW();
+        std::vector<MatrixDS<double>> nablaB;
+        std::vector<MatrixDS<double>> nablaW;
         auto activation = input;
         std::vector<MatrixDS<double>> activations({input});
-        std::vector<MatrixDS<double>> zs(layers->size());
+        std::vector<MatrixDS<double>> zs;
         size_t index = 0;
         for(const auto& layer : *layers){
-            auto z = layer.weights * activation + layer.bias;
-            zs[index] = z;
+            auto z = (layer.weights * activation) + layer.bias;
+            zs.push_back(z);
             activation = Activate(z);
-            activations[index];
+            activations.push_back(activation);
 
             index++;
         }
-        auto delta = costDerivative(activations[index-1], output) * ActivateDerivative(activations[index-1]);
-        nablaB[nablaB.size()-1] = delta;
-        nablaW[nablaW.size()-1] = delta * activations[index-2].Transpose();
+        auto delta = HadamardMulti(costDerivative(activations[index], output), ActivateDerivative(activations[index]));
+        nablaB.push_back(delta);
+        nablaW.push_back(delta * activations[index-1].Transpose());
 
-        for(size_t l = 2; l < layers->size(); l++){
-            auto z = zs[-l];
+        for(size_t l = 2; l <= layers->size(); l++){
+            auto z = zs[zs.size()-l];
             auto sp = ActivateDerivative(z);
-            delta = (*layers)[layers->size()-l].weights.Transpose() * delta * sp;
+            delta = HadamardMulti(((*layers)[layers->size()-l+1].weights.Transpose() * delta), sp);
+            nablaB.push_back(delta);
+            nablaW.push_back(delta * activations[activations.size()-l-1].Transpose());
         }
 
+        std::reverse(nablaB.begin(), nablaB.end());
+        std::reverse(nablaW.begin(), nablaW.end());
         return std::make_pair(nablaB, nablaW);
     }
     static MatrixDS<double> costDerivative(const MatrixDS<double>& output_activations, const MatrixDS<double>& y){
@@ -182,7 +186,7 @@ private:
         std::vector<MatrixDS<double>> out;
         size_t i = 0;
         for(const auto& layer : *layers){
-            out[i] = MatrixDS<double>(0, layer.weights.rows(), layer.weights.columns());
+            out.push_back(MatrixDS<double>(0, layer.weights.columns(), layer.weights.rows()));
             i++;
         }
         return out;
@@ -191,7 +195,7 @@ private:
         std::vector<MatrixDS<double>> out;
         size_t i = 0;
         for(const auto& layer : *layers){
-            out[i] = MatrixDS<double>(0, layer.bias.rows(), layer.bias.columns());
+            out.push_back(MatrixDS<double>(0, layer.bias.rows(), layer.bias.columns()));
             i++;
         }
         return out;

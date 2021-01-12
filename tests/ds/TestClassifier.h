@@ -8,10 +8,10 @@
 
 bool TestClassifier() {
     NN nn;
-    nn.SetLayers({{784, 30},{30, 10}});
-    ImageDataSet ds(784, 10);
+    nn.SetLayers({{30, 784},{10, 30}});
+    DataSet ds("../../tests/ds/pyDS/DeepLearningPython35/",784, 10);
 
-    nn.SGD(ds, 30, 10, 3.0);
+    nn.SGD(ds, 1, 10, 3.0);
     /**
      This API would be nice!
 
