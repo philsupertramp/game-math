@@ -148,6 +148,14 @@ namespace Math::Utils {
         T az = p1[2];
         return vec3<T>(ax + v * (p2[0] - ax), ay + v * (p2[0] - ay), az + v * (p2[0] - az));
     }
+    template<class T>
+    vec4<T> lerp(vec4<T> p1, vec4<T> p2, float v) {
+        T ax = p1[0];
+        T ay = p1[1];
+        T az = p1[2];
+        T aw = p1[3];
+        return vec3<T>(ax + v * (p2[0] - ax), ay + v * (p2[1] - ay), az + v * (p2[2] - az, aw + v * (p2[3] - aw)));
+    }
 } // namespace Math::Utils
 
 template<class T>
