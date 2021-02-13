@@ -63,13 +63,12 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> ortho(float left, float right, float bottom, float top) {
-        mat4<T> mat;
-        mat[0][0] = (T) static_cast<T>(2) / (right - left);
-        mat[1][1] = (T) static_cast<T>(2) / (top - bottom);
-        mat[2][2] = (T) - static_cast<T>(1);
-        mat[3][0] = (T) - (right + left) / (left - right);
-        mat[3][1] = (T) - (top + bottom) / (bottom - top);
-        mat[3][3] = (T)1.0f;
+        mat4<T> mat(1.0f);
+        mat[0][0] = static_cast<T>(2) / (right - left);
+        mat[1][1] = static_cast<T>(2) / (top - bottom);
+        mat[2][2] = - static_cast<T>(1);
+        mat[3][0] = - (right + left) / (right - left);
+        mat[3][1] = - (top + bottom) / (top - bottom);
         return mat;
     }
 
