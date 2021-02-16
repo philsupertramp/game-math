@@ -5,6 +5,14 @@
 #include <filesystem>
 #include <fstream>
 #include <map>
+#include "MatrixDS.h"
+#include "../format.h"
+
+enum NormalizerMethod {
+    SET_MEAN = 0,
+    COL_MEAN = 1,
+    ROW_MEAN = 2
+};
 struct Set {
 
     MatrixDS<double> Input;
@@ -53,7 +61,7 @@ struct Set {
                     if(i < InputCount) {
                         Input[count][i] = std::atof(val.c_str());
                     } else {
-                        Output[count][i - InputCount] = std::atoi(val.c_str());
+                        Output[count][i - InputCount] = std::atof(val.c_str());
                     }
                 }
                 ++count;
@@ -83,6 +91,73 @@ struct Set {
             }
         }
         return newDS;
+    }
+
+    void NormalizeSetMean(){
+        auto maxIndex = argmax(Input);
+        auto minIndex = argmin(Input);
+        auto maxVal = Input[int(maxIndex/Input.columns())][int(maxIndex%Input.columns())];
+        auto minVal = Input[int(minIndex/Input.columns())][int(minIndex%Input.columns())];
+
+        auto minMax = maxVal - minVal;
+        for(size_t i = 0; i < Input.columns(); i++){
+            for(size_t j = 0; j < Input.rows(); j++){
+                Input[i][j] = (Input[i][j]-minVal)/minMax;
+            }
+        }
+    }
+    void NormalizeRowMean(){
+        auto means = MatrixDS<double>(0, Input.rows(), 1);
+        for(size_t i = 0; i < Input.rows(); ++i) {
+            for(size_t j = 0; j < Input.columns(); ++j) {
+                means[i][0] += Input[i][j];
+            }
+            means[i][0] /= Input.columns();
+        }
+        auto stds = MatrixDS<double>(0, Input.rows(), 1);
+        for(size_t i = 0; i < Input.rows(); ++i) {
+            for(size_t j = 0; j < Input.columns(); ++j) {
+                stds[i][0] += pow(Input[i][j] - means[i][0], 2);
+            }
+            stds[i][0] /= Input.columns();
+        }
+        for(size_t i = 0; i < Input.rows(); ++i) {
+            for(size_t j = 0; j < Input.columns(); ++j) {
+                Input[i][j] = (Input[i][j] - means[i][0]) / stds[i][0];
+            }
+        }
+    }
+
+    void NormalizeColMean(){
+        Input = Input.Transpose();
+        auto means = MatrixDS<double>(0, Input.rows(), 1);
+        for(size_t i = 0; i < Input.rows(); ++i) {
+            for(size_t j = 0; j < Input.columns(); ++j) {
+                means[i][0] += Input[i][j];
+            }
+            means[i][0] /= Input.columns();
+        }
+        auto stds = MatrixDS<double>(0, Input.rows(), 1);
+        for(size_t i = 0; i < Input.rows(); ++i) {
+            for(size_t j = 0; j < Input.columns(); ++j) {
+                stds[i][0] += pow(Input[i][j] - means[i][0], 2);
+            }
+            stds[i][0] /= Input.columns();
+        }
+        for(size_t i = 0; i < Input.rows(); ++i) {
+            for(size_t j = 0; j < Input.columns(); ++j) {
+                Input[i][j] = (Input[i][j] - means[i][0]) / stds[i][0];
+            }
+        }
+        Input = Input.Transpose();
+    }
+
+    void Normalize(NormalizerMethod method = NormalizerMethod::SET_MEAN){
+        switch(method) {
+            case SET_MEAN: NormalizeSetMean(); break;
+            case COL_MEAN: NormalizeColMean(); break;
+            case ROW_MEAN: NormalizeRowMean(); break;
+        }
     }
 
     void Shuffle(){

@@ -380,16 +380,8 @@ size_t& Corr(const MatrixDS<T>& A, const MatrixDS<T>& B) {
 template<typename T>
 MatrixDS<T>& from_vptr(const T* value, MatrixDimension size){
     auto out = new MatrixDS<T>(size.rows, size.columns);
-    if(size.rows > 1 && size.columns > 1) {
-        for(size_t i = 0; i < size.rows; i++) {
-            for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i*size.rows+j]; }
-        }
-    } else {
-        if(size.rows > 1 && size.columns > 1) {
-            for(size_t i = 0; i < size.rows; i++) {
-                for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i*size.rows+j]; }
-            }
-        }
+    for(size_t i = 0; i < size.rows; i++) {
+        for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i*size.columns+j]; }
     }
     return *out;
 }
@@ -408,16 +400,59 @@ size_t argmax(MatrixDS<T> mat){
     }
     return maxIndex;
 }
+template <typename T>
+size_t argmin(MatrixDS<T> mat){
+    T maxVal = std::numeric_limits<T>::max();
+    size_t maxIndex = -1;
+    for(size_t i = 0; i< mat.rows(); i++){
+        for(size_t j = 0; j < mat.columns(); j++){
+            if(mat[i][j] < maxVal){
+                maxVal = mat[i][j];
+                maxIndex = i + j * mat.columns();
+            }
+        }
+    }
+    return maxIndex;
+}
 
 template<typename T>
-MatrixDS<T> where(std::function<bool(T)> condition, MatrixDS<T> a, MatrixDS<T> b){
+MatrixDS<T> where(const std::function<bool(T)>& condition, MatrixDS<T> in, MatrixDS<T> a, MatrixDS<T> b){
     assert(a.columns() == b.columns() && a.rows() == b.rows());
-    auto out = a;
-    for(size_t i = 0; i < a.rows(); i++){
-        for(size_t j = 0; j < a.columns(); j++){
-            if(!condition(a[i][j]))
-                out[i][j] = b[i][j];
+    bool refVector = true;
+    if((a.columns() == a.rows()) == 1){
+        refVector = false;
+    }
+    auto out = refVector ? a : in;
+
+    for(size_t i = 0; i < in.rows(); i++){
+        for(size_t j = 0; j < in.columns(); j++){
+            if(refVector) {
+                if(!condition(in[i][j])) out[i][j] = b[i][j];
+            } else {
+                if(!condition(in[i][j])) out[i][j] = b[0][0];
+                else out[i][j] = a[0][0];
+            }
         }
     }
     return out;
+}
+
+template <typename T>
+std::vector<std::pair<MatrixDS<T>, MatrixDS<T>>> zip(MatrixDS<T> a, MatrixDS<T> b){
+    std::vector<std::pair<MatrixDS<T>, MatrixDS<T>>> out(a.rows());
+    for(size_t i = 0; i < a.rows(); i++){
+        MatrixDS<T> subA, subB;
+        subA.Resize(1, a.columns());
+        subB.Resize(1, b.columns());
+        for(size_t j = 0; j < a.columns(); j++){
+            subA[0][j] = a[i][j];
+        }
+        for(size_t j = 0; j < b.columns(); j++){
+            subB[0][j] = b[i][j];
+        }
+
+        out[i] = {subA, subB};
+    }
+    return out;
+
 }

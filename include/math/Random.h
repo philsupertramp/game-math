@@ -4,14 +4,19 @@
 #include <random>
 
 static bool TimeInitialized = false;
+static int RandomSeed = 2;
 class Random
 {
     static void InitTime(bool useSeed = true) {
-        std::srand(useSeed ? (int)time(0) : 2);
+        std::srand(useSeed ? RandomSeed : (int)time(0));
         TimeInitialized = true;
     }
 
 public:
+    static void SetSeed(int seed){
+        RandomSeed = seed;
+        TimeInitialized = false;
+    }
     static double Get(double l = 0.0, double r = 1.0) {
         if(!TimeInitialized) InitTime(false);
 

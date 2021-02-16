@@ -1,6 +1,8 @@
 
-#include "ds/TestClassifier.h"
+#include "ds/TestAdalineGD.h"
+#include "ds/TestAdalineSGD.h"
 #include "ds/TestMatrixDS.h"
+#include "ds/TestPerceptron.h"
 #include "mat/TestMat2.h"
 #include "mat/TestMat3.h"
 #include "mat/TestMat4.h"
@@ -13,7 +15,6 @@
 #include "vec/TestVec2.h"
 #include "vec/TestVec3.h"
 #include "vec/TestVec4.h"
-#include <Magick++.h>
 
 #define PLATFORM_UNIX
 
@@ -45,7 +46,9 @@ int main([[maybe_unused]] int nargs, [[maybe_unused]] char* argv[]) {
 
     TestMatrixDS();
 
-    TestClassifier();
 
+    TestPerceptron();
+    TestAdalineGD();
+    TestAdalineSGD();
     return 0;
 }

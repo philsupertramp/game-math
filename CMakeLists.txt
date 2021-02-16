@@ -49,10 +49,11 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
     set(LIB_SOURCES
         ${LIB_SOURCES}
             include/math/ds/MatrixDS.h
-            include/math/ds/Evaluation.h
-            include/math/ds/NN.h
             include/math/ds/DataSet.h
-            include/math/ds/Layer.h include/math/ds/Neuron.h)
+            include/math/ds/Perceptron.h
+            include/math/ds/AdalineGD.h
+            include/math/ds/AdalineSGD.h
+            )
 
     add_definitions( -DMAGICKCORE_QUANTUM_DEPTH=16 )
     add_definitions( -DMAGICKCORE_HDRI_ENABLE=0 )
