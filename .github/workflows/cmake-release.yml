@@ -27,7 +27,7 @@ jobs:
           sudo wget http://www.imagemagick.org/download/ImageMagick.tar.gz
           
           sudo tar xvzf ImageMagick.tar.gz
-          cd ImageMagick-7.0.8-2
+          cd ImageMagick-7.0.11-0
           sudo touch configure
           sudo ./configure
           sudo make
