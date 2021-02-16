@@ -2,6 +2,7 @@
 #include "../Random.h"
 #include <cmath>
 #include <cstdlib>
+#include <functional>
 #include <initializer_list>
 #include <iostream>
 #include <memory>
@@ -406,4 +407,17 @@ size_t argmax(MatrixDS<T> mat){
         }
     }
     return maxIndex;
+}
+
+template<typename T>
+MatrixDS<T> where(std::function<bool(T)> condition, MatrixDS<T> a, MatrixDS<T> b){
+    assert(a.columns() == b.columns() && a.rows() == b.rows());
+    auto out = a;
+    for(size_t i = 0; i < a.rows(); i++){
+        for(size_t j = 0; j < a.columns(); j++){
+            if(!condition(a[i][j]))
+                out[i][j] = b[i][j];
+        }
+    }
+    return out;
 }
