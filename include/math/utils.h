@@ -119,7 +119,6 @@ namespace Math::Utils {
         vec4<T> out2 = vec4(m[0]) * rot[2][0] + vec4(m[1]) * rot[2][1] + vec4(m[2]) * rot[2][2];
 
         return mat4<T>(out0, out1, out2, vec4(m[3]));
-        ;
     }
 
     // Possibly wrong
@@ -133,7 +132,7 @@ namespace Math::Utils {
         T ax = p1[0];
         T ay = p1[1];
         T az = p1[2];
-        return vec3<T>(ax + v * (p2[0] - ax), ay + v * (p2[0] - ay), az + v * (p2[0] - az));
+        return vec3<T>(ax + v * (p2[0] - ax), ay + v * (p2[1] - ay), az + v * (p2[2] - az));
     }
     template<class T>
     vec4<T> lerp(vec4<T> p1, vec4<T> p2, float v) {
