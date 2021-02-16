@@ -71,6 +71,6 @@ jobs:
           CXX: g++-10
 
       - name: Test
-        working-directory: ${{runner.workspace}}/build/tests
+        working-directory: ${{runner.workspace}}
         shell: bash
-        run: ./math-tests
+        run: ./build/tests/math-tests
