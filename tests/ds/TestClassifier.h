@@ -7,22 +7,32 @@
 
 
 bool TestClassifier() {
-    NN<4, 3> nn(2);
-    nn.SetLayers(7);
-    DataSet training("../../resources/iris_data_files/training.dat", 4, 3);
-    nn.Train(training);
-    nn.Train(training);
-    nn.Train(training);
-    nn.Train(training);
+    NN nn;
+    nn.SetLayers({{ 784, 30},{30, 10}});
+    DataSet ds("../../tests/ds/pyDS/DeepLearningPython35/",784, 10);
+    ds.verbose = true;
 
-    //    NN<3, 1> nn2(5);
-    //    nn2.SetLayers(5);
-    //    DataSet training2("../../resources/simple_ds/training.dat", 3, 1);
-    //    nn2.Train(training2, 1000, 0.01, 0.001);
-    //
-    //    NN<10, 2> nn3(7);
-    //    nn3.SetLayers(10);
-    //    DataSet training3("../../resources/cancer/set1/training.dat", 10, 2);
-    //    nn3.Train(training3, 100);
+    nn.SGD(ds, 1, 10, 3.0);
+    /**
+     This API would be nice!
+
+     num_classes = 5
+
+        model = Sequential([
+            # rescaling
+            layers.experimental.preprocessing.Rescaling(1./255, input_shape=(img_height, img_width, 3)),
+            layers.Conv2D(16, 3, padding='same', activation='relu'),
+          layers.MaxPooling2D(),
+          layers.Conv2D(32, 3, padding='same', activation='relu'),
+          layers.MaxPooling2D(),
+          layers.Conv2D(64, 3, padding='same', activation='relu'),
+          layers.MaxPooling2D(),
+          layers.Flatten(),
+          layers.Dense(128, activation='relu'),
+          layers.Dense(num_classes)
+        ])
+
+     */
+
     return true;
 }

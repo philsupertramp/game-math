@@ -51,11 +51,22 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/MatrixDS.h
             include/math/ds/Evaluation.h
             include/math/ds/NN.h
-            )
+            include/math/ds/DataSet.h
+            include/math/ds/Layer.h include/math/ds/Neuron.h)
+
+    add_definitions( -DMAGICKCORE_QUANTUM_DEPTH=16 )
+    add_definitions( -DMAGICKCORE_HDRI_ENABLE=0 )
+    find_package(ImageMagick COMPONENTS Magick++)
+    include_directories(${ImageMagick_INCLUDE_DIRS})
 endif ()
 
 add_library(math-lib SHARED ${LIB_SOURCES})
 set_target_properties(math-lib PROPERTIES LINKER_LANGUAGE CXX)
+
+
+if (MATH_EXTENSIONS MATCHES "(ds)")
+    target_link_libraries(math-lib ${ImageMagick_LIBRARIES})
+endif()
 
 add_subdirectory(tests)
 target_link_libraries(math-tests math-lib)

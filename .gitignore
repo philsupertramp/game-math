@@ -5,3 +5,5 @@ build/*
 .vscode
 massif.out.*
 octave-workspace
+flower_photos/
+image_processing/training/
