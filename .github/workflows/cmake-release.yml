@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
       - run:   |
           sudo apt update
-          sudo apt install gcc-10 g++-10 libmagick++-dev
+          sudo apt install gcc-10 g++-10 libgraphicsmagick1-dev
         shell: bash
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v1.7
