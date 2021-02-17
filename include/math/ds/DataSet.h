@@ -69,7 +69,7 @@ struct Set {
             dataFile.close();
             //            Classes = OutputToClass(Output);
         } else {
-            std::cerr << "Unable to open file";
+            std::cerr << "DataSet::ReadFromFile: Unable to open file " << fileName << std::endl;
         }
     }
 
