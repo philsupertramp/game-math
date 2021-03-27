@@ -113,6 +113,11 @@ public:
         }
     }
 
+    template<typename U>
+    operator vec2<U>(){
+        return vec2<U>(x, y);
+    }
+
     /* stream operators */
     template<class U>
     friend std::ostream& operator<<(std::ostream&, const vec2<U>&);

@@ -140,6 +140,11 @@ public:
         }
     }
 
+    template<typename U>
+    operator vec3<U>(){
+        return vec3<U>(x, y, z);
+    }
+
     /* stream operators */
     template<class U>
     friend std::ostream& operator<<(std::ostream&, const vec3<U>&);

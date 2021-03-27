@@ -137,6 +137,10 @@ public:
             case 3: return w;
         }
     }
+    template<typename U>
+    operator vec4<U>(){
+        return vec4<U>(x, y, z, w);
+    }
 
     /* stream operators */
     template<class U>
