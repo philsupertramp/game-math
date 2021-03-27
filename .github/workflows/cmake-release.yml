@@ -19,12 +19,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run:   |
+      - run: |
           sudo apt update
-          sudo apt install gcc-10 g++-10
+          sudo apt install gcc-10 g++-10 libgraphicsmagick-dev
+          sudo apt-get install build-essential checkinstall
+          cd /opt
+          sudo wget http://www.imagemagick.org/download/ImageMagick.tar.gz
+
+          sudo tar xvzf ImageMagick.tar.gz
+          cd $(ls | grep "ImageMagick-")
+          sudo touch configure
+          sudo ./configure
+          sudo make
+          sudo make install
+          sudo ldconfig /usr/local/lib
         shell: bash
       - name: Setup cmake
-        uses: jwlawson/actions-setup-cmake@v1.4
+        uses: jwlawson/actions-setup-cmake@v1.7
         with:
           cmake-version: '3.19.x'
 
@@ -59,6 +70,6 @@ jobs:
           CXX: g++-10
 
       - name: Test
-        working-directory: ${{runner.workspace}}/build/tests
+        working-directory: ${{runner.workspace}}/build
         shell: bash
-        run: ./math-tests
+        run: ./tests/math-tests
