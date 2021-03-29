@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v2
     - run: |
         sudo apt update
-        sudo apt install gcc-10 g++-10 libgraphicsmagick-dev ctest
+        sudo apt install gcc-10 g++-10 libgraphicsmagick-dev
         sudo apt-get install build-essential checkinstall
         cd /opt
         sudo wget http://www.imagemagick.org/download/ImageMagick.tar.gz
