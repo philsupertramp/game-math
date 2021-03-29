@@ -22,5 +22,6 @@
 
 #pragma once
 #include <vector>
+#include <cmath>
 
 std::pair<std::vector<std::vector<float>>, std::vector<unsigned int>> LU(std::vector<std::vector<float>>& A);
