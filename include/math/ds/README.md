@@ -1,6 +1,7 @@
 ## ds (Data science)-submodule
 
-Used for 
+Used for machine learning and data science tasks
+
 
 ## Dependencies
 - ImageMagick/Magick++`>=7.0.10-45`  
@@ -14,3 +15,14 @@ InitializeMagick(*argv);
 ```
 to your main to initialize `Magick++`  
 **Note:** unnecessary for UNIX systems
+
+
+## TOC
+
+File | Usage 
+:--- | --- |
+`DataSet.h` | Represents a dataset |
+`ImageDataSet.h` | Represents a dataset of image files |
+`Perceptron.h` |  |
+`AdalineGD.h` | |
+`AdalineSGD.h` | |

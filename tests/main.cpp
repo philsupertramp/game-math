@@ -3,9 +3,11 @@
 #include "ds/TestAdalineSGD.h"
 #include "ds/TestMatrixDS.h"
 #include "ds/TestPerceptron.h"
+#include "ds/TestUtils.h"
 #include "mat/TestMat2.h"
 #include "mat/TestMat3.h"
 #include "mat/TestMat4.h"
+#include "numerics/TestUtils.h"
 #include "numerics/lin_alg/TestBackwardSub.h"
 #include "numerics/lin_alg/TestForwardSub.h"
 #include "numerics/lin_alg/TestGaussianElimination.h"
@@ -44,6 +46,9 @@ int main([[maybe_unused]] int nargs, [[maybe_unused]] char* argv[]) {
 
     TestGaussianElimination();
 
+    TestNumericsUtils();
+
+    TestUtils();
     TestMatrixDS();
 
 

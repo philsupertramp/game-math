@@ -7,4 +7,4 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -pthread -pedantic")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
-add_executable(math-tests vec/TestVec2.h vec/TestVec3.h vec/TestVec4.h Test.h main.cpp mat/TestMat2.h mat/TestMat3.h mat/TestMat4.h numerics/ode/TestExplicitEuler.h numerics/ode/TestODE45.h numerics/lin_alg/TestBackwardSub.h numerics/lin_alg/TestForwardSub.h numerics/lin_alg/TestLU.h numerics/lin_alg/TestGaussianElimination.h ds/TestMatrixDS.h ds/TestPerceptron.h ds/TestAdalineGD.h ds/TestAdalineSGD.h)
+add_executable(math-tests vec/TestVec2.h vec/TestVec3.h vec/TestVec4.h Test.h main.cpp mat/TestMat2.h mat/TestMat3.h mat/TestMat4.h numerics/ode/TestExplicitEuler.h numerics/ode/TestODE45.h numerics/lin_alg/TestBackwardSub.h numerics/lin_alg/TestForwardSub.h numerics/lin_alg/TestLU.h numerics/lin_alg/TestGaussianElimination.h ds/TestMatrixDS.h ds/TestPerceptron.h ds/TestAdalineGD.h ds/TestAdalineSGD.h numerics/TestUtils.h)

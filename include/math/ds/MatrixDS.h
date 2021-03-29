@@ -400,8 +400,21 @@ size_t argmax(MatrixDS<T> mat){
     }
     return maxIndex;
 }
+
+/**
+ * Search index of value with lowest value
+ * **Caution!** This value does represent the index in a ongoing array.
+ * Example:
+ *      A = {{1,1}, {1,2}}
+ *      argmin(A) == 3
+ *      A[argmin(A)//A.colums()][argmin(A)%A.columns()] == 2
+ *
+ * @tparam T matrix value type
+ * @param mat element to search in
+ * @return index of minimal value
+ */
 template <typename T>
-size_t argmin(MatrixDS<T> mat){
+size_t argmin(const MatrixDS<T>& mat){
     T maxVal = std::numeric_limits<T>::max();
     size_t maxIndex = -1;
     for(size_t i = 0; i< mat.rows(); i++){
@@ -415,28 +428,50 @@ size_t argmin(MatrixDS<T> mat){
     return maxIndex;
 }
 
+/**
+ * Returns elements chosen from `valIfTrue` or `valIfFalse` depending on `condition`
+ * @tparam T value type
+ * @param condition lambda/function to test a condition on every element of `in`
+ * @param in input values
+ * @param valIfTrue value vector with values in case `in` meets `condition`
+ * @param valIfFalse value vector with values in case `in` does not meet `condition`
+ * @return
+ */
 template<typename T>
-MatrixDS<T> where(const std::function<bool(T)>& condition, MatrixDS<T> in, MatrixDS<T> a, MatrixDS<T> b){
-    assert(a.columns() == b.columns() && a.rows() == b.rows());
+MatrixDS<T> where(const std::function<bool(T)>& condition, MatrixDS<T> in, const MatrixDS<T>& valIfTrue, const MatrixDS<T>& valIfFalse){
+    assert(valIfTrue.columns() == valIfFalse.columns() && valIfTrue.rows() == valIfFalse.rows());
     bool refVector = true;
-    if((a.columns() == a.rows()) == 1){
+    if((valIfTrue.columns() == valIfTrue.rows()) == 1){
         refVector = false;
     }
-    auto out = refVector ? a : in;
+    auto out = refVector ? valIfTrue : in;
 
     for(size_t i = 0; i < in.rows(); i++){
         for(size_t j = 0; j < in.columns(); j++){
             if(refVector) {
-                if(!condition(in[i][j])) out[i][j] = b[i][j];
+                if(!condition(in[i][j])) out[i][j] =  valIfFalse[i][j];
             } else {
-                if(!condition(in[i][j])) out[i][j] = b[0][0];
-                else out[i][j] = a[0][0];
+                out[i][j] = condition(in[i][j]) ? valIfTrue[0][0] : valIfFalse[0][0];
             }
         }
     }
     return out;
 }
 
+/**
+ * Converts two input matrices into a vector of
+ * row-wise pairs of `a` and `b`
+ *
+ * Example:
+ *  a = {{1,1,1}, {2,2,2}, {3,3,3}}
+ *  b = {{0}, {1}, {2}}
+ *
+ *  zip(a,b) == {({1,1,1}, {0}), ({2,2,2}, {1}), ({3,3,3}, {2})}
+ * @tparam T value type
+ * @param a
+ * @param b
+ * @return
+ */
 template <typename T>
 std::vector<std::pair<MatrixDS<T>, MatrixDS<T>>> zip(MatrixDS<T> a, MatrixDS<T> b){
     std::vector<std::pair<MatrixDS<T>, MatrixDS<T>>> out(a.rows());

@@ -2,6 +2,9 @@
 
 #include "MatrixDS.h"
 
+/**
+ * TODO: Create a pure virtual classifier base class
+ */
 class Perceptron
 {
     double eta; // Learning rate
