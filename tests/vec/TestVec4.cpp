@@ -1,9 +1,8 @@
-#pragma once
-
 #include "../Test.h"
-#include <cassert>
+#include <cstring>
 #include <iostream>
 #include <math/math.h> // NOLINT
+#include <sstream>
 
 
 template<class T>
@@ -30,6 +29,12 @@ class Vec4TestCase : public Test
         assert(vec.y == (T)4);
         assert(vec.z == (T)6);
         assert(vec.w == (T)8);
+
+        vec4<T> vec2(vals);
+        assert(vec2.x == (T)2);
+        assert(vec2.y == (T)4);
+        assert(vec2.z == (T)6);
+        assert(vec2.w == (T)8);
 
         return true;
     }
@@ -168,6 +173,22 @@ class Vec4TestCase : public Test
         return true;
     }
 
+    bool testComparison(){
+        vec4<T> a(1, 2, 3, 4);
+        vec4<T> b(1, 2, 3, 4);
+
+        assert(a == b);
+        return true;
+    }
+
+    bool testCast(){
+        vec4<T> a(1, 2, 3, 4);
+        vec4<int> a2(1, 2, 3, 4);
+        auto b = vec4<int>(a);
+
+        assert(a2 == b);
+        return true;
+    }
 public:
     void run(bool _extended = false) override {
         extended = _extended;
@@ -177,13 +198,15 @@ public:
         testMemberAccess();
         testMisc();
         testOperators();
+        testCast();
+        testComparison();
     }
 };
 
-bool TestVec4() {
+int main(int nargs, char* argv[]) {
     Vec4TestCase<int>().run();
     Vec4TestCase<float>().run(true);
     Vec4TestCase<double>().run(true);
 
-    return true;
+    return 0;
 }

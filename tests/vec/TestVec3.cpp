@@ -1,5 +1,3 @@
-#pragma once
-
 #include "../Test.h"
 #include <cassert>
 #include <iostream>
@@ -27,6 +25,16 @@ class Vec3TestCase : public Test
         assert(vec.x == (T)2);
         assert(vec.y == (T)4);
         assert(vec.z == (T)6);
+
+        vec3<T> anotherVec3(1);
+        assert(anotherVec3.x == (T)1);
+        assert(anotherVec3.y == (T)1);
+        assert(anotherVec3.z == (T)1);
+
+        vec4<T> a4(1, 1, 1, 1);
+        vec3<T> a4_3(a4);
+
+        assert(anotherVec3 == a4_3);
 
         return true;
     }
@@ -156,6 +164,23 @@ class Vec3TestCase : public Test
         return true;
     }
 
+    bool testComparison(){
+        vec3<T> a(1, 2, 3);
+        vec3<T> b(1, 2, 3);
+
+        assert(a == b);
+        return true;
+    }
+
+    bool testCast(){
+        vec3<T> a(1, 2, 3);
+        vec3<int> a2(1, 2, 3);
+        auto b = vec3<int>(a);
+
+        assert(a2 == b);
+        return true;
+    }
+
 public:
     virtual void run(bool _extended = false) override {
         extended = _extended;
@@ -165,13 +190,15 @@ public:
         testMemberAccess();
         testMisc();
         testOperators();
+        testCast();
+        testComparison();
     }
 };
 
-bool TestVec3() {
+int main(int nargs, char* argv[]) {
     Vec3TestCase<int>().run();
     Vec3TestCase<float>().run(true);
     Vec3TestCase<double>().run(true);
 
-    return true;
+    return 0;
 }

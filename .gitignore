@@ -1,9 +1,20 @@
+# build directories
 *-build-*/
 build/*
-.idea/
+out/
 
+# IDE files
+.idea/
 .vscode
 massif.out.*
 octave-workspace
+
+# code coverage
+cov.info
+cmake-debug-coverage/
+coverage-report/
+
+# testing files
 flower_photos/
 image_processing/training/
+image_classification/

@@ -4,7 +4,7 @@
 #include <random>
 
 static bool TimeInitialized = false;
-static int RandomSeed = 2;
+static int RandomSeed       = 2;
 class Random
 {
     static void InitTime(bool useSeed = true) {
@@ -13,8 +13,8 @@ class Random
     }
 
 public:
-    static void SetSeed(int seed){
-        RandomSeed = seed;
+    static void SetSeed(int seed) {
+        RandomSeed      = seed;
         TimeInitialized = false;
     }
     static double Get(double l = 0.0, double r = 1.0) {

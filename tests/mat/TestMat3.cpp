@@ -1,5 +1,3 @@
-#pragma once
-
 #include "../Test.h"
 #include <cassert>
 #include <iostream>
@@ -223,9 +221,9 @@ public:
     }
 };
 
-bool TestMat3() {
+int main(int nargs, char* argv[]) {
     Mat3TestCase<int>().run(false);
     Mat3TestCase<float>().run(true);
     Mat3TestCase<double>().run(true);
-    return true;
+    return 0;
 }

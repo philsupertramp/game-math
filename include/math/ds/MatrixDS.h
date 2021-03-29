@@ -162,7 +162,9 @@ public:
      */
     MatrixDS& operator=(const MatrixDS& other) {
         if(this != &other) {
-            if((this == NULL) || (rows() != other.rows() || columns() != other.columns())) { Resize(other.rows(), other.columns()); }
+            if((this == NULL) || (rows() != other.rows() || columns() != other.columns())) {
+                Resize(other.rows(), other.columns());
+            }
             for(size_t i = 0; i < rows(); i++) {
                 for(size_t j = 0; j < columns(); j++) { _data[i][j] = other[i][j]; }
             }
@@ -378,22 +380,22 @@ size_t& Corr(const MatrixDS<T>& A, const MatrixDS<T>& B) {
 }
 
 template<typename T>
-MatrixDS<T>& from_vptr(const T* value, MatrixDimension size){
+MatrixDS<T>& from_vptr(const T* value, MatrixDimension size) {
     auto out = new MatrixDS<T>(size.rows, size.columns);
     for(size_t i = 0; i < size.rows; i++) {
-        for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i*size.columns+j]; }
+        for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i * size.columns + j]; }
     }
     return *out;
 }
 
-template <typename T>
-size_t argmax(MatrixDS<T> mat){
-    T maxVal = std::numeric_limits<T>::min();
+template<typename T>
+size_t argmax(MatrixDS<T> mat) {
+    T maxVal        = std::numeric_limits<T>::min();
     size_t maxIndex = -1;
-    for(size_t i = 0; i< mat.rows(); i++){
-        for(size_t j = 0; j < mat.columns(); j++){
-            if(mat[i][j] > maxVal){
-                maxVal = mat[i][j];
+    for(size_t i = 0; i < mat.rows(); i++) {
+        for(size_t j = 0; j < mat.columns(); j++) {
+            if(mat[i][j] > maxVal) {
+                maxVal   = mat[i][j];
                 maxIndex = i + j * mat.columns();
             }
         }
@@ -413,14 +415,14 @@ size_t argmax(MatrixDS<T> mat){
  * @param mat element to search in
  * @return index of minimal value
  */
-template <typename T>
-size_t argmin(const MatrixDS<T>& mat){
-    T maxVal = std::numeric_limits<T>::max();
+template<typename T>
+size_t argmin(const MatrixDS<T>& mat) {
+    T maxVal        = std::numeric_limits<T>::max();
     size_t maxIndex = -1;
-    for(size_t i = 0; i< mat.rows(); i++){
-        for(size_t j = 0; j < mat.columns(); j++){
-            if(mat[i][j] < maxVal){
-                maxVal = mat[i][j];
+    for(size_t i = 0; i < mat.rows(); i++) {
+        for(size_t j = 0; j < mat.columns(); j++) {
+            if(mat[i][j] < maxVal) {
+                maxVal   = mat[i][j];
                 maxIndex = i + j * mat.columns();
             }
         }
@@ -438,18 +440,17 @@ size_t argmin(const MatrixDS<T>& mat){
  * @return
  */
 template<typename T>
-MatrixDS<T> where(const std::function<bool(T)>& condition, MatrixDS<T> in, const MatrixDS<T>& valIfTrue, const MatrixDS<T>& valIfFalse){
+MatrixDS<T> where(
+const std::function<bool(T)>& condition, MatrixDS<T> in, const MatrixDS<T>& valIfTrue, const MatrixDS<T>& valIfFalse) {
     assert(valIfTrue.columns() == valIfFalse.columns() && valIfTrue.rows() == valIfFalse.rows());
     bool refVector = true;
-    if((valIfTrue.columns() == valIfTrue.rows()) == 1){
-        refVector = false;
-    }
+    if((valIfTrue.columns() == valIfTrue.rows()) == 1) { refVector = false; }
     auto out = refVector ? valIfTrue : in;
 
-    for(size_t i = 0; i < in.rows(); i++){
-        for(size_t j = 0; j < in.columns(); j++){
+    for(size_t i = 0; i < in.rows(); i++) {
+        for(size_t j = 0; j < in.columns(); j++) {
             if(refVector) {
-                if(!condition(in[i][j])) out[i][j] =  valIfFalse[i][j];
+                if(!condition(in[i][j])) out[i][j] = valIfFalse[i][j];
             } else {
                 out[i][j] = condition(in[i][j]) ? valIfTrue[0][0] : valIfFalse[0][0];
             }
@@ -472,22 +473,17 @@ MatrixDS<T> where(const std::function<bool(T)>& condition, MatrixDS<T> in, const
  * @param b
  * @return
  */
-template <typename T>
-std::vector<std::pair<MatrixDS<T>, MatrixDS<T>>> zip(MatrixDS<T> a, MatrixDS<T> b){
+template<typename T>
+std::vector<std::pair<MatrixDS<T>, MatrixDS<T>>> zip(MatrixDS<T> a, MatrixDS<T> b) {
     std::vector<std::pair<MatrixDS<T>, MatrixDS<T>>> out(a.rows());
-    for(size_t i = 0; i < a.rows(); i++){
+    for(size_t i = 0; i < a.rows(); i++) {
         MatrixDS<T> subA, subB;
         subA.Resize(1, a.columns());
         subB.Resize(1, b.columns());
-        for(size_t j = 0; j < a.columns(); j++){
-            subA[0][j] = a[i][j];
-        }
-        for(size_t j = 0; j < b.columns(); j++){
-            subB[0][j] = b[i][j];
-        }
+        for(size_t j = 0; j < a.columns(); j++) { subA[0][j] = a[i][j]; }
+        for(size_t j = 0; j < b.columns(); j++) { subB[0][j] = b[i][j]; }
 
-        out[i] = {subA, subB};
+        out[i] = { subA, subB };
     }
     return out;
-
 }

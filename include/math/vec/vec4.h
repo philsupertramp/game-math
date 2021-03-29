@@ -138,7 +138,7 @@ public:
         }
     }
     template<typename U>
-    operator vec4<U>(){
+    operator vec4<U>() {
         return vec4<U>(x, y, z, w);
     }
 

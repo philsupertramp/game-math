@@ -8,10 +8,12 @@ std::vector<float> forwardSub(const std::vector<std::vector<float>>& L, const st
     if(v != m) {
         // Error, cannot compute
         std::cout << "Matrix vector dimension miss match, error!\n";
+        return {};
     }
     if(m != n) {
         // Error, cannot compute
         std::cout << "Matrix not squared. Dimension miss match, error!\n";
+        return {};
     }
 
     auto c = zerosV(v);
