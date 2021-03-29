@@ -21,6 +21,13 @@ mkdir -p build
 cmake -DMATH_EXTENSIONS=numerics --build /home/phil/work/private/games/fawxy/src/vendor/math/build --target math-tests -- -j 3 .
 ```
 
+# TOC
+Module | Usage |
+--- | --- |
+`numerics/lin_alg` | Concepts of linear algebra solved using numerical methods |
+`numerics/ode` | Solver for ordinary differential equations |
+`ds` | Concepts of Data Science |
+
 # Current feature support
 - Math:
     - 2,3,4-dimensional Matrix/Vector algebra
@@ -31,8 +38,13 @@ cmake -DMATH_EXTENSIONS=numerics --build /home/phil/work/private/games/fawxy/src
         - odeEulerExp – Explicit Euler Method `ExplicitEuler`
         - odeRK5      – explicit 5 step Runge-Kutta-Method `ode5`
     - Solver for systems of linear equations `gaussianElimination`
-
-
+- Data Science:
+    - Neural networks
+      - Feed Forward NNs
+        - Perceptron classifier
+        - Adaline Neuron Classifier
+          - using gradient decent method
+          - using statistics gradient decent method
 # Upcoming features
 - Numerical Methods:
     - Newtons method for finding roots

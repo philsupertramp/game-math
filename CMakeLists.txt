@@ -7,8 +7,11 @@ add_definitions(-DMATH_SILENCE_WARNING)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     add_definitions(-DCOMPILER_CLANG)
+    message("CLANG")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     add_definitions(-DCOMPILER_GCC)
+#    set(CMAKE_C_FLAGS -fprofile-arcs -ftest-coverage)
+    set(CMAKE_LFLAGS --coverage)
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     add_definitions(-DCOMPILER_VC)
 endif()
@@ -50,6 +53,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
         ${LIB_SOURCES}
             include/math/ds/MatrixDS.h
             include/math/ds/DataSet.h
+            include/math/ds/ImageDataSet.h
             include/math/ds/Perceptron.h
             include/math/ds/AdalineGD.h
             include/math/ds/AdalineSGD.h
@@ -72,3 +76,7 @@ endif()
 add_subdirectory(tests)
 target_link_libraries(math-tests math-lib)
 target_include_directories(math-tests PUBLIC include)
+
+# Testing support
+enable_testing()
+add_test(math-tests tests/math-tests)
