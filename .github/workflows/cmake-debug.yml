@@ -70,7 +70,8 @@ jobs:
     - name: Test
       working-directory: ${{runner.workspace}}/build
       shell: bash
-      run: ./tests/math-tests
+      run: \
+        ctest --coverage --extra-verbose;
 
     - name: Coverage Report
       working-directory: ${{runner.workspace}}
