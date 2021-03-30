@@ -1,6 +1,5 @@
 #include "../../Test.h"
-#include <cassert>
-#include <math/numerics/ode/ode45.h>
+#include <math/numerics/ode.h>
 
 class ODE45TestCase : public Test
 {
@@ -64,13 +63,13 @@ class ODE45TestCase : public Test
     }
 
 public:
-    void run(bool _extended) override {
+    void run() override {
         TestOde45();
         TestOde45RB();
     }
 };
 
 int main() {
-    ODE45TestCase().run(false);
+    ODE45TestCase().run();
     return 0;
 }

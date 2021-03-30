@@ -1,6 +1,4 @@
 #include "../Test.h"
-#include <cassert>
-#include <iostream>
 #include <math/math.h> // NOLINT
 
 template<class T>
@@ -213,8 +211,7 @@ class Mat3TestCase : public Test
     }
 
 public:
-    void run(bool _extended) override {
-        extended = _extended;
+    void run() override {
         TestInitialization();
         TestUtils();
         TestMath();
@@ -222,8 +219,12 @@ public:
 };
 
 int main() {
-    Mat3TestCase<int>().run(false);
-    Mat3TestCase<float>().run(true);
-    Mat3TestCase<double>().run(true);
+    Mat3TestCase<int>().run();
+    auto testCase     = Mat3TestCase<float>();
+    testCase.extended = true;
+    testCase.run();
+    auto testCase2     = Mat3TestCase<double>();
+    testCase2.extended = true;
+    testCase2.run();
     return 0;
 }

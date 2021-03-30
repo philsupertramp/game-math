@@ -1,5 +1,5 @@
 #include "../../Test.h"
-#include <math/numerics/ode/ExplicitEuler.h>
+#include <math/numerics/ode.h>
 
 
 class ODEExplicitEulerTestCase : public Test
@@ -57,13 +57,13 @@ class ODEExplicitEulerTestCase : public Test
     }
 
 public:
-    void run(bool _extended) override {
+    void run() override {
         TestExplicitEuler();
         TestExplicitEulerRB();
     }
 };
 
 int main() {
-    ODEExplicitEulerTestCase().run(false);
+    ODEExplicitEulerTestCase().run();
     return 0;
 }

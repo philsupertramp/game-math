@@ -1,5 +1,4 @@
 #include "../Test.h"
-#include <cassert>
 #include <math/math.h>
 
 
@@ -141,9 +140,7 @@ class Vec2TestCase : public Test
     }
 
 public:
-    virtual void run(bool _extended = false) override {
-        extended = _extended;
-
+    virtual void run() override {
         testInitialization();
         testAssignment();
         testMemberAccess();
@@ -155,9 +152,14 @@ public:
 };
 
 int main() {
-    Vec2TestCase<int>().run();
-    Vec2TestCase<float>().run(true);
-    Vec2TestCase<double>().run(true);
+    auto testCase = Vec2TestCase<int>();
+    testCase.run();
+    auto testCase2     = Vec2TestCase<float>();
+    testCase2.extended = true;
+    testCase2.run();
+    auto testCase3     = Vec2TestCase<double>();
+    testCase3.extended = true;
+    testCase3.run();
 
     return 0;
 }

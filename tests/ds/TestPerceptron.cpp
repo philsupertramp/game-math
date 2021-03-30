@@ -1,7 +1,5 @@
 #include "../Test.h"
-#include <cassert>
-#include <math/ds/DataSet.h>
-#include <math/ds/Perceptron.h>
+#include <math/ds.h>
 
 
 class PerceptronTestCase : public Test
@@ -42,10 +40,10 @@ class PerceptronTestCase : public Test
     }
 
 public:
-    void run(bool _extended) override { TestPerceptron(); }
+    void run() override { TestPerceptron(); }
 };
 
 int main() {
-    PerceptronTestCase().run(false);
+    PerceptronTestCase().run();
     return 0;
 }

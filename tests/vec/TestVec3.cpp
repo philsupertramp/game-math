@@ -1,14 +1,10 @@
 #include "../Test.h"
-#include <cassert>
-#include <iostream>
 #include <math/math.h> // NOLINT
 
 
 template<class T>
 class Vec3TestCase : public Test
 {
-    bool extended = false;
-
     bool testInitialization() {
         vec3<T> foo;
         assert(foo.x == (T)0);
@@ -182,9 +178,7 @@ class Vec3TestCase : public Test
     }
 
 public:
-    virtual void run(bool _extended = false) override {
-        extended = _extended;
-
+    virtual void run() override {
         testInitialization();
         testAssignment();
         testMemberAccess();
@@ -197,8 +191,12 @@ public:
 
 int main() {
     Vec3TestCase<int>().run();
-    Vec3TestCase<float>().run(true);
-    Vec3TestCase<double>().run(true);
+    auto testCase     = Vec3TestCase<float>();
+    testCase.extended = true;
+    testCase.run();
+    auto testCase2     = Vec3TestCase<double>();
+    testCase2.extended = true;
+    testCase2.run();
 
     return 0;
 }

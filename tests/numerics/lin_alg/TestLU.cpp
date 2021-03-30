@@ -1,5 +1,5 @@
 #include "../../Test.h"
-#include <math/numerics/lin_alg/LU.h>
+#include <math/numerics/lin_alg.h>
 #include <vector>
 
 
@@ -36,13 +36,13 @@ class LUTestCase : public Test
     }
 
 public:
-    void run(bool _extended) override {
+    void run() override {
         TestLU();
         TestLUPivot();
     }
 };
 
 int main() {
-    LUTestCase().run(false);
+    LUTestCase().run();
     return 0;
 }

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -e;
 set -o;
 
 DIR_NAME=$1
@@ -45,7 +46,7 @@ mkdir -p ${DIR_NAME}
 (
   cd ${DIR_NAME};
   cmake ${BUILD_OPTIONS} -G "CodeBlocks - Unix Makefiles" ..
-  cmake --build ${DIR_NAME};
+  cmake --build .;
   make -j 3 ;
 
   # Run test suite with or without coverage

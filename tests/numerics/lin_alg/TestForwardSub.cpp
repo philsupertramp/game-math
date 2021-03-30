@@ -1,5 +1,5 @@
 #include "../../Test.h"
-#include <math/numerics/lin_alg/forwardSub.h>
+#include <math/numerics/lin_alg.h>
 #include <vector>
 
 
@@ -42,10 +42,10 @@ class ForwardSubTestCase : public Test
     }
 
 public:
-    void run(bool _extended) override {
+    void run() override {
         TestForwardSub();
         TestErrors();
     }
 };
 
-int main() { ForwardSubTestCase().run(false); }
+int main() { ForwardSubTestCase().run(); }

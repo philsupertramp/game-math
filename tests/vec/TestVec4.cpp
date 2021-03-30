@@ -1,6 +1,4 @@
 #include "../Test.h"
-#include <cstring>
-#include <iostream>
 #include <math/math.h> // NOLINT
 #include <sstream>
 
@@ -8,8 +6,6 @@
 template<class T>
 class Vec4TestCase : public Test
 {
-    bool extended = false;
-
     bool testInitialization() {
         vec4<T> foo;
         assert(foo.x == (T)0);
@@ -191,9 +187,7 @@ class Vec4TestCase : public Test
     }
 
 public:
-    void run(bool _extended = false) override {
-        extended = _extended;
-
+    void run() override {
         testInitialization();
         testAssignment();
         testMemberAccess();
@@ -206,8 +200,12 @@ public:
 
 int main() {
     Vec4TestCase<int>().run();
-    Vec4TestCase<float>().run(true);
-    Vec4TestCase<double>().run(true);
+    auto testCase     = Vec4TestCase<float>();
+    testCase.extended = true;
+    testCase.run();
+    auto testCase2     = Vec4TestCase<double>();
+    testCase2.extended = true;
+    testCase2.run();
 
     return 0;
 }

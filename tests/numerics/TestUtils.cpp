@@ -13,10 +13,10 @@ class NumUtilsTestCase : public Test
     }
 
 public:
-    virtual void run(bool _extended) override { TestLinspace(); }
+    virtual void run() override { TestLinspace(); }
 };
 
 int main() {
-    NumUtilsTestCase().run(false);
+    NumUtilsTestCase().run();
     return 0;
 }

@@ -10,8 +10,8 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
   - 2D/3D Transformation utils to generate View/Transformation matrices in a 2D view space
 - Numerical Methods (extension `numerics`)
   - Solver for initial value problems of (stiff) ordinary differential equations (ode)
-    - odeEulerExp – Explicit Euler Method `ExplicitEuler`
-    - odeRK5      – explicit 5 step Runge-Kutta-Method `ode5`
+    - Explicit Euler Method (`odeEulerExp`)
+    - Explicit 5 step Runge-Kutta-Method (`ode45`)
   - Solver for systems of linear equations `gaussianElimination`
 - Data Science:
   - Neural networks

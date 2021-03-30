@@ -6,13 +6,12 @@
 class AdalineSGD : public Classifier
 {
 public:
-    MatrixDS<int> costs; // Vector holding classification error per epoch
     bool shuffle;
     int randomState;
 
 private:
     MatrixDS<double> update_weights(const MatrixDS<double>& xi, const MatrixDS<double>& target) {
-        auto output = net_input(xi);
+        auto output = netInput(xi);
         auto error  = target - output;
         for(size_t i = 0; i < weights.rows(); i++) {
             for(size_t j = 0; j < weights.columns(); j++) {
@@ -73,7 +72,7 @@ public:
         return { X, y };
     }
 
-    MatrixDS<double> net_input(const MatrixDS<double>& X) override {
+    MatrixDS<double> netInput(const MatrixDS<double>& X) override {
         MatrixDS<double> A, B;
         A.Resize(weights.rows() - 1, weights.columns());
         B.Resize(1, weights.columns());
@@ -90,9 +89,16 @@ public:
         return (X * A) + B;
     }
 
-    MatrixDS<double> activation(const MatrixDS<double>& X) { return net_input(X); }
+    /**
+     * Do not use
+     * @param X
+     * @return
+     */
+    double costFunction([[maybe_unused]] const MatrixDS<double>& X) override { return 0; }
 
-    MatrixDS<double> predict(const MatrixDS<double>& X) override {
+    virtual MatrixDS<double> activation(const MatrixDS<double>& X) override { return netInput(X); }
+
+    virtual MatrixDS<double> predict(const MatrixDS<double>& X) override {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }

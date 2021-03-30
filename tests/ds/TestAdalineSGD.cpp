@@ -1,11 +1,14 @@
 #include "../Test.h"
-#include <cassert>
-#include <math/ds/AdalineSGD.h>
-#include <math/ds/DataSet.h>
+#include <math/ds.h>
 
 
 class AdalineSGDTestCase : public Test
 {
+    bool TestUnsetCostFunction() {
+        auto adalineSgd = AdalineSGD(0.01, 15, false, 1);
+        assert(adalineSgd.costFunction({ { 0 } }) == 0);
+        return true;
+    }
     bool TestAdalineSGD() {
         auto adalineSgd = AdalineSGD(0.01, 15, false, 1);
         MatrixDS<double> A(
@@ -81,12 +84,13 @@ class AdalineSGDTestCase : public Test
     }
 
 public:
-    void run(bool _extended) override {
+    void run() override {
         TestAdalineSGD();
         TestShuffleNoEffect();
+        TestUnsetCostFunction();
     }
 };
 int main() {
-    AdalineSGDTestCase().run(false);
+    AdalineSGDTestCase().run();
     return 0;
 }

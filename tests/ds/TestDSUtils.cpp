@@ -1,5 +1,5 @@
 #include "../Test.h"
-#include <cassert>
+#include <math/ds.h>
 
 
 class DSUtilsTestCase : public Test
@@ -10,7 +10,7 @@ class DSUtilsTestCase : public Test
     }
 
 public:
-    void run(bool _extended) override { TestUtils(); }
+    void run() override { TestUtils(); }
 };
 
-int main() { DSUtilsTestCase().run(false); }
+int main() { DSUtilsTestCase().run(); }

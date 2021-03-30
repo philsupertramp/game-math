@@ -1,6 +1,5 @@
 #include "../Test.h"
-#include <cassert>
-#include <math/ds/MatrixDS.h>
+#include <math/ds.h>
 
 
 class MatrixDSTestCase : public Test
@@ -255,7 +254,7 @@ class MatrixDSTestCase : public Test
     }
 
 public:
-    void run(bool _extended) override {
+    void run() override {
         TestMatrixDSInit();
         TestMatrixDSMultiplication();
         TestMatrixAddition();
@@ -270,6 +269,6 @@ public:
 };
 
 int main() {
-    MatrixDSTestCase().run(false);
+    MatrixDSTestCase().run();
     return 0;
 }

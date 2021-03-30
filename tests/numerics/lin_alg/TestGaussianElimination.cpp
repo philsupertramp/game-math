@@ -1,6 +1,5 @@
 #include "../../Test.h"
-#include <cassert>
-#include <math/numerics/lin_alg/gaussianElimination.h>
+#include <math/numerics/lin_alg.h>
 #include <vector>
 
 class LUTestCase : public Test
@@ -17,10 +16,10 @@ class LUTestCase : public Test
     }
 
 public:
-    void run(bool _extended) override { TestGaussianElimination(); }
+    void run() override { TestGaussianElimination(); }
 };
 
 int main() {
-    LUTestCase().run(false);
+    LUTestCase().run();
     return 0;
 }

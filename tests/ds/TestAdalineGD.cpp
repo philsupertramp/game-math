@@ -1,7 +1,5 @@
 #include "../Test.h"
-#include <cassert>
-#include <math/ds/AdalineGD.h>
-#include <math/ds/DataSet.h>
+#include <math/ds.h>
 
 class AdalineGDTestCase : public Test
 {
@@ -43,10 +41,10 @@ class AdalineGDTestCase : public Test
     }
 
 public:
-    void run(bool _extended) override { TestAdalineGD(); }
+    void run() override { TestAdalineGD(); }
 };
 
 int main() {
-    AdalineGDTestCase().run(false);
+    AdalineGDTestCase().run();
     return 0;
 }

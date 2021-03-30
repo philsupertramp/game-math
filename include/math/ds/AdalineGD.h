@@ -1,22 +1,25 @@
 #pragma once
 
-#include "Classifier.h"
 #include "MatrixDS.h"
+#include "Perceptron.h"
 
+/**
+ * Adaline neuron classifier using gradient decent method
+ */
 class AdalineGD : public Classifier
 {
-public:
-    MatrixDS<int> costs; // Vector holding classification error per epoch
-
 public:
     explicit AdalineGD(double _eta = 0.01, int iter = 10)
         : Classifier(_eta, iter) { }
 
+    /**
+     * fit method to train the classifier using gradient decent method
+     */
     void fit(const MatrixDS<double>& X, const MatrixDS<double>& y) override {
         initialize_weights(X.columns());
         costs = MatrixDS<int>(0, n_iter, 1);
         for(int iter = 0; iter < n_iter; iter++) {
-            auto output = net_input(X);
+            auto output = netInput(X);
             auto errors = y - output;
 
             auto delta = (X.Transpose() * errors) * eta;
@@ -27,12 +30,12 @@ public:
                         weights[i][j] += delta[i - 1][j];
                 }
             }
-            auto cost      = errors.HadamardMulti(errors).sumElements() / 2.0;
+            auto cost      = costFunction(errors);
             costs[iter][0] = cost;
         }
     }
 
-    MatrixDS<double> net_input(const MatrixDS<double>& X) override {
+    MatrixDS<double> netInput(const MatrixDS<double>& X) override {
         MatrixDS<double> A, B;
         A.Resize(weights.rows() - 1, weights.columns());
         B.Resize(1, weights.columns());
@@ -49,10 +52,12 @@ public:
         return (X * A) + B;
     }
 
-    MatrixDS<double> activation(const MatrixDS<double>& X) { return net_input(X); }
+    virtual MatrixDS<double> activation(const MatrixDS<double>& X) override { return netInput(X); }
 
-    MatrixDS<double> predict(const MatrixDS<double>& X) override {
+    virtual MatrixDS<double> predict(const MatrixDS<double>& X) override {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }
+
+    double costFunction(const MatrixDS<double>& X) override { return HadamardMulti<double>(X, X).sumElements() / 2.0; }
 };

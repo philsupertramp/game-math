@@ -6,7 +6,14 @@
 #include <map>
 #include <sstream>
 
+/**
+ * Flag map for normalizer methods
+ */
 enum NormalizerMethod { SET_MEAN = 0, COL_MEAN = 1, ROW_MEAN = 2 };
+
+/**
+ * Representation of
+ */
 struct Set {
     MatrixDS<double> Input;
     MatrixDS<double> Output;
