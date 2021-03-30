@@ -95,3 +95,10 @@ Feel free to contribute to the project!
 
 **NOTE: please run `make lint` prior to submitting your code!**  
 This requires `clang-format>=11.0.0`
+
+# License
+The project is under `MIT`-License see `LICENSE` for more
+
+## Acknowledgements
+- Using ctest github-action: https://github.com/HorstBaerbel/action-ctest. Big thanks, it simplifies a lot.
+
