@@ -39,26 +39,24 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> lookAt(vec3<T> eye, vec3<T> center, vec3<T> up) {
-        vec3<T> zaxis = normalize(eye - center);
-        vec3<T> xaxis = normalize(up).cross(zaxis);
-        vec3<T> yaxis = zaxis.cross(xaxis);
-        return mat4<T>(
-        xaxis.x,
-        xaxis.y,
-        xaxis.z,
-        0.0f,
-        yaxis.x,
-        yaxis.y,
-        yaxis.z,
-        0.0f,
-        zaxis.x,
-        zaxis.y,
-        zaxis.z,
-        0.0f,
-        eye.x,
-        eye.y,
-        eye.z,
-        0.0f);
+        vec3<T> const f(normalize(center - eye));
+        vec3<T> const s(normalize(f.cross(up)));
+        vec3<T> const u(s.cross(f));
+
+        mat4<T> Result(1);
+        Result[0][0] = s.x;
+        Result[1][0] = s.y;
+        Result[2][0] = s.z;
+        Result[0][1] = u.x;
+        Result[1][1] = u.y;
+        Result[2][1] = u.z;
+        Result[0][2] =-f.x;
+        Result[1][2] =-f.y;
+        Result[2][2] =-f.z;
+        Result[3][0] =-(s * eye);
+        Result[3][1] =-(u * eye);
+        Result[3][2] = (f * eye);
+        return Result;
     }
 
     template<class T>
@@ -97,7 +95,7 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> angleAxis(float angle, vec3<T> axis) {
-        vec4<T> q(axis.x, axis.y, axis.z, angle);
+//        return mat4<T>(axis.x, axis.y, axis.z, angle);
     }
 
     template<class T>
