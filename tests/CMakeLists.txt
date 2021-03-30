@@ -24,22 +24,34 @@ set(TEST_SOURCES
         mat/TestMat3.cpp
         mat/TestMat4.cpp
 
-        numerics/TestUtils.cpp
-        numerics/ode/TestODE45.cpp
-        numerics/ode/TestExplicitEuler.cpp
-
-        numerics/lin_alg/TestBackwardSub.cpp
-        numerics/lin_alg/TestForwardSub.cpp
-        numerics/lin_alg/TestGaussianElimination.cpp
-        numerics/lin_alg/TestLU.cpp
-
-        ds/TestDSUtils.cpp
-        ds/TestMatrixDS.cpp
-        ds/TestPerceptron.cpp
-        ds/TestAdalineGD.cpp
-        ds/TestAdalineSGD.cpp
 
         )
+
+if (MATH_EXTENSIONS MATCHES "(numerics)")
+    set(TEST_SOURCES
+            ${TEST_SOURCES}
+
+            numerics/TestUtils.cpp
+            numerics/ode/TestODE45.cpp
+            numerics/ode/TestExplicitEuler.cpp
+
+            numerics/lin_alg/TestBackwardSub.cpp
+            numerics/lin_alg/TestForwardSub.cpp
+            numerics/lin_alg/TestGaussianElimination.cpp
+            numerics/lin_alg/TestLU.cpp
+            )
+endif()
+if (MATH_EXTENSIONS MATCHES "(ds)")
+    set(TEST_SOURCES
+            ${TEST_SOURCES}
+
+            ds/TestDSUtils.cpp
+            ds/TestMatrixDS.cpp
+            ds/TestPerceptron.cpp
+            ds/TestAdalineGD.cpp
+            ds/TestAdalineSGD.cpp
+    )
+endif()
 
 find_program(CTEST_COVERAGE_COMMAND NAMES gcov)
 include(CTest)
@@ -65,18 +77,21 @@ add_test_source(mat/TestMat2.cpp)
 add_test_source(mat/TestMat3.cpp)
 add_test_source(mat/TestMat4.cpp)
 
-add_test_source(numerics/TestUtils.cpp)
-add_test_source(numerics/ode/TestODE45.cpp)
-add_test_source(numerics/ode/TestExplicitEuler.cpp)
+if (MATH_EXTENSIONS MATCHES "(numerics)")
+    add_test_source(numerics/TestUtils.cpp)
+    add_test_source(numerics/ode/TestODE45.cpp)
+    add_test_source(numerics/ode/TestExplicitEuler.cpp)
 
-add_test_source(numerics/lin_alg/TestBackwardSub.cpp)
-add_test_source(numerics/lin_alg/TestForwardSub.cpp)
-add_test_source(numerics/lin_alg/TestGaussianElimination.cpp)
-add_test_source(numerics/lin_alg/TestLU.cpp)
+    add_test_source(numerics/lin_alg/TestBackwardSub.cpp)
+    add_test_source(numerics/lin_alg/TestForwardSub.cpp)
+    add_test_source(numerics/lin_alg/TestGaussianElimination.cpp)
+    add_test_source(numerics/lin_alg/TestLU.cpp)
+endif()
 
-add_test_source(ds/TestDSUtils.cpp)
-add_test_source(ds/TestMatrixDS.cpp)
-add_test_source(ds/TestPerceptron.cpp)
-add_test_source(ds/TestAdalineGD.cpp)
-add_test_source(ds/TestAdalineSGD.cpp)
-
+if (MATH_EXTENSIONS MATCHES "(ds)")
+    add_test_source(ds/TestDSUtils.cpp)
+    add_test_source(ds/TestMatrixDS.cpp)
+    add_test_source(ds/TestPerceptron.cpp)
+    add_test_source(ds/TestAdalineGD.cpp)
+    add_test_source(ds/TestAdalineSGD.cpp)
+endif()

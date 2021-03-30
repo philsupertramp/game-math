@@ -1,23 +1,17 @@
 #pragma once
 
 #include "MatrixDS.h"
+#include "Classifier.h"
 
 class AdalineSGD
+: public Classifier
 {
-    double eta; // Learning rate
-    int n_iter; // number epochs
 public:
-    MatrixDS<double> weights; // Vector holding weights
     MatrixDS<int> costs;      // Vector holding classification error per epoch
     bool shuffle;
-    bool w_initialized = false;
     int randomState;
 
 private:
-    void initialize_weights(size_t m) {
-        weights       = MatrixDS<double>(0, m + 1, 1);
-        w_initialized = true;
-    }
 
     MatrixDS<double> update_weights(const MatrixDS<double>& xi, const MatrixDS<double>& target) {
         auto output = net_input(xi);
@@ -34,8 +28,7 @@ private:
 
 public:
     explicit AdalineSGD(double _eta = 0.01, int iter = 10, bool _shuffle = false, int _randomState = 0)
-        : eta(_eta)
-        , n_iter(iter)
+        : Classifier(_eta, iter)
         , shuffle(_shuffle)
         , randomState(_randomState) {
         if(randomState != 0) Random::SetSeed(randomState);
@@ -47,7 +40,7 @@ public:
      * @param y: array-like with shape: [n_samples, 1]
      * @return this
      */
-    void fit(const MatrixDS<double>& X, const MatrixDS<double>& y) {
+    void fit(const MatrixDS<double>& X, const MatrixDS<double>& y) override {
         initialize_weights(X.columns());
         costs      = MatrixDS<int>(0, n_iter, 1);
         auto xCopy = X;
@@ -79,10 +72,10 @@ public:
 
     std::pair<MatrixDS<double>, MatrixDS<double>>
     shuffleData([[maybe_unused]] const MatrixDS<double>& X, [[maybe_unused]] const MatrixDS<double>& y) {
-        return {X, y};
+        return { X, y };
     }
 
-    MatrixDS<double> net_input(const MatrixDS<double>& X) {
+    MatrixDS<double> net_input(const MatrixDS<double>& X) override {
         MatrixDS<double> A, B;
         A.Resize(weights.rows() - 1, weights.columns());
         B.Resize(1, weights.columns());
@@ -101,7 +94,7 @@ public:
 
     MatrixDS<double> activation(const MatrixDS<double>& X) { return net_input(X); }
 
-    MatrixDS<double> predict(const MatrixDS<double>& X) {
+    MatrixDS<double> predict(const MatrixDS<double>& X) override {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }

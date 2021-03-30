@@ -2,8 +2,11 @@
 
 #include "DataSet.h"
 
-#include <Magick++.h>
-#include <Magick++/Image.h>
+#if MATH_IMAGE_PROCESSING
+    #include <Magick++.h>
+    #include <Magick++/Image.h>
+#endif
+
 #include <filesystem>
 
 class ImageDataSet : public DataSet
@@ -71,6 +74,7 @@ public:
      * Example: 100 images => 80 training, 20 validation, 0 test
      */
     void Cache() {
+#if MATH_IMAGE_PROCESSING
         std::cout << "Resizing files and saving into memory..." << std::flush;
         size_t count = 0, i = 0, classCount = 0;
         size_t trainingIter = 0, validationIter = 0;
@@ -110,6 +114,7 @@ public:
             }
             classCount += hadEntry;
         }
+#endif
     }
 
 public:

@@ -4,6 +4,9 @@ Used for machine learning and data science tasks
 
 
 ## Dependencies
+In case you want to use `ImageDataSet` you need to add the compile flag
+`MATH_IMAGE_PROCESSING=1` to your build process as well as having the following libraries
+installed on your machine:
 - ImageMagick/Magick++`>=7.0.10-45`  
 Ubuntu: `sudo apt-get install libgraphicsmagick1-dev`  
 Arch: `sudo pacman -S imagemagick`
@@ -21,8 +24,12 @@ to your main to initialize `Magick++`
 
 File | Usage 
 :--- | --- |
+**Data Science** |
 `DataSet.h` | Represents a dataset |
 `ImageDataSet.h` | Represents a dataset of image files |
-`Perceptron.h` |  |
-`AdalineGD.h` | |
-`AdalineSGD.h` | |
+`MatrixDS.h` | Templated class to represent `n x m`-Matrices |
+**Machine Learning** |
+*Neuronal Networks* |
+`Perceptron.h` | Perceptron classifier |
+`AdalineGD.h` | Adaline Neuron classifier trained using the gradient decent method |
+`AdalineSGD.h` | Adaline Neuron classifier trained using the statistical gradient decent method |

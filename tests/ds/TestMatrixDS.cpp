@@ -245,13 +245,10 @@ class MatrixDSTestCase : public Test
         return true;
     }
 
-    bool TestWhere(){
-
+    bool TestWhere() {
         MatrixDS<double> A({ { 0, 0 }, { 1, 1 }, { 0, 0 } });
-        std::function<bool(double)> cond = [](double i){
-            return bool(i == 1);
-        };
-        auto B = where(cond, A, { { { 1 ,1 }, { 1, 1 }, { 1, 1 } } }, { { { 0, 0 }, { 0, 0 }, { 0, 0 } } });
+        std::function<bool(double)> cond = [](double i) { return bool(i == 1); };
+        auto B = where(cond, A, { { { 1, 1 }, { 1, 1 }, { 1, 1 } } }, { { { 0, 0 }, { 0, 0 }, { 0, 0 } } });
         std::cout << B;
         assert(B == A);
         return true;

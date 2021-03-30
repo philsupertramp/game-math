@@ -31,6 +31,7 @@ set(LIB_SOURCES
 if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_SOURCES
             ${LIB_SOURCES}
+            include/math/numerics/ode.h
             include/math/numerics/ode/ExplicitEuler.h
             include/math/numerics/ode/ExplicitEuler.cpp
             include/math/numerics/ode/ode.h
@@ -38,6 +39,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/ode/ode45.cpp
             include/math/numerics/utils.h
             include/math/numerics/utils.cpp
+            include/math/numerics/lin_alg.h
             include/math/numerics/lin_alg/backwardSub.h
             include/math/numerics/lin_alg/backwardSub.cpp
             include/math/numerics/lin_alg/forwardSub.h
@@ -51,18 +53,23 @@ endif()
 if (MATH_EXTENSIONS MATCHES "(ds)")
     set(LIB_SOURCES
         ${LIB_SOURCES}
+            include/math/ds.h
             include/math/ds/MatrixDS.h
             include/math/ds/DataSet.h
-            include/math/ds/ImageDataSet.h
+            include/math/ds/Classifier.h
             include/math/ds/Perceptron.h
             include/math/ds/AdalineGD.h
             include/math/ds/AdalineSGD.h
             )
-
-    add_definitions( -DMAGICKCORE_QUANTUM_DEPTH=16 )
-    add_definitions( -DMAGICKCORE_HDRI_ENABLE=0 )
-    find_package(ImageMagick COMPONENTS Magick++)
-    include_directories(${ImageMagick_INCLUDE_DIRS})
+    if(MATH_IMAGE_PROCESSING)
+        set(LIB_SOURCES ${LIB_SOURCES}
+                include/math/ds/ImageDataSet.h
+        )
+        add_definitions( -DMAGICKCORE_QUANTUM_DEPTH=16 )
+        add_definitions( -DMAGICKCORE_HDRI_ENABLE=0 )
+        find_package(ImageMagick COMPONENTS Magick++)
+        include_directories(${ImageMagick_INCLUDE_DIRS})
+    endif()
 endif ()
 
 add_library(math-lib SHARED ${LIB_SOURCES})
@@ -73,7 +80,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
     target_link_libraries(math-lib ${ImageMagick_LIBRARIES})
 endif()
 
-if(MATH_COVERAGE)
+if(MATH_TESTS)
     include(CTest)
     add_subdirectory(tests)
 endif()

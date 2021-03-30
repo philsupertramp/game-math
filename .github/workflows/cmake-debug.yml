@@ -37,5 +37,5 @@ jobs:
       with:
         sourcedir: '.'
         builddir: 'build'
-        cmakeoptions: '--CONFIG Debug -DMATH_COVERAGE=1 -DMATH_EXTENSIONS=numerics,ds'
+        cmakeoptions: '--CONFIG Debug -DMATH_TESTS -DMATH_EXTENSIONS=numerics,ds'
         ctestoptions: '--coverage --extra-verbose'

@@ -164,7 +164,7 @@ class Vec3TestCase : public Test
         return true;
     }
 
-    bool testComparison(){
+    bool testComparison() {
         vec3<T> a(1, 2, 3);
         vec3<T> b(1, 2, 3);
 
@@ -172,7 +172,7 @@ class Vec3TestCase : public Test
         return true;
     }
 
-    bool testCast(){
+    bool testCast() {
         vec3<T> a(1, 2, 3);
         vec3<int> a2(1, 2, 3);
         auto b = vec3<int>(a);

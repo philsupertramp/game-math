@@ -173,7 +173,7 @@ class Vec4TestCase : public Test
         return true;
     }
 
-    bool testComparison(){
+    bool testComparison() {
         vec4<T> a(1, 2, 3, 4);
         vec4<T> b(1, 2, 3, 4);
 
@@ -181,7 +181,7 @@ class Vec4TestCase : public Test
         return true;
     }
 
-    bool testCast(){
+    bool testCast() {
         vec4<T> a(1, 2, 3, 4);
         vec4<int> a2(1, 2, 3, 4);
         auto b = vec4<int>(a);
@@ -189,6 +189,7 @@ class Vec4TestCase : public Test
         assert(a2 == b);
         return true;
     }
+
 public:
     void run(bool _extended = false) override {
         extended = _extended;

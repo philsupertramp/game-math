@@ -3,15 +3,57 @@
 set -o;
 
 DIR_NAME=$1
-WITH_COVERAGE=1; [ "$2" == "-c" ] || WITH_COVERAGE=0;
 
+WITH_COVERAGE=0;
+WITH_TESTS=0;
+BUILD_TYPE="Debug";
+BUILD_OPTIONS="";
+
+for i in "$@"
+do
+  case $i in
+    -c|--coverage)
+      WITH_COVERAGE=1
+      WITH_TESTS=1
+      shift
+      ;;
+    --test)
+      WITH_TESTS=1
+      shift
+      ;;
+    -t=*|--build-type=*)
+      BUILD_TYPE="${i#*=}"
+      shift
+      ;;
+    -o=*|--option=*)
+      BUILD_OPTIONS="${BUILD_OPTIONS} -D${i#*=}"
+      shift
+      ;;
+    *)
+      ;;
+esac
+done
+
+BUILD_OPTIONS_extension="-DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DMATH_SILENCE_WARNING=1 -DMATH_TESTS=${WITH_TESTS} -DMATH_COVERAGE=${WITH_COVERAGE}"
+
+BUILD_OPTIONS="${BUILD_OPTIONS} ${BUILD_OPTIONS_extension}"
+
+echo "Options: ${BUILD_OPTIONS}"
+
+rm -rf ${DIR_NAME}
 mkdir -p ${DIR_NAME}
 (
   cd ${DIR_NAME};
-  cmake -DCMAKE_BUILD_TYPE=Debug -DMATH_SILENCE_WARNING=1 -DCMAKE_BUILD_TYPE=Debug -DMATH_COVERAGE=1 -DMATH_EXTENSIONS=numerics,ds -G "CodeBlocks - Unix Makefiles" ..
+  cmake ${BUILD_OPTIONS} -G "CodeBlocks - Unix Makefiles" ..
   cmake --build ${DIR_NAME};
   make -j 3 ;
+
+  # Run test suite with or without coverage
   if [ ${WITH_COVERAGE:-0} == 1 ]; then
     ctest --coverage --extra-verbose
+  else if [ ${WITH_TESTS:-0} == 1 ]; then
+    ctest --extra-verbose
+    fi
   fi
+
 )

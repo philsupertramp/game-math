@@ -123,7 +123,7 @@ class Vec2TestCase : public Test
         return true;
     }
 
-    bool testComparison(){
+    bool testComparison() {
         vec2<T> a(1, 2);
         vec2<T> b(1, 2);
 
@@ -131,7 +131,7 @@ class Vec2TestCase : public Test
         return true;
     }
 
-    bool testCast(){
+    bool testCast() {
         vec2<T> a(1, 2);
         vec2<int> a2(1, 2);
         auto b = vec2<int>(a);

@@ -2,6 +2,7 @@
 *-build-*/
 build/*
 out/
+*-release-*/
 
 # IDE files
 .idea/
@@ -10,7 +11,7 @@ massif.out.*
 octave-workspace
 
 # code coverage
-cov.info
+cov*.info
 cmake-debug-coverage/
 coverage-report/
 
