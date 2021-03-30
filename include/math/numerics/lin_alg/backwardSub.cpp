@@ -8,10 +8,12 @@ std::vector<float> backwardSub(const std::vector<std::vector<float>>& R, const s
     if(v != m) {
         // Error, cannot compute
         std::cout << "Matrix vector dimension miss match, error!\n";
+        return {};
     }
     if(m != n) {
         // Error, cannot compute
         std::cout << "Matrix not squared. Dimension miss match, error!\n";
+        return {};
     }
 
     auto x = zerosV(v);

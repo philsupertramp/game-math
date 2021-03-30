@@ -14,7 +14,11 @@ struct MatrixDimension {
     size_t columns;
 };
 /**
+ * Represents a Matrix of data with type `T`
  *
+ * The class is capable of regular matrix operations, including matrix - vector calculation.
+ * It also holds several helper methods to calculate data science specific products or other
+ * common operations.
  * @tparam T
  */
 template<typename T = double>
@@ -29,6 +33,7 @@ public:
     }
     MatrixDS()
         : MatrixDS(0, 1, 1) { }
+
     MatrixDS(std::initializer_list<std::initializer_list<T>> lst) {
         int i = 0, j = 0;
         auto rows = lst.size();
@@ -53,15 +58,31 @@ public:
         if(_data != nullptr) { }
     }
 
-    static MatrixDS Random(size_t rows, size_t columns, double minWeight = 0.0, double maxWeight = 1.0) {
+    /**
+     * Generates a random matrix
+     * @param rows number of rows in target matrix
+     * @param columns number of columns in target matrix
+     * @param minValue
+     * @param maxValue
+     * @return matrix of dimension `rows`, `columns` initialized with random values from `minValue` to `maxValue`
+     */
+    static MatrixDS Random(size_t rows, size_t columns, double minValue = 0.0, double maxValue = 1.0) {
         MatrixDS<double> matrix(0, rows, columns);
         for(size_t i = 0; i < rows; ++i) {
-            for(size_t j = 0; j < columns; ++j) { matrix[i][j] = Random::Get(minWeight, maxWeight); }
+            for(size_t j = 0; j < columns; ++j) { matrix[i][j] = Random::Get(minValue, maxValue); }
         }
         return matrix;
     }
 
+    /**
+     * row getter
+     * @return
+     */
     [[nodiscard]] inline size_t rows() const { return _rows; }
+    /**
+     * columns getter
+     * @return
+     */
     [[nodiscard]] inline size_t columns() const { return _columns; }
 
     /**
@@ -84,7 +105,7 @@ public:
         T d = 0;
         {
             for(size_t c = 0; c < columns(); c++) {
-                size_t subi = 0; //submatrix's i value
+                size_t subi = 0; //sub-matrix's i value
                 for(size_t i = 1; i < rows(); i++) {
                     size_t subj = 0;
                     for(size_t j = 0; j < columns(); j++) {
@@ -100,7 +121,10 @@ public:
         return d;
     }
 
-
+    /**
+     * Creates transposed matrix of `this`
+     * @return
+     */
     [[nodiscard]] constexpr MatrixDS<T> Transpose() const {
         MatrixDS<T> res(0, columns(), rows());
         for(size_t i = 0; i < columns(); ++i) {
@@ -109,6 +133,11 @@ public:
         return res;
     }
 
+    /**
+     * Horizontal matrix concatenation
+     * @param other Matrix with same number of rows, dimension n1, m2
+     * @return concatenated matrix of [this, other] with dimension n1, m1 + m2
+     */
     MatrixDS<T> HorizontalConcat(const MatrixDS<T>& other) {
         assert(this->rows() == other.rows());
         auto result = new MatrixDS<T>(0, this->rows(), this->columns() + other.columns());
@@ -134,6 +163,10 @@ public:
         return !(rhs == *this); // NOLINT
     }
 
+    /**
+     * Helper to check for equal dimensions
+     * @param other
+     */
     void assertSize(const MatrixDS<T>& other) const {
         assert(this->columns() == other.columns() && this->rows() && other.rows());
     }
@@ -162,7 +195,9 @@ public:
      */
     MatrixDS& operator=(const MatrixDS& other) {
         if(this != &other) {
-            if((this == NULL) || (rows() != other.rows() || columns() != other.columns())) { Resize(other.rows(), other.columns()); }
+            if((this == NULL) || (rows() != other.rows() || columns() != other.columns())) {
+                Resize(other.rows(), other.columns());
+            }
             for(size_t i = 0; i < rows(); i++) {
                 for(size_t j = 0; j < columns(); j++) { _data[i][j] = other[i][j]; }
             }
@@ -218,6 +253,12 @@ public:
         return *this;
     }
 
+    /**
+     * A form of matrix multiplication
+     * For explicit reference please consult https://en.wikipedia.org/wiki/Kronecker_product
+     * @param other right hand side with same dimension
+     * @return resulting matrix with same dimension
+     */
     MatrixDS<T>& KroneckerMulti(const MatrixDS<T>& other) {
         auto result = new MatrixDS<T>(0, rows() * other.rows(), columns() * other.columns());
         for(size_t m = 0; m < rows(); m++) {
@@ -283,6 +324,11 @@ public:
         return ostr;
     }
 
+    /**
+     * Resizes a matrix
+     * @param rows target number of rows
+     * @param cols target number of columns
+     */
     void Resize(size_t rows, size_t cols) {
         _rows    = rows;
         _columns = cols;
@@ -291,6 +337,10 @@ public:
     }
 
 private:
+    /**
+     * Helper to test if Matrix can have a determinant
+     * @return
+     */
     [[nodiscard]] bool HasDet() const { return columns() > 1 && rows() > 1; }
 
     size_t _rows    = 0;
@@ -304,10 +354,10 @@ private:
 
 /**
  * Element wise multiplication
- * @tparam T
- * @param lhs
- * @param rhs
- * @return
+ * @tparam T value type
+ * @param lhs left hand side with dimension n1, m1
+ * @param rhs right hand side with dimension n1, m1
+ * @return product of element wise multiplication of lhs * rhs with dimension n1, m1
  */
 template<typename T>
 MatrixDS<T>& HadamardMulti(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
@@ -320,11 +370,12 @@ MatrixDS<T>& HadamardMulti(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
 }
 
 /**
- *
- * @tparam T
- * @param lhs
- * @param rhs
- * @return
+ * A form of matrix multiplication
+ * For explicit reference please consult https://en.wikipedia.org/wiki/Kronecker_product
+ * @tparam T value type
+ * @param lhs left hand side with dimension n1, m1
+ * @param rhs right hand side with dimension n2, m2
+ * @return resulting matrix with dimension n1 * n2, m1 * m2
  */
 template<typename T>
 MatrixDS<T>& KroneckerMulti(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
@@ -343,10 +394,10 @@ MatrixDS<T>& KroneckerMulti(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
 
 /**
  * Horizontal concatenation of 2 matrices of same Row size
- * @tparam T
- * @param lhs
- * @param rhs
- * @return
+ * @tparam T value type
+ * @param lhs left hand side with dimension n1, m1
+ * @param rhs right hand side with dimension n1, m2
+ * @return concatenated matrix [lhs, rhs] of dimension n1, m1 + m2
  */
 template<typename T>
 MatrixDS<T> HorizontalConcat(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
@@ -361,11 +412,11 @@ MatrixDS<T> HorizontalConcat(const MatrixDS<T>& lhs, const MatrixDS<T>& rhs) {
 }
 
 /**
- *
- * @tparam T
- * @param A
- * @param B
- * @return
+ * Counts correlations between `A` and `B`
+ * @tparam T value type of `A` and `B`
+ * @param A matrix to compare
+ * @param B matrix to compare with
+ * @return number of element wise equal elements
  */
 template<typename T>
 size_t& Corr(const MatrixDS<T>& A, const MatrixDS<T>& B) {
@@ -377,82 +428,130 @@ size_t& Corr(const MatrixDS<T>& A, const MatrixDS<T>& B) {
     return *count;
 }
 
+/**
+ * Converts array of elements of type `T` into matrix of given `size`
+ * @tparam T value type
+ * @param value pointer to array of elements of type `T`
+ * @param size dimension of target matrix
+ * @return
+ */
 template<typename T>
-MatrixDS<T>& from_vptr(const T* value, MatrixDimension size){
+MatrixDS<T>& from_vptr(const T* value, MatrixDimension size) {
     auto out = new MatrixDS<T>(size.rows, size.columns);
     for(size_t i = 0; i < size.rows; i++) {
-        for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i*size.columns+j]; }
+        for(size_t j = 0; j < size.columns; ++j) { (*out)[i][j] = value[i * size.columns + j]; }
     }
     return *out;
 }
 
-template <typename T>
-size_t argmax(MatrixDS<T> mat){
-    T maxVal = std::numeric_limits<T>::min();
-    size_t maxIndex = -1;
-    for(size_t i = 0; i< mat.rows(); i++){
-        for(size_t j = 0; j < mat.columns(); j++){
-            if(mat[i][j] > maxVal){
-                maxVal = mat[i][j];
-                maxIndex = i + j * mat.columns();
-            }
-        }
-    }
-    return maxIndex;
-}
-template <typename T>
-size_t argmin(MatrixDS<T> mat){
-    T maxVal = std::numeric_limits<T>::max();
-    size_t maxIndex = -1;
-    for(size_t i = 0; i< mat.rows(); i++){
-        for(size_t j = 0; j < mat.columns(); j++){
-            if(mat[i][j] < maxVal){
-                maxVal = mat[i][j];
-                maxIndex = i + j * mat.columns();
-            }
-        }
-    }
-    return maxIndex;
-}
-
+/**
+ * Search index of value with maximum value
+ * **Caution!** This value does represent the index in a ongoing array.
+ * Example:
+ *      A = {{1,1}, {1,2}}
+ *      argmax(A) == 3
+ *      A[argmax(A)//A.colums()][argmax(A)%A.columns()] == 2
+ *
+ * @tparam T
+ * @param mat
+ * @return
+ */
 template<typename T>
-MatrixDS<T> where(const std::function<bool(T)>& condition, MatrixDS<T> in, MatrixDS<T> a, MatrixDS<T> b){
-    assert(a.columns() == b.columns() && a.rows() == b.rows());
-    bool refVector = true;
-    if((a.columns() == a.rows()) == 1){
-        refVector = false;
+size_t argmax(MatrixDS<T> mat) {
+    T maxVal        = std::numeric_limits<T>::min();
+    size_t maxIndex = -1;
+    for(size_t i = 0; i < mat.rows(); i++) {
+        for(size_t j = 0; j < mat.columns(); j++) {
+            if(mat[i][j] > maxVal) {
+                maxVal   = mat[i][j];
+                maxIndex = i + j * mat.columns();
+            }
+        }
     }
-    auto out = refVector ? a : in;
+    return maxIndex;
+}
 
-    for(size_t i = 0; i < in.rows(); i++){
-        for(size_t j = 0; j < in.columns(); j++){
+/**
+ * Search index of value with lowest value
+ * **Caution!** This value does represent the index in a ongoing array.
+ * Example:
+ *      A = {{3,3}, {3,2}}
+ *      argmin(A) == 3
+ *      A[argmin(A)//A.colums()][argmin(A)%A.columns()] == 2
+ *
+ * @tparam T matrix value type
+ * @param mat element to search in
+ * @return index of minimal value
+ */
+template<typename T>
+size_t argmin(const MatrixDS<T>& mat) {
+    T maxVal        = std::numeric_limits<T>::max();
+    size_t maxIndex = -1;
+    for(size_t i = 0; i < mat.rows(); i++) {
+        for(size_t j = 0; j < mat.columns(); j++) {
+            if(mat[i][j] < maxVal) {
+                maxVal   = mat[i][j];
+                maxIndex = i + j * mat.columns();
+            }
+        }
+    }
+    return maxIndex;
+}
+
+/**
+ * Returns elements chosen from `valIfTrue` or `valIfFalse` depending on `condition`
+ * @tparam T value type
+ * @param condition lambda/function to test a condition on every element of `in`
+ * @param in input values
+ * @param valIfTrue value vector with values in case `in` meets `condition`
+ * @param valIfFalse value vector with values in case `in` does not meet `condition`
+ * @return
+ */
+template<typename T>
+MatrixDS<T> where(
+const std::function<bool(T)>& condition, MatrixDS<T> in, const MatrixDS<T>& valIfTrue, const MatrixDS<T>& valIfFalse) {
+    assert(valIfTrue.columns() == valIfFalse.columns() && valIfTrue.rows() == valIfFalse.rows());
+    bool refVector = true;
+    if((valIfTrue.columns() == valIfTrue.rows()) == 1) { refVector = false; }
+    auto out = refVector ? valIfTrue : in;
+
+    for(size_t i = 0; i < in.rows(); i++) {
+        for(size_t j = 0; j < in.columns(); j++) {
             if(refVector) {
-                if(!condition(in[i][j])) out[i][j] = b[i][j];
+                if(!condition(in[i][j])) out[i][j] = valIfFalse[i][j];
             } else {
-                if(!condition(in[i][j])) out[i][j] = b[0][0];
-                else out[i][j] = a[0][0];
+                out[i][j] = condition(in[i][j]) ? valIfTrue[0][0] : valIfFalse[0][0];
             }
         }
     }
     return out;
 }
 
-template <typename T>
-std::vector<std::pair<MatrixDS<T>, MatrixDS<T>>> zip(MatrixDS<T> a, MatrixDS<T> b){
+/**
+ * Converts two input matrices into a vector of
+ * row-wise pairs of `a` and `b`
+ *
+ * Example:
+ *  a = {{1,1,1}, {2,2,2}, {3,3,3}}
+ *  b = {{0}, {1}, {2}}
+ *
+ *  zip(a,b) == {({1,1,1}, {0}), ({2,2,2}, {1}), ({3,3,3}, {2})}
+ * @tparam T value type
+ * @param a
+ * @param b
+ * @return
+ */
+template<typename T>
+std::vector<std::pair<MatrixDS<T>, MatrixDS<T>>> zip(MatrixDS<T> a, MatrixDS<T> b) {
     std::vector<std::pair<MatrixDS<T>, MatrixDS<T>>> out(a.rows());
-    for(size_t i = 0; i < a.rows(); i++){
+    for(size_t i = 0; i < a.rows(); i++) {
         MatrixDS<T> subA, subB;
         subA.Resize(1, a.columns());
         subB.Resize(1, b.columns());
-        for(size_t j = 0; j < a.columns(); j++){
-            subA[0][j] = a[i][j];
-        }
-        for(size_t j = 0; j < b.columns(); j++){
-            subB[0][j] = b[i][j];
-        }
+        for(size_t j = 0; j < a.columns(); j++) { subA[0][j] = a[i][j]; }
+        for(size_t j = 0; j < b.columns(); j++) { subB[0][j] = b[i][j]; }
 
-        out[i] = {subA, subB};
+        out[i] = { subA, subB };
     }
     return out;
-
 }

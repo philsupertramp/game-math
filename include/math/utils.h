@@ -43,10 +43,22 @@ namespace Math::Utils {
         vec3<T> xaxis = normalize(up).cross(zaxis);
         vec3<T> yaxis = zaxis.cross(xaxis);
         return mat4<T>(
-            xaxis.x, xaxis.y, xaxis.z, 0.0f,
-            yaxis.x, yaxis.y, yaxis.z, 0.0f,
-            zaxis.x, zaxis.y, zaxis.z, 0.0f,
-            eye.x, eye.y, eye.z, 0.0f);
+        xaxis.x,
+        xaxis.y,
+        xaxis.z,
+        0.0f,
+        yaxis.x,
+        yaxis.y,
+        yaxis.z,
+        0.0f,
+        zaxis.x,
+        zaxis.y,
+        zaxis.z,
+        0.0f,
+        eye.x,
+        eye.y,
+        eye.z,
+        0.0f);
     }
 
     template<class T>
@@ -54,9 +66,9 @@ namespace Math::Utils {
         mat4<T> mat(1.0f);
         mat[0][0] = static_cast<T>(2) / (right - left);
         mat[1][1] = static_cast<T>(2) / (top - bottom);
-        mat[2][2] = - static_cast<T>(1);
-        mat[3][0] = - (right + left) / (right - left);
-        mat[3][1] = - (top + bottom) / (top - bottom);
+        mat[2][2] = -static_cast<T>(1);
+        mat[3][0] = -(right + left) / (right - left);
+        mat[3][1] = -(top + bottom) / (top - bottom);
         return mat;
     }
 
