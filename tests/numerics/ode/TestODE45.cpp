@@ -70,7 +70,7 @@ public:
     }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     ODE45TestCase().run(false);
     return 0;
 }

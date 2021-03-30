@@ -45,7 +45,7 @@ public:
     void run(bool _extended) override { TestPerceptron(); }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     PerceptronTestCase().run(false);
     return 0;
 }

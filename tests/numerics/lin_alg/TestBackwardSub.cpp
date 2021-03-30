@@ -48,4 +48,4 @@ public:
     }
 };
 
-int main(int nargs, char* argv[]) { BackwardSubTestCase().run(false); }
+int main() { BackwardSubTestCase().run(false); }

@@ -63,7 +63,7 @@ public:
     }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     ODEExplicitEulerTestCase().run(false);
     return 0;
 }

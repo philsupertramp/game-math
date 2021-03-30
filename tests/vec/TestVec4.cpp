@@ -204,7 +204,7 @@ public:
     }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     Vec4TestCase<int>().run();
     Vec4TestCase<float>().run(true);
     Vec4TestCase<double>().run(true);

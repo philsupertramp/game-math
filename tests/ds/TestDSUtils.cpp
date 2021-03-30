@@ -13,4 +13,4 @@ public:
     void run(bool _extended) override { TestUtils(); }
 };
 
-int main(int nargs, char* argv[]) { DSUtilsTestCase().run(false); }
+int main() { DSUtilsTestCase().run(false); }

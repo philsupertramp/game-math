@@ -86,7 +86,7 @@ public:
         TestShuffleNoEffect();
     }
 };
-int main(int nargs, char* argv[]) {
+int main() {
     AdalineSGDTestCase().run(false);
     return 0;
 }

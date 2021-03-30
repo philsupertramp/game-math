@@ -269,7 +269,7 @@ public:
     }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     MatrixDSTestCase().run(false);
     return 0;
 }

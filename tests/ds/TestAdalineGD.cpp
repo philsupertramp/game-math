@@ -46,7 +46,7 @@ public:
     void run(bool _extended) override { TestAdalineGD(); }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     AdalineGDTestCase().run(false);
     return 0;
 }

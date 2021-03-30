@@ -221,7 +221,7 @@ public:
     }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     Mat3TestCase<int>().run(false);
     Mat3TestCase<float>().run(true);
     Mat3TestCase<double>().run(true);

@@ -154,7 +154,7 @@ public:
     }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     Vec2TestCase<int>().run();
     Vec2TestCase<float>().run(true);
     Vec2TestCase<double>().run(true);

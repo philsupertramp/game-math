@@ -42,7 +42,7 @@ public:
     }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     LUTestCase().run(false);
     return 0;
 }

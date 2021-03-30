@@ -342,7 +342,7 @@ public:
     }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     Mat4TestCase<int>().run(false);
     Mat4TestCase<float>().run(true);
     Mat4TestCase<double>().run(true);

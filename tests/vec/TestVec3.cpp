@@ -195,7 +195,7 @@ public:
     }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     Vec3TestCase<int>().run();
     Vec3TestCase<float>().run(true);
     Vec3TestCase<double>().run(true);

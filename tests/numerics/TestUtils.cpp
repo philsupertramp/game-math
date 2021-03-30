@@ -16,7 +16,7 @@ public:
     virtual void run(bool _extended) override { TestLinspace(); }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     NumUtilsTestCase().run(false);
     return 0;
 }

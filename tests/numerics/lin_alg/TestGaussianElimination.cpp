@@ -20,7 +20,7 @@ public:
     void run(bool _extended) override { TestGaussianElimination(); }
 };
 
-int main(int nargs, char* argv[]) {
+int main() {
     LUTestCase().run(false);
     return 0;
 }
