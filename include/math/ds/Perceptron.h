@@ -1,16 +1,15 @@
 #pragma once
 
-#include "MatrixDS.h"
 #include "Classifier.h"
+#include "MatrixDS.h"
 
 /**
  *
  */
-class Perceptron
-: public Classifier
+class Perceptron : public Classifier
 {
 public:
-    MatrixDS<int> errors;     // Vector holding classification error per epoch
+    MatrixDS<int> errors; // Vector holding classification error per epoch
 
 public:
     explicit Perceptron(double _eta = 0.01, int iter = 10)
@@ -24,7 +23,7 @@ public:
      */
     void fit(const MatrixDS<double>& X, const MatrixDS<double>& y) override {
         initialize_weights(X.columns());
-        errors  = MatrixDS<int>(0, n_iter, 1);
+        errors = MatrixDS<int>(0, n_iter, 1);
         for(int iter = 0; iter < n_iter; iter++) {
             int _errors   = 0;
             auto iterable = zip(X, y);

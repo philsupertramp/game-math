@@ -7,6 +7,6 @@
 class Test
 {
 public:
-    bool extended                    = false;
+    bool extended                            = false;
     virtual void run(bool _extended = false) = 0;
 };

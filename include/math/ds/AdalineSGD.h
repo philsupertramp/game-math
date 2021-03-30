@@ -1,18 +1,16 @@
 #pragma once
 
-#include "MatrixDS.h"
 #include "Classifier.h"
+#include "MatrixDS.h"
 
-class AdalineSGD
-: public Classifier
+class AdalineSGD : public Classifier
 {
 public:
-    MatrixDS<int> costs;      // Vector holding classification error per epoch
+    MatrixDS<int> costs; // Vector holding classification error per epoch
     bool shuffle;
     int randomState;
 
 private:
-
     MatrixDS<double> update_weights(const MatrixDS<double>& xi, const MatrixDS<double>& target) {
         auto output = net_input(xi);
         auto error  = target - output;

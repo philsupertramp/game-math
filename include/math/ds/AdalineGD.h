@@ -1,13 +1,12 @@
 #pragma once
 
-#include "MatrixDS.h"
 #include "Classifier.h"
+#include "MatrixDS.h"
 
-class AdalineGD
-: public Classifier
+class AdalineGD : public Classifier
 {
 public:
-    MatrixDS<int> costs;      // Vector holding classification error per epoch
+    MatrixDS<int> costs; // Vector holding classification error per epoch
 
 public:
     explicit AdalineGD(double _eta = 0.01, int iter = 10)
@@ -15,7 +14,7 @@ public:
 
     void fit(const MatrixDS<double>& X, const MatrixDS<double>& y) override {
         initialize_weights(X.columns());
-        costs   = MatrixDS<int>(0, n_iter, 1);
+        costs = MatrixDS<int>(0, n_iter, 1);
         for(int iter = 0; iter < n_iter; iter++) {
             auto output = net_input(X);
             auto errors = y - output;

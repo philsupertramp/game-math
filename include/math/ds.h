@@ -7,5 +7,5 @@
 #include "ds/Perceptron.h"
 
 #if MATH_IMAGE_PROCESSING
-#include "ds/ImageDataSet.h"
+    #include "ds/ImageDataSet.h"
 #endif
