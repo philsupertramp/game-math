@@ -39,3 +39,12 @@ jobs:
         builddir: 'build'
         cmakeoptions: '--CONFIG Debug -DMATH_COVERAGE=1 -DMATH_EXTENSIONS=numerics,ds'
         ctestoptions: '--coverage --extra-verbose'
+
+    - uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+        directory: build
+        gcov_path_include: \*/include/math/\*
+        name: codecov-umbrella # optional
+        fail_ci_if_error: true # optional (default = false)
+        verbose: true # optional (default = false)
