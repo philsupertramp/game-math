@@ -16,26 +16,25 @@ jobs:
 
 
     steps:
-    - uses: actions/checkout@v2
-#    - run: |
-#        sudo apt update
-#        sudo apt install gcc-10 g++-10 libgraphicsmagick-dev lcov
-#        sudo apt-get install build-essential checkinstall
-#        cd /opt
-#        sudo wget http://www.imagemagick.org/download/ImageMagick.tar.gz
-#
-#        sudo tar xvzf ImageMagick.tar.gz
-#        cd $(ls | grep "ImageMagick-")
-#        sudo touch configure
-#        sudo ./configure
-#        sudo make
-#        sudo make install
-#        sudo ldconfig /usr/local/lib
-
-    - name: Run unit tests
-      uses: HorstBaerbel/action-ctest@1.0
-      with:
-        sourcedir: '.'
-        builddir: 'build'
-        cmakeoptions: '--CONFIG Debug -DMATH_TESTS=1 -DMATH_EXTENSIONS=numerics,ds'
-        ctestoptions: '--coverage --extra-verbose'
+      - uses: actions/checkout@v2
+      #    - run: |
+      #        sudo apt update
+      #        sudo apt install gcc-10 g++-10 libgraphicsmagick-dev lcov
+      #        sudo apt-get install build-essential checkinstall
+      #        cd /opt
+      #        sudo wget http://www.imagemagick.org/download/ImageMagick.tar.gz
+      #
+      #        sudo tar xvzf ImageMagick.tar.gz
+      #        cd $(ls | grep "ImageMagick-")
+      #        sudo touch configure
+      #        sudo ./configure
+      #        sudo make
+      #        sudo make install
+      #        sudo ldconfig /usr/local/lib
+      - name: Run unit tests
+        uses: HorstBaerbel/action-ctest@1.0
+        with:
+          sourcedir: '.'
+          builddir: 'build'
+          cmakeoptions: '--CONFIG ${BUILD_TYPE} -DMATH_TESTS -DMATH_EXTENSIONS=numerics,ds'
+          ctestoptions: '--coverage --extra-verbose'
