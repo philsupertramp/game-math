@@ -41,7 +41,7 @@ include_directories(math/include)
 ```
 
 # Usage
-## Extensions
+
 After linking the library correctly one is able to include
 the main header file `math.h`
 ```c++
@@ -52,6 +52,7 @@ Although one can explicitly include parts
 #include <math/vec/vec2.h>
 ```
 
+## Extensions
 ### Available extensions:
 #### `numerics`: Numerical methods for linear algebra and odes
 ```c++
