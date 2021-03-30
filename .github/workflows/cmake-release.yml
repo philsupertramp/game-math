@@ -40,5 +40,5 @@ jobs:
         with:
           sourcedir: '.'
           builddir: 'build'
-          cmakeoptions: '--CONFIG ${BUILD_TYPE} -DMATH_TESTS -DMATH_EXTENSIONS=numerics,ds'
+          cmakeoptions: '--CONFIG ${BUILD_TYPE} -DMATH_TESTS=1 -DMATH_EXTENSIONS=numerics,ds'
           ctestoptions: '--coverage --extra-verbose'
