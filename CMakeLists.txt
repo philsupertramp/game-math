@@ -35,6 +35,8 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/ode/ExplicitEuler.h
             include/math/numerics/ode/ExplicitEuler.cpp
             include/math/numerics/ode/ode.h
+            include/math/numerics/ode/odeTrapez.cpp
+            include/math/numerics/ode/odeTrapez.h
             include/math/numerics/ode/ode45.h
             include/math/numerics/ode/ode45.cpp
             include/math/numerics/utils.h
