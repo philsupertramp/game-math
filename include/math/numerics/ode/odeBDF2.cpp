@@ -19,14 +19,15 @@ ODEResult odeBDF2(const ODE& fun, const std::vector<float>& tInterval, const std
     std::vector<std::vector<float>> y = zeros(n, elem_size);
     std::vector<float> iter = zeros( 1, n)[0];
 
-    y[0] = y0;
     t[0] = tInterval[0];
     t[1] = t[0] + h;
 
-    y[1] = odeTrapez(fun, {t[0], t[1]}, y0, options).first[0];
+    auto y1 = odeTrapez(fun, {t[0], t[1]}, y0, options).first;
+    y[0] = y1[0];
+    y[1] = y1[1];
     auto E = eye(n);
 
-    for(size_t l = 1; l < n; l++) {
+    for(size_t l = 1; l < n - 1; l++) {
         auto y_act = y[l-1];
         auto k   = 0;
         auto delta = ones(elem_size);
