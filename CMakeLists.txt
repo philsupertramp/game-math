@@ -31,6 +31,7 @@ set(LIB_SOURCES
 if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_SOURCES
             ${LIB_SOURCES}
+            include/math/numerics.h
             include/math/numerics/utils.h
             include/math/numerics/utils.cpp
             include/math/numerics/lin_alg.h

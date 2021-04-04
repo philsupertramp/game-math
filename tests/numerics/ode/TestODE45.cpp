@@ -1,5 +1,5 @@
 #include "../../Test.h"
-#include <math/numerics/ode.h>
+#include <math/numerics.h>
 
 class ODE45TestCase : public Test
 {

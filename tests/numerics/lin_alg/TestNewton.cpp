@@ -1,5 +1,5 @@
 #include "../../Test.h"
-#include <math/numerics/lin_alg.h>
+#include <math/numerics/lin_alg/newton.h>
 #include <vector>
 #include <cmath>
 

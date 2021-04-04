@@ -1,5 +1,5 @@
 #include "../../Test.h"
-#include <math/numerics/ode.h>
+#include <math/numerics.h>
 
 class ODEBDF2TestCase : public Test
 {

@@ -1,5 +1,5 @@
 #include "../../Test.h"
-#include <math/numerics/lin_alg.h>
+#include <math/numerics/lin_alg/gaussSeidel.h>
 #include <vector>
 
 class GaussSeidelTestCase : public Test

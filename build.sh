@@ -56,11 +56,11 @@ else
   (
     cd ${DIR_NAME};
     cmake ${BUILD_OPTIONS} -G "CodeBlocks - Unix Makefiles" ..
-    cmake --build .;
-    make -j 3 ;
+    cmake --build . -- -j 3;
 
     # Run test suite with or without coverage
     if [ ${WITH_COVERAGE:-0} == 1 ]; then
+	    lcov -c -i -d . --rc lcov_branch_coverage=1 -o ../base.info --include \*/math/\*;
       ctest --coverage --extra-verbose
     else if [ ${WITH_TESTS:-0} == 1 ]; then
       ctest --extra-verbose
