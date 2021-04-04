@@ -13,6 +13,7 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
     - Explicit Euler Method (`odeEulerExp`)
     - Explicit 5 step Runge-Kutta-Method (`ode45`)
     - Trapezoid rule for odes (`odeTrapez`)
+    - Backward differential formula (`odeBDF2`)
   - Solver for systems of linear equations `gaussSeidel`
   - Newton method to approximate the zero-value for a given function based on an initial value (`newton`)
 - Data Science:
@@ -24,7 +25,9 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
         - using statistics gradient decent method (`AdalineSGD`)
 # Upcoming features
 - Numerical Methods:
-  - More ode solver (see [here](http://www.netlib.org/ode/))
+  - Interpolation Methods
+    - different polynomial interpolation methods
+    - _maybe:_ Spline interpolation
 - Data Science:
   - multi layer NNs
   - Image classifier
