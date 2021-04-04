@@ -5,4 +5,4 @@
 #include <vector>
 
 
-std::vector<float> gaussianElimination(std::vector<std::vector<float>> A, std::vector<float> b);
+std::vector<float> gaussSeidel(std::vector<std::vector<float>> A, std::vector<float> b);
