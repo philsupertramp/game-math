@@ -43,6 +43,7 @@ if (MATH_EXTENSIONS MATCHES "(numerics)")
     add_test_source(numerics/ode/TestODE45.cpp)
     add_test_source(numerics/ode/TestExplicitEuler.cpp)
     add_test_source(numerics/ode/TestODETrapez.cpp)
+    add_test_source(numerics/ode/TestODEBDF2.cpp)
 
     add_test_source(numerics/lin_alg/TestBackwardSub.cpp)
     add_test_source(numerics/lin_alg/TestForwardSub.cpp)
