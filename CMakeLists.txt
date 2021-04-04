@@ -31,6 +31,19 @@ set(LIB_SOURCES
 if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_SOURCES
             ${LIB_SOURCES}
+            include/math/numerics/utils.h
+            include/math/numerics/utils.cpp
+            include/math/numerics/lin_alg.h
+            include/math/numerics/lin_alg/newton.cpp
+            include/math/numerics/lin_alg/newton.h
+            include/math/numerics/lin_alg/backwardSub.h
+            include/math/numerics/lin_alg/backwardSub.cpp
+            include/math/numerics/lin_alg/forwardSub.h
+            include/math/numerics/lin_alg/forwardSub.cpp
+            include/math/numerics/lin_alg/LU.h
+            include/math/numerics/lin_alg/LU.cpp
+            include/math/numerics/lin_alg/gaussSeidel.h
+            include/math/numerics/lin_alg/gaussSeidel.cpp
             include/math/numerics/ode.h
             include/math/numerics/ode/ExplicitEuler.h
             include/math/numerics/ode/ExplicitEuler.cpp
@@ -39,17 +52,6 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/ode/odeTrapez.h
             include/math/numerics/ode/ode45.h
             include/math/numerics/ode/ode45.cpp
-            include/math/numerics/utils.h
-            include/math/numerics/utils.cpp
-            include/math/numerics/lin_alg.h
-            include/math/numerics/lin_alg/backwardSub.h
-            include/math/numerics/lin_alg/backwardSub.cpp
-            include/math/numerics/lin_alg/forwardSub.h
-            include/math/numerics/lin_alg/forwardSub.cpp
-            include/math/numerics/lin_alg/LU.h
-            include/math/numerics/lin_alg/LU.cpp
-            include/math/numerics/lin_alg/gaussianElimination.h
-            include/math/numerics/lin_alg/gaussianElimination.cpp
             )
 endif()
 if (MATH_EXTENSIONS MATCHES "(ds)")

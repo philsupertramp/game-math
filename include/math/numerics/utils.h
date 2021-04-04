@@ -23,5 +23,3 @@ std::vector<std::vector<float>> eye(size_t rows, size_t columns = 0);
 std::vector<float> zerosV(size_t rows);
 
 double norm(const std::vector<std::vector<float>> &in);
-
-std::vector<float> newton(std::vector<std::vector<float>>& A, std::vector<float>& b);

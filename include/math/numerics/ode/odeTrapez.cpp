@@ -19,11 +19,9 @@ ODEResult odeTrapez(const ODE& fun, const std::vector<float>& tInterval, const s
     std::vector<float> iter = zeros( 1, n)[0];
     auto E = eye(n);
 
-    // clang-format on
-
     y[0] = y0;
     t[0] = tInterval[0];
-    for(size_t l = 1; l < n - 1; l++) {
+    for(size_t l = 1; l < n; l++) {
         auto y_act = y[l-1];
         t[l] = t[l-1] + h;
         auto k   = 0;
@@ -43,14 +41,11 @@ ODEResult odeTrapez(const ODE& fun, const std::vector<float>& tInterval, const s
                     J[i][j] = J[i][j] * h/2 - E[i][j];
                 }
             }
-            delta[0] = newton(J, F);
+            delta[0] = gaussSeidel(J, F);
             for(int i = 0; i < delta[0].size(); ++i) {
                 y_act[i] += delta[0][i];
             }
             k += 1;
-            // TODO: might be irrelevant
-            prev_fun = current_fun;
-
         }
         if(k >= maxIter){
             std::cout << "Warning: Max number iterations reached." << std::endl;

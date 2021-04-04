@@ -12,18 +12,22 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
   - Solver for initial value problems of (stiff) ordinary differential equations (ode)
     - Explicit Euler Method (`odeEulerExp`)
     - Explicit 5 step Runge-Kutta-Method (`ode45`)
-  - Solver for systems of linear equations `gaussianElimination`
+    - Trapezoid rule for odes (`odeTrapez`)
+  - Solver for systems of linear equations `gaussSeidel`
+  - Newton method to approximate the zero-value for a given function based on an initial value (`newton`)
 - Data Science:
   - Neural networks
     - Feed Forward NNs
-      - Perceptron classifier
+      - Perceptron classifier (`Perceptron`)
       - Adaline Neuron Classifier
-        - using gradient decent method
-        - using statistics gradient decent method
+        - using gradient decent method (`AdalineGD`)
+        - using statistics gradient decent method (`AdalineSGD`)
 # Upcoming features
 - Numerical Methods:
-  - Newtons method for finding roots
   - More ode solver (see [here](http://www.netlib.org/ode/))
+- Data Science:
+  - multi layer NNs
+  - Image classifier
 
 # Installation
 

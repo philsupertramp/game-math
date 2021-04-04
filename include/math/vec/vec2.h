@@ -118,9 +118,11 @@ public:
         return vec2<U>(x, y);
     }
 
+    // LCOV_EXCL_START
     /* stream operators */
     template<class U>
     friend std::ostream& operator<<(std::ostream&, const vec2<U>&);
+    // LCOV_EXCL_STOP
 };
 
 template<class T>

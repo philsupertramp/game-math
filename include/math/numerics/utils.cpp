@@ -1,7 +1,4 @@
 #include "utils.h"
-#include "lin_alg/LU.h"
-#include "lin_alg/backwardSub.h"
-#include "lin_alg/forwardSub.h"
 #include <cmath>
 
 std::vector<float> linspace(float start, float end, unsigned long num_elements) {
@@ -39,18 +36,3 @@ double norm(const std::vector<std::vector<float>> &in){
     return sqrt(out);
 }
 std::vector<float> zerosV(size_t rows) { return std::vector<float>(rows, 0.0f); }
-
-std::vector<float> newton(std::vector<std::vector<float>>& A, std::vector<std::vector<float>>& b){
-    auto foo = LU(A);
-    A = foo.first;
-    int index = 0;
-    for(auto i : foo.second){
-        b[0][index] = b[0][i];
-        index += 1;
-    }
-    auto c = forwardSub(A, b[0]);
-    auto x = backwardSub(A, c);
-
-    return x;
-
-}
