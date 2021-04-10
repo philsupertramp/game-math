@@ -15,7 +15,7 @@
  * In order to use the perceptron classifier one needs access to the full set
  * of possible transformations.
  *
- * _THIS IS NOT A PREDICTOR_
+ * THIS IS NOT A PREDICTOR
  *
  * Mainly implemented for academic use
  */

@@ -3,9 +3,9 @@
  * Uses column major pivot elements to reduce number of operations.
  */
 
-#include "gaussianElimination.h"
+#include "gaussSeidel.h"
 
-std::vector<float> gaussianElimination(std::vector<std::vector<float>> A, std::vector<float> b) {
+std::vector<float> gaussSeidel(std::vector<std::vector<float>> A, std::vector<float> b) {
     auto LR = LU(A);
 
     auto bCopy = b;

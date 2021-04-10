@@ -12,6 +12,7 @@ octave-workspace
 
 # code coverage
 cov*.info
+*.info
 cmake-debug-coverage/
 coverage-report/
 

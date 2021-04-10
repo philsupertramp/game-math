@@ -142,9 +142,11 @@ public:
         return vec4<U>(x, y, z, w);
     }
 
+    // LCOV_EXCL_START
     /* stream operators */
     template<class U>
     friend std::ostream& operator<<(std::ostream&, const vec4<U>&);
+    // LCOV_EXCL_STOP
 };
 
 template<class T>

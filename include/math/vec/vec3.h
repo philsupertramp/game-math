@@ -57,9 +57,9 @@ public:
         this->z = _v;
     }
     constexpr vec3(const vec3<T>& v) {
-        x = v[0];
-        y = v[1];
-        z = v[2];
+        x = v.x;
+        y = v.y;
+        z = v.z;
     }
 
 

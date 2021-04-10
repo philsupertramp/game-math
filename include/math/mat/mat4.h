@@ -165,6 +165,18 @@ public:
         return *this;
     }
 
+    bool operator==(const mat4<T>& rhs) {
+        // clang-format off
+        return (
+            values[0][0] == rhs[0][0] && values[0][1] == rhs[0][1] && values[0][2] == rhs[0][2] && values[0][3] == rhs[0][3] &&
+            values[1][0] == rhs[1][0] && values[1][1] == rhs[1][1] && values[1][2] == rhs[1][2] && values[1][3] == rhs[1][3] &&
+            values[2][0] == rhs[2][0] && values[2][1] == rhs[2][1] && values[2][2] == rhs[2][2] && values[2][3] == rhs[2][3] &&
+            values[3][0] == rhs[3][0] && values[3][1] == rhs[3][1] && values[3][2] == rhs[3][2] && values[3][3] == rhs[3][3]); // clang-format on
+    }
+    bool operator!=(const mat4<T>& rhs) {
+        return !(*this == rhs);
+    }
+
     /* Member access */
     T* operator[](int index) { return values[index]; }
     const T* operator[](int index) const { return values[index]; }

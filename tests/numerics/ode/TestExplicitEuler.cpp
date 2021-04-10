@@ -1,5 +1,5 @@
 #include "../../Test.h"
-#include <math/numerics/ode.h>
+#include <math/numerics.h>
 
 
 class ODEExplicitEulerTestCase : public Test
@@ -9,7 +9,7 @@ class ODEExplicitEulerTestCase : public Test
         std::vector<float> tInterval = { 0.0f, 5.0f };
         std::vector<float> y0        = { 5.0f };
         float h                      = 1.0f;
-        auto foo                     = odeEulerExp(ode, tInterval, y0, h);
+        ODEResult foo                = odeEulerExp(ode, tInterval, y0, h);
 
         auto yResult = foo.first;
         auto tResult = foo.second;
