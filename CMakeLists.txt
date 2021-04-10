@@ -60,6 +60,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/Perceptron.h
             include/math/ds/AdalineGD.h
             include/math/ds/AdalineSGD.h
+            include/math/ds/LogRegSGD.h
             )
     if(MATH_IMAGE_PROCESSING)
         set(LIB_SOURCES ${LIB_SOURCES}

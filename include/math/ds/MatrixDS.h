@@ -301,6 +301,7 @@ public:
         }
         return *result;
     }
+    // TODO: fix me
     MatrixDS<T>& operator-=(const MatrixDS<T>& rhs) {
         this = (*this) - rhs;
         return *this;

@@ -50,6 +50,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             ds/TestPerceptron.cpp
             ds/TestAdalineGD.cpp
             ds/TestAdalineSGD.cpp
+            ds/TestLogRegSGD.h
     )
 endif()
 
