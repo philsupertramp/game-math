@@ -109,6 +109,7 @@ public:
 
 template<class U>
 std::ostream& operator<<(std::ostream& out, const mat2<U>& mat) {
+    out.precision(17);
     out << "[\n\t" << mat[0][0] << ", " << mat[0][1] << ";\n\t" << mat[1][0] << ", " << mat[1][1] << "\n]\n";
     return out;
 }

@@ -6,38 +6,38 @@
 class BackwardSubTestCase : public Test
 {
     bool TestBackwardSub() {
-        std::vector<std::vector<float>> R = { { 15.0f, 2.0f }, { 16.0f, 46.0f } };
-        std::vector<float> b              = { 2.0f, 3.0f };
-        auto x                            = backwardSub(R, b);
+        Matrix<double> R = { { 15.0, 2.0 }, { 16.0, 46.0 } };
+        Matrix<double> b = { { 2.0 }, { 3.0 } };
+        auto x           = backwardSub(R, b);
 
-        std::vector<float> LsgX = { 0.124637686f, 0.0652173907f };
-
-        for(size_t i = 0; i < 2; i++) { assert(x[i] == LsgX[i]); }
+        std::vector<double> LsgX = { 0.1246376811594203, 0.0652173913043478 };
+        for(size_t i = 0; i < 2; i++) { AssertEqual(x(i, 0), LsgX[i]); }
 
 
         R = { { 4, 2, 3 }, { 0, 1, -0.5 }, { 0, 0, 1 } };
-        b = { 2, 0, 1 };
+        b = { { 2 }, { 0 }, { 1 } };
         x = backwardSub(R, b);
 
-        LsgX = { -0.5f, 0.5f, 1.0f };
+        LsgX = { -0.5, 0.5, 1.0 };
 
-        for(size_t i = 0; i < 3; i++) { assert(x[i] == LsgX[i]); }
+        for(size_t i = 0; i < 3; i++) { AssertEqual(x(i, 0), LsgX[i]); }
 
         return true;
     }
 
     bool TestErrors() {
-        std::vector<std::vector<float>> R = { { 15.0f }, { 16.0f } };
-        std::vector<float> b              = { 2.0f, 3.0f };
+        Matrix<double> R = { { 15.0 }, { 16.0 } };
+        Matrix<double> b = { { 2.0 }, { 3.0 } };
 
         auto x = backwardSub(R, b);
-        assert(x.size() == 0);
+        assert(x.rows() == 0);
 
-        std::vector<std::vector<float>> R2 = { { 15.0f, 1.0f } };
-        std::vector<float> b2              = { 2.0f, 3.0f };
+        Matrix<double> R2 = { { 15.0, 1.0 } };
+        Matrix<double> b2 = { { 2.0 }, { 3.0 } };
 
         auto x2 = backwardSub(R2, b2);
-        assert(x2.size() == 0);
+        assert(x2.rows() == 0);
+        assert(x2.columns() == 0);
         return true;
     }
 

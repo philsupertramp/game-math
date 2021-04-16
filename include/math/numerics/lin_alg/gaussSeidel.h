@@ -1,8 +1,9 @@
 #pragma once
+#include "../../Matrix.h"
 #include "LU.h"
 #include "backwardSub.h"
 #include "forwardSub.h"
 #include <vector>
 
 
-std::vector<float> gaussSeidel(std::vector<std::vector<float>> A, std::vector<float> b);
+Matrix<double> gaussSeidel(const Matrix<double>& A, const Matrix<double>& b);

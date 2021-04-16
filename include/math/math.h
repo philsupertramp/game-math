@@ -18,6 +18,10 @@ using vec3f = vec3<float>;
 using vec3i = vec3<int>;
 using vec3d = vec3<double>;
 
+struct cmp_vec3i {
+    bool operator()(const vec3i& a, const vec3i& b) const { return a.x == b.x && a.y == b.y && a.z == b.z; }
+};
+
 using vec4f = vec4<float>;
 using vec4i = vec4<int>;
 using vec4d = vec4<double>;

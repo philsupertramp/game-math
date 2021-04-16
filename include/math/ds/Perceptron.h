@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Classifier.h"
-#include "MatrixDS.h"
+#include "math/Matrix.h"
 
 /**
  * Represents Perceptron definition by Frank Rosenblatt
@@ -31,9 +31,9 @@ public:
      * @param y: array-like with shape: [n_samples, 1]
      * @return this
      */
-    void fit(const MatrixDS<double>& X, const MatrixDS<double>& y) override {
+    void fit(const Matrix<double>& X, const Matrix<double>& y) override {
         initialize_weights(X.columns());
-        costs = MatrixDS<int>(0, n_iter, 1);
+        costs = Matrix<int>(0, n_iter, 1);
         for(int iter = 0; iter < n_iter; iter++) {
             int _errors   = 0;
             auto iterable = zip(X, y);
@@ -46,38 +46,38 @@ public:
 
                 for(size_t i = 0; i < weights.rows(); i++) {
                     for(size_t j = 0; j < weights.columns(); j++) {
-                        if(i == 0) weights[i][j] += update[i][j];
+                        if(i == 0) weights(i, j) += update(i, j);
                         else
-                            weights[i][j] += delta[i - 1][j];
+                            weights(i, j) += delta(i - 1, j);
                     }
                 }
                 _errors += costFunction(update);
             }
-            costs[iter][0] = _errors;
+            costs(iter, 0) = _errors;
         }
     }
 
-    MatrixDS<double> netInput(const MatrixDS<double>& X) override {
-        MatrixDS<double> A, B;
+    Matrix<double> netInput(const Matrix<double>& X) override {
+        Matrix<double> A, B;
         A.Resize(weights.rows() - 1, weights.columns());
         B.Resize(1, weights.columns());
         for(size_t i = 0; i < weights.rows(); i++) {
             for(size_t j = 0; j < weights.columns(); j++) {
                 if(i == 0) {
-                    B[i][j] = weights[i][j];
+                    B(i, j) = weights(i, j);
                 } else {
-                    A[i - 1][j] = weights[i][j];
+                    A(i - 1, j) = weights(i, j);
                 }
             }
         }
         return (X * A) + B;
     }
-    virtual MatrixDS<double> activation(const MatrixDS<double>& X) override { return netInput(X); }
+    virtual Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
-    virtual MatrixDS<double> predict(const MatrixDS<double>& X) override {
+    virtual Matrix<double> predict(const Matrix<double>& X) override {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }
 
-    virtual double costFunction(const MatrixDS<double>& X) override { return (double)(X[0][0] != 0.0); }
+    virtual double costFunction(const Matrix<double>& X) override { return (double)(X(0, 0) != 0.0); }
 };

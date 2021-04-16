@@ -60,7 +60,7 @@ else
 
     # Run test suite with or without coverage
     if [ ${WITH_COVERAGE:-0} == 1 ]; then
-	    lcov -c -i -d . --rc lcov_branch_coverage=1 -o ../base.info --include \*/math/\*;
+	    lcov -c -i -d . --rc lcov_branch_coverage=1 -o ../base.info --include \*/include/math/\*;
       ctest --coverage --extra-verbose
     else if [ ${WITH_TESTS:-0} == 1 ]; then
       ctest --extra-verbose

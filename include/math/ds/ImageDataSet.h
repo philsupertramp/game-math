@@ -51,7 +51,7 @@ public:
         for(const auto& entry : std::filesystem::directory_iterator(trainDirectory)) {
             if(entry.is_directory()) {
                 MatrixDS<bool> elem(false, 1, classCount);
-                elem[0][index] = true;
+                elem(0, index) = true;
                 classes.push_back(elem);
                 index += 1;
             }

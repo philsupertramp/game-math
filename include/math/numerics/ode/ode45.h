@@ -16,4 +16,4 @@
 #include <functional>
 #include <vector>
 
-ODEResult ode45(const ODE& fun, const std::vector<float>& tInterval, const std::vector<float>& y0, float h = 0);
+ODEResult ode45(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, double h = 0);

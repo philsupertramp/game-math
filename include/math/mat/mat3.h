@@ -155,6 +155,7 @@ public:
 
 template<class U>
 std::ostream& operator<<(std::ostream& out, const mat3<U>& mat) {
+    out.precision(17);
     out << "[\n\t" // clang-format off
         << mat[0][0] << ", " << mat[0][1] << ", " << mat[0][2] << ";\n\t" 
         << mat[1][0] << ", " << mat[1][1] << ", " << mat[1][2] << ";\n\t" 

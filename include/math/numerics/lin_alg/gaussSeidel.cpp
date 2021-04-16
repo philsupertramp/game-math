@@ -5,11 +5,11 @@
 
 #include "gaussSeidel.h"
 
-std::vector<float> gaussSeidel(std::vector<std::vector<float>> A, std::vector<float> b) {
+Matrix<double> gaussSeidel(const Matrix<double>& A, const Matrix<double>& b) {
     auto LR = LU(A);
 
     auto bCopy = b;
-    for(size_t i = 0; i < b.size(); i++) { b[i] = bCopy[LR.second[i]]; }
+    for(size_t i = 0; i < b.rows(); i++) { b(i, 0) = bCopy(LR.second[i], 0); }
 
     auto c = forwardSub(LR.first, b);
     return backwardSub(LR.first, c);

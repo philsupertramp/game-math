@@ -5,53 +5,57 @@
 class ODEExplicitEulerTestCase : public Test
 {
     bool TestExplicitEuler() {
-        auto ode                     = []([[maybe_unused]] float t, std::vector<float> y) { return y; };
-        std::vector<float> tInterval = { 0.0f, 5.0f };
-        std::vector<float> y0        = { 5.0f };
-        float h                      = 1.0f;
-        ODEResult foo                = odeEulerExp(ode, tInterval, y0, h);
+        auto ode                      = []([[maybe_unused]] double t, const Matrix<double>& y) { return y; };
+        std::vector<double> tInterval = { 0.0, 5.0 };
+        Matrix<double> y0             = { { 5.0 } };
+        double h                      = 1.0;
+        ODEResult foo                 = odeEulerExp(ode, tInterval, y0, h);
 
         auto yResult = foo.first;
         auto tResult = foo.second;
 
-        float tExpected[6] = { 0, 1, 2, 3, 4, 5 };
-        float yExpected[6] = { 5, 10, 20, 40, 80, 160 };
+        double tExpected[6] = { 0, 1, 2, 3, 4, 5 };
+        double yExpected[6] = { 5, 10, 20, 40, 80, 160 };
         for(int i = 0; i < 6; i++) {
-            assert(tExpected[i] == tResult[i]);
-            assert(yExpected[i] == yResult[i][0]);
+            AssertEqual(tExpected[i], tResult[i]);
+            AssertEqual(yExpected[i], yResult(i, 0));
         }
         return true;
     }
 
     bool TestExplicitEulerRB() {
-        auto ode = []([[maybe_unused]] float t, std::vector<float> y) {
-            std::vector<float> result;
-            result.reserve(y.size());
+        auto ode = []([[maybe_unused]] double t, const Matrix<double>& y) {
+            Matrix<double> result(0, y.rows(), y.columns());
 
             auto alpha = 0.25;
             auto beta  = -0.01;
             auto gamma = -1.0;
             auto delta = 0.01;
 
-            result[0] = alpha * y[0] + beta * y[0] * y[1];
-            result[1] = gamma * y[1] + delta * y[0] * y[1];
+            result(0, 0) = alpha * y(0, 0) + beta * y(0, 0) * y(0, 1);
+            result(0, 1) = gamma * y(0, 1) + delta * y(0, 0) * y(0, 1);
             return result;
         };
-        std::vector<float> tInterval = { 0.0f, 5.0f };
-        std::vector<float> y0        = { 80, 30 };
-        float h                      = 1.0f;
-        auto foo                     = odeEulerExp(ode, tInterval, y0, h);
+        std::vector<double> tInterval = { 0.0, 5.0 };
+        Matrix<double> y0             = { { 80, 30 } };
+        double h                      = 1.0;
+        auto foo                      = odeEulerExp(ode, tInterval, y0, h);
 
         auto yResult = foo.first;
         auto tResult = foo.second;
 
-        float yExpected[6][2] = { { 80.0000, 30.0000 },       { 76.0000, 24.0000 },       { 76.7600, 18.2400 },
-                                  { 81.9489746, 14.0010242 }, { 90.9625244, 11.4736958 }, { 103.266388, 10.4367638 } };
-        float tExpected[6]    = { 0, 1, 2, 3, 4, 5 };
+        double yExpected[6][2] = { { 80.0000, 30.0000 },
+                                   { 76.0000, 24.0000 },
+                                   { 76.759999999999991, 18.240000000000002 },
+                                   { 81.948975999999988, 14.001024000000001 },
+                                   { 90.962524202485753, 11.473695797514239 },
+                                   { 103.26639193637371, 10.436763316733479 } };
+        double tExpected[6]    = { 0, 1, 2, 3, 4, 5 };
+
         for(int i = 0; i < 6; i++) {
-            assert(tExpected[i] == tResult[i]);
-            assert(yExpected[i][0] == yResult[i][0]);
-            assert(yExpected[i][1] == yResult[i][1]);
+            AssertEqual(tExpected[i], tResult[i]);
+            AssertEqual(yExpected[i][0], yResult(i, 0));
+            AssertEqual(yExpected[i][1], yResult(i, 1));
         }
         return true;
     }

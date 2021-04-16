@@ -50,11 +50,11 @@ namespace Math::Utils {
         Result[0][1] = u.x;
         Result[1][1] = u.y;
         Result[2][1] = u.z;
-        Result[0][2] =-f.x;
-        Result[1][2] =-f.y;
-        Result[2][2] =-f.z;
-        Result[3][0] =-(s * eye);
-        Result[3][1] =-(u * eye);
+        Result[0][2] = -f.x;
+        Result[1][2] = -f.y;
+        Result[2][2] = -f.z;
+        Result[3][0] = -(s * eye);
+        Result[3][1] = -(u * eye);
         Result[3][2] = (f * eye);
         return Result;
     }
@@ -95,7 +95,8 @@ namespace Math::Utils {
 
     template<class T>
     mat4<T> angleAxis(float angle, vec3<T> axis) {
-//        return mat4<T>(axis.x, axis.y, axis.z, angle);
+        //        return mat4<T>(axis.x, axis.y, axis.z, angle);
+        return mat4<T>(0);
     }
 
     template<class T>

@@ -60,6 +60,21 @@ Although one can explicitly include parts
 ```
 
 ## Extensions
+Currently there are two different implementations
+of matrices/vectors
+### Implementation 1)
+Game dev oriented. 2, 3 and 4 dimensional vector/matrix
+implementations.  
+Tightly packed data to allow minimal memory usage.
+see `./include/math/vec` and `./include/math/mat`
+for implementation details.
+
+### Implementation 2)
+`Matrix<T>` (see `./include/math/Matrix.h`) represents a `m x n`-Matrix of data of type `T`
+
+a specific data science and numerics implementation.  
+Capable of Matrix-Vector and Matrix-Multiplication, it also contains
+data science specific algorithms and statistical methods.
 ### Available extensions:
 #### `numerics`: Numerical methods for linear algebra and odes
 ```c++

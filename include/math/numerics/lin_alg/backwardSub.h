@@ -9,4 +9,4 @@
 #include <vector>
 
 
-std::vector<float> backwardSub(const std::vector<std::vector<float>>& R, const std::vector<float>& b);
+Matrix<double> backwardSub(const Matrix<double>& R, const Matrix<double>& b);

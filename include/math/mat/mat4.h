@@ -173,9 +173,7 @@ public:
             values[2][0] == rhs[2][0] && values[2][1] == rhs[2][1] && values[2][2] == rhs[2][2] && values[2][3] == rhs[2][3] &&
             values[3][0] == rhs[3][0] && values[3][1] == rhs[3][1] && values[3][2] == rhs[3][2] && values[3][3] == rhs[3][3]); // clang-format on
     }
-    bool operator!=(const mat4<T>& rhs) {
-        return !(*this == rhs);
-    }
+    bool operator!=(const mat4<T>& rhs) { return !(*this == rhs); }
 
     /* Member access */
     T* operator[](int index) { return values[index]; }
@@ -188,6 +186,7 @@ public:
 
 template<class U>
 std::ostream& operator<<(std::ostream& out, const mat4<U>& mat) {
+    out.precision(17);
     out << "[\n\t" // clang-format off
         << mat[0][0] << ", " << mat[0][1] << ", " << mat[0][2] << ", " << mat[0][3] << ";\n\t"
         << mat[1][0] << ", " << mat[1][1] << ", " << mat[1][2] << ", " << mat[1][3] << ";\n\t"

@@ -1,16 +1,17 @@
 #pragma once
+#include "../Matrix.h"
 #include <vector>
 
 #ifndef EPS
-    #define EPS 1e-5
+    #define EPS 1e-8
 #endif
 
 
-std::vector<float> linspace(float start, float end, unsigned long num_elements);
+Matrix<double> linspace(double start, double end, unsigned long num_elements);
 
-std::vector<std::vector<float>> zeros(size_t rows, size_t columns);
+Matrix<double> zeros(size_t rows, size_t columns);
 
-std::vector<std::vector<float>> ones(size_t rows, size_t columns = 1);
+Matrix<double> ones(size_t rows, size_t columns = 1);
 
 /**
  * creates unit matrix of dimension rows, columns
@@ -18,8 +19,8 @@ std::vector<std::vector<float>> ones(size_t rows, size_t columns = 1);
  * @param columns if 0, then columns = rows
  * @return
  */
-std::vector<std::vector<float>> eye(size_t rows, size_t columns = 0);
+Matrix<double> eye(size_t rows, size_t columns = 0);
 
-std::vector<float> zerosV(size_t rows);
+Matrix<double> zerosV(size_t rows);
 
-double norm(const std::vector<std::vector<float>> &in);
+double norm(const Matrix<double>& in);

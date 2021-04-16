@@ -127,6 +127,7 @@ public:
 
 template<class T>
 std::ostream& operator<<(std::ostream& os, const vec2<T>& obj) {
+    os.precision(17);
     os << obj.x << ", " << obj.y << std::endl;
     return os;
 }

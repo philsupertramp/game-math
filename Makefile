@@ -9,7 +9,7 @@ build-coverage:
 
 coverage:
 	./build.sh cmake-debug-coverage -c -o="MATH_EXTENSIONS=numerics,ds";
-	lcov -c -d cmake-debug-coverage --rc lcov_branch_coverage=1 -o test.info --include \*/math/\*;
+	lcov -c -d cmake-debug-coverage --rc lcov_branch_coverage=1 -o test.info --include \*/include/math/\*;
 	lcov -a test.info -a base.info -o cov.info;
 	genhtml cov.info -o coverage-report;
 
