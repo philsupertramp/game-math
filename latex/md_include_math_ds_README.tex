@@ -1,0 +1,17 @@
+Used for machine learning and data science tasks\hypertarget{md_include_math_ds_README_autotoc_md1}{}\doxysection{Dependencies}\label{md_include_math_ds_README_autotoc_md1}
+In case you want to use {\ttfamily \mbox{\hyperlink{classImageDataSet}{Image\+Data\+Set}}} you need to add the compile flag {\ttfamily MATH\+\_\+\+IMAGE\+\_\+\+PROCESSING=1} to your build process as well as having the following libraries installed on your machine\+:
+\begin{DoxyItemize}
+\item Image\+Magick/\+Magick++{\ttfamily $>$=7.\+0.\+10-\/45} ~\newline
+ Ubuntu\+: {\ttfamily sudo apt-\/get install libgraphicsmagick1-\/dev} ~\newline
+ Arch\+: {\ttfamily sudo pacman -\/S imagemagick}
+\end{DoxyItemize}
+
+For Mac\+OS/\+Windows build add 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{c++\}}
+\DoxyCodeLine{InitializeMagick(*argv);}
+
+\end{DoxyCode}
+ to your main to initialize {\ttfamily Magick++} ~\newline
+ {\bfseries{Note\+:}} unnecessary for UNIX systems\hypertarget{md_include_math_ds_README_autotoc_md2}{}\doxysection{TOC}\label{md_include_math_ds_README_autotoc_md2}
+File $\vert$ Usage \+:--- $\vert$ --- $\vert$ {\bfseries{Data Science}} $\vert$ {\ttfamily \mbox{\hyperlink{DataSet_8h_source}{Data\+Set.\+h}}} $\vert$ Represents a dataset $\vert$ {\ttfamily \mbox{\hyperlink{ImageDataSet_8h_source}{Image\+Data\+Set.\+h}}} $\vert$ Represents a dataset of image files $\vert$ {\bfseries{Machine Learning}} $\vert$ {\itshape Neuronal Networks} $\vert$ {\ttfamily \mbox{\hyperlink{Perceptron_8h_source}{Perceptron.\+h}}} $\vert$ \mbox{\hyperlink{classPerceptron}{Perceptron}} classifier $\vert$ {\ttfamily \mbox{\hyperlink{AdalineGD_8h_source}{Adaline\+GD.\+h}}} $\vert$ Adaline Neuron classifier trained using the gradient decent method $\vert$ {\ttfamily \mbox{\hyperlink{AdalineSGD_8h_source}{Adaline\+SGD.\+h}}} $\vert$ Adaline Neuron classifier trained using the statistical gradient decent method $\vert$ 

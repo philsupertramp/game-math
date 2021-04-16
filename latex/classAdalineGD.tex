@@ -1,0 +1,99 @@
+\hypertarget{classAdalineGD}{}\doxysection{Adaline\+GD Class Reference}
+\label{classAdalineGD}\index{AdalineGD@{AdalineGD}}
+
+
+{\ttfamily \#include $<$Adaline\+GD.\+h$>$}
+
+Inheritance diagram for Adaline\+GD\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAdalineGD}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAdalineGD_a604a399e6d0737bb62e0d20d83627f03}\label{classAdalineGD_a604a399e6d0737bb62e0d20d83627f03}} 
+{\bfseries Adaline\+GD} (double \+\_\+eta=0.\+01, int iter=10)
+\item 
+void \mbox{\hyperlink{classAdalineGD_a16791c4ac85a0e7117105f8835a19f69}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y) override
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_a565a93a551bc3e851f682d8d7cbe923c}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
+\item 
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_aa49040ea4a41c4fb11e8f15c290b89c9}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
+\item 
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_a64117e06585fa2c98f577440b6e74e27}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
+\item 
+double \mbox{\hyperlink{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Adaline neuron classifier using gradient decent method 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAdalineGD_aa49040ea4a41c4fb11e8f15c290b89c9}\label{classAdalineGD_aa49040ea4a41c4fb11e8f15c290b89c9}} 
+\index{AdalineGD@{AdalineGD}!activation@{activation}}
+\index{activation@{activation}!AdalineGD@{AdalineGD}}
+\doxysubsubsection{\texorpdfstring{activation()}{activation()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+GD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Activates a given input \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classClassifier_a5be8488df3ee4e0e0903877bb19069a8}{Classifier}}.
+
+\mbox{\Hypertarget{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}\label{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}} 
+\index{AdalineGD@{AdalineGD}!costFunction@{costFunction}}
+\index{costFunction@{costFunction}!AdalineGD@{AdalineGD}}
+\doxysubsubsection{\texorpdfstring{costFunction()}{costFunction()}}
+{\footnotesize\ttfamily double Adaline\+GD\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+calculates the current cost if unused override returning 0 
+
+Implements \mbox{\hyperlink{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}{Classifier}}.
+
+\mbox{\Hypertarget{classAdalineGD_a16791c4ac85a0e7117105f8835a19f69}\label{classAdalineGD_a16791c4ac85a0e7117105f8835a19f69}} 
+\index{AdalineGD@{AdalineGD}!fit@{fit}}
+\index{fit@{fit}!AdalineGD@{AdalineGD}}
+\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
+{\footnotesize\ttfamily void Adaline\+GD\+::fit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+fit method to train the classifier using gradient decent method 
+
+Implements \mbox{\hyperlink{classClassifier_aabced42ad639a66e7b048e4a1dc988f9}{Classifier}}.
+
+\mbox{\Hypertarget{classAdalineGD_a565a93a551bc3e851f682d8d7cbe923c}\label{classAdalineGD_a565a93a551bc3e851f682d8d7cbe923c}} 
+\index{AdalineGD@{AdalineGD}!netInput@{netInput}}
+\index{netInput@{netInput}!AdalineGD@{AdalineGD}}
+\doxysubsubsection{\texorpdfstring{netInput()}{netInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+GD\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+calculates the net-\/input (aka output) this is mostly the derivative of {\ttfamily activation} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classClassifier_a0110e1eedbfae3c9a66f376868cbaffb}{Classifier}}.
+
+\mbox{\Hypertarget{classAdalineGD_a64117e06585fa2c98f577440b6e74e27}\label{classAdalineGD_a64117e06585fa2c98f577440b6e74e27}} 
+\index{AdalineGD@{AdalineGD}!predict@{predict}}
+\index{predict@{predict}!AdalineGD@{AdalineGD}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+GD\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Makes prediction for given input \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classClassifier_a0d47e1cccc5be1cdff3b202f48625afe}{Classifier}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/ds/Adaline\+GD.\+h\end{DoxyCompactItemize}
