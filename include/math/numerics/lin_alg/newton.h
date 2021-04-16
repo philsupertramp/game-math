@@ -4,12 +4,12 @@
 #include <functional>
 
 
-using Jacobian = std::function<std::vector<std::vector<float>>(float, std::vector<float>)>;
-using LinearEquation = std::function<std::vector<float>(float, std::vector<float>)>;
+using Jacobian       = std::function<Matrix<double>(double, const Matrix<double>&)>;
+using LinearEquation = std::function<Matrix<double>(double, const Matrix<double>&)>;
 
-std::vector<float> newton(
-const std::function<std::vector<float>(std::vector<float>)>& f,
-const std::function<std::vector<std::vector<float>>(std::vector<float>)>& Df,
-const std::vector<float>& x0,
-float TOL,
+Matrix<double> newton(
+const std::function<Matrix<double>(const Matrix<double>&)>& f,
+const std::function<Matrix<double>(const Matrix<double>&)>& Df,
+const Matrix<double>& x0,
+double TOL,
 int maxIter);

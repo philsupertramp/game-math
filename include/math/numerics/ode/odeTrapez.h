@@ -1,7 +1,8 @@
 #pragma once
 
-#include "ode.h"
-#include "../utils.h"
 #include "../lin_alg/newton.h"
+#include "../utils.h"
+#include "ode.h"
 
-ODEResult odeTrapez(const ODE& fun, const std::vector<float>& tInterval, const std::vector<float>& y0, const ODEOption& option);
+ODEResult
+odeTrapez(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, const ODEOption& option);

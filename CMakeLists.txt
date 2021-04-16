@@ -32,6 +32,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_SOURCES
             ${LIB_SOURCES}
             include/math/numerics.h
+            include/math/Matrix.h
             include/math/numerics/utils.h
             include/math/numerics/utils.cpp
             include/math/numerics/lin_alg.h
@@ -61,7 +62,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
     set(LIB_SOURCES
         ${LIB_SOURCES}
             include/math/ds.h
-            include/math/ds/MatrixDS.h
+            include/math/Matrix.h
             include/math/ds/DataSet.h
             include/math/ds/Classifier.h
             include/math/ds/Perceptron.h

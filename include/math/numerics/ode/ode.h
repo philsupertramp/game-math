@@ -1,15 +1,16 @@
 #pragma once
 
+#include "../../Matrix.h"
 #include <functional>
 #include <vector>
 
-using ODE       = std::function<std::vector<float>(float, std::vector<float>)>;
-using ODEJac    = std::function<std::vector<std::vector<float>>(float, std::vector<float>)>;
-using ODEResult = std::pair<std::vector<std::vector<float>>, std::vector<float>>;
+using ODE       = std::function<Matrix<double>(double, Matrix<double>)>;
+using ODEJac    = std::function<Matrix<double>(double, Matrix<double>)>;
+using ODEResult = std::pair<Matrix<double>, std::vector<double>>;
 
 struct ODEOption {
-    float h = 0;
-    double TOL = 1e-7;
+    double h    = 0;
+    double TOL  = 1e-7;
     int maxIter = 50;
     ODEJac Jac;
 };

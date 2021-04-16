@@ -21,7 +21,8 @@
  */
 
 #pragma once
+#include "../../Matrix.h"
 #include <cmath>
 #include <vector>
 
-std::pair<std::vector<std::vector<float>>, std::vector<unsigned int>> LU(std::vector<std::vector<float>>& A);
+std::pair<Matrix<double>, std::vector<unsigned int>> LU(const Matrix<double>& A);

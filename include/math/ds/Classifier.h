@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MatrixDS.h"
+#include "math/Matrix.h"
 
 
 /**
@@ -25,8 +25,8 @@ protected:
     bool w_initialized = false;
 
 public:
-    MatrixDS<double> weights; // Vector holding weights
-    MatrixDS<int> costs;      // Vector holding classification error per epoch
+    Matrix<double> weights; // Vector holding weights
+    Matrix<int> costs;      // Vector holding classification error per epoch
 
     Classifier(double _eta, int _n_iter)
         : eta(_eta)
@@ -38,7 +38,7 @@ public:
      * @param numColumns number columns
      */
     void initialize_weights(size_t numRows, size_t numColumns = 1) {
-        weights       = MatrixDS<double>(0, numRows + 1, numColumns);
+        weights       = Matrix<double>(0, numRows + 1, numColumns);
         w_initialized = true;
     }
 
@@ -48,29 +48,29 @@ public:
      * @param y: array-like with shape: [n_samples, 1]
      * @return this
      */
-    virtual void fit(const MatrixDS<double>&, const MatrixDS<double>&) = 0;
+    virtual void fit(const Matrix<double>&, const Matrix<double>&) = 0;
 
     /**
      * Makes prediction for given input
      * @return
      */
-    virtual MatrixDS<double> predict(const MatrixDS<double>&) = 0;
+    virtual Matrix<double> predict(const Matrix<double>&) = 0;
 
     /**
      * Activates a given input
      * @return
      */
-    virtual MatrixDS<double> activation(const MatrixDS<double>&) = 0;
+    virtual Matrix<double> activation(const Matrix<double>&) = 0;
 
     /**
      * calculates the net-input (aka output) this is mostly the derivative of `activation`
      * @return
      */
-    virtual MatrixDS<double> netInput(const MatrixDS<double>&) = 0;
+    virtual Matrix<double> netInput(const Matrix<double>&) = 0;
 
     /**
      * calculates the current cost
      * if unused override returning 0
      */
-    virtual double costFunction(const MatrixDS<double>&) = 0;
+    virtual double costFunction(const Matrix<double>&) = 0;
 };

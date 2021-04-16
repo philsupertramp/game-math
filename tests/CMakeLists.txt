@@ -8,17 +8,18 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 #
 #OPTION(ENABLE_GCOV "Enable gcov (debug, Linux builds only)" OFF)
-IF (MATH_COVERAGE)
-    string(APPEND CMAKE_C_FLAGS " -fprofile-arcs -ftest-coverage -DHAVE_GCOV")
-    string(APPEND CMAKE_CXX_FLAGS " -fprofile-arcs -ftest-coverage -DHAVE_GCOV")
-    string(APPEND CMAKE_EXE_LINKER_FLAGS " -fprofile-arcs -ftest-coverage -lgcov")
-ENDIF()
 
 find_program(CTEST_COVERAGE_COMMAND NAMES gcov)
 include(CTest)
 enable_testing()
 
 include_directories(../include)
+
+IF (MATH_COVERAGE)
+    string(APPEND CMAKE_C_FLAGS " -fprofile-arcs -ftest-coverage -DHAVE_GCOV")
+    string(APPEND CMAKE_CXX_FLAGS " -fprofile-arcs -ftest-coverage -DHAVE_GCOV")
+    string(APPEND CMAKE_EXE_LINKER_FLAGS " -fprofile-arcs -ftest-coverage -lgcov")
+ENDIF()
 
 function(add_test_source SOURCE_NAME)
     string(REPLACE ".cpp" "" NAME ${SOURCE_NAME})
@@ -38,6 +39,9 @@ add_test_source(mat/TestMat2.cpp)
 add_test_source(mat/TestMat3.cpp)
 add_test_source(mat/TestMat4.cpp)
 
+add_test_source(TestMatrix.cpp)
+add_test_source(TestUtils.cpp)
+
 if (MATH_EXTENSIONS MATCHES "(numerics)")
     add_test_source(numerics/TestUtils.cpp)
     add_test_source(numerics/ode/TestODE45.cpp)
@@ -54,9 +58,15 @@ endif()
 
 if (MATH_EXTENSIONS MATCHES "(ds)")
     add_test_source(ds/TestDSUtils.cpp)
-    add_test_source(ds/TestMatrixDS.cpp)
     add_test_source(ds/TestPerceptron.cpp)
     add_test_source(ds/TestAdalineGD.cpp)
     add_test_source(ds/TestAdalineSGD.cpp)
     add_test_source(ds/TestLogRegSGD.cpp)
 endif()
+
+IF (MATH_COVERAGE)
+    set(TARGET_NAME run_tests)
+    add_custom_target(${TARGET_NAME}
+            COMMAND "ctest -VV" )
+
+ENDIF()

@@ -61,8 +61,8 @@ public:
     }
 
     /* Misc functions */
-    inline float length() { return sqrtf(x * x + y * y + z * z + w * w); }
-    inline vec4<T> normalize() { return *this / length(); }
+    inline float length() const { return sqrtf(x * x + y * y + z * z + w * w); }
+    inline vec4<T> normalize() const { return *this / length(); }
 
     /* Arithmetic operators */
     friend vec4<T> operator+(vec4<T> lhs, const vec4<T>& rhs) { return lhs += rhs; }
@@ -151,6 +151,7 @@ public:
 
 template<class T>
 std::ostream& operator<<(std::ostream& os, const vec4<T>& obj) {
+    os.precision(17);
     os << obj.x << ", " << obj.y << ", " << obj.z << ", " << obj.w << std::endl;
     return os;
 }

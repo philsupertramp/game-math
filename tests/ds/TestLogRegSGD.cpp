@@ -6,7 +6,7 @@ class LogRegSGDTestCase : public Test
 {
     bool TestLogReg() {
         auto logRegSgd = LogRegSGD(0.001, 10);
-        MatrixDS<double> A(
+        Matrix<double> A(
         { { 5.1, 1.4 }, { 4.9, 1.4 }, { 4.7, 1.3 }, { 4.6, 1.5 }, { 5.0, 1.4 }, { 5.4, 1.7 }, { 4.6, 1.4 },
           { 5.0, 1.5 }, { 4.4, 1.4 }, { 4.9, 1.5 }, { 5.4, 1.5 }, { 4.8, 1.6 }, { 4.8, 1.4 }, { 4.3, 1.1 },
           { 5.8, 1.2 }, { 5.7, 1.5 }, { 5.4, 1.3 }, { 5.1, 1.4 }, { 5.7, 1.7 }, { 5.1, 1.5 }, { 5.4, 1.7 },
@@ -22,7 +22,7 @@ class LogRegSGDTestCase : public Test
           { 5.4, 4.5 }, { 6.0, 4.5 }, { 6.7, 4.7 }, { 6.3, 4.4 }, { 5.6, 4.1 }, { 5.5, 4.0 }, { 5.5, 4.4 },
           { 6.1, 4.6 }, { 5.8, 4.0 }, { 5.0, 3.3 }, { 5.6, 4.2 }, { 5.7, 4.2 }, { 5.7, 4.2 }, { 6.2, 4.3 },
           { 5.1, 3.0 }, { 5.7, 4.1 } });
-        MatrixDS<double> B = {
+        Matrix<double> B = {
             { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 },
             { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 },
             { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 }, { -1 },
@@ -34,10 +34,10 @@ class LogRegSGDTestCase : public Test
         };
 
         logRegSgd.fit(A, B);
-        std::cout << logRegSgd.predict({ { 5.0, 1.5 } })[0][0] << std::endl;
-        auto val  = logRegSgd.predict({ { 5.0, 1.5 } })[0][0];
-        auto val2 = logRegSgd.predict({ { 5.6, 4.2 } })[0][0];
-        std::cout << logRegSgd.predict({ { 5.6, 4.2 } })[0][0] << std::endl;
+        std::cout << logRegSgd.predict({ { 5.0, 1.5 } })(0, 0) << std::endl;
+        auto val  = logRegSgd.predict({ { 5.0, 1.5 } })(0, 0);
+        auto val2 = logRegSgd.predict({ { 5.6, 4.2 } })(0, 0);
+        std::cout << logRegSgd.predict({ { 5.6, 4.2 } })(0, 0) << std::endl;
         assert(abs(val - 1.0) < 1e-7);  // == -1
         assert(abs(val2 - 1.0) < 1e-7); // == 1
         // [-0.16661009 -0.19663501  0.58227774]
@@ -46,12 +46,10 @@ class LogRegSGDTestCase : public Test
     }
 
 public:
-    void run() override {
-        TestLogReg();
-    }
+    void run() override { TestLogReg(); }
 };
 
-int main(){
+int main() {
     LogRegSGDTestCase().run();
     return 0;
 }

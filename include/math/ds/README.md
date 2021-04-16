@@ -27,7 +27,6 @@ File | Usage
 **Data Science** |
 `DataSet.h` | Represents a dataset |
 `ImageDataSet.h` | Represents a dataset of image files |
-`MatrixDS.h` | Templated class to represent `n x m`-Matrices |
 **Machine Learning** |
 *Neuronal Networks* |
 `Perceptron.h` | Perceptron classifier |

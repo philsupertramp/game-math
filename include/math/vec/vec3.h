@@ -64,7 +64,7 @@ public:
 
 
     /* Misc functions */
-    inline vec3<T> cross(vec3<T> rhs) {
+    inline vec3<T> cross(vec3<T> rhs) const {
         return vec3<T>(
         (float)y * rhs.z - (float)z * rhs.y, (float)z * rhs.x - (float)x * rhs.z, (float)x * rhs.y - y * rhs.x);
     }
@@ -152,6 +152,8 @@ public:
 
 template<class T>
 std::ostream& operator<<(std::ostream& os, const vec3<T>& obj) {
+    os.precision(17);
+
     os << obj.x << ", " << obj.y << ", " << obj.z << std::endl;
     return os;
 }
