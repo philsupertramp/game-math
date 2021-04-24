@@ -1,5 +1,9 @@
 \hypertarget{classAdalineSGD}{}\doxysection{Adaline\+SGD Class Reference}
 \label{classAdalineSGD}\index{AdalineSGD@{AdalineSGD}}
+
+
+{\ttfamily \#include $<$Adaline\+SGD.\+h$>$}
+
 Inheritance diagram for Adaline\+SGD\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,9 +21,6 @@ void \mbox{\hyperlink{classAdalineSGD_a8b97d260bc04aa8cd6d02436fb5f3c76}{fit}} (
 \mbox{\Hypertarget{classAdalineSGD_a1e6915753b8004c988d4241af8c30fd8}\label{classAdalineSGD_a1e6915753b8004c988d4241af8c30fd8}} 
 void {\bfseries partial\+\_\+fit} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
 \item 
-\mbox{\Hypertarget{classAdalineSGD_a6ba92a573fcbb70e674f52f814ba357a}\label{classAdalineSGD_a6ba92a573fcbb70e674f52f814ba357a}} 
-std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ $>$ {\bfseries shuffle\+Data} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, \mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
-\item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_aa3e618b64d23abd52560b1b0f4f7fca6}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
 double \mbox{\hyperlink{classAdalineSGD_a83b11a7b467744c0018d8852224275be}{cost\+Function}} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
@@ -36,9 +37,24 @@ bool {\bfseries shuffle}
 \item 
 \mbox{\Hypertarget{classAdalineSGD_a7930ffb33b513fec12a6503191fa89a3}\label{classAdalineSGD_a7930ffb33b513fec12a6503191fa89a3}} 
 int {\bfseries random\+State}
+\item 
+\mbox{\Hypertarget{classAdalineSGD_aea1fdb9d477c9d44016ef13e5bc2342f}\label{classAdalineSGD_aea1fdb9d477c9d44016ef13e5bc2342f}} 
+\mbox{\hyperlink{classSGD}{SGD}} {\bfseries sgd}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
+
+\doxysubsection{Detailed Description}
+Adaline linear neuron implementation using statistic gradient decent for training of a vector of weights and a single bias.
+
+weights\+: shape \mbox{[}N+1 x 1\mbox{]} bias\+: shape \mbox{[}1, 1\mbox{]}, first element of weights
+
+Note\+: only allows binary classification and uses a single layer of weights see the description here \mbox{[}1\mbox{]} I found it very easy to understand and implement.
+
+
+\begin{DoxyItemize}
+\item \mbox{[}1\mbox{]} \href{http://rasbt.github.io/mlxtend/user_guide/classifier/Adaline/}{\texttt{ http\+://rasbt.\+github.\+io/mlxtend/user\+\_\+guide/classifier/\+Adaline/}} 
+\end{DoxyItemize}
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classAdalineSGD_ad5514778713339dccde814e0cbb70bc0}\label{classAdalineSGD_ad5514778713339dccde814e0cbb70bc0}} 

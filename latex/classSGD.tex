@@ -1,0 +1,44 @@
+\hypertarget{classSGD}{}\doxysection{SGD Class Reference}
+\label{classSGD}\index{SGD@{SGD}}
+
+
+{\ttfamily \#include $<$SGD.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSGD_a3894459b6b5dc9805ba83e04e6e4c8c3}\label{classSGD_a3894459b6b5dc9805ba83e04e6e4c8c3}} 
+{\bfseries SGD} (double \+\_\+eta=0.\+01, int iter=10, bool \+\_\+shuffle=false, const std\+::function$<$ double(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \&update\+\_\+weights\+\_\+fun=nullptr, const std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \&net\+Input\+Fun=nullptr)
+\item 
+\mbox{\Hypertarget{classSGD_ac1c260b0af030ec1016eb21c18a32952}\label{classSGD_ac1c260b0af030ec1016eb21c18a32952}} 
+void {\bfseries fit} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&weights)
+\item 
+\mbox{\Hypertarget{classSGD_a45c2d880b888167941d996ddf1b39b0b}\label{classSGD_a45c2d880b888167941d996ddf1b39b0b}} 
+void {\bfseries partial\+\_\+fit} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&weights) const
+\item 
+\mbox{\Hypertarget{classSGD_a1d63550696ce2020c915db4a87412fde}\label{classSGD_a1d63550696ce2020c915db4a87412fde}} 
+double {\bfseries update\+\_\+weights} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&xi, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&target, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&weights) const
+\item 
+\mbox{\Hypertarget{classSGD_acbb20ecf594860dea201ca3d54da6217}\label{classSGD_acbb20ecf594860dea201ca3d54da6217}} 
+std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ $>$ {\bfseries shuffle\+Data} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, \mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSGD_aaf708c2bb43ec3f0d56ba6ba5b64264e}\label{classSGD_aaf708c2bb43ec3f0d56ba6ba5b64264e}} 
+static \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries net\+Input} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&weights)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSGD_a843697c86d1d89defc5b23e9847cdb4c}\label{classSGD_a843697c86d1d89defc5b23e9847cdb4c}} 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries cost}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements statistic gradient decent method to fit a model 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/ds/SGD.\+h\end{DoxyCompactItemize}

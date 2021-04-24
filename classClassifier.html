@@ -80,7 +80,8 @@ Inheritance diagram for Classifier:</div>
   <map id="Classifier_map" name="Classifier_map">
 <area href="classAdalineGD.html" alt="AdalineGD" shape="rect" coords="0,56,81,80"/>
 <area href="classAdalineSGD.html" alt="AdalineSGD" shape="rect" coords="91,56,172,80"/>
-<area href="classPerceptron.html" alt="Perceptron" shape="rect" coords="182,56,263,80"/>
+<area href="classLogRegSGD.html" alt="LogRegSGD" shape="rect" coords="182,56,263,80"/>
+<area href="classPerceptron.html" alt="Perceptron" shape="rect" coords="273,56,354,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -107,9 +108,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a5d4d61496164c06deab141329b6c878f"><td class="memItemLeft" align="right" valign="top"><a id="a5d4d61496164c06deab141329b6c878f"></a>
 <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>weights</b></td></tr>
 <tr class="separator:a5d4d61496164c06deab141329b6c878f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a130688d03038def8e9defaaf8c7e0600"><td class="memItemLeft" align="right" valign="top"><a id="a130688d03038def8e9defaaf8c7e0600"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>costs</b></td></tr>
-<tr class="separator:a130688d03038def8e9defaaf8c7e0600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8688dfb2318e40a7c2f3747b68c96bae"><td class="memItemLeft" align="right" valign="top"><a id="a8688dfb2318e40a7c2f3747b68c96bae"></a>
+<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>costs</b></td></tr>
+<tr class="separator:a8688dfb2318e40a7c2f3747b68c96bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -166,7 +167,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
 </div><div class="memdoc">
 <p>Activates a given input </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Implemented in <a class="el" href="classPerceptron.html#a8ffc64efb4c0f2c089fecd78a31cb259">Perceptron</a>, <a class="el" href="classAdalineSGD.html#ad5514778713339dccde814e0cbb70bc0">AdalineSGD</a>, and <a class="el" href="classAdalineGD.html#aa49040ea4a41c4fb11e8f15c290b89c9">AdalineGD</a>.</p>
+<p>Implemented in <a class="el" href="classPerceptron.html#a8ffc64efb4c0f2c089fecd78a31cb259">Perceptron</a>, <a class="el" href="classLogRegSGD.html#aa055e337c1c4cd70b699bf29165aeb3a">LogRegSGD</a>, <a class="el" href="classAdalineSGD.html#ad5514778713339dccde814e0cbb70bc0">AdalineSGD</a>, and <a class="el" href="classAdalineGD.html#aa49040ea4a41c4fb11e8f15c290b89c9">AdalineGD</a>.</p>
 
 </div>
 </div>
@@ -241,7 +242,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>this </dd></dl>
 
-<p>Implemented in <a class="el" href="classPerceptron.html#a430fcf4782a3020add0094f986a1c54e">Perceptron</a>, <a class="el" href="classAdalineSGD.html#a8b97d260bc04aa8cd6d02436fb5f3c76">AdalineSGD</a>, and <a class="el" href="classAdalineGD.html#a16791c4ac85a0e7117105f8835a19f69">AdalineGD</a>.</p>
+<p>Implemented in <a class="el" href="classPerceptron.html#a430fcf4782a3020add0094f986a1c54e">Perceptron</a>, <a class="el" href="classLogRegSGD.html#aef4c82d4582b263409e37a1b6d461cbd">LogRegSGD</a>, <a class="el" href="classAdalineSGD.html#a8b97d260bc04aa8cd6d02436fb5f3c76">AdalineSGD</a>, and <a class="el" href="classAdalineGD.html#a16791c4ac85a0e7117105f8835a19f69">AdalineGD</a>.</p>
 
 </div>
 </div>
@@ -313,7 +314,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
 </div><div class="memdoc">
 <p>calculates the net-input (aka output) this is mostly the derivative of <code>activation</code> </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Implemented in <a class="el" href="classPerceptron.html#a0e28fa248c0e7270a65af9418298204f">Perceptron</a>, <a class="el" href="classAdalineSGD.html#aa3e618b64d23abd52560b1b0f4f7fca6">AdalineSGD</a>, and <a class="el" href="classAdalineGD.html#a565a93a551bc3e851f682d8d7cbe923c">AdalineGD</a>.</p>
+<p>Implemented in <a class="el" href="classPerceptron.html#a0e28fa248c0e7270a65af9418298204f">Perceptron</a>, <a class="el" href="classLogRegSGD.html#ac7ffba0eb63811c3261dd67269c7d7fa">LogRegSGD</a>, <a class="el" href="classAdalineSGD.html#aa3e618b64d23abd52560b1b0f4f7fca6">AdalineSGD</a>, and <a class="el" href="classAdalineGD.html#a565a93a551bc3e851f682d8d7cbe923c">AdalineGD</a>.</p>
 
 </div>
 </div>
@@ -342,7 +343,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
 </div><div class="memdoc">
 <p>Makes prediction for given input </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Implemented in <a class="el" href="classPerceptron.html#ac6859763b91ee84b799c1e7554e96eee">Perceptron</a>, <a class="el" href="classAdalineSGD.html#a5efda89a32f61566d068b2c37690f6b0">AdalineSGD</a>, and <a class="el" href="classAdalineGD.html#a64117e06585fa2c98f577440b6e74e27">AdalineGD</a>.</p>
+<p>Implemented in <a class="el" href="classPerceptron.html#ac6859763b91ee84b799c1e7554e96eee">Perceptron</a>, <a class="el" href="classLogRegSGD.html#a3bd288cfafbd38b0c6c66fd67d316df1">LogRegSGD</a>, <a class="el" href="classAdalineSGD.html#a5efda89a32f61566d068b2c37690f6b0">AdalineSGD</a>, and <a class="el" href="classAdalineGD.html#a64117e06585fa2c98f577440b6e74e27">AdalineGD</a>.</p>
 
 </div>
 </div>

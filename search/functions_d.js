@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['random_84',['Random',['../classMatrix.html#a95ad42aadf5f6d055efa2693e7e7a40a',1,'Matrix']]],
-  ['resize_85',['Resize',['../classMatrix.html#ae5e50465ed4356cfdba3f4529e9f1a29',1,'Matrix']]],
-  ['rows_86',['rows',['../classMatrix.html#a5330adf02b284293259eb9f7c9acaa99',1,'Matrix']]]
+  ['random_97',['Random',['../classMatrix.html#ab72c15d620fbe70b88578543b65e70ff',1,'Matrix']]],
+  ['resize_98',['Resize',['../classMatrix.html#ab5931e4a60d936c1294c187a6fa162e8',1,'Matrix']]],
+  ['rows_99',['rows',['../classMatrix.html#a5330adf02b284293259eb9f7c9acaa99',1,'Matrix']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['set_39',['Set',['../structSet.html',1,'']]]
+  ['set_44',['Set',['../structSet.html',1,'']]],
+  ['sgd_45',['SGD',['../classSGD.html',1,'']]]
 ];

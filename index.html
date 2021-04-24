@@ -80,7 +80,7 @@ Current feature support</h1>
 </li>
 <li>Numerical Methods (extension <code>numerics</code>)<ul>
 <li>Solver for initial value problems of (stiff) ordinary differential equations (ode)<ul>
-<li>Explicit Euler Method (<code>odeEulerExp</code>)</li>
+<li>Explicit Euler Method (<code>ODEExpEuler</code>)</li>
 <li>Explicit 5 step Runge-Kutta-Method (<code>ode45</code>)</li>
 <li>Trapezoid rule for odes (<code>odeTrapez</code>)</li>
 <li>Backward differential formula (<code>odeBDF2</code>)</li>
@@ -123,47 +123,50 @@ Upcoming features</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h4><a class="anchor" id="autotoc_md6"></a>
+Build requirements</h4>
+<p><code>gcc, cmake, clang</code></p>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Installation</h1>
 <ol type="1">
 <li>Download repository <code>git clone git@github.com:/philsupertramp/game-math</code></li>
 <li>Integration into your project</li>
 </ol>
 <p><b>Only CMake fully tested</b> </p>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="autotoc_md8"></a>
 cmake:</h3>
 <p>in your <code>CMakeLists.txt</code> add </p><div class="fragment"><div class="line">link_libraries(math)</div>
 <div class="line">include_directories(math/include)</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
 Usage</h1>
 <p>After linking the library correctly one is able to include the main header file <code><a class="el" href="math_8h_source.html">math.h</a></code> </p><div class="fragment"><div class="line"> {c++}</div>
 <div class="line">#include &lt;math/math.h&gt;</div>
 </div><!-- fragment --><p> Although one can explicitly include parts </p><div class="fragment"><div class="line"> {c++}</div>
 <div class="line">#include &lt;math/vec/vec2.h&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
 Extensions</h2>
 <p>Currently there are two different implementations of matrices/vectors </p>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<h3><a class="anchor" id="autotoc_md11"></a>
 Implementation 1)</h3>
 <p>Game dev oriented. 2, 3 and 4 dimensional vector/matrix implementations. <br  />
  Tightly packed data to allow minimal memory usage. see <code>./include/math/vec</code> and <code>./include/math/mat</code> for implementation details.</p>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<h3><a class="anchor" id="autotoc_md12"></a>
 Implementation 2)</h3>
 <p><code><a class="el" href="classMatrix.html">Matrix</a>&lt;T&gt;</code> (see <code>./include/math/Matrix.h</code>) represents a <code>m x n</code>-<a class="el" href="classMatrix.html">Matrix</a> of data of type <code>T</code></p>
 <p>a specific data science and numerics implementation. <br  />
  Capable of Matrix-Vector and Matrix-Multiplication, it also contains data science specific algorithms and statistical methods. </p>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md13"></a>
 Available extensions:</h3>
-<h4><a class="anchor" id="autotoc_md13"></a>
+<h4><a class="anchor" id="autotoc_md14"></a>
 &lt;tt&gt;numerics&lt;/tt&gt;: Numerical methods for linear algebra and odes</h4>
 <div class="fragment"><div class="line"> {c++}</div>
 <div class="line">#include &lt;math/numerics/lin_alg.h&gt;</div>
 <div class="line">#include &lt;math/numerics/ode.h&gt;</div>
-</div><!-- fragment --> <h4><a class="anchor" id="autotoc_md14"></a>
+</div><!-- fragment --> <h4><a class="anchor" id="autotoc_md15"></a>
 &lt;tt&gt;ds&lt;/tt&gt;: Methods out of the field of data science</h4>
 <div class="fragment"><div class="line"> {c++}</div>
 <div class="line">#include &lt;math/ds.h&gt;</div>
-</div><!-- fragment --> <h4><a class="anchor" id="autotoc_md15"></a>
+</div><!-- fragment --> <h4><a class="anchor" id="autotoc_md16"></a>
 TOC</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -175,18 +178,18 @@ TOC</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>ds</code>   </td><td class="markdownTableBodyNone">Concepts of Data Science   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md16"></a>
+<h3><a class="anchor" id="autotoc_md17"></a>
 Add extensions to library</h3>
 <p>Some extensions are optional, to activate them use <code>MATH_EXTENSIONS</code> compile argument.</p>
 <p>Example build command adding <code>numerics</code> module and building test suite: </p><div class="fragment"><div class="line">mkdir -p build</div>
 <div class="line">cmake -DMATH_EXTENSIONS=numerics --build math/build -- -j 3 .</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md17"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md18"></a>
 Note, some extensions or parts of them require specific dependencies.</h3>
 <p>Look into module <code>README.md</code> files.</p>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md19"></a>
 Development</h1>
 <p>Feel free to contribute to the project!</p>
-<h3><a class="anchor" id="autotoc_md19"></a>
+<h3><a class="anchor" id="autotoc_md20"></a>
 How to contribute</h3>
 <ul>
 <li>first time contributors<ul>
@@ -201,14 +204,11 @@ How to contribute</h3>
 </ul>
 <p><b>NOTE: please run <code>make lint</code> prior to submitting your code!</b> <br  />
  This requires <code>clang-format&gt;=11.0.0</code></p>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<h1><a class="anchor" id="autotoc_md21"></a>
 License</h1>
 <p>The project is under <code>MIT</code>-License see <code>LICENSE</code> for more</p>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Acknowledgements</h2>
-<ul>
-<li>Using ctest github-action: <a href="https://github.com/HorstBaerbel/action-ctest">https://github.com/HorstBaerbel/action-ctest</a>. Big thanks, it simplifies a lot. </li>
-</ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

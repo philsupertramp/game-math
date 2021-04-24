@@ -69,6 +69,8 @@ $(function() {
 <div class="title">AdalineSGD Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="AdalineSGD_8h_source.html">AdalineSGD.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for AdalineSGD:</div>
 <div class="dyncontent">
@@ -89,9 +91,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1e6915753b8004c988d4241af8c30fd8"><td class="memItemLeft" align="right" valign="top"><a id="a1e6915753b8004c988d4241af8c30fd8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>partial_fit</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)</td></tr>
 <tr class="separator:a1e6915753b8004c988d4241af8c30fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ba92a573fcbb70e674f52f814ba357a"><td class="memItemLeft" align="right" valign="top"><a id="a6ba92a573fcbb70e674f52f814ba357a"></a>
-std::pair&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;, <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>shuffleData</b> ([[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, [[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)</td></tr>
-<tr class="separator:a6ba92a573fcbb70e674f52f814ba357a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3e618b64d23abd52560b1b0f4f7fca6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdalineSGD.html#aa3e618b64d23abd52560b1b0f4f7fca6">netInput</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X) override</td></tr>
 <tr class="separator:aa3e618b64d23abd52560b1b0f4f7fca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83b11a7b467744c0018d8852224275be"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdalineSGD.html#a83b11a7b467744c0018d8852224275be">costFunction</a> ([[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X) override</td></tr>
@@ -117,13 +116,16 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>shuffle</b></td></tr>
 <tr class="memitem:a7930ffb33b513fec12a6503191fa89a3"><td class="memItemLeft" align="right" valign="top"><a id="a7930ffb33b513fec12a6503191fa89a3"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>randomState</b></td></tr>
 <tr class="separator:a7930ffb33b513fec12a6503191fa89a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea1fdb9d477c9d44016ef13e5bc2342f"><td class="memItemLeft" align="right" valign="top"><a id="aea1fdb9d477c9d44016ef13e5bc2342f"></a>
+<a class="el" href="classSGD.html">SGD</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sgd</b></td></tr>
+<tr class="separator:aea1fdb9d477c9d44016ef13e5bc2342f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classClassifier"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classClassifier')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classClassifier.html">Classifier</a></td></tr>
 <tr class="memitem:a5d4d61496164c06deab141329b6c878f inherit pub_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a5d4d61496164c06deab141329b6c878f"></a>
 <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>weights</b></td></tr>
 <tr class="separator:a5d4d61496164c06deab141329b6c878f inherit pub_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a130688d03038def8e9defaaf8c7e0600 inherit pub_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a130688d03038def8e9defaaf8c7e0600"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>costs</b></td></tr>
-<tr class="separator:a130688d03038def8e9defaaf8c7e0600 inherit pub_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8688dfb2318e40a7c2f3747b68c96bae inherit pub_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a8688dfb2318e40a7c2f3747b68c96bae"></a>
+<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>costs</b></td></tr>
+<tr class="separator:a8688dfb2318e40a7c2f3747b68c96bae inherit pub_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -138,7 +140,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>n_iter</b></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = false</td></tr>
 <tr class="separator:a5c3236f91e4f14965715caaca167dec8 inherit pro_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Adaline linear neuron implementation using statistic gradient decent for training of a vector of weights and a single bias.</p>
+<p>weights: shape [N+1 x 1] bias: shape [1, 1], first element of weights</p>
+<p>Note: only allows binary classification and uses a single layer of weights see the description here [1] I found it very easy to understand and implement.</p>
+<ul>
+<li>[1] <a href="http://rasbt.github.io/mlxtend/user_guide/classifier/Adaline/">http://rasbt.github.io/mlxtend/user_guide/classifier/Adaline/</a> </li>
+</ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad5514778713339dccde814e0cbb70bc0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5514778713339dccde814e0cbb70bc0">&#9670;&nbsp;</a></span>activation()</h2>
 

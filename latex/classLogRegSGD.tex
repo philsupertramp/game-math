@@ -1,54 +1,68 @@
 \hypertarget{classLogRegSGD}{}\doxysection{Log\+Reg\+SGD Class Reference}
 \label{classLogRegSGD}\index{LogRegSGD@{LogRegSGD}}
+Inheritance diagram for Log\+Reg\+SGD\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLogRegSGD}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classLogRegSGD_afd641912a68b8c0b2981585fb2cfc068}\label{classLogRegSGD_afd641912a68b8c0b2981585fb2cfc068}} 
 {\bfseries Log\+Reg\+SGD} (double \+\_\+eta=0.\+01, int iter=10, bool \+\_\+shuffle=false, int \+\_\+random\+State=0)
 \item 
-void \mbox{\hyperlink{classLogRegSGD_af1c07630b80dfa3cc256a99b3b5e7abe}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
+void \mbox{\hyperlink{classLogRegSGD_aef4c82d4582b263409e37a1b6d461cbd}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y) override
 \item 
 \mbox{\Hypertarget{classLogRegSGD_a7e21cee4236b4f144cf507396849110f}\label{classLogRegSGD_a7e21cee4236b4f144cf507396849110f}} 
 void {\bfseries partial\+\_\+fit} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
 \item 
-\mbox{\Hypertarget{classLogRegSGD_ada0672a931e3a9fda5390fdb03092f6c}\label{classLogRegSGD_ada0672a931e3a9fda5390fdb03092f6c}} 
-std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ $>$ {\bfseries shuffle\+Data} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, \mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classLogRegSGD_ac7ffba0eb63811c3261dd67269c7d7fa}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-\mbox{\Hypertarget{classLogRegSGD_aeb804d3fc6eb85ef8e5e41fa59777cc9}\label{classLogRegSGD_aeb804d3fc6eb85ef8e5e41fa59777cc9}} 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries net\+\_\+input} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classLogRegSGD_aa055e337c1c4cd70b699bf29165aeb3a}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-\mbox{\Hypertarget{classLogRegSGD_a8667a7de59e8b896322ebe9c210f0ef7}\label{classLogRegSGD_a8667a7de59e8b896322ebe9c210f0ef7}} 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries activation} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classLogRegSGD_a3bd288cfafbd38b0c6c66fd67d316df1}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-\mbox{\Hypertarget{classLogRegSGD_af71d495235d8f691374dae11f1c754ec}\label{classLogRegSGD_af71d495235d8f691374dae11f1c754ec}} 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries predict} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+\mbox{\Hypertarget{classLogRegSGD_a2c5d62d0e888834e00d33fddb6e2e78b}\label{classLogRegSGD_a2c5d62d0e888834e00d33fddb6e2e78b}} 
+virtual double {\bfseries cost\+Function} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat) override
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classLogRegSGD_a69919d28c8561397a49ba11da4931fd2}\label{classLogRegSGD_a69919d28c8561397a49ba11da4931fd2}} 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries weights}
-\item 
-\mbox{\Hypertarget{classLogRegSGD_a89bad1751371b6d538ef1d28aa701723}\label{classLogRegSGD_a89bad1751371b6d538ef1d28aa701723}} 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries costs}
-\item 
 \mbox{\Hypertarget{classLogRegSGD_a3bfe916ce0635c0b00c77731bf3ad77e}\label{classLogRegSGD_a3bfe916ce0635c0b00c77731bf3ad77e}} 
 bool {\bfseries shuffle} = false
 \item 
-\mbox{\Hypertarget{classLogRegSGD_a119e1aea4cb481b72eb7eb932e5be9c0}\label{classLogRegSGD_a119e1aea4cb481b72eb7eb932e5be9c0}} 
-bool {\bfseries w\+\_\+initialized} = false
-\item 
 \mbox{\Hypertarget{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}\label{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}} 
 int {\bfseries random\+State}
+\item 
+\mbox{\Hypertarget{classLogRegSGD_adb686856f5aa970cdc5b9af2ec687ebd}\label{classLogRegSGD_adb686856f5aa970cdc5b9af2ec687ebd}} 
+\mbox{\hyperlink{classSGD}{SGD}} {\bfseries sgd}
+\item 
+\mbox{\Hypertarget{classLogRegSGD_a41d9bee7d63351fa7133702f9f20c299}\label{classLogRegSGD_a41d9bee7d63351fa7133702f9f20c299}} 
+bool {\bfseries sgd\+Init} = false
 \end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classLogRegSGD_af1c07630b80dfa3cc256a99b3b5e7abe}\label{classLogRegSGD_af1c07630b80dfa3cc256a99b3b5e7abe}} 
+\mbox{\Hypertarget{classLogRegSGD_aa055e337c1c4cd70b699bf29165aeb3a}\label{classLogRegSGD_aa055e337c1c4cd70b699bf29165aeb3a}} 
+\index{LogRegSGD@{LogRegSGD}!activation@{activation}}
+\index{activation@{activation}!LogRegSGD@{LogRegSGD}}
+\doxysubsubsection{\texorpdfstring{activation()}{activation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Log\+Reg\+SGD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Activates a given input \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classClassifier_a5be8488df3ee4e0e0903877bb19069a8}{Classifier}}.
+
+\mbox{\Hypertarget{classLogRegSGD_aef4c82d4582b263409e37a1b6d461cbd}\label{classLogRegSGD_aef4c82d4582b263409e37a1b6d461cbd}} 
 \index{LogRegSGD@{LogRegSGD}!fit@{fit}}
 \index{fit@{fit}!LogRegSGD@{LogRegSGD}}
 \doxysubsubsection{\texorpdfstring{fit()}{fit()}}
-{\footnotesize\ttfamily void Log\+Reg\+SGD\+::fit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Log\+Reg\+SGD\+::fit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 \begin{DoxyParams}{Parameters}
@@ -60,6 +74,36 @@ int {\bfseries random\+State}
 \begin{DoxyReturn}{Returns}
 this 
 \end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classClassifier_aabced42ad639a66e7b048e4a1dc988f9}{Classifier}}.
+
+\mbox{\Hypertarget{classLogRegSGD_ac7ffba0eb63811c3261dd67269c7d7fa}\label{classLogRegSGD_ac7ffba0eb63811c3261dd67269c7d7fa}} 
+\index{LogRegSGD@{LogRegSGD}!netInput@{netInput}}
+\index{netInput@{netInput}!LogRegSGD@{LogRegSGD}}
+\doxysubsubsection{\texorpdfstring{netInput()}{netInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Log\+Reg\+SGD\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+calculates the net-\/input (aka output) this is mostly the derivative of {\ttfamily activation} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classClassifier_a0110e1eedbfae3c9a66f376868cbaffb}{Classifier}}.
+
+\mbox{\Hypertarget{classLogRegSGD_a3bd288cfafbd38b0c6c66fd67d316df1}\label{classLogRegSGD_a3bd288cfafbd38b0c6c66fd67d316df1}} 
+\index{LogRegSGD@{LogRegSGD}!predict@{predict}}
+\index{predict@{predict}!LogRegSGD@{LogRegSGD}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Log\+Reg\+SGD\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Makes prediction for given input \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classClassifier_a0d47e1cccc5be1cdff3b202f48625afe}{Classifier}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

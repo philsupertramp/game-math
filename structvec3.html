@@ -82,18 +82,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2b1ec73adbd504ee31d05b5e2ae4a720"><td class="memItemLeft" align="right" valign="top"><a id="a2b1ec73adbd504ee31d05b5e2ae4a720"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>vec3</b> (T _v)</td></tr>
 <tr class="separator:a2b1ec73adbd504ee31d05b5e2ae4a720"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4878b770964feaea828607aa659eca6"><td class="memItemLeft" align="right" valign="top"><a id="ad4878b770964feaea828607aa659eca6"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>vec3</b> (const <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;v)</td></tr>
-<tr class="separator:ad4878b770964feaea828607aa659eca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae003cd1de08a8e9dc1f268d1d536979"><td class="memItemLeft" align="right" valign="top"><a id="aae003cd1de08a8e9dc1f268d1d536979"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>vec3</b> (const <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;v)</td></tr>
+<tr class="separator:aae003cd1de08a8e9dc1f268d1d536979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6659bbbbdec0fcf10942a8cbc205b952"><td class="memItemLeft" align="right" valign="top"><a id="a6659bbbbdec0fcf10942a8cbc205b952"></a>
 <a class="el" href="structvec3.html">vec3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cross</b> (<a class="el" href="structvec3.html">vec3</a>&lt; T &gt; rhs) const</td></tr>
 <tr class="separator:a6659bbbbdec0fcf10942a8cbc205b952"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac029a16150f7428a8e6e3bf876da68b1"><td class="memItemLeft" align="right" valign="top"><a id="ac029a16150f7428a8e6e3bf876da68b1"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>length</b> () const</td></tr>
 <tr class="separator:ac029a16150f7428a8e6e3bf876da68b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba38d5a179923a75719270b83bc3fd6e"><td class="memItemLeft" align="right" valign="top"><a id="aba38d5a179923a75719270b83bc3fd6e"></a>
-<a class="el" href="structvec3.html">vec3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>normalize</b> ()</td></tr>
-<tr class="separator:aba38d5a179923a75719270b83bc3fd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78346761e14409bf1360d7b8827c751b"><td class="memItemLeft" align="right" valign="top"><a id="a78346761e14409bf1360d7b8827c751b"></a>
+<a class="el" href="structvec3.html">vec3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>normalize</b> () const</td></tr>
+<tr class="separator:a78346761e14409bf1360d7b8827c751b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30aab6cfbff446f0a794c496c228c23e"><td class="memItemLeft" align="right" valign="top"><a id="a30aab6cfbff446f0a794c496c228c23e"></a>
 <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:a30aab6cfbff446f0a794c496c228c23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +139,9 @@ union {</td></tr>
 <tr class="separator:a09dabf0f0131f48dc8760748a3ada7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59933a9712c3e423b21edf175f0fc015"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="separator:a59933a9712c3e423b21edf175f0fc015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a12c7debec31f8214f06351b1e77479"><td class="memItemLeft" align="right" valign="top"><a id="a9a12c7debec31f8214f06351b1e77479"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>dim</b> = 3</td></tr>
+<tr class="separator:a9a12c7debec31f8214f06351b1e77479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -160,9 +163,18 @@ T&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class=
 <tr class="memitem:a3cb09b0c52a63ba9d9209779c2b9d582"><td class="memItemLeft" align="right" valign="top"><a id="a3cb09b0c52a63ba9d9209779c2b9d582"></a>
 <a class="el" href="structvec3.html">vec3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (<a class="el" href="structvec3.html">vec3</a>&lt; T &gt; lhs, const T &amp;rhs)</td></tr>
 <tr class="separator:a3cb09b0c52a63ba9d9209779c2b9d582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf7bbe858ab61d045bde45aa3269438a"><td class="memItemLeft" align="right" valign="top"><a id="abf7bbe858ab61d045bde45aa3269438a"></a>
+<a class="el" href="structvec3.html">vec3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (<a class="el" href="structvec3.html">vec3</a>&lt; T &gt; lhs, const <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="separator:abf7bbe858ab61d045bde45aa3269438a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cada26488c14237f5e3cad4bcf16ab9"><td class="memItemLeft" align="right" valign="top"><a id="a0cada26488c14237f5e3cad4bcf16ab9"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:a0cada26488c14237f5e3cad4bcf16ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a2b2b4db049057aad3287844e776352"><td class="memItemLeft" align="right" valign="top"><a id="a0a2b2b4db049057aad3287844e776352"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="separator:a0a2b2b4db049057aad3287844e776352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa615878eede4f29f4e22203ba04a8aa9"><td class="memItemLeft" align="right" valign="top"><a id="aa615878eede4f29f4e22203ba04a8aa9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="separator:aa615878eede4f29f4e22203ba04a8aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cf75675afd7a55176fac1632e1ca485"><td class="memTemplParams" colspan="2"><a id="a9cf75675afd7a55176fac1632e1ca485"></a>
 template&lt;class U &gt; </td></tr>
 <tr class="memitem:a9cf75675afd7a55176fac1632e1ca485"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;, const <a class="el" href="structvec3.html">vec3</a>&lt; U &gt; &amp;)</td></tr>

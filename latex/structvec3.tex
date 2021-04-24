@@ -12,8 +12,8 @@
 \mbox{\Hypertarget{structvec3_a2b1ec73adbd504ee31d05b5e2ae4a720}\label{structvec3_a2b1ec73adbd504ee31d05b5e2ae4a720}} 
 {\bfseries vec3} (T \+\_\+v)
 \item 
-\mbox{\Hypertarget{structvec3_ad4878b770964feaea828607aa659eca6}\label{structvec3_ad4878b770964feaea828607aa659eca6}} 
-constexpr {\bfseries vec3} (const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&v)
+\mbox{\Hypertarget{structvec3_aae003cd1de08a8e9dc1f268d1d536979}\label{structvec3_aae003cd1de08a8e9dc1f268d1d536979}} 
+{\bfseries vec3} (const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&v)
 \item 
 \mbox{\Hypertarget{structvec3_a6659bbbbdec0fcf10942a8cbc205b952}\label{structvec3_a6659bbbbdec0fcf10942a8cbc205b952}} 
 \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ {\bfseries cross} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ rhs) const
@@ -21,8 +21,8 @@ constexpr {\bfseries vec3} (const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \
 \mbox{\Hypertarget{structvec3_ac029a16150f7428a8e6e3bf876da68b1}\label{structvec3_ac029a16150f7428a8e6e3bf876da68b1}} 
 float {\bfseries length} () const
 \item 
-\mbox{\Hypertarget{structvec3_aba38d5a179923a75719270b83bc3fd6e}\label{structvec3_aba38d5a179923a75719270b83bc3fd6e}} 
-\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ {\bfseries normalize} ()
+\mbox{\Hypertarget{structvec3_a78346761e14409bf1360d7b8827c751b}\label{structvec3_a78346761e14409bf1360d7b8827c751b}} 
+\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ {\bfseries normalize} () const
 \item 
 \mbox{\Hypertarget{structvec3_a30aab6cfbff446f0a794c496c228c23e}\label{structvec3_a30aab6cfbff446f0a794c496c228c23e}} 
 \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \& {\bfseries operator+=} (const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&rhs)
@@ -63,7 +63,10 @@ union \{\\
 \>\} \\
 \}; \\
 
-\end{tabbing}\end{DoxyCompactItemize}
+\end{tabbing}\item 
+\mbox{\Hypertarget{structvec3_a9a12c7debec31f8214f06351b1e77479}\label{structvec3_a9a12c7debec31f8214f06351b1e77479}} 
+size\+\_\+t {\bfseries dim} = 3
+\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -85,8 +88,17 @@ T {\bfseries operator$\ast$} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ lhs, 
 \mbox{\Hypertarget{structvec3_a3cb09b0c52a63ba9d9209779c2b9d582}\label{structvec3_a3cb09b0c52a63ba9d9209779c2b9d582}} 
 \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ {\bfseries operator/} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ lhs, const T \&rhs)
 \item 
+\mbox{\Hypertarget{structvec3_abf7bbe858ab61d045bde45aa3269438a}\label{structvec3_abf7bbe858ab61d045bde45aa3269438a}} 
+\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ {\bfseries operator/} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ lhs, const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&rhs)
+\item 
 \mbox{\Hypertarget{structvec3_a0cada26488c14237f5e3cad4bcf16ab9}\label{structvec3_a0cada26488c14237f5e3cad4bcf16ab9}} 
 bool {\bfseries operator==} (const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&rhs)
+\item 
+\mbox{\Hypertarget{structvec3_a0a2b2b4db049057aad3287844e776352}\label{structvec3_a0a2b2b4db049057aad3287844e776352}} 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&rhs)
+\item 
+\mbox{\Hypertarget{structvec3_aa615878eede4f29f4e22203ba04a8aa9}\label{structvec3_aa615878eede4f29f4e22203ba04a8aa9}} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&rhs)
 \item 
 \mbox{\Hypertarget{structvec3_a9cf75675afd7a55176fac1632e1ca485}\label{structvec3_a9cf75675afd7a55176fac1632e1ca485}} 
 {\footnotesize template$<$class U $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, const \mbox{\hyperlink{structvec3}{vec3}}$<$ U $>$ \&)

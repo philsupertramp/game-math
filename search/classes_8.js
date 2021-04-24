@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['set_60',['Set',['../structSet.html',1,'']]]
+  ['perceptron_68',['Perceptron',['../classPerceptron.html',1,'']]]
 ];

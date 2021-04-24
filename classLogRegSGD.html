@@ -69,51 +69,111 @@ $(function() {
 <div class="title">LogRegSGD Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for LogRegSGD:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classLogRegSGD.png" usemap="#LogRegSGD_map" alt=""/>
+  <map id="LogRegSGD_map" name="LogRegSGD_map">
+<area href="classClassifier.html" alt="Classifier" shape="rect" coords="0,0,81,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afd641912a68b8c0b2981585fb2cfc068"><td class="memItemLeft" align="right" valign="top"><a id="afd641912a68b8c0b2981585fb2cfc068"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>LogRegSGD</b> (double _eta=0.01, int iter=10, bool _shuffle=false, int _randomState=0)</td></tr>
 <tr class="separator:afd641912a68b8c0b2981585fb2cfc068"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1c07630b80dfa3cc256a99b3b5e7abe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogRegSGD.html#af1c07630b80dfa3cc256a99b3b5e7abe">fit</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)</td></tr>
-<tr class="separator:af1c07630b80dfa3cc256a99b3b5e7abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef4c82d4582b263409e37a1b6d461cbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogRegSGD.html#aef4c82d4582b263409e37a1b6d461cbd">fit</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y) override</td></tr>
+<tr class="separator:aef4c82d4582b263409e37a1b6d461cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e21cee4236b4f144cf507396849110f"><td class="memItemLeft" align="right" valign="top"><a id="a7e21cee4236b4f144cf507396849110f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>partial_fit</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)</td></tr>
 <tr class="separator:a7e21cee4236b4f144cf507396849110f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada0672a931e3a9fda5390fdb03092f6c"><td class="memItemLeft" align="right" valign="top"><a id="ada0672a931e3a9fda5390fdb03092f6c"></a>
-std::pair&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;, <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>shuffleData</b> ([[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, [[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)</td></tr>
-<tr class="separator:ada0672a931e3a9fda5390fdb03092f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb804d3fc6eb85ef8e5e41fa59777cc9"><td class="memItemLeft" align="right" valign="top"><a id="aeb804d3fc6eb85ef8e5e41fa59777cc9"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>net_input</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X)</td></tr>
-<tr class="separator:aeb804d3fc6eb85ef8e5e41fa59777cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8667a7de59e8b896322ebe9c210f0ef7"><td class="memItemLeft" align="right" valign="top"><a id="a8667a7de59e8b896322ebe9c210f0ef7"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>activation</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X)</td></tr>
-<tr class="separator:a8667a7de59e8b896322ebe9c210f0ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af71d495235d8f691374dae11f1c754ec"><td class="memItemLeft" align="right" valign="top"><a id="af71d495235d8f691374dae11f1c754ec"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>predict</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X)</td></tr>
-<tr class="separator:af71d495235d8f691374dae11f1c754ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ffba0eb63811c3261dd67269c7d7fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogRegSGD.html#ac7ffba0eb63811c3261dd67269c7d7fa">netInput</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X) override</td></tr>
+<tr class="separator:ac7ffba0eb63811c3261dd67269c7d7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa055e337c1c4cd70b699bf29165aeb3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogRegSGD.html#aa055e337c1c4cd70b699bf29165aeb3a">activation</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X) override</td></tr>
+<tr class="separator:aa055e337c1c4cd70b699bf29165aeb3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd288cfafbd38b0c6c66fd67d316df1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogRegSGD.html#a3bd288cfafbd38b0c6c66fd67d316df1">predict</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X) override</td></tr>
+<tr class="separator:a3bd288cfafbd38b0c6c66fd67d316df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c5d62d0e888834e00d33fddb6e2e78b"><td class="memItemLeft" align="right" valign="top"><a id="a2c5d62d0e888834e00d33fddb6e2e78b"></a>
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>costFunction</b> ([[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mat) override</td></tr>
+<tr class="separator:a2c5d62d0e888834e00d33fddb6e2e78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classClassifier"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classClassifier')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classClassifier.html">Classifier</a></td></tr>
+<tr class="memitem:adf323be2120dbc43c65e1aed08efd5cb inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="adf323be2120dbc43c65e1aed08efd5cb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Classifier</b> (double _eta, int _n_iter)</td></tr>
+<tr class="separator:adf323be2120dbc43c65e1aed08efd5cb inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82afce4aff01a4d7292eb43fb38329b8 inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8">initialize_weights</a> (size_t numRows, size_t numColumns=1)</td></tr>
+<tr class="separator:a82afce4aff01a4d7292eb43fb38329b8 inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3508f6b16b8e4e770d1fc6e31f8eced inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#ae3508f6b16b8e4e770d1fc6e31f8eced">costFunction</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
+<tr class="separator:ae3508f6b16b8e4e770d1fc6e31f8eced inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a69919d28c8561397a49ba11da4931fd2"><td class="memItemLeft" align="right" valign="top"><a id="a69919d28c8561397a49ba11da4931fd2"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>weights</b></td></tr>
-<tr class="separator:a69919d28c8561397a49ba11da4931fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89bad1751371b6d538ef1d28aa701723"><td class="memItemLeft" align="right" valign="top"><a id="a89bad1751371b6d538ef1d28aa701723"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>costs</b></td></tr>
-<tr class="separator:a89bad1751371b6d538ef1d28aa701723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bfe916ce0635c0b00c77731bf3ad77e"><td class="memItemLeft" align="right" valign="top"><a id="a3bfe916ce0635c0b00c77731bf3ad77e"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>shuffle</b> = false</td></tr>
 <tr class="separator:a3bfe916ce0635c0b00c77731bf3ad77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a119e1aea4cb481b72eb7eb932e5be9c0"><td class="memItemLeft" align="right" valign="top"><a id="a119e1aea4cb481b72eb7eb932e5be9c0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = false</td></tr>
-<tr class="separator:a119e1aea4cb481b72eb7eb932e5be9c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a654e74118d5644bc8e18ca5e5bcca997"><td class="memItemLeft" align="right" valign="top"><a id="a654e74118d5644bc8e18ca5e5bcca997"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>randomState</b></td></tr>
 <tr class="separator:a654e74118d5644bc8e18ca5e5bcca997"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb686856f5aa970cdc5b9af2ec687ebd"><td class="memItemLeft" align="right" valign="top"><a id="adb686856f5aa970cdc5b9af2ec687ebd"></a>
+<a class="el" href="classSGD.html">SGD</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sgd</b></td></tr>
+<tr class="separator:adb686856f5aa970cdc5b9af2ec687ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41d9bee7d63351fa7133702f9f20c299"><td class="memItemLeft" align="right" valign="top"><a id="a41d9bee7d63351fa7133702f9f20c299"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>sgdInit</b> = false</td></tr>
+<tr class="separator:a41d9bee7d63351fa7133702f9f20c299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_classClassifier"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classClassifier')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classClassifier.html">Classifier</a></td></tr>
+<tr class="memitem:a5d4d61496164c06deab141329b6c878f inherit pub_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a5d4d61496164c06deab141329b6c878f"></a>
+<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>weights</b></td></tr>
+<tr class="separator:a5d4d61496164c06deab141329b6c878f inherit pub_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8688dfb2318e40a7c2f3747b68c96bae inherit pub_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a8688dfb2318e40a7c2f3747b68c96bae"></a>
+<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>costs</b></td></tr>
+<tr class="separator:a8688dfb2318e40a7c2f3747b68c96bae inherit pub_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classClassifier"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classClassifier')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classClassifier.html">Classifier</a></td></tr>
+<tr class="memitem:ada5781f6955d4584bb9e8a24216ce654 inherit pro_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="ada5781f6955d4584bb9e8a24216ce654"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>eta</b></td></tr>
+<tr class="separator:ada5781f6955d4584bb9e8a24216ce654 inherit pro_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a262d07b1324365425b12bb08a859984a inherit pro_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a262d07b1324365425b12bb08a859984a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>n_iter</b></td></tr>
+<tr class="separator:a262d07b1324365425b12bb08a859984a inherit pro_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c3236f91e4f14965715caaca167dec8 inherit pro_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a5c3236f91e4f14965715caaca167dec8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = false</td></tr>
+<tr class="separator:a5c3236f91e4f14965715caaca167dec8 inherit pro_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af1c07630b80dfa3cc256a99b3b5e7abe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1c07630b80dfa3cc256a99b3b5e7abe">&#9670;&nbsp;</a></span>fit()</h2>
+<a id="aa055e337c1c4cd70b699bf29165aeb3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa055e337c1c4cd70b699bf29165aeb3a">&#9670;&nbsp;</a></span>activation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; LogRegSGD::activation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Activates a given input </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implements <a class="el" href="classClassifier.html#a5be8488df3ee4e0e0903877bb19069a8">Classifier</a>.</p>
+
+</div>
+</div>
+<a id="aef4c82d4582b263409e37a1b6d461cbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef4c82d4582b263409e37a1b6d461cbd">&#9670;&nbsp;</a></span>fit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,7 +201,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>randomState</b></td></
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -153,6 +213,66 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>randomState</b></td></
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>this </dd></dl>
+
+<p>Implements <a class="el" href="classClassifier.html#aabced42ad639a66e7b048e4a1dc988f9">Classifier</a>.</p>
+
+</div>
+</div>
+<a id="ac7ffba0eb63811c3261dd67269c7d7fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ffba0eb63811c3261dd67269c7d7fa">&#9670;&nbsp;</a></span>netInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; LogRegSGD::netInput </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>calculates the net-input (aka output) this is mostly the derivative of <code>activation</code> </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implements <a class="el" href="classClassifier.html#a0110e1eedbfae3c9a66f376868cbaffb">Classifier</a>.</p>
+
+</div>
+</div>
+<a id="a3bd288cfafbd38b0c6c66fd67d316df1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bd288cfafbd38b0c6c66fd67d316df1">&#9670;&nbsp;</a></span>predict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; LogRegSGD::predict </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Makes prediction for given input </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implements <a class="el" href="classClassifier.html#a0d47e1cccc5be1cdff3b202f48625afe">Classifier</a>.</p>
 
 </div>
 </div>
