@@ -26,7 +26,7 @@ protected:
 
 public:
     Matrix<double> weights; // Vector holding weights
-    Matrix<int> costs;      // Vector holding classification error per epoch
+    Matrix<double> costs;   // Vector holding classification error per epoch
 
     Classifier(double _eta, int _n_iter)
         : eta(_eta)

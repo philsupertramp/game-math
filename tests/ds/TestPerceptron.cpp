@@ -35,6 +35,7 @@ class PerceptronTestCase : public Test
 
         ppn.fit(A, B);
         assert(ppn.predict({ { 5.4, 0.2 } })(0, 0) == -1); // == -1
+        assert(ppn.predict({ { 5.1, 3.0 } })(0, 0) == 1);  // == 1
         //
         return true;
     }

@@ -1,27 +1,28 @@
 #pragma once
 
 #include "Classifier.h"
+#include "SGD.h"
 #include "math/Matrix.h"
 
+/**
+ * Adaline linear neuron implementation using statistic gradient decent
+ * for training of a vector of weights and a single bias.
+ *
+ * weights: shape [N+1 x 1]
+ * bias: shape [1, 1], first element of weights
+ *
+ * Note: only allows binary classification and uses a single layer of weights
+ *       see the description here [1] I found it very easy to understand and
+ *       implement.
+ *
+ *       - [1] http://rasbt.github.io/mlxtend/user_guide/classifier/Adaline/
+ */
 class AdalineSGD : public Classifier
 {
 public:
     bool shuffle;
     int randomState;
-
-private:
-    Matrix<double> update_weights(const Matrix<double>& xi, const Matrix<double>& target) {
-        auto output = netInput(xi);
-        auto error  = target - output;
-        for(size_t i = 0; i < weights.rows(); i++) {
-            for(size_t j = 0; j < weights.columns(); j++) {
-                if(i == 0) weights(i, j) += (error * eta)(i, j);
-                else
-                    weights(i, j) += ((xi.Transpose() * error) * eta)(i - 1, j);
-            }
-        }
-        return (error * error) * 0.5;
-    }
+    SGD sgd;
 
 public:
     explicit AdalineSGD(double _eta = 0.01, int iter = 10, bool _shuffle = false, int _randomState = 0)
@@ -29,6 +30,7 @@ public:
         , shuffle(_shuffle)
         , randomState(_randomState) {
         if(randomState != 0) Random::SetSeed(randomState);
+        sgd = SGD(_eta, iter, _shuffle);
     }
 
     /**
@@ -39,55 +41,16 @@ public:
      */
     void fit(const Matrix<double>& X, const Matrix<double>& y) override {
         initialize_weights(X.columns());
-        costs      = Matrix<int>(0, n_iter, 1);
-        auto xCopy = X;
-        auto yCopy = y;
-        for(int iter = 0; iter < n_iter; iter++) {
-            if(shuffle) {
-                auto fooPair = shuffleData(X, y);
-                xCopy        = fooPair.first;
-                yCopy        = fooPair.second;
-            }
-            double costSum = 0;
-            for(const auto& elem : zip(xCopy, yCopy)) {
-                costSum += update_weights(elem.first, elem.second).sumElements();
-            }
-
-            costs(iter, 0) = costSum / yCopy.rows();
-        }
+        sgd.fit(X, y, weights);
     }
 
 
     void partial_fit(const Matrix<double>& X, const Matrix<double>& y) {
         if(!w_initialized) { initialize_weights(X.columns()); }
-        if(y.rows() > 1) {
-            for(const auto& elem : zip(X, y)) { update_weights(elem.first, elem.second); }
-        } else {
-            update_weights(X, y);
-        }
+        sgd.partial_fit(X, y, weights);
     }
 
-    std::pair<Matrix<double>, Matrix<double>>
-    shuffleData([[maybe_unused]] const Matrix<double>& X, [[maybe_unused]] const Matrix<double>& y) {
-        return { X, y };
-    }
-
-    Matrix<double> netInput(const Matrix<double>& X) override {
-        Matrix<double> A, B;
-        A.Resize(weights.rows() - 1, weights.columns());
-        B.Resize(1, weights.columns());
-        for(size_t i = 0; i < weights.rows(); i++) {
-            for(size_t j = 0; j < weights.columns(); j++) {
-                if(i == 0) {
-                    B(i, j) = weights(i, j);
-                } else {
-                    A(i - 1, j) = weights(i, j);
-                }
-            }
-        }
-        B = Matrix<double>(B(0, 0), X.rows(), 1);
-        return (X * A) + B;
-    }
+    Matrix<double> netInput(const Matrix<double>& X) override { return sgd.netInput(X, weights); }
 
     /**
      * Do not use

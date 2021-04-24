@@ -61,6 +61,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/AdalineGD.h
             include/math/ds/AdalineSGD.h
             include/math/ds/LogRegSGD.h
+            include/math/ds/SGD.h
             )
     if(MATH_IMAGE_PROCESSING)
         set(LIB_SOURCES ${LIB_SOURCES}

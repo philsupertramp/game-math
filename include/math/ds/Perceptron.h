@@ -33,7 +33,7 @@ public:
      */
     void fit(const Matrix<double>& X, const Matrix<double>& y) override {
         initialize_weights(X.columns());
-        costs = Matrix<int>(0, n_iter, 1);
+        costs = Matrix<double>(0, n_iter, 1);
         for(int iter = 0; iter < n_iter; iter++) {
             int _errors   = 0;
             auto iterable = zip(X, y);
