@@ -26,7 +26,7 @@ set(LIB_SOURCES
         include/math/mat/mat4.h
         include/math/utils.h
         include/math/Random.h
-)
+        include/math/Tensor.h)
 
 if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_SOURCES

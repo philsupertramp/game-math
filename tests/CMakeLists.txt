@@ -40,6 +40,7 @@ add_test_source(mat/TestMat3.cpp)
 add_test_source(mat/TestMat4.cpp)
 
 add_test_source(TestMatrix.cpp)
+add_test_source(TestTensor.cpp)
 add_test_source(TestUtils.cpp)
 
 if (MATH_EXTENSIONS MATCHES "(numerics)")
