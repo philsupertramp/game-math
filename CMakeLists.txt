@@ -61,7 +61,16 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/AdalineGD.h
             include/math/ds/AdalineSGD.h
             include/math/ds/LogRegSGD.h
+            include/math/ds/layers/Layer.h
+            include/math/ds/layers/NormalizationLayer.h
+            include/math/ds/layers/RescaleLayer.h
+            include/math/ds/layers/ConvolutionalLayer.h
+            include/math/ds/layers/PoolingLayer.h
+            include/math/ds/layers/PaddingLayer.h
+            include/math/ds/SequentialModel.h
             include/math/ds/SGD.h
+            include/math/ds/layers/FlattenLayer.h
+            include/math/ds/layers/DenseLayer.h
             )
     if(MATH_IMAGE_PROCESSING)
         set(LIB_SOURCES ${LIB_SOURCES}
