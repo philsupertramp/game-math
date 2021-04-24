@@ -17,7 +17,7 @@ coverage:
 	genhtml cov.info -o coverage-report;
 
 test-coverage:
-	./build.sh cmake-debug-coverage -c -o="MATH_EXTENSIONS=numerics,ds" --target=ds_TestSequentialModel;
+	./build.sh cmake-debug-coverage -c -o="MATH_EXTENSIONS=numerics,ds,vis" --target=plot_TestPlot;
 	lcov -c -d cmake-debug-coverage --rc lcov_branch_coverage=1 -o test.info -f --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\*;
 	lcov -a test.info -a base.info -o cov.info;
 	genhtml cov.info -o coverage-report;

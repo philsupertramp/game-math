@@ -74,6 +74,12 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
     endif()
 endif ()
 
+if (MATH_EXTENSIONS MATCHES "(vis)")
+    set(LIB_SOURCES ${LIB_SOURCES}
+            include/math/visualization/plot.h
+        )
+endif ()
+
 add_library(math-lib SHARED ${LIB_SOURCES})
 set_target_properties(math-lib PROPERTIES LINKER_LANGUAGE CXX)
 
