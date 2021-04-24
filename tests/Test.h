@@ -12,8 +12,13 @@ public:
     bool extended      = false;
     virtual void run() = 0;
 
-    void AssertEqual(const double& a, const double& b) { assert(std::abs(a - b) <= TESTING_EPS); }
-    void AssertEqual(const int& a, const int& b) { assert(abs(a - b) <= TESTING_EPS); }
+    template<
+    typename U,
+    typename T,
+    typename = std::enable_if_t<(std::is_arithmetic<T>::value) && (std::is_arithmetic<U>::value)>>
+    void AssertEqual(const U& a, const T& b) {
+        assert(std::abs(double(a) - double(b)) <= TESTING_EPS);
+    }
     template<typename T>
     void AssertEqual(const vec2<T>& a, const vec2<T>& b) {
         assert(Math::Utils::distance(a, b) <= TESTING_EPS);
@@ -47,8 +52,10 @@ public:
     template<typename T>
     void AssertEqual(const Matrix<T>& a, const Matrix<T>& b) {
         a.assertSize(b);
-        for(int i = 0; i < a.rows(); ++i) {
-            for(int j = 0; j < a.columns(); ++j) { AssertEqual(a(i, j), b(i, j)); }
+        for(size_t i = 0; i < a.rows(); ++i) {
+            for(size_t j = 0; j < a.columns(); ++j) {
+                for(size_t c = 0; c < a.elements(); ++c) { AssertEqual(a(i, j, c), b(i, j, c)); }
+            }
         }
     }
 };

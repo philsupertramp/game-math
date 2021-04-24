@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 project(math-lib CXX)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_definitions(-DMATH_SILENCE_WARNING)
@@ -36,26 +36,18 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/utils.h
             include/math/numerics/utils.cpp
             include/math/numerics/lin_alg.h
-            include/math/numerics/lin_alg/newton.cpp
             include/math/numerics/lin_alg/newton.h
             include/math/numerics/lin_alg/backwardSub.h
-            include/math/numerics/lin_alg/backwardSub.cpp
             include/math/numerics/lin_alg/forwardSub.h
-            include/math/numerics/lin_alg/forwardSub.cpp
             include/math/numerics/lin_alg/LU.h
-            include/math/numerics/lin_alg/LU.cpp
             include/math/numerics/lin_alg/gaussSeidel.h
-            include/math/numerics/lin_alg/gaussSeidel.cpp
             include/math/numerics/ode.h
+            include/math/numerics/ode/ODESolver.h
             include/math/numerics/ode/ExplicitEuler.h
-            include/math/numerics/ode/ExplicitEuler.cpp
             include/math/numerics/ode/ode.h
-            include/math/numerics/ode/odeTrapez.cpp
             include/math/numerics/ode/odeTrapez.h
             include/math/numerics/ode/ode45.h
-            include/math/numerics/ode/ode45.cpp
             include/math/numerics/ode/odeBDF2.h
-            include/math/numerics/ode/odeBDF2.cpp
             )
 endif()
 if (MATH_EXTENSIONS MATCHES "(ds)")

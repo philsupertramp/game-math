@@ -13,10 +13,10 @@ class ODEBDF2TestCase : public Test
                                  return Matrix<double>({ { 0.0, 1.0 }, { -cos(y(0, 0)), 0.0 } });
                              } };
 
-        auto foo = odeBDF2(ode, tInterval, y0, options);
+        auto foo = ODESolver::odeBDF2(ode, tInterval, y0, options);
 
-        auto yResult = foo.first;
-        auto tResult = foo.second;
+        auto yResult = foo.Y;
+        auto tResult = foo.T;
 
         double tExpected[151] = {
             0,
@@ -252,7 +252,7 @@ class ODEBDF2TestCase : public Test
         });
         std::cout << yResult << std::endl;
         AssertEqual(yExpected, yResult);
-        for(unsigned long i = 0; i < yResult.rows(); i++) { AssertEqual(tExpected[i], tResult[i]); }
+        for(unsigned long i = 0; i < yResult.rows(); i++) { AssertEqual(tExpected[i], tResult(i, 0)); }
         return true;
     }
 

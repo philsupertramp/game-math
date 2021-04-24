@@ -35,6 +35,7 @@ public:
     #endif
 #endif
 
+    size_t dim = 4;
     vec4() {
         x = static_cast<T>(0.0f);
         y = static_cast<T>(0.0f);
@@ -53,7 +54,7 @@ public:
         z = v[2];
         w = v[3];
     }
-    constexpr vec4(const vec4<T>& v) {
+    vec4(const vec4<T>& v) {
         x = v[0];
         y = v[1];
         z = v[2];

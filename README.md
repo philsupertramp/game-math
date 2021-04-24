@@ -10,7 +10,7 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
   - 2D/3D Transformation utils to generate View/Transformation matrices in a 2D view space
 - Numerical Methods (extension `numerics`)
   - Solver for initial value problems of (stiff) ordinary differential equations (ode)
-    - Explicit Euler Method (`odeEulerExp`)
+    - Explicit Euler Method (`ODEExpEuler`)
     - Explicit 5 step Runge-Kutta-Method (`ode45`)
     - Trapezoid rule for odes (`odeTrapez`)
     - Backward differential formula (`odeBDF2`)
@@ -31,6 +31,9 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
 - Data Science:
   - multi layer NNs
   - Image classifier
+
+#### Build requirements
+`gcc, cmake, clang`
 
 # Installation
 
@@ -122,5 +125,4 @@ This requires `clang-format>=11.0.0`
 The project is under `MIT`-License see `LICENSE` for more
 
 ## Acknowledgements
-- Using ctest github-action: https://github.com/HorstBaerbel/action-ctest. Big thanks, it simplifies a lot.
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 set -e;
 set -o;
@@ -10,6 +10,9 @@ WITH_TESTS=0;
 BUILD_TYPE="Debug";
 BUILD_OPTIONS="";
 TEST_ONLY=0;
+CLEAR=0;
+SPECIFIC_TEST=0;
+TARGET="";
 
 for i in "$@"
 do
@@ -17,10 +20,21 @@ do
     -c|--coverage)
       WITH_COVERAGE=1
       WITH_TESTS=1
+      rm -rf $(find ${DIR_NAME} \( -iname '*.gcda' \))
+      shift
+      ;;
+    --clear)
+      CLEAR=1
       shift
       ;;
     --test)
       WITH_TESTS=1
+      shift
+      ;;
+    --target=*)
+      WITH_TESTS=1
+      SPECIFIC_TEST="${i#*=}"
+      TARGET="--target ${SPECIFIC_TEST}"
       shift
       ;;
     --test-only|-to)
@@ -40,6 +54,21 @@ do
 esac
 done
 
+function test_command() {
+  COMMAND="ctest --extra-verbose --output-on-failure"
+
+  # Run test suite with or without coverage
+  if [ ${WITH_COVERAGE:-0} == 1 ]; then
+	  COMMAND="${COMMAND} --coverage"
+    lcov -c -i -d . --rc lcov_branch_coverage=1 -o ../base.info --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\*;
+  fi
+  if [ "${SPECIFIC_TEST:-0}" != "0" ]; then
+      COMMAND="${COMMAND} -R ${SPECIFIC_TEST}"
+  fi
+
+  eval "${COMMAND}"
+}
+
 BUILD_OPTIONS_extension="-DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DMATH_SILENCE_WARNING=1 -DMATH_TESTS=${WITH_TESTS} -DMATH_COVERAGE=${WITH_COVERAGE}"
 
 BUILD_OPTIONS="${BUILD_OPTIONS} ${BUILD_OPTIONS_extension}"
@@ -51,20 +80,15 @@ then
   cd ${DIR_NAME};
   ctest --coverage --extra-verbose
 else
-  rm -rf ${DIR_NAME}
+  if [ ${CLEAR:-0} == 1 ]; then
+    rm -rf ${DIR_NAME};
+  fi
   mkdir -p ${DIR_NAME}
   (
     cd ${DIR_NAME};
     cmake ${BUILD_OPTIONS} -G "CodeBlocks - Unix Makefiles" ..
-    cmake --build . -- -j 3;
+    cmake --build . ${TARGET} -- -j 3;
 
-    # Run test suite with or without coverage
-    if [ ${WITH_COVERAGE:-0} == 1 ]; then
-	    lcov -c -i -d . --rc lcov_branch_coverage=1 -o ../base.info --include \*/include/math/\*;
-      ctest --coverage --extra-verbose
-    else if [ ${WITH_TESTS:-0} == 1 ]; then
-      ctest --extra-verbose
-      fi
-    fi
+    test_command
   )
 fi

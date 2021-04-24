@@ -247,7 +247,7 @@ class MatrixTestCase : public Test
     bool TestWhere() {
         Matrix<double> A({ { 0, 0 }, { 1, 1 }, { 0, 0 } });
         std::function<bool(double)> cond = [](double i) { return bool(i == 1); };
-        auto B = where(cond, A, { { { 1, 1 }, { 1, 1 }, { 1, 1 } } }, { { { 0, 0 }, { 0, 0 }, { 0, 0 } } });
+        auto B = where(cond, A, { { 1, 1 }, { 1, 1 }, { 1, 1 } }, { { 0, 0 }, { 0, 0 }, { 0, 0 } });
         std::cout << B;
         assert(B == A);
         return true;
@@ -255,11 +255,27 @@ class MatrixTestCase : public Test
 
     bool TestGetIndex() {
         Matrix<bool> A(false, 5, 5);
-        assert(A.GetIndex(4, 4) == 24);
-        assert(A.GetIndex(0, 0) == 0);
-        assert(A.GetIndex(2, 2) == 12);
-        assert(A.GetIndex(4, 0) == 20);
-        assert(A.GetIndex(4, 2) == 22);
+        AssertEqual(A.GetIndex(4, 4), 24);
+        AssertEqual(A.GetIndex(0, 0), 0);
+        AssertEqual(A.GetIndex(2, 2), 12);
+        AssertEqual(A.GetIndex(4, 0), 20);
+        AssertEqual(A.GetIndex(4, 2), 22);
+
+        Matrix<double> B({ { 1, 1 }, { 1, 1 } });
+        AssertEqual(B.GetIndex(0, 0), 0);
+        AssertEqual(B.GetIndex(0, 1), 1);
+        AssertEqual(B.GetIndex(1, 0), 2);
+        AssertEqual(B.GetIndex(1, 1), 3);
+
+        Matrix<double> C({ { { 1, 1 }, { 1, 1 } }, { { 1, 1 }, { 1, 1 } } });
+        AssertEqual(C.GetIndex(0, 0, 0), 0);
+        AssertEqual(C.GetIndex(0, 0, 1), 1);
+        AssertEqual(C.GetIndex(0, 1, 0), 2);
+        AssertEqual(C.GetIndex(0, 1, 1), 3);
+        AssertEqual(C.GetIndex(1, 0, 0), 4);
+        AssertEqual(C.GetIndex(1, 0, 1), 5);
+        AssertEqual(C.GetIndex(1, 1, 0), 6);
+        AssertEqual(C.GetIndex(1, 1, 1), 7);
         //        assert(A.GetIndex(5, 2)); //-> Index out of bounds
         return true;
     }
@@ -268,7 +284,6 @@ class MatrixTestCase : public Test
         Matrix<int> A({ { 2, 3, 2, 2 }, { 2, 2, 1, 2 } });
         assert(argmin(A) == 6);
         assert(argmax(A) == 1);
-
         return true;
     }
 
@@ -282,7 +297,7 @@ class MatrixTestCase : public Test
     }
 
     bool TestRandom() {
-        Matrix<double> A = Matrix<double>::Random(2, 2, -100, 100);
+        Matrix<double> A = Matrix<double>::Random(2, 2, 1, -100, 100);
         Matrix<double> B(0, 2, 2);
 
         assert(Corr(A, B) < 4);
@@ -309,6 +324,22 @@ class MatrixTestCase : public Test
         return true;
     }
 
+    bool TestGetSlice() {
+        Matrix<int> A({ { 1, 1, 1 }, { 2, 2, 2 }, { 3, 3, 3 } });
+        Matrix<int> B({ { 2, 2 }, { 3, 3 } });
+
+        AssertEqual(A.GetSlice(1, 2, 1, 2), B);
+
+        Matrix<int> C({ { 1, 2 }, { 3, 4 } });
+        Matrix<int> D({ { 1, 2 } });
+        Matrix<int> E({ { 3, 4 } });
+
+        std::cout << C(0) << C(1);
+        AssertEqual(C(0), D);
+        AssertEqual(C(1), E);
+        return true;
+    }
+
 public:
     void run() override {
         TestMatrixInit();
@@ -327,6 +358,7 @@ public:
         TestRandom();
         TestFromVPtr();
         TestVectorAccess();
+        TestGetSlice();
     }
 };
 

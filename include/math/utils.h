@@ -60,7 +60,7 @@ namespace Math::Utils {
     }
 
     template<class T>
-    mat4<T> ortho(float left, float right, float bottom, float top) {
+    mat4<T> ortho(const float& left, const float& right, const float& bottom, const float& top) {
         mat4<T> mat(1.0f);
         mat[0][0] = static_cast<T>(2) / (right - left);
         mat[1][1] = static_cast<T>(2) / (top - bottom);
@@ -71,7 +71,8 @@ namespace Math::Utils {
     }
 
     template<class T>
-    mat4<T> perspective(float FOV, float width, float height, float zNear, float zFar) {
+    mat4<T>
+    perspective(const float& FOV, const float& width, const float& height, const float& zNear, const float& zFar) {
         float halfTanFOV = tanf(FOV / static_cast<T>(2));
         float aspect     = width / height;
         return mat4<T>(
@@ -94,18 +95,18 @@ namespace Math::Utils {
     }
 
     template<class T>
-    mat4<T> angleAxis(float angle, vec3<T> axis) {
+    mat4<T> angleAxis([[maybe_unused]] const float& angle, [[maybe_unused]] const vec3<T>& axis) {
         //        return mat4<T>(axis.x, axis.y, axis.z, angle);
         return mat4<T>(0);
     }
 
     template<class T>
-    mat4<T> scale(mat4<T> mat, float factor) {
+    mat4<T> scale(mat4<T> mat, const float& factor) {
         return (mat4<T>::Unit() * factor) * mat;
     }
 
     template<class T>
-    mat4<T> rotate(mat4<T> m, float angle, vec3<T> u) {
+    mat4<T> rotate(mat4<T> m, const float& angle, vec3<T> u) {
         T const cosAngle = cosf(angle);
         T const sinAngle = sinf(angle);
 
@@ -139,14 +140,14 @@ namespace Math::Utils {
     }
 
     template<class T>
-    vec3<T> lerp(vec3<T> p1, vec3<T> p2, float v) {
+    vec3<T> lerp(vec3<T> p1, vec3<T> p2, const float& v) {
         T ax = p1[0];
         T ay = p1[1];
         T az = p1[2];
         return vec3<T>(ax + v * (p2[0] - ax), ay + v * (p2[1] - ay), az + v * (p2[2] - az));
     }
     template<class T>
-    vec4<T> lerp(vec4<T> p1, vec4<T> p2, float v) {
+    vec4<T> lerp(vec4<T> p1, vec4<T> p2, const float& v) {
         T ax = p1[0];
         T ay = p1[1];
         T az = p1[2];

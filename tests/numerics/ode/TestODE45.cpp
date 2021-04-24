@@ -9,10 +9,10 @@ class ODE45TestCase : public Test
         Matrix<double> y0             = { { 1.0 } };
         double h                      = 0.1;
 
-        auto foo = ode45(ode, tInterval, y0, h);
+        auto foo = ODESolver::ode45(ode, tInterval, y0, { h });
 
-        auto yResult = foo.first;
-        auto tResult = foo.second;
+        auto yResult = foo.Y;
+        auto tResult = foo.T;
 
         std::cout << yResult;
 
@@ -46,7 +46,7 @@ class ODE45TestCase : public Test
         };
 
         for(int i = 0; i < 21; i++) {
-            AssertEqual(tExpected[i], tResult[i]);
+            AssertEqual(tExpected[i], tResult(i, 0));
             AssertEqual(yExpected[i], yResult(i, 0));
         }
         return true;
@@ -69,10 +69,10 @@ class ODE45TestCase : public Test
         std::vector<double> tInterval = { 0.0, 5.0 };
         Matrix<double> y0             = { { 80, 30 } };
         double h                      = 1.0;
-        auto foo                      = ode45(ode, tInterval, y0, h);
+        auto foo                      = ODE45(ode, tInterval, y0, h);
 
-        auto yResult = foo.first;
-        auto tResult = foo.second;
+        auto yResult = foo.Y;
+        auto tResult = foo.T;
 
         double yExpected[6][2] = {
             { 80.0000, 30.0000 },
@@ -85,7 +85,7 @@ class ODE45TestCase : public Test
         double tExpected[6] = { 0, 1, 2, 3, 4, 5 };
 
         for(int i = 0; i < 6; i++) {
-            AssertEqual(tExpected[i], tResult[i]);
+            AssertEqual(tExpected[i], tResult(i, 0));
             AssertEqual(yExpected[i][0], yResult(i, 0));
             AssertEqual(yExpected[i][1], yResult(i, 1));
         }

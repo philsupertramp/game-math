@@ -20,3 +20,5 @@ coverage-report/
 flower_photos/
 image_processing/training/
 image_classification/
+in.png
+out.png

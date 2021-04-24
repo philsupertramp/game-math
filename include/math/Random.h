@@ -1,5 +1,8 @@
 #pragma once
 
+#include "vec/vec2.h"
+#include "vec/vec3.h"
+#include "vec/vec4.h"
 #include <ctime>
 #include <random>
 
@@ -24,5 +27,20 @@ public:
         std::mt19937 gen{ rd() };                    // create engine and seed it
         std::uniform_real_distribution<> dist(l, r); // create distribution for integers with [1; 9] range
         return dist(gen);
+    }
+    template<typename T>
+    static vec2<T> Get(double l = 0.0, double r = 1.0) {
+        if(!TimeInitialized) InitTime(false);
+        return vec2<T>(Get(), Get());
+    }
+    template<typename T>
+    static vec3<T> Get(double l = 0.0, double r = 1.0) {
+        if(!TimeInitialized) InitTime(false);
+        return vec3<T>(Get(), Get(), Get());
+    }
+    template<typename T>
+    static vec4<T> Get(double l = 0.0, double r = 1.0) {
+        if(!TimeInitialized) InitTime(false);
+        return vec4<T>(Get(), Get(), Get(), Get());
     }
 };

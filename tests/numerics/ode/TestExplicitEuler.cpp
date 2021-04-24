@@ -9,15 +9,16 @@ class ODEExplicitEulerTestCase : public Test
         std::vector<double> tInterval = { 0.0, 5.0 };
         Matrix<double> y0             = { { 5.0 } };
         double h                      = 1.0;
-        ODEResult foo                 = odeEulerExp(ode, tInterval, y0, h);
+        ODEOption option              = { h };
+        ODEResult foo                 = ODESolver::odeExplicitEuler(ode, tInterval, y0, option);
 
-        auto yResult = foo.first;
-        auto tResult = foo.second;
+        auto yResult = foo.Y;
+        auto tResult = foo.T;
 
         double tExpected[6] = { 0, 1, 2, 3, 4, 5 };
         double yExpected[6] = { 5, 10, 20, 40, 80, 160 };
         for(int i = 0; i < 6; i++) {
-            AssertEqual(tExpected[i], tResult[i]);
+            AssertEqual(tExpected[i], tResult(i, 0));
             AssertEqual(yExpected[i], yResult(i, 0));
         }
         return true;
@@ -25,7 +26,7 @@ class ODEExplicitEulerTestCase : public Test
 
     bool TestExplicitEulerRB() {
         auto ode = []([[maybe_unused]] double t, const Matrix<double>& y) {
-            Matrix<double> result(0, y.rows(), y.columns());
+            Matrix<double> result(0, y.rows(), y.columns(), 1);
 
             auto alpha = 0.25;
             auto beta  = -0.01;
@@ -39,10 +40,10 @@ class ODEExplicitEulerTestCase : public Test
         std::vector<double> tInterval = { 0.0, 5.0 };
         Matrix<double> y0             = { { 80, 30 } };
         double h                      = 1.0;
-        auto foo                      = odeEulerExp(ode, tInterval, y0, h);
+        auto foo                      = ODEExpEuler(ode, tInterval, y0, h);
 
-        auto yResult = foo.first;
-        auto tResult = foo.second;
+        auto yResult = foo.Y;
+        auto tResult = foo.T;
 
         double yExpected[6][2] = { { 80.0000, 30.0000 },
                                    { 76.0000, 24.0000 },
@@ -53,7 +54,7 @@ class ODEExplicitEulerTestCase : public Test
         double tExpected[6]    = { 0, 1, 2, 3, 4, 5 };
 
         for(int i = 0; i < 6; i++) {
-            AssertEqual(tExpected[i], tResult[i]);
+            AssertEqual(tExpected[i], tResult(i, 0));
             AssertEqual(yExpected[i][0], yResult(i, 0));
             AssertEqual(yExpected[i][1], yResult(i, 1));
         }

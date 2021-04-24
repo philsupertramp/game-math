@@ -2,13 +2,13 @@
 #include <cmath>
 
 Matrix<double> linspace(double start, double end, unsigned long num_elements) {
-    Matrix<double> result(0, 1, num_elements);
+    Matrix<double> result(0, 1, num_elements, 1);
     double h = (end - start) / (double)(num_elements - 1);
     for(size_t i = 0; i < num_elements; i++) { result(0, i) = start + double(i) * h; }
     return result;
 }
 
-Matrix<double> zeros(size_t rows, size_t columns) { return Matrix<double>(0, rows, columns); }
+Matrix<double> zeros(size_t rows, size_t columns) { return Matrix<double>(0, rows, columns, 1); }
 Matrix<double> ones(size_t rows, size_t columns) { return Matrix<double>(1, rows, columns); }
 
 Matrix<double> eye(size_t rows, size_t columns) {

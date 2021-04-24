@@ -9,6 +9,7 @@
 #include "numerics/lin_alg/newton.h"
 
 #include "numerics/ode/ExplicitEuler.h"
+#include "numerics/ode/ODESolver.h"
 #include "numerics/ode/ode.h"
 #include "numerics/ode/ode45.h"
 #include "numerics/ode/odeBDF2.h"

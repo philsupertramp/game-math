@@ -35,6 +35,7 @@ public:
     #endif
 #endif
 
+    size_t dim = 2;
     vec2() {
         x = static_cast<T>(0.0f);
         y = static_cast<T>(0.0f);
@@ -47,14 +48,14 @@ public:
         x = _v;
         y = _v;
     }
-    constexpr vec2(const vec2<T>& _v) {
+    vec2(const vec2<T>& _v) {
         x = _v.x;
         y = _v.y;
     }
 
     /* Misc functions */
-    inline float length() { return sqrtf(x * x + y * y); }
-    inline vec2<T> normalize() { return *this / length(); }
+    inline float length() const { return sqrtf(x * x + y * y); }
+    inline vec2<T> normalize() const { return vec2(x / length(), y / length()); }
 
     /* Arithmetic operators */
     friend vec2<T> operator+(vec2<T> lhs, const vec2<T>& rhs) { return lhs += rhs; }

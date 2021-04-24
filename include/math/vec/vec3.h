@@ -26,6 +26,8 @@ public:
         };
     };
 
+    size_t dim = 3;
+
 #if MATH_SILENCE_WARNING
     #if COMPILER_CLANG
         #pragma clang diagnostic pop
@@ -56,7 +58,7 @@ public:
         this->y = _v;
         this->z = _v;
     }
-    constexpr vec3(const vec3<T>& v) {
+    vec3(const vec3<T>& v) {
         x = v.x;
         y = v.y;
         z = v.z;
@@ -69,7 +71,7 @@ public:
         (float)y * rhs.z - (float)z * rhs.y, (float)z * rhs.x - (float)x * rhs.z, (float)x * rhs.y - y * rhs.x);
     }
     inline float length() const { return sqrtf(x * x + y * y + z * z); }
-    inline vec3<T> normalize() {
+    inline vec3<T> normalize() const {
         float len = length();
         return ((len != 0.0f) ? (*this / len) : *this);
     }
@@ -81,6 +83,11 @@ public:
     friend vec3<T> operator*(const T& lhs, vec3<T> rhs) { return rhs *= lhs; }
     friend T operator*(vec3<T> lhs, const vec3<T>& rhs) { return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z; }
     friend vec3<T> operator/(vec3<T> lhs, const T& rhs) { return lhs /= rhs; }
+
+    // element wise division
+    friend vec3<T> operator/(vec3<T> lhs, const vec3<T>& rhs) {
+        return { lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z };
+    }
 
     /* compound assignment */
     vec3<T>& operator+=(const vec3<T>& rhs) {
@@ -112,6 +119,8 @@ public:
     friend bool operator==(const vec3<T>& lhs, const vec3<T>& rhs) {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
     }
+    friend bool operator>(const vec3<T>& lhs, const vec3<T>& rhs) { return lhs.length() > rhs.length(); }
+    friend bool operator<(const vec3<T>& lhs, const vec3<T>& rhs) { return lhs.length() < rhs.length(); }
     /* explicit type casts */
 
 
@@ -165,3 +174,14 @@ vec3<T> build_vec3(void* in) {
     vec3<T> out(values[0], values[1], values[2]);
     return out;
 }
+namespace std {
+    template<typename T>
+    class numeric_limits<vec3<T>>
+    {
+    public:
+        static vec3<T> lowest() { return vec3<T>(std::numeric_limits<T>::lowest()); };
+        static vec3<T> max() { return vec3<T>(std::numeric_limits<T>::max()); };
+        static vec3<T> min() { return vec3<T>(std::numeric_limits<T>::min()); };
+        // One can implement other methods if needed
+    };
+} // namespace std
