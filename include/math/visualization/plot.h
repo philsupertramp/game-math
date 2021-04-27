@@ -109,8 +109,21 @@ void scatterPlot(const Matrix<double> &x, const Matrix<double> &y, int len, plot
 /**
  * each row of `mat` contains a vector
  * each 2 columns contain points
+ * Generates a temporary file like:
+ *
+    # X   Y
+      1   2
+      2   3
+
+      3   2
+      4   1
+ *
+ * and forwarding it into attrs.gnuplot
+ * as a plot of multiple datasets
  * @param mat
  * @param attrs
+ *
+ * http://www.gnuplotting.org/plotting-data/
  */
 void multiPlot(const Matrix<double>& mat, plotAttributes attrs){
     writeAttributes(attrs);
