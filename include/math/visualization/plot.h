@@ -129,28 +129,23 @@ void multiPlot(const Matrix<double>& mat, plotAttributes attrs){
     writeAttributes(attrs);
     time_t now = time(NULL);
     FILE* file = fopen("multiPlot_data.txt", "w");
-    fprintf(file, "# X\tY");
-    auto numElements = mat.columns() / 2;
-
-    for(int i=0; i<numElements; ++i){
+    fprintf(file, "# multiPlot_data.txt\n");
+    for(int i=0; i<mat.columns(); i+=2){
+        fprintf(file, "# X Y\n");
         for(size_t j = 0; j < mat.rows(); ++j) {
-            double elem = mat(j, i);
-            fprintf(file, "%g", elem);
-            fprintf(file, j == mat.rows() - 1 ? " " : ", ");
+            fprintf(file, "%g ", mat(j, i));
+            fprintf(file, "%g\n", mat(j, i+1));
         }
-        fprintf(file, "\n");
+        fprintf(file, "\n\n");
     }
-    for(int i=0; i<numElements; i++){
+    auto numElements = mat.columns() / 2;
+    for(int i=0; i<numElements; ++i){
         fprintf(attrs.gnuplot, i == 0 ? "plot " : "");
-        fprintf(attrs.gnuplot, "'multiPlot_data.txt' using %d:%d with lines title '%s'", (i*2), (i*2) + 1, attrs.plotNames[i]);
+        fprintf(attrs.gnuplot, "'multiPlot_data.txt' index %d with lines title '%s'", i, attrs.plotNames[i]);
         fprintf(attrs.gnuplot, i == (numElements-1) ? "\n" : ",");
-        std::cout << (i == 0 ? "plot " : "");
-        std::cout << "'multiPlot_data.txt' using "<< (i*2) <<":"<< (i*2) + 1<<" with lines title '"<< attrs.plotNames[i] << "'";
-        std::cout << (i == (numElements-1) ? "\n" : ",");
 
     }
     fprintf(attrs.gnuplot, "\n");
-    std::cout << "\n" << std::flush;
 }
 
 
