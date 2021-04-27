@@ -359,6 +359,18 @@ public:
     T& operator*() { return _data[0]; }
     T& operator*() const { return _data[0]; }
 
+    void SetColumn(const size_t& index, const Matrix<T>& other) {
+        bool isInColumns = other.columns() > other.rows();
+        auto rowCount    = isInColumns ? other.columns() : other.rows();
+        assert(rowCount == _rows);
+        assert(_element_size == other.elements());
+        for(size_t i = 0; i < rowCount; ++i) {
+            for(size_t elem = 0; elem < elements(); ++elem) {
+                _data[GetIndex(i, index, elem)] = other(isInColumns ? 0 : i, isInColumns ? i : 0, elem);
+            }
+        }
+    }
+
     void SetRow(const size_t& index, const Matrix<T>& other) {
         bool isInColumns = other.columns() > other.rows();
         auto colCount    = isInColumns ? other.columns() : other.rows();
@@ -866,4 +878,15 @@ T elemMean(const Matrix<T>& mat, const size_t& elemIndex) {
         }
     }
     return sum / index;
+}
+
+template<typename T>
+Matrix<T> diag(const Matrix<T>& in){
+    Matrix<T> out(0, in.rows(), 1, in.elements());
+    for(size_t i = 0; i < in.rows(); ++i){
+        for(size_t elem = 0; elem < in.elements(); ++elem){
+            out(i, 0, elem) = in(i, i, elem);
+        }
+    }
+    return out;
 }

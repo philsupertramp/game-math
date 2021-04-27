@@ -48,6 +48,8 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/ode/odeTrapez.h
             include/math/numerics/ode/ode45.h
             include/math/numerics/ode/odeBDF2.h
+
+            include/math/numerics/analysis/SupportValues.h
             )
 endif()
 if (MATH_EXTENSIONS MATCHES "(ds)")
