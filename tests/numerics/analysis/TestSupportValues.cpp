@@ -1,6 +1,7 @@
 #include "../../Test.h"
 
 #include <math/numerics/analysis/SupportValues.h>
+#include <math/visualization/plot.h>
 
 class MonomBaseTestCase
 : public Test
@@ -67,6 +68,14 @@ class LagrangeBaseTestCase
         Matrix<double> expected = xi.Apply([](const double &in){return in * in; });
 
         auto res = base.Evaluate(xi);
+
+        auto plotData = HorizontalConcat(HorizontalConcat(xi, expected), HorizontalConcat(xi, res));
+
+        FILE *gnuplot = popen("gnuplot --persist", "w");
+        const char* plotNames[2] = {"expected", "interpolated"};
+        plotAttributes attrs = {"Comparison of approximation with true value", "X", "Y", 0, 10, 0, "#008080", 0, gnuplot, &plotNames[0]};
+        multiPlot(plotData, attrs);
+
         AssertEqual(res, expected);
 
         return true;

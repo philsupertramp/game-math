@@ -48,7 +48,7 @@ typedef struct plotAttributes {
     char color[8];
     u_int isFirstPlot;
     FILE *gnuplot;
-    char **plotNames;
+    const char **plotNames;
 } plotAttributes;
 
 boundary getBoundaries(const Matrix<double>& x){
@@ -106,25 +106,38 @@ void scatterPlot(const Matrix<double> &x, const Matrix<double> &y, int len, plot
     pclose(attrs.gnuplot);
 }
 
+/**
+ * each row of `mat` contains a vector
+ * each 2 columns contain points
+ * @param mat
+ * @param attrs
+ */
 void multiPlot(const Matrix<double>& mat, plotAttributes attrs){
     writeAttributes(attrs);
     time_t now = time(NULL);
     FILE* file = fopen("multiPlot_data.txt", "w");
-    for(int j=0; j<mat.rows(); ++j){
-        for(int i=0; i<mat.columns(); ++i){
+    fprintf(file, "# X\tY");
+    auto numElements = mat.columns() / 2;
+
+    for(int i=0; i<numElements; ++i){
+        for(size_t j = 0; j < mat.rows(); ++j) {
             double elem = mat(j, i);
             fprintf(file, "%g", elem);
-            fprintf(file, i == mat.columns() - 1 ? " " : ", ");
+            fprintf(file, j == mat.rows() - 1 ? " " : ", ");
         }
         fprintf(file, "\n");
     }
-    for(int i=0; i<(mat.columns()/2); i+=2){
-        fprintf(attrs.gnuplot, i == 0 ? "visualization " : "");
-        fprintf(attrs.gnuplot, "'multiPlot_data.txt' using %d:%d with lines title '%s'", i, i + 1, attrs.plotNames[i]);
-        fprintf(attrs.gnuplot, i == mat.columns() / 2 ? "\n" : ",");
+    for(int i=0; i<numElements; i++){
+        fprintf(attrs.gnuplot, i == 0 ? "plot " : "");
+        fprintf(attrs.gnuplot, "'multiPlot_data.txt' using %d:%d with lines title '%s'", (i*2), (i*2) + 1, attrs.plotNames[i]);
+        fprintf(attrs.gnuplot, i == (numElements-1) ? "\n" : ",");
+        std::cout << (i == 0 ? "plot " : "");
+        std::cout << "'multiPlot_data.txt' using "<< (i*2) <<":"<< (i*2) + 1<<" with lines title '"<< attrs.plotNames[i] << "'";
+        std::cout << (i == (numElements-1) ? "\n" : ",");
 
     }
     fprintf(attrs.gnuplot, "\n");
+    std::cout << "\n" << std::flush;
 }
 
 
