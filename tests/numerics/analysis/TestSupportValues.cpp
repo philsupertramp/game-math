@@ -69,25 +69,6 @@ class LagrangeBaseTestCase
 
         auto res = base.Evaluate(xi);
 
-        Plot plot("Comparison of approximation with true value");
-
-        plot.AddData(HorizontalConcat(X, Y), "support values");
-        plot.AddData(HorizontalConcat(xi, res), "approximation");
-
-        plot();
-
-        ScatterPlot plot2("Data visualization");
-        plot2.AddData(X, Y, "support values");
-        plot2.xAxis("X");
-        plot2.yAxis("Y");
-        plot2();
-        AssertEqual(res, expected);
-
-        FunctionPlot plot3([](const double& in){ return in*in; }, "x^2");
-        plot3.AddData(-5, 5, 0.1, "support values");
-        plot3.xAxis("X");
-        plot3.yAxis("Y");
-        plot3();
         AssertEqual(res, expected);
 
         return true;

@@ -11,13 +11,14 @@ inline std::string format(const char* fmt, ...) {
     va_list vl;
     va_start(vl, fmt);
     int nsize = vsnprintf(buffer, size, fmt, vl);
+    std::string ret(buffer);
     if(size <= nsize) { //fail delete buffer and try again
         delete[] buffer;
         buffer = 0;
-        buffer = new char[nsize + 1]; //+1 for /0
-        nsize  = vsnprintf(buffer, size, fmt, vl);
+        buffer = new char[nsize - size + 2]; //+1 for /0
+        nsize  = vsnprintf(buffer, (nsize - size)+2, &fmt[size], vl);
+        ret += buffer;
     }
-    std::string ret(buffer);
     va_end(vl);
     delete[] buffer;
     return ret;

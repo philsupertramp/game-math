@@ -41,6 +41,7 @@ add_test_source(mat/TestMat4.cpp)
 
 add_test_source(TestMatrix.cpp)
 add_test_source(TestUtils.cpp)
+add_test_source(TestFormat.cpp)
 
 if (MATH_EXTENSIONS MATCHES "(numerics)")
     add_test_source(numerics/TestUtils.cpp)

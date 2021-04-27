@@ -1,29 +1,55 @@
 #include "../Test.h"
-#include <math/plot/plot.h>
+#include <math/numerics/analysis/SupportValues.h>
+#include <math/visualization/Plot.h>
 
 
 class PlotTestCase : public Test
 {
     bool TestPlot() {
 
-        FILE *gnuplot = popen("gnuplot --persist", "w");
-        char* plotNames[1] = {"Test123"};
-        plotAttributes attrs = {"x^2", "X", "Y", 0, 10, 0, "#008080", 0, gnuplot, &plotNames[0]};
-        plotFun([](const double& in){ return pow(in, 2); }, -10, 10, -10, 10, 0.1, attrs);
+        Matrix<double> X = linspace(-5, 5, 5).Transpose();
+        Matrix<double> Y = X.Apply([](const double &in){return in * in; });
 
-        FILE *gnuplot2 = popen("gnuplot --persist", "w");
-        plotAttributes attrs2 = {"x+2", "X", "Y", 0, 10, 0, "#008080", 0, gnuplot2, &plotNames[0]};
-        Matrix<double> A(0, 10, 1);
-        for(size_t i = 0; i < 10; ++i){
-            A(i, 0) = i;
-        }
-        auto B = A.Apply([](const double& x){return x + 2;});
-        multiPlot(HorizontalConcat(A, B), attrs2);
+        LagrangeBase base(X, Y);
+        Matrix<double> xi = linspace(-3.5, 3.5, 5).Transpose();
+        auto res = base.Evaluate(xi);
+
+        Plot plot("Comparison of approximation with true value");
+
+        plot.AddData(HorizontalConcat(X, Y), "support values");
+        plot.AddData(HorizontalConcat(xi, res), "approximation");
+
+        plot();
+
         return true;
     }
 
+    bool TestScatterPlot(){
+
+        Matrix<double> X = linspace(-5, 5, 5).Transpose();
+        Matrix<double> Y = X.Apply([](const double &in){return in * in; });
+        ScatterPlot plot2("Data visualization");
+        plot2.AddData(X, Y, "support values");
+        plot2.xAxis("X");
+        plot2.yAxis("Y");
+        plot2();
+
+        return true;
+    }
+    bool TestFunctionPlot(){
+        FunctionPlot plot3([](const double& in){ return in*in; }, "x^2");
+        plot3.AddData(-5, 5, 0.1, "support values");
+        plot3.xAxis("X");
+        plot3.yAxis("Y");
+        plot3();
+        return true;
+    }
 public:
-    void run() override { TestPlot(); }
+    void run() override {
+        TestPlot();
+        TestScatterPlot();
+        TestFunctionPlot();
+    }
 };
 
 int main() { PlotTestCase().run(); }
