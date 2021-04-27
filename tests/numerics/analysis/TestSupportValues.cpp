@@ -67,7 +67,6 @@ class LagrangeBaseTestCase
         Matrix<double> expected = xi.Apply([](const double &in){return in * in; });
 
         auto res = base.Evaluate(xi);
-        std::cout << res;
         AssertEqual(res, expected);
 
         return true;
@@ -78,7 +77,7 @@ class LagrangeBaseTestCase
         Matrix<double> Y({{1},{0},{1}});
         LagrangeBase base(X, Y);
 
-        std::cout << base;
+        AssertEqual(base.Function(), "1 * (-x/1.000 * -(x - 1.000)/2.000) + 1 * ((x + 1.000)/2.000 * x/1.000)");
         return true;
     }
 public:

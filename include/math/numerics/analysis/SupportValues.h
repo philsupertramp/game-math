@@ -19,7 +19,7 @@
 class PolynomialBase
 {
 public:
-    PolynomialBase(const Matrix<double>& X, const Matrix<double>& Y)
+    PolynomialBase([[maybe_unused]] const Matrix<double>& X, [[maybe_unused]] const Matrix<double>& Y)
     {}
 
     /**
@@ -148,8 +148,7 @@ public:
         Matrix<double> out(0, in.rows(), 1);
         for(size_t k = 0; k < in.rows(); ++k){
             for(size_t i = 0; i < y.rows(); ++i){
-                if(i == k) out(k, 0) += y(i, 0);
-                else out(k, 0) += y(i, 0) * GetCoefficient(in(k, 0), i);
+                out(k, 0) += y(i, 0) * GetCoefficient(in(k, 0), i);
             }
         }
         return out;
@@ -242,8 +241,8 @@ public:
         auto m = x.rows();
         Matrix<double> F(0, m, m);
         F.SetColumn(0, y);
-        for(int j = 1; j < m; ++j){
-            for(int i = j; i < m; ++i){
+        for(size_t j = 1; j < m; ++j){
+            for(size_t i = j; i < m; ++i){
                 F(i, j) = (F(i, j - 1) - F(i - 1, j - 1)) / (x(i, 0) - x(i - j, 0));
             }
         }
