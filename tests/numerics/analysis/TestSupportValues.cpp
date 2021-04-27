@@ -1,7 +1,7 @@
 #include "../../Test.h"
 
 #include <math/numerics/analysis/SupportValues.h>
-#include <math/visualization/plot.h>
+#include <math/visualization/Plot.h>
 
 class MonomBaseTestCase
 : public Test
@@ -64,18 +64,30 @@ class LagrangeBaseTestCase
         Matrix<double> Y = X.Apply([](const double &in){return in * in; });
         LagrangeBase base(X, Y);
 
-        Matrix<double> xi = linspace(-3.5, 3.5, 6).Transpose();
+        Matrix<double> xi = linspace(-3.5, 3.5, 5).Transpose();
         Matrix<double> expected = xi.Apply([](const double &in){return in * in; });
 
         auto res = base.Evaluate(xi);
 
-        auto plotData = HorizontalConcat(HorizontalConcat(xi, expected), HorizontalConcat(xi, res));
+        Plot plot("Comparison of approximation with true value");
 
-        FILE *gnuplot = popen("gnuplot --persist", "w");
-        const char* plotNames[2] = {"expected", "interpolated"};
-        plotAttributes attrs = {"Comparison of approximation with true value", "X", "Y", 0, 10, 0, "#008080", 0, gnuplot, &plotNames[0]};
-        multiPlot(plotData, attrs);
+        plot.AddData(HorizontalConcat(X, Y), "support values");
+        plot.AddData(HorizontalConcat(xi, res), "approximation");
 
+        plot();
+
+        ScatterPlot plot2("Data visualization");
+        plot2.AddData(X, Y, "support values");
+        plot2.xAxis("X");
+        plot2.yAxis("Y");
+        plot2();
+        AssertEqual(res, expected);
+
+        FunctionPlot plot3([](const double& in){ return in*in; }, "x^2");
+        plot3.AddData(-5, 5, 0.1, "support values");
+        plot3.xAxis("X");
+        plot3.yAxis("Y");
+        plot3();
         AssertEqual(res, expected);
 
         return true;
