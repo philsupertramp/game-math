@@ -49,6 +49,8 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/ode/ode45.h
             include/math/numerics/ode/odeBDF2.h
 
+            include/math/numerics/analysis/symb/Symbolic.h
+
             include/math/numerics/analysis/SupportValues.h
             )
 endif()
