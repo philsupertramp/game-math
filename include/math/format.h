@@ -16,7 +16,7 @@ inline std::string format(const char* fmt, ...) {
         delete[] buffer;
         buffer = 0;
         buffer = new char[nsize - size + 2]; //+1 for /0
-        nsize  = vsnprintf(buffer, (nsize - size)+2, &fmt[size], vl);
+        nsize  = vsnprintf(buffer, (nsize - size) + 2, &fmt[size], vl);
         ret += buffer;
     }
     va_end(vl);

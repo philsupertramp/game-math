@@ -22,9 +22,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <string.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <string.h>
 #include <time.h>
 
 
@@ -41,5 +41,5 @@ typedef struct plotAttributes {
     int lineStrength;
     u_int isStatPlot;
     const char* color;
-    std::vector<const char *> plotNames;
+    std::vector<const char*> plotNames;
 } plotAttributes;

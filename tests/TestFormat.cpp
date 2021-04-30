@@ -1,21 +1,20 @@
 #include "Test.h"
 #include <math/format.h>
 
-class FormatTestCase
-    : public Test
+class FormatTestCase : public Test
 {
-    bool TestFormat(){
+    bool TestFormat() {
         auto out = format("%d, 2, 3", 1);
 
         AssertEqual(out, "1, 2, 3");
         return true;
     }
 
-    bool TestOverflow(){
-        char foo[516] = "%d.";
+    bool TestOverflow() {
+        char foo[516]           = "%d.";
         std::string fooExpected = "1.";
         for(size_t i = 0; i < 512; ++i) {
-            foo[i+3] = '.';
+            foo[i + 3] = '.';
             fooExpected += ".";
         }
         auto out = format(foo, 1);
@@ -25,14 +24,15 @@ class FormatTestCase
 
         return true;
     }
+
 public:
-    void run() override{
+    void run() override {
         TestFormat();
         TestOverflow();
     }
 };
 
-int main(){
+int main() {
     FormatTestCase().run();
     return 0;
 }

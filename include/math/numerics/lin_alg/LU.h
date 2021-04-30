@@ -27,8 +27,8 @@
 
 
 std::pair<Matrix<double>, std::vector<unsigned int>> LU(const Matrix<double>& A) {
-    auto m = A.rows();
-    auto n = A.columns();
+    auto m           = A.rows();
+    auto n           = A.columns();
     Matrix<double> B = A;
 
     if(m != n) {

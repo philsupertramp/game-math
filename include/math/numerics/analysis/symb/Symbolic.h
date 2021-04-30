@@ -1,116 +1,309 @@
 #pragma once
 
 
-#include <sstream>
 #include <regex>
+#include <sstream>
+#include <utility>
 
 
 class MathNode
 {
-    size_t valSize = 0;
-public:
+protected:
+    size_t valSize  = 0;
+    bool isNegative = false;
 
-    MathNode* left = nullptr;
+public:
+    MathNode* left  = nullptr;
     MathNode* right = nullptr;
     char* value{};
 
-    explicit MathNode(const std::string& val)
-    {
-        value = new char[val.size() + 1];
+    explicit MathNode(const std::string& val) {
+        isNegative = val.find('-') != val.npos && val.size() > 1;
+        value      = new char[val.size() + 1];
         std::copy(val.begin(), val.end(), value);
         value[val.size()] = '\0'; // don't forget the terminating 0
-        valSize = val.size() + 1;
+        valSize           = val.size() + 1;
     }
-    MathNode(const MathNode& other)
-    {
-        std::memcpy(this->value, other.value, other.valSize * sizeof(char));
+    MathNode(const MathNode& other) {
+        valSize    = other.valSize;
+        isNegative = other.isNegative;
+        value      = (char*)malloc(other.valSize);
+        strcpy(value, other.value);
+        left  = other.left;
+        right = other.right;
+    }
+
+    virtual double Evaluate() const = 0;
+
+    friend std::ostream& operator<<(std::ostream& ostr, const MathNode& other) {
+        if(other.left != nullptr) ostr << other.left;
+        ostr << other.value;
+        if(other.right != nullptr) ostr << other.right;
+        return ostr;
+    }
+    friend std::ostream& operator<<(std::ostream& ostr, MathNode* other) {
+        if(other->left != nullptr) ostr << other->left;
+        ostr << other->value;
+        if(other->right != nullptr) ostr << other->right;
+        return ostr;
     }
 };
-class Symbolic
-: public MathNode
-{
-
-};
-
-class Operator
-: public MathNode
+class Symbolic : public MathNode
 {
 public:
-    Operator(const std::string& name)
-    : MathNode(name)
-    {}
+    double evaluationValue = 1.0;
+
+    Symbolic(const std::string& name)
+        : MathNode(name) { }
+
+    Symbolic(const Symbolic& other)
+        : MathNode(other) { }
+
+    double Evaluate() const override { return isNegative ? evaluationValue * (-1.0) : evaluationValue; }
 };
 
-namespace Operators {
-    Operator* ADDITION       = new Operator("+");
-    Operator* SUBTRACTION    = new Operator("-");
-    Operator* MULTIPLICATION = new Operator("*");
-    Operator* DIVISION       = new Operator("/");
-    Operator* POWER          = new Operator("^");
-    Operator* ROOT           = new Operator("sqrt");
+class Operator : public MathNode
+{
+    std::function<double(double, double)> op;
+
+public:
+    Operator(const std::string& name, std::function<double(double, double)> fun)
+        : MathNode(name)
+        , op(std::move(fun)) { }
+
+    Operator(const Operator& other)
+        : MathNode(other) {
+        op = other.op;
+    }
+
+    [[nodiscard]] double Evaluate() const override {
+        assert(left != nullptr && right != nullptr);
+        return op(left->Evaluate(), right->Evaluate());
+    }
+};
+
+enum OperatorType {
+    TYPE_ADDITION       = 0,
+    TYPE_SUBTRACTION    = 1,
+    TYPE_MULTIPLICATION = 2,
+    TYPE_DIVISION       = 3,
+    TYPE_POWER          = 4
+};
+
+enum OperatorValue : char {
+    VALUE_ADDITION       = '+',
+    VALUE_SUBTRACTION    = '-',
+    VALUE_MULTIPLICATION = '*',
+    VALUE_DIVISION       = '/',
+    VALUE_POWER          = '^'
+};
+
+Operator* GenerateOperator(OperatorType type) {
+    switch(type) {
+        case TYPE_ADDITION: return new Operator("+", [](double a, double b) { return a + b; });
+        case TYPE_SUBTRACTION: return new Operator("-", [](double a, double b) { return a - b; });
+        case TYPE_MULTIPLICATION: return new Operator("*", [](double a, double b) { return a * b; });
+        case TYPE_DIVISION: return new Operator("/", [](double a, double b) { return a / b; });
+        case TYPE_POWER: return new Operator("^", [](double a, double b) { return pow(a, b); });
+    }
 }
 
-class Number
-: public MathNode
+class Number : public MathNode
 {
 public:
     Number(const std::string& val)
-    : MathNode(val)
-    {}
+        : MathNode(val) { }
+
+    [[nodiscard]] double Evaluate() const override { return atof(value); }
 };
+
+enum MathNodeType {
+    NodeType_Operator = 0,
+    NodeType_Symbolic = 1,
+    NodeType_Numeric  = 2,
+};
+
+const std::regex symbol_regex("([-]?[A-Za-z_]{1}[A-Za-z0-9_]*)");
+const std::regex number_regex("([-]?[0-9]+)");
+const std::regex operator_regex("([-+*/\\^]+)");
+
+std::regex GetRegex(MathNodeType type) {
+    switch(type) {
+        case NodeType_Symbolic: return symbol_regex;
+        case NodeType_Numeric: return number_regex;
+        default: return operator_regex;
+    }
+}
+
 
 class Equation
 {
-    std::vector<MathNode*> nodes;
+    MathNode* baseNode;
+    std::vector<Symbolic*> symbols;
+
 public:
-    explicit Equation(const char* val){
+    explicit Equation(const char* val) {
         std::string eq(val);
 
         Generate(eq);
     }
-    void Generate(const std::string& eq){
+    /**
+     * Idea:
+     *
+     *          x + 1
+     *            | cut
+     *            +
+     *         /     \
+     *        x      1
+     * Ignores parentheses for now
+     * @param eq string representation of equation
+     */
+    void Generate(const std::string& eq) {
         auto openParentheses = eq.find('(');
-        bool hasParentheses = openParentheses != eq.npos;
-        MathNode* leftSide;
-        MathNode* rightSide;
-        std::regex symbol_regex("([\\w0-9]+)");
-        std::regex number_regex("([0-9]+)");
+        bool hasParentheses  = openParentheses != eq.npos;
+        MathNode* node;
+        std::string right;
 
-        if(hasParentheses){
+        if(hasParentheses) {
             // build parentheses-stack for left side
-        }
-        else {
+        } else {
             // build left side from beginning until first operator
             // allow early exit
-            while(1) {
-                auto addStart = eq.find(Operators::ADDITION->value);
-                if(addStart != eq.npos) {
-                    leftSide = Operators::ADDITION;
-                    auto leftLeft = eq.substr(0, addStart-1);
-                    {
-                        auto num_begin = std::sregex_iterator(leftLeft.begin(), leftLeft.end(), number_regex);
-                        auto num_end   = std::sregex_iterator();
-                        if(std::distance(num_begin, num_end) > 1){
-                            //error
-                            std::cerr << "ERROR!!!!" << std::endl;
-                        }
-                        for(std::sregex_iterator i = num_begin; i != num_end; ++i) {
-                            std::smatch match     = *i;
-                            leftSide->left = new Number(match.str());
-                        }
-                    }
-                    break;
-                }
-                eq.find(Operators::SUBTRACTION->value);
-            }
+            node = createNode(eq);
         }
+        baseNode = node;
     }
 
-    void Print(){
-        for(auto node: nodes){
-            std::cout << node->value;
-        }
+    void Print() {
+        std::cout << baseNode;
         std::cout << std::endl;
     }
 
+    template<typename... Args>
+    double Evaluate(Args... args) {
+        assert(sizeof...(args) == symbols.size());
+        SetSymbols(0, args...);
+
+        return baseNode->Evaluate();
+    }
+    template<typename... Args>
+    void SetSymbols(const int& index, double val, Args... args) {
+        symbols[index]->evaluationValue = val;
+        SetSymbols(index + 1, args...);
+    }
+    void SetSymbols([[maybe_unused]] const int& index) { }
+
+    bool HasSymbol(Symbolic* sym) {
+        for(auto elem : symbols) {
+            if(elem == sym) return true;
+        }
+        return false;
+    }
+
+private:
+    std::pair<size_t, Operator*> GetOperator(const std::string& valString) {
+        size_t addStart = 0, subStart = 0, mulStart = 0, divStart = 0, powStart = 0;
+        size_t retries = 0;
+        while(retries < 3) {
+            addStart = valString.find(OperatorValue::VALUE_ADDITION, addStart + 1);
+            if(addStart != valString.npos && addStart != 0) {
+                return { addStart, GenerateOperator(OperatorType::TYPE_ADDITION) };
+            }
+            subStart = valString.find(OperatorValue::VALUE_SUBTRACTION, subStart + 1);
+            if(subStart != valString.npos && subStart != 0) {
+                return { subStart, GenerateOperator(OperatorType::TYPE_SUBTRACTION) };
+            }
+            mulStart = valString.find(OperatorValue::VALUE_MULTIPLICATION, mulStart + 1);
+            if(mulStart != valString.npos && subStart != 0) {
+                return { mulStart, GenerateOperator(OperatorType::TYPE_MULTIPLICATION) };
+            }
+            divStart = valString.find(OperatorValue::VALUE_DIVISION, divStart + 1);
+            if(divStart != valString.npos && divStart != 0) {
+                return { divStart, GenerateOperator(OperatorType::TYPE_DIVISION) };
+            }
+            powStart = valString.find(OperatorValue::VALUE_POWER, powStart + 1);
+            if(powStart != valString.npos && powStart != 0) {
+                return { powStart, GenerateOperator(OperatorType::TYPE_POWER) };
+            }
+            retries++;
+        }
+        return {};
+    }
+    MathNode* createNode(const std::string& valString) {
+        auto operatorRes = GetOperator(valString);
+        MathNode* node   = operatorRes.second;
+        auto opStart     = operatorRes.first;
+        if(opStart != valString.npos) {
+            auto leftSide  = valString.substr(0, opStart);
+            auto rightSide = valString.substr(opStart + 1, valString.size() - opStart);
+            if(!appendLeft(node, leftSide)) {
+                // append not happening, string contains multiple values
+                node->left = createNode(leftSide);
+            }
+            if(!appendRight(node, rightSide)) { node->right = createNode(rightSide); }
+        }
+        return node;
+    }
+    bool appendLeft(MathNode* leftSide, const std::string& leftLeft) {
+        auto regex_end      = std::sregex_iterator();
+        bool hasSingleValue = false;
+        {
+            auto num_begin  = std::sregex_iterator(leftLeft.begin(), leftLeft.end(), number_regex);
+            auto numMatches = std::distance(num_begin, regex_end);
+            if(numMatches > 1) {
+                //error
+                return false;
+            }
+            for(std::sregex_iterator i = num_begin; i != regex_end; ++i) {
+                std::smatch match = *i;
+                leftSide->left    = new Number(match.str());
+            }
+            hasSingleValue = numMatches > 0;
+        }
+        {
+            auto symbol_begin = std::sregex_iterator(leftLeft.begin(), leftLeft.end(), symbol_regex);
+
+            auto symbolCount = std::distance(symbol_begin, regex_end);
+            if(symbolCount > 1 || (symbolCount > 0 && hasSingleValue)) { return false; }
+            for(std::sregex_iterator i = symbol_begin; i != regex_end; ++i) {
+                std::smatch match = *i;
+                auto symbol       = new Symbolic(match.str());
+                leftSide->left    = symbol;
+                if(!HasSymbol(symbol)) symbols.push_back(symbol);
+            }
+            hasSingleValue = hasSingleValue || symbolCount > 0;
+        }
+        return hasSingleValue;
+    }
+
+    bool appendRight(MathNode* node, const std::string& eq) {
+        bool hasSingleValue = false;
+        auto regex_end      = std::sregex_iterator();
+        {
+            // num regex
+            auto num_begin  = std::sregex_iterator(eq.begin(), eq.end(), number_regex);
+            auto numMatches = std::distance(num_begin, regex_end);
+            if(numMatches > 1) { return false; }
+            for(std::sregex_iterator i = num_begin; i != regex_end; ++i) {
+                std::smatch match = *i;
+                node->right       = new Number(match.str());
+            }
+            hasSingleValue = numMatches > 0;
+        }
+        {
+            // symbol regex
+            auto symbol_begin = std::sregex_iterator(eq.begin(), eq.end(), symbol_regex);
+
+            auto symbolCount = std::distance(symbol_begin, regex_end);
+            if(symbolCount > 1 || (symbolCount > 0 && hasSingleValue)) { return false; }
+            for(std::sregex_iterator i = symbol_begin; i != regex_end; ++i) {
+                std::smatch match = *i;
+                auto symbol       = new Symbolic(match.str());
+                node->right       = symbol;
+                if(!HasSymbol(symbol)) symbols.push_back(symbol);
+            }
+            hasSingleValue = hasSingleValue || symbolCount > 0;
+        }
+        return hasSingleValue;
+    }
 };

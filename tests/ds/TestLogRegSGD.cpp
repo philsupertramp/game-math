@@ -22,9 +22,9 @@ class LogRegSGDTestCase : public Test
         std::cout << A;
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         Matrix<double> B                      = where(condition, A, { { 1 } }, { { -1 } });
-        auto maxVal = max(A);
-        auto minVal = min(A);
-        A = A.Apply([minVal, maxVal](const double& in){return (in - minVal) / (maxVal-minVal) ;});
+        auto maxVal                           = max(A);
+        auto minVal                           = min(A);
+        A = A.Apply([minVal, maxVal](const double& in) { return (in - minVal) / (maxVal - minVal); });
 
         logRegSgd.fit(A, B);
 

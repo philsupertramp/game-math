@@ -45,7 +45,7 @@ public:
         Resize(1, colCount);
         for(size_t j = 0; j < _columns; j++) { _data[GetIndex(0, j)] = val[j]; }
     }
-    Matrix() {}
+    Matrix() { }
 
     Matrix(const std::initializer_list<std::initializer_list<T>>& lst) {
         int i = 0, j = 0;
@@ -83,7 +83,7 @@ public:
     Matrix(Matrix const& other) {
         Resize(other._rows, other._columns, other._element_size);
         std::memcpy(this->_data, other._data, other._dataSize * sizeof(T));
-        this->needsFree     = true;
+        this->needsFree = true;
     };
 
     ~Matrix() {
@@ -414,7 +414,7 @@ public:
         _columns      = cols;
         _element_size = elementSize;
         _data         = (T*)malloc(rows * cols * elementSize * sizeof(T));
-        _dataSize = rows * cols * elementSize;
+        _dataSize     = rows * cols * elementSize;
         needsFree     = true;
     }
 
@@ -461,13 +461,12 @@ public:
     Matrix<T> GetComponents(const size_t& index) const {
         assert(index < _element_size);
         Matrix<T> out(0, _rows, _columns, 1);
-        for(size_t i = 0; i < _rows; ++i){
-            for(size_t j = 0; j < _columns; ++j){
-                out(i, j, 0) = _data[GetIndex(i, j, index)];
-            }
+        for(size_t i = 0; i < _rows; ++i) {
+            for(size_t j = 0; j < _columns; ++j) { out(i, j, 0) = _data[GetIndex(i, j, index)]; }
         }
         return out;
     }
+
 private:
     /**
      * Helper to test if Matrix can have a determinant
@@ -482,7 +481,7 @@ private:
 
     T* _data;
     size_t _dataSize = 0;
-    bool needsFree = false;
+    bool needsFree   = false;
 };
 
 /**
@@ -881,12 +880,10 @@ T elemMean(const Matrix<T>& mat, const size_t& elemIndex) {
 }
 
 template<typename T>
-Matrix<T> diag(const Matrix<T>& in){
+Matrix<T> diag(const Matrix<T>& in) {
     Matrix<T> out(0, in.rows(), 1, in.elements());
-    for(size_t i = 0; i < in.rows(); ++i){
-        for(size_t elem = 0; elem < in.elements(); ++elem){
-            out(i, 0, elem) = in(i, i, elem);
-        }
+    for(size_t i = 0; i < in.rows(); ++i) {
+        for(size_t elem = 0; elem < in.elements(); ++elem) { out(i, 0, elem) = in(i, i, elem); }
     }
     return out;
 }
