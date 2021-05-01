@@ -236,7 +236,7 @@ private:
         if(opStart != valString.npos) {
             auto leftSide  = valString.substr(0, opStart);
             auto rightSide = valString.substr(opStart + 1, valString.size() - opStart);
-            if(!appendLeft(node, leftSide)) {
+            if(!appendSide(node, leftSide, true)) {
                 // append not happening, string contains multiple values
                 node->left = createNode(leftSide);
             }
