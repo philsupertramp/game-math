@@ -244,11 +244,11 @@ private:
         }
         return node;
     }
-    bool appendLeft(MathNode* leftSide, const std::string& leftLeft) {
+    bool appendSide(MathNode* node, const std::string& valString, bool appendLeft) {
         auto regex_end      = std::sregex_iterator();
         bool hasSingleValue = false;
         {
-            auto num_begin  = std::sregex_iterator(leftLeft.begin(), leftLeft.end(), number_regex);
+            auto num_begin  = std::sregex_iterator(valString.begin(), valString.end(), number_regex);
             auto numMatches = std::distance(num_begin, regex_end);
             if(numMatches > 1) {
                 //error
@@ -256,50 +256,30 @@ private:
             }
             for(std::sregex_iterator i = num_begin; i != regex_end; ++i) {
                 std::smatch match = *i;
-                leftSide->left    = new Number(match.str());
+                auto symbol    = new Number(match.str());
+                if(appendLeft) {
+                    node->left    = symbol;
+                }
+                else {
+                    node->right = symbol;
+                } 
             }
             hasSingleValue = numMatches > 0;
         }
         {
-            auto symbol_begin = std::sregex_iterator(leftLeft.begin(), leftLeft.end(), symbol_regex);
+            auto symbol_begin = std::sregex_iterator(valString.begin(), valString.end(), symbol_regex);
 
             auto symbolCount = std::distance(symbol_begin, regex_end);
             if(symbolCount > 1 || (symbolCount > 0 && hasSingleValue)) { return false; }
             for(std::sregex_iterator i = symbol_begin; i != regex_end; ++i) {
                 std::smatch match = *i;
                 auto symbol       = new Symbolic(match.str());
-                leftSide->left    = symbol;
-                if(!HasSymbol(symbol)) symbols.push_back(symbol);
-            }
-            hasSingleValue = hasSingleValue || symbolCount > 0;
-        }
-        return hasSingleValue;
-    }
-
-    bool appendRight(MathNode* node, const std::string& eq) {
-        bool hasSingleValue = false;
-        auto regex_end      = std::sregex_iterator();
-        {
-            // num regex
-            auto num_begin  = std::sregex_iterator(eq.begin(), eq.end(), number_regex);
-            auto numMatches = std::distance(num_begin, regex_end);
-            if(numMatches > 1) { return false; }
-            for(std::sregex_iterator i = num_begin; i != regex_end; ++i) {
-                std::smatch match = *i;
-                node->right       = new Number(match.str());
-            }
-            hasSingleValue = numMatches > 0;
-        }
-        {
-            // symbol regex
-            auto symbol_begin = std::sregex_iterator(eq.begin(), eq.end(), symbol_regex);
-
-            auto symbolCount = std::distance(symbol_begin, regex_end);
-            if(symbolCount > 1 || (symbolCount > 0 && hasSingleValue)) { return false; }
-            for(std::sregex_iterator i = symbol_begin; i != regex_end; ++i) {
-                std::smatch match = *i;
-                auto symbol       = new Symbolic(match.str());
-                node->right       = symbol;
+                if(appendLeft) {
+                    node->left    = symbol;
+                }
+                else {
+                    node->right = symbol;
+                } 
                 if(!HasSymbol(symbol)) symbols.push_back(symbol);
             }
             hasSingleValue = hasSingleValue || symbolCount > 0;
