@@ -240,7 +240,7 @@ private:
                 // append not happening, string contains multiple values
                 node->left = createNode(leftSide);
             }
-            if(!appendRight(node, rightSide)) { node->right = createNode(rightSide); }
+            if(!appendSide(node, right Side, false)) { node->right = createNode(rightSide); }
         }
         return node;
     }
