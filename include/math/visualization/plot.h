@@ -39,7 +39,7 @@ typedef struct plotAttributes {
     const char* yAxis;
     int pointStrength;
     int lineStrength;
-    u_int isStatPlot;
+    unsigned int isStatPlot;
     const char* color;
     std::vector<const char*> plotNames;
 } plotAttributes;
