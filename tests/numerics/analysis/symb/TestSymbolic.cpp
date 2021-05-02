@@ -60,10 +60,45 @@ class SymbolicTestCase : public Test
         return true;
     }
 
+    bool TestParentheses() {
+        Equation equation("2 * (x - 1)");
+        AssertEqual(equation.Evaluate(1), 0);
+        AssertEqual(equation.Evaluate(2), 2);
+        AssertEqual(equation.Evaluate(60), 118);
+        equation = Equation("2 * (x - (1 * y)) - 2");
+
+        equation.Print();
+        AssertEqual(equation.Evaluate(1, 1), -2);
+        AssertEqual(equation.Evaluate(1, 2), -4);
+
+        equation = Equation("2 * (x - 1 + y) - 2");
+
+        equation.Print();
+        AssertEqual(equation.Evaluate(1, 1), 0);
+        AssertEqual(equation.Evaluate(1, 2), 2);
+
+        equation = Equation("(x - 1 + y) * 2 - 2");
+
+        equation.Print();
+        AssertEqual(equation.Evaluate(1, 1), 0);
+        AssertEqual(equation.Evaluate(1, 2), 2);
+
+        equation = Equation("2 * (x - 1) - 2");
+
+        equation.Print();
+        equation.PrintTree();
+        AssertEqual(equation.Evaluate(1), -2);
+        AssertEqual(equation.Evaluate(2), 0);
+        AssertEqual(equation.Evaluate(3), 2);
+        AssertEqual(equation.Evaluate(99), 194);
+        return true;
+    }
+
 public:
     void run() override {
         TestMathematicalProperties();
         TestNegative();
+        TestParentheses();
     }
 };
 

@@ -10,7 +10,7 @@ class FormatTestCase : public Test
         return true;
     }
 
-    bool TestOverflow() {
+    bool TestFormatOverflow() {
         char foo[516]           = "%d.";
         std::string fooExpected = "1.";
         for(size_t i = 0; i < 512; ++i) {
@@ -19,16 +19,39 @@ class FormatTestCase : public Test
         }
         auto out = format(foo, 1);
 
-        std::cout << "out: " << out << std::endl << "exp: " << fooExpected << std::endl;
         AssertEqual(out, fooExpected);
 
+        return true;
+    }
+
+    bool TestStrip() {
+        std::string in = "1 + 2 + 3 - 5(x*2 + 3)";
+        AssertEqual(strip(in), "1+2+3-5(x*2+3)");
+
+        return true;
+    }
+
+    bool TestSplit() {
+        std::string in = "Hey there, my friend.";
+        auto out       = split(in, ' ');
+
+        std::vector<std::string> ref = { "Hey", "there,", "my", "friend." };
+
+        for(size_t i = 0; i < ref.size(); ++i) { AssertEqual(ref[i], out[i]); }
+
+        std::string in2         = "Hey";
+        auto out2               = split(in2);
+        std::vector<char*> ref2 = { "H", "e", "y" };
+        for(int i = 0; i < ref2.size(); ++i) { AssertEqual(ref2[i], out2[i]); }
         return true;
     }
 
 public:
     void run() override {
         TestFormat();
-        TestOverflow();
+        TestFormatOverflow();
+        TestStrip();
+        TestSplit();
     }
 };
 
