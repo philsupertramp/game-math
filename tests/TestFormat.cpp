@@ -39,10 +39,10 @@ class FormatTestCase : public Test
 
         for(size_t i = 0; i < ref.size(); ++i) { AssertEqual(ref[i], out[i]); }
 
-        std::string in2         = "Hey";
-        auto out2               = split(in2);
-        std::vector<char*> ref2 = { "H", "e", "y" };
-        for(int i = 0; i < ref2.size(); ++i) { AssertEqual(ref2[i], out2[i]); }
+        std::string in2               = "Hey";
+        auto out2                     = split(in2);
+        std::vector<std::string> ref2 = { "H", "e", "y" };
+        for(size_t i = 0; i < ref2.size(); ++i) { AssertEqual(ref2[i], out2[i]); }
         return true;
     }
 

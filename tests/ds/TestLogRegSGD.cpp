@@ -36,8 +36,17 @@ class LogRegSGDTestCase : public Test
         return true;
     }
 
+    bool TestNoCost() {
+        auto logRegSgd = LogRegSGD(0.15, 25);
+        AssertEqual(logRegSgd.costFunction({ { 1 } }), 0.0);
+        return true;
+    }
+
 public:
-    void run() override { TestLogReg(); }
+    void run() override {
+        TestLogReg();
+        TestNoCost();
+    }
 };
 
 int main() {

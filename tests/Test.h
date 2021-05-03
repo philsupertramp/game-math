@@ -59,4 +59,7 @@ public:
             }
         }
     }
+
+    void AssertTrue(const bool& a) { assert(a); }
+    void AssertFalse(const bool& a) { assert(!a); }
 };
