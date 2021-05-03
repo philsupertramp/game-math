@@ -78,9 +78,10 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> Sigmoid(<span class="keyword">const</span> <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>&amp; in) {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">// real sigmoid in lambda</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">return</span> in.Apply([](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; a) { <span class="keywordflow">return</span> sigmoid(a); });</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">return</span> in.<a class="code" href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Apply</a>([](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; a) { <span class="keywordflow">return</span> sigmoid(a); });</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassMatrix_html_aab08352f6e89b3dfb616c10998db4570"><div class="ttname"><a href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Matrix::Apply</a></div><div class="ttdeci">Matrix&lt; T &gt; Apply(const std::function&lt; T(T)&gt; &amp;fun) const</div><div class="ttdef"><b>Definition:</b> Matrix.h:284</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

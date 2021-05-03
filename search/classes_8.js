@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['perceptron_68',['Perceptron',['../classPerceptron.html',1,'']]]
+  ['perceptron_78',['Perceptron',['../classPerceptron.html',1,'']]]
 ];

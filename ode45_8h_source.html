@@ -102,7 +102,7 @@ $(function() {
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    { { 5179.0 / 57600.0, 0, 7571.0 / 16695.0, 393.0 / 640.0, -92097.0 / 339200.0, 187.0 / 2100.0, 1.0 / 40.0 } });</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    y.SetRow(0, y0);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    y.<a class="code" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">SetRow</a>(0, y0);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    t(0, 0) = tInterval[0];</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> l = 0; l &lt; n - 1; l++) {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        t(l + 1, 0) = t(l, 0) + h;</div>
@@ -116,11 +116,12 @@ $(function() {
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            k.SetRow(i_k, fun(t(l, 0) + c(0, i_k) * h, y_k));</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">auto</span> y_l = y(l) + (b5 * k) * h;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        y.SetRow(l + 1, y_l);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        y.<a class="code" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">SetRow</a>(l + 1, y_l);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> { y, t };</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassMatrix_html_a323be6fd46556adf05dbbd2d4e54a4c4"><div class="ttname"><a href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">Matrix::SetRow</a></div><div class="ttdeci">void SetRow(const size_t &amp;index, const Matrix&lt; T &gt; &amp;other)</div><div class="ttdef"><b>Definition:</b> Matrix.h:444</div></div>
 <div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:123</div></div>
 <div class="ttc" id="astructODEResult_html"><div class="ttname"><a href="structODEResult.html">ODEResult</a></div><div class="ttdef"><b>Definition:</b> ode.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->

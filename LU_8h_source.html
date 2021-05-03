@@ -77,8 +77,8 @@ $(function() {
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;std::pair&lt;Matrix&lt;double&gt;, std::vector&lt;unsigned int&gt;&gt; LU(<span class="keyword">const</span> <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>&amp; A) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">auto</span> m = A.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">auto</span> n = A.<a class="code" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">auto</span> m           = A.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">auto</span> n           = A.<a class="code" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>();</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> B = A;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span>(m != n) {</div>
@@ -105,8 +105,8 @@ $(function() {
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">if</span>(index != col) {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keyword">auto</span> matrixSafe = B(col);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            B.SetRow(col, B(index));</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            B.SetRow(index, matrixSafe);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            B.<a class="code" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">SetRow</a>(col, B(index));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            B.<a class="code" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">SetRow</a>(index, matrixSafe);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> row = col + 1; row &lt; n; row++) { B(row, col) /= B(col, col); }</div>
@@ -119,6 +119,7 @@ $(function() {
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> { B, p };</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassMatrix_html_a323be6fd46556adf05dbbd2d4e54a4c4"><div class="ttname"><a href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">Matrix::SetRow</a></div><div class="ttdeci">void SetRow(const size_t &amp;index, const Matrix&lt; T &gt; &amp;other)</div><div class="ttdef"><b>Definition:</b> Matrix.h:444</div></div>
 <div class="ttc" id="aclassMatrix_html_a5330adf02b284293259eb9f7c9acaa99"><div class="ttname"><a href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">Matrix::rows</a></div><div class="ttdeci">size_t rows() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:118</div></div>
 <div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:123</div></div>
 </div><!-- fragment --></div><!-- contents -->

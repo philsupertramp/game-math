@@ -134,9 +134,9 @@ $(function() {
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            output = netInput(xi, weights);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">auto</span> error = target - output;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        weights.SetRow(0, weights(0) + eta * error);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        weights.<a class="code" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">SetRow</a>(0, weights(0) + eta * error);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">auto</span> delta = eta * (xi.<a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>() * error);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; weights.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>() - 1; i++) { weights.SetRow(i + 1, weights(i + 1) + delta(i)); }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; weights.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>() - 1; i++) { weights.<a class="code" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">SetRow</a>(i + 1, weights(i + 1) + delta(i)); }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> ((error * error) * 0.5).sumElements() / target.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
@@ -167,9 +167,10 @@ $(function() {
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassMatrix_html_a323be6fd46556adf05dbbd2d4e54a4c4"><div class="ttname"><a href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">Matrix::SetRow</a></div><div class="ttdeci">void SetRow(const size_t &amp;index, const Matrix&lt; T &gt; &amp;other)</div><div class="ttdef"><b>Definition:</b> Matrix.h:444</div></div>
 <div class="ttc" id="aclassMatrix_html_a5330adf02b284293259eb9f7c9acaa99"><div class="ttname"><a href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">Matrix::rows</a></div><div class="ttdeci">size_t rows() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:118</div></div>
 <div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:123</div></div>
-<div class="ttc" id="aclassMatrix_html_a953e5e97f987f47e261dd830cac64087"><div class="ttname"><a href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Matrix::Transpose</a></div><div class="ttdeci">constexpr Matrix&lt; T &gt; Transpose() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:176</div></div>
+<div class="ttc" id="aclassMatrix_html_a953e5e97f987f47e261dd830cac64087"><div class="ttname"><a href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Matrix::Transpose</a></div><div class="ttdeci">constexpr Matrix&lt; T &gt; Transpose() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:175</div></div>
 <div class="ttc" id="aclassSGD_html"><div class="ttname"><a href="classSGD.html">SGD</a></div><div class="ttdef"><b>Definition:</b> SGD.h:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
