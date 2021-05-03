@@ -3,12 +3,15 @@
 build/*
 out/
 *-release-*/
+DeepLearningPython35/
 
 # IDE files
 .idea/
 .vscode
 massif.out.*
 octave-workspace
+*.RData
+*.Rhistory
 
 # code coverage
 cov*.info

@@ -5,7 +5,8 @@
 class DSUtilsTestCase : public Test
 {
     bool TestUtils() {
-        // TODO
+        AssertEqual(relu(-1), 0);
+        AssertEqual(relu(1), 1);
         return true;
     }
 

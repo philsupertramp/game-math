@@ -48,7 +48,16 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/ode/odeTrapez.h
             include/math/numerics/ode/ode45.h
             include/math/numerics/ode/odeBDF2.h
+
+            include/math/numerics/analysis/SupportValues.h
             )
+endif()
+if(MATH_EXTENSION MATCHES "(symb)")
+    set(LIB_SOURCES
+        ${LIB_SOURCES}
+
+        include/math/symb/Symbolic.h
+    )
 endif()
 if (MATH_EXTENSIONS MATCHES "(ds)")
     set(LIB_SOURCES
@@ -72,6 +81,13 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
         find_package(ImageMagick COMPONENTS Magick++)
         include_directories(${ImageMagick_INCLUDE_DIRS})
     endif()
+endif ()
+
+if (MATH_EXTENSIONS MATCHES "(vis)")
+    set(LIB_SOURCES ${LIB_SOURCES}
+            include/math/visualization/plot.h
+            include/math/visualization/Plot.h
+        )
 endif ()
 
 add_library(math-lib SHARED ${LIB_SOURCES})

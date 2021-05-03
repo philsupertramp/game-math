@@ -18,8 +18,9 @@ for i in "$@"
 do
   case $i in
     -c|--coverage)
-      WITH_COVERAGE=1
-      WITH_TESTS=1
+      WITH_COVERAGE=1;
+      WITH_TESTS=1;
+      echo "Purging coverage files..."
       rm -rf $(find ${DIR_NAME} \( -iname '*.gcda' \))
       shift
       ;;

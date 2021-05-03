@@ -19,6 +19,7 @@ public:
     void AssertEqual(const U& a, const T& b) {
         assert(std::abs(double(a) - double(b)) <= TESTING_EPS);
     }
+    void AssertEqual(const std::string& a, const std::string& b) { assert(a.compare(b) == 0); }
     template<typename T>
     void AssertEqual(const vec2<T>& a, const vec2<T>& b) {
         assert(Math::Utils::distance(a, b) <= TESTING_EPS);
@@ -58,4 +59,7 @@ public:
             }
         }
     }
+
+    void AssertTrue(const bool& a) { assert(a); }
+    void AssertFalse(const bool& a) { assert(!a); }
 };
