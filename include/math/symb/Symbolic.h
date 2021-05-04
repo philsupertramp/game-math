@@ -6,6 +6,9 @@
 #include <utility>
 
 
+/**
+ * Node type representation
+ */
 enum MathNodeType {
     NodeType_Operator    = 0,
     NodeType_Symbolic    = 1,
@@ -14,7 +17,48 @@ enum MathNodeType {
     NodeType_Any         = 4,
 };
 
+/**
+ * Priority definition for AST generation, used in shunting-yard algorithm,
+ * the Equation class builds nodes using a stack based on priorities
+ */
+enum OperatorPriority {
+    OPClassUnknown     = 0,
+    OPClassLine        = 1,
+    OPClassDot         = 2,
+    OPClassParentheses = 3,
+};
 
+/**
+ * Representation of operator type used in factories
+ */
+enum OperatorType {
+    TYPE_ADDITION          = 0,
+    TYPE_SUBTRACTION       = 1,
+    TYPE_MULTIPLICATION    = 2,
+    TYPE_DIVISION          = 3,
+    TYPE_POWER             = 4,
+    TYPE_PARENTHESES_OPEN  = 5,
+    TYPE_PARENTHESES_CLOSE = 6,
+};
+
+/**
+ * representation of operator value in char
+ */
+enum OperatorValue : char {
+    VALUE_ADDITION          = '+',
+    VALUE_SUBTRACTION       = '-',
+    VALUE_MULTIPLICATION    = '*',
+    VALUE_DIVISION          = '/',
+    VALUE_POWER             = '^',
+    VALUE_PARENTHESES_OPEN  = '(',
+    VALUE_PARENTHESES_CLOSE = ')',
+};
+
+/**
+ * regex factory for node types
+ * @param type
+ * @return regex for given type
+ */
 std::regex GetRegex(MathNodeType type) {
     static const std::regex symbol_regex("([-]?[A-Za-z_]{1}[A-Za-z0-9_]*)");
     static const std::regex number_regex("([-]?[0-9]+)");
@@ -35,18 +79,28 @@ std::regex GetRegex(MathNodeType type) {
  */
 class MathNode
 {
+public:
+    //! helper to determine whether a node is negated or not
+    bool isNegative     = false;
+    //! helper to determine if node is within parentheses
+    bool hasParentheses = false;
+    //! node type representation
+    MathNodeType type;
+    //! next node on left side
+    std::shared_ptr<MathNode> left  = nullptr;
+    //! next node on right side
+    std::shared_ptr<MathNode> right = nullptr;
+    //! char representation of value
+    char* value{};
 protected:
+    //! helper to store size of value
     size_t valSize = 0;
 
 public:
-    bool isNegative     = false;
-    bool hasParentheses = false;
-
-    MathNodeType type;
-    std::shared_ptr<MathNode> left  = nullptr;
-    std::shared_ptr<MathNode> right = nullptr;
-    char* value{};
-
+    /**
+     * Default constructor
+     * @param val
+     */
     explicit MathNode(const std::string& val) {
         isNegative = val.find('-') != std::string::npos && val.size() > 1;
         value      = new char[val.size() + 1];
@@ -54,6 +108,11 @@ public:
         value[val.size()] = '\0'; // don't forget the terminating 0
         valSize           = val.size() + 1;
     }
+
+    /**
+     * Copy constructor
+     * @param other
+     */
     MathNode(const MathNode& other) {
         valSize        = other.valSize;
         isNegative     = other.isNegative;
@@ -65,8 +124,17 @@ public:
         type  = other.type;
     }
 
+    /**
+     * Interface function for evaluation of node,
+     * needs to be implemented to add new type of node
+     * @return
+     */
     [[nodiscard]] virtual double Evaluate() const = 0;
 
+    /**
+     * Getter for string representation of node
+     * @return
+     */
     [[nodiscard]] std::string GetString() const {
         std::stringstream out;
         if(left != nullptr) out << left;
@@ -75,6 +143,12 @@ public:
         return out.str();
     }
 
+    /**
+     * beautified output operator
+     * @param ostr
+     * @param other
+     * @return
+     */
     friend std::ostream& operator<<(std::ostream& ostr, const MathNode& other) {
         if(other.hasParentheses) ostr << "(";
         if(other.left != nullptr) ostr << other.left;
@@ -83,6 +157,12 @@ public:
         if(other.hasParentheses) ostr << ")";
         return ostr;
     }
+    /**
+     * beautified output operator
+     * @param ostr
+     * @param other
+     * @return
+     */
     friend std::ostream& operator<<(std::ostream& ostr, MathNode* other) {
         if(other->hasParentheses) ostr << "(";
         if(other->left != nullptr) ostr << other->left;
@@ -93,19 +173,23 @@ public:
     }
 };
 
-enum OperatorPriority {
-    OPClassUnknown     = 0,
-    OPClassLine        = 1,
-    OPClassDot         = 2,
-    OPClassParentheses = 3,
-};
+/**
+ * Left-to-right operator representation
+ */
 class Operator : public MathNode
 {
 public:
+    //! Operator implementation, this will be evaluated during `Evaluate` calls
     std::function<double(double, double)> op;
-
+    //! Operator priority, used to create AST
     OperatorPriority priority;
 
+    /**
+     * default constructor
+     * @param name
+     * @param fun
+     * @param operatorPriority
+     */
     Operator(const std::string& name, std::function<double(double, double)> fun, OperatorPriority operatorPriority)
         : MathNode(name)
         , op(std::move(fun))
@@ -113,38 +197,31 @@ public:
         type = MathNodeType::NodeType_Operator;
     }
 
+    /**
+     * copy constructor
+     * @param other
+     */
     Operator(const Operator& other)
         : MathNode(other) {
         op       = other.op;
         priority = other.priority;
     }
 
+    /**
+     * evaluates op(left, right)
+     * @return
+     */
     [[nodiscard]] double Evaluate() const override {
         assert(left != nullptr && right != nullptr);
         return op(left->Evaluate(), right->Evaluate());
     }
 };
 
-enum OperatorType {
-    TYPE_ADDITION          = 0,
-    TYPE_SUBTRACTION       = 1,
-    TYPE_MULTIPLICATION    = 2,
-    TYPE_DIVISION          = 3,
-    TYPE_POWER             = 4,
-    TYPE_PARENTHESES_OPEN  = 5,
-    TYPE_PARENTHESES_CLOSE = 6,
-};
-
-enum OperatorValue : char {
-    VALUE_ADDITION          = '+',
-    VALUE_SUBTRACTION       = '-',
-    VALUE_MULTIPLICATION    = '*',
-    VALUE_DIVISION          = '/',
-    VALUE_POWER             = '^',
-    VALUE_PARENTHESES_OPEN  = '(',
-    VALUE_PARENTHESES_CLOSE = ')',
-};
-
+/**
+ * Operator factory, returns shared_ptr to operator with given type
+ * @param type
+ * @return
+ */
 std::shared_ptr<Operator> GenerateOperator(OperatorType type) {
     switch(type) {
         case TYPE_ADDITION:
@@ -182,68 +259,114 @@ std::shared_ptr<Operator> GenerateOperator(OperatorType type) {
     OperatorPriority::OPClassUnknown);
 }
 
+/**
+ * Representation of operand
+ * can be numerical/symbolical
+ */
 class Operand : public MathNode
 {
 public:
+    /**
+     * default constructor
+     * @param name
+     */
     explicit Operand(const std::string& name)
         : MathNode(name) { }
 };
+
+/**
+ * Symbolic representation as node
+ * holds a variable symbol.
+ * Set `evaluationValue` prior to calling `Evaluate` to compute desired value
+ */
 class Symbolic : public Operand
 {
 public:
+    //! value which replaces symbol during evaluation
     double evaluationValue = 1.0;
 
+    /**
+     * default constructor
+     * @param name
+     */
     explicit Symbolic(const std::string& name)
         : Operand(name) {
         type = MathNodeType::NodeType_Symbolic;
     }
 
+    /**
+     * copy constructor
+     * @param other
+     */
     Symbolic(const Symbolic& other)
-        : Operand(other) { }
+        : Operand(other) {
+        type = other.type;
+        evaluationValue = other.evaluationValue;
+    }
 
+    /**
+     * returns given evaluation value
+     * @return
+     */
     [[nodiscard]] double Evaluate() const override { return isNegative ? evaluationValue * (-1.0) : evaluationValue; }
 };
 
+/**
+ * Representation of numerical value
+ */
 class Number : public Operand
 {
+    //! real numerical value
     double numericValue;
 
 public:
+    /**
+     * default constructor
+     * @param val
+     */
     explicit Number(const std::string& val)
         : Operand(val) {
         type         = MathNodeType::NodeType_Numeric;
         numericValue = strtod(value, nullptr);
     }
 
+    /**
+     * returns real value
+     * @return if isNegative -numericValue else numericValue
+     */
     [[nodiscard]] double Evaluate() const override { return isNegative ? numericValue * (-1.0) : numericValue; }
 };
 
 /**
  * Representation of mathematical statement
- *
- * \example
- * \code{.cpp}
- * Equation("x + 1");
- * Equation("x + (1 - y)");
- * Equation("x + (1 - y)^2");
- * ...
- * \endcode
- *
  */
 class Equation
 {
 private:
+    //! storage for containing symbols
     std::vector<std::shared_ptr<Symbolic>> symbols;
 
 public:
+    //! Holds the base node of the abstract syntax tree
     std::shared_ptr<MathNode> baseNode = nullptr;
 
+    /**
+     * default constructor for char* representation
+     * @param val
+     */
     explicit Equation(const char* val) {
         std::string eq(val);
         baseNode = createAST(eq);
     }
+    /**
+     * default constructor for string representation
+     * @param val
+     */
     explicit Equation(const std::string& val) { baseNode = createAST(val); }
 
+    /**
+     * Prints equation into std::cout
+     */
     void Print() {
         std::cout << baseNode;
         std::cout << std::endl;
@@ -253,19 +376,11 @@ public:
      * var arg method to evaluate equation using variable amount of symbols,
      * yet if called with parameters, all parameters need to be present.
      *
-     * **Needs to be called with #symbols**
+     * **Needs to be called with number symbols as number parameters**
      *
      * @tparam VArgs variable amount of arguments
      * @param args arguments passed for symbols, with index representing index of symbol in symbols
      * @return Evaluation of equation
-     *
-     *
-     *  \example
-     *  \code{.cpp}
-     *  Equation eq("x * 2 + y");
-     *  // requires 2 arguments to be passed, first value for `x`, second for `y`
-     *  assert(eq.Evaluate(1, 2) == 4);
-     * \endcode
      */
     template<typename... VArgs>
     double Evaluate(VArgs... args) {
@@ -273,6 +388,10 @@ public:
         SetSymbols(0, args...);
         return baseNode->Evaluate();
     }
+    /**
+     * Evaluate equation with preset values
+     * @return
+     */
     double Evaluate() { return baseNode->Evaluate(); }
 
     /**
@@ -305,6 +424,10 @@ public:
         return false;
     }
 
+    /**
+     * Helper to recreate string representation based on tree
+     * @return
+     */
     [[nodiscard]] std::string GetString() const { return baseNode->GetString(); }
 
     /**

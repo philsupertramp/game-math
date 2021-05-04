@@ -20,14 +20,24 @@
 class Classifier
 {
 protected:
-    double eta; // Learning rate
-    int n_iter; // number epochs
+    //! Learning rate
+    double eta;
+    //! number epochs
+    int n_iter;
+    //! flag to initialize weights only once
     bool w_initialized = false;
 
 public:
-    Matrix<double> weights; // Vector holding weights
-    Matrix<double> costs;   // Vector holding classification error per epoch
+    //! Vector holding weights
+    Matrix<double> weights;
+    //! Vector holding classification error per epoch
+    Matrix<double> costs;
 
+    /**
+     * default constructor
+     * @param _eta
+     * @param _n_iter
+     */
     Classifier(double _eta, int _n_iter)
         : eta(_eta)
         , n_iter(_n_iter) { }
@@ -48,7 +58,7 @@ public:
      * @param y: array-like with shape: [n_samples, 1]
      * @return this
      */
-    virtual void fit(const Matrix<double>&, const Matrix<double>&) = 0;
+    virtual void fit(const Matrix<double>& X, const Matrix<double>& y) = 0;
 
     /**
      * Makes prediction for given input

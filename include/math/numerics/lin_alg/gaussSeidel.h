@@ -1,4 +1,6 @@
 /**
+ * @file
+ *
  * Gaussian elimination to solve systems of linear equations.
  * Uses column major pivot elements to reduce number of operations.
  */
@@ -9,7 +11,12 @@
 #include "forwardSub.h"
 #include <vector>
 
-
+/**
+ * Gauss-Seidel algorithm to evaluate system of linear equations.
+ * @param A
+ * @param b
+ * @return A \ b
+ */
 Matrix<double> gaussSeidel(const Matrix<double>& A, const Matrix<double>& b) {
     auto LR = LU(A);
 

@@ -1,3 +1,8 @@
+/**
+ * @file
+ *
+ * Implements explicit Euler-Method to solve ordinary differential equations.
+ */
 #pragma once
 
 #include "../utils.h"
@@ -5,6 +10,14 @@
 #include <functional>
 #include <vector>
 
+/**
+ * implementation of explicit euler method
+ * @param fun
+ * @param tInterval
+ * @param y0
+ * @param h
+ * @return
+ */
 ODEResult ODEExpEuler(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, double h = 0.0) {
     size_t dim       = tInterval.size();
     size_t elem_size = y0.columns();

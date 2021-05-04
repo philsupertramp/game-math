@@ -1,4 +1,6 @@
 /**
+ * @file
+ *
  * Regular backward substitution.
  * Calculates result given upper right triangular matrix z=R*b => R^-1b = z
  */
@@ -8,7 +10,12 @@
 #include <iostream>
 #include <vector>
 
-
+/**
+ * Backward-substitution calculates R*b = z
+ * @param R
+ * @param b
+ * @return R*b
+ */
 Matrix<double> backwardSub(const Matrix<double>& R, const Matrix<double>& b) {
     size_t m = R.rows();
     size_t n = R.columns();

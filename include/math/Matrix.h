@@ -12,9 +12,15 @@
 #include <type_traits>
 
 
+/**
+ * holds dimensions of a Matrix
+ */
 struct MatrixDimension {
+    //! number rows
     size_t rows;
+    //! number columns
     size_t columns;
+    //! number elements
     size_t elemDim = 1;
 };
 /**
@@ -33,6 +39,13 @@ template<typename T = double>
 class Matrix
 {
 public:
+    /**
+     * Default constructor
+     * @param val default value for all elements
+     * @param rowCount number of rows
+     * @param colCount number of columns
+     * @param elementDimension number of dimensions per element
+     */
     explicit Matrix(T val, size_t rowCount, size_t colCount, size_t elementDimension = 1) {
         Resize(rowCount, colCount, elementDimension);
         for(size_t i = 0; i < _rows; ++i) {
@@ -41,12 +54,26 @@ public:
             }
         }
     }
+
+    /**
+     * Vector-assignment, assigns colCount values of type T
+     * @param val pointer representation of array
+     * @param colCount number of elements within val
+     */
     explicit Matrix(T* val, size_t colCount) {
         Resize(1, colCount);
         for(size_t j = 0; j < _columns; j++) { _data[GetIndex(0, j)] = val[j]; }
     }
+
+    /**
+     * overwritten default constructor
+     */
     Matrix() { }
 
+    /**
+     * Constructor using initializer_list's
+     * @param lst
+     */
     Matrix(const std::initializer_list<std::initializer_list<T>>& lst) {
         int i = 0, j = 0;
         auto rows = lst.size();
@@ -61,6 +88,11 @@ public:
             ++i;
         }
     }
+
+    /**
+     * Constructor using multi-dimensional initializer_list's
+     * @param lst
+     */
     Matrix(const std::initializer_list<std::initializer_list<std::initializer_list<T>>>& lst) {
         int i = 0, j = 0, c = 0;
         auto rows  = lst.size();
@@ -80,12 +112,20 @@ public:
             ++i;
         }
     }
+
+    /**
+     * Deep copy constructor
+     * @param other
+     */
     Matrix(Matrix const& other) {
         Resize(other._rows, other._columns, other._element_size);
         std::memcpy(this->_data, other._data, other._dataSize * sizeof(T));
         this->needsFree = true;
     };
 
+    /**
+     * Default destructor, doesn't do anything
+     */
     ~Matrix() {
         if(needsFree) { }
     }
@@ -94,6 +134,7 @@ public:
      * Generates a random matrix
      * @param rows number of rows in target matrix
      * @param columns number of columns in target matrix
+     * @param element_size
      * @param minValue
      * @param maxValue
      * @return matrix of dimension `rows`, `columns` initialized with random values from `minValue` to `maxValue`
@@ -112,18 +153,18 @@ public:
     }
 
     /**
-     * #row getter
+     * row getter
      * @return
      */
     [[nodiscard]] inline size_t rows() const { return _rows; }
     /**
-     * #columns getter
+     * columns getter
      * @return
      */
     [[nodiscard]] inline size_t columns() const { return _columns; }
 
     /**
-     * #elements getter
+     * elements getter
      * @return
      */
     [[nodiscard]] inline size_t elements() const { return _element_size; }
@@ -416,7 +457,15 @@ public:
      */
     Matrix<T> operator()(const size_t& row) const { return GetSlice(row, row, 0, _columns - 1); }
 
+    /**
+     * pointer operator
+     * @return
+     */
     T& operator*() { return _data[0]; }
+    /**
+     * const pointer operator
+     * @return
+     */
     T& operator*() const { return _data[0]; }
 
     /**
@@ -496,9 +545,9 @@ public:
 
     /**
      *
-     * @param row \in [0, rows() - 1]
-     * @param col \in [0, columns() - 1]
-     * @param elem \in [0, elements() - 1]
+     * @param row \f[\in [0, rows() - 1]\f]
+     * @param col \f[\in [0, columns() - 1]\f]
+     * @param elem \f[\in [0, elements() - 1]\f]
      * @return elem + col * elements() + row * columns() * elements()
      */
     [[nodiscard]] inline int GetIndex(const size_t& row, const size_t& col, const size_t& elem = 0) const {
@@ -514,12 +563,6 @@ public:
      * @param colStart column start index
      * @param colEnd column end index
      * @return sub-matrix
-     *
-     * \example
-     * \code{.cpp}
-     * A = {{1, 2, 3}, {3, 4, 5}, {5, 6, 7}};
-     * A.GetSlice(1, 2, 1, 2) == {{4, 5}, {6, 7}}
-     * \endcode
      */
     [[nodiscard]] inline Matrix GetSlice(size_t rowStart, size_t rowEnd, size_t colStart, size_t colEnd) const {
         size_t numRows = (rowEnd - rowStart) + 1;
@@ -559,12 +602,18 @@ private:
     [[nodiscard]] bool HasDet() const { return _columns > 1 && _rows > 1 && _element_size == 1; }
 
 
+    //! number rows
     size_t _rows         = 0;
+    //! number columns
     size_t _columns      = 0;
+    //! number elements
     size_t _element_size = 0;
 
+    //! ongoing array representing data
     T* _data;
+    //! total number of elements
     size_t _dataSize = 0;
+    //!
     bool needsFree   = false;
 };
 
@@ -784,12 +833,6 @@ Matrix<T>& from_vptr(const T* value, MatrixDimension size) {
  * @tparam T
  * @param mat
  * @return
- * \example
- * \code{.cpp}
- * A = {{1,1}, {1,2}}
- * argmax(A) == 3
- * A(argmax(A)//A.colums(), argmax(A)%A.columns()) == 2
- * \endcode
  */
 template<typename T>
 size_t argmax(const Matrix<T>& mat) {
@@ -814,12 +857,6 @@ size_t argmax(const Matrix<T>& mat) {
  * @tparam T matrix value type
  * @param mat element to search in
  * @return index of minimal value
- * \example
- * \code{.cpp}
- * A = {{3,3}, {3,2}};
- * argmin(A) == 3;
- * A(argmin(A)//A.colums(), argmin(A)%A.columns()) == 2;
- * \endcode
  */
 template<typename T>
 size_t argmin(const Matrix<T>& mat) {
@@ -879,14 +916,6 @@ const std::function<bool(T)>& condition, const Matrix<T>& in, const Matrix<T>& v
  * @param a
  * @param b
  * @return
- *
- *
- * \example
- * \code{.cpp}
- *  a = {{1,1,1}, {2,2,2}, {3,3,3}}
- *  b = {{0}, {1}, {2}}
- *  zip(a,b) == {({1,1,1}, {0}), ({2,2,2}, {1}), ({3,3,3}, {2})}
- * \endcode
  */
 template<typename T>
 std::vector<std::pair<Matrix<T>, Matrix<T>>> zip(const Matrix<T>& a, const Matrix<T>& b) {

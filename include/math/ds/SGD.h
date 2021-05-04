@@ -5,15 +5,29 @@
  */
 class SGD
 {
+    //! number iterations (epochs) during fit
     size_t n_iter;
+    //! cost factor
     double eta;
+    //! shuffle during training
     bool shuffle = false;
+    //! represents weight update function
     std::function<double(const Matrix<double>&, const Matrix<double>&)> weight_update;
+    //! represents net input function
     std::function<Matrix<double>(const Matrix<double>&)> net_input_fun;
 
 public:
+    //! matrix holding cost per epoch
     Matrix<double> cost;
 
+    /**
+     * default constructor
+     * @param _eta
+     * @param iter
+     * @param _shuffle
+     * @param update_weights_fun
+     * @param netInputFun
+     */
     explicit SGD(
     double _eta                                                                                   = 0.01,
     int iter                                                                                      = 10,
@@ -27,6 +41,13 @@ public:
         if(netInputFun != nullptr) { net_input_fun = netInputFun; }
     }
 
+    /**
+     * fits given weights according to used weight update/net input function based on given
+     * values X and y
+     * @param X
+     * @param y
+     * @param weights
+     */
     void fit(const Matrix<double>& X, const Matrix<double>& y, Matrix<double>& weights) {
         cost       = Matrix<double>(0, n_iter, 1);
         auto xCopy = X;
@@ -50,6 +71,12 @@ public:
         }
     }
 
+    /**
+     * Performs partial fit of given weights to input values
+     * @param X
+     * @param y
+     * @param weights
+     */
     void partial_fit(const Matrix<double>& X, const Matrix<double>& y, Matrix<double>& weights) const {
         if(y.rows() > 1) {
             for(const auto& elem : zip(X, y)) { update_weights(elem.first, elem.second, weights); }
@@ -58,6 +85,13 @@ public:
         }
     }
 
+    /**
+     * calculates update values (mean-square-error)
+     * @param xi
+     * @param target
+     * @param weights
+     * @return
+     */
     double update_weights(const Matrix<double>& xi, const Matrix<double>& target, Matrix<double>& weights) const {
         auto output = Matrix<double>();
         if(net_input_fun != nullptr) {
@@ -72,11 +106,23 @@ public:
         return ((error * error) * 0.5).sumElements() / target.rows();
     }
 
+    /**
+     * shuffles given data
+     * @param X
+     * @param y
+     * @return
+     */
     std::pair<Matrix<double>, Matrix<double>>
     shuffleData([[maybe_unused]] const Matrix<double>& X, [[maybe_unused]] const Matrix<double>& y) {
         return { X, y };
     }
 
+    /**
+     * computes the net-input for given values
+     * @param X
+     * @param weights
+     * @return
+     */
     [[nodiscard]] static Matrix<double> netInput(const Matrix<double>& X, const Matrix<double>& weights) {
         Matrix<double> A(0, weights.rows() - 1, weights.columns());
         Matrix<double> B(0, 1, weights.columns());

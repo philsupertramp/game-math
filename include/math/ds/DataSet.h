@@ -15,25 +15,52 @@ enum NormalizerMethod { SET_MEAN = 0, COL_MEAN = 1, ROW_MEAN = 2 };
  * Representation of
  */
 struct Set {
+    //! input data
     Matrix<double> Input;
+    //! expected output data
     Matrix<double> Output;
+    //! number of input elements
     size_t InputCount  = 0;
+    //! number of output elements
     size_t OutputCount = 0;
+    //! number of input-output pairs
     size_t count       = 0;
 
+    /**
+     * default constructor
+     */
     Set() = default;
 
+    /**
+     * initialization constructor, just sets input and output dimensions
+     * @param inputCount
+     * @param outputCount
+     */
     Set(size_t inputCount, size_t outputCount) {
         InputCount  = inputCount;
         OutputCount = outputCount;
     }
 
+    /**
+     * Constructor which immediately reads a given set file
+     * @param fileName
+     * @param inputCount
+     * @param outputCount
+     */
     Set(const char* fileName, size_t inputCount, size_t outputCount) {
         InputCount  = inputCount;
         OutputCount = outputCount;
         ReadFromFile(fileName);
     }
 
+    /**
+     * reads content from file
+     *
+     * File needs to have tab separated records
+     *
+     *
+     * @param fileName
+     */
     void ReadFromFile(const char* fileName) {
         std::string line;
         size_t lineCount = 0;
@@ -73,6 +100,11 @@ struct Set {
         }
     }
 
+    /**
+     * Generates batch of given size based on inputs and outputs
+     * @param batchSize
+     * @return
+     */
     [[nodiscard]] Set GetBatch(int batchSize) const {
         if(batchSize == -1 || batchSize == (int)count) { return *this; }
 
@@ -87,6 +119,9 @@ struct Set {
         return newDS;
     }
 
+    /**
+     * Normalizes set by computing mean over all elements
+     */
     void NormalizeSetMean() {
         auto maxIndex = argmax(Input);
         auto minIndex = argmin(Input);
@@ -98,6 +133,10 @@ struct Set {
             for(size_t j = 0; j < Input.rows(); j++) { Input(i, j) = (Input(i, j) - minVal) / minMax; }
         }
     }
+
+    /**
+     * Normalizes set by computing mean over rows
+     */
     void NormalizeRowMean() {
         auto means = Matrix<double>(0, Input.rows(), 1);
         for(size_t i = 0; i < Input.rows(); ++i) {
@@ -114,6 +153,9 @@ struct Set {
         }
     }
 
+    /**
+     * Normalizes set by computing mean over columns
+     */
     void NormalizeColMean() {
         Input      = Input.Transpose();
         auto means = Matrix<double>(0, Input.rows(), 1);
@@ -132,6 +174,10 @@ struct Set {
         Input = Input.Transpose();
     }
 
+    /**
+     * helper to normalize set based on NormalizerMethod
+     * @param method representation of normalization method
+     */
     void Normalize(NormalizerMethod method = NormalizerMethod::SET_MEAN) {
         switch(method) {
             case SET_MEAN: NormalizeSetMean(); break;
@@ -139,18 +185,22 @@ struct Set {
             case ROW_MEAN: NormalizeRowMean(); break;
         }
     }
-
-    void Shuffle() { }
 };
 
 /**
- *
+ * dataset representation
  */
 class DataSet
 {
     friend class ImageDataSet;
 
 public:
+    /**
+     * regular constructor
+     * @param filePath
+     * @param inputCount
+     * @param outputCount
+     */
     DataSet(const char* filePath, size_t inputCount, size_t outputCount)
         : InputCount(inputCount)
         , OutputCount(outputCount)
@@ -158,6 +208,11 @@ public:
         , Validation(format("%s%s", filePath, "validation.dat").c_str(), inputCount, outputCount)
         , Test(format("%s%s", filePath, "test.dat").c_str(), inputCount, outputCount) { }
 
+    /**
+     * initialization constructor, initializes required structures by given dimensions
+     * @param inputCount
+     * @param outputCount
+     */
     DataSet(size_t inputCount, size_t outputCount)
         : InputCount(inputCount)
         , OutputCount(outputCount)
@@ -165,20 +220,33 @@ public:
         , Validation(inputCount, outputCount)
         , Test(inputCount, outputCount) { }
 
+    /**
+     *
+     * @param filePath
+     */
     virtual void PrepareDirectory([[maybe_unused]] const char* filePath) { }
 
 public:
+    //! number input elements
     size_t InputCount;
+    //! number output elements
     size_t OutputCount;
 
+    //! set for training
     Set Training;
+    //! set for validation of training
     Set Validation;
+    //! set to test after training
     Set Test;
 
+    //! number of epochs while training
     int maxEpoch         = 1000;
+    //! threshold for loss to prevent over-fitting
     double stopThreshold = 0.001;
+    //! learning rate
     double eta           = 0.0051;
+    //! number of elements per batch
     int batchSize        = 5;
-
+    //! use verbose output during fitting
     bool verbose = false;
 };

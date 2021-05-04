@@ -2,9 +2,14 @@
 
 #include "../vec/vec3.h"
 
+/**
+ * 3D-Matrix representation
+ * @tparam T
+ */
 template<class T>
 struct mat3 {
 public:
+    //! loosely packed data
     T values[3][3];
 
     /**
@@ -17,14 +22,19 @@ public:
         values[2][0] = static_cast<T>(0); values[2][1] = static_cast<T>(0); values[2][2] = static_cast<T>(0); // clang-format on
     }
 
-    /**
-     * mat3(a, b, c, d) -> [a, b, c, d]
-     * @param _a m_11
-     * @param _b m_12
-     * @param _c m_21
-     * @param _d m_22
-     */
     // clang-format off
+    /**
+     * 9-element constructor
+     * @param _a
+     * @param _b
+     * @param _c
+     * @param _d
+     * @param _e
+     * @param _f
+     * @param _g
+     * @param _h
+     * @param _i
+     */
     mat3(T _a, T _b, T _c, 
          T _d, T _e, T _f, 
          T _g, T _h, T _i)
@@ -36,9 +46,10 @@ public:
     }
 
     /**
-     * mat3(A, B) -> [A.x, B.x, A.y, B.y]
+     * mat3(A, B, C) -> [A.x, B.x, C.x, A.y, B.y, C.y, A.z, B.z, C.z]
      * @param A first column vector
      * @param B second column vector
+     * @param C third column vector
      */
     mat3(vec3<T> A, vec3<T> B, vec3<T> C) {
         // clang-format off
@@ -47,8 +58,15 @@ public:
         values[2][0] = C.x; values[2][1] = C.y; values[2][2] = C.z; // clang-format on
     }
 
+    /**
+     * default destructor
+     */
     ~mat3() = default;
 
+    /**
+     * 3D-Unit-matrix generator
+     * @return
+     */
     static inline mat3<T> Unit() {
         return mat3<T>( // clang-format off
             static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), 
@@ -56,6 +74,10 @@ public:
             static_cast<T>(0), static_cast<T>(0), static_cast<T>(1)); // clang-format on
     }
 
+    /**
+     * Getter for transposed matrix
+     * @return
+     */
     inline mat3<T> Transpose() {
         // clang-format off
         return mat3<T>(
@@ -64,10 +86,18 @@ public:
             values[0][2], values[1][2], values[2][2]); // clang-format on
     }
 
+    /**
+     * test for symmetry
+     * @return
+     */
     inline bool IsSymmetric() {
         return values[0][1] == values[1][0] && values[0][2] == values[2][0] && values[1][2] == values[2][1];
     }
 
+    /**
+     * calculates determinant
+     * @return
+     */
     inline float Determinant() {
         return // clang-format off
           values[0][0] * values[1][1] * values[2][2] + values[0][1] * values[1][2] * values[2][0]
@@ -75,10 +105,35 @@ public:
         - values[2][1] * values[1][0] * values[2][2] - values[0][0] * values[1][2] * values[2][1]; // clang-format on
     }
 
+    /**
+     * matrix-matrix addition
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend mat3<T> operator+(mat3<T> lhs, const mat3<T>& rhs) { return lhs += rhs; }
+
+    /**
+     * matrix-matrix subtraction
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend mat3<T> operator-(mat3<T> lhs, const mat3<T>& rhs) { return lhs -= rhs; }
+    /**
+     * Matrix-scalar multiplication
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend mat3<T> operator*(mat3<T> lhs, const T& rhs) { return lhs *= rhs; }
 
+    /**
+     * matrix-matrix multiplication
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend vec3<T> operator*(mat3<T> lhs, const vec3<T>& rhs) {
         return vec3<T>( // clang-format off
             lhs.values[0][0] * rhs.x + lhs.values[0][1] * rhs.y + lhs.values[0][2] * rhs.z, 
@@ -87,11 +142,28 @@ public:
         );
     }
 
+    /**
+     * matrix-matrix multiplication
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend mat3<T> operator*(mat3<T> lhs, const mat3<T>& rhs) { return lhs *= rhs; }
 
+    /**
+     * matrix-scalar division
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend mat3<T> operator/(mat3<T> lhs, const T& rhs) { return lhs /= rhs; }
 
     /* compound assignment */
+    /**
+     * matrix-matrix addition
+     * @param rhs
+     * @return
+     */
     mat3<T>& operator+=(const mat3<T>& rhs) {
         // clang-format off
         values[0][0]+=rhs[0][0]; values[0][1]+=rhs[0][1]; values[0][2]+=rhs[0][2];
@@ -100,6 +172,11 @@ public:
         return *this;
     }
 
+    /**
+     * matrix-matrix subtraction
+     * @param rhs
+     * @return
+     */
     mat3<T>& operator-=(const mat3<T>& rhs) {
         // clang-format off
         values[0][0]-=rhs[0][0]; values[0][1]-=rhs[0][1]; values[0][2]-=rhs[0][2];
@@ -108,6 +185,11 @@ public:
         return *this;
     }
 
+    /**
+     * matrix-matrix multiplication
+     * @param rhs
+     * @return
+     */
     mat3<T>& operator*=(const mat3<T>& rhs) {
         // clang-format off
         T _a = values[0][0], _b = values[0][1], _c = values[0][2], 
@@ -128,6 +210,11 @@ public:
         return *this;
     }
 
+    /**
+     * matrix-scalar multiplication
+     * @param rhs
+     * @return
+     */
     mat3<T>& operator*=(const T& rhs) {
         // clang-format off
         values[0][0] *= rhs; values[0][1] *= rhs; values[0][2] *= rhs; 
@@ -136,6 +223,11 @@ public:
         return *this;
     }
 
+    /**
+     * matrix-scalar division
+     * @param rhs
+     * @return
+     */
     mat3<T>& operator/=(const T& rhs) {
         // clang-format off
         values[0][0] /= rhs; values[0][1] /= rhs; values[0][2] /= rhs;
@@ -145,10 +237,25 @@ public:
     }
 
     /* Member access */
+    /**
+     * member access
+     * @param index
+     * @return
+     */
     T* operator[](int index) { return values[index]; }
+    /**
+     * member access
+     * @param index
+     * @return
+     */
     const T* operator[](int index) const { return values[index]; }
 
     /* stream operators */
+    /**
+     * beautified std::cout operator
+     * @tparam U
+     * @return
+     */
     template<class U>
     friend std::ostream& operator<<(std::ostream&, const mat3<U>&);
 };

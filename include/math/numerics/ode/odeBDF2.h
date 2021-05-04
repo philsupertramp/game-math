@@ -1,3 +1,9 @@
+/**
+ * @file
+ *
+ *
+ * Implements BDF(2)-Method to solve systems of ordinary differential equations
+ */
 #pragma once
 
 #include "../lin_alg/newton.h"
@@ -7,6 +13,14 @@
 #include <iostream>
 
 
+/**
+ * BDF(2) solver implementation
+ * @param fun
+ * @param tInterval
+ * @param y0
+ * @param option
+ * @return
+ */
 ODEResult
 ODEBDF2(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, const ODEOption& option) {
     size_t tDim      = tInterval.size();

@@ -20,11 +20,21 @@
 class AdalineSGD : public Classifier
 {
 public:
+    //! signalizes whether given dataset should be shuffled while fitting
     bool shuffle;
+    //! initialize weights with random state
     int randomState;
+    //! algorithmic object to represent fitting algorithm
     SGD sgd;
 
 public:
+    /**
+     * default constructor
+     * @param _eta
+     * @param iter
+     * @param _shuffle
+     * @param _randomState
+     */
     explicit AdalineSGD(double _eta = 0.01, int iter = 10, bool _shuffle = false, int _randomState = 0)
         : Classifier(_eta, iter)
         , shuffle(_shuffle)
@@ -34,7 +44,7 @@ public:
     }
 
     /**
-     *
+     * fit weights using sgd member
      * @param X: array-like with the shape: [n_samples, n_features]
      * @param y: array-like with shape: [n_samples, 1]
      * @return this
@@ -44,12 +54,21 @@ public:
         sgd.fit(X, y, weights);
     }
 
-
+    /**
+     * partially fits the model
+     * @param X
+     * @param y
+     */
     void partial_fit(const Matrix<double>& X, const Matrix<double>& y) {
         if(!w_initialized) { initialize_weights(X.columns()); }
         sgd.partial_fit(X, y, weights);
     }
 
+    /**
+     * alias for sdg.netInput
+     * @param X
+     * @return
+     */
     Matrix<double> netInput(const Matrix<double>& X) override { return sgd.netInput(X, weights); }
 
     /**
@@ -59,8 +78,18 @@ public:
      */
     double costFunction([[maybe_unused]] const Matrix<double>& X) override { return 0; }
 
+    /**
+     * activates given input
+     * @param X
+     * @return
+     */
     virtual Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
+    /**
+     * predict output class of given input
+     * @param X
+     * @return
+     */
     virtual Matrix<double> predict(const Matrix<double>& X) override {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });

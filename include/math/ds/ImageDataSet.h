@@ -2,6 +2,7 @@
 
 #include "DataSet.h"
 
+//! only include Magick++ if needed
 #if MATH_IMAGE_PROCESSING
     #include <Magick++.h>
     #include <Magick++/Image.h>
@@ -9,17 +10,26 @@
 
 #include <filesystem>
 
+/**
+ * Image data set representation
+ */
 class ImageDataSet : public DataSet
 {
 public:
+    /**
+     * default constructor
+     * @param inputCount
+     * @param outputCount
+     */
     ImageDataSet(size_t inputCount, size_t outputCount)
         : DataSet(inputCount, outputCount) { }
 
     /**
-     * @param filePath
+     * prepares a new set of data based on passed filePath
+     * @param filePath path name of directory to prepare
      */
     virtual void PrepareDirectory(const char* filePath) override {
-        /** identify "classes" as files in nested directories */
+        /** identifies "classes" as files in nested directories */
 
         std::cout << "Moving files..." << std::flush;
         std::filesystem::remove_all(trainDirectory);
@@ -118,13 +128,22 @@ public:
     }
 
 public:
+    //! desired image height
     size_t imageHeight         = 180;
+    //! desired image width
     size_t imageWidth          = 180;
+    //! percentage of validation data
     double validationShare     = 0.2;
+    //! target directory for training
     const char* trainDirectory = "../../resources/image_classification/training/";
+    //! representation of all classes
     std::vector<MatrixDS<bool>> classes;
+    //! representation of all class names
     std::vector<std::string> classNames;
+    //! total number of data records
     size_t totalCount      = 0;
+    //! number of training data records
     size_t trainingCount   = 0;
+    //! number of validation data records
     size_t validationCount = 0;
 };

@@ -22,6 +22,11 @@
 class Perceptron : public Classifier
 {
 public:
+    /**
+     * default constructor
+     * @param _eta
+     * @param iter
+     */
     explicit Perceptron(double _eta = 0.01, int iter = 10)
         : Classifier(_eta, iter) { }
 
@@ -57,6 +62,14 @@ public:
         }
     }
 
+    /**
+     * calculates net input
+     * \f[
+     *      X * weights + b
+     * \f]
+     * @param X
+     * @return
+     */
     Matrix<double> netInput(const Matrix<double>& X) override {
         Matrix<double> A, B;
         A.Resize(weights.rows() - 1, weights.columns());
@@ -72,12 +85,28 @@ public:
         }
         return (X * A) + B;
     }
+
+    /**
+     * activate given input
+     * @param X
+     * @return
+     */
     virtual Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
+    /**
+     * predict class of given input
+     * @param X
+     * @return
+     */
     virtual Matrix<double> predict(const Matrix<double>& X) override {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }
 
+    /**
+     * cost function override, don't use!
+     * @param X
+     * @return
+     */
     virtual double costFunction(const Matrix<double>& X) override { return (double)(X(0, 0) != 0.0); }
 };

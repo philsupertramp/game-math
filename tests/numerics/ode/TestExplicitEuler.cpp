@@ -10,7 +10,7 @@ class ODEExplicitEulerTestCase : public Test
         Matrix<double> y0             = { { 5.0 } };
         double h                      = 1.0;
         ODEOption option              = { h };
-        ODEResult foo                 = ODESolver::odeExplicitEuler(ode, tInterval, y0, option);
+        ODEResult foo                 = ODESolver::odeExpEuler(ode, tInterval, y0, option);
 
         auto yResult = foo.Y;
         auto tResult = foo.T;

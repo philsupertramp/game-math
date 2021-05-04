@@ -3,11 +3,19 @@
 #include "../vec/vec4.h"
 #include "mat3.h"
 
+/**
+ * 4D-matrix representation
+ * @tparam T
+ */
 template<class T>
 struct mat4 {
 public:
+    //! loosely packed data
     T values[4][4];
 
+    /**
+     * default constructor
+     */
     mat4() {
         // clang-format off
         values[0][0] = static_cast<T>(0); values[0][1] = static_cast<T>(0); values[0][2] = static_cast<T>(0); values[0][3] = static_cast<T>(0);
@@ -17,6 +25,25 @@ public:
     }
 
     // clang-format off
+    /**
+     * 16-element constructor
+     * @param _a
+     * @param _b
+     * @param _c
+     * @param _d
+     * @param _e
+     * @param _f
+     * @param _g
+     * @param _h
+     * @param _i
+     * @param _j
+     * @param _k
+     * @param _l
+     * @param _m
+     * @param _n
+     * @param _o
+     * @param _p
+     */
     mat4(T _a, T _b, T _c, T _d, 
          T _e, T _f, T _g, T _h, 
          T _i, T _j, T _k, T _l, 
@@ -28,6 +55,13 @@ public:
         values[3][0] = _m; values[3][1] = _n; values[3][2] = _o; values[3][3] = _p; // clang-format on
     }
 
+    /**
+     * column-based constructor
+     * @param A
+     * @param B
+     * @param C
+     * @param D
+     */
     mat4(vec4<T> A, vec4<T> B, vec4<T> C, vec4<T> D) {
         // clang-format off
         values[0][0] = A.x; values[0][1] = A.y; values[0][2] = A.z; values[0][3] = A.w;
@@ -36,6 +70,10 @@ public:
         values[3][0] = D.x; values[3][1] = D.y; values[3][2] = D.z; values[3][3] = D.w; // clang-format on
     }
 
+    /**
+     * single-value constructor
+     * @param _a
+     */
     mat4(T _a) {
         // clang-format off
         values[0][0] = _a; values[0][1] = static_cast<T>(0); values[0][2] = static_cast<T>(0); values[0][3] = static_cast<T>(0);
@@ -44,8 +82,15 @@ public:
         values[3][0] = static_cast<T>(0); values[3][1] = static_cast<T>(0); values[3][2] = static_cast<T>(0); values[3][3] = _a; // clang-format on
     }
 
+    /**
+     * default destructor
+     */
     ~mat4() = default;
 
+    /**
+     * unit-matrix generator
+     * @return
+     */
     static inline mat4<T> Unit() {
         return mat4<T>( // clang-format off
             static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), 
@@ -54,6 +99,11 @@ public:
             static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1)); // clang-format on
     }
 
+    /**
+     * transforms around given matrix
+     * @param m
+     * @return
+     */
     static inline mat4<T> Transformation(mat3<T> m) {
         return mat4<T>( // clang-format off
             m[0][0], m[0][1], m[0][2], static_cast<T>(0), 
@@ -62,6 +112,10 @@ public:
             static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1)); // clang-format on
     }
 
+    /**
+     * getter for transposed matrix
+     * @return
+     */
     inline mat4<T> Transpose() {
         return mat4<T>( // clang-format off
             values[0][0], values[1][0], values[2][0], values[3][0], 
@@ -70,11 +124,19 @@ public:
             values[0][3], values[1][3], values[2][3], values[3][3]); // clang-format on
     }
 
+    /**
+     * test whether matrix is symmetric
+     * @return
+     */
     inline bool IsSymmetric() {
         return values[0][1] == values[1][0] && values[0][2] == values[2][0] && values[0][3] == values[3][0]
                && values[2][1] == values[1][2] && values[1][3] == values[3][1] && values[3][2] == values[2][3];
     }
 
+    /**
+     * computes determinant
+     * @return
+     */
     inline float Determinant() {
         return // clang-format off
           values[2][0] * mat3<T>(values[0][1], values[0][2], values[0][3], values[1][1], values[1][2], values[1][3], values[2][1], values[2][2], values[2][3]).Determinant()
@@ -83,10 +145,34 @@ public:
         - values[2][3] * mat3<T>(values[0][0], values[0][1], values[0][2], values[1][0], values[1][1], values[1][2], values[3][0], values[3][1], values[3][2]).Determinant(); // clang-format on
     }
 
+    /**
+     * matrix-matrix addition
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend mat4<T> operator+(mat4<T> lhs, const mat4<T>& rhs) { return lhs += rhs; }
+    /**
+     * matrix-matrix subtraction
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend mat4<T> operator-(mat4<T> lhs, const mat4<T>& rhs) { return lhs -= rhs; }
+    /**
+     * matrix-matrix multiplication
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend mat4<T> operator*(mat4<T> lhs, const T& rhs) { return lhs *= rhs; }
 
+    /**
+     * scalar-matrix multiplication
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend vec4<T> operator*(mat4<T> lhs, const vec4<T>& rhs) {
         return vec4<T>( // clang-format off
             lhs[0][0] * rhs.x + lhs[0][1] * rhs.y + lhs[0][2] * rhs.z + lhs[0][3] * rhs.w, 
@@ -96,10 +182,28 @@ public:
         ); // clang-format on
     }
 
+    /**
+     * matrix-matrix multiplication
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend mat4<T> operator*(mat4<T> lhs, const mat4<T>& rhs) { return lhs *= rhs; }
+
+    /**
+     * matrix-matrix division
+     * @param lhs
+     * @param rhs
+     * @return
+     */
     friend mat4<T> operator/(mat4<T> lhs, const T& rhs) { return lhs /= rhs; }
 
     /* compound assignment */
+    /**
+     * matrix-matrix addition
+     * @param rhs
+     * @return
+     */
     mat4<T>& operator+=(const mat4<T>& rhs) {
         // clang-format off
         values[0][0] += rhs[0][0]; values[0][1] += rhs[0][1]; values[0][2] += rhs[0][2]; values[0][3] += rhs[0][3];
@@ -109,6 +213,11 @@ public:
         return *this;
     }
 
+    /**
+     * matrix-matrix subtraction
+     * @param rhs
+     * @return
+     */
     mat4<T>& operator-=(const mat4<T>& rhs) {
         // clang-format off
         values[0][0] -= rhs[0][0]; values[0][1] -= rhs[0][1]; values[0][2] -= rhs[0][2]; values[0][3] -= rhs[0][3];
@@ -118,6 +227,11 @@ public:
         return *this;
     }
 
+    /**
+     * matrix-matrix multiplication
+     * @param rhs
+     * @return
+     */
     mat4<T>& operator*=(const mat4<T>& rhs) {
         // clang-format off
         T _a = values[0][0], _b = values[0][1], _c = values[0][2], _d = values[0][3], 
@@ -147,6 +261,11 @@ public:
         return *this;
     }
 
+    /**
+     * matrix-scalar multiplication
+     * @param rhs
+     * @return
+     */
     mat4<T>& operator*=(const T& rhs) {
         // clang-format off
         values[0][0]*=rhs; values[0][1]*=rhs; values[0][2]*=rhs; values[0][3]*=rhs;
@@ -156,6 +275,11 @@ public:
         return *this;
     }
 
+    /**
+     * matrix-scalar division
+     * @param rhs
+     * @return
+     */
     mat4<T>& operator/=(const T& rhs) {
         // clang-format off
         values[0][0] /= rhs; values[0][1] /= rhs; values[0][2] /= rhs; values[0][3] /= rhs;
@@ -165,6 +289,11 @@ public:
         return *this;
     }
 
+    /**
+     * equality comparison operator
+     * @param rhs
+     * @return
+     */
     bool operator==(const mat4<T>& rhs) {
         // clang-format off
         return (
@@ -173,13 +302,33 @@ public:
             values[2][0] == rhs[2][0] && values[2][1] == rhs[2][1] && values[2][2] == rhs[2][2] && values[2][3] == rhs[2][3] &&
             values[3][0] == rhs[3][0] && values[3][1] == rhs[3][1] && values[3][2] == rhs[3][2] && values[3][3] == rhs[3][3]); // clang-format on
     }
+    /**
+     * not equal operator
+     * @param rhs
+     * @return
+     */
     bool operator!=(const mat4<T>& rhs) { return !(*this == rhs); }
 
     /* Member access */
+    /**
+     * member access
+     * @param index
+     * @return
+     */
     T* operator[](int index) { return values[index]; }
+    /**
+     * const member access
+     * @param index
+     * @return
+     */
     const T* operator[](int index) const { return values[index]; }
 
     /* stream operators */
+    /**
+     * beautified std::cout operator
+     * @tparam U
+     * @return
+     */
     template<class U>
     friend std::ostream& operator<<(std::ostream&, const mat4<U>&);
 };

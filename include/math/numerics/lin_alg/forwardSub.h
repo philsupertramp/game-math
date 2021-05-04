@@ -1,4 +1,6 @@
 /**
+ * @file
+ *
  * Regular forward substitution.
  * Calculates result given lower left triangular matrix b=L*c => L^-1b = c
  */
@@ -8,7 +10,12 @@
 #include <iostream>
 #include <vector>
 
-
+/**
+ * Forward-substitution calculates L*c = b
+ * @param L
+ * @param b
+ * @return
+ */
 Matrix<double> forwardSub(const Matrix<double>& L, const Matrix<double>& b) {
     size_t m = L.rows();
     size_t n = L.columns();

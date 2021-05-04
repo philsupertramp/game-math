@@ -1,5 +1,7 @@
 /**
- * LU decomposition, places L and U in resulting matrix
+ * @file
+ *
+ * implements LU decomposition, places L and U in resulting matrix
  *
  * A = L * U
  *
@@ -26,6 +28,11 @@
 #include <vector>
 
 
+/**
+ * LU-decomposition of A
+ * @param A
+ * @return in-place decomposed matrix L+U
+ */
 std::pair<Matrix<double>, std::vector<unsigned int>> LU(const Matrix<double>& A) {
     auto m           = A.rows();
     auto n           = A.columns();

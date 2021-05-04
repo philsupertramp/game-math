@@ -9,11 +9,18 @@
 class AdalineGD : public Classifier
 {
 public:
+    /**
+     * default constructor
+     * @param _eta
+     * @param iter
+     */
     explicit AdalineGD(double _eta = 0.01, int iter = 10)
         : Classifier(_eta, iter) { }
 
     /**
      * fit method to train the classifier using gradient decent method
+     * @param X
+     * @param y
      */
     void fit(const Matrix<double>& X, const Matrix<double>& y) override {
         initialize_weights(X.columns());
@@ -35,6 +42,11 @@ public:
         }
     }
 
+    /**
+     * calculates X * weights + b
+     * @param X
+     * @return
+     */
     Matrix<double> netInput(const Matrix<double>& X) override {
         Matrix<double> A, B;
         A.Resize(weights.rows() - 1, weights.columns());
@@ -52,12 +64,29 @@ public:
         return (X * A) + B;
     }
 
+    /**
+     * activates given input
+     * @param X
+     * @return
+     */
     virtual Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
+    /**
+     * predicts class of given input
+     * @param X
+     * @return
+     */
     virtual Matrix<double> predict(const Matrix<double>& X) override {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }
 
+    /**
+     * calculates cost
+     *
+     * sum(X * X) / 2
+     * @param X
+     * @return
+     */
     double costFunction(const Matrix<double>& X) override { return HadamardMulti<double>(X, X).sumElements() / 2.0; }
 };

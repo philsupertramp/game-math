@@ -1,3 +1,8 @@
+/**
+ * @file
+ *
+ * Implementation of Trapezoid-Method to solve ordinary differential equations
+ */
 #pragma once
 
 #include "../lin_alg/newton.h"
@@ -5,6 +10,14 @@
 #include "ode.h"
 #include <iostream>
 
+/**
+ * Implements trapezoid method to solve odes
+ * @param fun
+ * @param tInterval
+ * @param y0
+ * @param option
+ * @return
+ */
 ODEResult
 ODETrapez(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, const ODEOption& option) {
     size_t dim       = tInterval.size();

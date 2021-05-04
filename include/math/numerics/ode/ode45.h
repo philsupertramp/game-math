@@ -1,4 +1,6 @@
 /**
+ * @file
+ *
  * ODE Solver
  * implementation based on Dormand-Prince Method to solve ordinary differential equations
  * https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method
@@ -16,6 +18,14 @@
 #include <functional>
 #include <vector>
 
+/**
+ * Implementation of 5th order Runge-Kutta-Method
+ * @param fun
+ * @param tInterval
+ * @param y0
+ * @param h
+ * @return
+ */
 ODEResult ODE45(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, double h = 0.0) {
     size_t dim       = tInterval.size();
     size_t elem_size = y0.columns();

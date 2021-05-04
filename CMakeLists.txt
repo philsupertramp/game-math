@@ -85,7 +85,6 @@ endif ()
 
 if (MATH_EXTENSIONS MATCHES "(vis)")
     set(LIB_SOURCES ${LIB_SOURCES}
-            include/math/visualization/plot.h
             include/math/visualization/Plot.h
         )
 endif ()

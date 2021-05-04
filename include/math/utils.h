@@ -1,3 +1,11 @@
+/**
+ * @file
+ *
+ * Utility functions for 2,3,4-D vectors/matrices.
+ *
+ * This header file holds all sorts of helper functions used in computer-graphics
+ * to manipulate 2,3,4-D objects.
+ */
 #pragma once
 #include "mat/mat2.h"
 #include "mat/mat3.h"
@@ -7,26 +15,59 @@
 #include "vec/vec4.h"
 
 namespace Math::Utils {
+
+    /**
+     * Calculates distance between given vectors
+     * @tparam V
+     * @param a
+     * @param b
+     * @return
+     */
     template<class V>
     float distance(V a, V b) {
         return (a - b).length();
     }
 
+    /**
+     * helper to normalize 2D-vector
+     * @tparam T
+     * @param a
+     * @return
+     */
     template<class T>
     vec2<T> normalize(vec2<T> a) {
         return a.normalize();
     }
 
+    /**
+     * helper to normalize 3D-vector
+     * @tparam T
+     * @param a
+     * @return
+     */
     template<class T>
     vec3<T> normalize(vec3<T> a) {
         return a.normalize();
     }
 
+    /**
+     * helper to normalize 4D-vector
+     * @tparam T
+     * @param a
+     * @return
+     */
     template<class T>
     vec4<T> normalize(vec4<T> a) {
         return a.normalize();
     }
 
+    /**
+     * Translates a given 4-by-4 matrix M by given vector V
+     * @tparam T
+     * @param M
+     * @param V
+     * @return
+     */
     template<class T>
     mat4<T> translate(mat4<T> M, vec3<T> V) {
         mat4<T> translation = M;
@@ -37,6 +78,14 @@ namespace Math::Utils {
         return translation;
     }
 
+    /**
+     * Computes look at matrix for given data
+     * @tparam T
+     * @param eye
+     * @param center
+     * @param up
+     * @return
+     */
     template<class T>
     mat4<T> lookAt(vec3<T> eye, vec3<T> center, vec3<T> up) {
         vec3<T> const f(normalize(center - eye));
@@ -59,6 +108,15 @@ namespace Math::Utils {
         return Result;
     }
 
+    /**
+     * calculates orthogonal projection plane
+     * @tparam T
+     * @param left
+     * @param right
+     * @param bottom
+     * @param top
+     * @return
+     */
     template<class T>
     mat4<T> ortho(const float& left, const float& right, const float& bottom, const float& top) {
         mat4<T> mat(1.0f);
@@ -70,6 +128,16 @@ namespace Math::Utils {
         return mat;
     }
 
+    /**
+     * Computes perspective projection matrix
+     * @tparam T
+     * @param FOV
+     * @param width
+     * @param height
+     * @param zNear
+     * @param zFar
+     * @return
+     */
     template<class T>
     mat4<T>
     perspective(const float& FOV, const float& width, const float& height, const float& zNear, const float& zFar) {
@@ -94,17 +162,39 @@ namespace Math::Utils {
         0);
     }
 
+    /**
+     *
+     * @tparam T
+     * @param angle
+     * @param axis
+     * @return
+     */
     template<class T>
     mat4<T> angleAxis([[maybe_unused]] const float& angle, [[maybe_unused]] const vec3<T>& axis) {
         //        return mat4<T>(axis.x, axis.y, axis.z, angle);
         return mat4<T>(0);
     }
 
+    /**
+     * scales a given matrix by a factor
+     * @tparam T
+     * @param mat
+     * @param factor
+     * @return
+     */
     template<class T>
     mat4<T> scale(mat4<T> mat, const float& factor) {
         return (mat4<T>::Unit() * factor) * mat;
     }
 
+    /**
+     * Rotates a given matrix m by an angle angle around given axis u
+     * @tparam T
+     * @param m
+     * @param angle
+     * @param u
+     * @return
+     */
     template<class T>
     mat4<T> rotate(mat4<T> m, const float& angle, vec3<T> u) {
         T const cosAngle = cosf(angle);
@@ -133,12 +223,26 @@ namespace Math::Utils {
         return mat4<T>(out0, out1, out2, vec4(m[3]));
     }
 
-    // Possibly wrong
+    /**
+     * Computes max-value between two given 3D-vectors
+     * @tparam T
+     * @param a
+     * @param b
+     * @return
+     */
     template<class T>
     vec3<T> max(vec3<T> a, vec3<T> b) {
         return a.length() > b.length() ? a : b;
     }
 
+    /**
+     * linear interpolates a 3D-vector by given values
+     * @tparam T
+     * @param p1
+     * @param p2
+     * @param v
+     * @return
+     */
     template<class T>
     vec3<T> lerp(vec3<T> p1, vec3<T> p2, const float& v) {
         T ax = p1[0];
@@ -146,6 +250,15 @@ namespace Math::Utils {
         T az = p1[2];
         return vec3<T>(ax + v * (p2[0] - ax), ay + v * (p2[1] - ay), az + v * (p2[2] - az));
     }
+
+    /**
+     * linear interpolates a 4D-vector by given values
+     * @tparam T
+     * @param p1
+     * @param p2
+     * @param v
+     * @return
+     */
     template<class T>
     vec4<T> lerp(vec4<T> p1, vec4<T> p2, const float& v) {
         T ax = p1[0];
@@ -156,51 +269,127 @@ namespace Math::Utils {
     }
 } // namespace Math::Utils
 
+/**
+ * cast from vec2 to void*
+ * @tparam T
+ * @param vec
+ * @return
+ */
 template<class T>
 void* value_ptr(vec2<T>& vec) {
     return &(vec.x);
 }
+
+/**
+ * cast from vec3 to void*
+ * @tparam T
+ * @param vec
+ * @return
+ */
 template<class T>
 void* value_ptr(vec3<T>& vec) {
     return &(vec.x);
 }
+
+/**
+ * cast from vec4 to void*
+ * @tparam T
+ * @param vec
+ * @return
+ */
 template<class T>
 void* value_ptr(vec4<T>& vec) {
     return &(vec.x);
 }
+/**
+ * cast from mat2 to void*
+ * @tparam T
+ * @param mat
+ * @return
+ */
 template<class T>
 void* value_ptr(mat2<T>& mat) {
     return &(mat[0][0]);
 }
+/**
+ * cast from mat3 to void*
+ * @tparam T
+ * @param mat
+ * @return
+ */
 template<class T>
 void* value_ptr(mat3<T>& mat) {
     return &(mat[0][0]);
 }
+
+/**
+ * cast from mat4 to void*
+ * @tparam T
+ * @param mat
+ * @return
+ */
 template<class T>
 void* value_ptr(mat4<T>& mat) {
     return &(mat[0][0]);
 }
 
+/**
+ * cast from const vec2 to void*
+ * @tparam T
+ * @param vec
+ * @return
+ */
 template<class T>
 const void* value_ptr(vec2<T> const& vec) {
     return &(vec.x);
 }
+
+/**
+ * cast from const vec3 to void*
+ * @tparam T
+ * @param vec
+ * @return
+ */
 template<class T>
 const void* value_ptr(vec3<T> const& vec) {
     return &(vec.x);
 }
+/**
+ * cast from const vec4 to void*
+ * @tparam T
+ * @param vec
+ * @return
+ */
 template<class T>
 const void* value_ptr(vec4<T> const& vec) {
     return &(vec.x);
 }
+/**
+ * cast from const mat2 to void*
+ * @tparam T
+ * @param mat
+ * @return
+ */
 template<class T>
 const void* value_ptr(mat2<T> const& mat) {
     return &(mat[0][0]);
 }
+/**
+ * cast from const mat3 to void*
+ * @tparam T
+ * @param mat
+ * @return
+ */
 template<class T>
 const void* value_ptr(mat3<T> const& mat) {
     return &(mat[0][0]);
 }
+/**
+ * cast from mat3 to void*
+ * @tparam T
+ * @param mat
+ * @return
+ */
 template<class T>
 const void* value_ptr(mat4<T> const& mat) {
     return &(mat[0][0]);

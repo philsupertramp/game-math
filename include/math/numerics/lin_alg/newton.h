@@ -1,20 +1,29 @@
+/**
+ * @file
+ *
+ * Implements newton-method to find roots
+ */
+
 #pragma once
 #include "../utils.h"
 #include "gaussSeidel.h"
 #include <functional>
 
+//! representation of jacobian
+using Jacobian       = std::function<Matrix<double>(const Matrix<double>&)>;
+//! representation of linear equation
+using LinearEquation = std::function<Matrix<double>(const Matrix<double>&)>;
 
-using Jacobian       = std::function<Matrix<double>(double, const Matrix<double>&)>;
-using LinearEquation = std::function<Matrix<double>(double, const Matrix<double>&)>;
-
-#include <functional>
-
-Matrix<double> newton(
-const std::function<Matrix<double>(const Matrix<double>&)>& f,
-const std::function<Matrix<double>(const Matrix<double>&)>& Df,
-const Matrix<double>& x0,
-double TOL,
-int maxIter) {
+/**
+ * newton method to find roots of given function f
+ * @param f
+ * @param Df
+ * @param x0
+ * @param TOL
+ * @param maxIter
+ * @return
+ */
+Matrix<double> newton(const LinearEquation& f, const Jacobian& Df, const Matrix<double>& x0, double TOL, int maxIter) {
     auto m = x0.rows();
     if(m < 1) {
         // error
@@ -36,7 +45,7 @@ int maxIter) {
         iter += 1;
     }
     if(iter == maxIter) {
-        // error max Iter reached
+        // error max Iter reached, no convergence
     }
     return x;
 }
