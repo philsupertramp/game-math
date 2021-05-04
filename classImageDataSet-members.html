@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -68,31 +75,31 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classImageDataSet.html">ImageDataSet</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>batchSize</b> (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataSet.html#a72f424eb8039147514fe51fbd2e0948b">batchSize</a></td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classImageDataSet.html#abe20e5992ddda25f736dfb0789d764a3">Cache</a>()</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>classes</b> (defined in <a class="el" href="classImageDataSet.html">ImageDataSet</a>)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>classNames</b> (defined in <a class="el" href="classImageDataSet.html">ImageDataSet</a>)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>DataSet</b>(const char *filePath, size_t inputCount, size_t outputCount) (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>DataSet</b>(size_t inputCount, size_t outputCount) (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>eta</b> (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>ImageDataSet</b>(size_t inputCount, size_t outputCount) (defined in <a class="el" href="classImageDataSet.html">ImageDataSet</a>)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>imageHeight</b> (defined in <a class="el" href="classImageDataSet.html">ImageDataSet</a>)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>imageWidth</b> (defined in <a class="el" href="classImageDataSet.html">ImageDataSet</a>)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>InputCount</b> (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>maxEpoch</b> (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>OutputCount</b> (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e">classes</a></td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72">classNames</a></td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataSet.html#a06a0a03f65d1ed5a3b9102242e761639">DataSet</a>(const char *filePath, size_t inputCount, size_t outputCount)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classDataSet.html#ad398cb9b594f7fc99ebec3e2fb227ebb">DataSet</a>(size_t inputCount, size_t outputCount)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataSet.html#a5e96a7989e932a765382ec05df96f02e">eta</a></td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classImageDataSet.html#a6cb4942bbb5ce16e1ab67ccd550dc9e3">ImageDataSet</a>(size_t inputCount, size_t outputCount)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classImageDataSet.html#ab83106b8cff6d5cc8359aa490d85d07e">imageHeight</a></td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classImageDataSet.html#a9ba02bb2e1b60de7f6835ace293809f9">imageWidth</a></td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataSet.html#a9cc77d557deb5f130c5ca93267a88b69">InputCount</a></td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDataSet.html#ac2b6c6303ce008694bbfd6d177f18e57">maxEpoch</a></td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataSet.html#a80e15af63fd1574afb65efa990187203">OutputCount</a></td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classImageDataSet.html#a70c65453f974635726e64d371b39acee">PrepareDirectory</a>(const char *filePath) override</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>PrepareDirectory</b>([[maybe_unused]] const char *filePath) (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>stopThreshold</b> (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Test</b> (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>totalCount</b> (defined in <a class="el" href="classImageDataSet.html">ImageDataSet</a>)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>trainDirectory</b> (defined in <a class="el" href="classImageDataSet.html">ImageDataSet</a>)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Training</b> (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>trainingCount</b> (defined in <a class="el" href="classImageDataSet.html">ImageDataSet</a>)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Validation</b> (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>validationCount</b> (defined in <a class="el" href="classImageDataSet.html">ImageDataSet</a>)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>validationShare</b> (defined in <a class="el" href="classImageDataSet.html">ImageDataSet</a>)</td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>verbose</b> (defined in <a class="el" href="classDataSet.html">DataSet</a>)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataSet.html#a090f85f9a3c7ec81261ab6d3e2eda4a2">DataSet::PrepareDirectory</a>([[maybe_unused]] const char *filePath)</td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classDataSet.html#ac26562ed16c2c3b63aed463cb8c77fe3">stopThreshold</a></td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataSet.html#a2d5a67b441bf92f3d9f9ca28e134266b">Test</a></td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classImageDataSet.html#a9a266deb825dec0a9bdaa6f7105c4da7">totalCount</a></td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8">trainDirectory</a></td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDataSet.html#ab2e28670df1d61a926990a8d00627fdf">Training</a></td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classImageDataSet.html#a323ec5719d39c362c77960656b65f571">trainingCount</a></td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDataSet.html#a83ba4064a6be64f1b1535de18005e270">Validation</a></td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classImageDataSet.html#a30efac5c5eb0ec2eb29ba294ddbc2648">validationCount</a></td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classImageDataSet.html#a08ea2bd23adb1f8d45d888e820fe3e4d">validationShare</a></td><td class="entry"><a class="el" href="classImageDataSet.html">ImageDataSet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataSet.html#af05bcbf6eba3ef7dbb89e0d396d45596">verbose</a></td><td class="entry"><a class="el" href="classDataSet.html">DataSet</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

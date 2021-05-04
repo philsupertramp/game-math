@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -87,13 +94,12 @@ Inheritance diagram for Classifier:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adf323be2120dbc43c65e1aed08efd5cb"><td class="memItemLeft" align="right" valign="top"><a id="adf323be2120dbc43c65e1aed08efd5cb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Classifier</b> (double _eta, int _n_iter)</td></tr>
+<tr class="memitem:adf323be2120dbc43c65e1aed08efd5cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#adf323be2120dbc43c65e1aed08efd5cb">Classifier</a> (double _eta, int _n_iter)</td></tr>
 <tr class="separator:adf323be2120dbc43c65e1aed08efd5cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82afce4aff01a4d7292eb43fb38329b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8">initialize_weights</a> (size_t numRows, size_t numColumns=1)</td></tr>
 <tr class="separator:a82afce4aff01a4d7292eb43fb38329b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabced42ad639a66e7b048e4a1dc988f9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#aabced42ad639a66e7b048e4a1dc988f9">fit</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
-<tr class="separator:aabced42ad639a66e7b048e4a1dc988f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fa552228aeeee5abe1108c97f676cad"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a3fa552228aeeee5abe1108c97f676cad">fit</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)=0</td></tr>
+<tr class="separator:a3fa552228aeeee5abe1108c97f676cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d47e1cccc5be1cdff3b202f48625afe"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a0d47e1cccc5be1cdff3b202f48625afe">predict</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
 <tr class="separator:a0d47e1cccc5be1cdff3b202f48625afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5be8488df3ee4e0e0903877bb19069a8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a5be8488df3ee4e0e0903877bb19069a8">activation</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
@@ -106,22 +112,27 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5d4d61496164c06deab141329b6c878f"><td class="memItemLeft" align="right" valign="top"><a id="a5d4d61496164c06deab141329b6c878f"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>weights</b></td></tr>
+<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a5d4d61496164c06deab141329b6c878f">weights</a></td></tr>
+<tr class="memdesc:a5d4d61496164c06deab141329b6c878f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector holding weights. <br /></td></tr>
 <tr class="separator:a5d4d61496164c06deab141329b6c878f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8688dfb2318e40a7c2f3747b68c96bae"><td class="memItemLeft" align="right" valign="top"><a id="a8688dfb2318e40a7c2f3747b68c96bae"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>costs</b></td></tr>
+<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a8688dfb2318e40a7c2f3747b68c96bae">costs</a></td></tr>
+<tr class="memdesc:a8688dfb2318e40a7c2f3747b68c96bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector holding classification error per epoch. <br /></td></tr>
 <tr class="separator:a8688dfb2318e40a7c2f3747b68c96bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ada5781f6955d4584bb9e8a24216ce654"><td class="memItemLeft" align="right" valign="top"><a id="ada5781f6955d4584bb9e8a24216ce654"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>eta</b></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#ada5781f6955d4584bb9e8a24216ce654">eta</a></td></tr>
+<tr class="memdesc:ada5781f6955d4584bb9e8a24216ce654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Learning rate. <br /></td></tr>
 <tr class="separator:ada5781f6955d4584bb9e8a24216ce654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a262d07b1324365425b12bb08a859984a"><td class="memItemLeft" align="right" valign="top"><a id="a262d07b1324365425b12bb08a859984a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>n_iter</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a262d07b1324365425b12bb08a859984a">n_iter</a></td></tr>
+<tr class="memdesc:a262d07b1324365425b12bb08a859984a"><td class="mdescLeft">&#160;</td><td class="mdescRight">number epochs <br /></td></tr>
 <tr class="separator:a262d07b1324365425b12bb08a859984a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c3236f91e4f14965715caaca167dec8"><td class="memItemLeft" align="right" valign="top"><a id="a5c3236f91e4f14965715caaca167dec8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = false</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a5c3236f91e4f14965715caaca167dec8">w_initialized</a> = false</td></tr>
+<tr class="memdesc:a5c3236f91e4f14965715caaca167dec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to initialize weights only once <br /></td></tr>
 <tr class="separator:a5c3236f91e4f14965715caaca167dec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -141,7 +152,51 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
 <li>netInput: converts activated output into net output</li>
 <li>costFunction: method to calculate the current cost </li>
 </ul>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="adf323be2120dbc43c65e1aed08efd5cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf323be2120dbc43c65e1aed08efd5cb">&#9670;&nbsp;</a></span>Classifier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Classifier::Classifier </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_eta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_n_iter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>default constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_eta</td><td></td></tr>
+    <tr><td class="paramname">_n_iter</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5be8488df3ee4e0e0903877bb19069a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5be8488df3ee4e0e0903877bb19069a8">&#9670;&nbsp;</a></span>activation()</h2>
 
@@ -200,8 +255,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
 
 </div>
 </div>
-<a id="aabced42ad639a66e7b048e4a1dc988f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabced42ad639a66e7b048e4a1dc988f9">&#9670;&nbsp;</a></span>fit()</h2>
+<a id="a3fa552228aeeee5abe1108c97f676cad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fa552228aeeee5abe1108c97f676cad">&#9670;&nbsp;</a></span>fit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,13 +268,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
           <td class="memname">virtual void Classifier::fit </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>X</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

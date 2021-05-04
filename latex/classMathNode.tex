@@ -13,60 +13,136 @@ Inheritance diagram for Math\+Node\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classMathNode_a3072bd11e770363889906d16578954cb}\label{classMathNode_a3072bd11e770363889906d16578954cb}} 
-{\bfseries Math\+Node} (const std\+::string \&val)
+\mbox{\hyperlink{classMathNode_a3072bd11e770363889906d16578954cb}{Math\+Node}} (const std\+::string \&val)
 \item 
-\mbox{\Hypertarget{classMathNode_a18ab20a5b9156a02d4e4eec2a4c9528e}\label{classMathNode_a18ab20a5b9156a02d4e4eec2a4c9528e}} 
-{\bfseries Math\+Node} (const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&other)
+\mbox{\hyperlink{classMathNode_a18ab20a5b9156a02d4e4eec2a4c9528e}{Math\+Node}} (const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&other)
 \item 
-\mbox{\Hypertarget{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}\label{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}} 
-virtual double {\bfseries Evaluate} () const =0
+virtual double \mbox{\hyperlink{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}{Evaluate}} () const =0
 \item 
-\mbox{\Hypertarget{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}\label{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}} 
-std\+::string {\bfseries Get\+String} () const
+std\+::string \mbox{\hyperlink{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}{Get\+String}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classMathNode_a23bb4430c010646f85a41e722f30d7f6}\label{classMathNode_a23bb4430c010646f85a41e722f30d7f6}} 
-bool {\bfseries is\+Negative} = false
-\item 
+bool \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{is\+Negative}} = false
+\begin{DoxyCompactList}\small\item\em helper to determine whether a node is negated or not \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classMathNode_a9cff117d073cd15538cf3f1d385d3207}\label{classMathNode_a9cff117d073cd15538cf3f1d385d3207}} 
-bool {\bfseries has\+Parentheses} = false
-\item 
+bool \mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{has\+Parentheses}} = false
+\begin{DoxyCompactList}\small\item\em helper to determine if node is within parentheses \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}\label{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}} 
-Math\+Node\+Type {\bfseries type}
-\item 
+Math\+Node\+Type \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}}
+\begin{DoxyCompactList}\small\item\em node type representation \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}\label{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}} 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ {\bfseries left} = nullptr
-\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}} = nullptr
+\begin{DoxyCompactList}\small\item\em next node on left side \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classMathNode_af81f7d62cd9008544aa999c6a1c55934}\label{classMathNode_af81f7d62cd9008544aa999c6a1c55934}} 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ {\bfseries right} = nullptr
-\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}} = nullptr
+\begin{DoxyCompactList}\small\item\em next node on right side \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classMathNode_a2d7c199d2c5581160db369014654c084}\label{classMathNode_a2d7c199d2c5581160db369014654c084}} 
-char $\ast$ {\bfseries value} \{\}
-\end{DoxyCompactItemize}
+char $\ast$ \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}} \{\}
+\begin{DoxyCompactList}\small\item\em char representation of value \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}\label{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}} 
-size\+\_\+t {\bfseries val\+Size} = 0
-\end{DoxyCompactItemize}
+size\+\_\+t \mbox{\hyperlink{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}{val\+Size}} = 0
+\begin{DoxyCompactList}\small\item\em helper to store size of value \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}\label{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&ostr, const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&other)
+std\+::ostream \& \mbox{\hyperlink{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}{operator$<$$<$}} (std\+::ostream \&ostr, const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&other)
 \item 
-\mbox{\Hypertarget{classMathNode_ad56aa5e3b9cd26a34e6aa91e866bb743}\label{classMathNode_ad56aa5e3b9cd26a34e6aa91e866bb743}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&ostr, \mbox{\hyperlink{classMathNode}{Math\+Node}} $\ast$other)
+std\+::ostream \& \mbox{\hyperlink{classMathNode_ad56aa5e3b9cd26a34e6aa91e866bb743}{operator$<$$<$}} (std\+::ostream \&ostr, \mbox{\hyperlink{classMathNode}{Math\+Node}} $\ast$other)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Base node type of Abstract syntax tree implementation \begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2github_2workspace_2include_2math_2symb_2Symbolic_8h-example}{/github/workspace/include/math/symb/\+Symbolic.\+h}}.\end{Desc}
+Base node type of Abstract syntax tree implementation 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMathNode_a3072bd11e770363889906d16578954cb}\label{classMathNode_a3072bd11e770363889906d16578954cb}} 
+\index{MathNode@{MathNode}!MathNode@{MathNode}}
+\index{MathNode@{MathNode}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{MathNode()}{MathNode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Math\+Node\+::\+Math\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Default constructor 
+\begin{DoxyParams}{Parameters}
+{\em val} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMathNode_a18ab20a5b9156a02d4e4eec2a4c9528e}\label{classMathNode_a18ab20a5b9156a02d4e4eec2a4c9528e}} 
+\index{MathNode@{MathNode}!MathNode@{MathNode}}
+\index{MathNode@{MathNode}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{MathNode()}{MathNode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Math\+Node\+::\+Math\+Node (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}\label{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}} 
+\index{MathNode@{MathNode}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}}
+{\footnotesize\ttfamily virtual double Math\+Node\+::\+Evaluate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Interface function for evaluation of node, needs to be implemented to add new type of node \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classNumber_a907df4526da3ccb91b8faead20e6fb66}{Number}}, \mbox{\hyperlink{classSymbolic_a10604f97ee4fb6bc798987ba4d5daa1d}{Symbolic}}, and \mbox{\hyperlink{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}{Operator}}.
+
+\mbox{\Hypertarget{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}\label{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}} 
+\index{MathNode@{MathNode}!GetString@{GetString}}
+\index{GetString@{GetString}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{GetString()}{GetString()}}
+{\footnotesize\ttfamily std\+::string Math\+Node\+::\+Get\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter for string representation of node \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}\label{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}} 
+\index{MathNode@{MathNode}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostr,  }\item[{const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+beautified output operator 
+\begin{DoxyParams}{Parameters}
+{\em ostr} & \\
+\hline
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMathNode_ad56aa5e3b9cd26a34e6aa91e866bb743}\label{classMathNode_ad56aa5e3b9cd26a34e6aa91e866bb743}} 
+\index{MathNode@{MathNode}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostr,  }\item[{\mbox{\hyperlink{classMathNode}{Math\+Node}} $\ast$}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+beautified output operator 
+\begin{DoxyParams}{Parameters}
+{\em ostr} & \\
+\hline
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

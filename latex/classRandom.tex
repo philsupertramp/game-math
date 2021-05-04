@@ -1,23 +1,121 @@
 \hypertarget{classRandom}{}\doxysection{Random Class Reference}
 \label{classRandom}\index{Random@{Random}}
+
+
+{\ttfamily \#include $<$Random.\+h$>$}
+
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classRandom_aa2d76b6a87c5642871c11e781f8f34b0}\label{classRandom_aa2d76b6a87c5642871c11e781f8f34b0}} 
-static void {\bfseries Set\+Seed} (int seed)
+static void \mbox{\hyperlink{classRandom_aa2d76b6a87c5642871c11e781f8f34b0}{Set\+Seed}} (int seed)
 \item 
-\mbox{\Hypertarget{classRandom_a5e7703d9e1a4de62e6483748afe35243}\label{classRandom_a5e7703d9e1a4de62e6483748afe35243}} 
-static double {\bfseries Get} (double l=0.\+0, double r=1.\+0)
+static double \mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}} (double l=0.\+0, double r=1.\+0)
 \item 
-\mbox{\Hypertarget{classRandom_a890437c0c6efb065847530461df4ea07}\label{classRandom_a890437c0c6efb065847530461df4ea07}} 
-{\footnotesize template$<$typename T $>$ }\\static \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ {\bfseries Get} (double l=0.\+0, double r=1.\+0)
+{\footnotesize template$<$typename T $>$ }\\static \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \mbox{\hyperlink{classRandom_a890437c0c6efb065847530461df4ea07}{Get}} (double l=0.\+0, double r=1.\+0)
 \item 
-\mbox{\Hypertarget{classRandom_a228d4451f162b53d6b03b4b2366bd523}\label{classRandom_a228d4451f162b53d6b03b4b2366bd523}} 
-{\footnotesize template$<$typename T $>$ }\\static \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ {\bfseries Get} (double l=0.\+0, double r=1.\+0)
+{\footnotesize template$<$typename T $>$ }\\static \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \mbox{\hyperlink{classRandom_a228d4451f162b53d6b03b4b2366bd523}{Get}} (double l=0.\+0, double r=1.\+0)
 \item 
-\mbox{\Hypertarget{classRandom_a2c5d23fef3a61442fb787277bc40b2a6}\label{classRandom_a2c5d23fef3a61442fb787277bc40b2a6}} 
-{\footnotesize template$<$typename T $>$ }\\static \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ {\bfseries Get} (double l=0.\+0, double r=1.\+0)
+{\footnotesize template$<$typename T $>$ }\\static \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \mbox{\hyperlink{classRandom_a2c5d23fef3a61442fb787277bc40b2a6}{Get}} (double l=0.\+0, double r=1.\+0)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+RNG 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRandom_a5e7703d9e1a4de62e6483748afe35243}\label{classRandom_a5e7703d9e1a4de62e6483748afe35243}} 
+\index{Random@{Random}!Get@{Get}}
+\index{Get@{Get}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily static double Random\+::\+Get (\begin{DoxyParamCaption}\item[{double}]{l = {\ttfamily 0.0},  }\item[{double}]{r = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Getter for random number between (including borders) l and r 
+\begin{DoxyParams}{Parameters}
+{\em l} & \\
+\hline
+{\em r} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRandom_a890437c0c6efb065847530461df4ea07}\label{classRandom_a890437c0c6efb065847530461df4ea07}} 
+\index{Random@{Random}!Get@{Get}}
+\index{Get@{Get}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static \mbox{\hyperlink{structvec2}{vec2}}$<$T$>$ Random\+::\+Get (\begin{DoxyParamCaption}\item[{double}]{l = {\ttfamily 0.0},  }\item[{double}]{r = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+random number generator for 2D-\/vectors 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & \\
+\hline
+{\em r} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRandom_a228d4451f162b53d6b03b4b2366bd523}\label{classRandom_a228d4451f162b53d6b03b4b2366bd523}} 
+\index{Random@{Random}!Get@{Get}}
+\index{Get@{Get}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static \mbox{\hyperlink{structvec3}{vec3}}$<$T$>$ Random\+::\+Get (\begin{DoxyParamCaption}\item[{double}]{l = {\ttfamily 0.0},  }\item[{double}]{r = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+RNG for 3d vectors 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & \\
+\hline
+{\em r} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRandom_a2c5d23fef3a61442fb787277bc40b2a6}\label{classRandom_a2c5d23fef3a61442fb787277bc40b2a6}} 
+\index{Random@{Random}!Get@{Get}}
+\index{Get@{Get}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static \mbox{\hyperlink{structvec4}{vec4}}$<$T$>$ Random\+::\+Get (\begin{DoxyParamCaption}\item[{double}]{l = {\ttfamily 0.0},  }\item[{double}]{r = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+RNG for \mbox{\hyperlink{structvec4}{vec4}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & \\
+\hline
+{\em r} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRandom_aa2d76b6a87c5642871c11e781f8f34b0}\label{classRandom_aa2d76b6a87c5642871c11e781f8f34b0}} 
+\index{Random@{Random}!SetSeed@{SetSeed}}
+\index{SetSeed@{SetSeed}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{SetSeed()}{SetSeed()}}
+{\footnotesize\ttfamily static void Random\+::\+Set\+Seed (\begin{DoxyParamCaption}\item[{int}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+sets seed to given value 
+\begin{DoxyParams}{Parameters}
+{\em seed} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

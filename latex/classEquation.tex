@@ -1,22 +1,21 @@
 \hypertarget{classEquation}{}\doxysection{Equation Class Reference}
 \label{classEquation}\index{Equation@{Equation}}
+
+
+{\ttfamily \#include $<$Symbolic.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classEquation_a35ed8dff1c0ccc38b4290afec957504c}\label{classEquation_a35ed8dff1c0ccc38b4290afec957504c}} 
-{\bfseries Equation} (const char $\ast$val)
+\mbox{\hyperlink{classEquation_a35ed8dff1c0ccc38b4290afec957504c}{Equation}} (const char $\ast$val)
 \item 
-\mbox{\Hypertarget{classEquation_a35fa8e029070c8117fd30850fdd4a2ec}\label{classEquation_a35fa8e029070c8117fd30850fdd4a2ec}} 
-{\bfseries Equation} (const std\+::string \&val)
+\mbox{\hyperlink{classEquation_a35fa8e029070c8117fd30850fdd4a2ec}{Equation}} (const std\+::string \&val)
 \item 
-\mbox{\Hypertarget{classEquation_a6e0f72992a59285ca1d9548f65172a91}\label{classEquation_a6e0f72992a59285ca1d9548f65172a91}} 
-void {\bfseries Print} ()
+void \mbox{\hyperlink{classEquation_a6e0f72992a59285ca1d9548f65172a91}{Print}} ()
 \item 
-\mbox{\Hypertarget{classEquation_a5759756df61aef67f485f027ee59b1a0}\label{classEquation_a5759756df61aef67f485f027ee59b1a0}} 
-{\footnotesize template$<$typename... VArgs$>$ }\\double {\bfseries Evaluate} (VArgs... args)
+{\footnotesize template$<$typename... VArgs$>$ }\\double \mbox{\hyperlink{classEquation_a5759756df61aef67f485f027ee59b1a0}{Evaluate}} (VArgs... args)
 \item 
-\mbox{\Hypertarget{classEquation_a418cac31627a2584a8e06615b1a0be24}\label{classEquation_a418cac31627a2584a8e06615b1a0be24}} 
-double {\bfseries Evaluate} ()
+double \mbox{\hyperlink{classEquation_a418cac31627a2584a8e06615b1a0be24}{Evaluate}} ()
 \item 
 {\footnotesize template$<$typename... VArgs$>$ }\\void \mbox{\hyperlink{classEquation_a2091c8458c47786a28c02798bdac34da}{Set\+Symbols}} (const int \&index, double val, VArgs... args)
 \item 
@@ -24,8 +23,7 @@ void \mbox{\hyperlink{classEquation_a8f7b01592a044ca4716e07b399753e41}{Set\+Symb
 \item 
 bool \mbox{\hyperlink{classEquation_a7de002b470adb0c5e81324da7dc8355f}{Has\+Symbol}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ \&sym)
 \item 
-\mbox{\Hypertarget{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}\label{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}} 
-std\+::string {\bfseries Get\+String} () const
+std\+::string \mbox{\hyperlink{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}{Get\+String}} () const
 \item 
 void \mbox{\hyperlink{classEquation_ab9daa6dd4f1c918d325ae90390503269}{Print\+Tree}} () const
 \item 
@@ -37,17 +35,72 @@ void \mbox{\hyperlink{classEquation_a96bcd5581bd04a65fea7ba373815e418}{Print\+Tr
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classEquation_af1bd5572e55f920d9be6285874219c6e}\label{classEquation_af1bd5572e55f920d9be6285874219c6e}} 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ {\bfseries base\+Node} = nullptr
-\end{DoxyCompactItemize}
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classEquation_af1bd5572e55f920d9be6285874219c6e}{base\+Node}} = nullptr
+\begin{DoxyCompactList}\small\item\em Holds the base node of the abstract syntax tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2github_2workspace_2include_2math_2symb_2Symbolic_8h-example}{/github/workspace/include/math/symb/\+Symbolic.\+h}}.\end{Desc}
+Representation of mathematical statement 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEquation_a35ed8dff1c0ccc38b4290afec957504c}\label{classEquation_a35ed8dff1c0ccc38b4290afec957504c}} 
+\index{Equation@{Equation}!Equation@{Equation}}
+\index{Equation@{Equation}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{Equation()}{Equation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Equation\+::\+Equation (\begin{DoxyParamCaption}\item[{const char $\ast$}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+default constructor for char$\ast$ representation 
+\begin{DoxyParams}{Parameters}
+{\em val} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEquation_a35fa8e029070c8117fd30850fdd4a2ec}\label{classEquation_a35fa8e029070c8117fd30850fdd4a2ec}} 
+\index{Equation@{Equation}!Equation@{Equation}}
+\index{Equation@{Equation}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{Equation()}{Equation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Equation\+::\+Equation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+default constructor for string representation 
+\begin{DoxyParams}{Parameters}
+{\em val} & \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEquation_a418cac31627a2584a8e06615b1a0be24}\label{classEquation_a418cac31627a2584a8e06615b1a0be24}} 
+\index{Equation@{Equation}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Equation\+::\+Evaluate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evaluate equation with preset values \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEquation_a5759756df61aef67f485f027ee59b1a0}\label{classEquation_a5759756df61aef67f485f027ee59b1a0}} 
+\index{Equation@{Equation}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename... VArgs$>$ \\
+double Equation\+::\+Evaluate (\begin{DoxyParamCaption}\item[{VArgs...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+var arg method to evaluate equation using variable amount of symbols, yet if called with parameters, all parameters need to be present.
+
+{\bfseries{Needs to be called with number symbols as number parameters}}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em VArgs} & variable amount of arguments \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & arguments passed for symbols, with index representing index of symbol in symbols \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Evaluation of equation 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classEquation_af24aea49f8fddde7c8ac1157bc99c636}\label{classEquation_af24aea49f8fddde7c8ac1157bc99c636}} 
 \index{Equation@{Equation}!GetDepth@{GetDepth}}
 \index{GetDepth@{GetDepth}!Equation@{Equation}}
@@ -64,9 +117,15 @@ Getter for max AST depth
 \begin{DoxyReturn}{Returns}
 current depth if last node in branch, else max of left depth and right depth 
 \end{DoxyReturn}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2github_2workspace_2include_2math_2symb_2Symbolic_8h-example}{/github/workspace/include/math/symb/\+Symbolic.\+h}}.\end{Desc}
+\mbox{\Hypertarget{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}\label{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}} 
+\index{Equation@{Equation}!GetString@{GetString}}
+\index{GetString@{GetString}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{GetString()}{GetString()}}
+{\footnotesize\ttfamily std\+::string Equation\+::\+Get\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Helper to recreate string representation based on tree \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{classEquation_a7de002b470adb0c5e81324da7dc8355f}\label{classEquation_a7de002b470adb0c5e81324da7dc8355f}} 
 \index{Equation@{Equation}!HasSymbol@{HasSymbol}}
 \index{HasSymbol@{HasSymbol}!Equation@{Equation}}
@@ -81,19 +140,19 @@ Helper to check for existence of symbolic
 \begin{DoxyReturn}{Returns}
 sym already registered? 
 \end{DoxyReturn}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2github_2workspace_2include_2math_2symb_2Symbolic_8h-example}{/github/workspace/include/math/symb/\+Symbolic.\+h}}.\end{Desc}
-\mbox{\Hypertarget{classEquation_ab9daa6dd4f1c918d325ae90390503269}\label{classEquation_ab9daa6dd4f1c918d325ae90390503269}} 
+\mbox{\Hypertarget{classEquation_a6e0f72992a59285ca1d9548f65172a91}\label{classEquation_a6e0f72992a59285ca1d9548f65172a91}} 
+\index{Equation@{Equation}!Print@{Print}}
+\index{Print@{Print}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Equation\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Prints equation into std\+::cout \mbox{\Hypertarget{classEquation_ab9daa6dd4f1c918d325ae90390503269}\label{classEquation_ab9daa6dd4f1c918d325ae90390503269}} 
 \index{Equation@{Equation}!PrintTree@{PrintTree}}
 \index{PrintTree@{PrintTree}!Equation@{Equation}}
 \doxysubsubsection{\texorpdfstring{PrintTree()}{PrintTree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Equation\+::\+Print\+Tree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Helper method to display ASTree. \begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2github_2workspace_2include_2math_2symb_2Symbolic_8h-example}{/github/workspace/include/math/symb/\+Symbolic.\+h}}.\end{Desc}
-\mbox{\Hypertarget{classEquation_a96bcd5581bd04a65fea7ba373815e418}\label{classEquation_a96bcd5581bd04a65fea7ba373815e418}} 
+Helper method to display ASTree. \mbox{\Hypertarget{classEquation_a96bcd5581bd04a65fea7ba373815e418}\label{classEquation_a96bcd5581bd04a65fea7ba373815e418}} 
 \index{Equation@{Equation}!PrintTree@{PrintTree}}
 \index{PrintTree@{PrintTree}!Equation@{Equation}}
 \doxysubsubsection{\texorpdfstring{PrintTree()}{PrintTree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -140,9 +199,6 @@ var arg method to recursively set current values of symbols
 {\em args} & following arguments \\
 \hline
 \end{DoxyParams}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2github_2workspace_2include_2math_2symb_2Symbolic_8h-example}{/github/workspace/include/math/symb/\+Symbolic.\+h}}.\end{Desc}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -73,18 +80,28 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Matrix.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;numerics/lin_alg/LU.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;numerics/lin_alg/backwardSub.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;numerics/lin_alg/forwardSub.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;numerics/lin_alg/gaussSeidel.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;numerics/lin_alg/newton.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="LU_8h.html">numerics/lin_alg/LU.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="backwardSub_8h.html">numerics/lin_alg/backwardSub.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="forwardSub_8h.html">numerics/lin_alg/forwardSub.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gaussSeidel_8h.html">numerics/lin_alg/gaussSeidel.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="newton_8h.html">numerics/lin_alg/newton.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;numerics/ode/ExplicitEuler.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ExplicitEuler_8h.html">numerics/ode/ExplicitEuler.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;numerics/ode/ODESolver.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;numerics/ode/ode.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;numerics/ode/ode45.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;numerics/ode/odeBDF2.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;numerics/ode/odeTrapez.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode_2ode_8h.html">numerics/ode/ode.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode45_8h.html">numerics/ode/ode45.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="odeBDF2_8h.html">numerics/ode/odeBDF2.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="odeTrapez_8h.html">numerics/ode/odeTrapez.h</a>&quot;</span></div>
+<div class="ttc" id="aExplicitEuler_8h_html"><div class="ttname"><a href="ExplicitEuler_8h.html">ExplicitEuler.h</a></div></div>
+<div class="ttc" id="aLU_8h_html"><div class="ttname"><a href="LU_8h.html">LU.h</a></div></div>
+<div class="ttc" id="abackwardSub_8h_html"><div class="ttname"><a href="backwardSub_8h.html">backwardSub.h</a></div></div>
+<div class="ttc" id="aforwardSub_8h_html"><div class="ttname"><a href="forwardSub_8h.html">forwardSub.h</a></div></div>
+<div class="ttc" id="agaussSeidel_8h_html"><div class="ttname"><a href="gaussSeidel_8h.html">gaussSeidel.h</a></div></div>
+<div class="ttc" id="anewton_8h_html"><div class="ttname"><a href="newton_8h.html">newton.h</a></div></div>
+<div class="ttc" id="aode45_8h_html"><div class="ttname"><a href="ode45_8h.html">ode45.h</a></div></div>
+<div class="ttc" id="aodeBDF2_8h_html"><div class="ttname"><a href="odeBDF2_8h.html">odeBDF2.h</a></div></div>
+<div class="ttc" id="aodeTrapez_8h_html"><div class="ttname"><a href="odeTrapez_8h.html">odeTrapez.h</a></div></div>
+<div class="ttc" id="aode_2ode_8h_html"><div class="ttname"><a href="ode_2ode_8h.html">ode.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

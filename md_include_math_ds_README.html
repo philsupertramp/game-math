@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -66,9 +73,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Used for machine learning and data science tasks</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Dependencies</h1>
-<p>In case you want to use <code><a class="el" href="classImageDataSet.html">ImageDataSet</a></code> you need to add the compile flag <code>MATH_IMAGE_PROCESSING=1</code> to your build process as well as having the following libraries installed on your machine:</p><ul>
+<p>In case you want to use <code><a class="el" href="classImageDataSet.html" title="only include Magick++ if needed">ImageDataSet</a></code> you need to add the compile flag <code>MATH_IMAGE_PROCESSING=1</code> to your build process as well as having the following libraries installed on your machine:</p><ul>
 <li>ImageMagick/Magick++<code>&gt;=7.0.10-45</code> <br  />
  Ubuntu: <code>sudo apt-get install libgraphicsmagick1-dev</code> <br  />
  Arch: <code>sudo pacman -S imagemagick</code></li>
@@ -77,7 +84,7 @@ Dependencies</h1>
 <div class="line">InitializeMagick(*argv);</div>
 </div><!-- fragment --><p> to your main to initialize <code>Magick++</code> <br  />
  <b>Note:</b> unnecessary for UNIX systems</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 TOC</h1>
 <p>File | Usage :&mdash; | &mdash; | <b>Data Science</b> | <code><a class="el" href="DataSet_8h_source.html">DataSet.h</a></code> | Represents a dataset | <code><a class="el" href="ImageDataSet_8h_source.html">ImageDataSet.h</a></code> | Represents a dataset of image files | <b>Machine Learning</b> | <em>Neuronal Networks</em> | <code><a class="el" href="Perceptron_8h_source.html">Perceptron.h</a></code> | <a class="el" href="classPerceptron.html">Perceptron</a> classifier | <code><a class="el" href="AdalineGD_8h_source.html">AdalineGD.h</a></code> | Adaline Neuron classifier trained using the gradient decent method | <code><a class="el" href="AdalineSGD_8h_source.html">AdalineSGD.h</a></code> | Adaline Neuron classifier trained using the statistical gradient decent method | </p>
 </div></div><!-- contents -->

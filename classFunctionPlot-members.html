@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -68,24 +75,24 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classFunctionPlot.html">FunctionPlot</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>AddData</b>(const double &amp;start, const double &amp;end, const double &amp;stepSize, const char *name) (defined in <a class="el" href="classFunctionPlot.html">FunctionPlot</a>)</td><td class="entry"><a class="el" href="classFunctionPlot.html">FunctionPlot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>AddData</b>(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y, const char *name) (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classFunctionPlot.html#a6bea42610ef9f96447b91d622e918bc3">AddData</a>(const double &amp;start, const double &amp;end, const double &amp;stepSize, const char *name)</td><td class="entry"><a class="el" href="classFunctionPlot.html">FunctionPlot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classPlot.html#a395e4ce0410a743fe55169521c13111b">Plot::AddData</a>(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y, const char *name)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classPlot.html#a14f56b76c8a5a351e18add8175a63781">Plot::AddData</a>(const Matrix&lt; double &gt; &amp;mat, const char *name)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>attributes</b> (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>bX</b> (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>bY</b> (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>fileName</b> (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>FunctionPlot</b>(std::function&lt; double(const double &amp;)&gt; fun, const char *name=&quot;&quot;) (defined in <a class="el" href="classFunctionPlot.html">FunctionPlot</a>)</td><td class="entry"><a class="el" href="classFunctionPlot.html">FunctionPlot</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>lineWidth</b>(const int &amp;size) (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>numElements</b> (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classPlot.html#adccf50e0f1dde033486c08da47fb8c3e">attributes</a></td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classPlot.html#a954fcb23b76680d6d0148f3f7af02f4c">bX</a></td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classPlot.html#aa8a4a800b93ba4d22b4e4c01eacc583a">bY</a></td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classPlot.html#ac5c21369cb37d1e74741766bf26123ec">dataFileName</a></td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classFunctionPlot.html#acf609f64cac77f3e556747b73e70fbc1">FunctionPlot</a>(std::function&lt; double(const double &amp;)&gt; fun, const char *name=&quot;&quot;)</td><td class="entry"><a class="el" href="classFunctionPlot.html">FunctionPlot</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classPlot.html#a6030621e36e58f3119a7c81e4a9fbd31">lineWidth</a>(const int &amp;size)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classPlot.html#a1617d33546bbcfe4458899bc00eeb0ef">numElements</a></td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classPlot.html#a7fec4279498c404d3d5b5b7a670b8584">operator()</a>() const</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Plot</b>(const char *title=&quot;&quot;) (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>plotTypeName</b> (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>pointSize</b>(const int &amp;size) (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>storageFile</b> (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>title</b>(const char *name) (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>xAxis</b>(const char *name) (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>yAxis</b>(const char *name) (defined in <a class="el" href="classPlot.html">Plot</a>)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classPlot.html#aa82c1c0468301b22a625a1ba8e07316c">Plot</a>(const char *title=&quot;&quot;)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classPlot.html#a84d0108c396f7665f228340fce807992">plotTypeName</a></td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classPlot.html#ab1ca4b31fc51ed85c65f1c8fcf786134">pointSize</a>(const int &amp;size)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classPlot.html#a80885621943f0e082328be034f1478f3">storageFile</a></td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classPlot.html#ac8c296005218dc5afc125e26055e644a">title</a>(const char *name)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classPlot.html#acefa0c10c3b238171872e4e47d36db29">xAxis</a>(const char *name)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classPlot.html#a56b869ca326f5b5e3a4529cd4cb5f612">yAxis</a>(const char *name)</td><td class="entry"><a class="el" href="classPlot.html">Plot</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

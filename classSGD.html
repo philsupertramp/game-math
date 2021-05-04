@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -75,37 +82,337 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3894459b6b5dc9805ba83e04e6e4c8c3"><td class="memItemLeft" align="right" valign="top"><a id="a3894459b6b5dc9805ba83e04e6e4c8c3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SGD</b> (double _eta=0.01, int iter=10, bool _shuffle=false, const std::function&lt; double(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt; &amp;update_weights_fun=nullptr, const std::function&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt; &amp;netInputFun=nullptr)</td></tr>
+<tr class="memitem:a3894459b6b5dc9805ba83e04e6e4c8c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#a3894459b6b5dc9805ba83e04e6e4c8c3">SGD</a> (double _eta=0.01, int iter=10, bool _shuffle=false, const std::function&lt; double(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt; &amp;update_weights_fun=nullptr, const std::function&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt; &amp;netInputFun=nullptr)</td></tr>
 <tr class="separator:a3894459b6b5dc9805ba83e04e6e4c8c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1c260b0af030ec1016eb21c18a32952"><td class="memItemLeft" align="right" valign="top"><a id="ac1c260b0af030ec1016eb21c18a32952"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fit</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;weights)</td></tr>
+<tr class="memitem:ac1c260b0af030ec1016eb21c18a32952"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#ac1c260b0af030ec1016eb21c18a32952">fit</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;weights)</td></tr>
 <tr class="separator:ac1c260b0af030ec1016eb21c18a32952"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45c2d880b888167941d996ddf1b39b0b"><td class="memItemLeft" align="right" valign="top"><a id="a45c2d880b888167941d996ddf1b39b0b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>partial_fit</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;weights) const</td></tr>
+<tr class="memitem:a45c2d880b888167941d996ddf1b39b0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#a45c2d880b888167941d996ddf1b39b0b">partial_fit</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;weights) const</td></tr>
 <tr class="separator:a45c2d880b888167941d996ddf1b39b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d63550696ce2020c915db4a87412fde"><td class="memItemLeft" align="right" valign="top"><a id="a1d63550696ce2020c915db4a87412fde"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>update_weights</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;xi, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;target, <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;weights) const</td></tr>
+<tr class="memitem:a1d63550696ce2020c915db4a87412fde"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#a1d63550696ce2020c915db4a87412fde">update_weights</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;xi, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;target, <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;weights) const</td></tr>
 <tr class="separator:a1d63550696ce2020c915db4a87412fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbb20ecf594860dea201ca3d54da6217"><td class="memItemLeft" align="right" valign="top"><a id="acbb20ecf594860dea201ca3d54da6217"></a>
-std::pair&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;, <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>shuffleData</b> ([[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, [[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)</td></tr>
+<tr class="memitem:acbb20ecf594860dea201ca3d54da6217"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;, <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#acbb20ecf594860dea201ca3d54da6217">shuffleData</a> ([[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, [[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)</td></tr>
 <tr class="separator:acbb20ecf594860dea201ca3d54da6217"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aaf708c2bb43ec3f0d56ba6ba5b64264e"><td class="memItemLeft" align="right" valign="top"><a id="aaf708c2bb43ec3f0d56ba6ba5b64264e"></a>
-static <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>netInput</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;weights)</td></tr>
+<tr class="memitem:aaf708c2bb43ec3f0d56ba6ba5b64264e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#aaf708c2bb43ec3f0d56ba6ba5b64264e">netInput</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;weights)</td></tr>
 <tr class="separator:aaf708c2bb43ec3f0d56ba6ba5b64264e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a843697c86d1d89defc5b23e9847cdb4c"><td class="memItemLeft" align="right" valign="top"><a id="a843697c86d1d89defc5b23e9847cdb4c"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cost</b></td></tr>
+<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#a843697c86d1d89defc5b23e9847cdb4c">cost</a></td></tr>
+<tr class="memdesc:a843697c86d1d89defc5b23e9847cdb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">matrix holding cost per epoch <br /></td></tr>
 <tr class="separator:a843697c86d1d89defc5b23e9847cdb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements statistic gradient decent method to fit a model </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3894459b6b5dc9805ba83e04e6e4c8c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3894459b6b5dc9805ba83e04e6e4c8c3">&#9670;&nbsp;</a></span>SGD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SGD::SGD </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_eta</em> = <code>0.01</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iter</em> = <code>10</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_shuffle</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; double(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>update_weights_fun</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>netInputFun</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>default constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_eta</td><td></td></tr>
+    <tr><td class="paramname">iter</td><td></td></tr>
+    <tr><td class="paramname">_shuffle</td><td></td></tr>
+    <tr><td class="paramname">update_weights_fun</td><td></td></tr>
+    <tr><td class="paramname">netInputFun</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac1c260b0af030ec1016eb21c18a32952"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1c260b0af030ec1016eb21c18a32952">&#9670;&nbsp;</a></span>fit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SGD::fit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>weights</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>fits given weights according to used weight update/net input function based on given values X and y </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">weights</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaf708c2bb43ec3f0d56ba6ba5b64264e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf708c2bb43ec3f0d56ba6ba5b64264e">&#9670;&nbsp;</a></span>netInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; SGD::netInput </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>weights</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>computes the net-input for given values </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">weights</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a45c2d880b888167941d996ddf1b39b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45c2d880b888167941d996ddf1b39b0b">&#9670;&nbsp;</a></span>partial_fit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SGD::partial_fit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>weights</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Performs partial fit of given weights to input values </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">weights</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acbb20ecf594860dea201ca3d54da6217"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbb20ecf594860dea201ca3d54da6217">&#9670;&nbsp;</a></span>shuffleData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;<a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt;, <a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; &gt; SGD::shuffleData </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[[maybe_unused] ] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>shuffles given data </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a1d63550696ce2020c915db4a87412fde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d63550696ce2020c915db4a87412fde">&#9670;&nbsp;</a></span>update_weights()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double SGD::update_weights </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>xi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>weights</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>calculates update values (mean-square-error) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xi</td><td></td></tr>
+    <tr><td class="paramname">target</td><td></td></tr>
+    <tr><td class="paramname">weights</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/math/ds/<a class="el" href="SGD_8h_source.html">SGD.h</a></li>
 </ul>
 </div><!-- contents -->

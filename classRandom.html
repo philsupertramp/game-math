@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -68,28 +75,260 @@ $(function() {
 <div class="title">Random Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Random_8h_source.html">Random.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa2d76b6a87c5642871c11e781f8f34b0"><td class="memItemLeft" align="right" valign="top"><a id="aa2d76b6a87c5642871c11e781f8f34b0"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSeed</b> (int seed)</td></tr>
+<tr class="memitem:aa2d76b6a87c5642871c11e781f8f34b0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRandom.html#aa2d76b6a87c5642871c11e781f8f34b0">SetSeed</a> (int seed)</td></tr>
 <tr class="separator:aa2d76b6a87c5642871c11e781f8f34b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e7703d9e1a4de62e6483748afe35243"><td class="memItemLeft" align="right" valign="top"><a id="a5e7703d9e1a4de62e6483748afe35243"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> (double l=0.0, double r=1.0)</td></tr>
+<tr class="memitem:a5e7703d9e1a4de62e6483748afe35243"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a> (double l=0.0, double r=1.0)</td></tr>
 <tr class="separator:a5e7703d9e1a4de62e6483748afe35243"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a890437c0c6efb065847530461df4ea07"><td class="memTemplParams" colspan="2"><a id="a890437c0c6efb065847530461df4ea07"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a890437c0c6efb065847530461df4ea07"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structvec2.html">vec2</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Get</b> (double l=0.0, double r=1.0)</td></tr>
+<tr class="memitem:a890437c0c6efb065847530461df4ea07"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a890437c0c6efb065847530461df4ea07"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structvec2.html">vec2</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classRandom.html#a890437c0c6efb065847530461df4ea07">Get</a> (double l=0.0, double r=1.0)</td></tr>
 <tr class="separator:a890437c0c6efb065847530461df4ea07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a228d4451f162b53d6b03b4b2366bd523"><td class="memTemplParams" colspan="2"><a id="a228d4451f162b53d6b03b4b2366bd523"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a228d4451f162b53d6b03b4b2366bd523"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structvec3.html">vec3</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Get</b> (double l=0.0, double r=1.0)</td></tr>
+<tr class="memitem:a228d4451f162b53d6b03b4b2366bd523"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a228d4451f162b53d6b03b4b2366bd523"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structvec3.html">vec3</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classRandom.html#a228d4451f162b53d6b03b4b2366bd523">Get</a> (double l=0.0, double r=1.0)</td></tr>
 <tr class="separator:a228d4451f162b53d6b03b4b2366bd523"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c5d23fef3a61442fb787277bc40b2a6"><td class="memTemplParams" colspan="2"><a id="a2c5d23fef3a61442fb787277bc40b2a6"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2c5d23fef3a61442fb787277bc40b2a6"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structvec4.html">vec4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Get</b> (double l=0.0, double r=1.0)</td></tr>
+<tr class="memitem:a2c5d23fef3a61442fb787277bc40b2a6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2c5d23fef3a61442fb787277bc40b2a6"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structvec4.html">vec4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classRandom.html#a2c5d23fef3a61442fb787277bc40b2a6">Get</a> (double l=0.0, double r=1.0)</td></tr>
 <tr class="separator:a2c5d23fef3a61442fb787277bc40b2a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>RNG </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5e7703d9e1a4de62e6483748afe35243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e7703d9e1a4de62e6483748afe35243">&#9670;&nbsp;</a></span>Get() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double Random::Get </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>l</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>r</em> = <code>1.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Getter for random number between (including borders) l and r </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td></td></tr>
+    <tr><td class="paramname">r</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a890437c0c6efb065847530461df4ea07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a890437c0c6efb065847530461df4ea07">&#9670;&nbsp;</a></span>Get() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structvec2.html">vec2</a>&lt;T&gt; Random::Get </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>l</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>r</em> = <code>1.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>random number generator for 2D-vectors </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td></td></tr>
+    <tr><td class="paramname">r</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a228d4451f162b53d6b03b4b2366bd523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a228d4451f162b53d6b03b4b2366bd523">&#9670;&nbsp;</a></span>Get() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structvec3.html">vec3</a>&lt;T&gt; Random::Get </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>l</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>r</em> = <code>1.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>RNG for 3d vectors </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td></td></tr>
+    <tr><td class="paramname">r</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a2c5d23fef3a61442fb787277bc40b2a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c5d23fef3a61442fb787277bc40b2a6">&#9670;&nbsp;</a></span>Get() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structvec4.html">vec4</a>&lt;T&gt; Random::Get </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>l</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>r</em> = <code>1.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>RNG for <a class="el" href="structvec4.html">vec4</a> </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td></td></tr>
+    <tr><td class="paramname">r</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="aa2d76b6a87c5642871c11e781f8f34b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2d76b6a87c5642871c11e781f8f34b0">&#9670;&nbsp;</a></span>SetSeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Random::SetSeed </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>seed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>sets seed to given value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seed</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/math/<a class="el" href="Random_8h_source.html">Random.h</a></li>
 </ul>

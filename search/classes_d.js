@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['scatterplot_107',['ScatterPlot',['../classScatterPlot.html',1,'']]],
-  ['set_108',['Set',['../structSet.html',1,'']]],
-  ['sgd_109',['SGD',['../classSGD.html',1,'']]],
-  ['symbolic_110',['Symbolic',['../classSymbolic.html',1,'']]]
+  ['vec2_286',['vec2',['../structvec2.html',1,'']]],
+  ['vec3_287',['vec3',['../structvec3.html',1,'']]],
+  ['vec4_288',['vec4',['../structvec4.html',1,'']]]
 ];

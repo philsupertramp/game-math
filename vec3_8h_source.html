@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -75,189 +82,229 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="structvec3.html">    8</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structvec3.html">vec3</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if MATH_SILENCE_WARNING</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">    #if COMPILER_GCC</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">        #pragma GCC diagnostic push</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">        #pragma GCC diagnostic ignored &quot;-Wpedantic&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">    #elif COMPILER_CLANG</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">        #pragma clang diagnostic push</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">        #pragma clang diagnostic ignored &quot;-Wgnu-anonymous-struct&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">        #pragma clang diagnostic ignored &quot;-Wnested-anon-types&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">    #elif COMPILER_VC</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">        #pragma warning(push)</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">        #pragma warning(disable : 4201) </span><span class="comment">// nonstandard extension used : nameless struct/union</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">union </span>{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            T x, y, z;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        };</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    };</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">size_t</span> dim = 3;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#if MATH_SILENCE_WARNING</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">    #if COMPILER_CLANG</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">        #pragma clang diagnostic pop</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">    #elif COMPILER_GCC</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">        #pragma GCC diagnostic pop</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">    #elif COMPILER_VC</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">        #pragma warning(pop)</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="structvec3.html">vec3</a>() {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        x = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.0f);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        y = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.0f);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        z = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.0f);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="structvec3.html">vec3</a>(T _x, T _y, T _z) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        this-&gt;x = _x;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        this-&gt;y = _y;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        this-&gt;z = _z;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="structvec3.html">vec3</a>(<a class="code" href="structvec4.html">vec4&lt;T&gt;</a> a) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        this-&gt;x = a.x;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        this-&gt;y = a.y;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        this-&gt;z = a.z;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structvec3.html">   12</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structvec3.html">vec3</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#if MATH_SILENCE_WARNING</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">    #if COMPILER_GCC</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">        #pragma GCC diagnostic push</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">        #pragma GCC diagnostic ignored &quot;-Wpedantic&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">    #elif COMPILER_CLANG</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">        #pragma clang diagnostic push</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">        #pragma clang diagnostic ignored &quot;-Wgnu-anonymous-struct&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">        #pragma clang diagnostic ignored &quot;-Wnested-anon-types&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">    #elif COMPILER_VC</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">        #pragma warning(push)</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">        #pragma warning(disable : 4201) </span><span class="comment">// nonstandard extension used : nameless struct/union</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">union </span>{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            T x, y, z;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        };</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    };</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structvec3.html#a345843fea85e1b96768cf3ab83c35889">   36</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="structvec3.html#a345843fea85e1b96768cf3ab83c35889">dim</a> = 3;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#if MATH_SILENCE_WARNING</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">    #if COMPILER_CLANG</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">        #pragma clang diagnostic pop</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">    #elif COMPILER_GCC</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">        #pragma GCC diagnostic pop</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">    #elif COMPILER_VC</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">        #pragma warning(pop)</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structvec3.html#afb7342872bc442bf0da6a7da1671e77e">   51</a></span>&#160;    <a class="code" href="structvec3.html#afb7342872bc442bf0da6a7da1671e77e">vec3</a>() {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        x = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.0f);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        y = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.0f);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        z = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.0f);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="structvec3.html">vec3</a>(T _v) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        this-&gt;x = _v;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        this-&gt;y = _v;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        this-&gt;z = _v;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="structvec3.html">vec3</a>(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; v) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        x = v.x;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        y = v.y;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        z = v.z;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">/* Misc functions */</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">inline</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> cross(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> rhs)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        (<span class="keywordtype">float</span>)y * rhs.z - (<span class="keywordtype">float</span>)z * rhs.y, (<span class="keywordtype">float</span>)z * rhs.x - (<span class="keywordtype">float</span>)x * rhs.z, (<span class="keywordtype">float</span>)x * rhs.y - y * rhs.x);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">float</span> length()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> sqrtf(x * x + y * y + z * z); }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">inline</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> normalize()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">float</span> len = length();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> ((len != 0.0f) ? (*<span class="keyword">this</span> / len) : *<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structvec3.html#a70b4645f1ef288d95a9b13376dd9c14a">   63</a></span>&#160;    <a class="code" href="structvec3.html#a70b4645f1ef288d95a9b13376dd9c14a">vec3</a>(T _x, T _y, T _z) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        this-&gt;x = _x;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        this-&gt;y = _y;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        this-&gt;z = _z;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structvec3.html#a71875515a97dbaa28c1d177915772b79">   73</a></span>&#160;    <a class="code" href="structvec3.html#a71875515a97dbaa28c1d177915772b79">vec3</a>(<a class="code" href="structvec4.html">vec4&lt;T&gt;</a> a) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        this-&gt;x = a.x;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        this-&gt;y = a.y;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        this-&gt;z = a.z;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">/* Arithmetic operators */</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> operator+(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) { <span class="keywordflow">return</span> lhs += rhs; }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> operator-(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) { <span class="keywordflow">return</span> lhs -= rhs; }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> operator*(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> T&amp; rhs) { <span class="keywordflow">return</span> lhs *= rhs; }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> operator*(<span class="keyword">const</span> T&amp; lhs, <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> rhs) { <span class="keywordflow">return</span> rhs *= lhs; }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">friend</span> T operator*(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) { <span class="keywordflow">return</span> lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z; }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> operator/(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> T&amp; rhs) { <span class="keywordflow">return</span> lhs /= rhs; }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// element wise division</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> operator/(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> { lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z };</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">/* compound assignment */</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; operator+=(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        this-&gt;x += rhs.x;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        this-&gt;y += rhs.y;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        this-&gt;z += rhs.z;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; operator-=(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        this-&gt;x -= rhs.x;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        this-&gt;y -= rhs.y;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        this-&gt;z -= rhs.z;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; operator*=(<span class="keyword">const</span> T&amp; rhs) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        this-&gt;x *= rhs;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        this-&gt;y *= rhs;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        this-&gt;z *= rhs;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; operator/=(<span class="keyword">const</span> T&amp; rhs) {</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        this-&gt;x /= rhs;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        this-&gt;y /= rhs;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        this-&gt;z /= rhs;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment">/* comparison operators */</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">return</span> lhs.x == rhs.x &amp;&amp; lhs.y == rhs.y &amp;&amp; lhs.z == rhs.z;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator&gt;(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) { <span class="keywordflow">return</span> lhs.length() &gt; rhs.length(); }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) { <span class="keywordflow">return</span> lhs.length() &lt; rhs.length(); }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">/* explicit type casts */</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="structvec3.html#a2b1ec73adbd504ee31d05b5e2ae4a720">   83</a></span>&#160;    <a class="code" href="structvec3.html#a2b1ec73adbd504ee31d05b5e2ae4a720">vec3</a>(T _v) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        this-&gt;x = _v;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        this-&gt;y = _v;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        this-&gt;z = _v;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="structvec3.html#aae003cd1de08a8e9dc1f268d1d536979">   92</a></span>&#160;    <a class="code" href="structvec3.html#aae003cd1de08a8e9dc1f268d1d536979">vec3</a>(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; v) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        x = v.x;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        y = v.y;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        z = v.z;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">/* Misc functions */</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="structvec3.html#a6659bbbbdec0fcf10942a8cbc205b952">  105</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="structvec3.html#a6659bbbbdec0fcf10942a8cbc205b952">cross</a>(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> rhs)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        (<span class="keywordtype">float</span>)y * rhs.z - (<span class="keywordtype">float</span>)z * rhs.y, (<span class="keywordtype">float</span>)z * rhs.x - (<span class="keywordtype">float</span>)x * rhs.z, (<span class="keywordtype">float</span>)x * rhs.y - y * rhs.x);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="structvec3.html#ac029a16150f7428a8e6e3bf876da68b1">  117</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="structvec3.html#ac029a16150f7428a8e6e3bf876da68b1">length</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> sqrtf(x * x + y * y + z * z); }</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="structvec3.html#a78346761e14409bf1360d7b8827c751b">  122</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="structvec3.html#a78346761e14409bf1360d7b8827c751b">normalize</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordtype">float</span> len = <a class="code" href="structvec3.html#ac029a16150f7428a8e6e3bf876da68b1">length</a>();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">return</span> ((len != 0.0f) ? (*<span class="keyword">this</span> / len) : *<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    constexpr <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; operator=(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <span class="keyword">const</span>&amp; V) {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        this-&gt;x = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(V.x);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        this-&gt;y = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(V.y);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        this-&gt;z = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(V.z);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="comment">/* Member access */</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    T&amp; operator[](<span class="keywordtype">int</span> index) {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">switch</span>(index) {</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="keywordflow">case</span> 0: <span class="keywordflow">return</span> x;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keywordflow">case</span> 1: <span class="keywordflow">return</span> y;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="keywordflow">case</span> 2: <span class="keywordflow">return</span> z;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">const</span> T&amp; operator[](<span class="keywordtype">int</span> index)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">switch</span>(index) {</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keywordflow">case</span> 0: <span class="keywordflow">return</span> x;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="keywordflow">case</span> 1: <span class="keywordflow">return</span> y;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordflow">case</span> 2: <span class="keywordflow">return</span> z;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        }</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">operator</span> <a class="code" href="structvec3.html">vec3&lt;U&gt;</a>() {</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;U&gt;</a>(x, y, z);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="comment">/* stream operators */</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> U&gt;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;U&gt;</a>&amp;);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;};</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; obj) {</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    os.precision(17);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    os &lt;&lt; obj.x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; obj.y &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; obj.z &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> build_vec3(<span class="keywordtype">void</span>* in) {</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    T* values = (T*)in;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> out(values[0], values[1], values[2]);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keyword">namespace </span>std {</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html">  179</a></span>&#160;    <span class="keyword">class </span>numeric_limits&lt;<a class="code" href="structvec3.html">vec3</a>&lt;T&gt;&gt;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keyword">static</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lowest() { <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(std::numeric_limits&lt;T&gt;::lowest()); };</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keyword">static</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> max() { <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(std::numeric_limits&lt;T&gt;::max()); };</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keyword">static</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> min() { <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(std::numeric_limits&lt;T&gt;::min()); };</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="comment">// One can implement other methods if needed</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    };</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;} <span class="comment">// namespace std</span></div>
-<div class="ttc" id="astructvec3_html"><div class="ttname"><a href="structvec3.html">vec3</a></div><div class="ttdef"><b>Definition:</b> vec3.h:8</div></div>
-<div class="ttc" id="astructvec4_html"><div class="ttname"><a href="structvec4.html">vec4</a></div><div class="ttdef"><b>Definition:</b> vec4.h:7</div></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">/* Arithmetic operators */</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="structvec3.html#a1f3bba390332588eb513a203a6ce4690">  134</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="structvec3.html#a1f3bba390332588eb513a203a6ce4690">operator+</a>(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) { <span class="keywordflow">return</span> lhs += rhs; }</div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="structvec3.html#ac0d0421710ff199c8b39455cecd2ce22">  141</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="structvec3.html#ac0d0421710ff199c8b39455cecd2ce22">operator-</a>(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) { <span class="keywordflow">return</span> lhs -= rhs; }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="structvec3.html#a6e29745d0225f004a7d97f6a373008f9">  149</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="structvec3.html#a6e29745d0225f004a7d97f6a373008f9">operator*</a>(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> T&amp; rhs) { <span class="keywordflow">return</span> lhs *= rhs; }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="structvec3.html#a74e14acb12ac20ca02be0e3de2e48035">  157</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="structvec3.html#a74e14acb12ac20ca02be0e3de2e48035">operator*</a>(<span class="keyword">const</span> T&amp; lhs, <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> rhs) { <span class="keywordflow">return</span> rhs *= lhs; }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="structvec3.html#a568bb8b640463022a9f4af0968fc580c">  165</a></span>&#160;    <span class="keyword">friend</span> T <a class="code" href="structvec3.html#a568bb8b640463022a9f4af0968fc580c">operator*</a>(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) { <span class="keywordflow">return</span> lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z; }</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="structvec3.html#a3cb09b0c52a63ba9d9209779c2b9d582">  173</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="structvec3.html#a3cb09b0c52a63ba9d9209779c2b9d582">operator/</a>(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> T&amp; rhs) { <span class="keywordflow">return</span> lhs /= rhs; }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="comment">// element wise division</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="structvec3.html#abf7bbe858ab61d045bde45aa3269438a">  182</a></span>&#160;<span class="comment"></span>    <span class="keyword">friend</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="structvec3.html#abf7bbe858ab61d045bde45aa3269438a">operator/</a>(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) {</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">return</span> { lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z };</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment">/* compound assignment */</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="structvec3.html#a30aab6cfbff446f0a794c496c228c23e">  192</a></span>&#160;    <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; <a class="code" href="structvec3.html#a30aab6cfbff446f0a794c496c228c23e">operator+=</a>(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        this-&gt;x += rhs.x;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        this-&gt;y += rhs.y;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        this-&gt;z += rhs.z;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="structvec3.html#a27873360d50bc6498c92bce0a609b156">  203</a></span>&#160;    <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; <a class="code" href="structvec3.html#a27873360d50bc6498c92bce0a609b156">operator-=</a>(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) {</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        this-&gt;x -= rhs.x;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        this-&gt;y -= rhs.y;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        this-&gt;z -= rhs.z;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
+<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="structvec3.html#aae693570e19b9898f7df2b24336ca99a">  214</a></span>&#160;    <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; <a class="code" href="structvec3.html#aae693570e19b9898f7df2b24336ca99a">operator*=</a>(<span class="keyword">const</span> T&amp; rhs) {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        this-&gt;x *= rhs;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        this-&gt;y *= rhs;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        this-&gt;z *= rhs;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="structvec3.html#a3c7e9fd90fe9cbc22527d6b4992b3913">  225</a></span>&#160;    <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; <a class="code" href="structvec3.html#a3c7e9fd90fe9cbc22527d6b4992b3913">operator/=</a>(<span class="keyword">const</span> T&amp; rhs) {</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        this-&gt;x /= rhs;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        this-&gt;y /= rhs;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        this-&gt;z /= rhs;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    }</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="comment">/* comparison operators */</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="structvec3.html#a0cada26488c14237f5e3cad4bcf16ab9">  239</a></span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="structvec3.html#a0cada26488c14237f5e3cad4bcf16ab9">operator==</a>(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) {</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">return</span> lhs.x == rhs.x &amp;&amp; lhs.y == rhs.y &amp;&amp; lhs.z == rhs.z;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="structvec3.html#a0a2b2b4db049057aad3287844e776352">  249</a></span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="structvec3.html#a0a2b2b4db049057aad3287844e776352">operator&gt;</a>(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) { <span class="keywordflow">return</span> lhs.<a class="code" href="structvec3.html#ac029a16150f7428a8e6e3bf876da68b1">length</a>() &gt; rhs.<a class="code" href="structvec3.html#ac029a16150f7428a8e6e3bf876da68b1">length</a>(); }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno"><a class="line" href="structvec3.html#aa615878eede4f29f4e22203ba04a8aa9">  257</a></span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="structvec3.html#aa615878eede4f29f4e22203ba04a8aa9">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; lhs, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; rhs) { <span class="keywordflow">return</span> lhs.<a class="code" href="structvec3.html#ac029a16150f7428a8e6e3bf876da68b1">length</a>() &lt; rhs.<a class="code" href="structvec3.html#ac029a16150f7428a8e6e3bf876da68b1">length</a>(); }</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="comment">/* explicit type casts */</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="structvec3.html#a0f9a0ce136b3bd4f4212ceccc0c08b36">  266</a></span>&#160;    constexpr <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; <a class="code" href="structvec3.html#a0f9a0ce136b3bd4f4212ceccc0c08b36">operator=</a>(<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <span class="keyword">const</span>&amp; V) {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        this-&gt;x = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(V.x);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        this-&gt;y = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(V.y);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        this-&gt;z = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(V.z);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">/* Member access */</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="structvec3.html#a0e0a232651cb724638ad5a3e61370ab8">  279</a></span>&#160;    T&amp; <a class="code" href="structvec3.html#a0e0a232651cb724638ad5a3e61370ab8">operator[]</a>(<span class="keywordtype">int</span> index) {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordflow">switch</span>(index) {</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            <span class="keywordflow">case</span> 0: <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            <span class="keywordflow">case</span> 1: <span class="keywordflow">return</span> y;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            <span class="keywordflow">case</span> 2: <span class="keywordflow">return</span> z;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    }</div>
+<div class="line"><a name="l00292"></a><span class="lineno"><a class="line" href="structvec3.html#aed3cd464bbbf75eca47ee0d11504b4d3">  292</a></span>&#160;    <span class="keyword">const</span> T&amp; <a class="code" href="structvec3.html#aed3cd464bbbf75eca47ee0d11504b4d3">operator[]</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">switch</span>(index) {</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            <span class="keywordflow">case</span> 0: <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            <span class="keywordflow">case</span> 1: <span class="keywordflow">return</span> y;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <span class="keywordflow">case</span> 2: <span class="keywordflow">return</span> z;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        }</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    }</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="structvec3.html#a5001c9f4f18ddd32c9d8c771a5d54b9b">  307</a></span>&#160;    <span class="keyword">operator</span> <a class="code" href="structvec3.html">vec3&lt;U&gt;</a>() {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;U&gt;</a>(x, y, z);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="comment">/* stream operators */</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> U&gt;</div>
+<div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="structvec3.html#a9cf75675afd7a55176fac1632e1ca485">  318</a></span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="structvec3.html#a9cf75675afd7a55176fac1632e1ca485">operator&lt;&lt;</a>(std::ostream&amp;, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;U&gt;</a>&amp;);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;};</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>&amp; obj) {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    os.precision(17);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    os &lt;&lt; obj.x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; obj.y &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; obj.z &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;}</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<a class="code" href="structvec3.html">vec3&lt;T&gt;</a> build_vec3(<span class="keywordtype">void</span>* in) {</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    T* values = (T*)in;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> out(values[0], values[1], values[2]);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;}</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="keyword">namespace </span>std {</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00348"></a><span class="lineno"><a class="line" href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html">  348</a></span>&#160;    <span class="keyword">class </span>numeric_limits&lt;<a class="code" href="structvec3.html">vec3</a>&lt;T&gt;&gt;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    {</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00355"></a><span class="lineno"><a class="line" href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#a9f3c9d61cc0c2904345e6b2df6e442e9">  355</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#a9f3c9d61cc0c2904345e6b2df6e442e9">lowest</a>() { <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(std::numeric_limits&lt;T&gt;::lowest()); };</div>
+<div class="line"><a name="l00360"></a><span class="lineno"><a class="line" href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#ab8b50544f8e6c6b41c1da3945c0d0757">  360</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#ab8b50544f8e6c6b41c1da3945c0d0757">max</a>() { <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(std::numeric_limits&lt;T&gt;::max()); };</div>
+<div class="line"><a name="l00365"></a><span class="lineno"><a class="line" href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#a245caf789ebf2a6c6d8aa1ea30a5a48f">  365</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#a245caf789ebf2a6c6d8aa1ea30a5a48f">min</a>() { <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(std::numeric_limits&lt;T&gt;::min()); };</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="comment">// One can implement other methods if needed</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    };</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;} <span class="comment">// namespace std</span></div>
+<div class="ttc" id="aclassstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4_html_a245caf789ebf2a6c6d8aa1ea30a5a48f"><div class="ttname"><a href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#a245caf789ebf2a6c6d8aa1ea30a5a48f">std::numeric_limits&lt; vec3&lt; T &gt; &gt;::min</a></div><div class="ttdeci">static vec3&lt; T &gt; min()</div><div class="ttdef"><b>Definition:</b> vec3.h:365</div></div>
+<div class="ttc" id="aclassstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4_html_a9f3c9d61cc0c2904345e6b2df6e442e9"><div class="ttname"><a href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#a9f3c9d61cc0c2904345e6b2df6e442e9">std::numeric_limits&lt; vec3&lt; T &gt; &gt;::lowest</a></div><div class="ttdeci">static vec3&lt; T &gt; lowest()</div><div class="ttdef"><b>Definition:</b> vec3.h:355</div></div>
+<div class="ttc" id="aclassstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4_html_ab8b50544f8e6c6b41c1da3945c0d0757"><div class="ttname"><a href="classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#ab8b50544f8e6c6b41c1da3945c0d0757">std::numeric_limits&lt; vec3&lt; T &gt; &gt;::max</a></div><div class="ttdeci">static vec3&lt; T &gt; max()</div><div class="ttdef"><b>Definition:</b> vec3.h:360</div></div>
+<div class="ttc" id="astructvec3_html"><div class="ttname"><a href="structvec3.html">vec3</a></div><div class="ttdef"><b>Definition:</b> vec3.h:12</div></div>
+<div class="ttc" id="astructvec3_html_a0a2b2b4db049057aad3287844e776352"><div class="ttname"><a href="structvec3.html#a0a2b2b4db049057aad3287844e776352">vec3::operator&gt;</a></div><div class="ttdeci">friend bool operator&gt;(const vec3&lt; T &gt; &amp;lhs, const vec3&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:249</div></div>
+<div class="ttc" id="astructvec3_html_a0cada26488c14237f5e3cad4bcf16ab9"><div class="ttname"><a href="structvec3.html#a0cada26488c14237f5e3cad4bcf16ab9">vec3::operator==</a></div><div class="ttdeci">friend bool operator==(const vec3&lt; T &gt; &amp;lhs, const vec3&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:239</div></div>
+<div class="ttc" id="astructvec3_html_a0e0a232651cb724638ad5a3e61370ab8"><div class="ttname"><a href="structvec3.html#a0e0a232651cb724638ad5a3e61370ab8">vec3::operator[]</a></div><div class="ttdeci">T &amp; operator[](int index)</div><div class="ttdef"><b>Definition:</b> vec3.h:279</div></div>
+<div class="ttc" id="astructvec3_html_a0f9a0ce136b3bd4f4212ceccc0c08b36"><div class="ttname"><a href="structvec3.html#a0f9a0ce136b3bd4f4212ceccc0c08b36">vec3::operator=</a></div><div class="ttdeci">constexpr vec3&lt; T &gt; &amp; operator=(vec3&lt; T &gt; const &amp;V)</div><div class="ttdef"><b>Definition:</b> vec3.h:266</div></div>
+<div class="ttc" id="astructvec3_html_a1f3bba390332588eb513a203a6ce4690"><div class="ttname"><a href="structvec3.html#a1f3bba390332588eb513a203a6ce4690">vec3::operator+</a></div><div class="ttdeci">friend vec3&lt; T &gt; operator+(vec3&lt; T &gt; lhs, const vec3&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:134</div></div>
+<div class="ttc" id="astructvec3_html_a27873360d50bc6498c92bce0a609b156"><div class="ttname"><a href="structvec3.html#a27873360d50bc6498c92bce0a609b156">vec3::operator-=</a></div><div class="ttdeci">vec3&lt; T &gt; &amp; operator-=(const vec3&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:203</div></div>
+<div class="ttc" id="astructvec3_html_a2b1ec73adbd504ee31d05b5e2ae4a720"><div class="ttname"><a href="structvec3.html#a2b1ec73adbd504ee31d05b5e2ae4a720">vec3::vec3</a></div><div class="ttdeci">vec3(T _v)</div><div class="ttdef"><b>Definition:</b> vec3.h:83</div></div>
+<div class="ttc" id="astructvec3_html_a30aab6cfbff446f0a794c496c228c23e"><div class="ttname"><a href="structvec3.html#a30aab6cfbff446f0a794c496c228c23e">vec3::operator+=</a></div><div class="ttdeci">vec3&lt; T &gt; &amp; operator+=(const vec3&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:192</div></div>
+<div class="ttc" id="astructvec3_html_a345843fea85e1b96768cf3ab83c35889"><div class="ttname"><a href="structvec3.html#a345843fea85e1b96768cf3ab83c35889">vec3::dim</a></div><div class="ttdeci">const size_t dim</div><div class="ttdoc">dimension of object</div><div class="ttdef"><b>Definition:</b> vec3.h:36</div></div>
+<div class="ttc" id="astructvec3_html_a3c7e9fd90fe9cbc22527d6b4992b3913"><div class="ttname"><a href="structvec3.html#a3c7e9fd90fe9cbc22527d6b4992b3913">vec3::operator/=</a></div><div class="ttdeci">vec3&lt; T &gt; &amp; operator/=(const T &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:225</div></div>
+<div class="ttc" id="astructvec3_html_a3cb09b0c52a63ba9d9209779c2b9d582"><div class="ttname"><a href="structvec3.html#a3cb09b0c52a63ba9d9209779c2b9d582">vec3::operator/</a></div><div class="ttdeci">friend vec3&lt; T &gt; operator/(vec3&lt; T &gt; lhs, const T &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:173</div></div>
+<div class="ttc" id="astructvec3_html_a568bb8b640463022a9f4af0968fc580c"><div class="ttname"><a href="structvec3.html#a568bb8b640463022a9f4af0968fc580c">vec3::operator*</a></div><div class="ttdeci">friend T operator*(vec3&lt; T &gt; lhs, const vec3&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:165</div></div>
+<div class="ttc" id="astructvec3_html_a6659bbbbdec0fcf10942a8cbc205b952"><div class="ttname"><a href="structvec3.html#a6659bbbbdec0fcf10942a8cbc205b952">vec3::cross</a></div><div class="ttdeci">vec3&lt; T &gt; cross(vec3&lt; T &gt; rhs) const</div><div class="ttdef"><b>Definition:</b> vec3.h:105</div></div>
+<div class="ttc" id="astructvec3_html_a6e29745d0225f004a7d97f6a373008f9"><div class="ttname"><a href="structvec3.html#a6e29745d0225f004a7d97f6a373008f9">vec3::operator*</a></div><div class="ttdeci">friend vec3&lt; T &gt; operator*(vec3&lt; T &gt; lhs, const T &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:149</div></div>
+<div class="ttc" id="astructvec3_html_a70b4645f1ef288d95a9b13376dd9c14a"><div class="ttname"><a href="structvec3.html#a70b4645f1ef288d95a9b13376dd9c14a">vec3::vec3</a></div><div class="ttdeci">vec3(T _x, T _y, T _z)</div><div class="ttdef"><b>Definition:</b> vec3.h:63</div></div>
+<div class="ttc" id="astructvec3_html_a71875515a97dbaa28c1d177915772b79"><div class="ttname"><a href="structvec3.html#a71875515a97dbaa28c1d177915772b79">vec3::vec3</a></div><div class="ttdeci">vec3(vec4&lt; T &gt; a)</div><div class="ttdef"><b>Definition:</b> vec3.h:73</div></div>
+<div class="ttc" id="astructvec3_html_a74e14acb12ac20ca02be0e3de2e48035"><div class="ttname"><a href="structvec3.html#a74e14acb12ac20ca02be0e3de2e48035">vec3::operator*</a></div><div class="ttdeci">friend vec3&lt; T &gt; operator*(const T &amp;lhs, vec3&lt; T &gt; rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:157</div></div>
+<div class="ttc" id="astructvec3_html_a78346761e14409bf1360d7b8827c751b"><div class="ttname"><a href="structvec3.html#a78346761e14409bf1360d7b8827c751b">vec3::normalize</a></div><div class="ttdeci">vec3&lt; T &gt; normalize() const</div><div class="ttdef"><b>Definition:</b> vec3.h:122</div></div>
+<div class="ttc" id="astructvec3_html_a9cf75675afd7a55176fac1632e1ca485"><div class="ttname"><a href="structvec3.html#a9cf75675afd7a55176fac1632e1ca485">vec3::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;, const vec3&lt; U &gt; &amp;)</div></div>
+<div class="ttc" id="astructvec3_html_aa615878eede4f29f4e22203ba04a8aa9"><div class="ttname"><a href="structvec3.html#aa615878eede4f29f4e22203ba04a8aa9">vec3::operator&lt;</a></div><div class="ttdeci">friend bool operator&lt;(const vec3&lt; T &gt; &amp;lhs, const vec3&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:257</div></div>
+<div class="ttc" id="astructvec3_html_aae003cd1de08a8e9dc1f268d1d536979"><div class="ttname"><a href="structvec3.html#aae003cd1de08a8e9dc1f268d1d536979">vec3::vec3</a></div><div class="ttdeci">vec3(const vec3&lt; T &gt; &amp;v)</div><div class="ttdef"><b>Definition:</b> vec3.h:92</div></div>
+<div class="ttc" id="astructvec3_html_aae693570e19b9898f7df2b24336ca99a"><div class="ttname"><a href="structvec3.html#aae693570e19b9898f7df2b24336ca99a">vec3::operator*=</a></div><div class="ttdeci">vec3&lt; T &gt; &amp; operator*=(const T &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:214</div></div>
+<div class="ttc" id="astructvec3_html_abf7bbe858ab61d045bde45aa3269438a"><div class="ttname"><a href="structvec3.html#abf7bbe858ab61d045bde45aa3269438a">vec3::operator/</a></div><div class="ttdeci">friend vec3&lt; T &gt; operator/(vec3&lt; T &gt; lhs, const vec3&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:182</div></div>
+<div class="ttc" id="astructvec3_html_ac029a16150f7428a8e6e3bf876da68b1"><div class="ttname"><a href="structvec3.html#ac029a16150f7428a8e6e3bf876da68b1">vec3::length</a></div><div class="ttdeci">float length() const</div><div class="ttdef"><b>Definition:</b> vec3.h:117</div></div>
+<div class="ttc" id="astructvec3_html_ac0d0421710ff199c8b39455cecd2ce22"><div class="ttname"><a href="structvec3.html#ac0d0421710ff199c8b39455cecd2ce22">vec3::operator-</a></div><div class="ttdeci">friend vec3&lt; T &gt; operator-(vec3&lt; T &gt; lhs, const vec3&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> vec3.h:141</div></div>
+<div class="ttc" id="astructvec3_html_aed3cd464bbbf75eca47ee0d11504b4d3"><div class="ttname"><a href="structvec3.html#aed3cd464bbbf75eca47ee0d11504b4d3">vec3::operator[]</a></div><div class="ttdeci">const T &amp; operator[](int index) const</div><div class="ttdef"><b>Definition:</b> vec3.h:292</div></div>
+<div class="ttc" id="astructvec3_html_afb7342872bc442bf0da6a7da1671e77e"><div class="ttname"><a href="structvec3.html#afb7342872bc442bf0da6a7da1671e77e">vec3::vec3</a></div><div class="ttdeci">vec3()</div><div class="ttdef"><b>Definition:</b> vec3.h:51</div></div>
+<div class="ttc" id="astructvec4_html"><div class="ttname"><a href="structvec4.html">vec4</a></div><div class="ttdef"><b>Definition:</b> vec4.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['elements_122',['elements',['../classMatrix.html#ac9d3a0fe5ce995cf6f997209f72199cc',1,'Matrix']]],
-  ['elementwisecompare_123',['elementWiseCompare',['../classMatrix.html#afecf4f1a91e8aa51df4b65cbc0ce621b',1,'Matrix']]]
+  ['dataset_315',['DataSet',['../classDataSet.html#a06a0a03f65d1ed5a3b9102242e761639',1,'DataSet::DataSet(const char *filePath, size_t inputCount, size_t outputCount)'],['../classDataSet.html#ad398cb9b594f7fc99ebec3e2fb227ebb',1,'DataSet::DataSet(size_t inputCount, size_t outputCount)']]],
+  ['determinant_316',['Determinant',['../classMatrix.html#a5f91e3755bfb6eb7b8aa5d49d8fbadb2',1,'Matrix::Determinant()'],['../structmat2.html#a2392950377c4cbb451ea9d528632b9f9',1,'mat2::Determinant()'],['../structmat3.html#a9590c23f7a73fa134eefdfa3e7bbbece',1,'mat3::Determinant()'],['../structmat4.html#a923b473e059a635bdc17bbfb1a0e878d',1,'mat4::Determinant()']]],
+  ['distance_317',['distance',['../utils_8h.html#a0db82d57fef0c8540f30485e3e8d707f',1,'Math::Utils']]]
 ];

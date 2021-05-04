@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['predict_143',['predict',['../classAdalineGD.html#a64117e06585fa2c98f577440b6e74e27',1,'AdalineGD::predict()'],['../classAdalineSGD.html#a5efda89a32f61566d068b2c37690f6b0',1,'AdalineSGD::predict()'],['../classClassifier.html#a0d47e1cccc5be1cdff3b202f48625afe',1,'Classifier::predict()'],['../classLogRegSGD.html#a3bd288cfafbd38b0c6c66fd67d316df1',1,'LogRegSGD::predict()'],['../classPerceptron.html#ac6859763b91ee84b799c1e7554e96eee',1,'Perceptron::predict()']]],
-  ['preparedirectory_144',['PrepareDirectory',['../classImageDataSet.html#a70c65453f974635726e64d371b39acee',1,'ImageDataSet']]],
-  ['printtree_145',['PrintTree',['../classEquation.html#ab9daa6dd4f1c918d325ae90390503269',1,'Equation::PrintTree() const'],['../classEquation.html#a96bcd5581bd04a65fea7ba373815e418',1,'Equation::PrintTree(const std::shared_ptr&lt; MathNode &gt; &amp;node, int &amp;level, std::vector&lt; std::string &gt; &amp;tree) const']]]
+  ['netinput_357',['netInput',['../classAdalineSGD.html#aa3e618b64d23abd52560b1b0f4f7fca6',1,'AdalineSGD::netInput()'],['../classClassifier.html#a0110e1eedbfae3c9a66f376868cbaffb',1,'Classifier::netInput()'],['../classLogRegSGD.html#ac7ffba0eb63811c3261dd67269c7d7fa',1,'LogRegSGD::netInput()'],['../classPerceptron.html#a0e28fa248c0e7270a65af9418298204f',1,'Perceptron::netInput()'],['../classSGD.html#aaf708c2bb43ec3f0d56ba6ba5b64264e',1,'SGD::netInput()'],['../classAdalineGD.html#a565a93a551bc3e851f682d8d7cbe923c',1,'AdalineGD::netInput()']]],
+  ['newton_358',['newton',['../newton_8h.html#a3b00f9f0d19ec44732c8fd61e3d532f5',1,'newton.h']]],
+  ['norm_359',['norm',['../numerics_2utils_8h.html#aa1a08a76ee49f8a9717e4aa127984987',1,'utils.cpp']]],
+  ['normalize_360',['normalize',['../utils_8h.html#a3dffe7baa24a37cf69425c89ef5898c9',1,'Math::Utils::normalize(vec4&lt; T &gt; a)'],['../utils_8h.html#a99cb57cc1b1dfaf5d364ae7aeba52b47',1,'Math::Utils::normalize(vec3&lt; T &gt; a)'],['../utils_8h.html#a0dc178895f92579761e0a27a40494868',1,'Math::Utils::normalize(vec2&lt; T &gt; a)'],['../structvec4.html#a64fd4d39d8943f0085c945765e5c6eb2',1,'vec4::normalize()'],['../structvec3.html#a78346761e14409bf1360d7b8827c751b',1,'vec3::normalize()'],['../structvec2.html#a80386b186ebe3fc6d9a0e4f1fa2b1b1d',1,'vec2::normalize()']]],
+  ['normalize_361',['Normalize',['../structSet.html#ad9bb56d9eb99ff66113e7c2978449500',1,'Set']]],
+  ['normalizecolmean_362',['NormalizeColMean',['../structSet.html#a92e8cf6700597dd78c5221b0a8d7a374',1,'Set']]],
+  ['normalizerowmean_363',['NormalizeRowMean',['../structSet.html#a87905c022276dc73d862e58a6315ec06',1,'Set']]],
+  ['normalizesetmean_364',['NormalizeSetMean',['../structSet.html#ad7c51502d31b11cd673436a4d15f0f77',1,'Set']]],
+  ['number_365',['Number',['../classNumber.html#a7fba0ebcb2cd5e9ee9625ddd244e3274',1,'Number']]]
 ];

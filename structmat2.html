@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -71,6 +78,8 @@ $(function() {
 <div class="title">mat2&lt; T &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="mat2_8h_source.html">mat2.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -80,75 +89,70 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a01a2950137f51b6bb10a2bd395e5493d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28d158dd8c09958a41a515470ad27775"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a28d158dd8c09958a41a515470ad27775">mat2</a> (<a class="el" href="structvec2.html">vec2</a>&lt; T &gt; A, <a class="el" href="structvec2.html">vec2</a>&lt; T &gt; B)</td></tr>
 <tr class="separator:a28d158dd8c09958a41a515470ad27775"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a583178c3bdc6bca0c4d03bccbffa7388"><td class="memItemLeft" align="right" valign="top"><a id="a583178c3bdc6bca0c4d03bccbffa7388"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Transpose</b> ()</td></tr>
+<tr class="memitem:a221acc89f9f55571a6c4614ad055e5c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a221acc89f9f55571a6c4614ad055e5c6">~mat2</a> ()=default</td></tr>
+<tr class="separator:a221acc89f9f55571a6c4614ad055e5c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a583178c3bdc6bca0c4d03bccbffa7388"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a583178c3bdc6bca0c4d03bccbffa7388">Transpose</a> ()</td></tr>
 <tr class="separator:a583178c3bdc6bca0c4d03bccbffa7388"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af01714893e2ef949e68b8fb915d35e0b"><td class="memItemLeft" align="right" valign="top"><a id="af01714893e2ef949e68b8fb915d35e0b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsSymmetric</b> ()</td></tr>
+<tr class="memitem:af01714893e2ef949e68b8fb915d35e0b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#af01714893e2ef949e68b8fb915d35e0b">IsSymmetric</a> ()</td></tr>
 <tr class="separator:af01714893e2ef949e68b8fb915d35e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2392950377c4cbb451ea9d528632b9f9"><td class="memItemLeft" align="right" valign="top"><a id="a2392950377c4cbb451ea9d528632b9f9"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>Determinant</b> ()</td></tr>
+<tr class="memitem:a2392950377c4cbb451ea9d528632b9f9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a2392950377c4cbb451ea9d528632b9f9">Determinant</a> ()</td></tr>
 <tr class="separator:a2392950377c4cbb451ea9d528632b9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca5b778da5a6d6d616de931578886f79"><td class="memItemLeft" align="right" valign="top"><a id="aca5b778da5a6d6d616de931578886f79"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memitem:aca5b778da5a6d6d616de931578886f79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#aca5b778da5a6d6d616de931578886f79">operator+=</a> (const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:aca5b778da5a6d6d616de931578886f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a971f37df26d8e8f3f11c6fdee351966e"><td class="memItemLeft" align="right" valign="top"><a id="a971f37df26d8e8f3f11c6fdee351966e"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memitem:a971f37df26d8e8f3f11c6fdee351966e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a971f37df26d8e8f3f11c6fdee351966e">operator-=</a> (const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:a971f37df26d8e8f3f11c6fdee351966e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68da798ff3749c76f8e57b3e93ef478a"><td class="memItemLeft" align="right" valign="top"><a id="a68da798ff3749c76f8e57b3e93ef478a"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memitem:a68da798ff3749c76f8e57b3e93ef478a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a68da798ff3749c76f8e57b3e93ef478a">operator*=</a> (const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:a68da798ff3749c76f8e57b3e93ef478a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5844fb755cf54817abca805c9e105f8"><td class="memItemLeft" align="right" valign="top"><a id="ab5844fb755cf54817abca805c9e105f8"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const T &amp;rhs)</td></tr>
+<tr class="memitem:ab5844fb755cf54817abca805c9e105f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#ab5844fb755cf54817abca805c9e105f8">operator*=</a> (const T &amp;rhs)</td></tr>
 <tr class="separator:ab5844fb755cf54817abca805c9e105f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba01f90118f20d084e894b8361d5a207"><td class="memItemLeft" align="right" valign="top"><a id="aba01f90118f20d084e894b8361d5a207"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (const T &amp;rhs)</td></tr>
+<tr class="memitem:aba01f90118f20d084e894b8361d5a207"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#aba01f90118f20d084e894b8361d5a207">operator/=</a> (const T &amp;rhs)</td></tr>
 <tr class="separator:aba01f90118f20d084e894b8361d5a207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a0fb5665048ebd03d6410ba9dd4a04a"><td class="memItemLeft" align="right" valign="top"><a id="a8a0fb5665048ebd03d6410ba9dd4a04a"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int index)</td></tr>
+<tr class="memitem:a8a0fb5665048ebd03d6410ba9dd4a04a"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a8a0fb5665048ebd03d6410ba9dd4a04a">operator[]</a> (int index)</td></tr>
 <tr class="separator:a8a0fb5665048ebd03d6410ba9dd4a04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28dac3665dbece4453e3f799b286e8e1"><td class="memItemLeft" align="right" valign="top"><a id="a28dac3665dbece4453e3f799b286e8e1"></a>
-const T *&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int index) const</td></tr>
+<tr class="memitem:a28dac3665dbece4453e3f799b286e8e1"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a28dac3665dbece4453e3f799b286e8e1">operator[]</a> (int index) const</td></tr>
 <tr class="separator:a28dac3665dbece4453e3f799b286e8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a77284ffa9e21eb9242ec441a8af5f081"><td class="memItemLeft" align="right" valign="top"><a id="a77284ffa9e21eb9242ec441a8af5f081"></a>
-static <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Unit</b> ()</td></tr>
+<tr class="memitem:a77284ffa9e21eb9242ec441a8af5f081"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a77284ffa9e21eb9242ec441a8af5f081">Unit</a> ()</td></tr>
 <tr class="separator:a77284ffa9e21eb9242ec441a8af5f081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a10724abc4f4a7a7a1893764ad1aab03d"><td class="memItemLeft" align="right" valign="top"><a id="a10724abc4f4a7a7a1893764ad1aab03d"></a>
-T&#160;</td><td class="memItemRight" valign="bottom"><b>values</b> [2][2]</td></tr>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a10724abc4f4a7a7a1893764ad1aab03d">values</a> [2][2]</td></tr>
+<tr class="memdesc:a10724abc4f4a7a7a1893764ad1aab03d"><td class="mdescLeft">&#160;</td><td class="mdescRight">loosely packed data <br /></td></tr>
 <tr class="separator:a10724abc4f4a7a7a1893764ad1aab03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a16ff8230c30e68e2c14210402108cd00"><td class="memItemLeft" align="right" valign="top"><a id="a16ff8230c30e68e2c14210402108cd00"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memitem:a16ff8230c30e68e2c14210402108cd00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a16ff8230c30e68e2c14210402108cd00">operator+</a> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:a16ff8230c30e68e2c14210402108cd00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeafb434eef78fea0486816f30a3dd49f"><td class="memItemLeft" align="right" valign="top"><a id="aeafb434eef78fea0486816f30a3dd49f"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memitem:aeafb434eef78fea0486816f30a3dd49f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#aeafb434eef78fea0486816f30a3dd49f">operator-</a> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:aeafb434eef78fea0486816f30a3dd49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27bda759f03f1cca20c53b5192619499"><td class="memItemLeft" align="right" valign="top"><a id="a27bda759f03f1cca20c53b5192619499"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const T &amp;rhs)</td></tr>
+<tr class="memitem:a27bda759f03f1cca20c53b5192619499"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a27bda759f03f1cca20c53b5192619499">operator*</a> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const T &amp;rhs)</td></tr>
 <tr class="separator:a27bda759f03f1cca20c53b5192619499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50fecd9b3571d729f54f2a45c36286a6"><td class="memItemLeft" align="right" valign="top"><a id="a50fecd9b3571d729f54f2a45c36286a6"></a>
-<a class="el" href="structvec2.html">vec2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const <a class="el" href="structvec2.html">vec2</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memitem:a50fecd9b3571d729f54f2a45c36286a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvec2.html">vec2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a50fecd9b3571d729f54f2a45c36286a6">operator*</a> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const <a class="el" href="structvec2.html">vec2</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:a50fecd9b3571d729f54f2a45c36286a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a4d53d25fc21b84a38fff029da496e1"><td class="memItemLeft" align="right" valign="top"><a id="a6a4d53d25fc21b84a38fff029da496e1"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memitem:a6a4d53d25fc21b84a38fff029da496e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a6a4d53d25fc21b84a38fff029da496e1">operator*</a> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:a6a4d53d25fc21b84a38fff029da496e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1870984b47cb4342b298e5ad5c726b3c"><td class="memItemLeft" align="right" valign="top"><a id="a1870984b47cb4342b298e5ad5c726b3c"></a>
-<a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const T &amp;rhs)</td></tr>
+<tr class="memitem:a1870984b47cb4342b298e5ad5c726b3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat2.html#a1870984b47cb4342b298e5ad5c726b3c">operator/</a> (<a class="el" href="structmat2.html">mat2</a>&lt; T &gt; lhs, const T &amp;rhs)</td></tr>
 <tr class="separator:a1870984b47cb4342b298e5ad5c726b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a498ab93675f8b4d2b6f48e64aca66b24"><td class="memTemplParams" colspan="2"><a id="a498ab93675f8b4d2b6f48e64aca66b24"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a498ab93675f8b4d2b6f48e64aca66b24"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;, const <a class="el" href="structmat2.html">mat2</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a498ab93675f8b4d2b6f48e64aca66b24"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a498ab93675f8b4d2b6f48e64aca66b24"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structmat2.html#a498ab93675f8b4d2b6f48e64aca66b24">operator&lt;&lt;</a> (std::ostream &amp;, const <a class="el" href="structmat2.html">mat2</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a498ab93675f8b4d2b6f48e64aca66b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class T&gt;<br />
+struct mat2&lt; T &gt;</h3>
+
+<p>2D-Matrix representation </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4866cefe04818775be00cdb2bd360a18"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4866cefe04818775be00cdb2bd360a18">&#9670;&nbsp;</a></span>mat2() <span class="overload">[1/3]</span></h2>
 
@@ -278,6 +282,716 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a221acc89f9f55571a6c4614ad055e5c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a221acc89f9f55571a6c4614ad055e5c6">&#9670;&nbsp;</a></span>~mat2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::~<a class="el" href="structmat2.html">mat2</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>default destructor </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2392950377c4cbb451ea9d528632b9f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2392950377c4cbb451ea9d528632b9f9">&#9670;&nbsp;</a></span>Determinant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::Determinant </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>getter for matrix determinant </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="af01714893e2ef949e68b8fb915d35e0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af01714893e2ef949e68b8fb915d35e0b">&#9670;&nbsp;</a></span>IsSymmetric()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::IsSymmetric </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>test if matrix is symmetric </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a68da798ff3749c76f8e57b3e93ef478a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68da798ff3749c76f8e57b3e93ef478a">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt;&amp; <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-matrix multiplication </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ab5844fb755cf54817abca805c9e105f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5844fb755cf54817abca805c9e105f8">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt;&amp; <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-scalar multiplication </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="aca5b778da5a6d6d616de931578886f79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca5b778da5a6d6d616de931578886f79">&#9670;&nbsp;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt;&amp; <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-matrix addition </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a971f37df26d8e8f3f11c6fdee351966e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a971f37df26d8e8f3f11c6fdee351966e">&#9670;&nbsp;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt;&amp; <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-matrix subtraction </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="aba01f90118f20d084e894b8361d5a207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba01f90118f20d084e894b8361d5a207">&#9670;&nbsp;</a></span>operator/=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt;&amp; <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::operator/= </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-scalar division </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a8a0fb5665048ebd03d6410ba9dd4a04a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a0fb5665048ebd03d6410ba9dd4a04a">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>element access </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a28dac3665dbece4453e3f799b286e8e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28dac3665dbece4453e3f799b286e8e1">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T* <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>element access </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a583178c3bdc6bca0c4d03bccbffa7388"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a583178c3bdc6bca0c4d03bccbffa7388">&#9670;&nbsp;</a></span>Transpose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt; <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::Transpose </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>computes transposed </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a77284ffa9e21eb9242ec441a8af5f081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77284ffa9e21eb9242ec441a8af5f081">&#9670;&nbsp;</a></span>Unit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structmat2.html">mat2</a>&lt;T&gt; <a class="el" href="structmat2.html">mat2</a>&lt; T &gt;::Unit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>generator for unit matrix </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a6a4d53d25fc21b84a38fff029da496e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a4d53d25fc21b84a38fff029da496e1">&#9670;&nbsp;</a></span>operator* <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt; operator* </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-matrix multiplication </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a27bda759f03f1cca20c53b5192619499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27bda759f03f1cca20c53b5192619499">&#9670;&nbsp;</a></span>operator* <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt; operator* </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-scalar multiplication </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a50fecd9b3571d729f54f2a45c36286a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50fecd9b3571d729f54f2a45c36286a6">&#9670;&nbsp;</a></span>operator* <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvec2.html">vec2</a>&lt;T&gt; operator* </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structvec2.html">vec2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-matrix multiplication </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a16ff8230c30e68e2c14210402108cd00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16ff8230c30e68e2c14210402108cd00">&#9670;&nbsp;</a></span>operator+</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt; operator+ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-matrix addition </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="aeafb434eef78fea0486816f30a3dd49f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeafb434eef78fea0486816f30a3dd49f">&#9670;&nbsp;</a></span>operator-</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt; operator- </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmat2.html">mat2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-matrix subtraction </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a1870984b47cb4342b298e5ad5c726b3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1870984b47cb4342b298e5ad5c726b3c">&#9670;&nbsp;</a></span>operator/</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat2.html">mat2</a>&lt;T&gt; operator/ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmat2.html">mat2</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>matrix-scalar division </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a498ab93675f8b4d2b6f48e64aca66b24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a498ab93675f8b4d2b6f48e64aca66b24">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmat2.html">mat2</a>&lt; U &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>beautified std::cout operator </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">U</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>

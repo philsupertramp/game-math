@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -69,18 +76,18 @@ $(function() {
 <p>This is the complete list of members for <a class="el" href="classPerceptron.html">Perceptron</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classPerceptron.html#a8ffc64efb4c0f2c089fecd78a31cb259">activation</a>(const Matrix&lt; double &gt; &amp;X) override</td><td class="entry"><a class="el" href="classPerceptron.html">Perceptron</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Classifier</b>(double _eta, int _n_iter) (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classClassifier.html#adf323be2120dbc43c65e1aed08efd5cb">Classifier</a>(double _eta, int _n_iter)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classPerceptron.html#ae2e614bbd670e55d169644f2b9f66f57">costFunction</a>(const Matrix&lt; double &gt; &amp;X) override</td><td class="entry"><a class="el" href="classPerceptron.html">Perceptron</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>costs</b> (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>eta</b> (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classClassifier.html#a8688dfb2318e40a7c2f3747b68c96bae">costs</a></td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classClassifier.html#ada5781f6955d4584bb9e8a24216ce654">eta</a></td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classPerceptron.html#a430fcf4782a3020add0094f986a1c54e">fit</a>(const Matrix&lt; double &gt; &amp;X, const Matrix&lt; double &gt; &amp;y) override</td><td class="entry"><a class="el" href="classPerceptron.html">Perceptron</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8">initialize_weights</a>(size_t numRows, size_t numColumns=1)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>n_iter</b> (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classClassifier.html#a262d07b1324365425b12bb08a859984a">n_iter</a></td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classPerceptron.html#a0e28fa248c0e7270a65af9418298204f">netInput</a>(const Matrix&lt; double &gt; &amp;X) override</td><td class="entry"><a class="el" href="classPerceptron.html">Perceptron</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Perceptron</b>(double _eta=0.01, int iter=10) (defined in <a class="el" href="classPerceptron.html">Perceptron</a>)</td><td class="entry"><a class="el" href="classPerceptron.html">Perceptron</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classPerceptron.html#a499ae65d675aca14c0b803df31199705">Perceptron</a>(double _eta=0.01, int iter=10)</td><td class="entry"><a class="el" href="classPerceptron.html">Perceptron</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classPerceptron.html#ac6859763b91ee84b799c1e7554e96eee">predict</a>(const Matrix&lt; double &gt; &amp;X) override</td><td class="entry"><a class="el" href="classPerceptron.html">Perceptron</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>w_initialized</b> (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>weights</b> (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classClassifier.html#a5c3236f91e4f14965715caaca167dec8">w_initialized</a></td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classClassifier.html#a5d4d61496164c06deab141329b6c878f">weights</a></td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

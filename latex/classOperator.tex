@@ -1,5 +1,9 @@
 \hypertarget{classOperator}{}\doxysection{Operator Class Reference}
 \label{classOperator}\index{Operator@{Operator}}
+
+
+{\ttfamily \#include $<$Symbolic.\+h$>$}
+
 Inheritance diagram for Operator\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,31 +13,70 @@ Inheritance diagram for Operator\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classOperator_ad483de0fdafcc9ff8b060b07a0bc41ba}\label{classOperator_ad483de0fdafcc9ff8b060b07a0bc41ba}} 
-{\bfseries Operator} (const std\+::string \&name, std\+::function$<$ double(double, double)$>$ fun, Operator\+Priority operator\+Priority)
+\mbox{\hyperlink{classOperator_ad483de0fdafcc9ff8b060b07a0bc41ba}{Operator}} (const std\+::string \&name, std\+::function$<$ double(double, double)$>$ fun, Operator\+Priority operator\+Priority)
 \item 
-\mbox{\Hypertarget{classOperator_ad091ebe59393f33035c648995c331799}\label{classOperator_ad091ebe59393f33035c648995c331799}} 
-{\bfseries Operator} (const \mbox{\hyperlink{classOperator}{Operator}} \&other)
+\mbox{\hyperlink{classOperator_ad091ebe59393f33035c648995c331799}{Operator}} (const \mbox{\hyperlink{classOperator}{Operator}} \&other)
 \item 
-\mbox{\Hypertarget{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}\label{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}} 
-double {\bfseries Evaluate} () const override
+double \mbox{\hyperlink{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}{Evaluate}} () const override
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classOperator_aa1053c93ac197de3d97d527ce54c6992}\label{classOperator_aa1053c93ac197de3d97d527ce54c6992}} 
-std\+::function$<$ double(double, double)$>$ {\bfseries op}
-\item 
+std\+::function$<$ double(double, double)$>$ \mbox{\hyperlink{classOperator_aa1053c93ac197de3d97d527ce54c6992}{op}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classOperator}{Operator}} implementation, this will be evaluated during {\ttfamily Evaluate} calls. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classOperator_aac3650047650adcb082c21b2a5bdfb1c}\label{classOperator_aac3650047650adcb082c21b2a5bdfb1c}} 
-Operator\+Priority {\bfseries priority}
-\end{DoxyCompactItemize}
+Operator\+Priority \mbox{\hyperlink{classOperator_aac3650047650adcb082c21b2a5bdfb1c}{priority}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classOperator}{Operator}} priority, used to create AST. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2github_2workspace_2include_2math_2symb_2Symbolic_8h-example}{/github/workspace/include/math/symb/\+Symbolic.\+h}}.\end{Desc}
+Left-\/to-\/right operator representation 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOperator_ad483de0fdafcc9ff8b060b07a0bc41ba}\label{classOperator_ad483de0fdafcc9ff8b060b07a0bc41ba}} 
+\index{Operator@{Operator}!Operator@{Operator}}
+\index{Operator@{Operator}!Operator@{Operator}}
+\doxysubsubsection{\texorpdfstring{Operator()}{Operator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Operator\+::\+Operator (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{std\+::function$<$ double(double, double)$>$}]{fun,  }\item[{Operator\+Priority}]{operator\+Priority }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+default constructor 
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em fun} & \\
+\hline
+{\em operator\+Priority} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOperator_ad091ebe59393f33035c648995c331799}\label{classOperator_ad091ebe59393f33035c648995c331799}} 
+\index{Operator@{Operator}!Operator@{Operator}}
+\index{Operator@{Operator}!Operator@{Operator}}
+\doxysubsubsection{\texorpdfstring{Operator()}{Operator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Operator\+::\+Operator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classOperator}{Operator}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}\label{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}} 
+\index{Operator@{Operator}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!Operator@{Operator}}
+\doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}}
+{\footnotesize\ttfamily double Operator\+::\+Evaluate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+evaluates op(left, right) \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}{Math\+Node}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

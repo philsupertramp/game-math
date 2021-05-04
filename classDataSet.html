@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -70,59 +77,68 @@ $(function() {
 <div class="title">DataSet Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="DataSet_8h_source.html">DataSet.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for DataSet:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classDataSet.png" usemap="#DataSet_map" alt=""/>
   <map id="DataSet_map" name="DataSet_map">
-<area href="classImageDataSet.html" alt="ImageDataSet" shape="rect" coords="0,56,89,80"/>
+<area href="classImageDataSet.html" title="only include Magick++ if needed" alt="ImageDataSet" shape="rect" coords="0,56,89,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a06a0a03f65d1ed5a3b9102242e761639"><td class="memItemLeft" align="right" valign="top"><a id="a06a0a03f65d1ed5a3b9102242e761639"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DataSet</b> (const char *filePath, size_t inputCount, size_t outputCount)</td></tr>
+<tr class="memitem:a06a0a03f65d1ed5a3b9102242e761639"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#a06a0a03f65d1ed5a3b9102242e761639">DataSet</a> (const char *filePath, size_t inputCount, size_t outputCount)</td></tr>
 <tr class="separator:a06a0a03f65d1ed5a3b9102242e761639"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad398cb9b594f7fc99ebec3e2fb227ebb"><td class="memItemLeft" align="right" valign="top"><a id="ad398cb9b594f7fc99ebec3e2fb227ebb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DataSet</b> (size_t inputCount, size_t outputCount)</td></tr>
+<tr class="memitem:ad398cb9b594f7fc99ebec3e2fb227ebb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#ad398cb9b594f7fc99ebec3e2fb227ebb">DataSet</a> (size_t inputCount, size_t outputCount)</td></tr>
 <tr class="separator:ad398cb9b594f7fc99ebec3e2fb227ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a090f85f9a3c7ec81261ab6d3e2eda4a2"><td class="memItemLeft" align="right" valign="top"><a id="a090f85f9a3c7ec81261ab6d3e2eda4a2"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>PrepareDirectory</b> ([[maybe_unused]] const char *filePath)</td></tr>
+<tr class="memitem:a090f85f9a3c7ec81261ab6d3e2eda4a2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#a090f85f9a3c7ec81261ab6d3e2eda4a2">PrepareDirectory</a> ([[maybe_unused]] const char *filePath)</td></tr>
 <tr class="separator:a090f85f9a3c7ec81261ab6d3e2eda4a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a9cc77d557deb5f130c5ca93267a88b69"><td class="memItemLeft" align="right" valign="top"><a id="a9cc77d557deb5f130c5ca93267a88b69"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>InputCount</b></td></tr>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#a9cc77d557deb5f130c5ca93267a88b69">InputCount</a></td></tr>
+<tr class="memdesc:a9cc77d557deb5f130c5ca93267a88b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">number input elements <br /></td></tr>
 <tr class="separator:a9cc77d557deb5f130c5ca93267a88b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80e15af63fd1574afb65efa990187203"><td class="memItemLeft" align="right" valign="top"><a id="a80e15af63fd1574afb65efa990187203"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>OutputCount</b></td></tr>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#a80e15af63fd1574afb65efa990187203">OutputCount</a></td></tr>
+<tr class="memdesc:a80e15af63fd1574afb65efa990187203"><td class="mdescLeft">&#160;</td><td class="mdescRight">number output elements <br /></td></tr>
 <tr class="separator:a80e15af63fd1574afb65efa990187203"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2e28670df1d61a926990a8d00627fdf"><td class="memItemLeft" align="right" valign="top"><a id="ab2e28670df1d61a926990a8d00627fdf"></a>
-<a class="el" href="structSet.html">Set</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Training</b></td></tr>
+<a class="el" href="structSet.html">Set</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#ab2e28670df1d61a926990a8d00627fdf">Training</a></td></tr>
+<tr class="memdesc:ab2e28670df1d61a926990a8d00627fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">set for training <br /></td></tr>
 <tr class="separator:ab2e28670df1d61a926990a8d00627fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83ba4064a6be64f1b1535de18005e270"><td class="memItemLeft" align="right" valign="top"><a id="a83ba4064a6be64f1b1535de18005e270"></a>
-<a class="el" href="structSet.html">Set</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Validation</b></td></tr>
+<a class="el" href="structSet.html">Set</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#a83ba4064a6be64f1b1535de18005e270">Validation</a></td></tr>
+<tr class="memdesc:a83ba4064a6be64f1b1535de18005e270"><td class="mdescLeft">&#160;</td><td class="mdescRight">set for validation of training <br /></td></tr>
 <tr class="separator:a83ba4064a6be64f1b1535de18005e270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d5a67b441bf92f3d9f9ca28e134266b"><td class="memItemLeft" align="right" valign="top"><a id="a2d5a67b441bf92f3d9f9ca28e134266b"></a>
-<a class="el" href="structSet.html">Set</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Test</b></td></tr>
+<a class="el" href="structSet.html">Set</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#a2d5a67b441bf92f3d9f9ca28e134266b">Test</a></td></tr>
+<tr class="memdesc:a2d5a67b441bf92f3d9f9ca28e134266b"><td class="mdescLeft">&#160;</td><td class="mdescRight">set to test after training <br /></td></tr>
 <tr class="separator:a2d5a67b441bf92f3d9f9ca28e134266b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2b6c6303ce008694bbfd6d177f18e57"><td class="memItemLeft" align="right" valign="top"><a id="ac2b6c6303ce008694bbfd6d177f18e57"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>maxEpoch</b> = 1000</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#ac2b6c6303ce008694bbfd6d177f18e57">maxEpoch</a> = 1000</td></tr>
+<tr class="memdesc:ac2b6c6303ce008694bbfd6d177f18e57"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of epochs while training <br /></td></tr>
 <tr class="separator:ac2b6c6303ce008694bbfd6d177f18e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac26562ed16c2c3b63aed463cb8c77fe3"><td class="memItemLeft" align="right" valign="top"><a id="ac26562ed16c2c3b63aed463cb8c77fe3"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>stopThreshold</b> = 0.001</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#ac26562ed16c2c3b63aed463cb8c77fe3">stopThreshold</a> = 0.001</td></tr>
+<tr class="memdesc:ac26562ed16c2c3b63aed463cb8c77fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">threshold for loss to prevent over-fitting <br /></td></tr>
 <tr class="separator:ac26562ed16c2c3b63aed463cb8c77fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e96a7989e932a765382ec05df96f02e"><td class="memItemLeft" align="right" valign="top"><a id="a5e96a7989e932a765382ec05df96f02e"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>eta</b> = 0.0051</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#a5e96a7989e932a765382ec05df96f02e">eta</a> = 0.0051</td></tr>
+<tr class="memdesc:a5e96a7989e932a765382ec05df96f02e"><td class="mdescLeft">&#160;</td><td class="mdescRight">learning rate <br /></td></tr>
 <tr class="separator:a5e96a7989e932a765382ec05df96f02e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72f424eb8039147514fe51fbd2e0948b"><td class="memItemLeft" align="right" valign="top"><a id="a72f424eb8039147514fe51fbd2e0948b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>batchSize</b> = 5</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#a72f424eb8039147514fe51fbd2e0948b">batchSize</a> = 5</td></tr>
+<tr class="memdesc:a72f424eb8039147514fe51fbd2e0948b"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of elements per batch <br /></td></tr>
 <tr class="separator:a72f424eb8039147514fe51fbd2e0948b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af05bcbf6eba3ef7dbb89e0d396d45596"><td class="memItemLeft" align="right" valign="top"><a id="af05bcbf6eba3ef7dbb89e0d396d45596"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>verbose</b> = false</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataSet.html#af05bcbf6eba3ef7dbb89e0d396d45596">verbose</a> = false</td></tr>
+<tr class="memdesc:af05bcbf6eba3ef7dbb89e0d396d45596"><td class="mdescLeft">&#160;</td><td class="mdescRight">use verbose output during fitting <br /></td></tr>
 <tr class="separator:af05bcbf6eba3ef7dbb89e0d396d45596"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -131,6 +147,135 @@ Friends</h2></td></tr>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>ImageDataSet</b></td></tr>
 <tr class="separator:ace55546372c7d22ae3fd467bdd6d1b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>dataset representation </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a06a0a03f65d1ed5a3b9102242e761639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06a0a03f65d1ed5a3b9102242e761639">&#9670;&nbsp;</a></span>DataSet() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DataSet::DataSet </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>inputCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>outputCount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>regular constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filePath</td><td></td></tr>
+    <tr><td class="paramname">inputCount</td><td></td></tr>
+    <tr><td class="paramname">outputCount</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad398cb9b594f7fc99ebec3e2fb227ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad398cb9b594f7fc99ebec3e2fb227ebb">&#9670;&nbsp;</a></span>DataSet() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DataSet::DataSet </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>inputCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>outputCount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>initialization constructor, initializes required structures by given dimensions </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputCount</td><td></td></tr>
+    <tr><td class="paramname">outputCount</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a090f85f9a3c7ec81261ab6d3e2eda4a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a090f85f9a3c7ec81261ab6d3e2eda4a2">&#9670;&nbsp;</a></span>PrepareDirectory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void DataSet::PrepareDirectory </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const char *&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filePath</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/math/ds/<a class="el" href="DataSet_8h_source.html">DataSet.h</a></li>
 </ul>

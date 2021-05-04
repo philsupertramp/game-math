@@ -1,0 +1,129 @@
+\hypertarget{format_8h}{}\doxysection{include/math/format.h File Reference}
+\label{format_8h}\index{include/math/format.h@{include/math/format.h}}
+{\ttfamily \#include $<$cstdarg$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}} (const char $\ast$fmt,...)
+\item 
+std\+::string \mbox{\hyperlink{format_8h_a5f3e23cac814c84a5494842243316a4b}{strip}} (const std\+::string \&in)
+\item 
+{\footnotesize template$<$typename Out $>$ }\\void \mbox{\hyperlink{format_8h_a03529396588a5d4dac36c432989fdfaa}{split}} (const std\+::string \&s, char delim, Out result)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{format_8h_ae924c9b43cd7b086945003c09c294d2b}{split}} (const std\+::string \&s, char delim)
+\item 
+{\footnotesize template$<$typename Out $>$ }\\void \mbox{\hyperlink{format_8h_a9f228a0aba90f49160a09ccde4133fa1}{split}} (const std\+::string \&s, Out result)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{format_8h_a63fc61cca71b8d9322df00cc0d07f9aa}{split}} (const std\+::string \&s)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Missing string manipulations.
+
+This header file contains essential methods to manipulate strings. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{format_8h_a1921b31564b858b45e94efff9e9d54bf}\label{format_8h_a1921b31564b858b45e94efff9e9d54bf}} 
+\index{format.h@{format.h}!format@{format}}
+\index{format@{format}!format.h@{format.h}}
+\doxysubsubsection{\texorpdfstring{format()}{format()}}
+{\footnotesize\ttfamily std\+::string format (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+missing string printf this is safe and convenient but not exactly efficient 
+\begin{DoxyParams}{Parameters}
+{\em fmt} & string to be formatted \\
+\hline
+{\em ...} & variable amount of parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+formatted string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{format_8h_a63fc61cca71b8d9322df00cc0d07f9aa}\label{format_8h_a63fc61cca71b8d9322df00cc0d07f9aa}} 
+\index{format.h@{format.h}!split@{split}}
+\index{split@{split}!format.h@{format.h}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ split (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})}
+
+Helper method to simplify call to split 
+\begin{DoxyParams}{Parameters}
+{\em s} & string to split \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+split vector of strings 
+\end{DoxyReturn}
+\mbox{\Hypertarget{format_8h_ae924c9b43cd7b086945003c09c294d2b}\label{format_8h_ae924c9b43cd7b086945003c09c294d2b}} 
+\index{format.h@{format.h}!split@{split}}
+\index{split@{split}!format.h@{format.h}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ split (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{char}]{delim }\end{DoxyParamCaption})}
+
+Helper method to simplify call to split 
+\begin{DoxyParams}{Parameters}
+{\em s} & string to split \\
+\hline
+{\em delim} & character to split by \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of strings split\textquotesingle{} by delim 
+\end{DoxyReturn}
+\mbox{\Hypertarget{format_8h_a03529396588a5d4dac36c432989fdfaa}\label{format_8h_a03529396588a5d4dac36c432989fdfaa}} 
+\index{format.h@{format.h}!split@{split}}
+\index{split@{split}!format.h@{format.h}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename Out $>$ \\
+void split (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{char}]{delim,  }\item[{Out}]{result }\end{DoxyParamCaption})}
+
+\hypertarget{format_8h_autotoc_md0}{}\doxysubsubsection{from https\+://stackoverflow.\+com/a/236803}\label{format_8h_autotoc_md0}
+splits s into result by delim 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Out} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+{\em delim} & \\
+\hline
+{\em result} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{format_8h_a9f228a0aba90f49160a09ccde4133fa1}\label{format_8h_a9f228a0aba90f49160a09ccde4133fa1}} 
+\index{format.h@{format.h}!split@{split}}
+\index{split@{split}!format.h@{format.h}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename Out $>$ \\
+void split (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{Out}]{result }\end{DoxyParamCaption})}
+
+Split after each character 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Out} & container type to write to \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & string to split \\
+\hline
+{\em result} & container to write results in \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{format_8h_a5f3e23cac814c84a5494842243316a4b}\label{format_8h_a5f3e23cac814c84a5494842243316a4b}} 
+\index{format.h@{format.h}!strip@{strip}}
+\index{strip@{strip}!format.h@{format.h}}
+\doxysubsubsection{\texorpdfstring{strip()}{strip()}}
+{\footnotesize\ttfamily std\+::string strip (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{in }\end{DoxyParamCaption})}
+
+Strips whitespaces of a string 
+\begin{DoxyParams}{Parameters}
+{\em in} & string which may contain whitespaces \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+input string without whitespaces 
+\end{DoxyReturn}

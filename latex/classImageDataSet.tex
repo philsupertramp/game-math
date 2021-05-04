@@ -1,5 +1,14 @@
 \hypertarget{classImageDataSet}{}\doxysection{Image\+Data\+Set Class Reference}
 \label{classImageDataSet}\index{ImageDataSet@{ImageDataSet}}
+
+
+only include Magick++ if needed  
+
+
+
+
+{\ttfamily \#include $<$Image\+Data\+Set.\+h$>$}
+
 Inheritance diagram for Image\+Data\+Set\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,8 +18,7 @@ Inheritance diagram for Image\+Data\+Set\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classImageDataSet_a6cb4942bbb5ce16e1ab67ccd550dc9e3}\label{classImageDataSet_a6cb4942bbb5ce16e1ab67ccd550dc9e3}} 
-{\bfseries Image\+Data\+Set} (size\+\_\+t input\+Count, size\+\_\+t output\+Count)
+\mbox{\hyperlink{classImageDataSet_a6cb4942bbb5ce16e1ab67ccd550dc9e3}{Image\+Data\+Set}} (size\+\_\+t input\+Count, size\+\_\+t output\+Count)
 \item 
 virtual void \mbox{\hyperlink{classImageDataSet_a70c65453f974635726e64d371b39acee}{Prepare\+Directory}} (const char $\ast$file\+Path) override
 \item 
@@ -20,32 +28,53 @@ void \mbox{\hyperlink{classImageDataSet_abe20e5992ddda25f736dfb0789d764a3}{Cache
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classImageDataSet_ab83106b8cff6d5cc8359aa490d85d07e}\label{classImageDataSet_ab83106b8cff6d5cc8359aa490d85d07e}} 
-size\+\_\+t {\bfseries image\+Height} = 180
-\item 
+size\+\_\+t \mbox{\hyperlink{classImageDataSet_ab83106b8cff6d5cc8359aa490d85d07e}{image\+Height}} = 180
+\begin{DoxyCompactList}\small\item\em desired image height \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classImageDataSet_a9ba02bb2e1b60de7f6835ace293809f9}\label{classImageDataSet_a9ba02bb2e1b60de7f6835ace293809f9}} 
-size\+\_\+t {\bfseries image\+Width} = 180
-\item 
+size\+\_\+t \mbox{\hyperlink{classImageDataSet_a9ba02bb2e1b60de7f6835ace293809f9}{image\+Width}} = 180
+\begin{DoxyCompactList}\small\item\em desired image width \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classImageDataSet_a08ea2bd23adb1f8d45d888e820fe3e4d}\label{classImageDataSet_a08ea2bd23adb1f8d45d888e820fe3e4d}} 
-double {\bfseries validation\+Share} = 0.\+2
-\item 
+double \mbox{\hyperlink{classImageDataSet_a08ea2bd23adb1f8d45d888e820fe3e4d}{validation\+Share}} = 0.\+2
+\begin{DoxyCompactList}\small\item\em percentage of validation data \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}\label{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}} 
-const char $\ast$ {\bfseries train\+Directory} = \char`\"{}../../resources/image\+\_\+classification/training/\char`\"{}
-\item 
+const char $\ast$ \mbox{\hyperlink{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}{train\+Directory}} = \char`\"{}../../resources/image\+\_\+classification/training/\char`\"{}
+\begin{DoxyCompactList}\small\item\em target directory for training \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}\label{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}} 
-std\+::vector$<$ Matrix\+DS$<$ bool $>$ $>$ {\bfseries classes}
-\item 
+std\+::vector$<$ Matrix\+DS$<$ bool $>$ $>$ \mbox{\hyperlink{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}{classes}}
+\begin{DoxyCompactList}\small\item\em representation of all classes \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}\label{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}} 
-std\+::vector$<$ std\+::string $>$ {\bfseries class\+Names}
-\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}{class\+Names}}
+\begin{DoxyCompactList}\small\item\em representation of all class names \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}\label{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}} 
-size\+\_\+t {\bfseries total\+Count} = 0
-\item 
+size\+\_\+t \mbox{\hyperlink{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}{total\+Count}} = 0
+\begin{DoxyCompactList}\small\item\em total number of data records \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classImageDataSet_a323ec5719d39c362c77960656b65f571}\label{classImageDataSet_a323ec5719d39c362c77960656b65f571}} 
-size\+\_\+t {\bfseries training\+Count} = 0
-\item 
+size\+\_\+t \mbox{\hyperlink{classImageDataSet_a323ec5719d39c362c77960656b65f571}{training\+Count}} = 0
+\begin{DoxyCompactList}\small\item\em number of training data records \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}\label{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}} 
-size\+\_\+t {\bfseries validation\+Count} = 0
-\end{DoxyCompactItemize}
+size\+\_\+t \mbox{\hyperlink{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}{validation\+Count}} = 0
+\begin{DoxyCompactList}\small\item\em number of validation data records \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+only include Magick++ if needed 
+
+Image data set representation 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classImageDataSet_a6cb4942bbb5ce16e1ab67ccd550dc9e3}\label{classImageDataSet_a6cb4942bbb5ce16e1ab67ccd550dc9e3}} 
+\index{ImageDataSet@{ImageDataSet}!ImageDataSet@{ImageDataSet}}
+\index{ImageDataSet@{ImageDataSet}!ImageDataSet@{ImageDataSet}}
+\doxysubsubsection{\texorpdfstring{ImageDataSet()}{ImageDataSet()}}
+{\footnotesize\ttfamily Image\+Data\+Set\+::\+Image\+Data\+Set (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{input\+Count,  }\item[{size\+\_\+t}]{output\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+default constructor 
+\begin{DoxyParams}{Parameters}
+{\em input\+Count} & \\
+\hline
+{\em output\+Count} & \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -70,12 +99,12 @@ Example\+: 100 images =$>$ 80 training, 20 validation, 0 test \mbox{\Hypertarget
 \doxysubsubsection{\texorpdfstring{PrepareDirectory()}{PrepareDirectory()}}
 {\footnotesize\ttfamily virtual void Image\+Data\+Set\+::\+Prepare\+Directory (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-
+prepares a new set of data based on passed file\+Path 
 \begin{DoxyParams}{Parameters}
-{\em file\+Path} & \\
+{\em file\+Path} & path name of directory to prepare \\
 \hline
 \end{DoxyParams}
-identify \char`\"{}classes\char`\"{} as files in nested directories
+identifies \char`\"{}classes\char`\"{} as files in nested directories
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

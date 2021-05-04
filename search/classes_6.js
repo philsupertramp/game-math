@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imagedataset_86',['ImageDataSet',['../classImageDataSet.html',1,'']]]
+  ['logregsgd_261',['LogRegSGD',['../classLogRegSGD.html',1,'']]]
 ];

@@ -13,8 +13,7 @@ Inheritance diagram for Perceptron\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPerceptron_a499ae65d675aca14c0b803df31199705}\label{classPerceptron_a499ae65d675aca14c0b803df31199705}} 
-{\bfseries Perceptron} (double \+\_\+eta=0.\+01, int iter=10)
+\mbox{\hyperlink{classPerceptron_a499ae65d675aca14c0b803df31199705}{Perceptron}} (double \+\_\+eta=0.\+01, int iter=10)
 \item 
 void \mbox{\hyperlink{classPerceptron_a430fcf4782a3020add0094f986a1c54e}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y) override
 \item 
@@ -42,14 +41,35 @@ THIS IS NOT A PREDICTOR
 
 Mainly implemented for academic use 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPerceptron_a499ae65d675aca14c0b803df31199705}\label{classPerceptron_a499ae65d675aca14c0b803df31199705}} 
+\index{Perceptron@{Perceptron}!Perceptron@{Perceptron}}
+\index{Perceptron@{Perceptron}!Perceptron@{Perceptron}}
+\doxysubsubsection{\texorpdfstring{Perceptron()}{Perceptron()}}
+{\footnotesize\ttfamily Perceptron\+::\+Perceptron (\begin{DoxyParamCaption}\item[{double}]{\+\_\+eta = {\ttfamily 0.01},  }\item[{int}]{iter = {\ttfamily 10} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+default constructor 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+eta} & \\
+\hline
+{\em iter} & \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classPerceptron_a8ffc64efb4c0f2c089fecd78a31cb259}\label{classPerceptron_a8ffc64efb4c0f2c089fecd78a31cb259}} 
 \index{Perceptron@{Perceptron}!activation@{activation}}
 \index{activation@{activation}!Perceptron@{Perceptron}}
 \doxysubsubsection{\texorpdfstring{activation()}{activation()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Perceptron\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Perceptron\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Activates a given input \begin{DoxyReturn}{Returns}
+activate given input 
+\begin{DoxyParams}{Parameters}
+{\em X} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
 
@@ -60,9 +80,17 @@ Implements \mbox{\hyperlink{classClassifier_a5be8488df3ee4e0e0903877bb19069a8}{C
 \index{Perceptron@{Perceptron}!costFunction@{costFunction}}
 \index{costFunction@{costFunction}!Perceptron@{Perceptron}}
 \doxysubsubsection{\texorpdfstring{costFunction()}{costFunction()}}
-{\footnotesize\ttfamily virtual double Perceptron\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual double Perceptron\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-calculates the current cost if unused override returning 0 
+cost function override, don\textquotesingle{}t use! 
+\begin{DoxyParams}{Parameters}
+{\em X} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
 
 Implements \mbox{\hyperlink{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}{Classifier}}.
 
@@ -84,15 +112,20 @@ this
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_aabced42ad639a66e7b048e4a1dc988f9}{Classifier}}.
+Implements \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{Classifier}}.
 
 \mbox{\Hypertarget{classPerceptron_a0e28fa248c0e7270a65af9418298204f}\label{classPerceptron_a0e28fa248c0e7270a65af9418298204f}} 
 \index{Perceptron@{Perceptron}!netInput@{netInput}}
 \index{netInput@{netInput}!Perceptron@{Perceptron}}
 \doxysubsubsection{\texorpdfstring{netInput()}{netInput()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Perceptron\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Perceptron\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-calculates the net-\/input (aka output) this is mostly the derivative of {\ttfamily activation} \begin{DoxyReturn}{Returns}
+calculates net input \[ X * weights + b \] 
+\begin{DoxyParams}{Parameters}
+{\em X} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
 
@@ -103,9 +136,14 @@ Implements \mbox{\hyperlink{classClassifier_a0110e1eedbfae3c9a66f376868cbaffb}{C
 \index{Perceptron@{Perceptron}!predict@{predict}}
 \index{predict@{predict}!Perceptron@{Perceptron}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Perceptron\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Perceptron\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Makes prediction for given input \begin{DoxyReturn}{Returns}
+predict class of given input 
+\begin{DoxyParams}{Parameters}
+{\em X} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
 

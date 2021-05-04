@@ -1,0 +1,32 @@
+\hypertarget{backwardSub_8h}{}\doxysection{include/math/numerics/lin\+\_\+alg/backward\+Sub.h File Reference}
+\label{backwardSub_8h}\index{include/math/numerics/lin\_alg/backwardSub.h@{include/math/numerics/lin\_alg/backwardSub.h}}
+{\ttfamily \#include \char`\"{}../utils.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{backwardSub_8h_a41cdbff6147ed194eb02c9e53ae98d22}{backward\+Sub}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&R, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&b)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Regular backward substitution. Calculates result given upper right triangular matrix z=R$\ast$b =$>$ R$^\wedge$-\/1b = z 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{backwardSub_8h_a41cdbff6147ed194eb02c9e53ae98d22}\label{backwardSub_8h_a41cdbff6147ed194eb02c9e53ae98d22}} 
+\index{backwardSub.h@{backwardSub.h}!backwardSub@{backwardSub}}
+\index{backwardSub@{backwardSub}!backwardSub.h@{backwardSub.h}}
+\doxysubsubsection{\texorpdfstring{backwardSub()}{backwardSub()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ backward\+Sub (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{R,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{b }\end{DoxyParamCaption})}
+
+Backward-\/substitution calculates R$\ast$b = z 
+\begin{DoxyParams}{Parameters}
+{\em R} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+R$\ast$b 
+\end{DoxyReturn}

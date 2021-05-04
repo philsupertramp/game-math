@@ -1,0 +1,34 @@
+\hypertarget{gaussSeidel_8h}{}\doxysection{include/math/numerics/lin\+\_\+alg/gauss\+Seidel.h File Reference}
+\label{gaussSeidel_8h}\index{include/math/numerics/lin\_alg/gaussSeidel.h@{include/math/numerics/lin\_alg/gaussSeidel.h}}
+{\ttfamily \#include \char`\"{}../../\+Matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}LU.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}backward\+Sub.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}forward\+Sub.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{gaussSeidel_8h_ae8be91b27330eabce92d034d3f7bd8b8}{gauss\+Seidel}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&A, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&b)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gaussian elimination to solve systems of linear equations. Uses column major pivot elements to reduce number of operations. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{gaussSeidel_8h_ae8be91b27330eabce92d034d3f7bd8b8}\label{gaussSeidel_8h_ae8be91b27330eabce92d034d3f7bd8b8}} 
+\index{gaussSeidel.h@{gaussSeidel.h}!gaussSeidel@{gaussSeidel}}
+\index{gaussSeidel@{gaussSeidel}!gaussSeidel.h@{gaussSeidel.h}}
+\doxysubsubsection{\texorpdfstring{gaussSeidel()}{gaussSeidel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ gauss\+Seidel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{b }\end{DoxyParamCaption})}
+
+Gauss-\/\+Seidel algorithm to evaluate system of linear equations. 
+\begin{DoxyParams}{Parameters}
+{\em A} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \textbackslash{} b 
+\end{DoxyReturn}

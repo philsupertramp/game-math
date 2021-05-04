@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dataset_83',['DataSet',['../classDataSet.html',1,'']]]
+  ['equation_258',['Equation',['../classEquation.html',1,'']]]
 ];

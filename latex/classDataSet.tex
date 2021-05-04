@@ -1,5 +1,9 @@
 \hypertarget{classDataSet}{}\doxysection{Data\+Set Class Reference}
 \label{classDataSet}\index{DataSet@{DataSet}}
+
+
+{\ttfamily \#include $<$Data\+Set.\+h$>$}
+
 Inheritance diagram for Data\+Set\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,54 +13,99 @@ Inheritance diagram for Data\+Set\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classDataSet_a06a0a03f65d1ed5a3b9102242e761639}\label{classDataSet_a06a0a03f65d1ed5a3b9102242e761639}} 
-{\bfseries Data\+Set} (const char $\ast$file\+Path, size\+\_\+t input\+Count, size\+\_\+t output\+Count)
+\mbox{\hyperlink{classDataSet_a06a0a03f65d1ed5a3b9102242e761639}{Data\+Set}} (const char $\ast$file\+Path, size\+\_\+t input\+Count, size\+\_\+t output\+Count)
 \item 
-\mbox{\Hypertarget{classDataSet_ad398cb9b594f7fc99ebec3e2fb227ebb}\label{classDataSet_ad398cb9b594f7fc99ebec3e2fb227ebb}} 
-{\bfseries Data\+Set} (size\+\_\+t input\+Count, size\+\_\+t output\+Count)
+\mbox{\hyperlink{classDataSet_ad398cb9b594f7fc99ebec3e2fb227ebb}{Data\+Set}} (size\+\_\+t input\+Count, size\+\_\+t output\+Count)
 \item 
-\mbox{\Hypertarget{classDataSet_a090f85f9a3c7ec81261ab6d3e2eda4a2}\label{classDataSet_a090f85f9a3c7ec81261ab6d3e2eda4a2}} 
-virtual void {\bfseries Prepare\+Directory} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const char $\ast$file\+Path)
+virtual void \mbox{\hyperlink{classDataSet_a090f85f9a3c7ec81261ab6d3e2eda4a2}{Prepare\+Directory}} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const char $\ast$file\+Path)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classDataSet_a9cc77d557deb5f130c5ca93267a88b69}\label{classDataSet_a9cc77d557deb5f130c5ca93267a88b69}} 
-size\+\_\+t {\bfseries Input\+Count}
-\item 
+size\+\_\+t \mbox{\hyperlink{classDataSet_a9cc77d557deb5f130c5ca93267a88b69}{Input\+Count}}
+\begin{DoxyCompactList}\small\item\em number input elements \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataSet_a80e15af63fd1574afb65efa990187203}\label{classDataSet_a80e15af63fd1574afb65efa990187203}} 
-size\+\_\+t {\bfseries Output\+Count}
-\item 
+size\+\_\+t \mbox{\hyperlink{classDataSet_a80e15af63fd1574afb65efa990187203}{Output\+Count}}
+\begin{DoxyCompactList}\small\item\em number output elements \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataSet_ab2e28670df1d61a926990a8d00627fdf}\label{classDataSet_ab2e28670df1d61a926990a8d00627fdf}} 
-\mbox{\hyperlink{structSet}{Set}} {\bfseries Training}
-\item 
+\mbox{\hyperlink{structSet}{Set}} \mbox{\hyperlink{classDataSet_ab2e28670df1d61a926990a8d00627fdf}{Training}}
+\begin{DoxyCompactList}\small\item\em set for training \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataSet_a83ba4064a6be64f1b1535de18005e270}\label{classDataSet_a83ba4064a6be64f1b1535de18005e270}} 
-\mbox{\hyperlink{structSet}{Set}} {\bfseries Validation}
-\item 
+\mbox{\hyperlink{structSet}{Set}} \mbox{\hyperlink{classDataSet_a83ba4064a6be64f1b1535de18005e270}{Validation}}
+\begin{DoxyCompactList}\small\item\em set for validation of training \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataSet_a2d5a67b441bf92f3d9f9ca28e134266b}\label{classDataSet_a2d5a67b441bf92f3d9f9ca28e134266b}} 
-\mbox{\hyperlink{structSet}{Set}} {\bfseries Test}
-\item 
+\mbox{\hyperlink{structSet}{Set}} \mbox{\hyperlink{classDataSet_a2d5a67b441bf92f3d9f9ca28e134266b}{Test}}
+\begin{DoxyCompactList}\small\item\em set to test after training \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataSet_ac2b6c6303ce008694bbfd6d177f18e57}\label{classDataSet_ac2b6c6303ce008694bbfd6d177f18e57}} 
-int {\bfseries max\+Epoch} = 1000
-\item 
+int \mbox{\hyperlink{classDataSet_ac2b6c6303ce008694bbfd6d177f18e57}{max\+Epoch}} = 1000
+\begin{DoxyCompactList}\small\item\em number of epochs while training \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataSet_ac26562ed16c2c3b63aed463cb8c77fe3}\label{classDataSet_ac26562ed16c2c3b63aed463cb8c77fe3}} 
-double {\bfseries stop\+Threshold} = 0.\+001
-\item 
+double \mbox{\hyperlink{classDataSet_ac26562ed16c2c3b63aed463cb8c77fe3}{stop\+Threshold}} = 0.\+001
+\begin{DoxyCompactList}\small\item\em threshold for loss to prevent over-\/fitting \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataSet_a5e96a7989e932a765382ec05df96f02e}\label{classDataSet_a5e96a7989e932a765382ec05df96f02e}} 
-double {\bfseries eta} = 0.\+0051
-\item 
+double \mbox{\hyperlink{classDataSet_a5e96a7989e932a765382ec05df96f02e}{eta}} = 0.\+0051
+\begin{DoxyCompactList}\small\item\em learning rate \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataSet_a72f424eb8039147514fe51fbd2e0948b}\label{classDataSet_a72f424eb8039147514fe51fbd2e0948b}} 
-int {\bfseries batch\+Size} = 5
-\item 
+int \mbox{\hyperlink{classDataSet_a72f424eb8039147514fe51fbd2e0948b}{batch\+Size}} = 5
+\begin{DoxyCompactList}\small\item\em number of elements per batch \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classDataSet_af05bcbf6eba3ef7dbb89e0d396d45596}\label{classDataSet_af05bcbf6eba3ef7dbb89e0d396d45596}} 
-bool {\bfseries verbose} = false
-\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classDataSet_af05bcbf6eba3ef7dbb89e0d396d45596}{verbose}} = false
+\begin{DoxyCompactList}\small\item\em use verbose output during fitting \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classDataSet_ace55546372c7d22ae3fd467bdd6d1b5d}\label{classDataSet_ace55546372c7d22ae3fd467bdd6d1b5d}} 
 class {\bfseries Image\+Data\+Set}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+dataset representation 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDataSet_a06a0a03f65d1ed5a3b9102242e761639}\label{classDataSet_a06a0a03f65d1ed5a3b9102242e761639}} 
+\index{DataSet@{DataSet}!DataSet@{DataSet}}
+\index{DataSet@{DataSet}!DataSet@{DataSet}}
+\doxysubsubsection{\texorpdfstring{DataSet()}{DataSet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Data\+Set\+::\+Data\+Set (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path,  }\item[{size\+\_\+t}]{input\+Count,  }\item[{size\+\_\+t}]{output\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+regular constructor 
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & \\
+\hline
+{\em input\+Count} & \\
+\hline
+{\em output\+Count} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDataSet_ad398cb9b594f7fc99ebec3e2fb227ebb}\label{classDataSet_ad398cb9b594f7fc99ebec3e2fb227ebb}} 
+\index{DataSet@{DataSet}!DataSet@{DataSet}}
+\index{DataSet@{DataSet}!DataSet@{DataSet}}
+\doxysubsubsection{\texorpdfstring{DataSet()}{DataSet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Data\+Set\+::\+Data\+Set (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{input\+Count,  }\item[{size\+\_\+t}]{output\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+initialization constructor, initializes required structures by given dimensions 
+\begin{DoxyParams}{Parameters}
+{\em input\+Count} & \\
+\hline
+{\em output\+Count} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDataSet_a090f85f9a3c7ec81261ab6d3e2eda4a2}\label{classDataSet_a090f85f9a3c7ec81261ab6d3e2eda4a2}} 
+\index{DataSet@{DataSet}!PrepareDirectory@{PrepareDirectory}}
+\index{PrepareDirectory@{PrepareDirectory}!DataSet@{DataSet}}
+\doxysubsubsection{\texorpdfstring{PrepareDirectory()}{PrepareDirectory()}}
+{\footnotesize\ttfamily virtual void Data\+Set\+::\+Prepare\+Directory (\begin{DoxyParamCaption}\item[{\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]} \mbox{]} const char $\ast$}]{file\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

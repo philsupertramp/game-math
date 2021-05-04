@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['equation_84',['Equation',['../classEquation.html',1,'']]]
+  ['functionplot_259',['FunctionPlot',['../classFunctionPlot.html',1,'']]]
 ];

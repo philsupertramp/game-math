@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['functionplot_85',['FunctionPlot',['../classFunctionPlot.html',1,'']]]
+  ['imagedataset_260',['ImageDataSet',['../classImageDataSet.html',1,'']]]
 ];

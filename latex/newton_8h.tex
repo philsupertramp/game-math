@@ -1,0 +1,47 @@
+\hypertarget{newton_8h}{}\doxysection{include/math/numerics/lin\+\_\+alg/newton.h File Reference}
+\label{newton_8h}\index{include/math/numerics/lin\_alg/newton.h@{include/math/numerics/lin\_alg/newton.h}}
+{\ttfamily \#include \char`\"{}../utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gauss\+Seidel.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}\label{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}} 
+using \mbox{\hyperlink{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}{Jacobian}} = std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$
+\begin{DoxyCompactList}\small\item\em representation of jacobian \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{newton_8h_ae8b65eb11627dab8f1907f164294756b}\label{newton_8h_ae8b65eb11627dab8f1907f164294756b}} 
+using \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equation}} = std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$
+\begin{DoxyCompactList}\small\item\em representation of linear equation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{newton_8h_a3b00f9f0d19ec44732c8fd61e3d532f5}{newton}} (const \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equation}} \&f, const \mbox{\hyperlink{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}{Jacobian}} \&Df, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x0, double TOL, int max\+Iter)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements newton-\/method to find roots 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{newton_8h_a3b00f9f0d19ec44732c8fd61e3d532f5}\label{newton_8h_a3b00f9f0d19ec44732c8fd61e3d532f5}} 
+\index{newton.h@{newton.h}!newton@{newton}}
+\index{newton@{newton}!newton.h@{newton.h}}
+\doxysubsubsection{\texorpdfstring{newton()}{newton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ newton (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equation}} \&}]{f,  }\item[{const \mbox{\hyperlink{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}{Jacobian}} \&}]{Df,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x0,  }\item[{double}]{TOL,  }\item[{int}]{max\+Iter }\end{DoxyParamCaption})}
+
+newton method to find roots of given function f 
+\begin{DoxyParams}{Parameters}
+{\em f} & \\
+\hline
+{\em Df} & \\
+\hline
+{\em x0} & \\
+\hline
+{\em TOL} & \\
+\hline
+{\em max\+Iter} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

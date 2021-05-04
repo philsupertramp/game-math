@@ -1,5 +1,9 @@
 \hypertarget{classNumber}{}\doxysection{Number Class Reference}
 \label{classNumber}\index{Number@{Number}}
+
+
+{\ttfamily \#include $<$Symbolic.\+h$>$}
+
 Inheritance diagram for Number\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,19 +13,44 @@ Inheritance diagram for Number\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classNumber_a7fba0ebcb2cd5e9ee9625ddd244e3274}\label{classNumber_a7fba0ebcb2cd5e9ee9625ddd244e3274}} 
-{\bfseries Number} (const std\+::string \&val)
+\mbox{\hyperlink{classNumber_a7fba0ebcb2cd5e9ee9625ddd244e3274}{Number}} (const std\+::string \&val)
 \item 
-\mbox{\Hypertarget{classNumber_a907df4526da3ccb91b8faead20e6fb66}\label{classNumber_a907df4526da3ccb91b8faead20e6fb66}} 
-double {\bfseries Evaluate} () const override
+double \mbox{\hyperlink{classNumber_a907df4526da3ccb91b8faead20e6fb66}{Evaluate}} () const override
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2github_2workspace_2include_2math_2symb_2Symbolic_8h-example}{/github/workspace/include/math/symb/\+Symbolic.\+h}}.\end{Desc}
+Representation of numerical value 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNumber_a7fba0ebcb2cd5e9ee9625ddd244e3274}\label{classNumber_a7fba0ebcb2cd5e9ee9625ddd244e3274}} 
+\index{Number@{Number}!Number@{Number}}
+\index{Number@{Number}!Number@{Number}}
+\doxysubsubsection{\texorpdfstring{Number()}{Number()}}
+{\footnotesize\ttfamily Number\+::\+Number (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+default constructor 
+\begin{DoxyParams}{Parameters}
+{\em val} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNumber_a907df4526da3ccb91b8faead20e6fb66}\label{classNumber_a907df4526da3ccb91b8faead20e6fb66}} 
+\index{Number@{Number}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!Number@{Number}}
+\doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}}
+{\footnotesize\ttfamily double Number\+::\+Evaluate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+returns real value \begin{DoxyReturn}{Returns}
+if is\+Negative -\/numeric\+Value else numeric\+Value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}{Math\+Node}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

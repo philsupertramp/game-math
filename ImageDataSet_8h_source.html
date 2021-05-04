@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -73,121 +80,138 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;DataSet.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#if MATH_IMAGE_PROCESSING</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">    #include &lt;Magick++.h&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">    #include &lt;Magick++/Image.h&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classImageDataSet.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classImageDataSet.html">ImageDataSet</a> : <span class="keyword">public</span> <a class="code" href="classDataSet.html">DataSet</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classImageDataSet.html">ImageDataSet</a>(<span class="keywordtype">size_t</span> inputCount, <span class="keywordtype">size_t</span> outputCount)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        : <a class="code" href="classDataSet.html">DataSet</a>(inputCount, outputCount) { }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classImageDataSet.html#a70c65453f974635726e64d371b39acee">   21</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classImageDataSet.html#a70c65453f974635726e64d371b39acee">PrepareDirectory</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filePath)<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Moving files...&quot;</span> &lt;&lt; std::flush;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::filesystem::remove_all(trainDirectory);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::filesystem::copy(</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        filePath,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        trainDirectory,</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::filesystem::copy_options::update_existing | std::filesystem::copy_options::recursive);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        totalCount        = 0;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">size_t</span> classCount = 0;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        classNames.clear();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; entry : std::filesystem::directory_iterator(trainDirectory)) {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">if</span>(entry.is_directory()) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                classNames.push_back(entry.path().filename());</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keyword">auto</span> dirIter = std::filesystem::directory_iterator(entry);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                totalCount +=</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                std::count_if(begin(dirIter), end(dirIter), [](<span class="keyword">auto</span>&amp; elem) { <span class="keywordflow">return</span> elem.is_regular_file(); });</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                classCount += 1;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        trainingCount     = (int)(totalCount * 0.8);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        validationCount   = (int)(totalCount - trainingCount);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        Training.Input    = MatrixDS&lt;double&gt;(0, trainingCount, InputCount);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        Training.Output   = MatrixDS&lt;double&gt;(0, trainingCount, OutputCount);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        Validation.Input  = MatrixDS&lt;double&gt;(0, validationCount, InputCount);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        Validation.Output = MatrixDS&lt;double&gt;(0, validationCount, OutputCount);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">size_t</span> index = 0;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; entry : std::filesystem::directory_iterator(trainDirectory)) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">if</span>(entry.is_directory()) {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                MatrixDS&lt;bool&gt; elem(<span class="keyword">false</span>, 1, classCount);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                elem(0, index) = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                classes.push_back(elem);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                index += 1;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;done!\nDirectory \&quot;&quot;</span> &lt;&lt; trainDirectory &lt;&lt; <span class="stringliteral">&quot;\&quot; ready.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Found &quot;</span> &lt;&lt; totalCount &lt;&lt; <span class="stringliteral">&quot; files belonging to &quot;</span> &lt;&lt; classCount &lt;&lt; <span class="stringliteral">&quot; classes.\nUsing &quot;</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                  &lt;&lt; validationCount &lt;&lt; <span class="stringliteral">&quot; files for validation\n&quot;</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                  &lt;&lt; std::flush;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classImageDataSet.html#abe20e5992ddda25f736dfb0789d764a3">   76</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classImageDataSet.html#abe20e5992ddda25f736dfb0789d764a3">Cache</a>() {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#if MATH_IMAGE_PROCESSING</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Resizing files and saving into memory...&quot;</span> &lt;&lt; std::flush;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">size_t</span> count = 0, i = 0, classCount = 0;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">size_t</span> trainingIter = 0, validationIter = 0;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; classDirectory : std::filesystem::directory_iterator(trainDirectory)) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordtype">bool</span> hadEntry = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">if</span>(!classDirectory.is_directory() || classCount &gt;= classes.size()) <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; entry : std::filesystem::directory_iterator(classDirectory)) {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">if</span>(!entry.is_regular_file()) <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                hadEntry = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                Magick::Image image;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                image.verbose(verbose);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                image.magick(<span class="stringliteral">&quot;JPG&quot;</span>);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                image.read(std::string(entry.path()));</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="comment">// PZ: we don&#39;t scale but resample, to enforce dimension width * height and ignore loss in content</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                image.resample(Magick::Point(imageWidth, imageHeight));</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <a class="code" href="structSet.html">Set</a>* target;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordtype">bool</span> is_validation =</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                (trainingIter &gt;= trainingCount || ((count % (int)totalCount * (validationShare)) == 0 &amp;&amp; count != 0 &amp;&amp; validationIter &lt; validationCount));</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                target = is_validation ? &amp;Validation : &amp;Training;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                Magick::PixelData pixelBlob(image, <span class="stringliteral">&quot;RGBA&quot;</span>, Magick::FloatPixel);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="keyword">auto</span>* in = (<span class="keywordtype">float</span>*)pixelBlob.data();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">for</span>(i = 0; i &lt; InputCount; i++) {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    (*target).Input[is_validation ? validationIter : trainingIter][i] = in[i];</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keywordflow">for</span>(i = 0; i &lt; OutputCount; i++) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    (*target).Output[is_validation ? validationIter : trainingIter][i] = classes[classCount][0][i];</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">if</span>(is_validation) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    validationIter += 1;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    trainingIter += 1;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                count += 1;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            classCount += hadEntry;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">size_t</span> imageHeight         = 180;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">size_t</span> imageWidth          = 180;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">double</span> validationShare     = 0.2;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* trainDirectory = <span class="stringliteral">&quot;../../resources/image_classification/training/&quot;</span>;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    std::vector&lt;MatrixDS&lt;bool&gt;&gt; classes;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    std::vector&lt;std::string&gt; classNames;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">size_t</span> totalCount      = 0;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">size_t</span> trainingCount   = 0;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">size_t</span> validationCount = 0;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
-<div class="ttc" id="aclassDataSet_html"><div class="ttname"><a href="classDataSet.html">DataSet</a></div><div class="ttdef"><b>Definition:</b> DataSet.h:150</div></div>
-<div class="ttc" id="aclassImageDataSet_html"><div class="ttname"><a href="classImageDataSet.html">ImageDataSet</a></div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:13</div></div>
-<div class="ttc" id="aclassImageDataSet_html_a70c65453f974635726e64d371b39acee"><div class="ttname"><a href="classImageDataSet.html#a70c65453f974635726e64d371b39acee">ImageDataSet::PrepareDirectory</a></div><div class="ttdeci">virtual void PrepareDirectory(const char *filePath) override</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:21</div></div>
-<div class="ttc" id="aclassImageDataSet_html_abe20e5992ddda25f736dfb0789d764a3"><div class="ttname"><a href="classImageDataSet.html#abe20e5992ddda25f736dfb0789d764a3">ImageDataSet::Cache</a></div><div class="ttdeci">void Cache()</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:76</div></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#if MATH_IMAGE_PROCESSING</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">    #include &lt;Magick++.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">    #include &lt;Magick++/Image.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classImageDataSet.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classImageDataSet.html">ImageDataSet</a> : <span class="keyword">public</span> <a class="code" href="classDataSet.html">DataSet</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classImageDataSet.html#a6cb4942bbb5ce16e1ab67ccd550dc9e3">   24</a></span>&#160;    <a class="code" href="classImageDataSet.html#a6cb4942bbb5ce16e1ab67ccd550dc9e3">ImageDataSet</a>(<span class="keywordtype">size_t</span> inputCount, <span class="keywordtype">size_t</span> outputCount)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        : <a class="code" href="classDataSet.html">DataSet</a>(inputCount, outputCount) { }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classImageDataSet.html#a70c65453f974635726e64d371b39acee">   31</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classImageDataSet.html#a70c65453f974635726e64d371b39acee">PrepareDirectory</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filePath)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Moving files...&quot;</span> &lt;&lt; std::flush;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        std::filesystem::remove_all(<a class="code" href="classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8">trainDirectory</a>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        std::filesystem::copy(</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        filePath,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8">trainDirectory</a>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        std::filesystem::copy_options::update_existing | std::filesystem::copy_options::recursive);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classImageDataSet.html#a9a266deb825dec0a9bdaa6f7105c4da7">totalCount</a>        = 0;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">size_t</span> classCount = 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72">classNames</a>.clear();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; entry : std::filesystem::directory_iterator(<a class="code" href="classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8">trainDirectory</a>)) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">if</span>(entry.is_directory()) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <a class="code" href="classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72">classNames</a>.push_back(entry.path().filename());</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keyword">auto</span> dirIter = std::filesystem::directory_iterator(entry);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <a class="code" href="classImageDataSet.html#a9a266deb825dec0a9bdaa6f7105c4da7">totalCount</a> +=</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                std::count_if(begin(dirIter), end(dirIter), [](<span class="keyword">auto</span>&amp; elem) { <span class="keywordflow">return</span> elem.is_regular_file(); });</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                classCount += 1;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="classImageDataSet.html#a323ec5719d39c362c77960656b65f571">trainingCount</a>     = (int)(<a class="code" href="classImageDataSet.html#a9a266deb825dec0a9bdaa6f7105c4da7">totalCount</a> * 0.8);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="classImageDataSet.html#a30efac5c5eb0ec2eb29ba294ddbc2648">validationCount</a>   = (int)(<a class="code" href="classImageDataSet.html#a9a266deb825dec0a9bdaa6f7105c4da7">totalCount</a> - <a class="code" href="classImageDataSet.html#a323ec5719d39c362c77960656b65f571">trainingCount</a>);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="classDataSet.html#ab2e28670df1d61a926990a8d00627fdf">Training</a>.<a class="code" href="structSet.html#a05d1a42371080cffdd7851cf9c00f81b">Input</a>    = MatrixDS&lt;double&gt;(0, <a class="code" href="classImageDataSet.html#a323ec5719d39c362c77960656b65f571">trainingCount</a>, <a class="code" href="classDataSet.html#a9cc77d557deb5f130c5ca93267a88b69">InputCount</a>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classDataSet.html#ab2e28670df1d61a926990a8d00627fdf">Training</a>.<a class="code" href="structSet.html#abeb4570e7f558220e76e3fcb03551813">Output</a>   = MatrixDS&lt;double&gt;(0, <a class="code" href="classImageDataSet.html#a323ec5719d39c362c77960656b65f571">trainingCount</a>, <a class="code" href="classDataSet.html#a80e15af63fd1574afb65efa990187203">OutputCount</a>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="classDataSet.html#a83ba4064a6be64f1b1535de18005e270">Validation</a>.<a class="code" href="structSet.html#a05d1a42371080cffdd7851cf9c00f81b">Input</a>  = MatrixDS&lt;double&gt;(0, <a class="code" href="classImageDataSet.html#a30efac5c5eb0ec2eb29ba294ddbc2648">validationCount</a>, <a class="code" href="classDataSet.html#a9cc77d557deb5f130c5ca93267a88b69">InputCount</a>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="classDataSet.html#a83ba4064a6be64f1b1535de18005e270">Validation</a>.<a class="code" href="structSet.html#abeb4570e7f558220e76e3fcb03551813">Output</a> = MatrixDS&lt;double&gt;(0, <a class="code" href="classImageDataSet.html#a30efac5c5eb0ec2eb29ba294ddbc2648">validationCount</a>, <a class="code" href="classDataSet.html#a80e15af63fd1574afb65efa990187203">OutputCount</a>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">size_t</span> index = 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; entry : std::filesystem::directory_iterator(<a class="code" href="classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8">trainDirectory</a>)) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">if</span>(entry.is_directory()) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                MatrixDS&lt;bool&gt; elem(<span class="keyword">false</span>, 1, classCount);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                elem(0, index) = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <a class="code" href="classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e">classes</a>.push_back(elem);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                index += 1;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;done!\nDirectory \&quot;&quot;</span> &lt;&lt; <a class="code" href="classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8">trainDirectory</a> &lt;&lt; <span class="stringliteral">&quot;\&quot; ready.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Found &quot;</span> &lt;&lt; <a class="code" href="classImageDataSet.html#a9a266deb825dec0a9bdaa6f7105c4da7">totalCount</a> &lt;&lt; <span class="stringliteral">&quot; files belonging to &quot;</span> &lt;&lt; classCount &lt;&lt; <span class="stringliteral">&quot; classes.\nUsing &quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                  &lt;&lt; <a class="code" href="classImageDataSet.html#a30efac5c5eb0ec2eb29ba294ddbc2648">validationCount</a> &lt;&lt; <span class="stringliteral">&quot; files for validation\n&quot;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                  &lt;&lt; std::flush;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classImageDataSet.html#abe20e5992ddda25f736dfb0789d764a3">   86</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classImageDataSet.html#abe20e5992ddda25f736dfb0789d764a3">Cache</a>() {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#if MATH_IMAGE_PROCESSING</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Resizing files and saving into memory...&quot;</span> &lt;&lt; std::flush;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">size_t</span> count = 0, i = 0, classCount = 0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">size_t</span> trainingIter = 0, validationIter = 0;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; classDirectory : std::filesystem::directory_iterator(<a class="code" href="classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8">trainDirectory</a>)) {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordtype">bool</span> hadEntry = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">if</span>(!classDirectory.is_directory() || classCount &gt;= <a class="code" href="classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e">classes</a>.size()) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; entry : std::filesystem::directory_iterator(classDirectory)) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">if</span>(!entry.is_regular_file()) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                hadEntry = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                Magick::Image image;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                image.verbose(<a class="code" href="classDataSet.html#af05bcbf6eba3ef7dbb89e0d396d45596">verbose</a>);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                image.magick(<span class="stringliteral">&quot;JPG&quot;</span>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                image.read(std::string(entry.path()));</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="comment">// PZ: we don&#39;t scale but resample, to enforce dimension width * height and ignore loss in content</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                image.resample(Magick::Point(<a class="code" href="classImageDataSet.html#a9ba02bb2e1b60de7f6835ace293809f9">imageWidth</a>, <a class="code" href="classImageDataSet.html#ab83106b8cff6d5cc8359aa490d85d07e">imageHeight</a>));</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <a class="code" href="structSet.html">Set</a>* target;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keywordtype">bool</span> is_validation =</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                (trainingIter &gt;= <a class="code" href="classImageDataSet.html#a323ec5719d39c362c77960656b65f571">trainingCount</a> || ((count % (int)<a class="code" href="classImageDataSet.html#a9a266deb825dec0a9bdaa6f7105c4da7">totalCount</a> * (<a class="code" href="classImageDataSet.html#a08ea2bd23adb1f8d45d888e820fe3e4d">validationShare</a>)) == 0 &amp;&amp; count != 0 &amp;&amp; validationIter &lt; <a class="code" href="classImageDataSet.html#a30efac5c5eb0ec2eb29ba294ddbc2648">validationCount</a>));</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                target = is_validation ? &amp;<a class="code" href="classDataSet.html#a83ba4064a6be64f1b1535de18005e270">Validation</a> : &amp;<a class="code" href="classDataSet.html#ab2e28670df1d61a926990a8d00627fdf">Training</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                Magick::PixelData pixelBlob(image, <span class="stringliteral">&quot;RGBA&quot;</span>, Magick::FloatPixel);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keyword">auto</span>* in = (<span class="keywordtype">float</span>*)pixelBlob.data();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordflow">for</span>(i = 0; i &lt; <a class="code" href="classDataSet.html#a9cc77d557deb5f130c5ca93267a88b69">InputCount</a>; i++) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    (*target).Input[is_validation ? validationIter : trainingIter][i] = in[i];</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <span class="keywordflow">for</span>(i = 0; i &lt; <a class="code" href="classDataSet.html#a80e15af63fd1574afb65efa990187203">OutputCount</a>; i++) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    (*target).Output[is_validation ? validationIter : trainingIter][i] = <a class="code" href="classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e">classes</a>[classCount][0][i];</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">if</span>(is_validation) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    validationIter += 1;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    trainingIter += 1;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                count += 1;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            classCount += hadEntry;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classImageDataSet.html#ab83106b8cff6d5cc8359aa490d85d07e">  132</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classImageDataSet.html#ab83106b8cff6d5cc8359aa490d85d07e">imageHeight</a>         = 180;</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classImageDataSet.html#a9ba02bb2e1b60de7f6835ace293809f9">  134</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classImageDataSet.html#a9ba02bb2e1b60de7f6835ace293809f9">imageWidth</a>          = 180;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="classImageDataSet.html#a08ea2bd23adb1f8d45d888e820fe3e4d">  136</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classImageDataSet.html#a08ea2bd23adb1f8d45d888e820fe3e4d">validationShare</a>     = 0.2;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8">  138</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8">trainDirectory</a> = <span class="stringliteral">&quot;../../resources/image_classification/training/&quot;</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e">  140</a></span>&#160;    std::vector&lt;MatrixDS&lt;bool&gt;&gt; <a class="code" href="classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e">classes</a>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72">  142</a></span>&#160;    std::vector&lt;std::string&gt; <a class="code" href="classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72">classNames</a>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="classImageDataSet.html#a9a266deb825dec0a9bdaa6f7105c4da7">  144</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classImageDataSet.html#a9a266deb825dec0a9bdaa6f7105c4da7">totalCount</a>      = 0;</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classImageDataSet.html#a323ec5719d39c362c77960656b65f571">  146</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classImageDataSet.html#a323ec5719d39c362c77960656b65f571">trainingCount</a>   = 0;</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="classImageDataSet.html#a30efac5c5eb0ec2eb29ba294ddbc2648">  148</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classImageDataSet.html#a30efac5c5eb0ec2eb29ba294ddbc2648">validationCount</a> = 0;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;};</div>
+<div class="ttc" id="aclassDataSet_html"><div class="ttname"><a href="classDataSet.html">DataSet</a></div><div class="ttdef"><b>Definition:</b> DataSet.h:194</div></div>
+<div class="ttc" id="aclassDataSet_html_a80e15af63fd1574afb65efa990187203"><div class="ttname"><a href="classDataSet.html#a80e15af63fd1574afb65efa990187203">DataSet::OutputCount</a></div><div class="ttdeci">size_t OutputCount</div><div class="ttdoc">number output elements</div><div class="ttdef"><b>Definition:</b> DataSet.h:233</div></div>
+<div class="ttc" id="aclassDataSet_html_a83ba4064a6be64f1b1535de18005e270"><div class="ttname"><a href="classDataSet.html#a83ba4064a6be64f1b1535de18005e270">DataSet::Validation</a></div><div class="ttdeci">Set Validation</div><div class="ttdoc">set for validation of training</div><div class="ttdef"><b>Definition:</b> DataSet.h:238</div></div>
+<div class="ttc" id="aclassDataSet_html_a9cc77d557deb5f130c5ca93267a88b69"><div class="ttname"><a href="classDataSet.html#a9cc77d557deb5f130c5ca93267a88b69">DataSet::InputCount</a></div><div class="ttdeci">size_t InputCount</div><div class="ttdoc">number input elements</div><div class="ttdef"><b>Definition:</b> DataSet.h:231</div></div>
+<div class="ttc" id="aclassDataSet_html_ab2e28670df1d61a926990a8d00627fdf"><div class="ttname"><a href="classDataSet.html#ab2e28670df1d61a926990a8d00627fdf">DataSet::Training</a></div><div class="ttdeci">Set Training</div><div class="ttdoc">set for training</div><div class="ttdef"><b>Definition:</b> DataSet.h:236</div></div>
+<div class="ttc" id="aclassDataSet_html_af05bcbf6eba3ef7dbb89e0d396d45596"><div class="ttname"><a href="classDataSet.html#af05bcbf6eba3ef7dbb89e0d396d45596">DataSet::verbose</a></div><div class="ttdeci">bool verbose</div><div class="ttdoc">use verbose output during fitting</div><div class="ttdef"><b>Definition:</b> DataSet.h:251</div></div>
+<div class="ttc" id="aclassImageDataSet_html"><div class="ttname"><a href="classImageDataSet.html">ImageDataSet</a></div><div class="ttdoc">only include Magick++ if needed</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:17</div></div>
+<div class="ttc" id="aclassImageDataSet_html_a08ea2bd23adb1f8d45d888e820fe3e4d"><div class="ttname"><a href="classImageDataSet.html#a08ea2bd23adb1f8d45d888e820fe3e4d">ImageDataSet::validationShare</a></div><div class="ttdeci">double validationShare</div><div class="ttdoc">percentage of validation data</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:136</div></div>
+<div class="ttc" id="aclassImageDataSet_html_a30efac5c5eb0ec2eb29ba294ddbc2648"><div class="ttname"><a href="classImageDataSet.html#a30efac5c5eb0ec2eb29ba294ddbc2648">ImageDataSet::validationCount</a></div><div class="ttdeci">size_t validationCount</div><div class="ttdoc">number of validation data records</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:148</div></div>
+<div class="ttc" id="aclassImageDataSet_html_a323ec5719d39c362c77960656b65f571"><div class="ttname"><a href="classImageDataSet.html#a323ec5719d39c362c77960656b65f571">ImageDataSet::trainingCount</a></div><div class="ttdeci">size_t trainingCount</div><div class="ttdoc">number of training data records</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:146</div></div>
+<div class="ttc" id="aclassImageDataSet_html_a588cd839a8dcf3f9bbd487610347825e"><div class="ttname"><a href="classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e">ImageDataSet::classes</a></div><div class="ttdeci">std::vector&lt; MatrixDS&lt; bool &gt; &gt; classes</div><div class="ttdoc">representation of all classes</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:140</div></div>
+<div class="ttc" id="aclassImageDataSet_html_a6cb4942bbb5ce16e1ab67ccd550dc9e3"><div class="ttname"><a href="classImageDataSet.html#a6cb4942bbb5ce16e1ab67ccd550dc9e3">ImageDataSet::ImageDataSet</a></div><div class="ttdeci">ImageDataSet(size_t inputCount, size_t outputCount)</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:24</div></div>
+<div class="ttc" id="aclassImageDataSet_html_a70c65453f974635726e64d371b39acee"><div class="ttname"><a href="classImageDataSet.html#a70c65453f974635726e64d371b39acee">ImageDataSet::PrepareDirectory</a></div><div class="ttdeci">virtual void PrepareDirectory(const char *filePath) override</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:31</div></div>
+<div class="ttc" id="aclassImageDataSet_html_a948b82a4dc6b7594c6c8029909aa6b72"><div class="ttname"><a href="classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72">ImageDataSet::classNames</a></div><div class="ttdeci">std::vector&lt; std::string &gt; classNames</div><div class="ttdoc">representation of all class names</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:142</div></div>
+<div class="ttc" id="aclassImageDataSet_html_a9a266deb825dec0a9bdaa6f7105c4da7"><div class="ttname"><a href="classImageDataSet.html#a9a266deb825dec0a9bdaa6f7105c4da7">ImageDataSet::totalCount</a></div><div class="ttdeci">size_t totalCount</div><div class="ttdoc">total number of data records</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:144</div></div>
+<div class="ttc" id="aclassImageDataSet_html_a9ba02bb2e1b60de7f6835ace293809f9"><div class="ttname"><a href="classImageDataSet.html#a9ba02bb2e1b60de7f6835ace293809f9">ImageDataSet::imageWidth</a></div><div class="ttdeci">size_t imageWidth</div><div class="ttdoc">desired image width</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:134</div></div>
+<div class="ttc" id="aclassImageDataSet_html_ab83106b8cff6d5cc8359aa490d85d07e"><div class="ttname"><a href="classImageDataSet.html#ab83106b8cff6d5cc8359aa490d85d07e">ImageDataSet::imageHeight</a></div><div class="ttdeci">size_t imageHeight</div><div class="ttdoc">desired image height</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:132</div></div>
+<div class="ttc" id="aclassImageDataSet_html_abe20e5992ddda25f736dfb0789d764a3"><div class="ttname"><a href="classImageDataSet.html#abe20e5992ddda25f736dfb0789d764a3">ImageDataSet::Cache</a></div><div class="ttdeci">void Cache()</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:86</div></div>
+<div class="ttc" id="aclassImageDataSet_html_ae16e22c23b4185379e5f3d60143092b8"><div class="ttname"><a href="classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8">ImageDataSet::trainDirectory</a></div><div class="ttdeci">const char * trainDirectory</div><div class="ttdoc">target directory for training</div><div class="ttdef"><b>Definition:</b> ImageDataSet.h:138</div></div>
 <div class="ttc" id="astructSet_html"><div class="ttname"><a href="structSet.html">Set</a></div><div class="ttdef"><b>Definition:</b> DataSet.h:17</div></div>
+<div class="ttc" id="astructSet_html_a05d1a42371080cffdd7851cf9c00f81b"><div class="ttname"><a href="structSet.html#a05d1a42371080cffdd7851cf9c00f81b">Set::Input</a></div><div class="ttdeci">Matrix&lt; double &gt; Input</div><div class="ttdoc">input data</div><div class="ttdef"><b>Definition:</b> DataSet.h:19</div></div>
+<div class="ttc" id="astructSet_html_abeb4570e7f558220e76e3fcb03551813"><div class="ttname"><a href="structSet.html#abeb4570e7f558220e76e3fcb03551813">Set::Output</a></div><div class="ttdeci">Matrix&lt; double &gt; Output</div><div class="ttdoc">expected output data</div><div class="ttdef"><b>Definition:</b> DataSet.h:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

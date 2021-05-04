@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -68,21 +75,21 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classSymbolic.html">Symbolic</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Evaluate</b>() const override (defined in <a class="el" href="classSymbolic.html">Symbolic</a>)</td><td class="entry"><a class="el" href="classSymbolic.html">Symbolic</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>evaluationValue</b> (defined in <a class="el" href="classSymbolic.html">Symbolic</a>)</td><td class="entry"><a class="el" href="classSymbolic.html">Symbolic</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>GetString</b>() const (defined in <a class="el" href="classMathNode.html">MathNode</a>)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>hasParentheses</b> (defined in <a class="el" href="classMathNode.html">MathNode</a>)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>isNegative</b> (defined in <a class="el" href="classMathNode.html">MathNode</a>)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>left</b> (defined in <a class="el" href="classMathNode.html">MathNode</a>)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>MathNode</b>(const std::string &amp;val) (defined in <a class="el" href="classMathNode.html">MathNode</a>)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>MathNode</b>(const MathNode &amp;other) (defined in <a class="el" href="classMathNode.html">MathNode</a>)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Operand</b>(const std::string &amp;name) (defined in <a class="el" href="classOperand.html">Operand</a>)</td><td class="entry"><a class="el" href="classOperand.html">Operand</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>right</b> (defined in <a class="el" href="classMathNode.html">MathNode</a>)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Symbolic</b>(const std::string &amp;name) (defined in <a class="el" href="classSymbolic.html">Symbolic</a>)</td><td class="entry"><a class="el" href="classSymbolic.html">Symbolic</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Symbolic</b>(const Symbolic &amp;other) (defined in <a class="el" href="classSymbolic.html">Symbolic</a>)</td><td class="entry"><a class="el" href="classSymbolic.html">Symbolic</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>type</b> (defined in <a class="el" href="classMathNode.html">MathNode</a>)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>valSize</b> (defined in <a class="el" href="classMathNode.html">MathNode</a>)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>value</b> (defined in <a class="el" href="classMathNode.html">MathNode</a>)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSymbolic.html#a10604f97ee4fb6bc798987ba4d5daa1d">Evaluate</a>() const override</td><td class="entry"><a class="el" href="classSymbolic.html">Symbolic</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classSymbolic.html#a9c806e242426832e2901f47fbeb4ff62">evaluationValue</a></td><td class="entry"><a class="el" href="classSymbolic.html">Symbolic</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMathNode.html#abb5b146cee0a672f8fac4f2fd64c2c5e">GetString</a>() const</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classMathNode.html#a9cff117d073cd15538cf3f1d385d3207">hasParentheses</a></td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMathNode.html#a23bb4430c010646f85a41e722f30d7f6">isNegative</a></td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classMathNode.html#a7246ecf47bdb68471202f2c725cb41e4">left</a></td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMathNode.html#a3072bd11e770363889906d16578954cb">MathNode</a>(const std::string &amp;val)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classMathNode.html#a18ab20a5b9156a02d4e4eec2a4c9528e">MathNode</a>(const MathNode &amp;other)</td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classOperand.html#a172a86345b5a1041f5565e1c6b457bc8">Operand</a>(const std::string &amp;name)</td><td class="entry"><a class="el" href="classOperand.html">Operand</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classMathNode.html#af81f7d62cd9008544aa999c6a1c55934">right</a></td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSymbolic.html#ace735c93eb8e99448a0bee1f377ea248">Symbolic</a>(const std::string &amp;name)</td><td class="entry"><a class="el" href="classSymbolic.html">Symbolic</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classSymbolic.html#a4d4dfbdc0bde87aa5a07ab3cf4f2ee85">Symbolic</a>(const Symbolic &amp;other)</td><td class="entry"><a class="el" href="classSymbolic.html">Symbolic</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMathNode.html#ab70eeffac4cad37de01dc063eeb93d8c">type</a></td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classMathNode.html#a316c8023f8a4129fb93974e3ce12b65d">valSize</a></td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMathNode.html#a2d7c199d2c5581160db369014654c084">value</a></td><td class="entry"><a class="el" href="classMathNode.html">MathNode</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

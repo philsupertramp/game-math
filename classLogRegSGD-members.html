@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -69,24 +76,23 @@ $(function() {
 <p>This is the complete list of members for <a class="el" href="classLogRegSGD.html">LogRegSGD</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classLogRegSGD.html#aa055e337c1c4cd70b699bf29165aeb3a">activation</a>(const Matrix&lt; double &gt; &amp;X) override</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Classifier</b>(double _eta, int _n_iter) (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>costFunction</b>([[maybe_unused]] const Matrix&lt; double &gt; &amp;mat) override (defined in <a class="el" href="classLogRegSGD.html">LogRegSGD</a>)</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classClassifier.html#adf323be2120dbc43c65e1aed08efd5cb">Classifier</a>(double _eta, int _n_iter)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classLogRegSGD.html#a2c5d62d0e888834e00d33fddb6e2e78b">costFunction</a>([[maybe_unused]] const Matrix&lt; double &gt; &amp;mat) override</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classClassifier.html#ae3508f6b16b8e4e770d1fc6e31f8eced">Classifier::costFunction</a>(const Matrix&lt; double &gt; &amp;)=0</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>costs</b> (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>eta</b> (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classClassifier.html#a8688dfb2318e40a7c2f3747b68c96bae">costs</a></td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classClassifier.html#ada5781f6955d4584bb9e8a24216ce654">eta</a></td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classLogRegSGD.html#aef4c82d4582b263409e37a1b6d461cbd">fit</a>(const Matrix&lt; double &gt; &amp;X, const Matrix&lt; double &gt; &amp;y) override</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8">Classifier::initialize_weights</a>(size_t numRows, size_t numColumns=1)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>LogRegSGD</b>(double _eta=0.01, int iter=10, bool _shuffle=false, int _randomState=0) (defined in <a class="el" href="classLogRegSGD.html">LogRegSGD</a>)</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>n_iter</b> (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classLogRegSGD.html#afd641912a68b8c0b2981585fb2cfc068">LogRegSGD</a>(double _eta=0.01, int iter=10, bool _shuffle=false, int _randomState=0)</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classClassifier.html#a262d07b1324365425b12bb08a859984a">n_iter</a></td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classLogRegSGD.html#ac7ffba0eb63811c3261dd67269c7d7fa">netInput</a>(const Matrix&lt; double &gt; &amp;X) override</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>partial_fit</b>(const Matrix&lt; double &gt; &amp;X, const Matrix&lt; double &gt; &amp;y) (defined in <a class="el" href="classLogRegSGD.html">LogRegSGD</a>)</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classLogRegSGD.html#a7e21cee4236b4f144cf507396849110f">partial_fit</a>(const Matrix&lt; double &gt; &amp;X, const Matrix&lt; double &gt; &amp;y)</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classLogRegSGD.html#a3bd288cfafbd38b0c6c66fd67d316df1">predict</a>(const Matrix&lt; double &gt; &amp;X) override</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>randomState</b> (defined in <a class="el" href="classLogRegSGD.html">LogRegSGD</a>)</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>sgd</b> (defined in <a class="el" href="classLogRegSGD.html">LogRegSGD</a>)</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>sgdInit</b> (defined in <a class="el" href="classLogRegSGD.html">LogRegSGD</a>)</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>shuffle</b> (defined in <a class="el" href="classLogRegSGD.html">LogRegSGD</a>)</td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>w_initialized</b> (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>weights</b> (defined in <a class="el" href="classClassifier.html">Classifier</a>)</td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classLogRegSGD.html#a654e74118d5644bc8e18ca5e5bcca997">randomState</a></td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classLogRegSGD.html#af80d2b982ab742580caeda9bd2f48d97">sgd</a></td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classLogRegSGD.html#a3bfe916ce0635c0b00c77731bf3ad77e">shuffle</a></td><td class="entry"><a class="el" href="classLogRegSGD.html">LogRegSGD</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classClassifier.html#a5c3236f91e4f14965715caaca167dec8">w_initialized</a></td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classClassifier.html#a5d4d61496164c06deab141329b6c878f">weights</a></td><td class="entry"><a class="el" href="classClassifier.html">Classifier</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

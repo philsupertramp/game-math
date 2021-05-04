@@ -1,0 +1,24 @@
+\hypertarget{ode_2ode_8h}{}\doxysection{include/math/numerics/ode/ode.h File Reference}
+\label{ode_2ode_8h}\index{include/math/numerics/ode/ode.h@{include/math/numerics/ode/ode.h}}
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structODEResult}{ODEResult}}
+\item 
+struct \mbox{\hyperlink{structODEOption}{ODEOption}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ode_2ode_8h_ad676feada87db8725ebe89248f5f3379}\label{ode_2ode_8h_ad676feada87db8725ebe89248f5f3379}} 
+using \mbox{\hyperlink{ode_2ode_8h_ad676feada87db8725ebe89248f5f3379}{ODE}} = std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(double, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$)$>$
+\begin{DoxyCompactList}\small\item\em alias for ODE \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ode_2ode_8h_aaf3a41db4e8837085cf81e769e20cc89}\label{ode_2ode_8h_aaf3a41db4e8837085cf81e769e20cc89}} 
+using \mbox{\hyperlink{ode_2ode_8h_aaf3a41db4e8837085cf81e769e20cc89}{ODEJac}} = std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(double, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$)$>$
+\begin{DoxyCompactList}\small\item\em alias for Jacobian-\/\+Matrix of ODE \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This header file holds utility helper for ode solvers 

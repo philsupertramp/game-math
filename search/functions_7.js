@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['initialize_5fweights_131',['initialize_weights',['../classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8',1,'Classifier']]]
+  ['hadamardmulti_335',['HadamardMulti',['../classMatrix.html#a999e1548cd5930191ca75c6846348c20',1,'Matrix']]],
+  ['hassymbol_336',['HasSymbol',['../classEquation.html#a7de002b470adb0c5e81324da7dc8355f',1,'Equation']]],
+  ['horizontalconcat_337',['HorizontalConcat',['../classMatrix.html#a5b58a839f095a53cc6dd56fe58e2d4c2',1,'Matrix']]]
 ];

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -71,8 +78,15 @@ $(function() {
 , <a class="el" href="classLogRegSGD.html#aa055e337c1c4cd70b699bf29165aeb3a">LogRegSGD</a>
 , <a class="el" href="classPerceptron.html#a8ffc64efb4c0f2c089fecd78a31cb259">Perceptron</a>
 </li>
+<li>AdalineGD()
+: <a class="el" href="classAdalineGD.html#a604a399e6d0737bb62e0d20d83627f03">AdalineGD</a>
+</li>
+<li>AdalineSGD()
+: <a class="el" href="classAdalineSGD.html#a2f9c051f06bab810b1d7e92be9e8cfd8">AdalineSGD</a>
+</li>
 <li>AddData()
-: <a class="el" href="classPlot.html#a14f56b76c8a5a351e18add8175a63781">Plot</a>
+: <a class="el" href="classFunctionPlot.html#a6bea42610ef9f96447b91d622e918bc3">FunctionPlot</a>
+, <a class="el" href="classPlot.html#a395e4ce0410a743fe55169521c13111b">Plot</a>
 </li>
 <li>Apply()
 : <a class="el" href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Matrix&lt; T &gt;</a>
@@ -80,192 +94,8 @@ $(function() {
 <li>assertSize()
 : <a class="el" href="classMatrix.html#a7ff3adb55a7fcd61963647884d97cbd1">Matrix&lt; T &gt;</a>
 </li>
-</ul>
-
-
-<h3><a id="index_c"></a>- c -</h3><ul>
-<li>Cache()
-: <a class="el" href="classImageDataSet.html#abe20e5992ddda25f736dfb0789d764a3">ImageDataSet</a>
-</li>
-<li>columns()
-: <a class="el" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix&lt; T &gt;</a>
-</li>
-<li>costFunction()
-: <a class="el" href="classAdalineGD.html#aacea8e107e27c97f9f87cd802187a056">AdalineGD</a>
-, <a class="el" href="classAdalineSGD.html#a83b11a7b467744c0018d8852224275be">AdalineSGD</a>
-, <a class="el" href="classClassifier.html#ae3508f6b16b8e4e770d1fc6e31f8eced">Classifier</a>
-, <a class="el" href="classPerceptron.html#ae2e614bbd670e55d169644f2b9f66f57">Perceptron</a>
-</li>
-</ul>
-
-
-<h3><a id="index_d"></a>- d -</h3><ul>
-<li>Determinant()
-: <a class="el" href="classMatrix.html#a5f91e3755bfb6eb7b8aa5d49d8fbadb2">Matrix&lt; T &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_e"></a>- e -</h3><ul>
-<li>elements()
-: <a class="el" href="classMatrix.html#ac9d3a0fe5ce995cf6f997209f72199cc">Matrix&lt; T &gt;</a>
-</li>
-<li>elementWiseCompare()
-: <a class="el" href="classMatrix.html#afecf4f1a91e8aa51df4b65cbc0ce621b">Matrix&lt; T &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_f"></a>- f -</h3><ul>
-<li>fit()
-: <a class="el" href="classAdalineGD.html#a16791c4ac85a0e7117105f8835a19f69">AdalineGD</a>
-, <a class="el" href="classAdalineSGD.html#a8b97d260bc04aa8cd6d02436fb5f3c76">AdalineSGD</a>
-, <a class="el" href="classClassifier.html#aabced42ad639a66e7b048e4a1dc988f9">Classifier</a>
-, <a class="el" href="classLogRegSGD.html#aef4c82d4582b263409e37a1b6d461cbd">LogRegSGD</a>
-, <a class="el" href="classPerceptron.html#a430fcf4782a3020add0094f986a1c54e">Perceptron</a>
-</li>
-</ul>
-
-
-<h3><a id="index_g"></a>- g -</h3><ul>
-<li>GetComponents()
-: <a class="el" href="classMatrix.html#afe8019630662f76ab9b199e9a0b3e5d1">Matrix&lt; T &gt;</a>
-</li>
-<li>GetDepth()
-: <a class="el" href="classEquation.html#af24aea49f8fddde7c8ac1157bc99c636">Equation</a>
-</li>
-<li>GetIndex()
-: <a class="el" href="classMatrix.html#ad0c643ba4f2849b377eb867d3d13722f">Matrix&lt; T &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_h"></a>- h -</h3><ul>
-<li>HadamardMulti()
-: <a class="el" href="classMatrix.html#a999e1548cd5930191ca75c6846348c20">Matrix&lt; T &gt;</a>
-</li>
-<li>HasSymbol()
-: <a class="el" href="classEquation.html#a7de002b470adb0c5e81324da7dc8355f">Equation</a>
-</li>
-<li>HorizontalConcat()
-: <a class="el" href="classMatrix.html#a5b58a839f095a53cc6dd56fe58e2d4c2">Matrix&lt; T &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_i"></a>- i -</h3><ul>
-<li>initialize_weights()
-: <a class="el" href="classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8">Classifier</a>
-</li>
-</ul>
-
-
-<h3><a id="index_k"></a>- k -</h3><ul>
-<li>KroneckerMulti()
-: <a class="el" href="classMatrix.html#a3696cceb1d9290c69389a8a0553ec254">Matrix&lt; T &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_m"></a>- m -</h3><ul>
-<li>mat2()
-: <a class="el" href="structmat2.html#a4866cefe04818775be00cdb2bd360a18">mat2&lt; T &gt;</a>
-</li>
-<li>mat3()
-: <a class="el" href="structmat3.html#ad34809818e3d656da6ea2c7f72f2b727">mat3&lt; T &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_n"></a>- n -</h3><ul>
-<li>netInput()
-: <a class="el" href="classAdalineGD.html#a565a93a551bc3e851f682d8d7cbe923c">AdalineGD</a>
-, <a class="el" href="classAdalineSGD.html#aa3e618b64d23abd52560b1b0f4f7fca6">AdalineSGD</a>
-, <a class="el" href="classClassifier.html#a0110e1eedbfae3c9a66f376868cbaffb">Classifier</a>
-, <a class="el" href="classLogRegSGD.html#ac7ffba0eb63811c3261dd67269c7d7fa">LogRegSGD</a>
-, <a class="el" href="classPerceptron.html#a0e28fa248c0e7270a65af9418298204f">Perceptron</a>
-</li>
-</ul>
-
-
-<h3><a id="index_o"></a>- o -</h3><ul>
-<li>operator!=()
-: <a class="el" href="classMatrix.html#a4e9e6ddfb0734fed644f384a20c279a1">Matrix&lt; T &gt;</a>
-</li>
-<li>operator()()
-: <a class="el" href="classMatrix.html#a3dde3fdfdcf67ff9282c713697780eb5">Matrix&lt; T &gt;</a>
-, <a class="el" href="classPlot.html#a7fec4279498c404d3d5b5b7a670b8584">Plot</a>
-</li>
-<li>operator*=()
-: <a class="el" href="classMatrix.html#a5b3915328bc4080916f15e494d96a189">Matrix&lt; T &gt;</a>
-</li>
-<li>operator+=()
-: <a class="el" href="classMatrix.html#a22ef718f419e6950ac97c9aed38022a3">Matrix&lt; T &gt;</a>
-</li>
-<li>operator-=()
-: <a class="el" href="classMatrix.html#a84cbf83611e7f4762c43d1a30bb34101">Matrix&lt; T &gt;</a>
-</li>
-<li>operator&lt;&lt;
-: <a class="el" href="classMatrix.html#a336fc6a9cb92414b37acbd1aa52838ea">Matrix&lt; T &gt;</a>
-</li>
-<li>operator=()
-: <a class="el" href="classMatrix.html#a09142f37feebb33208c025271bae1ec6">Matrix&lt; T &gt;</a>
-</li>
-<li>operator==()
-: <a class="el" href="classMatrix.html#a385498f81e29380172bfe924d68dd22e">Matrix&lt; T &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_p"></a>- p -</h3><ul>
-<li>predict()
-: <a class="el" href="classAdalineGD.html#a64117e06585fa2c98f577440b6e74e27">AdalineGD</a>
-, <a class="el" href="classAdalineSGD.html#a5efda89a32f61566d068b2c37690f6b0">AdalineSGD</a>
-, <a class="el" href="classClassifier.html#a0d47e1cccc5be1cdff3b202f48625afe">Classifier</a>
-, <a class="el" href="classLogRegSGD.html#a3bd288cfafbd38b0c6c66fd67d316df1">LogRegSGD</a>
-, <a class="el" href="classPerceptron.html#ac6859763b91ee84b799c1e7554e96eee">Perceptron</a>
-</li>
-<li>PrepareDirectory()
-: <a class="el" href="classImageDataSet.html#a70c65453f974635726e64d371b39acee">ImageDataSet</a>
-</li>
-<li>PrintTree()
-: <a class="el" href="classEquation.html#ab9daa6dd4f1c918d325ae90390503269">Equation</a>
-</li>
-</ul>
-
-
-<h3><a id="index_r"></a>- r -</h3><ul>
-<li>Random()
-: <a class="el" href="classMatrix.html#ab72c15d620fbe70b88578543b65e70ff">Matrix&lt; T &gt;</a>
-</li>
-<li>Resize()
-: <a class="el" href="classMatrix.html#ab5931e4a60d936c1294c187a6fa162e8">Matrix&lt; T &gt;</a>
-</li>
-<li>rows()
-: <a class="el" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">Matrix&lt; T &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_s"></a>- s -</h3><ul>
-<li>SetColumn()
-: <a class="el" href="classMatrix.html#a2897f60a87af004b928da9e8d76eafaf">Matrix&lt; T &gt;</a>
-</li>
-<li>SetRow()
-: <a class="el" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">Matrix&lt; T &gt;</a>
-</li>
-<li>SetSymbols()
-: <a class="el" href="classEquation.html#a2091c8458c47786a28c02798bdac34da">Equation</a>
-</li>
-<li>sumElements()
-: <a class="el" href="classMatrix.html#aef471f0c0ecfb23415e67032ca8bce67">Matrix&lt; T &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_t"></a>- t -</h3><ul>
-<li>Transpose()
-: <a class="el" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Matrix&lt; T &gt;</a>
+<li>attributes
+: <a class="el" href="classPlot.html#adccf50e0f1dde033486c08da47fb8c3e">Plot</a>
 </li>
 </ul>
 </div><!-- contents -->

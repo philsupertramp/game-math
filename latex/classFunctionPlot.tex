@@ -1,5 +1,9 @@
 \hypertarget{classFunctionPlot}{}\doxysection{Function\+Plot Class Reference}
 \label{classFunctionPlot}\index{FunctionPlot@{FunctionPlot}}
+
+
+{\ttfamily \#include $<$Plot.\+h$>$}
+
 Inheritance diagram for Function\+Plot\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,13 +13,50 @@ Inheritance diagram for Function\+Plot\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classFunctionPlot_acf609f64cac77f3e556747b73e70fbc1}\label{classFunctionPlot_acf609f64cac77f3e556747b73e70fbc1}} 
-{\bfseries Function\+Plot} (std\+::function$<$ double(const double \&)$>$ fun, const char $\ast$name=\char`\"{}\char`\"{})
+\mbox{\hyperlink{classFunctionPlot_acf609f64cac77f3e556747b73e70fbc1}{Function\+Plot}} (std\+::function$<$ double(const double \&)$>$ fun, const char $\ast$name=\char`\"{}\char`\"{})
 \item 
-\mbox{\Hypertarget{classFunctionPlot_a6bea42610ef9f96447b91d622e918bc3}\label{classFunctionPlot_a6bea42610ef9f96447b91d622e918bc3}} 
-void {\bfseries Add\+Data} (const double \&start, const double \&end, const double \&step\+Size, const char $\ast$name)
+void \mbox{\hyperlink{classFunctionPlot_a6bea42610ef9f96447b91d622e918bc3}{Add\+Data}} (const double \&start, const double \&end, const double \&step\+Size, const char $\ast$name)
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class to easily generate a plot based on a function. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFunctionPlot_acf609f64cac77f3e556747b73e70fbc1}\label{classFunctionPlot_acf609f64cac77f3e556747b73e70fbc1}} 
+\index{FunctionPlot@{FunctionPlot}!FunctionPlot@{FunctionPlot}}
+\index{FunctionPlot@{FunctionPlot}!FunctionPlot@{FunctionPlot}}
+\doxysubsubsection{\texorpdfstring{FunctionPlot()}{FunctionPlot()}}
+{\footnotesize\ttfamily Function\+Plot\+::\+Function\+Plot (\begin{DoxyParamCaption}\item[{std\+::function$<$ double(const double \&)$>$}]{fun,  }\item[{const char $\ast$}]{name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+default constructor, requires function fun 
+\begin{DoxyParams}{Parameters}
+{\em fun} & \\
+\hline
+{\em name} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFunctionPlot_a6bea42610ef9f96447b91d622e918bc3}\label{classFunctionPlot_a6bea42610ef9f96447b91d622e918bc3}} 
+\index{FunctionPlot@{FunctionPlot}!AddData@{AddData}}
+\index{AddData@{AddData}!FunctionPlot@{FunctionPlot}}
+\doxysubsubsection{\texorpdfstring{AddData()}{AddData()}}
+{\footnotesize\ttfamily void Function\+Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const double \&}]{start,  }\item[{const double \&}]{end,  }\item[{const double \&}]{step\+Size,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds data to the plot context 
+\begin{DoxyParams}{Parameters}
+{\em start} & starting value \\
+\hline
+{\em end} & \\
+\hline
+{\em step\+Size} & \\
+\hline
+{\em name} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

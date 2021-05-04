@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -68,6 +75,8 @@ $(function() {
 <div class="title">ScatterPlot Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Plot_8h_source.html">Plot.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ScatterPlot:</div>
 <div class="dyncontent">
@@ -80,30 +89,22 @@ Inheritance diagram for ScatterPlot:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4a9e0b7bea99f5007e33b0ad65189e43"><td class="memItemLeft" align="right" valign="top"><a id="a4a9e0b7bea99f5007e33b0ad65189e43"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ScatterPlot</b> (const char *name=&quot;&quot;)</td></tr>
+<tr class="memitem:a4a9e0b7bea99f5007e33b0ad65189e43"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScatterPlot.html#a4a9e0b7bea99f5007e33b0ad65189e43">ScatterPlot</a> (const char *name=&quot;&quot;)</td></tr>
 <tr class="separator:a4a9e0b7bea99f5007e33b0ad65189e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classPlot"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classPlot')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classPlot.html">Plot</a></td></tr>
-<tr class="memitem:aa82c1c0468301b22a625a1ba8e07316c inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="aa82c1c0468301b22a625a1ba8e07316c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Plot</b> (const char *title=&quot;&quot;)</td></tr>
+<tr class="memitem:aa82c1c0468301b22a625a1ba8e07316c inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#aa82c1c0468301b22a625a1ba8e07316c">Plot</a> (const char *<a class="el" href="classPlot.html#ac8c296005218dc5afc125e26055e644a">title</a>=&quot;&quot;)</td></tr>
 <tr class="separator:aa82c1c0468301b22a625a1ba8e07316c inherit pub_methods_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8c296005218dc5afc125e26055e644a inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="ac8c296005218dc5afc125e26055e644a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>title</b> (const char *name)</td></tr>
+<tr class="memitem:ac8c296005218dc5afc125e26055e644a inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#ac8c296005218dc5afc125e26055e644a">title</a> (const char *name)</td></tr>
 <tr class="separator:ac8c296005218dc5afc125e26055e644a inherit pub_methods_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acefa0c10c3b238171872e4e47d36db29 inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="acefa0c10c3b238171872e4e47d36db29"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>xAxis</b> (const char *name)</td></tr>
+<tr class="memitem:acefa0c10c3b238171872e4e47d36db29 inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#acefa0c10c3b238171872e4e47d36db29">xAxis</a> (const char *name)</td></tr>
 <tr class="separator:acefa0c10c3b238171872e4e47d36db29 inherit pub_methods_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56b869ca326f5b5e3a4529cd4cb5f612 inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a56b869ca326f5b5e3a4529cd4cb5f612"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>yAxis</b> (const char *name)</td></tr>
+<tr class="memitem:a56b869ca326f5b5e3a4529cd4cb5f612 inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a56b869ca326f5b5e3a4529cd4cb5f612">yAxis</a> (const char *name)</td></tr>
 <tr class="separator:a56b869ca326f5b5e3a4529cd4cb5f612 inherit pub_methods_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1ca4b31fc51ed85c65f1c8fcf786134 inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="ab1ca4b31fc51ed85c65f1c8fcf786134"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pointSize</b> (const int &amp;size)</td></tr>
+<tr class="memitem:ab1ca4b31fc51ed85c65f1c8fcf786134 inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#ab1ca4b31fc51ed85c65f1c8fcf786134">pointSize</a> (const int &amp;size)</td></tr>
 <tr class="separator:ab1ca4b31fc51ed85c65f1c8fcf786134 inherit pub_methods_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6030621e36e58f3119a7c81e4a9fbd31 inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a6030621e36e58f3119a7c81e4a9fbd31"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>lineWidth</b> (const int &amp;size)</td></tr>
+<tr class="memitem:a6030621e36e58f3119a7c81e4a9fbd31 inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a6030621e36e58f3119a7c81e4a9fbd31">lineWidth</a> (const int &amp;size)</td></tr>
 <tr class="separator:a6030621e36e58f3119a7c81e4a9fbd31 inherit pub_methods_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a395e4ce0410a743fe55169521c13111b inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a395e4ce0410a743fe55169521c13111b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddData</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, const char *name)</td></tr>
+<tr class="memitem:a395e4ce0410a743fe55169521c13111b inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a395e4ce0410a743fe55169521c13111b">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, const char *name)</td></tr>
 <tr class="separator:a395e4ce0410a743fe55169521c13111b inherit pub_methods_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14f56b76c8a5a351e18add8175a63781 inherit pub_methods_classPlot"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a14f56b76c8a5a351e18add8175a63781">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mat, const char *name)</td></tr>
 <tr class="separator:a14f56b76c8a5a351e18add8175a63781 inherit pub_methods_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,28 +114,70 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>AddData</b> (const <a
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classPlot"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classPlot')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classPlot.html">Plot</a></td></tr>
-<tr class="memitem:a351135083d8f8c35ad917f702cd85e60 inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a351135083d8f8c35ad917f702cd85e60"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>fileName</b></td></tr>
-<tr class="separator:a351135083d8f8c35ad917f702cd85e60 inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c21369cb37d1e74741766bf26123ec inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="ac5c21369cb37d1e74741766bf26123ec"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#ac5c21369cb37d1e74741766bf26123ec">dataFileName</a></td></tr>
+<tr class="memdesc:ac5c21369cb37d1e74741766bf26123ec inherit pro_attribs_classPlot"><td class="mdescLeft">&#160;</td><td class="mdescRight">data storage file name <br /></td></tr>
+<tr class="separator:ac5c21369cb37d1e74741766bf26123ec inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84d0108c396f7665f228340fce807992 inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a84d0108c396f7665f228340fce807992"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>plotTypeName</b></td></tr>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a84d0108c396f7665f228340fce807992">plotTypeName</a></td></tr>
+<tr class="memdesc:a84d0108c396f7665f228340fce807992 inherit pro_attribs_classPlot"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of plot type <br /></td></tr>
 <tr class="separator:a84d0108c396f7665f228340fce807992 inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80885621943f0e082328be034f1478f3 inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a80885621943f0e082328be034f1478f3"></a>
-FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>storageFile</b> = nullptr</td></tr>
+FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a80885621943f0e082328be034f1478f3">storageFile</a> = nullptr</td></tr>
+<tr class="memdesc:a80885621943f0e082328be034f1478f3 inherit pro_attribs_classPlot"><td class="mdescLeft">&#160;</td><td class="mdescRight">data storage file <br /></td></tr>
 <tr class="separator:a80885621943f0e082328be034f1478f3 inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5119794485ae9348b7bd5d8b08a6d8c0 inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a5119794485ae9348b7bd5d8b08a6d8c0"></a>
-<a class="el" href="structplotAttributes.html">plotAttributes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>attributes</b> = {}</td></tr>
-<tr class="separator:a5119794485ae9348b7bd5d8b08a6d8c0 inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adccf50e0f1dde033486c08da47fb8c3e inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="adccf50e0f1dde033486c08da47fb8c3e"></a>
+<a class="el" href="structPlotAttributes.html">PlotAttributes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#adccf50e0f1dde033486c08da47fb8c3e">attributes</a> = {}</td></tr>
+<tr class="memdesc:adccf50e0f1dde033486c08da47fb8c3e inherit pro_attribs_classPlot"><td class="mdescLeft">&#160;</td><td class="mdescRight">attributes for plot <br /></td></tr>
+<tr class="separator:adccf50e0f1dde033486c08da47fb8c3e inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1617d33546bbcfe4458899bc00eeb0ef inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a1617d33546bbcfe4458899bc00eeb0ef"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>numElements</b> = 0</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a1617d33546bbcfe4458899bc00eeb0ef">numElements</a> = 0</td></tr>
+<tr class="memdesc:a1617d33546bbcfe4458899bc00eeb0ef inherit pro_attribs_classPlot"><td class="mdescLeft">&#160;</td><td class="mdescRight">number elements within the plot <br /></td></tr>
 <tr class="separator:a1617d33546bbcfe4458899bc00eeb0ef inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08e1414bd22845bc21bea5b5b4aab3ca inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a08e1414bd22845bc21bea5b5b4aab3ca"></a>
-<a class="el" href="structboundary.html">boundary</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bX</b> {}</td></tr>
-<tr class="separator:a08e1414bd22845bc21bea5b5b4aab3ca inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f2a1f95149b16f9b5588a0e16f08408 inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a6f2a1f95149b16f9b5588a0e16f08408"></a>
-<a class="el" href="structboundary.html">boundary</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bY</b> {}</td></tr>
-<tr class="separator:a6f2a1f95149b16f9b5588a0e16f08408 inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8a4a800b93ba4d22b4e4c01eacc583a inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="aa8a4a800b93ba4d22b4e4c01eacc583a"></a>
+<a class="el" href="structPlotBoundary.html">PlotBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#aa8a4a800b93ba4d22b4e4c01eacc583a">bY</a> {}</td></tr>
+<tr class="memdesc:aa8a4a800b93ba4d22b4e4c01eacc583a inherit pro_attribs_classPlot"><td class="mdescLeft">&#160;</td><td class="mdescRight">x-axis boundaries for the resulting plot <br /></td></tr>
+<tr class="separator:aa8a4a800b93ba4d22b4e4c01eacc583a inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a954fcb23b76680d6d0148f3f7af02f4c inherit pro_attribs_classPlot"><td class="memItemLeft" align="right" valign="top"><a id="a954fcb23b76680d6d0148f3f7af02f4c"></a>
+<a class="el" href="structPlotBoundary.html">PlotBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a954fcb23b76680d6d0148f3f7af02f4c">bX</a> {}</td></tr>
+<tr class="memdesc:a954fcb23b76680d6d0148f3f7af02f4c inherit pro_attribs_classPlot"><td class="mdescLeft">&#160;</td><td class="mdescRight">y-axis boundaries for the resulting plot <br /></td></tr>
+<tr class="separator:a954fcb23b76680d6d0148f3f7af02f4c inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Wrapper class to display a scatter plot. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4a9e0b7bea99f5007e33b0ad65189e43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a9e0b7bea99f5007e33b0ad65189e43">&#9670;&nbsp;</a></span>ScatterPlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ScatterPlot::ScatterPlot </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>default constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/math/visualization/<a class="el" href="Plot_8h_source.html">Plot.h</a></li>
 </ul>

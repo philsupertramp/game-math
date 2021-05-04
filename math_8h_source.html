@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -69,52 +76,56 @@ $(function() {
 <div class="title">math.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Random.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;format.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;mat/mat2.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;mat/mat3.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;mat/mat4.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;utils.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;vec/vec2.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;vec/vec3.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;vec/vec4.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using</span> <a class="code" href="structvec2.html">vec2f</a> = <a class="code" href="structvec2.html">vec2&lt;float&gt;</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using</span> <a class="code" href="structvec2.html">vec2i</a> = <a class="code" href="structvec2.html">vec2&lt;int&gt;</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using</span> <a class="code" href="structvec2.html">vec2d</a> = <a class="code" href="structvec2.html">vec2&lt;double&gt;</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using</span> <a class="code" href="structvec3.html">vec3f</a> = <a class="code" href="structvec3.html">vec3&lt;float&gt;</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using</span> <a class="code" href="structvec3.html">vec3i</a> = <a class="code" href="structvec3.html">vec3&lt;int&gt;</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using</span> <a class="code" href="structvec3.html">vec3d</a> = <a class="code" href="structvec3.html">vec3&lt;double&gt;</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structcmp__vec3i.html">   21</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structcmp__vec3i.html">cmp_vec3i</a> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3i</a>&amp; a, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3i</a>&amp; b)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> a.x == b.x &amp;&amp; a.y == b.y &amp;&amp; a.z == b.z; }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using</span> <a class="code" href="structvec4.html">vec4f</a> = <a class="code" href="structvec4.html">vec4&lt;float&gt;</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">using</span> <a class="code" href="structvec4.html">vec4i</a> = <a class="code" href="structvec4.html">vec4&lt;int&gt;</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using</span> <a class="code" href="structvec4.html">vec4d</a> = <a class="code" href="structvec4.html">vec4&lt;double&gt;</a>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using</span> <a class="code" href="structmat2.html">mat2f</a> = <a class="code" href="structmat2.html">mat2&lt;float&gt;</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using</span> <a class="code" href="structmat2.html">mat2i</a> = <a class="code" href="structmat2.html">mat2&lt;int&gt;</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using</span> <a class="code" href="structmat2.html">mat2d</a> = <a class="code" href="structmat2.html">mat2&lt;double&gt;</a>;</div>
+<a href="math_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Random.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="format_8h.html">format.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;mat/mat2.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;mat/mat3.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;mat/mat4.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="numerics_2utils_8h.html">utils.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;vec/vec2.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;vec/vec3.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;vec/vec4.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="math_8h.html#a3418c768487496819c6aaf75cea672df">   23</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structvec2.html">vec2f</a> = <a class="code" href="structvec2.html">vec2&lt;float&gt;</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="math_8h.html#a88418238a07be48785a077136d626e48">   27</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structvec2.html">vec2i</a> = <a class="code" href="structvec2.html">vec2&lt;int&gt;</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="math_8h.html#a896cbea49b17ec427bc2b008bc8ce032">   31</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structvec2.html">vec2d</a> = <a class="code" href="structvec2.html">vec2&lt;double&gt;</a>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">using</span> <a class="code" href="structmat3.html">mat3f</a> = <a class="code" href="structmat3.html">mat3&lt;float&gt;</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">using</span> <a class="code" href="structmat3.html">mat3i</a> = <a class="code" href="structmat3.html">mat3&lt;int&gt;</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using</span> <a class="code" href="structmat3.html">mat3d</a> = <a class="code" href="structmat3.html">mat3&lt;double&gt;</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using</span> <a class="code" href="structmat4.html">mat4f</a> = <a class="code" href="structmat4.html">mat4&lt;float&gt;</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using</span> <a class="code" href="structmat4.html">mat4i</a> = <a class="code" href="structmat4.html">mat4&lt;int&gt;</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">using</span> <a class="code" href="structmat4.html">mat4d</a> = <a class="code" href="structmat4.html">mat4&lt;double&gt;</a>;</div>
-<div class="ttc" id="astructcmp__vec3i_html"><div class="ttname"><a href="structcmp__vec3i.html">cmp_vec3i</a></div><div class="ttdef"><b>Definition:</b> math.h:21</div></div>
-<div class="ttc" id="astructmat2_html"><div class="ttname"><a href="structmat2.html">mat2</a></div><div class="ttdef"><b>Definition:</b> mat2.h:6</div></div>
-<div class="ttc" id="astructmat3_html"><div class="ttname"><a href="structmat3.html">mat3</a></div><div class="ttdef"><b>Definition:</b> mat3.h:6</div></div>
-<div class="ttc" id="astructmat4_html"><div class="ttname"><a href="structmat4.html">mat4</a></div><div class="ttdef"><b>Definition:</b> mat4.h:7</div></div>
-<div class="ttc" id="astructvec2_html"><div class="ttname"><a href="structvec2.html">vec2</a></div><div class="ttdef"><b>Definition:</b> vec2.h:7</div></div>
-<div class="ttc" id="astructvec3_html"><div class="ttname"><a href="structvec3.html">vec3</a></div><div class="ttdef"><b>Definition:</b> vec3.h:8</div></div>
-<div class="ttc" id="astructvec4_html"><div class="ttname"><a href="structvec4.html">vec4</a></div><div class="ttdef"><b>Definition:</b> vec4.h:7</div></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="math_8h.html#a5b881e853d1ba24e8dd9b88fe3d0cdec">   36</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structvec3.html">vec3f</a> = <a class="code" href="structvec3.html">vec3&lt;float&gt;</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="math_8h.html#a859b896242c2022909acb8485ba424ab">   40</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structvec3.html">vec3i</a> = <a class="code" href="structvec3.html">vec3&lt;int&gt;</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="math_8h.html#a9256692298cfedf737d91efbc7ca6f20">   44</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structvec3.html">vec3d</a> = <a class="code" href="structvec3.html">vec3&lt;double&gt;</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structcmp__vec3i.html">   49</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structcmp__vec3i.html">cmp_vec3i</a> {</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="structcmp__vec3i.html#a2b4ccfe63dc93893793523845e6671b4">   56</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structcmp__vec3i.html#a2b4ccfe63dc93893793523845e6671b4">operator()</a>(<span class="keyword">const</span> <a class="code" href="structvec3.html">vec3i</a>&amp; a, <span class="keyword">const</span> <a class="code" href="structvec3.html">vec3i</a>&amp; b)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> a.x == b.x &amp;&amp; a.y == b.y &amp;&amp; a.z == b.z; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="math_8h.html#a843c5ac339ac5f926c6d5c6bf5ca9a38">   62</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structvec4.html">vec4f</a> = <a class="code" href="structvec4.html">vec4&lt;float&gt;</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="math_8h.html#a609b98745d0f8bebb8550076260e1b85">   66</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structvec4.html">vec4i</a> = <a class="code" href="structvec4.html">vec4&lt;int&gt;</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="math_8h.html#a41035984656608e259907ec1ae3a14bc">   70</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structvec4.html">vec4d</a> = <a class="code" href="structvec4.html">vec4&lt;double&gt;</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="math_8h.html#aca741ad92b58a18c158c5b942f803dc3">   75</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structmat2.html">mat2f</a> = <a class="code" href="structmat2.html">mat2&lt;float&gt;</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="math_8h.html#a2666f7346f910d95d7324418aa56938d">   79</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structmat2.html">mat2i</a> = <a class="code" href="structmat2.html">mat2&lt;int&gt;</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="math_8h.html#abe2873ce847397b865d75bead40ef969">   83</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structmat2.html">mat2d</a> = <a class="code" href="structmat2.html">mat2&lt;double&gt;</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="math_8h.html#a9d98e66a5920dd05678b61bd39462ee9">   88</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structmat3.html">mat3f</a> = <a class="code" href="structmat3.html">mat3&lt;float&gt;</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="math_8h.html#a1fb645d192b3540272fdc2a0d7d2cc9f">   92</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structmat3.html">mat3i</a> = <a class="code" href="structmat3.html">mat3&lt;int&gt;</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="math_8h.html#a70b1d43205035bf0aca7c48c77554d30">   96</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structmat3.html">mat3d</a> = <a class="code" href="structmat3.html">mat3&lt;double&gt;</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="math_8h.html#abadb5b3adf4b3d165dc9f4a0abdd6c49">  101</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structmat4.html">mat4f</a> = <a class="code" href="structmat4.html">mat4&lt;float&gt;</a>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="math_8h.html#af06ef0c93bf956bd56bb9fb7d69ea809">  105</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structmat4.html">mat4i</a> = <a class="code" href="structmat4.html">mat4&lt;int&gt;</a>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="math_8h.html#a08b45fe6f8513f14d189186c20ffad50">  109</a></span>&#160;<span class="keyword">using</span> <a class="code" href="structmat4.html">mat4d</a> = <a class="code" href="structmat4.html">mat4&lt;double&gt;</a>;</div>
+<div class="ttc" id="aformat_8h_html"><div class="ttname"><a href="format_8h.html">format.h</a></div></div>
+<div class="ttc" id="anumerics_2utils_8h_html"><div class="ttname"><a href="numerics_2utils_8h.html">utils.h</a></div></div>
+<div class="ttc" id="astructcmp__vec3i_html"><div class="ttname"><a href="structcmp__vec3i.html">cmp_vec3i</a></div><div class="ttdef"><b>Definition:</b> math.h:49</div></div>
+<div class="ttc" id="astructcmp__vec3i_html_a2b4ccfe63dc93893793523845e6671b4"><div class="ttname"><a href="structcmp__vec3i.html#a2b4ccfe63dc93893793523845e6671b4">cmp_vec3i::operator()</a></div><div class="ttdeci">bool operator()(const vec3i &amp;a, const vec3i &amp;b) const</div><div class="ttdef"><b>Definition:</b> math.h:56</div></div>
+<div class="ttc" id="astructmat2_html"><div class="ttname"><a href="structmat2.html">mat2</a></div><div class="ttdef"><b>Definition:</b> mat2.h:10</div></div>
+<div class="ttc" id="astructmat3_html"><div class="ttname"><a href="structmat3.html">mat3</a></div><div class="ttdef"><b>Definition:</b> mat3.h:10</div></div>
+<div class="ttc" id="astructmat4_html"><div class="ttname"><a href="structmat4.html">mat4</a></div><div class="ttdef"><b>Definition:</b> mat4.h:11</div></div>
+<div class="ttc" id="astructvec2_html"><div class="ttname"><a href="structvec2.html">vec2</a></div><div class="ttdef"><b>Definition:</b> vec2.h:11</div></div>
+<div class="ttc" id="astructvec3_html"><div class="ttname"><a href="structvec3.html">vec3</a></div><div class="ttdef"><b>Definition:</b> vec3.h:12</div></div>
+<div class="ttc" id="astructvec4_html"><div class="ttname"><a href="structvec4.html">vec4</a></div><div class="ttdef"><b>Definition:</b> vec4.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

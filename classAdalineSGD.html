@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -83,13 +90,11 @@ Inheritance diagram for AdalineSGD:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2f9c051f06bab810b1d7e92be9e8cfd8"><td class="memItemLeft" align="right" valign="top"><a id="a2f9c051f06bab810b1d7e92be9e8cfd8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AdalineSGD</b> (double _eta=0.01, int iter=10, bool _shuffle=false, int _randomState=0)</td></tr>
+<tr class="memitem:a2f9c051f06bab810b1d7e92be9e8cfd8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdalineSGD.html#a2f9c051f06bab810b1d7e92be9e8cfd8">AdalineSGD</a> (double _eta=0.01, int iter=10, bool _shuffle=false, int _randomState=0)</td></tr>
 <tr class="separator:a2f9c051f06bab810b1d7e92be9e8cfd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b97d260bc04aa8cd6d02436fb5f3c76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdalineSGD.html#a8b97d260bc04aa8cd6d02436fb5f3c76">fit</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y) override</td></tr>
 <tr class="separator:a8b97d260bc04aa8cd6d02436fb5f3c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e6915753b8004c988d4241af8c30fd8"><td class="memItemLeft" align="right" valign="top"><a id="a1e6915753b8004c988d4241af8c30fd8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>partial_fit</b> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)</td></tr>
+<tr class="memitem:a1e6915753b8004c988d4241af8c30fd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdalineSGD.html#a1e6915753b8004c988d4241af8c30fd8">partial_fit</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)</td></tr>
 <tr class="separator:a1e6915753b8004c988d4241af8c30fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3e618b64d23abd52560b1b0f4f7fca6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdalineSGD.html#aa3e618b64d23abd52560b1b0f4f7fca6">netInput</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X) override</td></tr>
 <tr class="separator:aa3e618b64d23abd52560b1b0f4f7fca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,8 +105,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>partial_fit</b> (cons
 <tr class="memitem:a5efda89a32f61566d068b2c37690f6b0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdalineSGD.html#a5efda89a32f61566d068b2c37690f6b0">predict</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X) override</td></tr>
 <tr class="separator:a5efda89a32f61566d068b2c37690f6b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classClassifier"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classClassifier')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classClassifier.html">Classifier</a></td></tr>
-<tr class="memitem:adf323be2120dbc43c65e1aed08efd5cb inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="adf323be2120dbc43c65e1aed08efd5cb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Classifier</b> (double _eta, int _n_iter)</td></tr>
+<tr class="memitem:adf323be2120dbc43c65e1aed08efd5cb inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#adf323be2120dbc43c65e1aed08efd5cb">Classifier</a> (double _eta, int _n_iter)</td></tr>
 <tr class="separator:adf323be2120dbc43c65e1aed08efd5cb inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82afce4aff01a4d7292eb43fb38329b8 inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8">initialize_weights</a> (size_t numRows, size_t numColumns=1)</td></tr>
 <tr class="separator:a82afce4aff01a4d7292eb43fb38329b8 inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,33 +115,41 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>partial_fit</b> (cons
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a2272921984f8d5a13dc75e60c5d006be"><td class="memItemLeft" align="right" valign="top"><a id="a2272921984f8d5a13dc75e60c5d006be"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>shuffle</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdalineSGD.html#a2272921984f8d5a13dc75e60c5d006be">shuffle</a></td></tr>
+<tr class="memdesc:a2272921984f8d5a13dc75e60c5d006be"><td class="mdescLeft">&#160;</td><td class="mdescRight">signalizes whether given dataset should be shuffled while fitting <br /></td></tr>
 <tr class="separator:a2272921984f8d5a13dc75e60c5d006be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7930ffb33b513fec12a6503191fa89a3"><td class="memItemLeft" align="right" valign="top"><a id="a7930ffb33b513fec12a6503191fa89a3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>randomState</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdalineSGD.html#a7930ffb33b513fec12a6503191fa89a3">randomState</a></td></tr>
+<tr class="memdesc:a7930ffb33b513fec12a6503191fa89a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize weights with random state <br /></td></tr>
 <tr class="separator:a7930ffb33b513fec12a6503191fa89a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea1fdb9d477c9d44016ef13e5bc2342f"><td class="memItemLeft" align="right" valign="top"><a id="aea1fdb9d477c9d44016ef13e5bc2342f"></a>
-<a class="el" href="classSGD.html">SGD</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sgd</b></td></tr>
+<a class="el" href="classSGD.html">SGD</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdalineSGD.html#aea1fdb9d477c9d44016ef13e5bc2342f">sgd</a></td></tr>
+<tr class="memdesc:aea1fdb9d477c9d44016ef13e5bc2342f"><td class="mdescLeft">&#160;</td><td class="mdescRight">algorithmic object to represent fitting algorithm <br /></td></tr>
 <tr class="separator:aea1fdb9d477c9d44016ef13e5bc2342f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classClassifier"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classClassifier')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classClassifier.html">Classifier</a></td></tr>
 <tr class="memitem:a5d4d61496164c06deab141329b6c878f inherit pub_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a5d4d61496164c06deab141329b6c878f"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>weights</b></td></tr>
+<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a5d4d61496164c06deab141329b6c878f">weights</a></td></tr>
+<tr class="memdesc:a5d4d61496164c06deab141329b6c878f inherit pub_attribs_classClassifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector holding weights. <br /></td></tr>
 <tr class="separator:a5d4d61496164c06deab141329b6c878f inherit pub_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8688dfb2318e40a7c2f3747b68c96bae inherit pub_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a8688dfb2318e40a7c2f3747b68c96bae"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>costs</b></td></tr>
+<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a8688dfb2318e40a7c2f3747b68c96bae">costs</a></td></tr>
+<tr class="memdesc:a8688dfb2318e40a7c2f3747b68c96bae inherit pub_attribs_classClassifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector holding classification error per epoch. <br /></td></tr>
 <tr class="separator:a8688dfb2318e40a7c2f3747b68c96bae inherit pub_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classClassifier"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classClassifier')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classClassifier.html">Classifier</a></td></tr>
 <tr class="memitem:ada5781f6955d4584bb9e8a24216ce654 inherit pro_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="ada5781f6955d4584bb9e8a24216ce654"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>eta</b></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#ada5781f6955d4584bb9e8a24216ce654">eta</a></td></tr>
+<tr class="memdesc:ada5781f6955d4584bb9e8a24216ce654 inherit pro_attribs_classClassifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Learning rate. <br /></td></tr>
 <tr class="separator:ada5781f6955d4584bb9e8a24216ce654 inherit pro_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a262d07b1324365425b12bb08a859984a inherit pro_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a262d07b1324365425b12bb08a859984a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>n_iter</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a262d07b1324365425b12bb08a859984a">n_iter</a></td></tr>
+<tr class="memdesc:a262d07b1324365425b12bb08a859984a inherit pro_attribs_classClassifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">number epochs <br /></td></tr>
 <tr class="separator:a262d07b1324365425b12bb08a859984a inherit pro_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c3236f91e4f14965715caaca167dec8 inherit pro_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top"><a id="a5c3236f91e4f14965715caaca167dec8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = false</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a5c3236f91e4f14965715caaca167dec8">w_initialized</a> = false</td></tr>
+<tr class="memdesc:a5c3236f91e4f14965715caaca167dec8 inherit pro_attribs_classClassifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to initialize weights only once <br /></td></tr>
 <tr class="separator:a5c3236f91e4f14965715caaca167dec8 inherit pro_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -147,7 +159,65 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
 <ul>
 <li>[1] <a href="http://rasbt.github.io/mlxtend/user_guide/classifier/Adaline/">http://rasbt.github.io/mlxtend/user_guide/classifier/Adaline/</a> </li>
 </ul>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2f9c051f06bab810b1d7e92be9e8cfd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f9c051f06bab810b1d7e92be9e8cfd8">&#9670;&nbsp;</a></span>AdalineSGD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AdalineSGD::AdalineSGD </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_eta</em> = <code>0.01</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iter</em> = <code>10</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_shuffle</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_randomState</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>default constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_eta</td><td></td></tr>
+    <tr><td class="paramname">iter</td><td></td></tr>
+    <tr><td class="paramname">_shuffle</td><td></td></tr>
+    <tr><td class="paramname">_randomState</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad5514778713339dccde814e0cbb70bc0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5514778713339dccde814e0cbb70bc0">&#9670;&nbsp;</a></span>activation()</h2>
 
@@ -161,7 +231,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
           <td class="memname">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; AdalineSGD::activation </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>X</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -171,7 +241,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Activates a given input </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>activates given input </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Implements <a class="el" href="classClassifier.html#a5be8488df3ee4e0e0903877bb19069a8">Classifier</a>.</p>
 
@@ -243,7 +319,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>fit weights using sgd member </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">X</td><td>array-like with the shape: [n_samples, n_features] </td></tr>
     <tr><td class="paramname">y</td><td>array-like with shape: [n_samples, 1] </td></tr>
@@ -252,7 +328,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>this </dd></dl>
 
-<p>Implements <a class="el" href="classClassifier.html#aabced42ad639a66e7b048e4a1dc988f9">Classifier</a>.</p>
+<p>Implements <a class="el" href="classClassifier.html#a3fa552228aeeee5abe1108c97f676cad">Classifier</a>.</p>
 
 </div>
 </div>
@@ -269,7 +345,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
           <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; AdalineSGD::netInput </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>X</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -279,9 +355,58 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
   </tr>
 </table>
 </div><div class="memdoc">
-<p>calculates the net-input (aka output) this is mostly the derivative of <code>activation</code> </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>alias for sdg.netInput </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Implements <a class="el" href="classClassifier.html#a0110e1eedbfae3c9a66f376868cbaffb">Classifier</a>.</p>
+
+</div>
+</div>
+<a id="a1e6915753b8004c988d4241af8c30fd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e6915753b8004c988d4241af8c30fd8">&#9670;&nbsp;</a></span>partial_fit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AdalineSGD::partial_fit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>partially fits the model </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -298,7 +423,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
           <td class="memname">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; AdalineSGD::predict </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>X</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -308,7 +433,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>w_initialized</b> = f
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Makes prediction for given input </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>predict output class of given input </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Implements <a class="el" href="classClassifier.html#a0d47e1cccc5be1cdff3b202f48625afe">Classifier</a>.</p>
 

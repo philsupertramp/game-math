@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -79,46 +86,51 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> TimeInitialized = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">static</span> <span class="keywordtype">int</span> RandomSeed       = 2;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classRandom.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRandom.html">Random</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> InitTime(<span class="keywordtype">bool</span> useSeed = <span class="keyword">true</span>) {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        std::srand(useSeed ? RandomSeed : (<span class="keywordtype">int</span>)time(0));</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        TimeInitialized = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> SetSeed(<span class="keywordtype">int</span> seed) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        RandomSeed      = seed;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        TimeInitialized = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> Get(<span class="keywordtype">double</span> l = 0.0, <span class="keywordtype">double</span> r = 1.0) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">if</span>(!TimeInitialized) InitTime(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::random_device rd;                       <span class="comment">// create object for seeding</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::mt19937 gen{ rd() };                    <span class="comment">// create engine and seed it</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::uniform_real_distribution&lt;&gt; dist(l, r); <span class="comment">// create distribution for integers with [1; 9] range</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> dist(gen);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <a class="code" href="structvec2.html">vec2&lt;T&gt;</a> Get(<span class="keywordtype">double</span> l = 0.0, <span class="keywordtype">double</span> r = 1.0) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">if</span>(!TimeInitialized) InitTime(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec2.html">vec2&lt;T&gt;</a>(Get(), Get());</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> Get(<span class="keywordtype">double</span> l = 0.0, <span class="keywordtype">double</span> r = 1.0) {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span>(!TimeInitialized) InitTime(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(Get(), Get(), Get());</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <a class="code" href="structvec4.html">vec4&lt;T&gt;</a> Get(<span class="keywordtype">double</span> l = 0.0, <span class="keywordtype">double</span> r = 1.0) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span>(!TimeInitialized) InitTime(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec4.html">vec4&lt;T&gt;</a>(Get(), Get(), Get(), Get());</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="ttc" id="aclassRandom_html"><div class="ttname"><a href="classRandom.html">Random</a></div><div class="ttdef"><b>Definition:</b> Random.h:12</div></div>
-<div class="ttc" id="astructvec2_html"><div class="ttname"><a href="structvec2.html">vec2</a></div><div class="ttdef"><b>Definition:</b> vec2.h:7</div></div>
-<div class="ttc" id="astructvec3_html"><div class="ttname"><a href="structvec3.html">vec3</a></div><div class="ttdef"><b>Definition:</b> vec3.h:8</div></div>
-<div class="ttc" id="astructvec4_html"><div class="ttname"><a href="structvec4.html">vec4</a></div><div class="ttdef"><b>Definition:</b> vec4.h:7</div></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classRandom.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRandom.html">Random</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> InitTime(<span class="keywordtype">bool</span> useSeed = <span class="keyword">true</span>) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        std::srand(useSeed ? RandomSeed : (<span class="keywordtype">int</span>)time(0));</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        TimeInitialized = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classRandom.html#aa2d76b6a87c5642871c11e781f8f34b0">   30</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classRandom.html#aa2d76b6a87c5642871c11e781f8f34b0">SetSeed</a>(<span class="keywordtype">int</span> seed) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        RandomSeed      = seed;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        TimeInitialized = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">   40</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a>(<span class="keywordtype">double</span> l = 0.0, <span class="keywordtype">double</span> r = 1.0) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span>(!TimeInitialized) InitTime(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::random_device rd;                       <span class="comment">// create object for seeding</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::mt19937 gen{ rd() };                    <span class="comment">// create engine and seed it</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::uniform_real_distribution&lt;&gt; dist(l, r); <span class="comment">// create distribution for integers with [1; 9] range</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> dist(gen);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classRandom.html#a890437c0c6efb065847530461df4ea07">   56</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="structvec2.html">vec2&lt;T&gt;</a> <a class="code" href="classRandom.html#a890437c0c6efb065847530461df4ea07">Get</a>(<span class="keywordtype">double</span> l = 0.0, <span class="keywordtype">double</span> r = 1.0) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span>(!TimeInitialized) InitTime(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec2.html">vec2&lt;T&gt;</a>(<a class="code" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a>(), <a class="code" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a>());</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classRandom.html#a228d4451f162b53d6b03b4b2366bd523">   68</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a> <a class="code" href="classRandom.html#a228d4451f162b53d6b03b4b2366bd523">Get</a>(<span class="keywordtype">double</span> l = 0.0, <span class="keywordtype">double</span> r = 1.0) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span>(!TimeInitialized) InitTime(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(<a class="code" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a>(), <a class="code" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a>(), <a class="code" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a>());</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classRandom.html#a2c5d23fef3a61442fb787277bc40b2a6">   80</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="structvec4.html">vec4&lt;T&gt;</a> <a class="code" href="classRandom.html#a2c5d23fef3a61442fb787277bc40b2a6">Get</a>(<span class="keywordtype">double</span> l = 0.0, <span class="keywordtype">double</span> r = 1.0) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span>(!TimeInitialized) InitTime(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec4.html">vec4&lt;T&gt;</a>(<a class="code" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a>(), <a class="code" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a>(), <a class="code" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a>(), <a class="code" href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Get</a>());</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
+<div class="ttc" id="aclassRandom_html"><div class="ttname"><a href="classRandom.html">Random</a></div><div class="ttdef"><b>Definition:</b> Random.h:15</div></div>
+<div class="ttc" id="aclassRandom_html_a228d4451f162b53d6b03b4b2366bd523"><div class="ttname"><a href="classRandom.html#a228d4451f162b53d6b03b4b2366bd523">Random::Get</a></div><div class="ttdeci">static vec3&lt; T &gt; Get(double l=0.0, double r=1.0)</div><div class="ttdef"><b>Definition:</b> Random.h:68</div></div>
+<div class="ttc" id="aclassRandom_html_a2c5d23fef3a61442fb787277bc40b2a6"><div class="ttname"><a href="classRandom.html#a2c5d23fef3a61442fb787277bc40b2a6">Random::Get</a></div><div class="ttdeci">static vec4&lt; T &gt; Get(double l=0.0, double r=1.0)</div><div class="ttdef"><b>Definition:</b> Random.h:80</div></div>
+<div class="ttc" id="aclassRandom_html_a5e7703d9e1a4de62e6483748afe35243"><div class="ttname"><a href="classRandom.html#a5e7703d9e1a4de62e6483748afe35243">Random::Get</a></div><div class="ttdeci">static double Get(double l=0.0, double r=1.0)</div><div class="ttdef"><b>Definition:</b> Random.h:40</div></div>
+<div class="ttc" id="aclassRandom_html_a890437c0c6efb065847530461df4ea07"><div class="ttname"><a href="classRandom.html#a890437c0c6efb065847530461df4ea07">Random::Get</a></div><div class="ttdeci">static vec2&lt; T &gt; Get(double l=0.0, double r=1.0)</div><div class="ttdef"><b>Definition:</b> Random.h:56</div></div>
+<div class="ttc" id="aclassRandom_html_aa2d76b6a87c5642871c11e781f8f34b0"><div class="ttname"><a href="classRandom.html#aa2d76b6a87c5642871c11e781f8f34b0">Random::SetSeed</a></div><div class="ttdeci">static void SetSeed(int seed)</div><div class="ttdef"><b>Definition:</b> Random.h:30</div></div>
+<div class="ttc" id="astructvec2_html"><div class="ttname"><a href="structvec2.html">vec2</a></div><div class="ttdef"><b>Definition:</b> vec2.h:11</div></div>
+<div class="ttc" id="astructvec3_html"><div class="ttname"><a href="structvec3.html">vec3</a></div><div class="ttdef"><b>Definition:</b> vec3.h:12</div></div>
+<div class="ttc" id="astructvec4_html"><div class="ttname"><a href="structvec4.html">vec4</a></div><div class="ttdef"><b>Definition:</b> vec4.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
