@@ -383,7 +383,7 @@ public:
      * @return Evaluation of equation
      */
     template<typename... VArgs>
-    double Evaluate(VArgs... args) {
+    double operator()(VArgs... args) {
         assert(sizeof...(args) == symbols.size());
         SetSymbols(0, args...);
         return baseNode->Evaluate();
@@ -392,7 +392,7 @@ public:
      * Evaluate equation with preset values
      * @return
      */
-    double Evaluate() { return baseNode->Evaluate(); }
+    double operator()() { return baseNode->Evaluate(); }
 
     /**
      * var arg method to recursively set current values of symbols
