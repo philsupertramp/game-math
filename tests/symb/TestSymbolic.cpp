@@ -219,7 +219,7 @@ class SymbolicTestCase : public Test
         equation = Equation("sin(x)");
         AssertEqual(equation(0), 0);
         AssertEqual(equation(1), 0.8414709848078965);
-        
+
         equation = Equation("sin(pi)");
         AssertEqual(equation(), 0);
 
