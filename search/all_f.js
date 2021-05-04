@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['set_51',['Set',['../structSet.html',1,'']]],
-  ['setcolumn_52',['SetColumn',['../classMatrix.html#a2897f60a87af004b928da9e8d76eafaf',1,'Matrix']]],
-  ['setrow_53',['SetRow',['../classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4',1,'Matrix']]],
-  ['sgd_54',['SGD',['../classSGD.html',1,'']]],
-  ['sumelements_55',['sumElements',['../classMatrix.html#aef471f0c0ecfb23415e67032ca8bce67',1,'Matrix']]]
+  ['random_61',['Random',['../classRandom.html',1,'Random'],['../classMatrix.html#ab72c15d620fbe70b88578543b65e70ff',1,'Matrix::Random()']]],
+  ['readme_62',['README',['../md_include_math_symb_README.html',1,'']]],
+  ['resize_63',['Resize',['../classMatrix.html#ab5931e4a60d936c1294c187a6fa162e8',1,'Matrix']]],
+  ['rows_64',['rows',['../classMatrix.html#a5330adf02b284293259eb9f7c9acaa99',1,'Matrix']]]
 ];

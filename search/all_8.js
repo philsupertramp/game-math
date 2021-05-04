@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['kroneckermulti_23',['KroneckerMulti',['../classMatrix.html#a3696cceb1d9290c69389a8a0553ec254',1,'Matrix']]]
+  ['imagedataset_27',['ImageDataSet',['../classImageDataSet.html',1,'']]],
+  ['initialize_5fweights_28',['initialize_weights',['../classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8',1,'Classifier']]]
 ];

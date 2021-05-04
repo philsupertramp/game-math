@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logregsgd_24',['LogRegSGD',['../classLogRegSGD.html',1,'']]]
+  ['kroneckermulti_29',['KroneckerMulti',['../classMatrix.html#a3696cceb1d9290c69389a8a0553ec254',1,'Matrix']]]
 ];

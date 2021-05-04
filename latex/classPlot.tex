@@ -1,0 +1,85 @@
+\hypertarget{classPlot}{}\doxysection{Plot Class Reference}
+\label{classPlot}\index{Plot@{Plot}}
+Inheritance diagram for Plot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPlot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlot_aa82c1c0468301b22a625a1ba8e07316c}\label{classPlot_aa82c1c0468301b22a625a1ba8e07316c}} 
+{\bfseries Plot} (const char $\ast$title=\char`\"{}\char`\"{})
+\item 
+\mbox{\Hypertarget{classPlot_ac8c296005218dc5afc125e26055e644a}\label{classPlot_ac8c296005218dc5afc125e26055e644a}} 
+void {\bfseries title} (const char $\ast$name)
+\item 
+\mbox{\Hypertarget{classPlot_acefa0c10c3b238171872e4e47d36db29}\label{classPlot_acefa0c10c3b238171872e4e47d36db29}} 
+void {\bfseries x\+Axis} (const char $\ast$name)
+\item 
+\mbox{\Hypertarget{classPlot_a56b869ca326f5b5e3a4529cd4cb5f612}\label{classPlot_a56b869ca326f5b5e3a4529cd4cb5f612}} 
+void {\bfseries y\+Axis} (const char $\ast$name)
+\item 
+\mbox{\Hypertarget{classPlot_ab1ca4b31fc51ed85c65f1c8fcf786134}\label{classPlot_ab1ca4b31fc51ed85c65f1c8fcf786134}} 
+void {\bfseries point\+Size} (const int \&size)
+\item 
+\mbox{\Hypertarget{classPlot_a6030621e36e58f3119a7c81e4a9fbd31}\label{classPlot_a6030621e36e58f3119a7c81e4a9fbd31}} 
+void {\bfseries line\+Width} (const int \&size)
+\item 
+\mbox{\Hypertarget{classPlot_a395e4ce0410a743fe55169521c13111b}\label{classPlot_a395e4ce0410a743fe55169521c13111b}} 
+void {\bfseries Add\+Data} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const char $\ast$name)
+\item 
+void \mbox{\hyperlink{classPlot_a14f56b76c8a5a351e18add8175a63781}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat, const char $\ast$name)
+\item 
+void \mbox{\hyperlink{classPlot_a7fec4279498c404d3d5b5b7a670b8584}{operator()}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlot_a351135083d8f8c35ad917f702cd85e60}\label{classPlot_a351135083d8f8c35ad917f702cd85e60}} 
+const char $\ast$ {\bfseries file\+Name}
+\item 
+\mbox{\Hypertarget{classPlot_a84d0108c396f7665f228340fce807992}\label{classPlot_a84d0108c396f7665f228340fce807992}} 
+const char $\ast$ {\bfseries plot\+Type\+Name}
+\item 
+\mbox{\Hypertarget{classPlot_a80885621943f0e082328be034f1478f3}\label{classPlot_a80885621943f0e082328be034f1478f3}} 
+FILE $\ast$ {\bfseries storage\+File} = nullptr
+\item 
+\mbox{\Hypertarget{classPlot_a5119794485ae9348b7bd5d8b08a6d8c0}\label{classPlot_a5119794485ae9348b7bd5d8b08a6d8c0}} 
+\mbox{\hyperlink{structplotAttributes}{plot\+Attributes}} {\bfseries attributes} = \{\}
+\item 
+\mbox{\Hypertarget{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}\label{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}} 
+int {\bfseries num\+Elements} = 0
+\item 
+\mbox{\Hypertarget{classPlot_a08e1414bd22845bc21bea5b5b4aab3ca}\label{classPlot_a08e1414bd22845bc21bea5b5b4aab3ca}} 
+\mbox{\hyperlink{structboundary}{boundary}} {\bfseries bX} \{\}
+\item 
+\mbox{\Hypertarget{classPlot_a6f2a1f95149b16f9b5588a0e16f08408}\label{classPlot_a6f2a1f95149b16f9b5588a0e16f08408}} 
+\mbox{\hyperlink{structboundary}{boundary}} {\bfseries bY} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlot_a14f56b76c8a5a351e18add8175a63781}\label{classPlot_a14f56b76c8a5a351e18add8175a63781}} 
+\index{Plot@{Plot}!AddData@{AddData}}
+\index{AddData@{AddData}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{AddData()}{AddData()}}
+{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mat,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Appends data to the storage file 
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlot_a7fec4279498c404d3d5b5b7a670b8584}\label{classPlot_a7fec4279498c404d3d5b5b7a670b8584}} 
+\index{Plot@{Plot}!operator()@{operator()}}
+\index{operator()@{operator()}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily void Plot\+::operator() (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+execution using call operator 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/visualization/Plot.\+h\end{DoxyCompactItemize}

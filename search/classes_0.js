@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['adalinegd_60',['AdalineGD',['../classAdalineGD.html',1,'']]],
-  ['adalinesgd_61',['AdalineSGD',['../classAdalineSGD.html',1,'']]]
+  ['adalinegd_78',['AdalineGD',['../classAdalineGD.html',1,'']]],
+  ['adalinesgd_79',['AdalineSGD',['../classAdalineSGD.html',1,'']]]
 ];

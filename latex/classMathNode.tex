@@ -1,0 +1,74 @@
+\hypertarget{classMathNode}{}\doxysection{Math\+Node Class Reference}
+\label{classMathNode}\index{MathNode@{MathNode}}
+
+
+{\ttfamily \#include $<$Symbolic.\+h$>$}
+
+Inheritance diagram for Math\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classMathNode}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMathNode_a3072bd11e770363889906d16578954cb}\label{classMathNode_a3072bd11e770363889906d16578954cb}} 
+{\bfseries Math\+Node} (const std\+::string \&val)
+\item 
+\mbox{\Hypertarget{classMathNode_a18ab20a5b9156a02d4e4eec2a4c9528e}\label{classMathNode_a18ab20a5b9156a02d4e4eec2a4c9528e}} 
+{\bfseries Math\+Node} (const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&other)
+\item 
+\mbox{\Hypertarget{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}\label{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}} 
+virtual double {\bfseries Evaluate} () const =0
+\item 
+\mbox{\Hypertarget{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}\label{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}} 
+std\+::string {\bfseries Get\+String} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMathNode_a23bb4430c010646f85a41e722f30d7f6}\label{classMathNode_a23bb4430c010646f85a41e722f30d7f6}} 
+bool {\bfseries is\+Negative} = false
+\item 
+\mbox{\Hypertarget{classMathNode_a9cff117d073cd15538cf3f1d385d3207}\label{classMathNode_a9cff117d073cd15538cf3f1d385d3207}} 
+bool {\bfseries has\+Parentheses} = false
+\item 
+\mbox{\Hypertarget{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}\label{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}} 
+Math\+Node\+Type {\bfseries type}
+\item 
+\mbox{\Hypertarget{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}\label{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ {\bfseries left} = nullptr
+\item 
+\mbox{\Hypertarget{classMathNode_af81f7d62cd9008544aa999c6a1c55934}\label{classMathNode_af81f7d62cd9008544aa999c6a1c55934}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ {\bfseries right} = nullptr
+\item 
+\mbox{\Hypertarget{classMathNode_a2d7c199d2c5581160db369014654c084}\label{classMathNode_a2d7c199d2c5581160db369014654c084}} 
+char $\ast$ {\bfseries value} \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}\label{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}} 
+size\+\_\+t {\bfseries val\+Size} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}\label{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&ostr, const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&other)
+\item 
+\mbox{\Hypertarget{classMathNode_ad56aa5e3b9cd26a34e6aa91e866bb743}\label{classMathNode_ad56aa5e3b9cd26a34e6aa91e866bb743}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&ostr, \mbox{\hyperlink{classMathNode}{Math\+Node}} $\ast$other)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base node type of Abstract syntax tree implementation \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2github_2workspace_2include_2math_2symb_2Symbolic_8h-example}{/github/workspace/include/math/symb/\+Symbolic.\+h}}.\end{Desc}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/symb/Symbolic.\+h\end{DoxyCompactItemize}

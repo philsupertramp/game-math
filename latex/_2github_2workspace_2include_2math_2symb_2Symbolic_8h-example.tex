@@ -1,0 +1,449 @@
+\hypertarget{_2github_2workspace_2include_2math_2symb_2Symbolic_8h-example}{}\doxysection{/github/workspace/include/math/symb/\+Symbolic.\+h}
+Representation of mathematical statement
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classEquation}{Equation}}(\textcolor{stringliteral}{"{}x + 1"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{classEquation}{Equation}}(\textcolor{stringliteral}{"{}x + (1 -\/ y)"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{classEquation}{Equation}}(\textcolor{stringliteral}{"{}x + (1 -\/ y)\string^2"{}});}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <regex>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{enum} MathNodeType \{}
+\DoxyCodeLine{    NodeType\_Operator    = 0,}
+\DoxyCodeLine{    NodeType\_Symbolic    = 1,}
+\DoxyCodeLine{    NodeType\_Numeric     = 2,}
+\DoxyCodeLine{    NodeType\_Parentheses = 3,}
+\DoxyCodeLine{    NodeType\_Any         = 4,}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::regex GetRegex(MathNodeType type) \{}
+\DoxyCodeLine{    \textcolor{keyword}{static} \textcolor{keyword}{const} std::regex symbol\_regex(\textcolor{stringliteral}{"{}([-\/]?[A-\/Za-\/z\_]\{1\}[A-\/Za-\/z0-\/9\_]*)"{}});}
+\DoxyCodeLine{    \textcolor{keyword}{static} \textcolor{keyword}{const} std::regex number\_regex(\textcolor{stringliteral}{"{}([-\/]?[0-\/9]+)"{}});}
+\DoxyCodeLine{    \textcolor{keyword}{static} \textcolor{keyword}{const} std::regex parentheses\_regex(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)(([\(\backslash\)\(\backslash\)(\(\backslash\)\(\backslash\))+\(\backslash\)\(\backslash\)-\/*\(\backslash\)\(\backslash\)/\(\backslash\)\(\backslash\)\string^A-\/Za-\/z\(\backslash\)\(\backslash\)s0-\/9]*)\(\backslash\)\(\backslash\))"{}});}
+\DoxyCodeLine{    \textcolor{keyword}{static} \textcolor{keyword}{const} std::regex operator\_regex(\textcolor{stringliteral}{"{}([\(\backslash\)\(\backslash\)-\/+*/\(\backslash\)\(\backslash\)\string^]+)"{}});}
+\DoxyCodeLine{    \textcolor{keyword}{static} \textcolor{keyword}{const} std::regex any\_regex(\textcolor{stringliteral}{"{}([\(\backslash\)\(\backslash\)x00-\/\(\backslash\)\(\backslash\)x7F]+)"{}});}
+\DoxyCodeLine{    \textcolor{keywordflow}{switch}(type) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} NodeType\_Symbolic: \textcolor{keywordflow}{return} symbol\_regex;}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} NodeType\_Numeric: \textcolor{keywordflow}{return} number\_regex;}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} NodeType\_Parentheses: \textcolor{keywordflow}{return} parentheses\_regex;}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} NodeType\_Any: \textcolor{keywordflow}{return} any\_regex;}
+\DoxyCodeLine{        \textcolor{keywordflow}{default}: \textcolor{keywordflow}{return} operator\_regex;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class }\mbox{\hyperlink{classMathNode}{MathNode}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{protected}:}
+\DoxyCodeLine{    \textcolor{keywordtype}{size\_t} valSize = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} isNegative     = \textcolor{keyword}{false};}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} hasParentheses = \textcolor{keyword}{false};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    MathNodeType type;}
+\DoxyCodeLine{    std::shared\_ptr<MathNode> left  = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{    std::shared\_ptr<MathNode> right = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{    \textcolor{keywordtype}{char}* value\{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{explicit} \mbox{\hyperlink{classMathNode}{MathNode}}(\textcolor{keyword}{const} std::string\& val) \{}
+\DoxyCodeLine{        isNegative = val.find(\textcolor{charliteral}{'-\/'}) != std::string::npos \&\& val.size() > 1;}
+\DoxyCodeLine{        value      = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[val.size() + 1];}
+\DoxyCodeLine{        std::copy(val.begin(), val.end(), value);}
+\DoxyCodeLine{        value[val.size()] = \textcolor{charliteral}{'\(\backslash\)0'}; \textcolor{comment}{// don't forget the terminating 0}}
+\DoxyCodeLine{        valSize           = val.size() + 1;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \mbox{\hyperlink{classMathNode}{MathNode}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMathNode}{MathNode}}\& other) \{}
+\DoxyCodeLine{        valSize        = other.valSize;}
+\DoxyCodeLine{        isNegative     = other.isNegative;}
+\DoxyCodeLine{        hasParentheses = other.hasParentheses;}
+\DoxyCodeLine{        value          = (\textcolor{keywordtype}{char}*)malloc(other.valSize);}
+\DoxyCodeLine{        strcpy(value, other.value);}
+\DoxyCodeLine{        left  = other.left;}
+\DoxyCodeLine{        right = other.right;}
+\DoxyCodeLine{        type  = other.type;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    [[nodiscard]] \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} Evaluate() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    [[nodiscard]] std::string GetString()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{        std::stringstream out;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(left != \textcolor{keyword}{nullptr}) out << left;}
+\DoxyCodeLine{        out << value;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(right != \textcolor{keyword}{nullptr}) out << right;}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} out.str();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{friend} std::ostream\& operator<<(std::ostream\& ostr, \textcolor{keyword}{const} \mbox{\hyperlink{classMathNode}{MathNode}}\& other) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(other.hasParentheses) ostr << \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(other.left != \textcolor{keyword}{nullptr}) ostr << other.left;}
+\DoxyCodeLine{        ostr << (other.isNegative ? \textcolor{stringliteral}{"{}-\/"{}} : \textcolor{stringliteral}{"{}"{}}) << other.value;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(other.right != \textcolor{keyword}{nullptr}) ostr << other.right;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(other.hasParentheses) ostr << \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} ostr;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keyword}{friend} std::ostream\& operator<<(std::ostream\& ostr, \mbox{\hyperlink{classMathNode}{MathNode}}* other) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(other-\/>hasParentheses) ostr << \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(other-\/>left != \textcolor{keyword}{nullptr}) ostr << other-\/>left;}
+\DoxyCodeLine{        ostr << (other-\/>isNegative ? \textcolor{stringliteral}{"{}-\/"{}} : \textcolor{stringliteral}{"{}"{}}) << other-\/>value;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(other-\/>right != \textcolor{keyword}{nullptr}) ostr << other-\/>right;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(other-\/>hasParentheses) ostr << \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} ostr;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{enum} OperatorPriority \{}
+\DoxyCodeLine{    OPClassUnknown     = 0,}
+\DoxyCodeLine{    OPClassLine        = 1,}
+\DoxyCodeLine{    OPClassDot         = 2,}
+\DoxyCodeLine{    OPClassParentheses = 3,}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{class }\mbox{\hyperlink{classOperator}{Operator}} : \textcolor{keyword}{public} \mbox{\hyperlink{classMathNode}{MathNode}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    std::function<double(\textcolor{keywordtype}{double}, \textcolor{keywordtype}{double})> op;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    OperatorPriority priority;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{classOperator}{Operator}}(\textcolor{keyword}{const} std::string\& name, std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double}, \textcolor{keywordtype}{double})> fun, OperatorPriority operatorPriority)}
+\DoxyCodeLine{        : \mbox{\hyperlink{classMathNode}{MathNode}}(name)}
+\DoxyCodeLine{        , op(std::move(fun))}
+\DoxyCodeLine{        , priority(operatorPriority) \{}
+\DoxyCodeLine{        type = MathNodeType::NodeType\_Operator;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{classOperator}{Operator}}(\textcolor{keyword}{const} \mbox{\hyperlink{classOperator}{Operator}}\& other)}
+\DoxyCodeLine{        : \mbox{\hyperlink{classMathNode}{MathNode}}(other) \{}
+\DoxyCodeLine{        op       = other.op;}
+\DoxyCodeLine{        priority = other.priority;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    [[nodiscard]] \textcolor{keywordtype}{double} Evaluate()\textcolor{keyword}{ const override }\{}
+\DoxyCodeLine{        assert(left != \textcolor{keyword}{nullptr} \&\& right != \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} op(left-\/>Evaluate(), right-\/>Evaluate());}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{enum} OperatorType \{}
+\DoxyCodeLine{    TYPE\_ADDITION          = 0,}
+\DoxyCodeLine{    TYPE\_SUBTRACTION       = 1,}
+\DoxyCodeLine{    TYPE\_MULTIPLICATION    = 2,}
+\DoxyCodeLine{    TYPE\_DIVISION          = 3,}
+\DoxyCodeLine{    TYPE\_POWER             = 4,}
+\DoxyCodeLine{    TYPE\_PARENTHESES\_OPEN  = 5,}
+\DoxyCodeLine{    TYPE\_PARENTHESES\_CLOSE = 6,}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{enum} OperatorValue : \textcolor{keywordtype}{char} \{}
+\DoxyCodeLine{    VALUE\_ADDITION          = \textcolor{charliteral}{'+'},}
+\DoxyCodeLine{    VALUE\_SUBTRACTION       = \textcolor{charliteral}{'-\/'},}
+\DoxyCodeLine{    VALUE\_MULTIPLICATION    = \textcolor{charliteral}{'*'},}
+\DoxyCodeLine{    VALUE\_DIVISION          = \textcolor{charliteral}{'/'},}
+\DoxyCodeLine{    VALUE\_POWER             = \textcolor{charliteral}{'\string^'},}
+\DoxyCodeLine{    VALUE\_PARENTHESES\_OPEN  = \textcolor{charliteral}{'('},}
+\DoxyCodeLine{    VALUE\_PARENTHESES\_CLOSE = \textcolor{charliteral}{')'},}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::shared\_ptr<Operator> GenerateOperator(OperatorType type) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{switch}(type) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} TYPE\_ADDITION:}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::make\_shared<Operator>(}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}+"{}}, [](\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{ \textcolor{keywordflow}{return} a + b; \}, OperatorPriority::OPClassLine);}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} TYPE\_SUBTRACTION:}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::make\_shared<Operator>(}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}-\/"{}}, [](\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{ \textcolor{keywordflow}{return} a -\/ b; \}, OperatorPriority::OPClassLine);}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} TYPE\_MULTIPLICATION:}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::make\_shared<Operator>(}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}*"{}}, [](\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{ \textcolor{keywordflow}{return} a * b; \}, OperatorPriority::OPClassDot);}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} TYPE\_DIVISION:}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::make\_shared<Operator>(}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}/"{}}, [](\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{ \textcolor{keywordflow}{return} a / b; \}, OperatorPriority::OPClassDot);}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} TYPE\_POWER:}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::make\_shared<Operator>(}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}\string^"{}}, [](\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{ \textcolor{keywordflow}{return} pow(a, b); \}, OperatorPriority::OPClassDot);}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} TYPE\_PARENTHESES\_OPEN:}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::make\_shared<Operator>(}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}("{}},}
+\DoxyCodeLine{            []([[maybe\_unused]] \textcolor{keywordtype}{double} a, [[maybe\_unused]] \textcolor{keywordtype}{double} b) \{ \textcolor{keywordflow}{return} 0.0; \},}
+\DoxyCodeLine{            OperatorPriority::OPClassParentheses);}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} TYPE\_PARENTHESES\_CLOSE:}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::make\_shared<Operator>(}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{})"{}},}
+\DoxyCodeLine{            []([[maybe\_unused]] \textcolor{keywordtype}{double} a, [[maybe\_unused]] \textcolor{keywordtype}{double} b) \{ \textcolor{keywordflow}{return} 0.0; \},}
+\DoxyCodeLine{            OperatorPriority::OPClassParentheses);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} std::make\_shared<Operator>(}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{    []([[maybe\_unused]] \textcolor{keywordtype}{double} a, [[maybe\_unused]] \textcolor{keywordtype}{double} b) \{}
+\DoxyCodeLine{        std::cerr << \textcolor{stringliteral}{"{}Operator not found.\(\backslash\)n"{}} << std::flush;}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    OperatorPriority::OPClassUnknown);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class }\mbox{\hyperlink{classOperand}{Operand}} : \textcolor{keyword}{public} \mbox{\hyperlink{classMathNode}{MathNode}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    \textcolor{keyword}{explicit} \mbox{\hyperlink{classOperand}{Operand}}(\textcolor{keyword}{const} std::string\& name)}
+\DoxyCodeLine{        : \mbox{\hyperlink{classMathNode}{MathNode}}(name) \{ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{class }\mbox{\hyperlink{classSymbolic}{Symbolic}} : \textcolor{keyword}{public} \mbox{\hyperlink{classOperand}{Operand}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    \textcolor{keywordtype}{double} evaluationValue = 1.0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{explicit} \mbox{\hyperlink{classSymbolic}{Symbolic}}(\textcolor{keyword}{const} std::string\& name)}
+\DoxyCodeLine{        : \mbox{\hyperlink{classOperand}{Operand}}(name) \{}
+\DoxyCodeLine{        type = MathNodeType::NodeType\_Symbolic;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{classSymbolic}{Symbolic}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSymbolic}{Symbolic}}\& other)}
+\DoxyCodeLine{        : \mbox{\hyperlink{classOperand}{Operand}}(other) \{ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    [[nodiscard]] \textcolor{keywordtype}{double} Evaluate()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} isNegative ? evaluationValue * (-\/1.0) : evaluationValue; \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class }\mbox{\hyperlink{classNumber}{Number}} : \textcolor{keyword}{public} \mbox{\hyperlink{classOperand}{Operand}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{double} numericValue;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    \textcolor{keyword}{explicit} \mbox{\hyperlink{classNumber}{Number}}(\textcolor{keyword}{const} std::string\& val)}
+\DoxyCodeLine{        : \mbox{\hyperlink{classOperand}{Operand}}(val) \{}
+\DoxyCodeLine{        type         = MathNodeType::NodeType\_Numeric;}
+\DoxyCodeLine{        numericValue = strtod(value, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    [[nodiscard]] \textcolor{keywordtype}{double} Evaluate()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} isNegative ? numericValue * (-\/1.0) : numericValue; \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class }\mbox{\hyperlink{classEquation}{Equation}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{private}:}
+\DoxyCodeLine{    std::vector<std::shared\_ptr<Symbolic>> symbols;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    std::shared\_ptr<MathNode> baseNode = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{explicit} \mbox{\hyperlink{classEquation}{Equation}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* val) \{}
+\DoxyCodeLine{        std::string eq(val);}
+\DoxyCodeLine{        baseNode = createAST(eq);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keyword}{explicit} \mbox{\hyperlink{classEquation}{Equation}}(\textcolor{keyword}{const} std::string\& val) \{ baseNode = createAST(val); \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} Print() \{}
+\DoxyCodeLine{        std::cout << baseNode;}
+\DoxyCodeLine{        std::cout << std::endl;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{template}<\textcolor{keyword}{typename}... VArgs>}
+\DoxyCodeLine{    \textcolor{keywordtype}{double} Evaluate(VArgs... args) \{}
+\DoxyCodeLine{        assert(\textcolor{keyword}{sizeof}...(args) == symbols.size());}
+\DoxyCodeLine{        \mbox{\hyperlink{classEquation_a2091c8458c47786a28c02798bdac34da}{SetSymbols}}(0, args...);}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} baseNode-\/>Evaluate();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordtype}{double} Evaluate() \{ \textcolor{keywordflow}{return} baseNode-\/>Evaluate(); \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{template}<\textcolor{keyword}{typename}... VArgs>}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} \mbox{\hyperlink{classEquation_a2091c8458c47786a28c02798bdac34da}{SetSymbols}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& index, \textcolor{keywordtype}{double} val, VArgs... args) \{}
+\DoxyCodeLine{        symbols[index]-\/>evaluationValue = val;}
+\DoxyCodeLine{        \mbox{\hyperlink{classEquation_a2091c8458c47786a28c02798bdac34da}{SetSymbols}}(index + 1, args...);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} \mbox{\hyperlink{classEquation_a2091c8458c47786a28c02798bdac34da}{SetSymbols}}([[maybe\_unused]] \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& index) \{ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEquation_a7de002b470adb0c5e81324da7dc8355f}{HasSymbol}}(\textcolor{keyword}{const} std::shared\_ptr<Symbolic>\& sym) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& elem : symbols) \{}
+\DoxyCodeLine{            \textcolor{keywordflow}{if}(elem == sym) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    [[nodiscard]] std::string GetString()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} baseNode-\/>GetString(); \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} \mbox{\hyperlink{classEquation_ab9daa6dd4f1c918d325ae90390503269}{PrintTree}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{        \textcolor{keywordtype}{int} level    = 0;}
+\DoxyCodeLine{        \textcolor{keywordtype}{size\_t} depth = 0;}
+\DoxyCodeLine{        std::vector<std::string> tree(\mbox{\hyperlink{classEquation_af24aea49f8fddde7c8ac1157bc99c636}{GetDepth}}(baseNode, depth));}
+\DoxyCodeLine{        \mbox{\hyperlink{classEquation_ab9daa6dd4f1c918d325ae90390503269}{PrintTree}}(baseNode, level, tree);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& line : tree) \{ std::cout << line << std::endl; \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classEquation_af24aea49f8fddde7c8ac1157bc99c636}{GetDepth}}(\textcolor{keyword}{const} std::shared\_ptr<MathNode>\& node, \textcolor{keywordtype}{size\_t}\& current\_depth)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{        current\_depth++;}
+\DoxyCodeLine{        \textcolor{keyword}{auto} leftDep  = std::numeric\_limits<size\_t>::min();}
+\DoxyCodeLine{        \textcolor{keyword}{auto} rightDep = std::numeric\_limits<size\_t>::min();}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(node-\/>left) \{ leftDep = \mbox{\hyperlink{classEquation_af24aea49f8fddde7c8ac1157bc99c636}{GetDepth}}(node-\/>left, current\_depth); \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(node-\/>right) \{ rightDep = \mbox{\hyperlink{classEquation_af24aea49f8fddde7c8ac1157bc99c636}{GetDepth}}(node-\/>right, current\_depth); \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} std::max(std::max(leftDep, current\_depth), rightDep);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} \mbox{\hyperlink{classEquation_ab9daa6dd4f1c918d325ae90390503269}{PrintTree}}(\textcolor{keyword}{const} std::shared\_ptr<MathNode>\& node, \textcolor{keywordtype}{int}\& level, std::vector<std::string>\& tree)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{        tree[level] += \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{        tree[level] += std::string(node-\/>value);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(node-\/>left) \{}
+\DoxyCodeLine{            \mbox{\hyperlink{classEquation_ab9daa6dd4f1c918d325ae90390503269}{PrintTree}}(node-\/>left, level, tree);}
+\DoxyCodeLine{            tree[level] += \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{            \mbox{\hyperlink{classEquation_ab9daa6dd4f1c918d325ae90390503269}{PrintTree}}(node-\/>right, level, tree);}
+\DoxyCodeLine{            tree[level] += \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{            level += 1;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{private}:}
+\DoxyCodeLine{    \textcolor{keyword}{static} std::shared\_ptr<Operator> GetOperator(\textcolor{keyword}{const} std::string\& valString) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(valString.empty()) \{ \textcolor{keywordflow}{return} \{\}; \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{switch}(\textcolor{keywordtype}{int}(strip(valString).c\_str()[0])) \{}
+\DoxyCodeLine{            \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_MULTIPLICATION): return GenerateOperator(OperatorType::TYPE\_MULTIPLICATION);}
+\DoxyCodeLine{            \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_DIVISION): return GenerateOperator(OperatorType::TYPE\_DIVISION);}
+\DoxyCodeLine{            \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_ADDITION): return GenerateOperator(OperatorType::TYPE\_ADDITION);}
+\DoxyCodeLine{            \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_SUBTRACTION): return GenerateOperator(OperatorType::TYPE\_SUBTRACTION);}
+\DoxyCodeLine{            \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_POWER): return GenerateOperator(OperatorType::TYPE\_POWER);}
+\DoxyCodeLine{            \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_PARENTHESES\_OPEN):}
+\DoxyCodeLine{                return GenerateOperator(OperatorType::TYPE\_PARENTHESES\_OPEN);}
+\DoxyCodeLine{            \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_PARENTHESES\_CLOSE):}
+\DoxyCodeLine{                return GenerateOperator(OperatorType::TYPE\_PARENTHESES\_CLOSE);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    std::shared\_ptr<MathNode> createAST(\textcolor{keyword}{const} std::string\& processString) \{}
+\DoxyCodeLine{        \textcolor{keyword}{auto} regex\_end = std::sregex\_iterator();}
+\DoxyCodeLine{        std::vector<std::string> operatorStack;}
+\DoxyCodeLine{        std::vector<std::shared\_ptr<MathNode>> operandStack;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keyword}{auto} numberRegex    = GetRegex(MathNodeType::NodeType\_Numeric);}
+\DoxyCodeLine{        \textcolor{keyword}{const} \textcolor{keyword}{auto} isNumber = [numberRegex](\textcolor{keyword}{const} std::string\& in) \{}
+\DoxyCodeLine{            std::cmatch m;}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::regex\_match(in.c\_str(), m, numberRegex);}
+\DoxyCodeLine{        \};}
+\DoxyCodeLine{        \textcolor{keyword}{auto} symbolRegex    = GetRegex(MathNodeType::NodeType\_Symbolic);}
+\DoxyCodeLine{        \textcolor{keyword}{const} \textcolor{keyword}{auto} isSymbol = [symbolRegex](\textcolor{keyword}{const} std::string\& in) \{}
+\DoxyCodeLine{            std::cmatch m;}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::regex\_match(in.c\_str(), m, symbolRegex);}
+\DoxyCodeLine{        \};}
+\DoxyCodeLine{        \textcolor{keyword}{auto} operatorRegex    = GetRegex(MathNodeType::NodeType\_Operator);}
+\DoxyCodeLine{        \textcolor{keyword}{const} \textcolor{keyword}{auto} isOperator = [operatorRegex](\textcolor{keyword}{const} std::string\& in) \{}
+\DoxyCodeLine{            std::cmatch m;}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::regex\_match(in.c\_str(), m, operatorRegex);}
+\DoxyCodeLine{        \};}
+\DoxyCodeLine{        \textcolor{keyword}{auto} anyRegex    = GetRegex(MathNodeType::NodeType\_Any);}
+\DoxyCodeLine{        \textcolor{keyword}{const} \textcolor{keyword}{auto} isAny = [anyRegex](\textcolor{keyword}{const} std::string\& in) \{}
+\DoxyCodeLine{            std::cmatch m;}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} std::regex\_match(in.c\_str(), m, anyRegex);}
+\DoxyCodeLine{        \};}
+\DoxyCodeLine{        \textcolor{keyword}{const} \textcolor{keyword}{auto} isParenthesesOpen  = [](\textcolor{keyword}{const} std::string\& in) \{ \textcolor{keywordflow}{return} in.find(\textcolor{charliteral}{'('}) != std::string::npos; \};}
+\DoxyCodeLine{        \textcolor{keyword}{const} \textcolor{keyword}{auto} isParenthesesClose = [](\textcolor{keyword}{const} std::string\& in) \{ \textcolor{keywordflow}{return} in.find(\textcolor{charliteral}{')'}) != std::string::npos; \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordtype}{bool} prevWasOperator = \textcolor{keyword}{true};}
+\DoxyCodeLine{        \textcolor{keywordtype}{bool} nextIsNegative  = \textcolor{keyword}{false};}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& c : split(strip(processString))) \{}
+\DoxyCodeLine{            \textcolor{keywordflow}{if}(isNumber(c)) \{}
+\DoxyCodeLine{                \textcolor{keyword}{auto} sym        = std::make\_shared<Number>(c);}
+\DoxyCodeLine{                sym-\/>isNegative = nextIsNegative;}
+\DoxyCodeLine{                nextIsNegative  = \textcolor{keyword}{false};}
+\DoxyCodeLine{                operandStack.push\_back(sym);}
+\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(isSymbol(c)) \{}
+\DoxyCodeLine{                \textcolor{keyword}{auto} symbol        = std::make\_shared<Symbolic>(c);}
+\DoxyCodeLine{                symbol-\/>isNegative = nextIsNegative;}
+\DoxyCodeLine{                nextIsNegative     = \textcolor{keyword}{false};}
+\DoxyCodeLine{                operandStack.push\_back(symbol);}
+\DoxyCodeLine{                \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classEquation_a7de002b470adb0c5e81324da7dc8355f}{HasSymbol}}(symbol)) symbols.push\_back(symbol);}
+\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(isParenthesesOpen(c)) \{}
+\DoxyCodeLine{                operatorStack.push\_back(c);}
+\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(isOperator(c)) \{}
+\DoxyCodeLine{                \textcolor{keyword}{auto} currentOp = GetOperator(c);}
+\DoxyCodeLine{                \textcolor{keywordflow}{if}(prevWasOperator \&\& currentOp-\/>value[0] == \textcolor{charliteral}{'-\/'}) \{}
+\DoxyCodeLine{                    nextIsNegative = \textcolor{keyword}{true};}
+\DoxyCodeLine{                \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{                    \textcolor{keywordflow}{if}(!operatorStack.empty()) \{}
+\DoxyCodeLine{                        \textcolor{keyword}{auto} stackTop = GetOperator(operatorStack[operatorStack.size() -\/ 1]);}
+\DoxyCodeLine{                        \textcolor{keywordflow}{while}(stackTop != \textcolor{keyword}{nullptr} \&\& stackTop-\/>priority >= currentOp-\/>priority}
+\DoxyCodeLine{                              \&\& stackTop-\/>value[0] != \textcolor{charliteral}{'('}) \{}
+\DoxyCodeLine{                            operatorStack.pop\_back();}
+\DoxyCodeLine{}
+\DoxyCodeLine{                            \textcolor{comment}{// inverse order, first right then left}}
+\DoxyCodeLine{                            stackTop-\/>right = operandStack[operandStack.size() -\/ 1];}
+\DoxyCodeLine{}
+\DoxyCodeLine{                            operandStack.pop\_back();}
+\DoxyCodeLine{}
+\DoxyCodeLine{                            stackTop-\/>left           = operandStack[operandStack.size() -\/ 1];}
+\DoxyCodeLine{                            stackTop-\/>hasParentheses = \textcolor{keyword}{true};}
+\DoxyCodeLine{}
+\DoxyCodeLine{                            operandStack.pop\_back();}
+\DoxyCodeLine{}
+\DoxyCodeLine{                            operandStack.push\_back(stackTop);}
+\DoxyCodeLine{                            \textcolor{keywordflow}{if}(!operatorStack.empty()) \{}
+\DoxyCodeLine{                                stackTop = GetOperator(operatorStack[operatorStack.size() -\/ 1]);}
+\DoxyCodeLine{                            \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{                                \textcolor{keywordflow}{break};}
+\DoxyCodeLine{                            \}}
+\DoxyCodeLine{                        \}}
+\DoxyCodeLine{                    \}}
+\DoxyCodeLine{                    operatorStack.push\_back(c);}
+\DoxyCodeLine{                \}}
+\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(isParenthesesClose(c)) \{}
+\DoxyCodeLine{                \textcolor{keyword}{auto} stackTop = operatorStack[operatorStack.size() -\/ 1];}
+\DoxyCodeLine{                \textcolor{keywordflow}{while}(!isParenthesesOpen(stackTop)) \{}
+\DoxyCodeLine{                    \textcolor{keyword}{auto} currentOp = GetOperator(stackTop);}
+\DoxyCodeLine{}
+\DoxyCodeLine{                    currentOp-\/>right = operandStack[operandStack.size() -\/ 1];}
+\DoxyCodeLine{                    operandStack.pop\_back();}
+\DoxyCodeLine{}
+\DoxyCodeLine{                    currentOp-\/>left = operandStack[operandStack.size() -\/ 1];}
+\DoxyCodeLine{                    operandStack.pop\_back();}
+\DoxyCodeLine{}
+\DoxyCodeLine{                    operandStack.push\_back(currentOp);}
+\DoxyCodeLine{                    \textcolor{keywordflow}{if}(operatorStack.size() > 1) \{}
+\DoxyCodeLine{                        operatorStack.pop\_back();}
+\DoxyCodeLine{}
+\DoxyCodeLine{                        stackTop = operatorStack[operatorStack.size() -\/ 1];}
+\DoxyCodeLine{                    \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{                        \textcolor{keywordflow}{break};}
+\DoxyCodeLine{                \}}
+\DoxyCodeLine{                operatorStack.pop\_back();}
+\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(isAny(c)) \{}
+\DoxyCodeLine{                \textcolor{comment}{// ignore}}
+\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{                \textcolor{comment}{// error}}
+\DoxyCodeLine{                std::cerr << \textcolor{stringliteral}{"{}Error detecting character "{}} << c << std::endl;}
+\DoxyCodeLine{                \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{            prevWasOperator = isOperator(c);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{while}(!operatorStack.empty()) \{}
+\DoxyCodeLine{            \textcolor{keyword}{auto} stackTop = operatorStack[operatorStack.size() -\/ 1];}
+\DoxyCodeLine{            operatorStack.pop\_back();}
+\DoxyCodeLine{}
+\DoxyCodeLine{            \textcolor{keyword}{auto} currentOp   = GetOperator(stackTop);}
+\DoxyCodeLine{            currentOp-\/>right = operandStack[operandStack.size() -\/ 1];}
+\DoxyCodeLine{            operandStack.pop\_back();}
+\DoxyCodeLine{}
+\DoxyCodeLine{            currentOp-\/>left = operandStack[operandStack.size() -\/ 1];}
+\DoxyCodeLine{            operandStack.pop\_back();}
+\DoxyCodeLine{}
+\DoxyCodeLine{            operandStack.push\_back(currentOp);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} operandStack.front();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCodeInclude}
+ 

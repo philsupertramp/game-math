@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logregsgd_66',['LogRegSGD',['../classLogRegSGD.html',1,'']]]
+  ['equation_84',['Equation',['../classEquation.html',1,'']]]
 ];

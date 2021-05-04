@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['fit_15',['fit',['../classAdalineGD.html#a16791c4ac85a0e7117105f8835a19f69',1,'AdalineGD::fit()'],['../classAdalineSGD.html#a8b97d260bc04aa8cd6d02436fb5f3c76',1,'AdalineSGD::fit()'],['../classClassifier.html#aabced42ad639a66e7b048e4a1dc988f9',1,'Classifier::fit()'],['../classLogRegSGD.html#aef4c82d4582b263409e37a1b6d461cbd',1,'LogRegSGD::fit()'],['../classPerceptron.html#a430fcf4782a3020add0094f986a1c54e',1,'Perceptron::fit()']]]
+  ['elements_15',['elements',['../classMatrix.html#ac9d3a0fe5ce995cf6f997209f72199cc',1,'Matrix']]],
+  ['elementwisecompare_16',['elementWiseCompare',['../classMatrix.html#afecf4f1a91e8aa51df4b65cbc0ce621b',1,'Matrix']]],
+  ['equation_17',['Equation',['../classEquation.html',1,'']]]
 ];
