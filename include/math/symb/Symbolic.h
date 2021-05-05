@@ -102,11 +102,12 @@ public:
      * @param val
      */
     explicit MathNode(const std::string& val) {
-        isNegative = val.find('-') != std::string::npos && val.size() > 1;
-        value      = new char[val.size() + 1];
-        std::copy(val.begin(), val.end(), value);
-        value[val.size()] = '\0'; // don't forget the terminating 0
-        valSize           = val.size() + 1;
+        auto realValue = strip(val); // strip to allow comparison
+        isNegative = realValue.find('-') != std::string::npos && realValue.size() > 1;
+        value      = new char[realValue.size() + 1];
+        std::copy(realValue.begin(), realValue.end(), value);
+        value[realValue.size()] = '\0'; // don't forget the terminating 0
+        valSize           = realValue.size() + 1;
     }
 
     /**
@@ -141,6 +142,14 @@ public:
         out << value;
         if(right != nullptr) out << right;
         return out.str();
+    }
+
+    friend bool operator==(const MathNode& lhs, const MathNode& rhs){
+        return strcmp(lhs.value, rhs.value) == 0 && lhs.isNegative == rhs.isNegative;
+    }
+
+    bool operator==(MathNode* rhs){
+        return strcmp(value, rhs->value) == 0 && isNegative == rhs->isNegative;
     }
 
     /**
@@ -351,6 +360,11 @@ public:
     std::shared_ptr<MathNode> baseNode = nullptr;
 
     /**
+     * empty default constructor
+     */
+    Equation() { }
+
+    /**
      * default constructor for char* representation
      * @param val
      */
@@ -413,13 +427,21 @@ public:
     void SetSymbols([[maybe_unused]] const int& index) { }
 
     /**
-     * Helper to check for existence of symbolic
+     * Helper shortcut to check for existence of symbolic within equation
      * @param sym symbol to search for
      * @return sym already registered?
      */
-    bool HasSymbol(const std::shared_ptr<Symbolic>& sym) {
-        for(const auto& elem : symbols) {
-            if(elem == sym) return true;
+    bool HasSymbol(const std::shared_ptr<Symbolic>& sym) const { return HasSymbol(symbols, sym); }
+
+    /**
+     * Static helper to check for existence of symbolic within a container
+     * @param container
+     * @param sym
+     * @return
+     */
+    bool HasSymbol(const std::vector<std::shared_ptr<Symbolic>>& container, const std::shared_ptr<Symbolic>& sym) const {
+        for(const auto& elem : container) {
+            if(elem.get() == sym.get()) return true;
         }
         return false;
     }
@@ -476,7 +498,46 @@ public:
         }
     }
 
+    /**
+     *
+     * @param left
+     * @param right
+     * @param op
+     * @return
+     */
+    static Equation Chain(const Equation& left, const Equation& right, const std::shared_ptr<Operator> &op){
+        Equation out;
+        op->left = left.baseNode;
+        op->right = right.baseNode;
+        out.baseNode = op;
+        out.symbols = buildSymbolSuperSet(left.symbols, right.symbols);
+        return out;
+    }
+
 private:
+    /**
+     * helper method to generate superset of given vectors
+     * @param a
+     * @param b
+     * @return
+     */
+    static std::vector<std::shared_ptr<Symbolic>> buildSymbolSuperSet(const std::vector<std::shared_ptr<Symbolic>>& a, const std::vector<std::shared_ptr<Symbolic>>& b){
+        std::vector<std::shared_ptr<Symbolic>> out = a;
+        auto testIsInContainer = [out](const std::shared_ptr<Symbolic>& sym) {
+          for(const auto& elem : out) {
+              if(strcmp(elem->value, sym->value) == 0 && elem->isNegative == sym->isNegative) return true;
+          }
+          return false;
+        };
+
+        for(size_t i = 0; i < b.size(); ++i){
+            if(!testIsInContainer(b[i])){
+                out.push_back(b[i]);
+            }
+        }
+
+        return out;
+    }
     /**
      * Determines first connecting operator
      * @param valString

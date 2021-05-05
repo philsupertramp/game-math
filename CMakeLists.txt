@@ -52,7 +52,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/analysis/SupportValues.h
             )
 endif()
-if(MATH_EXTENSION MATCHES "(symb)")
+if(MATH_EXTENSIONS MATCHES "(symb)")
     set(LIB_SOURCES
         ${LIB_SOURCES}
 

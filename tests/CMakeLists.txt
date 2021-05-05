@@ -59,12 +59,14 @@ if (MATH_EXTENSIONS MATCHES "(numerics)")
     add_test_source(numerics/analysis/TestSupportValues.cpp)
 endif()
 
-if(MATH_EXTENSION MATCHES "(symb)")
+if(MATH_EXTENSIONS MATCHES "(symb)")
     add_test_source(symb/TestSymbolic.cpp)
 endif()
+
 if (MATH_EXTENSIONS MATCHES "(vis)")
     add_test_source(plot/TestPlot.cpp)
 endif()
+
 if (MATH_EXTENSIONS MATCHES "(ds)")
     add_test_source(ds/TestDSUtils.cpp)
     add_test_source(ds/TestPerceptron.cpp)
