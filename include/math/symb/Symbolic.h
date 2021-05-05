@@ -498,7 +498,10 @@ public:
     }
 
     /**
-     *
+     * Connects left and right using op, this essentially 
+     * takes both sides baseNode and connects both trees, then
+     * returns a new equation object.
+     * Dude! It even generates a unique set of symbols! 
      * @param left
      * @param right
      * @param op
