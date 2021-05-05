@@ -535,8 +535,8 @@ public:
      */
     void SetSymbols([[maybe_unused]] const int& index) { }
 
-
     /**
+     * Helper shortcut to check for existence of symbolic within equation
      * setter for evaluation values for symbolic nodes using a vector of values
      *
      * @param values vector containing values for symbols
