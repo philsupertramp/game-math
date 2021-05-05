@@ -351,11 +351,10 @@ public:
  */
 class Equation
 {
-private:
+public:
     //! storage for containing symbols
     std::vector<std::shared_ptr<Symbolic>> symbols;
 
-public:
     //! Holds the base node of the abstract syntax tree
     std::shared_ptr<MathNode> baseNode = nullptr;
 
@@ -441,7 +440,7 @@ public:
      */
     bool HasSymbol(const std::vector<std::shared_ptr<Symbolic>>& container, const std::shared_ptr<Symbolic>& sym) const {
         for(const auto& elem : container) {
-            if(elem.get() == sym.get()) return true;
+            if(bool(strcmp(elem->value, sym->value) == 0) && elem->isNegative == sym->isNegative) return true;
         }
         return false;
     }
@@ -523,16 +522,19 @@ private:
      */
     static std::vector<std::shared_ptr<Symbolic>> buildSymbolSuperSet(const std::vector<std::shared_ptr<Symbolic>>& a, const std::vector<std::shared_ptr<Symbolic>>& b){
         std::vector<std::shared_ptr<Symbolic>> out = a;
-        auto testIsInContainer = [out](const std::shared_ptr<Symbolic>& sym) {
+        auto testIsInContainer = [&out](const std::shared_ptr<Symbolic>& sym) {
           for(const auto& elem : out) {
-              if(strcmp(elem->value, sym->value) == 0 && elem->isNegative == sym->isNegative) return true;
+              if(bool(strcmp(elem->value, sym->value) == 0) && elem->isNegative == sym->isNegative) return true;
           }
           return false;
         };
 
+	size_t numElements = out.size();
+
         for(size_t i = 0; i < b.size(); ++i){
             if(!testIsInContainer(b[i])){
                 out.push_back(b[i]);
+		numElements++;
             }
         }
 
