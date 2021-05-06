@@ -69,26 +69,26 @@ class SymbolicTestCase : public Test
         AssertEqual(equation(60), 118);
         equation = Equation("2 * (x - (1 * y)) - 2");
 
-        equation.Print();
+//        equation.Print();
         AssertEqual(equation(1, 1), -2);
         AssertEqual(equation(1, 2), -4);
 
         equation = Equation("2 * (x - 1 + y) - 2");
 
-        equation.Print();
+//        equation.Print();
         AssertEqual(equation(1, 1), 0);
         AssertEqual(equation(1, 2), 2);
 
         equation = Equation("(x - 1 + y) * 2 - 2");
 
-        equation.Print();
+//        equation.Print();
         AssertEqual(equation(1, 1), 0);
         AssertEqual(equation(1, 2), 2);
 
         equation = Equation("2 * (x - 1) - 2");
 
-        equation.Print();
-        equation.PrintTree();
+//        equation.Print();
+//        equation.PrintTree();
         AssertEqual(equation(1), -2);
         AssertEqual(equation(2), 0);
         AssertEqual(equation(3), 2);

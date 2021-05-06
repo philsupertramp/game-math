@@ -33,11 +33,8 @@ class AdalineGDTestCase : public Test
         };
 
         adalineGd.fit(A, B);
-        std::cout << adalineGd.weights;
-        assert(adalineGd.predict({ { 5.4, 0.2 } })(0, 0) == -1); // == -1
-        assert(adalineGd.predict({ { 5.7, 4.2 } })(0, 0) == 1);  // == -1
-        // [-0.01174401 -0.02122706  0.09641832]
-        std::cout << adalineGd.weights;
+        AssertEqual(adalineGd.predict({ { 5.4, 0.2 } })(0, 0), -1); // == -1
+        AssertEqual(adalineGd.predict({ { 5.7, 4.2 } })(0, 0), 1);  // == -1
         return true;
     }
 

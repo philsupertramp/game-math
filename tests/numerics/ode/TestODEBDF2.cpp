@@ -250,7 +250,7 @@ class ODEBDF2TestCase : public Test
         { 0.905534727598532, -0.630904216178659 },
 
         });
-        std::cout << yResult << std::endl;
+//        std::cout << yResult << std::endl;
         AssertEqual(yExpected, yResult);
         for(unsigned long i = 0; i < yResult.rows(); i++) { AssertEqual(tExpected[i], tResult(i, 0)); }
         return true;

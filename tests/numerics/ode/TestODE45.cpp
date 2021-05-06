@@ -14,7 +14,7 @@ class ODE45TestCase : public Test
         auto yResult = foo.Y;
         auto tResult = foo.T;
 
-        std::cout << yResult;
+//        std::cout << yResult;
 
         double tExpected[21] = { 0.0,
                                  0.100000000000000,

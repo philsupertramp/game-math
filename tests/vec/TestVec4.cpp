@@ -164,7 +164,7 @@ class Vec4TestCase : public Test
         assert(fooCopy.w == (T)0.5f);
 
         // ostream<<
-        std::cout << "vec4:\n" << foo;
+//        std::cout << "vec4:\n" << foo;
 
         return true;
     }

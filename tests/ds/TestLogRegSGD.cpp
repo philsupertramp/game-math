@@ -19,7 +19,7 @@ class LogRegSGDTestCase : public Test
         { 0.41344311936636324 },
         { 0.0089382791988343868 },
         });
-        std::cout << A;
+//        std::cout << A;
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         Matrix<double> B                      = where(condition, A, { { 1 } }, { { -1 } });
         auto maxVal                           = max(A);
@@ -31,8 +31,8 @@ class LogRegSGDTestCase : public Test
         auto val  = logRegSgd.predict({ { -1.0 } })(0, 0);
         auto val2 = logRegSgd.predict({ { 2.0 } })(0, 0);
 
-        assert(abs(val - 1.0) < 1e-7);  // == 1
-        assert(abs(val2 + 1.0) < 1e-7); // == -1
+        AssertEqual(val, 1);  // == 1
+        AssertEqual(val2, -1); // == -1
         return true;
     }
 

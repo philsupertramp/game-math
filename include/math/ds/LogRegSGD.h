@@ -126,7 +126,6 @@ public:
      */
     Matrix<double> predict(const Matrix<double>& X) override {
         std::function<bool(double)> condition = [](double x) {
-            std::cout << x << std::endl;
             return bool(x >= EPS);
         };
         return where(condition, activation(X), { { 1 } }, { { -1 } });

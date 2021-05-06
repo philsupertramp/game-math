@@ -30,7 +30,7 @@ class MatrixTestCase : public Test
             for(size_t j = 0; j < C3.columns(); ++j) { assert(C3(i, j) == 4.0); }
         }
         auto E = A * B;
-        std::cout << E;
+//        std::cout << E;
         assert(E.columns() == 3);
         assert(E.rows() == 3);
         for(size_t i = 0; i < E.rows(); ++i) {
@@ -248,7 +248,7 @@ class MatrixTestCase : public Test
         Matrix<double> A({ { 0, 0 }, { 1, 1 }, { 0, 0 } });
         std::function<bool(double)> cond = [](double i) { return bool(i == 1); };
         auto B = where(cond, A, { { 1, 1 }, { 1, 1 }, { 1, 1 } }, { { 0, 0 }, { 0, 0 }, { 0, 0 } });
-        std::cout << B;
+//        std::cout << B;
         assert(B == A);
         return true;
     }
@@ -334,7 +334,7 @@ class MatrixTestCase : public Test
         Matrix<int> D({ { 1, 2 } });
         Matrix<int> E({ { 3, 4 } });
 
-        std::cout << C(0) << C(1);
+//        std::cout << C(0) << C(1);
         AssertEqual(C(0), D);
         AssertEqual(C(1), E);
         return true;
