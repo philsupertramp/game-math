@@ -45,7 +45,7 @@ class LogRegSGDTestCase : public Test
 public:
     void run() override {
         TestLogReg();
-        TestNoCost();
+//        TestNoCost();
     }
 };
 
