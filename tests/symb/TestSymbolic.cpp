@@ -199,6 +199,30 @@ class SymbolicTestCase : public Test
         return true;
     }
 
+    bool TestFunctions(){
+
+        Equation equation("sqrt(x)");
+        AssertEqual(equation(1.0), 1.0);
+        AssertEqual(equation(2.0), 1.414213562373095);
+        equation = Equation("sqrt(x) + 1");
+        AssertEqual(equation(1.0), 2.0);
+        AssertEqual(equation(2.0), 2.414213562373095);
+        equation = Equation("2 * 3 + sqrt(x) + 1");
+        AssertEqual(equation(1.0), 8.0);
+        AssertEqual(equation(2.0), 8.414213562373095);
+        equation = Equation("2 * 3 + sqrt(x+1) + 1");
+        AssertEqual(equation(0.0), 8.0);
+        AssertEqual(equation(1.0), 8.414213562373095);
+        equation = Equation("2*3+sqrt(x+1) + 1");
+        AssertEqual(equation(0.0), 8.0);
+        AssertEqual(equation(1.0), 8.414213562373095);
+        return true;
+    }
+
+    bool TestDefaultSymbols(){
+        return true;
+    }
+
 public:
     void run() override {
         TestMathematicalProperties();
@@ -208,6 +232,8 @@ public:
         TestGetRegex();
         TestGenerateOperator();
         TestChaining();
+        TestFunctions();
+        TestDefaultSymbols();
     }
 };
 
