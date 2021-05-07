@@ -842,6 +842,7 @@ private:
         const auto isParenthesesOpen  = [](const std::string& in) { return in.find('(') != std::string::npos; };
         const auto isParenthesesClose = [](const std::string& in) { return in.find(')') != std::string::npos; };
 
+
         bool prevWasOperator = true;
         bool nextIsNegative  = false;
         auto eqParts = splitEquation(processString);
