@@ -216,6 +216,10 @@ class SymbolicTestCase : public Test
         equation = Equation("2*3+sqrt(x+1) + 1");
         AssertEqual(equation(0.0), 8.0);
         AssertEqual(equation(1.0), 8.414213562373095);
+
+        equation = Equation("sqrt(x)^2");
+        AssertEqual(equation(1.0), 1.0);
+        AssertEqual(equation(2.0), 2.0);
         return true;
     }
 
