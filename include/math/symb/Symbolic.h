@@ -100,6 +100,8 @@ public:
     bool hasParentheses = false;
     //! node type representation
     MathNodeType type;
+    //! type of connection allowed for this node
+    NodeConnectionType connectionType = NodeConnectionType::ConnectionType_Dual;
     //! next node on left side
     std::shared_ptr<MathNode> left = nullptr;
     //! next node on right side
@@ -208,8 +210,6 @@ public:
     std::function<double(double, double)> op;
     //! Operator priority, used to create AST
     OperatorPriority priority;
-    //! type of connection allowed for this node
-    NodeConnectionType connectionType = NodeConnectionType::ConnectionType_Dual;
     /**
      * default constructor
      * @param name
@@ -305,7 +305,9 @@ public:
      * @param name
      */
     explicit Operand(const std::string& name)
-        : MathNode(name) { }
+        : MathNode(name) {
+        connectionType = NodeConnectionType::ConnectionType_None;
+    }
 };
 
 /**
@@ -557,12 +559,115 @@ public:
      * Helper method to display ASTree.
      */
     void PrintTree() const {
-        int level    = 0;
-        size_t depth = 0;
-        std::vector<std::string> tree(GetDepth(baseNode, depth));
-        PrintTree(baseNode, level, tree);
+        size_t row   = 0;
+        size_t elems = GetDepth(baseNode, row)+1;
+        std::vector<std::vector<std::string>> levels(elems, std::vector<std::string>(elems));
+        row       = 0;
+        size_t col       = 0;
+        PrintNode(baseNode, levels, row, col);
+        std::vector<std::vector<std::string>> realLevels(elems, std::vector<std::string>(elems*2));
+        /**
+         * Add padding to levels, count empty elements on right side, then append them on the left side
+         */
+        bool eol = false;
+        std::vector<size_t> padding(elems);
+        size_t index = 0;
+        for(const auto& line : levels){
+            for(const auto& elem : line) {
+                if(elem == "  " || elem.empty()){
+                    if(eol){
+                        padding[index]++;
+                    }
+                    eol = true;
+                } else {
+                    padding[index] = 0;
+                }
+            }
+            index++;
+        }
 
-        for(const auto& line : tree) { std::cout << line << std::endl; }
+        for(size_t paddIndex = 0; paddIndex < elems; ++paddIndex){
+            for(index = 0; index < elems + padding[paddIndex]; ++index) {
+                if(index < padding[paddIndex]){
+                    std::cout << "  ";
+                }
+                else {
+                    std::cout << levels[paddIndex][index - padding[paddIndex]];
+                }
+            }
+            std::cout << std::endl;
+        }
+    }
+
+    /**
+     * Generates left aligned string representation of node in tree leave form according to their connection types
+     * @param node
+     */
+    void PrintNode(const std::shared_ptr<MathNode> &node, std::vector<std::vector<std::string>>& levels, const size_t& row, const size_t& column) const {
+        switch(node->connectionType) {
+            case NodeConnectionType::ConnectionType_Dual:
+                {
+                    /*      op
+                     *    /    \
+                     *  left   right
+                     */
+                    levels[row][column] += "  ";
+                    levels[row][column+1] += node->value;
+                    levels[row][column+2] += "  ";
+                    levels[row +1][column] += "  /";
+                    levels[row +1][column+2] += "  \\";
+                    auto childIndex = row + 2;
+                    levels[childIndex][column+1] += "  ";
+                    PrintNode(node->left, levels, childIndex, column);
+                    PrintNode(node->right,levels, childIndex, column+2);
+                    levels[childIndex][column+2] += "  ";
+                }
+                break;
+            case NodeConnectionType::ConnectionType_Left:
+                {
+                    /*      fun
+                     *    /
+                     *  left
+                     */
+                    levels[row][column] += "  ";
+                    levels[row][column+1] += node->value;
+                    levels[row][column+2] += "  ";
+                    levels[row +1][column] += "  /";
+                    levels[row +1][column+2] += "  ";
+                    auto childIndex = row + 2;
+                    levels[childIndex][column+1] += "  ";
+                    levels[childIndex][column+2] += "  ";
+                    PrintNode(node->left, levels, childIndex, column);
+                }
+                break;
+            case NodeConnectionType::ConnectionType_Right:
+            {
+                /*      fun
+                 *         \
+                 *         right
+                 */
+                levels[row][column] += "  ";
+                levels[row][column+1] += node->value;
+                levels[row][column+2] += "  ";
+                levels[row +1][column] += "  ";
+                levels[row +1][column+2] += "  \\";
+                auto childIndex = row + 2;
+                levels[childIndex][column] += "  ";
+                levels[childIndex][column+1] += "  ";
+                PrintNode(node->right, levels, childIndex, column+2);
+                levels[childIndex][column+2] += "  ";
+            }
+                break;
+            case NodeConnectionType::ConnectionType_None:
+                {
+                    //value
+                    levels[row][column] += std::string("  ") + node->value;
+                }
+                break;
+            case NodeConnectionType::ConnectionType_Unknown:
+            default:
+                break;
+        }
     }
 
     /**
