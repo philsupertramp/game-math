@@ -69,26 +69,21 @@ class SymbolicTestCase : public Test
         AssertEqual(equation(60), 118);
         equation = Equation("2 * (x - (1 * y)) - 2");
 
-        equation.Print();
         AssertEqual(equation(1, 1), -2);
         AssertEqual(equation(1, 2), -4);
 
         equation = Equation("2 * (x - 1 + y) - 2");
 
-        equation.Print();
         AssertEqual(equation(1, 1), 0);
         AssertEqual(equation(1, 2), 2);
 
         equation = Equation("(x - 1 + y) * 2 - 2");
 
-        equation.Print();
         AssertEqual(equation(1, 1), 0);
         AssertEqual(equation(1, 2), 2);
 
         equation = Equation("2 * (x - 1) - 2");
 
-        equation.Print();
-        equation.PrintTree();
         AssertEqual(equation(1), -2);
         AssertEqual(equation(2), 0);
         AssertEqual(equation(3), 2);
@@ -199,6 +194,46 @@ class SymbolicTestCase : public Test
         return true;
     }
 
+    bool TestFunctions(){
+
+        Equation equation("sqrt(x)");
+        AssertEqual(equation(1.0), 1.0);
+        AssertEqual(equation(2.0), 1.414213562373095);
+        equation = Equation("sqrt(x) + 1");
+        AssertEqual(equation(1.0), 2.0);
+        AssertEqual(equation(2.0), 2.414213562373095);
+        equation = Equation("2 * 3 + sqrt(x) + 1");
+        AssertEqual(equation(1.0), 8.0);
+        AssertEqual(equation(2.0), 8.414213562373095);
+        equation = Equation("2 * 3 + sqrt(x+1) + 1");
+        AssertEqual(equation(0.0), 8.0);
+        AssertEqual(equation(1.0), 8.414213562373095);
+        equation = Equation("2*3+sqrt(x+1) + 1");
+        AssertEqual(equation(0.0), 8.0);
+        AssertEqual(equation(1.0), 8.414213562373095);
+
+        equation = Equation("sqrt(x)^2");
+        AssertEqual(equation(1.0), 1.0);
+        AssertEqual(equation(2.0), 2.0);
+
+        equation = Equation("sin(x)");
+        AssertEqual(equation(0), 0);
+        AssertEqual(equation(1), 0.8414709848078965);
+        
+        equation = Equation("sin(pi)");
+        AssertEqual(equation(), 0);
+
+        Equation circle("r^2 * pi");
+
+        AssertEqual(circle(1), 3.1415926535897932384626433832795028841971693993751058209749445923078164);
+
+        return true;
+    }
+
+    bool TestDefaultSymbols(){
+        return true;
+    }
+
 public:
     void run() override {
         TestMathematicalProperties();
@@ -208,6 +243,8 @@ public:
         TestGetRegex();
         TestGenerateOperator();
         TestChaining();
+        TestFunctions();
+        TestDefaultSymbols();
     }
 };
 
