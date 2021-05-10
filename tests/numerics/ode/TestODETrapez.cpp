@@ -249,7 +249,7 @@ class ODETrapezTestCase : public Test
         { 1.005771825370916, -0.490173827178432 },  { 0.952605682890340, -0.573149022433101 },
         { 0.891308722569721, -0.652790183979270 },
         });
-//        std::cout << yResult << std::endl;
+        //        std::cout << yResult << std::endl;
         AssertEqual(yExpected, yResult);
         for(unsigned long i = 0; i < yResult.rows(); i++) { AssertEqual(tExpected[i], tResult(i, 0)); }
         return true;

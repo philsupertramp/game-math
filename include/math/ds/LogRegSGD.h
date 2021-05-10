@@ -90,11 +90,13 @@ public:
      */
     void fit(const Matrix<double>& X, const Matrix<double>& y) override {
         if(sgd == nullptr) {
-            std::function<double(const Matrix<double>&, const Matrix<double>&)> weightFun = [this](const Matrix<double>& x, const Matrix<double>& y) {
-                return this->update_weights(x, y);
-            };
-            sgd =
-            new SGD(eta, n_iter, shuffle, weightFun, [this](const Matrix<double>& x) { return this->netInput(x); });
+            sgd = new SGD(
+                eta,
+                n_iter,
+                shuffle,
+                [this](const Matrix<double>& x, const Matrix<double>& y) { return this->update_weights(x, y); },
+                [this](const Matrix<double>& x) { return this->netInput(x); }
+            );
         }
         initialize_weights(X.columns());
         sgd->fit(X, y, weights);
@@ -132,9 +134,7 @@ public:
      * @return predicted output for given input
      */
     Matrix<double> predict(const Matrix<double>& X) override {
-        std::function<bool(double)> condition = [](double x) {
-            return bool(x >= EPS);
-        };
+        std::function<bool(double)> condition = [](double x) { return bool(x >= EPS); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
         //        return activation(X);
     }

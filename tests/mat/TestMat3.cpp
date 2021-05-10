@@ -73,7 +73,7 @@ class Mat3TestCase : public Test
         assert(fooCopy[2][1] == (T)-1);
         assert(fooCopy[2][2] == (T)0);
 
-//        std::cout << "mat3\n" << foo;
+        //        std::cout << "mat3\n" << foo;
 
         return true;
     }

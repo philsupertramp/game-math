@@ -90,10 +90,11 @@ struct PlotAttributes {
  *
  * ===============
  * Examples:
- *
+ *  \code
  *  Plot plot("My plot");
  *  plot.AddData({{1, 2}, {2, 3}}, "Some points", DataType::POINT);
  *  plot();
+ *  \endcode
  */
 class Plot
 {

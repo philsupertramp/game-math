@@ -159,7 +159,7 @@ class SymbolicTestCase : public Test
         return true;
     }
 
-    bool TestChaining(){
+    bool TestChaining() {
         Equation a("x");
         Equation b("1");
 
@@ -169,24 +169,24 @@ class SymbolicTestCase : public Test
         for(int i = -10; i < 10; ++i) AssertEqual(expected(i), combined(i));
 
         // can chain using different operator
-        a = Equation("x");
-        b = Equation("1");
+        a        = Equation("x");
+        b        = Equation("1");
         combined = Equation::Chain(a, b, GenerateOperator(OperatorType::TYPE_SUBTRACTION));
         expected = Equation("x - 1");
 
         for(int i = -10; i < 10; ++i) AssertEqual(combined(i), expected(i));
 
         // can chain using same symbols
-        a = Equation("x");
-        b = Equation("x");
+        a        = Equation("x");
+        b        = Equation("x");
         combined = Equation::Chain(a, b, GenerateOperator(OperatorType::TYPE_ADDITION));
         expected = Equation("x + x"); // although real equation is "x + x"
 
         for(int i = -10; i < 10; ++i) AssertEqual(combined(i), expected(i));
 
         // can chain using different symbols
-        a = Equation("x");
-        b = Equation("y");
+        a        = Equation("x");
+        b        = Equation("y");
         combined = Equation::Chain(a, b, GenerateOperator(OperatorType::TYPE_ADDITION));
         expected = Equation("x + y");
 
@@ -194,8 +194,7 @@ class SymbolicTestCase : public Test
         return true;
     }
 
-    bool TestFunctions(){
-
+    bool TestFunctions() {
         Equation equation("sqrt(x)");
         AssertEqual(equation(1.0), 1.0);
         AssertEqual(equation(2.0), 1.414213562373095);
@@ -230,9 +229,7 @@ class SymbolicTestCase : public Test
         return true;
     }
 
-    bool TestDefaultSymbols(){
-        return true;
-    }
+    bool TestDefaultSymbols() { return true; }
 
 public:
     virtual void run() {
