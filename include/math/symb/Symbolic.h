@@ -693,6 +693,8 @@ private:
         for(const auto& elem: DefaultFunctions){functionNames.push_back(elem.first);}
         constantNames.reserve(DefaultSymbols.size());
         for(const auto& elem: DefaultSymbols){constantNames.push_back(elem.first);}
+        functionNames.reserve(DefaultFunctions.size());
+        for(const auto& elem: DefaultFunctions){functionNames.push_back(elem.first);}
         std::vector<std::string> out;
         auto eq = processString;
         // check if we have a function inside
