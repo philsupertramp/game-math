@@ -20,11 +20,11 @@ struct Set {
     //! expected output data
     Matrix<double> Output;
     //! number of input elements
-    size_t InputCount  = 0;
+    size_t InputCount = 0;
     //! number of output elements
     size_t OutputCount = 0;
     //! number of input-output pairs
-    size_t count       = 0;
+    size_t count = 0;
 
     /**
      * default constructor
@@ -240,13 +240,13 @@ public:
     Set Test;
 
     //! number of epochs while training
-    int maxEpoch         = 1000;
+    int maxEpoch = 1000;
     //! threshold for loss to prevent over-fitting
     double stopThreshold = 0.001;
     //! learning rate
-    double eta           = 0.0051;
+    double eta = 0.0051;
     //! number of elements per batch
-    int batchSize        = 5;
+    int batchSize = 5;
     //! use verbose output during fitting
     bool verbose = false;
 };

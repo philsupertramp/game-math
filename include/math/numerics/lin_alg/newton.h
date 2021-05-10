@@ -10,7 +10,7 @@
 #include <functional>
 
 //! representation of jacobian
-using Jacobian       = std::function<Matrix<double>(const Matrix<double>&)>;
+using Jacobian = std::function<Matrix<double>(const Matrix<double>&)>;
 //! representation of linear equation
 using LinearEquation = std::function<Matrix<double>(const Matrix<double>&)>;
 

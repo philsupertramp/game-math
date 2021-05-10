@@ -11,20 +11,20 @@
  * Node type representation
  */
 enum MathNodeType {
-    NodeType_Operator    = 0,
-    NodeType_Symbolic    = 1,
-    NodeType_Numeric     = 2,
-    NodeType_Parentheses = 3,
-    NodeType_Functional  = 4,
-    NodeType_DefaultSymbol  = 5,
-    NodeType_Any         = 6,
+    NodeType_Operator      = 0,
+    NodeType_Symbolic      = 1,
+    NodeType_Numeric       = 2,
+    NodeType_Parentheses   = 3,
+    NodeType_Functional    = 4,
+    NodeType_DefaultSymbol = 5,
+    NodeType_Any           = 6,
 };
 
 enum NodeConnectionType {
-    ConnectionType_Dual = 0,
-    ConnectionType_Left = 2,
-    ConnectionType_Right = 3,
-    ConnectionType_None = 4,
+    ConnectionType_Dual    = 0,
+    ConnectionType_Left    = 2,
+    ConnectionType_Right   = 3,
+    ConnectionType_None    = 4,
     ConnectionType_Unknown = 5,
 };
 
@@ -95,17 +95,18 @@ class MathNode
 {
 public:
     //! helper to determine whether a node is negated or not
-    bool isNegative     = false;
+    bool isNegative = false;
     //! helper to determine if node is within parentheses
     bool hasParentheses = false;
     //! node type representation
     MathNodeType type;
     //! next node on left side
-    std::shared_ptr<MathNode> left  = nullptr;
+    std::shared_ptr<MathNode> left = nullptr;
     //! next node on right side
     std::shared_ptr<MathNode> right = nullptr;
     //! char representation of value
     char* value{};
+
 protected:
     //! helper to store size of value
     size_t valSize = 0;
@@ -117,11 +118,11 @@ public:
      */
     explicit MathNode(const std::string& val) {
         auto realValue = strip(val); // strip to allow comparison
-        isNegative = realValue.find('-') != std::string::npos && realValue.size() > 1;
-        value      = new char[realValue.size() + 1];
+        isNegative     = realValue.find('-') != std::string::npos && realValue.size() > 1;
+        value          = new char[realValue.size() + 1];
         std::copy(realValue.begin(), realValue.end(), value);
         value[realValue.size()] = '\0'; // don't forget the terminating 0
-        valSize           = realValue.size() + 1;
+        valSize                 = realValue.size() + 1;
     }
 
     /**
@@ -158,13 +159,11 @@ public:
         return out.str();
     }
 
-    friend bool operator==(const MathNode& lhs, const MathNode& rhs){
+    friend bool operator==(const MathNode& lhs, const MathNode& rhs) {
         return strcmp(lhs.value, rhs.value) == 0 && lhs.isNegative == rhs.isNegative;
     }
 
-    bool operator==(MathNode* rhs){
-        return strcmp(value, rhs->value) == 0 && isNegative == rhs->isNegative;
-    }
+    bool operator==(MathNode* rhs) { return strcmp(value, rhs->value) == 0 && isNegative == rhs->isNegative; }
 
     /**
      * beautified output operator
@@ -326,7 +325,7 @@ public:
      */
     explicit Symbolic(const std::string& name, double defaultValue = 0.0)
         : Operand(name)
-	, evaluationValue(defaultValue) {
+        , evaluationValue(defaultValue) {
         type = MathNodeType::NodeType_Symbolic;
     }
 
@@ -336,7 +335,7 @@ public:
      */
     Symbolic(const Symbolic& other)
         : Operand(other) {
-        type = other.type;
+        type            = other.type;
         evaluationValue = other.evaluationValue;
     }
 
@@ -348,13 +347,14 @@ public:
 };
 
 static std::map<std::string, std::shared_ptr<Symbolic>> DefaultSymbols = {
-    {"pi", std::make_shared<Symbolic>("pi", 3.1415926535897932384626433832795028841971693993751058209749445923078164)},
-    {"e", std::make_shared<Symbolic>("e",  2.71828182845904523536028747135266249775724709369995957496696762772407663)},
+    { "pi",
+      std::make_shared<Symbolic>("pi", 3.1415926535897932384626433832795028841971693993751058209749445923078164) },
+    { "e", std::make_shared<Symbolic>("e", 2.71828182845904523536028747135266249775724709369995957496696762772407663) },
 };
 
 [[nodiscard]] bool isConstant(const std::string& in) {
     std::unordered_set<std::string> funList;
-    for(const auto& elem: DefaultSymbols){funList.insert(elem.first);}
+    for(const auto& elem : DefaultSymbols) { funList.insert(elem.first); }
     return funList.find(in) != funList.end();
 }
 
@@ -392,8 +392,7 @@ public:
  *  \sqrt{x} \quad \text{ or } \quad \log{x}
  * \f]
  */
-class Function
-: public Operator
+class Function : public Operator
 {
 public:
     /**
@@ -402,8 +401,8 @@ public:
      * @param fun single value evaluation function
      */
     Function(const std::string& val, const std::function<double(double)>& fun)
-    : Operator(val, [fun](double a, [[maybe_unused]] double b){return fun(a); }, OperatorPriority::OPClassFunction)
-    {
+        : Operator(
+        val, [fun](double a, [[maybe_unused]] double b) { return fun(a); }, OperatorPriority::OPClassFunction) {
         connectionType = NodeConnectionType::ConnectionType_Left;
     }
 
@@ -415,28 +414,27 @@ public:
      * TODO: enable parsing for this kind of function!
      */
     Function(const std::string& val, const std::function<double(double, double)>& fun)
-    : Operator(val, fun, OperatorPriority::OPClassFunction)
-    {
+        : Operator(val, fun, OperatorPriority::OPClassFunction) {
         connectionType = NodeConnectionType::ConnectionType_Dual;
         std::cerr << "This can't be parsed yet!!!!!!" << std::endl;
     }
 
     [[nodiscard]] double Evaluate() const override {
         if(connectionType == NodeConnectionType::ConnectionType_Left) return op(left->Evaluate(), 0.0);
-        else if(connectionType == NodeConnectionType::ConnectionType_Dual) return op(left->Evaluate(), right->Evaluate());
+        else if(connectionType == NodeConnectionType::ConnectionType_Dual)
+            return op(left->Evaluate(), right->Evaluate());
         return NAN;
     }
 
     // TODO: add beautified string representation
-
 };
 /**
  * Default functions for parser
  */
-const std::map<std::string,std::shared_ptr<Function>> DefaultFunctions = {
+const std::map<std::string, std::shared_ptr<Function>> DefaultFunctions = {
     { "sqrt", std::make_shared<Function>("sqrt", [](double a) { return sqrt(a); }) },
     { "log", std::make_shared<Function>("log", [](double a) { return log(a); }) },
-    { "sin", std::make_shared<Function>("sin", [](double a){ return sin(a); })},
+    { "sin", std::make_shared<Function>("sin", [](double a) { return sin(a); }) },
 };
 /**
  * Helper function to test if string is function representation
@@ -445,7 +443,7 @@ const std::map<std::string,std::shared_ptr<Function>> DefaultFunctions = {
  */
 [[nodiscard]] bool isFunction(const std::string& in) {
     std::unordered_set<std::string> funList;
-    for(const auto& elem: DefaultFunctions){funList.insert(elem.first);}
+    for(const auto& elem : DefaultFunctions) { funList.insert(elem.first); }
     return funList.find(in) != funList.end();
 }
 
@@ -541,7 +539,8 @@ public:
      * @param sym
      * @return
      */
-    [[nodiscard]] bool HasSymbol(const std::vector<std::shared_ptr<Symbolic>>& container, const std::shared_ptr<Symbolic>& sym) const {
+    [[nodiscard]] bool
+    HasSymbol(const std::vector<std::shared_ptr<Symbolic>>& container, const std::shared_ptr<Symbolic>& sym) const {
         for(const auto& elem : container) {
             if(bool(strcmp(elem->value, sym->value) == 0) && elem->isNegative == sym->isNegative) return true;
         }
@@ -601,21 +600,21 @@ public:
     }
 
     /**
-     * Connects left and right using op, this essentially 
+     * Connects left and right using op, this essentially
      * takes both sides baseNode and connects both trees, then
      * returns a new equation object.
-     * Dude! It even generates a unique set of symbols! 
+     * Dude! It even generates a unique set of symbols!
      * @param left left equation
      * @param right right equation
      * @param op operator to connect with
      * @return chained equation object
      */
-    static Equation Chain(const Equation& left, const Equation& right, const std::shared_ptr<Operator> &op){
+    static Equation Chain(const Equation& left, const Equation& right, const std::shared_ptr<Operator>& op) {
         Equation out;
-        op->left = left.baseNode;
-        op->right = right.baseNode;
+        op->left     = left.baseNode;
+        op->right    = right.baseNode;
         out.baseNode = op;
-        out.symbols = buildSymbolSuperSet(left.symbols, right.symbols);
+        out.symbols  = buildSymbolSuperSet(left.symbols, right.symbols);
         return out;
     }
 
@@ -626,22 +625,23 @@ private:
      * @param b other set of symbols
      * @return merged unique set of symbols
      */
-    static std::vector<std::shared_ptr<Symbolic>> buildSymbolSuperSet(const std::vector<std::shared_ptr<Symbolic>>& a, const std::vector<std::shared_ptr<Symbolic>>& b){
+    static std::vector<std::shared_ptr<Symbolic>> buildSymbolSuperSet(
+    const std::vector<std::shared_ptr<Symbolic>>& a, const std::vector<std::shared_ptr<Symbolic>>& b) {
         std::vector<std::shared_ptr<Symbolic>> out = a;
-        auto testIsInContainer = [&out](const std::shared_ptr<Symbolic>& sym) {
-          for(const auto& elem : out) {
-              if(bool(strcmp(elem->value, sym->value) == 0) && elem->isNegative == sym->isNegative) return true;
-          }
-          return false;
+        auto testIsInContainer                     = [&out](const std::shared_ptr<Symbolic>& sym) {
+            for(const auto& elem : out) {
+                if(bool(strcmp(elem->value, sym->value) == 0) && elem->isNegative == sym->isNegative) return true;
+            }
+            return false;
         };
 
 
-	      size_t numElements = out.size();
+        size_t numElements = out.size();
 
-        for(const auto & i : b){
-            if(!testIsInContainer(i)){
+        for(const auto& i : b) {
+            if(!testIsInContainer(i)) {
                 out.push_back(i);
-		            numElements++;
+                numElements++;
             }
         }
 
@@ -654,9 +654,7 @@ private:
      */
     static std::shared_ptr<Operator> GetOperator(const std::string& valString) {
         if(valString.empty()) { return {}; }
-        if(valString.size() > 1){
-            return GetFunction(valString);
-        }
+        if(valString.size() > 1) { return GetFunction(valString); }
         switch(int(strip(valString).c_str()[0])) {
             case int(OperatorValue::VALUE_MULTIPLICATION): return GenerateOperator(OperatorType::TYPE_MULTIPLICATION);
             case int(OperatorValue::VALUE_DIVISION): return GenerateOperator(OperatorType::TYPE_DIVISION);
@@ -676,7 +674,7 @@ private:
      * @param valString element of DefaultFunctions vector
      * @return
      */
-    static std::shared_ptr<Function> GetFunction(const std::string& valString){
+    static std::shared_ptr<Function> GetFunction(const std::string& valString) {
         auto elem = DefaultFunctions.find(valString);
         return (elem != DefaultFunctions.end()) ? elem->second : nullptr;
     }
@@ -686,22 +684,21 @@ private:
      * @param processString
      * @return
      */
-    std::vector<std::string> splitFunctionsOrElementwise(const std::string& processString){
+    std::vector<std::string> splitFunctionsOrElementwise(const std::string& processString) {
         std::vector<std::string> functionNames;
         std::vector<std::string> constantNames;
         functionNames.reserve(DefaultFunctions.size());
-        for(const auto& elem: DefaultFunctions){functionNames.push_back(elem.first);}
+        for(const auto& elem : DefaultFunctions) { functionNames.push_back(elem.first); }
         constantNames.reserve(DefaultSymbols.size());
-        for(const auto& elem: DefaultSymbols){constantNames.push_back(elem.first);}
-        functionNames.reserve(DefaultFunctions.size());
-        for(const auto& elem: DefaultFunctions){functionNames.push_back(elem.first);}
+        for(const auto& elem : DefaultSymbols) { constantNames.push_back(elem.first); }
+
         std::vector<std::string> out;
         auto eq = processString;
         // check if we have a function inside
         bool keepRunning = true;
-        while(keepRunning){
+        while(keepRunning) {
             for(const auto& funStr : functionNames) {
-                auto start = eq.find(funStr);
+                auto start  = eq.find(funStr);
                 keepRunning = false;
                 if(start != std::string::npos) {
                     if(start > 0) {
@@ -711,7 +708,7 @@ private:
                     out.push_back(funStr);
                     auto endPos = start + funStr.size();
                     if(endPos < eq.size()) {
-                        eq = eq.substr(endPos, eq.size() - endPos);
+                        eq          = eq.substr(endPos, eq.size() - endPos);
                         keepRunning = true;
                     } else {
                         keepRunning = false;
@@ -719,10 +716,10 @@ private:
                 }
             }
         }
-        keepRunning=true;
-        while(keepRunning){
+        keepRunning = true;
+        while(keepRunning) {
             for(const auto& funStr : constantNames) {
-                auto start = eq.find(funStr);
+                auto start  = eq.find(funStr);
                 keepRunning = false;
                 if(start != std::string::npos) {
                     if(start > 0) {
@@ -732,7 +729,7 @@ private:
                     out.push_back(funStr);
                     auto endPos = start + funStr.size();
                     if(endPos < eq.size()) {
-                        eq = eq.substr(endPos, eq.size() - endPos);
+                        eq          = eq.substr(endPos, eq.size() - endPos);
                         keepRunning = true;
                     } else {
                         keepRunning = false;
@@ -741,7 +738,7 @@ private:
             }
         }
 
-        if(!eq.empty()){
+        if(!eq.empty()) {
             auto remainingPart = split(eq);
             out.insert(out.end(), remainingPart.begin(), remainingPart.end());
         }
@@ -755,24 +752,23 @@ private:
      * @param processString equation string to split
      * @return vector with equation elements
      */
-    std::vector<std::string> splitEquation(const std::string& processString){
+    std::vector<std::string> splitEquation(const std::string& processString) {
         std::vector<std::string> out;
         std::cmatch m;
 
-        auto numberRegex    = GetRegex(MathNodeType::NodeType_Numeric);
-        auto symbolRegex    = GetRegex(MathNodeType::NodeType_Symbolic);
-        auto operatorRegex    = GetRegex(MathNodeType::NodeType_Operator);
-        auto anyRegex    = GetRegex(MathNodeType::NodeType_Any);
-        auto functionRegex    = GetRegex(MathNodeType::NodeType_Functional);
-        auto defaultSymbolRegex    = GetRegex(MathNodeType::NodeType_DefaultSymbol);
+        auto numberRegex        = GetRegex(MathNodeType::NodeType_Numeric);
+        auto symbolRegex        = GetRegex(MathNodeType::NodeType_Symbolic);
+        auto operatorRegex      = GetRegex(MathNodeType::NodeType_Operator);
+        auto anyRegex           = GetRegex(MathNodeType::NodeType_Any);
+        auto functionRegex      = GetRegex(MathNodeType::NodeType_Functional);
+        auto defaultSymbolRegex = GetRegex(MathNodeType::NodeType_DefaultSymbol);
 
         auto splitEq = split(processString, ' ');
 
         // bigger as -x?
-        if(splitEq.size() == 1){
+        if(splitEq.size() == 1) {
             out = splitFunctionsOrElementwise(splitEq[0]);
-        }
-        else {
+        } else {
             for(const auto& elem : splitEq) {
                 if((elem.size() == 1)
                || ((std::regex_match(elem.c_str(), m, symbolRegex) && m.str().size() == elem.size())
@@ -824,24 +820,24 @@ private:
         };
         const auto isParenthesesOpen  = [](const std::string& in) { return in.find('(') != std::string::npos; };
         const auto isParenthesesClose = [](const std::string& in) { return in.find(')') != std::string::npos; };
-        
+
         bool prevWasOperator = true;
         bool nextIsNegative  = false;
-        auto eqParts = splitEquation(processString);
+        auto eqParts         = splitEquation(processString);
         for(const auto& c : eqParts) {
             if(isNumber(c)) {
                 auto sym        = std::make_shared<Number>(c);
                 sym->isNegative = nextIsNegative;
                 nextIsNegative  = false;
                 operandStack.push_back(sym);
-            } else if(isConstant(c)){
-                auto sym = DefaultSymbols[c];
+            } else if(isConstant(c)) {
+                auto sym        = DefaultSymbols[c];
                 sym->isNegative = nextIsNegative;
-                nextIsNegative = false;
+                nextIsNegative  = false;
                 operandStack.push_back(sym);
             } else if(isSymbol(c)) {
-		//TODO: determine if symbol is default symbol like pi or e
-		//	then reuse existing
+                //TODO: determine if symbol is default symbol like pi or e
+                //	then reuse existing
                 auto symbol        = std::make_shared<Symbolic>(c);
                 symbol->isNegative = nextIsNegative;
                 nextIsNegative     = false;
@@ -859,7 +855,7 @@ private:
                         while(stackTop != nullptr && stackTop->priority >= currentOp->priority
                               && stackTop->value[0] != '(') {
                             operatorStack.pop_back();
-                            if(stackTop->connectionType == NodeConnectionType::ConnectionType_None){
+                            if(stackTop->connectionType == NodeConnectionType::ConnectionType_None) {
                                 if(!operatorStack.empty())
                                     stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
                                 continue;
@@ -890,7 +886,7 @@ private:
                 while(!isParenthesesOpen(stackTop)) {
                     // handle operator
                     auto currentOp = GetOperator(stackTop);
-                    if(currentOp != nullptr){
+                    if(currentOp != nullptr) {
                         if(currentOp->connectionType == NodeConnectionType::ConnectionType_Dual) {
                             currentOp->right = operandStack[operandStack.size() - 1];
                             operandStack.pop_back();
@@ -906,7 +902,6 @@ private:
                         stackTop = operatorStack[operatorStack.size() - 1];
                     } else
                         break;
-
                 }
                 operatorStack.pop_back();
             } else if(isAny(c)) {
@@ -923,8 +918,8 @@ private:
             auto stackTop = operatorStack[operatorStack.size() - 1];
             operatorStack.pop_back();
 
-            auto currentOp   = GetOperator(stackTop);
-            if(currentOp != nullptr){
+            auto currentOp = GetOperator(stackTop);
+            if(currentOp != nullptr) {
                 if(currentOp->connectionType == NodeConnectionType::ConnectionType_Dual) {
                     currentOp->right = operandStack[operandStack.size() - 1];
                     operandStack.pop_back();

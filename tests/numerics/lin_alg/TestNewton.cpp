@@ -16,7 +16,7 @@ class NewtonTestCase : public Test
         auto res = newton(f, Df, x0, TOL, maxIter);
 
         std::vector<double> xExpt = { 0.73908513321516067 };
-//        std::cout << res;
+        //        std::cout << res;
         for(int i = 0; i < 1; ++i) { AssertEqual(res(i, 0), xExpt[i]); }
         return true;
     }

@@ -1,5 +1,5 @@
 lint:
-	find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -exec clang-format -i {} \;
+	find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -not -path '*/pyDS/*' -exec clang-format -i {} \;
 
 test:
 	./build.sh cmake-debug-coverage --test -o="MATH_EXTENSIONS=ds,numerics,symb";

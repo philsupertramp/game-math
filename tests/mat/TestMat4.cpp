@@ -121,7 +121,7 @@ class Mat4TestCase : public Test
         assert(fooCopy[3][2] == (T)1);
         assert(fooCopy[3][3] == (T)0);
 
-//        std::cout << "mat4\n" << foo;
+        //        std::cout << "mat4\n" << foo;
 
         return true;
     }

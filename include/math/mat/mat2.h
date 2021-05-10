@@ -9,7 +9,6 @@
 template<class T>
 struct mat2 {
 public:
-
     //! loosely packed data
     T values[2][2];
 

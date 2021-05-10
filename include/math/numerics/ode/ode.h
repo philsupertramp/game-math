@@ -9,7 +9,7 @@
 #include <vector>
 
 //! alias for ODE
-using ODE    = std::function<Matrix<double>(double, Matrix<double>)>;
+using ODE = std::function<Matrix<double>(double, Matrix<double>)>;
 
 //! alias for Jacobian-Matrix of ODE
 using ODEJac = std::function<Matrix<double>(double, Matrix<double>)>;
@@ -50,11 +50,11 @@ struct ODEResult {
  */
 struct ODEOption {
     //! step width of t
-    double h    = 0;
+    double h = 0;
     //! tolerance for the algorithm to determine convergence
-    double TOL  = 1e-7;
+    double TOL = 1e-7;
     //! max iterations for integrated newton steps
     int maxIter = 50;
     //! jacobian matrix of given function
-    ODEJac Jac  = nullptr;
+    ODEJac Jac = nullptr;
 };

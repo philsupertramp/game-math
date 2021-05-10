@@ -47,7 +47,7 @@ class Mat2TestCase : public Test
         assert(fooCopy[1][0] == (T)-1);
         assert(fooCopy[1][1] == (T)0);
 
-//        std::cout << "mat2\n" << foo;
+        //        std::cout << "mat2\n" << foo;
 
         return true;
     }

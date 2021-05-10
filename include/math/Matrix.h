@@ -603,9 +603,9 @@ private:
 
 
     //! number rows
-    size_t _rows         = 0;
+    size_t _rows = 0;
     //! number columns
-    size_t _columns      = 0;
+    size_t _columns = 0;
     //! number elements
     size_t _element_size = 0;
 
@@ -614,7 +614,7 @@ private:
     //! total number of elements
     size_t _dataSize = 0;
     //!
-    bool needsFree   = false;
+    bool needsFree = false;
 };
 
 /**

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <utility>
 #include "../Matrix.h"
+#include <utility>
 
 /**
  * representation of min-max boundaries for a axis
@@ -206,11 +206,11 @@ protected:
     //! representation of plot type
     const char* plotTypeName;
     //! data storage file
-    FILE* storageFile         = nullptr;
+    FILE* storageFile = nullptr;
     //! attributes for plot
     PlotAttributes attributes = {};
     //! number elements within the plot
-    int numElements           = 0;
+    int numElements = 0;
     //! x-axis boundaries for the resulting plot
     PlotBoundary bY{};
     //! y-axis boundaries for the resulting plot
@@ -259,9 +259,9 @@ public:
      * @param name
      */
     void AddData(const double& start, const double& end, const double& stepSize, const char* name) {
-        int size = (int)((end - start) / stepSize) + 2;
+        int size         = (int)((end - start) / stepSize) + 2;
         Matrix<double> X = linspace(start, end, size);
-        auto Y = X.Apply(Function);
+        auto Y           = X.Apply(Function);
         Plot::AddData(X, Y, name);
     }
 };
