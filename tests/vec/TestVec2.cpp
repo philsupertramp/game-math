@@ -117,7 +117,7 @@ class Vec2TestCase : public Test
         assert(fooCopy.y == (T)0.5f);
 
         // ostream<<
-        std::cout << "vec2:\n" << foo;
+//        std::cout << "vec2:\n" << foo;
 
         return true;
     }

@@ -90,7 +90,7 @@ public:
      */
     void fit(const Matrix<double>& X, const Matrix<double>& y) override {
         if(sgd == nullptr) {
-            auto weightFun = [this](const Matrix<double>& x, const Matrix<double>& y) {
+            std::function<double(const Matrix<double>&, const Matrix<double>&)> weightFun = [this](const Matrix<double>& x, const Matrix<double>& y) {
                 return this->update_weights(x, y);
             };
             sgd =
@@ -133,7 +133,6 @@ public:
      */
     Matrix<double> predict(const Matrix<double>& X) override {
         std::function<bool(double)> condition = [](double x) {
-            std::cout << x << std::endl;
             return bool(x >= EPS);
         };
         return where(condition, activation(X), { { 1 } }, { { -1 } });

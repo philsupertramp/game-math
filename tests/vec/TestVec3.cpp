@@ -155,7 +155,7 @@ class Vec3TestCase : public Test
         assert(fooCopy.z == (T)0.5f);
 
         // ostream<<
-        std::cout << "vec3:\n" << foo;
+//        std::cout << "vec3:\n" << foo;
 
         return true;
     }

@@ -19,7 +19,7 @@ class LogRegSGDTestCase : public Test
         { 0.41344311936636324 },
         { 0.0089382791988343868 },
         });
-        std::cout << A;
+//        std::cout << A;
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         Matrix<double> B                      = where(condition, A, { { 1 } }, { { -1 } });
         auto maxVal                           = max(A);
