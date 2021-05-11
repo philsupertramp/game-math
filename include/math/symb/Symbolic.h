@@ -437,6 +437,7 @@ const std::map<std::string, std::shared_ptr<Function>> DefaultFunctions = {
     { "sqrt", std::make_shared<Function>("sqrt", [](double a) { return sqrt(a); }) },
     { "log", std::make_shared<Function>("log", [](double a) { return log(a); }) },
     { "sin", std::make_shared<Function>("sin", [](double a) { return sin(a); }) },
+    { "cos", std::make_shared<Function>("cos", [](double a) { return cos(a); }) },
 };
 /**
  * Helper function to test if string is function representation
