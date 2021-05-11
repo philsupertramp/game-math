@@ -229,7 +229,24 @@ class SymbolicTestCase : public Test
         return true;
     }
 
-    bool TestDefaultSymbols() { return true; }
+    bool TestSimplify(){
+        Equation eq("2 + 1");
+        eq.Print();
+        auto newEq = eq.Simplify();
+        newEq.Print();
+
+        eq = Equation("1*3 + x - (5 * 3 - 2) + 3");
+        eq.Print();
+        newEq = eq.Simplify();
+        newEq.Print();
+        newEq = newEq.Simplify();
+        newEq.Print();
+        return true;
+    }
+
+    bool TestDefaultSymbols(){
+        return true;
+    }
 
 public:
     void run() override {
@@ -242,6 +259,7 @@ public:
         TestChaining();
         TestFunctions();
         TestDefaultSymbols();
+        TestSimplify();
     }
 };
 

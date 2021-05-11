@@ -723,7 +723,154 @@ public:
         return out;
     }
 
+    /**
+     * Simplifies an equation according to mathematical rules.
+     *
+     * @return simplified equation
+     */
+    [[nodiscard]] Equation Simplify() const {
+        Equation out = *this;
+
+        auto newBase = baseNode;
+        // Early exit for constants
+        switch(newBase->type) {
+            case NodeType_Symbolic:
+            case NodeType_Numeric:
+            case NodeType_DefaultSymbol:
+            case NodeType_Any:
+                break;
+            case NodeType_Operator:
+            case NodeType_Parentheses:
+            case NodeType_Functional:
+                out.baseNode = SimplifyTree(newBase);
+        }
+
+        return out;
+    }
+
 private:
+
+    [[nodiscard]] std::shared_ptr<MathNode> SimplifyTree(const std::shared_ptr<MathNode> &node) const {
+        auto out = SimplifyLevels(node);
+        out = ResolveLevels(out);
+
+        return out;
+    }
+    [[nodiscard]] std::shared_ptr<MathNode> ResolveLevels(const std::shared_ptr<MathNode> &node) const {
+        if(node->type == NodeType_Numeric || node->type == NodeType_Symbolic)
+            return node;
+
+        auto out = node;
+        if(out->type == NodeType_Operator){
+            auto op = GetOperator(out->value);
+            // resolve line operators +/-
+            if(op->priority == OPClassLine){
+                // left value is numeric. Search for left side of right operand
+                if(out->left->type == NodeType_Numeric){
+                    auto rightNode = out->right;
+                    while(rightNode != nullptr){
+                        if(rightNode->type == NodeType_Numeric){
+                            out = Apply(rightNode, op, out->left->Evaluate(), true);
+                            break;
+                        }
+                        rightNode = rightNode->left;
+                    }
+                }
+                else if(out->right->type == NodeType_Numeric){
+                    auto leftNode = out->left;
+                    while(leftNode != nullptr){
+                        if(leftNode->type == NodeType_Numeric){
+                            out = Apply(leftNode, op, out->right->Evaluate(), false);
+                            break;
+                        }
+                        leftNode = leftNode->right;
+                    }
+                }
+            }
+        }
+        return out;
+    }
+    /**
+     * Simplifies Equation Scopes.
+     *
+     * Within a scope the following rules are applied:
+     *
+     *   - Functions:
+     *      Functions with numeric values as left hand nodes can be simplified to numeric nodes
+     *
+     *   - Line operators:
+     *      Within same tree it is allowed to combine nodes.
+     *      Same symbols can be simplified as Number*Symbol leaf.
+     *
+     *   - Dot operators:
+     *      Numeric values can be combined.
+     *
+     * @param node tree to simplify
+     * @return simplified tree
+     */
+    [[nodiscard]] std::shared_ptr<MathNode> SimplifyLevels(const std::shared_ptr<MathNode> &node) const {
+        auto newBase = node;
+
+        switch(newBase->type) {
+            case NodeType_Any:
+            case NodeType_Parentheses:
+                break;
+            case NodeType_Symbolic:
+            case NodeType_Numeric:
+            case NodeType_DefaultSymbol:
+            case NodeType_Operator:
+                if(newBase->left->type == NodeType_Operator
+                   || newBase->left->type == NodeType_Functional){
+                    newBase->left = SimplifyTree(newBase->left);
+                }
+                if(newBase->right->type == NodeType_Operator
+                   || newBase->right->type == NodeType_Functional){
+                    newBase->right = SimplifyTree(newBase->right);
+                }
+                if(newBase->left->type == NodeType_Numeric
+                   && newBase->right->type == NodeType_Numeric){
+                    return std::make_shared<Number>(std::to_string(newBase->Evaluate()));
+                }
+                break;
+            case NodeType_Functional:
+                if(newBase->left->type == NodeType_Operator
+                   || newBase->left->type == NodeType_Functional){
+                    newBase->left = SimplifyTree(newBase->left);
+                }
+                if(newBase->left->type == NodeType_Numeric){
+                    return std::make_shared<Number>(std::to_string(newBase->Evaluate()));
+                }
+                break;
+        }
+        return newBase;
+    }
+
+    [[nodiscard]] std::shared_ptr<MathNode> Apply(const std::shared_ptr<MathNode>& node, const std::shared_ptr<Operator>& op, const double& val, bool isLeft) const {
+        auto out = node;
+        switch(out->connectionType) {
+            case ConnectionType_Dual:
+                if(isLeft)out->left = Apply(out->left, op, val, true);
+                else out->right = Apply(out->right, op, val, false);
+                break;
+            case ConnectionType_Left:
+                if(isLeft)out->left = Apply(out->left, op, val, true);
+                break;
+            case ConnectionType_Right:
+                if(!isLeft) out->right = Apply(out->right, op, val, false);
+                break;
+            case ConnectionType_None:
+            {
+                if(out->type == NodeType_Numeric){
+                    if(isLeft) return std::make_shared<Number>(std::to_string(op->op(out->Evaluate(), val)));
+                    else return std::make_shared<Number>(std::to_string(op->op(val, out->Evaluate())));
+                }
+            }
+                break;
+            case ConnectionType_Unknown: break;
+        }
+        return out;
+    }
+
     /**
      * helper method to generate superset of given vectors
      * @param a set of symbols
