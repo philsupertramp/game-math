@@ -31,8 +31,8 @@ class LogRegSGDTestCase : public Test
         auto val  = logRegSgd.predict({ { -1.0 } })(0, 0);
         auto val2 = logRegSgd.predict({ { 2.0 } })(0, 0);
 
-        assert(abs(val - 1.0) < 1e-7);  // == 1
-        assert(abs(val2 + 1.0) < 1e-7); // == -1
+        AssertEqual(val, 1);  // == 1
+        AssertEqual(val2, -1.0); // == -1
         return true;
     }
 
