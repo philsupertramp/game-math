@@ -139,11 +139,39 @@ class NewtonBaseTestCase : public Test
         return true;
     }
 
+    bool TestRunge(){
+
+
+        auto tschebyscheff = [](double start, double end, const Matrix<double>& xi){
+          return xi.Apply([start, end](double x){return (((end-start) * (x+1))/2)+start;});
+        };
+        auto runge = [](const Matrix<double>& in){
+          return in.Apply([](double a){return 1 / (1 + a * a);});
+        };
+        int n = 5;
+        auto realX = linspace(-5, 5, n);
+        auto xi = tschebyscheff(-5, 5, realX).Transpose();
+        auto yi = runge(xi);
+        auto x = linspace(min(xi), max(xi), 50).Transpose();
+
+        NewtonBase base(xi, yi);
+
+        auto out = base.Evaluate(x);
+        Plot plot(format("Runges Beispiel für %d Stützpunkte", n));
+        plot.AddData(x, out, "Newton-Basis");
+        plot.xAxis("x");
+        plot.yAxis("y");
+        plot();
+
+        return true;
+    }
+
 public:
     virtual void run() override {
         TestConstructor();
         TestFunction();
         TestEvaluate();
+        TestRunge();
     }
 };
 
