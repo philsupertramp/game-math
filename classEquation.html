@@ -97,6 +97,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2091c8458c47786a28c02798bdac34da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f7b01592a044ca4716e07b399753e41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquation.html#a8f7b01592a044ca4716e07b399753e41">SetSymbols</a> ([[maybe_unused]] const int &amp;index)</td></tr>
 <tr class="separator:a8f7b01592a044ca4716e07b399753e41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60a4e1509750aff0f41c334dfdad385e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquation.html#a60a4e1509750aff0f41c334dfdad385e">SetSymbols</a> (const std::vector&lt; double &gt; &amp;values)</td></tr>
+<tr class="separator:a60a4e1509750aff0f41c334dfdad385e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7de002b470adb0c5e81324da7dc8355f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquation.html#a7de002b470adb0c5e81324da7dc8355f">HasSymbol</a> (const std::shared_ptr&lt; <a class="el" href="classSymbolic.html">Symbolic</a> &gt; &amp;sym)</td></tr>
 <tr class="separator:a7de002b470adb0c5e81324da7dc8355f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e5434dd97f523734bd6dc41db0ea79a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquation.html#a5e5434dd97f523734bd6dc41db0ea79a">GetString</a> () const</td></tr>
@@ -458,7 +460,7 @@ template&lt;typename... VArgs&gt; </div>
 </div>
 </div>
 <a id="a8f7b01592a044ca4716e07b399753e41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f7b01592a044ca4716e07b399753e41">&#9670;&nbsp;</a></span>SetSymbols() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f7b01592a044ca4716e07b399753e41">&#9670;&nbsp;</a></span>SetSymbols() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -490,7 +492,7 @@ template&lt;typename... VArgs&gt; </div>
 </div>
 </div>
 <a id="a2091c8458c47786a28c02798bdac34da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2091c8458c47786a28c02798bdac34da">&#9670;&nbsp;</a></span>SetSymbols() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2091c8458c47786a28c02798bdac34da">&#9670;&nbsp;</a></span>SetSymbols() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -541,6 +543,39 @@ template&lt;typename... VArgs&gt; </div>
     <tr><td class="paramname">index</td><td>current index of symbol </td></tr>
     <tr><td class="paramname">val</td><td>value for symbol with index <code>index</code> </td></tr>
     <tr><td class="paramname">args</td><td>following arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a60a4e1509750aff0f41c334dfdad385e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60a4e1509750aff0f41c334dfdad385e">&#9670;&nbsp;</a></span>SetSymbols() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Equation::SetSymbols </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>values</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>setter for evaluation values for symbolic nodes using a vector of values</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">values</td><td>vector containing values for symbols </td></tr>
   </table>
   </dd>
 </dl>

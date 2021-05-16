@@ -81,67 +81,45 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdarg&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="format_8h.html#a1921b31564b858b45e94efff9e9d54bf">   20</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="format_8h.html#a1921b31564b858b45e94efff9e9d54bf">format</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* fmt, ...) {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> size     = 512;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">char</span>* buffer = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    buffer       = <span class="keyword">new</span> <span class="keywordtype">char</span>[size];</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    va_list vl;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    va_start(vl, fmt);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> nsize = vsnprintf(buffer, size, fmt, vl);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::string ret(buffer);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span>(size &lt;= nsize) { <span class="comment">//fail delete buffer and try again</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">delete</span>[] buffer;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        buffer = 0;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        buffer = <span class="keyword">new</span> <span class="keywordtype">char</span>[nsize - size + 2]; <span class="comment">//+1 for /0</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        nsize  = vsnprintf(buffer, (nsize - size) + 2, &amp;fmt[size], vl);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        ret += buffer;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    va_end(vl);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">delete</span>[] buffer;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="format_8h.html#a5f3e23cac814c84a5494842243316a4b">   45</a></span>&#160;std::string <a class="code" href="format_8h.html#a5f3e23cac814c84a5494842243316a4b">strip</a>(<span class="keyword">const</span> std::string&amp; in) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::string out = in;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">auto</span> space      = out.find(<span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">while</span>(space != std::string::npos) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">auto</span> backup = out.substr(0, space);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        backup += out.substr(space + 1, out.size() - backup.size());</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        out   = backup;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        space = out.find(<span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Out&gt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(<span class="keyword">const</span> std::string&amp; s, <span class="keywordtype">char</span> delim, Out result) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::istringstream iss(s);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::string item;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">while</span>(std::getline(iss, item, delim)) { *result++ = item; }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="format_8h.html#ae924c9b43cd7b086945003c09c294d2b">   82</a></span>&#160;std::vector&lt;std::string&gt; <a class="code" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(<span class="keyword">const</span> std::string&amp; s, <span class="keywordtype">char</span> delim) {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    std::vector&lt;std::string&gt; elems;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(s, delim, std::back_inserter(elems));</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">return</span> elems;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="format_8h.html#a1921b31564b858b45e94efff9e9d54bf">   21</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="format_8h.html#a1921b31564b858b45e94efff9e9d54bf">format</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* fmt, ...) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> size     = 512;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">char</span>* buffer = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    buffer       = <span class="keyword">new</span> <span class="keywordtype">char</span>[size];</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    va_list vl;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    va_start(vl, fmt);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> nsize = vsnprintf(buffer, size, fmt, vl);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::string ret(buffer);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span>(size &lt;= nsize) { <span class="comment">//fail delete buffer and try again</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">delete</span>[] buffer;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        buffer = 0;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        buffer = <span class="keyword">new</span> <span class="keywordtype">char</span>[nsize - size + 2]; <span class="comment">//+1 for /0</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        nsize  = vsnprintf(buffer, (nsize - size) + 2, &amp;fmt[size], vl);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        ret += buffer;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    va_end(vl);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">delete</span>[] buffer;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;std::string <a class="code" href="format_8h.html#a5f3e23cac814c84a5494842243316a4b">strip</a>(<span class="keyword">const</span> std::string&amp; in);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Out&gt;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> <a class="code" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(<span class="keyword">const</span> std::string&amp; s, <span class="keywordtype">char</span> delim, Out result);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;std::vector&lt;std::string&gt; <a class="code" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(<span class="keyword">const</span> std::string&amp; s, <span class="keywordtype">char</span> delim);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Out&gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> <a class="code" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(<span class="keyword">const</span> std::string&amp; s, Out result);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;std::vector&lt;std::string&gt; <a class="code" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(<span class="keyword">const</span> std::string&amp; s);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Out&gt;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="format_8h.html#a9f228a0aba90f49160a09ccde4133fa1">   95</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(<span class="keyword">const</span> std::string&amp; s, Out result) {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    std::istringstream iss(s);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> item : s) { *result++ = std::string(1, item); }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="format_8h.html#a63fc61cca71b8d9322df00cc0d07f9aa">  105</a></span>&#160;std::vector&lt;std::string&gt; <a class="code" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(<span class="keyword">const</span> std::string&amp; s) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    std::vector&lt;std::string&gt; elems;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(s, std::back_inserter(elems));</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> elems;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
-<div class="ttc" id="aformat_8h_html_a03529396588a5d4dac36c432989fdfaa"><div class="ttname"><a href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a></div><div class="ttdeci">void split(const std::string &amp;s, char delim, Out result)</div><div class="ttdef"><b>Definition:</b> format.h:70</div></div>
-<div class="ttc" id="aformat_8h_html_a1921b31564b858b45e94efff9e9d54bf"><div class="ttname"><a href="format_8h.html#a1921b31564b858b45e94efff9e9d54bf">format</a></div><div class="ttdeci">std::string format(const char *fmt,...)</div><div class="ttdef"><b>Definition:</b> format.h:20</div></div>
-<div class="ttc" id="aformat_8h_html_a5f3e23cac814c84a5494842243316a4b"><div class="ttname"><a href="format_8h.html#a5f3e23cac814c84a5494842243316a4b">strip</a></div><div class="ttdeci">std::string strip(const std::string &amp;in)</div><div class="ttdef"><b>Definition:</b> format.h:45</div></div>
+<div class="ttc" id="aformat_8h_html_a03529396588a5d4dac36c432989fdfaa"><div class="ttname"><a href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a></div><div class="ttdeci">void split(const std::string &amp;s, char delim, Out result)</div><div class="ttdef"><b>Definition:</b> format.cpp:18</div></div>
+<div class="ttc" id="aformat_8h_html_a1921b31564b858b45e94efff9e9d54bf"><div class="ttname"><a href="format_8h.html#a1921b31564b858b45e94efff9e9d54bf">format</a></div><div class="ttdeci">std::string format(const char *fmt,...)</div><div class="ttdef"><b>Definition:</b> format.h:21</div></div>
+<div class="ttc" id="aformat_8h_html_a5f3e23cac814c84a5494842243316a4b"><div class="ttname"><a href="format_8h.html#a5f3e23cac814c84a5494842243316a4b">strip</a></div><div class="ttdeci">std::string strip(const std::string &amp;in)</div><div class="ttdef"><b>Definition:</b> format.cpp:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

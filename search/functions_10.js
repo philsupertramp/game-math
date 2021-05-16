@@ -6,11 +6,11 @@ var searchData=
   ['setcolumn_409',['SetColumn',['../classMatrix.html#a2897f60a87af004b928da9e8d76eafaf',1,'Matrix']]],
   ['setrow_410',['SetRow',['../classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4',1,'Matrix']]],
   ['setseed_411',['SetSeed',['../classRandom.html#aa2d76b6a87c5642871c11e781f8f34b0',1,'Random']]],
-  ['setsymbols_412',['SetSymbols',['../classEquation.html#a2091c8458c47786a28c02798bdac34da',1,'Equation::SetSymbols(const int &amp;index, double val, VArgs... args)'],['../classEquation.html#a8f7b01592a044ca4716e07b399753e41',1,'Equation::SetSymbols([[maybe_unused]] const int &amp;index)']]],
+  ['setsymbols_412',['SetSymbols',['../classEquation.html#a2091c8458c47786a28c02798bdac34da',1,'Equation::SetSymbols(const int &amp;index, double val, VArgs... args)'],['../classEquation.html#a8f7b01592a044ca4716e07b399753e41',1,'Equation::SetSymbols([[maybe_unused]] const int &amp;index)'],['../classEquation.html#a60a4e1509750aff0f41c334dfdad385e',1,'Equation::SetSymbols(const std::vector&lt; double &gt; &amp;values)']]],
   ['sgd_413',['SGD',['../classSGD.html#a3894459b6b5dc9805ba83e04e6e4c8c3',1,'SGD']]],
   ['shuffledata_414',['shuffleData',['../classSGD.html#acbb20ecf594860dea201ca3d54da6217',1,'SGD']]],
-  ['split_415',['split',['../format_8h.html#a03529396588a5d4dac36c432989fdfaa',1,'split(const std::string &amp;s, char delim, Out result):&#160;format.h'],['../format_8h.html#ae924c9b43cd7b086945003c09c294d2b',1,'split(const std::string &amp;s, char delim):&#160;format.h'],['../format_8h.html#a9f228a0aba90f49160a09ccde4133fa1',1,'split(const std::string &amp;s, Out result):&#160;format.h'],['../format_8h.html#a63fc61cca71b8d9322df00cc0d07f9aa',1,'split(const std::string &amp;s):&#160;format.h']]],
-  ['strip_416',['strip',['../format_8h.html#a5f3e23cac814c84a5494842243316a4b',1,'format.h']]],
+  ['split_415',['split',['../format_8h.html#a03529396588a5d4dac36c432989fdfaa',1,'split(const std::string &amp;s, char delim, Out result):&#160;format.cpp'],['../format_8h.html#ae924c9b43cd7b086945003c09c294d2b',1,'split(const std::string &amp;s, char delim):&#160;format.cpp'],['../format_8h.html#a9f228a0aba90f49160a09ccde4133fa1',1,'split(const std::string &amp;s, Out result):&#160;format.cpp'],['../format_8h.html#a63fc61cca71b8d9322df00cc0d07f9aa',1,'split(const std::string &amp;s):&#160;format.cpp']]],
+  ['strip_416',['strip',['../format_8h.html#a5f3e23cac814c84a5494842243316a4b',1,'format.cpp']]],
   ['sumelements_417',['sumElements',['../classMatrix.html#aef471f0c0ecfb23415e67032ca8bce67',1,'Matrix']]],
   ['symbolic_418',['Symbolic',['../classSymbolic.html#ace735c93eb8e99448a0bee1f377ea248',1,'Symbolic::Symbolic(const std::string &amp;name)'],['../classSymbolic.html#a4d4dfbdc0bde87aa5a07ab3cf4f2ee85',1,'Symbolic::Symbolic(const Symbolic &amp;other)']]]
 ];

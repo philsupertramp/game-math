@@ -21,6 +21,8 @@ double \mbox{\hyperlink{classEquation_a418cac31627a2584a8e06615b1a0be24}{Evaluat
 \item 
 void \mbox{\hyperlink{classEquation_a8f7b01592a044ca4716e07b399753e41}{Set\+Symbols}} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const int \&index)
 \item 
+void \mbox{\hyperlink{classEquation_a60a4e1509750aff0f41c334dfdad385e}{Set\+Symbols}} (const std\+::vector$<$ double $>$ \&values)
+\item 
 bool \mbox{\hyperlink{classEquation_a7de002b470adb0c5e81324da7dc8355f}{Has\+Symbol}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ \&sym)
 \item 
 std\+::string \mbox{\hyperlink{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}{Get\+String}} () const
@@ -170,7 +172,7 @@ Add representation string into tree of passed node
 \mbox{\Hypertarget{classEquation_a8f7b01592a044ca4716e07b399753e41}\label{classEquation_a8f7b01592a044ca4716e07b399753e41}} 
 \index{Equation@{Equation}!SetSymbols@{SetSymbols}}
 \index{SetSymbols@{SetSymbols}!Equation@{Equation}}
-\doxysubsubsection{\texorpdfstring{SetSymbols()}{SetSymbols()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{SetSymbols()}{SetSymbols()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily void Equation\+::\+Set\+Symbols (\begin{DoxyParamCaption}\item[{\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]} \mbox{]} const int \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 empty method to stop va arg recursion 
@@ -181,7 +183,7 @@ empty method to stop va arg recursion
 \mbox{\Hypertarget{classEquation_a2091c8458c47786a28c02798bdac34da}\label{classEquation_a2091c8458c47786a28c02798bdac34da}} 
 \index{Equation@{Equation}!SetSymbols@{SetSymbols}}
 \index{SetSymbols@{SetSymbols}!Equation@{Equation}}
-\doxysubsubsection{\texorpdfstring{SetSymbols()}{SetSymbols()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{SetSymbols()}{SetSymbols()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily template$<$typename... VArgs$>$ \\
 void Equation\+::\+Set\+Symbols (\begin{DoxyParamCaption}\item[{const int \&}]{index,  }\item[{double}]{val,  }\item[{VArgs...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -197,6 +199,19 @@ var arg method to recursively set current values of symbols
 {\em val} & value for symbol with index {\ttfamily index} \\
 \hline
 {\em args} & following arguments \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEquation_a60a4e1509750aff0f41c334dfdad385e}\label{classEquation_a60a4e1509750aff0f41c334dfdad385e}} 
+\index{Equation@{Equation}!SetSymbols@{SetSymbols}}
+\index{SetSymbols@{SetSymbols}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{SetSymbols()}{SetSymbols()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Equation\+::\+Set\+Symbols (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+setter for evaluation values for symbolic nodes using a vector of values
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & vector containing values for symbols \\
 \hline
 \end{DoxyParams}
 
