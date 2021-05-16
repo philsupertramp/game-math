@@ -26,6 +26,8 @@ set(LIB_SOURCES
         include/math/mat/mat4.h
         include/math/utils.h
         include/math/Random.h
+        include/math/format.h
+        include/math/format.cpp
 )
 
 if(MATH_EXTENSIONS MATCHES "(numerics)")
@@ -57,6 +59,7 @@ if(MATH_EXTENSION MATCHES "(symb)")
         ${LIB_SOURCES}
 
         include/math/symb/Symbolic.h
+        include/math/symb/Symbolic.cpp
     )
 endif()
 if (MATH_EXTENSIONS MATCHES "(ds)")
