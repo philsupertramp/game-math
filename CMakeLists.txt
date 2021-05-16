@@ -52,6 +52,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/ode/odeBDF2.h
 
             include/math/numerics/analysis/SupportValues.h
+            include/math/numerics/analysis/NaturalSpline.h
             )
 endif()
 if(MATH_EXTENSION MATCHES "(symb)")

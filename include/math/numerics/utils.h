@@ -60,6 +60,17 @@ Matrix<double> ones(size_t rows, size_t columns = 1);
 Matrix<double> eye(size_t rows, size_t columns = 0);
 
 /**
+ * creates tri-diagonal-matrix with given values and dimensions
+ * @param rows row dimension
+ * @param columns column dimension
+ * @param left left/lower diagonal element value
+ * @param center diagonal element value
+ * @param right right/upper diagonal element value
+ * @return tri-diagonal-matrix
+ */
+Matrix<double> tridiag(size_t rows, size_t columns, double left, double center, double right);
+
+/**
  * Calculates the p=2-Norm for a given matrix
  *
  * \f[
@@ -72,3 +83,13 @@ Matrix<double> eye(size_t rows, size_t columns = 0);
  * @return 2-norm of given matrix
  */
 double norm(const Matrix<double>& in);
+
+
+
+/**
+ *
+ * @param validation
+ * @param x
+ * @return
+ */
+Matrix<size_t> nonzero(const std::function<bool(const double&)>& validation, const Matrix<double>& x);

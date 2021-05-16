@@ -18,11 +18,11 @@ struct PlotBoundary {
  */
 struct PlotAttributes {
     //! title label
-    const char* title;
+    char* title;
     //! x-axis label
-    const char* xAxis;
+    char* xAxis;
     //! y-axis label
-    const char* yAxis;
+    char* yAxis;
     //! point strength
     int pointStrength;
     //! line strength
@@ -45,14 +45,16 @@ public:
      * default constructor
      * @param title
      */
-    explicit Plot(const char* title = "") {
+    explicit Plot(const std::string& title = "") {
         dataFileName             = "line_plot_data.txt";
         plotTypeName             = "lines";
         attributes.pointStrength = 0;
         attributes.lineStrength  = 10;
         attributes.isStatPlot    = 0;
         attributes.color         = "#008080";
-        attributes.title         = title;
+        attributes.title = new char[title.size() + 1];
+        std::copy(title.begin(), title.end(), attributes.title);
+        attributes.title[title.size()] = '\0';
 
         // create file and empty it
         storageFile = fopen(dataFileName, "w");
@@ -64,19 +66,31 @@ public:
      * Setter for title label
      * @param name
      */
-    void title(const char* name) { attributes.title = name; }
+    void title(const std::string& title) {
+        attributes.title = new char[title.size() + 1];
+        std::copy(title.begin(), title.end(), attributes.title);
+        attributes.title[title.size()] = '\0';
+    }
 
     /**
      * Setter for x-axis label
      * @param name
      */
-    void xAxis(const char* name) { attributes.xAxis = name; }
+    void xAxis(const std::string& name) {
+        attributes.xAxis = new char[name.size() + 1];
+        std::copy(name.begin(), name.end(), attributes.xAxis);
+        attributes.xAxis[name.size()] = '\0';
+    }
 
     /**
      * Setter for y-axis label
      * @param name
      */
-    void yAxis(const char* name) { attributes.yAxis = name; }
+    void yAxis(const std::string& name) {
+        attributes.yAxis = new char[name.size() + 1];
+        std::copy(name.begin(), name.end(), attributes.yAxis);
+        attributes.yAxis[name.size()] = '\0';
+    }
 
     /**
      * setter for point size of plot data
@@ -96,7 +110,7 @@ public:
      * @param y
      * @param name
      */
-    void AddData(const Matrix<double>& x, const Matrix<double>& y, const char* name) {
+    void AddData(const Matrix<double>& x, const Matrix<double>& y, const std::string& name) {
         x.assertSize(y);
         AddData(HorizontalConcat(x, y), name);
     }
@@ -106,7 +120,7 @@ public:
      * @param mat
      * @param name
      */
-    void AddData(const Matrix<double>& mat, const char* name) {
+    void AddData(const Matrix<double>& mat, const std::string& name) {
         // calculate boundaries
         auto new_bX = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 0, 0));
         auto new_bY = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 1, 1));
@@ -137,7 +151,13 @@ public:
             fprintf(storageFile, "\n\n");
         }
         fclose(storageFile);
-        attributes.plotNames.push_back(name);
+
+        char* newName;
+        newName = new char[name.size() + 1];
+        std::copy(name.begin(), name.end(), newName);
+        newName[name.size()] = '\0';
+        attributes.plotNames.push_back(newName);
+
         numElements++;
     }
 

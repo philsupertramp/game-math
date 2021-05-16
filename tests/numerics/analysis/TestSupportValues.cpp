@@ -1,7 +1,6 @@
 #include "../../Test.h"
 
 #include <math/numerics/analysis/SupportValues.h>
-#include <math/visualization/Plot.h>
 
 class MonomBaseTestCase : public Test
 {
