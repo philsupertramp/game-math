@@ -1,0 +1,74 @@
+\hypertarget{classPolynomialBase}{}\doxysection{Polynomial\+Base Class Reference}
+\label{classPolynomialBase}\index{PolynomialBase@{PolynomialBase}}
+
+
+{\ttfamily \#include $<$Support\+Values.\+h$>$}
+
+Inheritance diagram for Polynomial\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPolynomialBase}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPolynomialBase_ae4ebc9c1138824e7d532cdd1497d6967}\label{classPolynomialBase_ae4ebc9c1138824e7d532cdd1497d6967}} 
+{\bfseries Polynomial\+Base} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, \mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Y)
+\item 
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPolynomialBase_a11f1b8db4593f99082a96d0e218b915d}{Evaluate}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&) const =0
+\item 
+virtual std\+::string \mbox{\hyperlink{classPolynomialBase_a7c5cff1055e525bd01ab24cf39bf9ed5}{Function}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPolynomialBase_ad949dc2b79d2291089f8cef06fda15e9}\label{classPolynomialBase_ad949dc2b79d2291089f8cef06fda15e9}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&ostr, const \mbox{\hyperlink{classPolynomialBase}{Polynomial\+Base}} \&base)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+function approximation and interpolation using support values
+
+see \href{https://wiki.godesteem.de/wiki/interpolation-and-approximation/}{\texttt{ https\+://wiki.\+godesteem.\+de/wiki/interpolation-\/and-\/approximation/}} Template class for polynomial base representation.
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classMonomBase}{Monom\+Base}}
+\item \mbox{\hyperlink{classLagrangeBase}{Lagrange\+Base}}
+\item \mbox{\hyperlink{classNewtonBase}{Newton\+Base}} 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPolynomialBase_a11f1b8db4593f99082a96d0e218b915d}\label{classPolynomialBase_a11f1b8db4593f99082a96d0e218b915d}} 
+\index{PolynomialBase@{PolynomialBase}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!PolynomialBase@{PolynomialBase}}
+\doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Polynomial\+Base\+::\+Evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Evaluate a given vector based on the approximation, computes p(x) for given x \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classNewtonBase_ab295b19eabdae37f87f71ff7ca3ea9f1}{Newton\+Base}}, \mbox{\hyperlink{classMonomBase_ac9a7f1914fb502273a6511d7c606012b}{Monom\+Base}}, and \mbox{\hyperlink{classLagrangeBase_a205a0fc11d0f666a418f34615dac6ad1}{Lagrange\+Base}}.
+
+\mbox{\Hypertarget{classPolynomialBase_a7c5cff1055e525bd01ab24cf39bf9ed5}\label{classPolynomialBase_a7c5cff1055e525bd01ab24cf39bf9ed5}} 
+\index{PolynomialBase@{PolynomialBase}!Function@{Function}}
+\index{Function@{Function}!PolynomialBase@{PolynomialBase}}
+\doxysubsubsection{\texorpdfstring{Function()}{Function()}}
+{\footnotesize\ttfamily virtual std\+::string Polynomial\+Base\+::\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+string representation of interpolated polynomial
+
+Don\textquotesingle{}t overthink this. simply return some kind of equation one can copy into wolframalpha and simplify \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classNewtonBase_ac7c02c3ac9dd2a752edb8529c53e47be}{Newton\+Base}}, \mbox{\hyperlink{classLagrangeBase_a8aedfef48106f6288e0a4883d17e6a00}{Lagrange\+Base}}, and \mbox{\hyperlink{classMonomBase_a4e86d536f746f544318c18c08c12b99f}{Monom\+Base}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/numerics/analysis/Support\+Values.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,80 @@
+\hypertarget{classNewtonBase}{}\doxysection{Newton\+Base Class Reference}
+\label{classNewtonBase}\index{NewtonBase@{NewtonBase}}
+
+
+{\ttfamily \#include $<$Support\+Values.\+h$>$}
+
+Inheritance diagram for Newton\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classNewtonBase}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNewtonBase_a789b7658f5c76f974e7425976b62f796}\label{classNewtonBase_a789b7658f5c76f974e7425976b62f796}} 
+{\bfseries Newton\+Base} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
+\item 
+virtual std\+::string \mbox{\hyperlink{classNewtonBase_ac7c02c3ac9dd2a752edb8529c53e47be}{Function}} () const override
+\item 
+\mbox{\Hypertarget{classNewtonBase_a6c1dab8ac618446f83aec81320c67c4e}\label{classNewtonBase_a6c1dab8ac618446f83aec81320c67c4e}} 
+double {\bfseries Get\+Coefficient} (size\+\_\+t index, const double \&x) const
+\item 
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classNewtonBase_ab295b19eabdae37f87f71ff7ca3ea9f1}{Evaluate}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x\+In) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNewtonBase_ad33933afa51a82891d615d2789b089b0}\label{classNewtonBase_ad33933afa51a82891d615d2789b089b0}} 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries b}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Newton-\/\+Base
+
+p(x) = \textbackslash{}sum\+\_\+\{i=0\}$^\wedge$\{n\} b\+\_\+i \textbackslash{}omega\+\_\+i(x) with
+
+b\+\_\+i = \textbackslash{}frac\{f\+\_\+\{\mbox{[}x\+\_\+\{r+1\}, ..., x\+\_\+s\mbox{]}\} -\/ f\+\_\+\{\mbox{[}x\+\_\+r, ..., x\+\_\+\{s-\/1\}\mbox{]}\}\}\{x\+\_\+s -\/ x\+\_\+r\} and
+
+\textbackslash{}omega\+\_\+i(x) = \textbackslash{}prod\+\_\+\{j=0\}$^\wedge$\{i-\/1\} (x -\/ x\+\_\+j), \textbackslash{}quad i = 1, \textbackslash{}dots n
+
+and \textbackslash{}omega\+\_\+0(x) = x\+\_\+0
+
+\href{https://wiki.godesteem.de/wiki/interpolation-and-approximation/\#Newton-Base}{\texttt{ https\+://wiki.\+godesteem.\+de/wiki/interpolation-\/and-\/approximation/\#\+Newton-\/\+Base}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNewtonBase_ab295b19eabdae37f87f71ff7ca3ea9f1}\label{classNewtonBase_ab295b19eabdae37f87f71ff7ca3ea9f1}} 
+\index{NewtonBase@{NewtonBase}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!NewtonBase@{NewtonBase}}
+\doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Newton\+Base\+::\+Evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Evaluate a given vector based on the approximation, computes p(x) for given x \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPolynomialBase_a11f1b8db4593f99082a96d0e218b915d}{Polynomial\+Base}}.
+
+\mbox{\Hypertarget{classNewtonBase_ac7c02c3ac9dd2a752edb8529c53e47be}\label{classNewtonBase_ac7c02c3ac9dd2a752edb8529c53e47be}} 
+\index{NewtonBase@{NewtonBase}!Function@{Function}}
+\index{Function@{Function}!NewtonBase@{NewtonBase}}
+\doxysubsubsection{\texorpdfstring{Function()}{Function()}}
+{\footnotesize\ttfamily virtual std\+::string Newton\+Base\+::\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+string representation of interpolated polynomial
+
+Don\textquotesingle{}t overthink this. simply return some kind of equation one can copy into wolframalpha and simplify \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPolynomialBase_a7c5cff1055e525bd01ab24cf39bf9ed5}{Polynomial\+Base}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/numerics/analysis/Support\+Values.\+h\end{DoxyCompactItemize}

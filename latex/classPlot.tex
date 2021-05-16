@@ -13,21 +13,21 @@ Inheritance diagram for Plot\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classPlot_aa82c1c0468301b22a625a1ba8e07316c}{Plot}} (const char $\ast$\mbox{\hyperlink{classPlot_ac8c296005218dc5afc125e26055e644a}{title}}=\char`\"{}\char`\"{})
+\mbox{\hyperlink{classPlot_ad5c4ae2e4201841f833c2d6968681c0a}{Plot}} (const std\+::string \&\mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}=\char`\"{}\char`\"{})
 \item 
-void \mbox{\hyperlink{classPlot_ac8c296005218dc5afc125e26055e644a}{title}} (const char $\ast$name)
+void \mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}} (const std\+::string \&title)
 \item 
-void \mbox{\hyperlink{classPlot_acefa0c10c3b238171872e4e47d36db29}{x\+Axis}} (const char $\ast$name)
+void \mbox{\hyperlink{classPlot_a71b26c829f6b3f4cf64957a3e323517f}{x\+Axis}} (const std\+::string \&name)
 \item 
-void \mbox{\hyperlink{classPlot_a56b869ca326f5b5e3a4529cd4cb5f612}{y\+Axis}} (const char $\ast$name)
+void \mbox{\hyperlink{classPlot_a56e462e8d1c707986dc1e4335a633b24}{y\+Axis}} (const std\+::string \&name)
 \item 
 void \mbox{\hyperlink{classPlot_ab1ca4b31fc51ed85c65f1c8fcf786134}{point\+Size}} (const int \&size)
 \item 
 void \mbox{\hyperlink{classPlot_a6030621e36e58f3119a7c81e4a9fbd31}{line\+Width}} (const int \&size)
 \item 
-void \mbox{\hyperlink{classPlot_a395e4ce0410a743fe55169521c13111b}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const char $\ast$name)
+void \mbox{\hyperlink{classPlot_adfb932cad17600935735be61d1dc7ebb}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const std\+::string \&name)
 \item 
-void \mbox{\hyperlink{classPlot_a14f56b76c8a5a351e18add8175a63781}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat, const char $\ast$name)
+void \mbox{\hyperlink{classPlot_a2901428d1da93f51e8eeda0ac9c10cc1}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat, const std\+::string \&name)
 \item 
 void \mbox{\hyperlink{classPlot_a7fec4279498c404d3d5b5b7a670b8584}{operator()}} () const
 \end{DoxyCompactItemize}
@@ -61,11 +61,11 @@ int \mbox{\hyperlink{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}{num\+Elements}
 Represents a data plot, using gnuplot 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classPlot_aa82c1c0468301b22a625a1ba8e07316c}\label{classPlot_aa82c1c0468301b22a625a1ba8e07316c}} 
+\mbox{\Hypertarget{classPlot_ad5c4ae2e4201841f833c2d6968681c0a}\label{classPlot_ad5c4ae2e4201841f833c2d6968681c0a}} 
 \index{Plot@{Plot}!Plot@{Plot}}
 \index{Plot@{Plot}!Plot@{Plot}}
 \doxysubsubsection{\texorpdfstring{Plot()}{Plot()}}
-{\footnotesize\ttfamily Plot\+::\+Plot (\begin{DoxyParamCaption}\item[{const char $\ast$}]{title = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+{\footnotesize\ttfamily Plot\+::\+Plot (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 default constructor 
 \begin{DoxyParams}{Parameters}
@@ -75,11 +75,11 @@ default constructor
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classPlot_a14f56b76c8a5a351e18add8175a63781}\label{classPlot_a14f56b76c8a5a351e18add8175a63781}} 
+\mbox{\Hypertarget{classPlot_a2901428d1da93f51e8eeda0ac9c10cc1}\label{classPlot_a2901428d1da93f51e8eeda0ac9c10cc1}} 
 \index{Plot@{Plot}!AddData@{AddData}}
 \index{AddData@{AddData}!Plot@{Plot}}
 \doxysubsubsection{\texorpdfstring{AddData()}{AddData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mat,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mat,  }\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Appends data to the storage file 
 \begin{DoxyParams}{Parameters}
@@ -88,11 +88,11 @@ Appends data to the storage file
 {\em name} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classPlot_a395e4ce0410a743fe55169521c13111b}\label{classPlot_a395e4ce0410a743fe55169521c13111b}} 
+\mbox{\Hypertarget{classPlot_adfb932cad17600935735be61d1dc7ebb}\label{classPlot_adfb932cad17600935735be61d1dc7ebb}} 
 \index{Plot@{Plot}!AddData@{AddData}}
 \index{AddData@{AddData}!Plot@{Plot}}
 \doxysubsubsection{\texorpdfstring{AddData()}{AddData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Helper to add pair-\/wise elements to plot context 
 \begin{DoxyParams}{Parameters}
@@ -131,33 +131,33 @@ setter for point size of plot data
 {\em size} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classPlot_ac8c296005218dc5afc125e26055e644a}\label{classPlot_ac8c296005218dc5afc125e26055e644a}} 
+\mbox{\Hypertarget{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}\label{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}} 
 \index{Plot@{Plot}!title@{title}}
 \index{title@{title}!Plot@{Plot}}
 \doxysubsubsection{\texorpdfstring{title()}{title()}}
-{\footnotesize\ttfamily void Plot\+::title (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Plot\+::title (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Setter for title label 
 \begin{DoxyParams}{Parameters}
 {\em name} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classPlot_acefa0c10c3b238171872e4e47d36db29}\label{classPlot_acefa0c10c3b238171872e4e47d36db29}} 
+\mbox{\Hypertarget{classPlot_a71b26c829f6b3f4cf64957a3e323517f}\label{classPlot_a71b26c829f6b3f4cf64957a3e323517f}} 
 \index{Plot@{Plot}!xAxis@{xAxis}}
 \index{xAxis@{xAxis}!Plot@{Plot}}
 \doxysubsubsection{\texorpdfstring{xAxis()}{xAxis()}}
-{\footnotesize\ttfamily void Plot\+::x\+Axis (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Plot\+::x\+Axis (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Setter for x-\/axis label 
 \begin{DoxyParams}{Parameters}
 {\em name} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classPlot_a56b869ca326f5b5e3a4529cd4cb5f612}\label{classPlot_a56b869ca326f5b5e3a4529cd4cb5f612}} 
+\mbox{\Hypertarget{classPlot_a56e462e8d1c707986dc1e4335a633b24}\label{classPlot_a56e462e8d1c707986dc1e4335a633b24}} 
 \index{Plot@{Plot}!yAxis@{yAxis}}
 \index{yAxis@{yAxis}!Plot@{Plot}}
 \doxysubsubsection{\texorpdfstring{yAxis()}{yAxis()}}
-{\footnotesize\ttfamily void Plot\+::y\+Axis (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Plot\+::y\+Axis (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Setter for y-\/axis label 
 \begin{DoxyParams}{Parameters}

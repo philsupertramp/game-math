@@ -103,8 +103,12 @@ Functions</h2></td></tr>
 <tr class="separator:a6c64c3880ee3e78a28478b382e7593b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2b3071fc3f2b2a1e903ceea3a9afa76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numerics_2utils_8h.html#af2b3071fc3f2b2a1e903ceea3a9afa76">eye</a> (size_t rows, size_t columns=0)</td></tr>
 <tr class="separator:af2b3071fc3f2b2a1e903ceea3a9afa76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce6285df9228a95fe0273a3705dc18a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numerics_2utils_8h.html#afce6285df9228a95fe0273a3705dc18a">tridiag</a> (size_t rows, size_t columns, double left, double center, double right)</td></tr>
+<tr class="separator:afce6285df9228a95fe0273a3705dc18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1a08a76ee49f8a9717e4aa127984987"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numerics_2utils_8h.html#aa1a08a76ee49f8a9717e4aa127984987">norm</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;in)</td></tr>
 <tr class="separator:aa1a08a76ee49f8a9717e4aa127984987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ab3b9258536337630027b3da3ca49a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numerics_2utils_8h.html#a6ab3b9258536337630027b3da3ca49a4">nonzero</a> (const std::function&lt; bool(const double &amp;)&gt; &amp;validation, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x)</td></tr>
+<tr class="separator:a6ab3b9258536337630027b3da3ca49a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Numerical helper methods.</p>
@@ -189,6 +193,42 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6ab3b9258536337630027b3da3ca49a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab3b9258536337630027b3da3ca49a4">&#9670;&nbsp;</a></span>nonzero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;size_t&gt; nonzero </td>
+          <td>(</td>
+          <td class="paramtype">const std::function&lt; bool(const double &amp;)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>validation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">validation</td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="aa1a08a76ee49f8a9717e4aa127984987"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa1a08a76ee49f8a9717e4aa127984987">&#9670;&nbsp;</a></span>norm()</h2>
 
@@ -252,6 +292,63 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>rows x columns-Matrix with 1 as each value </dd></dl>
+
+</div>
+</div>
+<a id="afce6285df9228a95fe0273a3705dc18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce6285df9228a95fe0273a3705dc18a">&#9670;&nbsp;</a></span>tridiag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; tridiag </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>columns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>creates tri-diagonal-matrix with given values and dimensions </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rows</td><td>row dimension </td></tr>
+    <tr><td class="paramname">columns</td><td>column dimension </td></tr>
+    <tr><td class="paramname">left</td><td>left/lower diagonal element value </td></tr>
+    <tr><td class="paramname">center</td><td>diagonal element value </td></tr>
+    <tr><td class="paramname">right</td><td>right/upper diagonal element value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>tri-diagonal-matrix </dd></dl>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xaxis_429',['xAxis',['../classPlot.html#acefa0c10c3b238171872e4e47d36db29',1,'Plot']]]
+  ['xaxis_455',['xAxis',['../classPlot.html#a71b26c829f6b3f4cf64957a3e323517f',1,'Plot']]]
 ];

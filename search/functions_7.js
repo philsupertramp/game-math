@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hadamardmulti_335',['HadamardMulti',['../classMatrix.html#a999e1548cd5930191ca75c6846348c20',1,'Matrix']]],
-  ['hassymbol_336',['HasSymbol',['../classEquation.html#a7de002b470adb0c5e81324da7dc8355f',1,'Equation']]],
-  ['horizontalconcat_337',['HorizontalConcat',['../classMatrix.html#a5b58a839f095a53cc6dd56fe58e2d4c2',1,'Matrix']]]
+  ['hadamardmulti_358',['HadamardMulti',['../classMatrix.html#a999e1548cd5930191ca75c6846348c20',1,'Matrix']]],
+  ['hassymbol_359',['HasSymbol',['../classEquation.html#a7de002b470adb0c5e81324da7dc8355f',1,'Equation']]],
+  ['horizontalconcat_360',['HorizontalConcat',['../classMatrix.html#a5b58a839f095a53cc6dd56fe58e2d4c2',1,'Matrix']]]
 ];

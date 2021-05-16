@@ -21,7 +21,11 @@
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_af2b3071fc3f2b2a1e903ceea3a9afa76}{eye}} (size\+\_\+t rows, size\+\_\+t columns=0)
 \item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_afce6285df9228a95fe0273a3705dc18a}{tridiag}} (size\+\_\+t rows, size\+\_\+t columns, double left, double center, double right)
+\item 
 double \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{numerics_2utils_8h_a6ab3b9258536337630027b3da3ca49a4}{nonzero}} (const std\+::function$<$ bool(const double \&)$>$ \&validation, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x)
 \end{DoxyCompactItemize}
 
 
@@ -65,6 +69,22 @@ generates a vector with equidistant values, \mbox{[}start\+:(end-\/start)/num\+\
 \begin{DoxyReturn}{Returns}
 vector of equidistant values from start to end 
 \end{DoxyReturn}
+\mbox{\Hypertarget{numerics_2utils_8h_a6ab3b9258536337630027b3da3ca49a4}\label{numerics_2utils_8h_a6ab3b9258536337630027b3da3ca49a4}} 
+\index{utils.h@{utils.h}!nonzero@{nonzero}}
+\index{nonzero@{nonzero}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{nonzero()}{nonzero()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$size\+\_\+t$>$ nonzero (\begin{DoxyParamCaption}\item[{const std\+::function$<$ bool(const double \&)$>$ \&}]{validation,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em validation} & \\
+\hline
+{\em x} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}\label{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}} 
 \index{utils.h@{utils.h}!norm@{norm}}
 \index{norm@{norm}!utils.h@{utils.h}}
@@ -100,6 +120,28 @@ Generates a matrix with each element = 1 for given size
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 rows x columns-\/\+Matrix with 1 as each value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{numerics_2utils_8h_afce6285df9228a95fe0273a3705dc18a}\label{numerics_2utils_8h_afce6285df9228a95fe0273a3705dc18a}} 
+\index{utils.h@{utils.h}!tridiag@{tridiag}}
+\index{tridiag@{tridiag}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{tridiag()}{tridiag()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ tridiag (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns,  }\item[{double}]{left,  }\item[{double}]{center,  }\item[{double}]{right }\end{DoxyParamCaption})}
+
+creates tri-\/diagonal-\/matrix with given values and dimensions 
+\begin{DoxyParams}{Parameters}
+{\em rows} & row dimension \\
+\hline
+{\em columns} & column dimension \\
+\hline
+{\em left} & left/lower diagonal element value \\
+\hline
+{\em center} & diagonal element value \\
+\hline
+{\em right} & right/upper diagonal element value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tri-\/diagonal-\/matrix 
 \end{DoxyReturn}
 \mbox{\Hypertarget{numerics_2utils_8h_a3aad6934b9b0b392e582eda4dbfd8070}\label{numerics_2utils_8h_a3aad6934b9b0b392e582eda4dbfd8070}} 
 \index{utils.h@{utils.h}!zeros@{zeros}}
