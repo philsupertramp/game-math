@@ -55,7 +55,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/analysis/NaturalSpline.h
             )
 endif()
-if(MATH_EXTENSION MATCHES "(symb)")
+if(MATH_EXTENSIONS MATCHES "(symb)")
     set(LIB_SOURCES
         ${LIB_SOURCES}
 
@@ -90,6 +90,16 @@ endif ()
 if (MATH_EXTENSIONS MATCHES "(vis)")
     set(LIB_SOURCES ${LIB_SOURCES}
             include/math/visualization/Plot.h
+        )
+endif ()
+if (MATH_EXTENSIONS MATCHES "(stat)")
+    set(LIB_SOURCES ${LIB_SOURCES}
+            include/math/statistics/Probability.h
+            include/math/statistics/Probability.cpp
+						include/math/statistics/Insurance.h
+						include/math/statistics/Insurance.cpp
+						include/math/statistics/Finance.h
+						include/math/statistics/Finance.cpp
         )
 endif ()
 
