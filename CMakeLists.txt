@@ -55,7 +55,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/analysis/NaturalSpline.h
             )
 endif()
-if(MATH_EXTENSIONS MATCHES "(symb)")
+if(MATH_EXTENSION MATCHES "(symb)")
     set(LIB_SOURCES
         ${LIB_SOURCES}
 
