@@ -60,7 +60,7 @@ if (MATH_EXTENSIONS MATCHES "(numerics)")
     add_test_source(numerics/analysis/TestNaturalSpline.cpp)
 endif()
 
-if(MATH_EXTENSIONS MATCHES "(symb)")
+if(MATH_EXTENSION MATCHES "(symb)")
     add_test_source(symb/TestSymbolic.cpp)
 endif()
 if (MATH_EXTENSIONS MATCHES "(vis)")
