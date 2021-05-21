@@ -11,11 +11,8 @@ class ProbabilityTestCase
 		y = y.Transpose();
 
 		auto out = lm(x, y);
-    std::cout.precision(17);
-    std::cout << out.beta_0 <<"," <<out.beta_1<<std::endl;
-
-		AssertEqual(out.beta_0, -0.00313362);
-		AssertEqual(out.beta_1, 15.3734);
+		AssertEqual(out.beta_0, -0.0031336232606394786);
+		AssertEqual(out.beta_1, 15.373424692163542);
 
 		return true;
 	}
