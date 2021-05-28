@@ -15,7 +15,7 @@ public:
     //! initialize weights with random state
     int randomState;
     //! algorithmic object to represent fitting algorithm
-    SGD* sgd;
+    SGD* sgd = nullptr;
 
 private:
     /**

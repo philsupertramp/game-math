@@ -9,6 +9,7 @@
 #include <cstdarg>
 #include <sstream>
 #include <string>
+#include <vector>
 
 /**
  * missing string printf
@@ -42,18 +43,7 @@ inline std::string format(const char* fmt, ...) {
  * @param in string which may contain whitespaces
  * @return input string without whitespaces
  */
-std::string strip(const std::string& in) {
-    std::string out = in;
-    auto space      = out.find(' ');
-    while(space != std::string::npos) {
-        auto backup = out.substr(0, space);
-        backup += out.substr(space + 1, out.size() - backup.size());
-        out   = backup;
-        space = out.find(' ');
-    }
-    return out;
-}
-
+std::string strip(const std::string& in);
 
 /**
  * from https://stackoverflow.com/a/236803
@@ -67,11 +57,8 @@ std::string strip(const std::string& in) {
  * @param result
  */
 template<typename Out>
-void split(const std::string& s, char delim, Out result) {
-    std::istringstream iss(s);
-    std::string item;
-    while(std::getline(iss, item, delim)) { *result++ = item; }
-}
+void split(const std::string& s, char delim, Out result);
+
 
 /**
  * Helper method to simplify call to split
@@ -79,11 +66,7 @@ void split(const std::string& s, char delim, Out result) {
  * @param delim character to split by
  * @return vector of strings split' by delim
  */
-std::vector<std::string> split(const std::string& s, char delim) {
-    std::vector<std::string> elems;
-    split(s, delim, std::back_inserter(elems));
-    return elems;
-}
+std::vector<std::string> split(const std::string& s, char delim);
 
 /**
  * Split after each character
@@ -92,19 +75,14 @@ std::vector<std::string> split(const std::string& s, char delim) {
  * @param result container to write results in
  */
 template<typename Out>
-void split(const std::string& s, Out result) {
-    std::istringstream iss(s);
-    for(auto item : s) { *result++ = std::string(1, item); }
-}
+void split(const std::string& s, Out result);
+
 
 /**
  * Helper method to simplify call to split
  * @param s string to split
  * @return split vector of strings
  */
-std::vector<std::string> split(const std::string& s) {
-    std::vector<std::string> elems;
-    split(s, std::back_inserter(elems));
-    return elems;
-}
+std::vector<std::string> split(const std::string& s);
+
 /** ----------------------------------------------- **/

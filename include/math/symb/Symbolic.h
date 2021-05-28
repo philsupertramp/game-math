@@ -4,6 +4,12 @@
 #include <regex>
 #include <sstream>
 #include <utility>
+#include <cassert>
+#include <functional>
+#include <cmath>
+#include <iostream>
+
+#include "../format.h"
 
 
 /**
@@ -59,20 +65,7 @@ enum OperatorValue : char {
  * @param type
  * @return regex for given type
  */
-std::regex GetRegex(MathNodeType type) {
-    static const std::regex symbol_regex("([-]?[A-Za-z_]{1}[A-Za-z0-9_]*)");
-    static const std::regex number_regex("([-]?[0-9]+)");
-    static const std::regex parentheses_regex("\\(([\\(\\)+\\-*\\/\\^A-Za-z\\s0-9]*)\\)");
-    static const std::regex operator_regex("([\\-+*/\\^]+)");
-    static const std::regex any_regex("([\\x00-\\x7F]+)");
-    switch(type) {
-        case NodeType_Symbolic: return symbol_regex;
-        case NodeType_Numeric: return number_regex;
-        case NodeType_Parentheses: return parentheses_regex;
-        case NodeType_Any: return any_regex;
-        default: return operator_regex;
-    }
-}
+std::regex GetRegex(MathNodeType type);
 
 /**
  * Base node type of Abstract syntax tree implementation
@@ -222,42 +215,7 @@ public:
  * @param type
  * @return
  */
-std::shared_ptr<Operator> GenerateOperator(OperatorType type) {
-    switch(type) {
-        case TYPE_ADDITION:
-            return std::make_shared<Operator>(
-            "+", [](double a, double b) { return a + b; }, OperatorPriority::OPClassLine);
-        case TYPE_SUBTRACTION:
-            return std::make_shared<Operator>(
-            "-", [](double a, double b) { return a - b; }, OperatorPriority::OPClassLine);
-        case TYPE_MULTIPLICATION:
-            return std::make_shared<Operator>(
-            "*", [](double a, double b) { return a * b; }, OperatorPriority::OPClassDot);
-        case TYPE_DIVISION:
-            return std::make_shared<Operator>(
-            "/", [](double a, double b) { return a / b; }, OperatorPriority::OPClassDot);
-        case TYPE_POWER:
-            return std::make_shared<Operator>(
-            "^", [](double a, double b) { return pow(a, b); }, OperatorPriority::OPClassDot);
-        case TYPE_PARENTHESES_OPEN:
-            return std::make_shared<Operator>(
-            "(",
-            []([[maybe_unused]] double a, [[maybe_unused]] double b) { return 0.0; },
-            OperatorPriority::OPClassParentheses);
-        case TYPE_PARENTHESES_CLOSE:
-            return std::make_shared<Operator>(
-            ")",
-            []([[maybe_unused]] double a, [[maybe_unused]] double b) { return 0.0; },
-            OperatorPriority::OPClassParentheses);
-    }
-    return std::make_shared<Operator>(
-    "",
-    []([[maybe_unused]] double a, [[maybe_unused]] double b) {
-        std::cerr << "Operator not found.\n" << std::flush;
-        return -1;
-    },
-    OperatorPriority::OPClassUnknown);
-}
+std::shared_ptr<Operator> GenerateOperator(OperatorType type);
 
 /**
  * Representation of operand
@@ -411,6 +369,20 @@ public:
      * @param index
      */
     void SetSymbols([[maybe_unused]] const int& index) { }
+
+
+		/**
+		 * setter for evaluation values for symbolic nodes using a vector of values
+		 *
+		 * @param values vector containing values for symbols
+		 */
+		void SetSymbols(const std::vector<double> &values){
+			assert(values.size() == symbols.size());
+
+			for(size_t i = 0; i < symbols.size(); ++i){
+				symbols[i]->evaluationValue = values[i];
+			}
+		}
 
     /**
      * Helper to check for existence of symbolic

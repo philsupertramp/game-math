@@ -46,7 +46,7 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
 ### cmake:
 in your `CMakeLists.txt` add
 ```cmake
-link_libraries(math)
+link_libraries(math-lib)
 include_directories(math/include)
 ```
 
