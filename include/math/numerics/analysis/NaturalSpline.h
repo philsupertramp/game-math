@@ -7,11 +7,20 @@
 class NaturalSpline
 {
     Matrix<double> XI, YI;
+    bool isEquidistant = true;
 public:
     NaturalSpline(const Matrix<double>& X, const Matrix<double>& Y)
-    : XI(X), YI(Y)
     {
-
+	bool isRows = X.rows() > X.columns();
+	size_t xRows = isRows : X.rows() ? X.columns();
+	double h = X(isRows ? 1 : 0, isRows ? 0 : 1) - X(0, 0);
+        for(size_t i = 0; i < xRows - 1; ++i){
+	    if(X(isRows ? i+1 : 0, isRows ? 0 : i+1)-X(isRows ? i : 0, isRows ? 0 : i) != h){
+                isEquidistant = false;
+	    }
+	}
+	XI(X);
+	YI(Y);
     }
     /**
      * Auswertung des kubischen Polynoms s_j
