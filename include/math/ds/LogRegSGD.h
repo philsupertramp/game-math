@@ -87,8 +87,7 @@ public:
             auto weightFun = [this](const Matrix<double>& x, const Matrix<double>& y) {
                 return this->update_weights(x, y);
             };
-            auto netInputFun = [this](const Matrix<double>& x) { return this->netInput(x); };
-            sgd              = new SGD(eta, n_iter, shuffle, weightFun, netInputFun);
+            sgd = new SGD(eta, n_iter, shuffle, weightFun, [this](const Matrix<double>& x) { return this->netInput(x); });
         }
         initialize_weights(X.columns());
         sgd->fit(X, y, weights);

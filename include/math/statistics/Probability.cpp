@@ -64,14 +64,14 @@ double cov(const Matrix<double>& x, const Matrix<double>& y){
   double mean_val = mean(x) * mean(y);
   return (1./(size-1) * sum) - (size/(size-1.) * mean_val);
 }
-double var(const Matrix<double> x){
+double var(const Matrix<double> &x){
   double x_mean = mean(x);
   double sum = 0.;
 	bool useRows = x.rows() > x.columns();
 	size_t size = useRows?x.rows():x.columns();
   for(int i=0; i<size; i++)
     sum = sum + pow(x(useRows?i:0, useRows?0:i), 2);
-  return abs((1./(size-1) * sum) - (size/(size-1.) * pow(mean(x), 2)));
+  return abs((1./(size-1) * sum) - (size/(size-1.) * pow(x_mean, 2)));
 }
 
 /** probability computation **/

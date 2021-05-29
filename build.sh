@@ -61,7 +61,7 @@ function test_command() {
   # Run test suite with or without coverage
   if [ ${WITH_COVERAGE:-0} == 1 ]; then
 	  COMMAND="${COMMAND} --coverage"
-    lcov -c -i -d . --rc lcov_branch_coverage=1 -o ../base.info --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\*;
+    lcov -c -i -d . --rc lcov_branch_coverage=1 -o ../base.info --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\* --include \*/math/statistics/\*;
   fi
   if [ "${SPECIFIC_TEST:-0}" != "0" ]; then
       COMMAND="${COMMAND} -R ${SPECIFIC_TEST}"

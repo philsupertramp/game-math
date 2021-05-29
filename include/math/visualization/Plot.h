@@ -13,7 +13,8 @@ const char* GetDataTypeName(DataTypes type){
     switch(type) {
         case LINE: return "lines";// linetype 1 linewidth 2";
         case DOTS: return "points";// pointtype 5 pointsize 1.5";
-        case NONE: return "none";
+        case NONE:
+        default: return "none";
     }
 }
 

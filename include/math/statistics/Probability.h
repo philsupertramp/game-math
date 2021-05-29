@@ -22,7 +22,7 @@ double max(const Matrix<double>&);
 double mean(const Matrix<double>&);
 double norm(const Matrix<double>&, P_NORM);
 double cov(const Matrix<double>&, const Matrix<double>&);
-double var(const Matrix<double>);
+double var(const Matrix<double>&);
 
 /** probability computation **/
 LinearModel lm(const Matrix<double>&, const Matrix<double>&);
