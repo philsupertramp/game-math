@@ -6,21 +6,21 @@
 
 class NaturalSpline
 {
-    Matrix<double> XI, YI;
+    Matrix<double> XI, YI, Tx, Ty;
     bool isEquidistant = true;
 public:
     NaturalSpline(const Matrix<double>& X, const Matrix<double>& Y)
     {
-	bool isRows = X.rows() > X.columns();
-	size_t xRows = isRows : X.rows() ? X.columns();
-	double h = X(isRows ? 1 : 0, isRows ? 0 : 1) - X(0, 0);
-        for(size_t i = 0; i < xRows - 1; ++i){
-	    if(X(isRows ? i+1 : 0, isRows ? 0 : i+1)-X(isRows ? i : 0, isRows ? 0 : i) != h){
-                isEquidistant = false;
-	    }
-	}
-	XI(X);
-	YI(Y);
+        bool isRows = X.rows() > X.columns();
+        XI = isRows ? X : X.Transpose();
+        YI = isRows ? Y : Y.Transpose();
+        double h = fabs(XI(1, 0) - XI(0, 0));
+            for(size_t i = 0; i < XI.rows() - 1; ++i){
+                auto dist = fabs(XI(i + 1, 0) - XI(i, 0));
+                if((dist - h) > EPS){
+                    isEquidistant = false;
+                }
+        }
     }
     /**
      * Auswertung des kubischen Polynoms s_j
@@ -50,19 +50,43 @@ public:
         return mi;
     }
 
-    Matrix<double> operator()(const Matrix<double>& xi){
+    void SetAbstractionValue(const Matrix<double>& tx, const Matrix<double>& ty){
+        Tx = tx;
+        Ty = ty;
+    }
+
+    Matrix<double> operator()(const Matrix<double>& xi) {
+        if(isEquidistant) return calculateEquidistant(xi);
+        else {
+            Matrix<double> ti;
+            if(Tx.rows() > 0) { ti = Tx; }
+            else {
+                ti = linspace(min(xi), max(xi), XI.rows()).Transpose();
+            }
+            auto s_x = NaturalSpline(ti, XI)(xi);
+
+            if(Ty.rows() > 0) { ti = Ty; }
+
+            auto s_y = NaturalSpline(ti, YI)(xi);
+
+            return HorizontalConcat(s_x, s_y);
+        }
+    }
+
+    Matrix<double> calculateEquidistant(const Matrix<double>& xi){
+        auto innerXI = xi.rows() > xi.columns() ? xi : xi.Transpose();
         auto mi = curv(XI(1, 0)-XI(0, 0));
-        auto y = zeros(xi.rows(), xi.columns());
+        auto y = zeros(innerXI.rows(), innerXI.columns());
         // Werte die splines elementweise aus, für alle
         // elemente xi für i = 0, ..., n-1
         for(size_t j = 0; j < XI.rows() - 1; ++j){
             // alle elemente in x, die zwischen x_j und x_{j+1} liegen
             auto xl = XI(j, 0);
             auto xr = XI(j+1, 0);
-            auto ind = nonzero([xl, xr](const double& x){return bool((xl <= x) && (x < xr));}, xi).Transpose();
+            auto ind = nonzero([xl, xr](const double& x){return bool((xl <= x) && (x <= xr));}, innerXI).Transpose();
             // werden mit dem j-ten spline ausgewertet
             for(size_t i = 0; i < ind.rows(); ++i){
-                y(ind(i, 0), 0) += eval_spline_j(xi(ind(i, 0), 0), j, mi);
+                y(ind(i, 0), 0) += eval_spline_j(innerXI(ind(i, 0), 0), j, mi);
             }
         }
         return y;
