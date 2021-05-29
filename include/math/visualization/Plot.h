@@ -193,7 +193,7 @@ public:
         numElements++;
     }
 
-    /**
+    virtual /**
      * execution using call operator
      */
     void operator()() const {
@@ -335,7 +335,7 @@ public:
         attributes.is3D = true;
     }
 
-    void operator()() const {
+    void operator()() const override {
         FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
         fprintf(gnuplot, "%s", plotType);
