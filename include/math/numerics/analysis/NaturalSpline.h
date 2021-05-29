@@ -6,9 +6,14 @@
 
 class NaturalSpline
 {
-    Matrix<double> XI, YI, Tx, Ty;
+    Matrix<double> XI, YI, ZI, Tx, Ty;
     bool isEquidistant = true;
 public:
+    /**
+     *
+     * @param X
+     * @param Y
+     */
     NaturalSpline(const Matrix<double>& X, const Matrix<double>& Y)
     {
         bool isRows = X.rows() > X.columns();
@@ -20,6 +25,27 @@ public:
                 if((dist - h) > EPS){
                     isEquidistant = false;
                 }
+        }
+    }
+
+    /**
+     * 3D approximation using a b=2 b-spline
+     * @param X
+     * @param Y
+     * @param Z
+     */
+    NaturalSpline(const Matrix<double>& X, const Matrix<double>& Y, const Matrix<double>& Z)
+    {
+        bool isRows = X.rows() > X.columns();
+        XI = isRows ? X : X.Transpose();
+        YI = isRows ? Y : Y.Transpose();
+        ZI = isRows ? Z : Z.Transpose();
+        double h = fabs(XI(1, 0) - XI(0, 0));
+        for(size_t i = 0; i < XI.rows() - 1; ++i){
+            auto dist = fabs(XI(i + 1, 0) - XI(i, 0));
+            if((dist - h) > EPS){
+                isEquidistant = false;
+            }
         }
     }
     /**
@@ -50,29 +76,46 @@ public:
         return mi;
     }
 
+    /**
+     *
+     * @param tx
+     * @param ty
+     */
     void SetAbstractionValue(const Matrix<double>& tx, const Matrix<double>& ty){
         Tx = tx;
         Ty = ty;
     }
 
+    /**
+     *
+     * @param xi
+     * @return
+     */
     Matrix<double> operator()(const Matrix<double>& xi) {
-        if(isEquidistant) return calculateEquidistant(xi);
+        if(isEquidistant && ZI.rows() == 0) return calculateEquidistant(xi);
         else {
             Matrix<double> ti;
             if(Tx.rows() > 0) { ti = Tx; }
             else {
                 ti = linspace(min(xi), max(xi), XI.rows()).Transpose();
             }
-            auto s_x = NaturalSpline(ti, XI)(xi);
+            auto s = NaturalSpline(ti, XI)(xi);
 
-            if(Ty.rows() > 0) { ti = Ty; }
-
-            auto s_y = NaturalSpline(ti, YI)(xi);
-
-            return HorizontalConcat(s_x, s_y);
+            if(YI.rows() > 0) {
+                s = s.HorizontalConcat(NaturalSpline(ti, YI)(xi));
+            }
+            if(ZI.rows() > 0) {
+                s = s.HorizontalConcat(NaturalSpline(ti, ZI)(xi));
+            }
+            return s;
         }
     }
 
+    /**
+     *
+     * @param xi
+     * @return
+     */
     Matrix<double> calculateEquidistant(const Matrix<double>& xi){
         auto innerXI = xi.rows() > xi.columns() ? xi : xi.Transpose();
         auto mi = curv(XI(1, 0)-XI(0, 0));

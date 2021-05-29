@@ -46,6 +46,8 @@ struct PlotAttributes {
     int pointStrength;
     //! line strength
     int lineStrength;
+    //! signalizes 3D plot
+    bool is3D = false;
     //! identifier for statistical plots for value comparison
     unsigned int isStatPlot;
     //! color used to plot elements
@@ -142,7 +144,7 @@ public:
      * @param name
      * @param dataTypeName
      */
-    void AddData(const Matrix<double>& mat, const std::string& name, DataTypes dataTypeName = DataTypes::NONE) {
+    void AddData(const Matrix<double>& mat, const std::string& name, DataTypes dataTypeName = DataTypes::NONE, int dimensions = 2) {
         // calculate boundaries
         auto new_bX = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 0, 0));
         auto new_bY = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 1, 1));
@@ -161,14 +163,14 @@ public:
             return;
         }
         fprintf(storageFile, "# ");
-        fprintf(storageFile, dataFileName);
+        fprintf(storageFile, "%s", dataFileName);
         fprintf(storageFile, "\n");
 
-        for(size_t i = 0; i < mat.columns(); i += 2) {
-            fprintf(storageFile, "# X Y\n");
+        for(size_t i = 0; i < mat.columns(); i += dimensions) {
+            fprintf(storageFile, "# X Y Z\n");
             for(size_t j = 0; j < mat.rows(); ++j) {
-                fprintf(storageFile, "%g ", mat(j, i));
-                fprintf(storageFile, "%g\n", mat(j, i + 1));
+                for(int k = 0; k < dimensions; ++k) { fprintf(storageFile, "%g ", mat(j, i+k)); }
+                fprintf(storageFile, "\n");
             }
             fprintf(storageFile, "\n\n");
         }
@@ -198,7 +200,7 @@ public:
         FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
         for(int i = 0; i < numElements; ++i) {
-            fprintf(gnuplot, i == 0 ? "plot " : "");
+            fprintf(gnuplot, i == 0 ? plotType : "");
             fprintf(gnuplot, "'%s'", dataFileName);
             auto index = attributes.plotIndices[i];
             if(index.stop != -1) {
@@ -235,6 +237,23 @@ private:
     }
 
 
+protected:
+    //! data storage file name
+    const char* dataFileName;
+    //! representation of plot type
+    const char* plotTypeName;
+    //! representation of plot type
+    const char* plotType = "plot";
+    //! data storage file
+    FILE* storageFile         = nullptr;
+    //! attributes for plot
+    PlotAttributes attributes = {};
+    //! number elements within the plot
+    int numElements           = 0;
+    //! x-axis boundaries for the resulting plot
+    PlotBoundary bY{};
+    //! y-axis boundaries for the resulting plot
+    PlotBoundary bX{};
     /**
      * helper to write attributes to gnuplot context
      * @param gnuplot
@@ -252,25 +271,8 @@ private:
         }
         if(attributes.xAxis) { fprintf(gnuplot, "set xlabel '%s'\n", attributes.xAxis); }
         if(attributes.yAxis) { fprintf(gnuplot, "set ylabel '%s'\n", attributes.yAxis); }
-
+        if(attributes.is3D) { fprintf(gnuplot, "set hidden3d\nset dgrid3d 30,30 qnorm 1\n"); }
     }
-
-
-protected:
-    //! data storage file name
-    const char* dataFileName;
-    //! representation of plot type
-    const char* plotTypeName;
-    //! data storage file
-    FILE* storageFile         = nullptr;
-    //! attributes for plot
-    PlotAttributes attributes = {};
-    //! number elements within the plot
-    int numElements           = 0;
-    //! x-axis boundaries for the resulting plot
-    PlotBoundary bY{};
-    //! y-axis boundaries for the resulting plot
-    PlotBoundary bX{};
 };
 
 /**
@@ -319,5 +321,27 @@ public:
         Matrix<double> X = linspace(start, end, size);
         auto Y = X.Apply(Function);
         Plot::AddData(X, Y, name);
+    }
+};
+
+class SurfacePlot
+: public Plot
+{
+public:
+    SurfacePlot(const std::string& title = "")
+    : Plot(title)
+    {
+        plotType = "splot";
+        attributes.is3D = true;
+    }
+
+    void operator()() const {
+        FILE* gnuplot = popen("gnuplot --persist", "w");
+        writeAttributes(gnuplot);
+        fprintf(gnuplot, "%s", plotType);
+        fprintf(gnuplot, "'%s' with lines", dataFileName);
+        fprintf(gnuplot, " title '%s'", attributes.plotNames[0]);
+        fprintf(gnuplot, "\n");
+        fclose(gnuplot);
     }
 };

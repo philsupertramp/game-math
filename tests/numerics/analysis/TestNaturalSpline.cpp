@@ -329,10 +329,42 @@ class NaturalSplineTestCase : public Test
         AssertEqual(expected, out);
         return true;
     }
+
+    bool TestSpline3D(){
+
+        auto tschebyscheff = [](double start, double end, const Matrix<double>& xi){
+          return xi.Apply([start, end](double x){return (((end-start) * (x+1))/2)+start;});
+        };
+        auto runge = [](const Matrix<double>& in){
+          return in.Apply([](double a){return 1 / (1 + a * a);});
+        };
+        auto realX = linspace(-5, 5, 15);
+        auto xi    = tschebyscheff(-5, 5, realX).Transpose();
+        auto yi    = runge(xi);
+        auto zi    = runge(yi);
+        auto x     = linspace(min(xi), max(xi), 33).Transpose();
+        NaturalSpline spline(xi, yi, zi);
+        auto out = spline(x);
+
+        SurfacePlot plot("3D Test");
+        plot.AddData(out, "Test output", DataTypes::LINE, 3);
+        plot();
+
+//        double a = 0.75;
+//        int n = 56;
+//
+//        auto r = [a](const Matrix<double>& phi) { return a * phi; };
+//
+//        auto phi = linspace(0, 3 * 360, n);
+//        xi = r(phi).HadamardMulti(phi.Apply([](double in){return cos(in); }));
+//        yi = r(phi).HadamardMulti(phi.Apply([](double in){return sin(in); }));
+        return true;
+    }
 public:
     virtual void run() override {
         TestNaturalSpline();
         TestNotEquidistantNaturalSpline();
+        TestSpline3D();
     }
 };
 
