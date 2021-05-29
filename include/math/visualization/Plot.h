@@ -3,6 +3,20 @@
 #include <utility>
 #include "../Matrix.h"
 
+enum DataTypes {
+    LINE = 1,
+    DOTS = 2,
+    NONE = -1,
+};
+
+const char* GetDataTypeName(DataTypes type){
+    switch(type) {
+        case LINE: return "lines";// linetype 1 linewidth 2";
+        case DOTS: return "points";// pointtype 5 pointsize 1.5";
+        case NONE: return "none";
+    }
+}
+
 /**
  * representation of min-max boundaries for a axis
  */
@@ -11,6 +25,11 @@ struct PlotBoundary {
     double min;
     //! max boundary value
     double max;
+};
+
+struct PlotIndex {
+    int start = -1;
+    int stop = -1;
 };
 
 /**
@@ -33,6 +52,8 @@ struct PlotAttributes {
     const char* color;
     //! vector representing data series
     std::vector<const char*> plotNames;
+    std::vector<const char*> plotTypes;
+    std::vector<PlotIndex> plotIndices;
 };
 
 /**
@@ -110,17 +131,18 @@ public:
      * @param y
      * @param name
      */
-    void AddData(const Matrix<double>& x, const Matrix<double>& y, const std::string& name) {
+    void AddData(const Matrix<double>& x, const Matrix<double>& y, const std::string& name, DataTypes dataType = DataTypes::NONE) {
         x.assertSize(y);
-        AddData(HorizontalConcat(x, y), name);
+        AddData(HorizontalConcat(x, y), name, dataType);
     }
 
     /**
      * Appends data to the storage file
      * @param mat
      * @param name
+     * @param dataTypeName
      */
-    void AddData(const Matrix<double>& mat, const std::string& name) {
+    void AddData(const Matrix<double>& mat, const std::string& name, DataTypes dataTypeName = DataTypes::NONE) {
         // calculate boundaries
         auto new_bX = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 0, 0));
         auto new_bY = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 1, 1));
@@ -156,7 +178,15 @@ public:
         newName = new char[name.size() + 1];
         std::copy(name.begin(), name.end(), newName);
         newName[name.size()] = '\0';
+        PlotIndex index = {0, -1};
+        if(!attributes.plotIndices.empty()){
+            index = attributes.plotIndices[attributes.plotIndices.size()-1];
+            index.start++;
+        }
+
+        attributes.plotIndices.push_back(index);
         attributes.plotNames.push_back(newName);
+        attributes.plotTypes.push_back(dataTypeName == DataTypes::NONE ? plotTypeName : GetDataTypeName(dataTypeName));
 
         numElements++;
     }
@@ -169,10 +199,15 @@ public:
         writeAttributes(gnuplot);
         for(int i = 0; i < numElements; ++i) {
             fprintf(gnuplot, i == 0 ? "plot " : "");
-            fprintf(gnuplot, "'");
-            fprintf(gnuplot, "%s", dataFileName);
-            fprintf(gnuplot, "' index %d with ", i);
-            fprintf(gnuplot, "%s", plotTypeName);
+            fprintf(gnuplot, "'%s'", dataFileName);
+            auto index = attributes.plotIndices[i];
+            if(index.stop != -1) {
+                fprintf(gnuplot, " index %d:%d with ", index.start, index.stop);
+            }
+            else {
+                fprintf(gnuplot, " index %d with ", index.start);
+            }
+            fprintf(gnuplot, "%s", attributes.plotTypes[i]);
             fprintf(gnuplot, " title '%s'", attributes.plotNames[i]);
             fprintf(gnuplot, i == (numElements - 1) ? "\n" : ",");
         }
@@ -217,6 +252,7 @@ private:
         }
         if(attributes.xAxis) { fprintf(gnuplot, "set xlabel '%s'\n", attributes.xAxis); }
         if(attributes.yAxis) { fprintf(gnuplot, "set ylabel '%s'\n", attributes.yAxis); }
+
     }
 
 
