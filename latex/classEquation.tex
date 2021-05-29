@@ -13,9 +13,9 @@
 \item 
 void \mbox{\hyperlink{classEquation_a6e0f72992a59285ca1d9548f65172a91}{Print}} ()
 \item 
-{\footnotesize template$<$typename... VArgs$>$ }\\double \mbox{\hyperlink{classEquation_a5759756df61aef67f485f027ee59b1a0}{Evaluate}} (VArgs... args)
+{\footnotesize template$<$typename... VArgs$>$ }\\double \mbox{\hyperlink{classEquation_af91f693d12ca7d29c2a375fa8f11cc4a}{operator()}} (VArgs... args)
 \item 
-double \mbox{\hyperlink{classEquation_a418cac31627a2584a8e06615b1a0be24}{Evaluate}} ()
+double \mbox{\hyperlink{classEquation_a0e0b17082557327b17bdda0a485d0394}{operator()}} ()
 \item 
 {\footnotesize template$<$typename... VArgs$>$ }\\void \mbox{\hyperlink{classEquation_a2091c8458c47786a28c02798bdac34da}{Set\+Symbols}} (const int \&index, double val, VArgs... args)
 \item 
@@ -70,39 +70,6 @@ default constructor for string representation
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classEquation_a418cac31627a2584a8e06615b1a0be24}\label{classEquation_a418cac31627a2584a8e06615b1a0be24}} 
-\index{Equation@{Equation}!Evaluate@{Evaluate}}
-\index{Evaluate@{Evaluate}!Equation@{Equation}}
-\doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily double Equation\+::\+Evaluate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-Evaluate equation with preset values \begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\mbox{\Hypertarget{classEquation_a5759756df61aef67f485f027ee59b1a0}\label{classEquation_a5759756df61aef67f485f027ee59b1a0}} 
-\index{Equation@{Equation}!Evaluate@{Evaluate}}
-\index{Evaluate@{Evaluate}!Equation@{Equation}}
-\doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$typename... VArgs$>$ \\
-double Equation\+::\+Evaluate (\begin{DoxyParamCaption}\item[{VArgs...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-var arg method to evaluate equation using variable amount of symbols, yet if called with parameters, all parameters need to be present.
-
-{\bfseries{Needs to be called with number symbols as number parameters}}
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em VArgs} & variable amount of arguments \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em args} & arguments passed for symbols, with index representing index of symbol in symbols \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Evaluation of equation 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classEquation_af24aea49f8fddde7c8ac1157bc99c636}\label{classEquation_af24aea49f8fddde7c8ac1157bc99c636}} 
 \index{Equation@{Equation}!GetDepth@{GetDepth}}
 \index{GetDepth@{GetDepth}!Equation@{Equation}}
@@ -141,6 +108,39 @@ Helper to check for existence of symbolic
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 sym already registered? 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEquation_a0e0b17082557327b17bdda0a485d0394}\label{classEquation_a0e0b17082557327b17bdda0a485d0394}} 
+\index{Equation@{Equation}!operator()@{operator()}}
+\index{operator()@{operator()}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Equation\+::operator() (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evaluate equation with preset values \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEquation_af91f693d12ca7d29c2a375fa8f11cc4a}\label{classEquation_af91f693d12ca7d29c2a375fa8f11cc4a}} 
+\index{Equation@{Equation}!operator()@{operator()}}
+\index{operator()@{operator()}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename... VArgs$>$ \\
+double Equation\+::operator() (\begin{DoxyParamCaption}\item[{VArgs...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+var arg method to evaluate equation using variable amount of symbols, yet if called with parameters, all parameters need to be present.
+
+{\bfseries{Needs to be called with number symbols as number parameters}}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em VArgs} & variable amount of arguments \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & arguments passed for symbols, with index representing index of symbol in symbols \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Evaluation of equation 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classEquation_a6e0f72992a59285ca1d9548f65172a91}\label{classEquation_a6e0f72992a59285ca1d9548f65172a91}} 
 \index{Equation@{Equation}!Print@{Print}}

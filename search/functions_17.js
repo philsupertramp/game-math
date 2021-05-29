@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['_7emat2_459',['~mat2',['../structmat2.html#a221acc89f9f55571a6c4614ad055e5c6',1,'mat2']]],
-  ['_7emat3_460',['~mat3',['../structmat3.html#ab0e1ea37f7dd2db765ae834502267b73',1,'mat3']]],
-  ['_7emat4_461',['~mat4',['../structmat4.html#af219b6950330e081ef19a02db696173c',1,'mat4']]],
-  ['_7ematrix_462',['~Matrix',['../classMatrix.html#a91aa704de674203e96aece9e1955ccd3',1,'Matrix']]]
+  ['zeros_472',['zeros',['../numerics_2utils_8h.html#a3aad6934b9b0b392e582eda4dbfd8070',1,'utils.cpp']]],
+  ['zerosv_473',['zerosV',['../numerics_2utils_8h.html#a39df225669a531266ed2c16531359108',1,'utils.cpp']]]
 ];

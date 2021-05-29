@@ -87,11 +87,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a35fa8e029070c8117fd30850fdd4a2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e0f72992a59285ca1d9548f65172a91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquation.html#a6e0f72992a59285ca1d9548f65172a91">Print</a> ()</td></tr>
 <tr class="separator:a6e0f72992a59285ca1d9548f65172a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5759756df61aef67f485f027ee59b1a0"><td class="memTemplParams" colspan="2">template&lt;typename... VArgs&gt; </td></tr>
-<tr class="memitem:a5759756df61aef67f485f027ee59b1a0"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classEquation.html#a5759756df61aef67f485f027ee59b1a0">Evaluate</a> (VArgs... args)</td></tr>
-<tr class="separator:a5759756df61aef67f485f027ee59b1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a418cac31627a2584a8e06615b1a0be24"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquation.html#a418cac31627a2584a8e06615b1a0be24">Evaluate</a> ()</td></tr>
-<tr class="separator:a418cac31627a2584a8e06615b1a0be24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af91f693d12ca7d29c2a375fa8f11cc4a"><td class="memTemplParams" colspan="2">template&lt;typename... VArgs&gt; </td></tr>
+<tr class="memitem:af91f693d12ca7d29c2a375fa8f11cc4a"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classEquation.html#af91f693d12ca7d29c2a375fa8f11cc4a">operator()</a> (VArgs... args)</td></tr>
+<tr class="separator:af91f693d12ca7d29c2a375fa8f11cc4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e0b17082557327b17bdda0a485d0394"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquation.html#a0e0b17082557327b17bdda0a485d0394">operator()</a> ()</td></tr>
+<tr class="separator:a0e0b17082557327b17bdda0a485d0394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2091c8458c47786a28c02798bdac34da"><td class="memTemplParams" colspan="2">template&lt;typename... VArgs&gt; </td></tr>
 <tr class="memitem:a2091c8458c47786a28c02798bdac34da"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classEquation.html#a2091c8458c47786a28c02798bdac34da">SetSymbols</a> (const int &amp;index, double val, VArgs... args)</td></tr>
 <tr class="separator:a2091c8458c47786a28c02798bdac34da"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,75 +185,6 @@ std::shared_ptr&lt; <a class="el" href="classMathNode.html">MathNode</a> &gt;&#1
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a418cac31627a2584a8e06615b1a0be24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a418cac31627a2584a8e06615b1a0be24">&#9670;&nbsp;</a></span>Evaluate() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Equation::Evaluate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Evaluate equation with preset values </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-</div>
-</div>
-<a id="a5759756df61aef67f485f027ee59b1a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5759756df61aef67f485f027ee59b1a0">&#9670;&nbsp;</a></span>Evaluate() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename... VArgs&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Equation::Evaluate </td>
-          <td>(</td>
-          <td class="paramtype">VArgs...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>var arg method to evaluate equation using variable amount of symbols, yet if called with parameters, all parameters need to be present.</p>
-<p><b>Needs to be called with number symbols as number parameters</b></p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">VArgs</td><td>variable amount of arguments </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">args</td><td>arguments passed for symbols, with index representing index of symbol in symbols </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Evaluation of equation </dd></dl>
-
-</div>
-</div>
 <a id="af24aea49f8fddde7c8ac1157bc99c636"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af24aea49f8fddde7c8ac1157bc99c636">&#9670;&nbsp;</a></span>GetDepth()</h2>
 
@@ -354,6 +285,75 @@ template&lt;typename... VArgs&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sym already registered? </dd></dl>
+
+</div>
+</div>
+<a id="a0e0b17082557327b17bdda0a485d0394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e0b17082557327b17bdda0a485d0394">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Equation::operator() </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Evaluate equation with preset values </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="af91f693d12ca7d29c2a375fa8f11cc4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af91f693d12ca7d29c2a375fa8f11cc4a">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... VArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Equation::operator() </td>
+          <td>(</td>
+          <td class="paramtype">VArgs...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>var arg method to evaluate equation using variable amount of symbols, yet if called with parameters, all parameters need to be present.</p>
+<p><b>Needs to be called with number symbols as number parameters</b></p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">VArgs</td><td>variable amount of arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>arguments passed for symbols, with index representing index of symbol in symbols </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Evaluation of equation </dd></dl>
 
 </div>
 </div>

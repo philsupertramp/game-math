@@ -70,6 +70,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classPlot-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -86,6 +87,7 @@ Inheritance diagram for Plot:</div>
   <map id="Plot_map" name="Plot_map">
 <area href="classFunctionPlot.html" alt="FunctionPlot" shape="rect" coords="0,56,82,80"/>
 <area href="classScatterPlot.html" alt="ScatterPlot" shape="rect" coords="92,56,174,80"/>
+<area href="classSurfacePlot.html" alt="SurfacePlot" shape="rect" coords="184,56,266,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -103,12 +105,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab1ca4b31fc51ed85c65f1c8fcf786134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6030621e36e58f3119a7c81e4a9fbd31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a6030621e36e58f3119a7c81e4a9fbd31">lineWidth</a> (const int &amp;size)</td></tr>
 <tr class="separator:a6030621e36e58f3119a7c81e4a9fbd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfb932cad17600935735be61d1dc7ebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#adfb932cad17600935735be61d1dc7ebb">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, const std::string &amp;name)</td></tr>
-<tr class="separator:adfb932cad17600935735be61d1dc7ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2901428d1da93f51e8eeda0ac9c10cc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a2901428d1da93f51e8eeda0ac9c10cc1">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mat, const std::string &amp;name)</td></tr>
-<tr class="separator:a2901428d1da93f51e8eeda0ac9c10cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fec4279498c404d3d5b5b7a670b8584"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a7fec4279498c404d3d5b5b7a670b8584">operator()</a> () const</td></tr>
-<tr class="separator:a7fec4279498c404d3d5b5b7a670b8584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad08d9746d9372ce9c14c042e12cb0a45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, const std::string &amp;name, DataTypes dataType=DataTypes::NONE)</td></tr>
+<tr class="separator:ad08d9746d9372ce9c14c042e12cb0a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44d1cd30b39263da1e8aa2d7db625bbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a44d1cd30b39263da1e8aa2d7db625bbd">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mat, const std::string &amp;name, DataTypes dataTypeName=DataTypes::NONE, int dimensions=2)</td></tr>
+<tr class="separator:a44d1cd30b39263da1e8aa2d7db625bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa0e8f10d7a0d4bd2b90037ec4ca3029"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#afa0e8f10d7a0d4bd2b90037ec4ca3029">operator()</a> () const</td></tr>
+<tr class="separator:afa0e8f10d7a0d4bd2b90037ec4ca3029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a9bfd80c27c96636efaaec19b2d2b4b13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a9bfd80c27c96636efaaec19b2d2b4b13">writeAttributes</a> (FILE *gnuplot) const</td></tr>
+<tr class="separator:a9bfd80c27c96636efaaec19b2d2b4b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -120,6 +127,10 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a84d0108c396f7665f228340fce807992">plotTypeName</a></td></tr>
 <tr class="memdesc:a84d0108c396f7665f228340fce807992"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of plot type <br /></td></tr>
 <tr class="separator:a84d0108c396f7665f228340fce807992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77875f7b918ccd9a43f72b189b2e102d"><td class="memItemLeft" align="right" valign="top"><a id="a77875f7b918ccd9a43f72b189b2e102d"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a77875f7b918ccd9a43f72b189b2e102d">plotType</a> = &quot;plot&quot;</td></tr>
+<tr class="memdesc:a77875f7b918ccd9a43f72b189b2e102d"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of plot type <br /></td></tr>
+<tr class="separator:a77875f7b918ccd9a43f72b189b2e102d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80885621943f0e082328be034f1478f3"><td class="memItemLeft" align="right" valign="top"><a id="a80885621943f0e082328be034f1478f3"></a>
 FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a80885621943f0e082328be034f1478f3">storageFile</a> = nullptr</td></tr>
 <tr class="memdesc:a80885621943f0e082328be034f1478f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">data storage file <br /></td></tr>
@@ -177,8 +188,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2901428d1da93f51e8eeda0ac9c10cc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2901428d1da93f51e8eeda0ac9c10cc1">&#9670;&nbsp;</a></span>AddData() <span class="overload">[1/2]</span></h2>
+<a id="a44d1cd30b39263da1e8aa2d7db625bbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44d1cd30b39263da1e8aa2d7db625bbd">&#9670;&nbsp;</a></span>AddData() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +207,19 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DataTypes&#160;</td>
+          <td class="paramname"><em>dataTypeName</em> = <code>DataTypes::NONE</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dimensions</em> = <code>2</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -214,14 +237,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   <table class="params">
     <tr><td class="paramname">mat</td><td></td></tr>
     <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">dataTypeName</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="adfb932cad17600935735be61d1dc7ebb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfb932cad17600935735be61d1dc7ebb">&#9670;&nbsp;</a></span>AddData() <span class="overload">[2/2]</span></h2>
+<a id="ad08d9746d9372ce9c14c042e12cb0a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad08d9746d9372ce9c14c042e12cb0a45">&#9670;&nbsp;</a></span>AddData() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -245,7 +269,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DataTypes&#160;</td>
+          <td class="paramname"><em>dataType</em> = <code>DataTypes::NONE</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -302,8 +332,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
-<a id="a7fec4279498c404d3d5b5b7a670b8584"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fec4279498c404d3d5b5b7a670b8584">&#9670;&nbsp;</a></span>operator()()</h2>
+<a id="afa0e8f10d7a0d4bd2b90037ec4ca3029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa0e8f10d7a0d4bd2b90037ec4ca3029">&#9670;&nbsp;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -312,7 +342,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Plot::operator() </td>
+          <td class="memname">virtual void Plot::operator() </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -320,11 +350,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>execution using call operator </p>
+
+<p>Reimplemented in <a class="el" href="classSurfacePlot.html#aa040cc2c1301dc37cb942a80647cde95">SurfacePlot</a>.</p>
 
 </div>
 </div>
@@ -386,6 +418,38 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <p>Setter for title label </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9bfd80c27c96636efaaec19b2d2b4b13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bfd80c27c96636efaaec19b2d2b4b13">&#9670;&nbsp;</a></span>writeAttributes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plot::writeAttributes </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>gnuplot</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>helper to write attributes to gnuplot context </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gnuplot</td><td></td></tr>
   </table>
   </dd>
 </dl>

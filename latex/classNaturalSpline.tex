@@ -3,19 +3,68 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classNaturalSpline_a35c18f31d8914ba305d56ddf125ad755}\label{classNaturalSpline_a35c18f31d8914ba305d56ddf125ad755}} 
-{\bfseries Natural\+Spline} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Y)
+\mbox{\hyperlink{classNaturalSpline_a35c18f31d8914ba305d56ddf125ad755}{Natural\+Spline}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Y)
+\item 
+\mbox{\hyperlink{classNaturalSpline_a520b9a13a25551b6e8338931e6952088}{Natural\+Spline}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Y, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Z)
 \item 
 double \mbox{\hyperlink{classNaturalSpline_a960a7e042a5a22439136b5186e0bec2a}{eval\+\_\+spline\+\_\+j}} (double x\+\_\+act, size\+\_\+t j, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mi)
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classNaturalSpline_af3f8549e6a81617008b4b9af1e2e8c91}{curv}} (double h)
 \item 
-\mbox{\Hypertarget{classNaturalSpline_ae37703126fa8c835b50860f306f15d87}\label{classNaturalSpline_ae37703126fa8c835b50860f306f15d87}} 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries operator()} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&xi)
+void \mbox{\hyperlink{classNaturalSpline_af480f3e66a64956fa63f92ebc2ce377b}{Set\+Abstraction\+Value}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&tx, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&ty)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classNaturalSpline_ae37703126fa8c835b50860f306f15d87}{operator()}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&xi)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classNaturalSpline_a4c734c569e9c734b35ff64a8a2d86245}{calculate\+Equidistant}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&xi)
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNaturalSpline_a35c18f31d8914ba305d56ddf125ad755}\label{classNaturalSpline_a35c18f31d8914ba305d56ddf125ad755}} 
+\index{NaturalSpline@{NaturalSpline}!NaturalSpline@{NaturalSpline}}
+\index{NaturalSpline@{NaturalSpline}!NaturalSpline@{NaturalSpline}}
+\doxysubsubsection{\texorpdfstring{NaturalSpline()}{NaturalSpline()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Natural\+Spline\+::\+Natural\+Spline (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{Y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em X} & \\
+\hline
+{\em Y} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNaturalSpline_a520b9a13a25551b6e8338931e6952088}\label{classNaturalSpline_a520b9a13a25551b6e8338931e6952088}} 
+\index{NaturalSpline@{NaturalSpline}!NaturalSpline@{NaturalSpline}}
+\index{NaturalSpline@{NaturalSpline}!NaturalSpline@{NaturalSpline}}
+\doxysubsubsection{\texorpdfstring{NaturalSpline()}{NaturalSpline()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Natural\+Spline\+::\+Natural\+Spline (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{Y,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{Z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+3D approximation using a b=2 b-\/spline 
+\begin{DoxyParams}{Parameters}
+{\em X} & \\
+\hline
+{\em Y} & \\
+\hline
+{\em Z} & \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNaturalSpline_a4c734c569e9c734b35ff64a8a2d86245}\label{classNaturalSpline_a4c734c569e9c734b35ff64a8a2d86245}} 
+\index{NaturalSpline@{NaturalSpline}!calculateEquidistant@{calculateEquidistant}}
+\index{calculateEquidistant@{calculateEquidistant}!NaturalSpline@{NaturalSpline}}
+\doxysubsubsection{\texorpdfstring{calculateEquidistant()}{calculateEquidistant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Natural\+Spline\+::calculate\+Equidistant (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{xi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em xi} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{classNaturalSpline_af3f8549e6a81617008b4b9af1e2e8c91}\label{classNaturalSpline_af3f8549e6a81617008b4b9af1e2e8c91}} 
 \index{NaturalSpline@{NaturalSpline}!curv@{curv}}
 \index{curv@{curv}!NaturalSpline@{NaturalSpline}}
@@ -39,6 +88,33 @@ Berechnung der zweiten Ableitungen an den Knoten
 Auswertung des kubischen Polynoms s\+\_\+j \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classNaturalSpline_ae37703126fa8c835b50860f306f15d87}\label{classNaturalSpline_ae37703126fa8c835b50860f306f15d87}} 
+\index{NaturalSpline@{NaturalSpline}!operator()@{operator()}}
+\index{operator()@{operator()}!NaturalSpline@{NaturalSpline}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Natural\+Spline\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{xi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em xi} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNaturalSpline_af480f3e66a64956fa63f92ebc2ce377b}\label{classNaturalSpline_af480f3e66a64956fa63f92ebc2ce377b}} 
+\index{NaturalSpline@{NaturalSpline}!SetAbstractionValue@{SetAbstractionValue}}
+\index{SetAbstractionValue@{SetAbstractionValue}!NaturalSpline@{NaturalSpline}}
+\doxysubsubsection{\texorpdfstring{SetAbstractionValue()}{SetAbstractionValue()}}
+{\footnotesize\ttfamily void Natural\+Spline\+::\+Set\+Abstraction\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{tx,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ty }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx} & \\
+\hline
+{\em ty} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
