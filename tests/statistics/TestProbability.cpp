@@ -52,6 +52,23 @@ class ProbabilityTestCase : public Test
     bool TestLikelihood() { return true; }
 
 
+    bool TestRegression() {
+        Matrix<double> A = { { -1, 0, 3, 7, 4, 6, 10 } };
+        auto out         = Regression(A.Transpose());
+
+        Matrix<double> expected = { { -0.7857142857142847,
+                                      0.8571428571428577,
+                                      2.5,
+                                      4.142857142857142,
+                                      5.785714285714285,
+                                      7.428571428571427,
+                                      9.07142857142857 } };
+
+        AssertEqual(out, expected.Transpose());
+
+        return true;
+    }
+
 public:
     virtual void run() override {
         TestRound();
@@ -64,6 +81,7 @@ public:
         TestCoefficientOfDetermination();
         TestGetExponent();
         TestLikelihood();
+        TestRegression();
     }
 };
 

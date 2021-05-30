@@ -111,6 +111,15 @@ double coefficientOfDetermination(const Matrix<double>& y, const Matrix<double>&
 double likelihood(const Matrix<double>&);
 
 /**
+ * Calculates regression for given values a, mapped onto
+ * points $$P(i, a_i)$$
+ * @param A vector of y-values
+ * @return
+ */
+Matrix<double> Regression(const Matrix<double>& A);
+
+
+/**
  * \example statistics/TestProbability.cpp
  * This is an example on how to use the Porbability.h file.
  */

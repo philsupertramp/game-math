@@ -1,4 +1,6 @@
 #include "Probability.h"
+#include "../numerics/lin_alg/gaussSeidel.h"
+#include "../numerics/utils.h"
 
 
 /** regular helpers **/
@@ -103,4 +105,15 @@ double likelihood(const Matrix<double>& vec) {
     for(int i = 0; i < vec.rows(); ++i) {
         //vec->_e[i];
     }
+}
+
+Matrix<double> Regression(const Matrix<double>& a) {
+    int size             = a.rows() > a.columns() ? a.rows() : a.columns();
+    auto u1              = linspace(1, size, size).Transpose();
+    auto u2              = ones(size, 1);
+    Matrix<double> right = { { (a.Transpose() * u1)(0, 0) }, { (a.Transpose() * u2)(0, 0) } };
+    Matrix<double> left  = { { (u1.Transpose() * u1)(0, 0), (u1.Transpose() * u2)(0, 0) },
+                            { (u1.Transpose() * u2)(0, 0), (u2.Transpose() * u2)(0, 0) } };
+    auto res             = gaussSeidel(left, right);
+    return res(1, 0) * ones(size, 1) + u1 * res(0, 0);
 }
