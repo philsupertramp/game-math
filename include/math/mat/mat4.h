@@ -343,3 +343,9 @@ std::ostream& operator<<(std::ostream& out, const mat4<U>& mat) {
         << mat[3][0] << ", " << mat[3][1] << ", " << mat[3][2] << ", " << mat[3][3] << "\n]\n"; // clang-format on
     return out;
 }
+
+/**
+ * \example mat/TestMat4.cpp
+ * This is an example on how to use the mat4.h file.
+ *
+ */

@@ -12,7 +12,7 @@ BDF(2) ;)
 
 ## /analysis/
 
-Contains `SupportValues.h` and `NaturalSpline.h`  
+Contains `SupportValues.h` and `Spline.h`  
 both methods to interpolate a function by given support values.  
 
 Famous example by runge  

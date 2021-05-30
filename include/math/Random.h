@@ -82,3 +82,7 @@ public:
         return vec4<T>(Get(), Get(), Get(), Get());
     }
 };
+/**
+ * \example TestRandom.cpp
+ * This is an example on how to use the Random class.
+ */

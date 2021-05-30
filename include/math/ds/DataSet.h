@@ -20,11 +20,11 @@ struct Set {
     //! expected output data
     Matrix<double> Output;
     //! number of input elements
-    size_t InputCount  = 0;
+    size_t InputCount = 0;
     //! number of output elements
     size_t OutputCount = 0;
     //! number of input-output pairs
-    size_t count       = 0;
+    size_t count = 0;
 
     /**
      * default constructor
@@ -33,8 +33,8 @@ struct Set {
 
     /**
      * initialization constructor, just sets input and output dimensions
-     * @param inputCount
-     * @param outputCount
+     * @param inputCount number input elements
+     * @param outputCount number output elements
      */
     Set(size_t inputCount, size_t outputCount) {
         InputCount  = inputCount;
@@ -43,9 +43,9 @@ struct Set {
 
     /**
      * Constructor which immediately reads a given set file
-     * @param fileName
-     * @param inputCount
-     * @param outputCount
+     * @param fileName file name to read from
+     * @param inputCount number input elements
+     * @param outputCount number output elements
      */
     Set(const char* fileName, size_t inputCount, size_t outputCount) {
         InputCount  = inputCount;
@@ -102,7 +102,7 @@ struct Set {
 
     /**
      * Generates batch of given size based on inputs and outputs
-     * @param batchSize
+     * @param batchSize number elements per batch
      * @return
      */
     [[nodiscard]] Set GetBatch(int batchSize) const {
@@ -197,9 +197,9 @@ class DataSet
 public:
     /**
      * regular constructor
-     * @param filePath
-     * @param inputCount
-     * @param outputCount
+     * @param filePath path with dataset data files
+     * @param inputCount number input elements
+     * @param outputCount number output elements
      */
     DataSet(const char* filePath, size_t inputCount, size_t outputCount)
         : InputCount(inputCount)
@@ -210,8 +210,8 @@ public:
 
     /**
      * initialization constructor, initializes required structures by given dimensions
-     * @param inputCount
-     * @param outputCount
+     * @param inputCount number input elements
+     * @param outputCount number output elements
      */
     DataSet(size_t inputCount, size_t outputCount)
         : InputCount(inputCount)
@@ -221,7 +221,7 @@ public:
         , Test(inputCount, outputCount) { }
 
     /**
-     *
+     * interface definition, does nothing here
      * @param filePath
      */
     virtual void PrepareDirectory([[maybe_unused]] const char* filePath) { }
@@ -240,13 +240,13 @@ public:
     Set Test;
 
     //! number of epochs while training
-    int maxEpoch         = 1000;
+    int maxEpoch = 1000;
     //! threshold for loss to prevent over-fitting
     double stopThreshold = 0.001;
     //! learning rate
-    double eta           = 0.0051;
+    double eta = 0.0051;
     //! number of elements per batch
-    int batchSize        = 5;
+    int batchSize = 5;
     //! use verbose output during fitting
     bool verbose = false;
 };

@@ -1,5 +1,5 @@
 #include "../../Test.h"
-#include <math/numerics.h>
+#include <math/numerics/ode/ODESolver.h>
 
 
 class ODEExplicitEulerTestCase : public Test

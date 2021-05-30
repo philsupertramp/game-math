@@ -1,19 +1,31 @@
 #pragma once
 
-#include <utility>
 #include "../Matrix.h"
+#include <utility>
 
+/**
+ * data type enum to display a specific dataset
+ */
 enum DataTypes {
+    //! Creates line data
     LINE = 1,
+    //! Creates dot data
     DOTS = 2,
+    //! Unknown data type
     NONE = -1,
 };
 
-const char* GetDataTypeName(DataTypes type){
+/**
+ * Getter for name strings of types
+ * @param type type to get string representation of
+ * @return string representation of type
+ */
+const char* GetDataTypeName(DataTypes type) {
     switch(type) {
-        case LINE: return "lines";// linetype 1 linewidth 2";
-        case DOTS: return "points";// pointtype 5 pointsize 1.5";
-        case NONE: return "none";
+        case LINE: return "lines";  // linetype 1 linewidth 2";
+        case DOTS: return "points"; // pointtype 5 pointsize 1.5";
+        case NONE:
+        default: return "none";
     }
 }
 
@@ -27,8 +39,13 @@ struct PlotBoundary {
     double max;
 };
 
+/**
+ * Index representation of a plot dataset
+ */
 struct PlotIndex {
+    //! start index
     int start = -1;
+    //! end index
     int stop = -1;
 };
 
@@ -54,19 +71,32 @@ struct PlotAttributes {
     const char* color;
     //! vector representing data series
     std::vector<const char*> plotNames;
+    //! vector representing data series types
     std::vector<const char*> plotTypes;
+    //! vector containing dataset indices in the storage file
     std::vector<PlotIndex> plotIndices;
 };
 
 /**
- * Represents a data plot, using gnuplot
+ * Represents a data plot, using gnuplot.
+ *
+ * Add data using the AddData methods. After you are done, call the plot to display the results.
+ *
+ *
+ * ===============
+ * Examples:
+ *
+ *  Plot plot("My plot");
+ *  plot.AddData({{1, 2}, {2, 3}}, "Some points", DataType::POINT);
+ *  plot();
  */
 class Plot
 {
 public:
     /**
-     * default constructor
-     * @param title
+     * default constructor.
+     * Prepares context for adding data.
+     * @param title desired title for plot
      */
     explicit Plot(const std::string& title = "") {
         dataFileName             = "line_plot_data.txt";
@@ -75,7 +105,7 @@ public:
         attributes.lineStrength  = 10;
         attributes.isStatPlot    = 0;
         attributes.color         = "#008080";
-        attributes.title = new char[title.size() + 1];
+        attributes.title         = new char[title.size() + 1];
         std::copy(title.begin(), title.end(), attributes.title);
         attributes.title[title.size()] = '\0';
 
@@ -87,7 +117,7 @@ public:
 
     /**
      * Setter for title label
-     * @param name
+     * @param title desired plot title
      */
     void title(const std::string& title) {
         attributes.title = new char[title.size() + 1];
@@ -97,7 +127,7 @@ public:
 
     /**
      * Setter for x-axis label
-     * @param name
+     * @param name desired label name
      */
     void xAxis(const std::string& name) {
         attributes.xAxis = new char[name.size() + 1];
@@ -107,7 +137,7 @@ public:
 
     /**
      * Setter for y-axis label
-     * @param name
+     * @param name desired label name
      */
     void yAxis(const std::string& name) {
         attributes.yAxis = new char[name.size() + 1];
@@ -117,34 +147,40 @@ public:
 
     /**
      * setter for point size of plot data
-     * @param size
+     * @param size desired point size
      */
     void pointSize(const int& size) { attributes.pointStrength = size; }
 
     /**
      * setter for line width of plot data
-     * @param size
+     * @param size desired line size
      */
     void lineWidth(const int& size) { attributes.lineStrength = size; }
 
     /**
      * Helper to add pair-wise elements to plot context
-     * @param x
-     * @param y
-     * @param name
+     *
+     * concatenates given X and Y and forwards new matrix to AddData with single matrix argument
+     * @param x x values
+     * @param y y values
+     * @param name name of dataset
+     * @param dataType plot data type
      */
-    void AddData(const Matrix<double>& x, const Matrix<double>& y, const std::string& name, DataTypes dataType = DataTypes::NONE) {
+    void AddData(
+    const Matrix<double>& x, const Matrix<double>& y, const std::string& name, DataTypes dataType = DataTypes::NONE) {
         x.assertSize(y);
         AddData(HorizontalConcat(x, y), name, dataType);
     }
 
     /**
      * Appends data to the storage file
-     * @param mat
-     * @param name
-     * @param dataTypeName
+     * @param mat matrix containing dataset
+     * @param name name of data set
+     * @param dataTypeName desired plot type
+     * @param dimensions indicator for dimension of dataset
      */
-    void AddData(const Matrix<double>& mat, const std::string& name, DataTypes dataTypeName = DataTypes::NONE, int dimensions = 2) {
+    void AddData(
+    const Matrix<double>& mat, const std::string& name, DataTypes dataTypeName = DataTypes::NONE, int dimensions = 2) {
         // calculate boundaries
         auto new_bX = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 0, 0));
         auto new_bY = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 1, 1));
@@ -169,7 +205,7 @@ public:
         for(size_t i = 0; i < mat.columns(); i += dimensions) {
             fprintf(storageFile, "# X Y Z\n");
             for(size_t j = 0; j < mat.rows(); ++j) {
-                for(int k = 0; k < dimensions; ++k) { fprintf(storageFile, "%g ", mat(j, i+k)); }
+                for(int k = 0; k < dimensions; ++k) { fprintf(storageFile, "%g ", mat(j, i + k)); }
                 fprintf(storageFile, "\n");
             }
             fprintf(storageFile, "\n\n");
@@ -180,9 +216,9 @@ public:
         newName = new char[name.size() + 1];
         std::copy(name.begin(), name.end(), newName);
         newName[name.size()] = '\0';
-        PlotIndex index = {0, -1};
-        if(!attributes.plotIndices.empty()){
-            index = attributes.plotIndices[attributes.plotIndices.size()-1];
+        PlotIndex index      = { 0, -1 };
+        if(!attributes.plotIndices.empty()) {
+            index = attributes.plotIndices[attributes.plotIndices.size() - 1];
             index.start++;
         }
 
@@ -193,10 +229,12 @@ public:
         numElements++;
     }
 
-    virtual /**
+    /**
      * execution using call operator
+     *
+     * Forwards data to gnuplot
      */
-    void operator()() const {
+    virtual void operator()() const {
         FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
         for(int i = 0; i < numElements; ++i) {
@@ -205,8 +243,7 @@ public:
             auto index = attributes.plotIndices[i];
             if(index.stop != -1) {
                 fprintf(gnuplot, " index %d:%d with ", index.start, index.stop);
-            }
-            else {
+            } else {
                 fprintf(gnuplot, " index %d with ", index.start);
             }
             fprintf(gnuplot, "%s", attributes.plotTypes[i]);
@@ -220,8 +257,8 @@ public:
 private:
     /**
      * calculates boundaries of given matrix (min and max values)
-     * @param x
-     * @return
+     * @param x input vector to calculate boundaries of
+     * @return boundaries of input
      */
     [[nodiscard]] inline PlotBoundary getBoundaries(const Matrix<double>& x) const {
         /*
@@ -245,18 +282,19 @@ protected:
     //! representation of plot type
     const char* plotType = "plot";
     //! data storage file
-    FILE* storageFile         = nullptr;
+    FILE* storageFile = nullptr;
     //! attributes for plot
     PlotAttributes attributes = {};
     //! number elements within the plot
-    int numElements           = 0;
+    int numElements = 0;
     //! x-axis boundaries for the resulting plot
     PlotBoundary bY{};
     //! y-axis boundaries for the resulting plot
     PlotBoundary bX{};
+
     /**
      * helper to write attributes to gnuplot context
-     * @param gnuplot
+     * @param gnuplot pointer to gnuplot stream
      */
     void writeAttributes(FILE* gnuplot) const {
         if(attributes.title) {
@@ -283,7 +321,7 @@ class ScatterPlot : public Plot
 public:
     /**
      * default constructor
-     * @param name
+     * @param name plot title
      */
     explicit ScatterPlot(const char* name = "")
         : Plot(name) {
@@ -297,13 +335,14 @@ public:
  */
 class FunctionPlot : public Plot
 {
+    //! Function to evaluate and display
     std::function<double(const double&)> Function;
 
 public:
     /**
      * default constructor, requires function fun
-     * @param fun
-     * @param name
+     * @param fun function to plot
+     * @param name plot title
      */
     explicit FunctionPlot(std::function<double(const double&)> fun, const char* name = "")
         : Plot(name)
@@ -312,29 +351,39 @@ public:
     /**
      * Adds data to the plot context
      * @param start starting value
-     * @param end
-     * @param stepSize
-     * @param name
+     * @param end end value
+     * @param stepSize desired step size
+     * @param name data set name
      */
     void AddData(const double& start, const double& end, const double& stepSize, const char* name) {
-        int size = (int)((end - start) / stepSize) + 2;
+        int size         = (int)((end - start) / stepSize) + 2;
         Matrix<double> X = linspace(start, end, size);
-        auto Y = X.Apply(Function);
+        auto Y           = X.Apply(Function);
         Plot::AddData(X, Y, name);
     }
 };
 
-class SurfacePlot
-: public Plot
+/**
+ * Plot for only point data
+ */
+class SurfacePlot : public Plot
 {
 public:
+    /**
+     * Default constructor
+     * @param title plot title
+     */
     SurfacePlot(const std::string& title = "")
-    : Plot(title)
-    {
-        plotType = "splot";
+        : Plot(title) {
+        plotType        = "splot";
         attributes.is3D = true;
     }
 
+    /**
+     * overridden call operator.
+     *
+     * interprets a file as surface plot and forwards whole content to gnuplot
+     */
     void operator()() const override {
         FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
@@ -345,3 +394,7 @@ public:
         fclose(gnuplot);
     }
 };
+/**
+ * \example plot/TestPlot.cpp
+ * This is an example on how to use the Plot, ScatterPlot, FunctionPlot and SurfacePlot classes.
+ */

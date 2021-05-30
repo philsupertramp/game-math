@@ -2,6 +2,7 @@
 
 #include "../Matrix.h"
 #include "Classifier.h"
+#include "SGD.h"
 #include "utils.h"
 
 /**
@@ -20,17 +21,21 @@ public:
 private:
     /**
      * helper to initialize weights matrix
-     * @param m
+     * @param m dimension
      */
     void initialize_weights(size_t m) {
         if(randomState) weights = Matrix<double>::Random(m, 1);
-        else weights       = Matrix<double>(0, m, 1);
+        else
+            weights = Matrix<double>(0, m, 1);
         w_initialized = true;
     }
 
 
     /**
-     * logistical regression:
+     * logistical regression
+     * @param xi input values
+     * @param target  target output values
+     * @return cost
      */
     double update_weights(const Matrix<double>& xi, const Matrix<double>& target) {
         auto output      = netInput(xi);
@@ -49,8 +54,9 @@ private:
     }
 
     /**
-     * Calculates log of each element
-     * @param in
+     * Calculates log of each element.
+     * Implementation doesn't use Matrix::Apply
+     * @param in input matrix
      * @return
      */
     static Matrix<double> Log(const Matrix<double>& in) {
@@ -64,10 +70,10 @@ private:
 public:
     /**
      * default constructor
-     * @param _eta
-     * @param iter
-     * @param _shuffle
-     * @param _randomState
+     * @param _eta learning rate
+     * @param iter number learning iterations
+     * @param _shuffle shuffle data in each iteration?
+     * @param _randomState seed for random state
      */
     explicit LogRegSGD(double _eta = 0.01, int iter = 10, bool _shuffle = false, int _randomState = 0)
         : Classifier(_eta, iter)
@@ -87,8 +93,8 @@ public:
             auto weightFun = [this](const Matrix<double>& x, const Matrix<double>& y) {
                 return this->update_weights(x, y);
             };
-            auto netInputFun = [this](const Matrix<double>& x) { return this->netInput(x); };
-            sgd              = new SGD(eta, n_iter, shuffle, weightFun, netInputFun);
+            sgd =
+            new SGD(eta, n_iter, shuffle, weightFun, [this](const Matrix<double>& x) { return this->netInput(x); });
         }
         initialize_weights(X.columns());
         sgd->fit(X, y, weights);
@@ -97,8 +103,8 @@ public:
 
     /**
      * partially fit weights
-     * @param X
-     * @param y
+     * @param X input values
+     * @param y target output values
      */
     void partial_fit(const Matrix<double>& X, const Matrix<double>& y) {
         if(!w_initialized) { initialize_weights(X.columns()); }
@@ -107,22 +113,23 @@ public:
 
     /**
      * calculate netinput
-     * @param X
+     * @param X input values
      * @return
      */
     Matrix<double> netInput(const Matrix<double>& X) override { return Sigmoid(X * weights); }
 
     /**
      * activate given input
-     * @param X
-     * @return
+     * $$x\mapsto \phi(x)$$
+     * @param X input values
+     * @return activated values
      */
     Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
     /**
      * predict output for given input
-     * @param X
-     * @return
+     * @param X input values
+     * @return predicted output for given input
      */
     Matrix<double> predict(const Matrix<double>& X) override {
         std::function<bool(double)> condition = [](double x) {
@@ -140,3 +147,10 @@ public:
      */
     virtual double costFunction([[maybe_unused]] const Matrix<double>& mat) override { return 0; }
 };
+
+
+/**
+ * \example ds/TestLogRegSGD.cpp
+ * This is an example on how to use the LogRegSGD class for regression classification.
+ *
+ */

@@ -2,7 +2,10 @@
  * @file
  *
  * Regular forward substitution.
- * Calculates result given lower left triangular matrix b=L*c => L^-1b = c
+ * Calculates result given lower left triangular matrix
+ * $$
+ * b=L\cdot c \Rightarrow L^{-1}\cdot b = c
+ * $$
  */
 
 #pragma once
@@ -11,10 +14,10 @@
 #include <vector>
 
 /**
- * Forward-substitution calculates L*c = b
- * @param L
- * @param b
- * @return
+ * Forward-substitution
+ * @param L Coefficient Matrix
+ * @param b resulting vector
+ * @return c
  */
 Matrix<double> forwardSub(const Matrix<double>& L, const Matrix<double>& b) {
     size_t m = L.rows();
@@ -43,3 +46,8 @@ Matrix<double> forwardSub(const Matrix<double>& L, const Matrix<double>& b) {
 
     return c;
 }
+
+/**
+ * \example numerics/lin_alg/TestForwardSub.cpp
+ * This is an example on how to use forwardSub.
+ */

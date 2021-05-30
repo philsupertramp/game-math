@@ -20,11 +20,11 @@
 
 /**
  * Implementation of 5th order Runge-Kutta-Method
- * @param fun
- * @param tInterval
- * @param y0
- * @param h
- * @return
+ * @param fun ode to approximate
+ * @param tInterval interval to perform approximation on
+ * @param y0 start value
+ * @param h step width for time values
+ * @return approximated values
  */
 ODEResult ODE45(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, double h = 0.0) {
     size_t dim       = tInterval.size();
@@ -69,3 +69,7 @@ ODEResult ODE45(const ODE& fun, const std::vector<double>& tInterval, const Matr
     }
     return { y, t };
 }
+/**
+ * \example numerics/ode/TestODE45.cpp
+ * This is an example on how to use ODE45.
+ */

@@ -266,3 +266,9 @@ vec2<T> build_vec2(void* in) {
     T* values = (T*)in;
     return vec2<T>(values[0], values[1]);
 }
+
+/**
+ * \example vec/TestVec2.cpp
+ * This is an example on how to use the vec2.h file.
+ *
+ */

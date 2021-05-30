@@ -85,11 +85,19 @@ Matrix<double> tridiag(size_t rows, size_t columns, double left, double center, 
 double norm(const Matrix<double>& in);
 
 
-
 /**
+ * Index-Getter for validated values
  *
- * @param validation
- * @param x
- * @return
+ * Examples:
+ *  validation function x<=0 returns indices of values <= 0
+ *
+ * @param validation validation function, this method validates your data
+ * @param x vector to test
+ * @return index vectors of values true to the validation function
  */
 Matrix<size_t> nonzero(const std::function<bool(const double&)>& validation, const Matrix<double>& x);
+
+/**
+ * \example numerics/TestUtils.cpp
+ * This is an example on how to use the utils.h file.
+ */
