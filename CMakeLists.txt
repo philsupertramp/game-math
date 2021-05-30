@@ -112,3 +112,5 @@ if(MATH_TESTS)
     include(CTest)
     add_subdirectory(tests)
 endif()
+
+add_subdirectory(benchmarks)

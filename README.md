@@ -38,6 +38,10 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
       - Adaline Neuron Classifier
         - using gradient decent method (`AdalineGD`)
         - using statistics gradient decent method (`AdalineSGD`)
+
+# Benchmarks
+see `/benchmarks/README.md`
+
 # Upcoming features
 - Data Science:
   - multi layer NNs
