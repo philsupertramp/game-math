@@ -36,6 +36,8 @@ double \mbox{\hyperlink{Probability_8h_a32c95d9cf965a5546fc02d8045b42314}{var}} 
 double \mbox{\hyperlink{Probability_8h_a7edb177daf3663ea72006b9565610a7e}{coefficient\+Of\+Determination}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y\+Hat)
 \item 
 double \mbox{\hyperlink{Probability_8h_abe0754a080e477ad4e56f4dc869f7fa2}{likelihood}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{Probability_8h_a40ec5539b5ccb2f39b8844ca4609b88d}{Regression}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&A)
 \end{DoxyCompactItemize}
 
 
@@ -188,6 +190,23 @@ calculates \$\$x$^\wedge$\{exponent\}\$\$
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 \$\$x$^\wedge$\{exponent\}\$\$ 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Probability_8h_a40ec5539b5ccb2f39b8844ca4609b88d}\label{Probability_8h_a40ec5539b5ccb2f39b8844ca4609b88d}} 
+\index{Probability.h@{Probability.h}!Regression@{Regression}}
+\index{Regression@{Regression}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{Regression()}{Regression()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Regression (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{A }\end{DoxyParamCaption})}
+
+Calculates regression for given values a, mapped onto points \$\$\+P(i, a\+\_\+i)\$\$ 
+\begin{DoxyParams}{Parameters}
+{\em A} & vector of y-\/values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
 \end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par

@@ -127,6 +127,23 @@ $(function() {
 <div class="line">    <span class="keywordtype">bool</span> TestLikelihood() { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
 <div class="line"> </div>
 <div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> TestRegression() {</div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> A = { { -1, 0, 3, 7, 4, 6, 10 } };</div>
+<div class="line">        <span class="keyword">auto</span> out         = <a name="a10"></a><a class="code" href="Probability_8h.html#a40ec5539b5ccb2f39b8844ca4609b88d">Regression</a>(A.<a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>());</div>
+<div class="line"> </div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> expected = { { -0.7857142857142847,</div>
+<div class="line">                                      0.8571428571428577,</div>
+<div class="line">                                      2.5,</div>
+<div class="line">                                      4.142857142857142,</div>
+<div class="line">                                      5.785714285714285,</div>
+<div class="line">                                      7.428571428571427,</div>
+<div class="line">                                      9.07142857142857 } };</div>
+<div class="line"> </div>
+<div class="line">        AssertEqual(out, expected.<a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>());</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
 <div class="line">        TestRound();</div>
@@ -139,6 +156,7 @@ $(function() {
 <div class="line">        TestCoefficientOfDetermination();</div>
 <div class="line">        TestGetExponent();</div>
 <div class="line">        TestLikelihood();</div>
+<div class="line">        TestRegression();</div>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="line"> </div>
@@ -147,13 +165,14 @@ $(function() {
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aProbability_8h_html"><div class="ttname"><a href="Probability_8h.html">Probability.h</a></div></div>
-<div class="ttc" id="aProbability_8h_html_a3974006c8e6b9526b925be95ff4913ae"><div class="ttname"><a href="Probability_8h.html#a3974006c8e6b9526b925be95ff4913ae">lm</a></div><div class="ttdeci">LinearModel lm(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y)</div><div class="ttdef"><b>Definition:</b> Probability.cpp:73</div></div>
-<div class="ttc" id="aProbability_8h_html_a4f0f49581ae9315695fb32a1e9fc4bdc"><div class="ttname"><a href="Probability_8h.html#a4f0f49581ae9315695fb32a1e9fc4bdc">pow</a></div><div class="ttdeci">double pow(double x, int exponent)</div><div class="ttdef"><b>Definition:</b> Probability.cpp:14</div></div>
-<div class="ttc" id="aProbability_8h_html_a87477d0585e56d94b550e186c12bfcc1"><div class="ttname"><a href="Probability_8h.html#a87477d0585e56d94b550e186c12bfcc1">abs</a></div><div class="ttdeci">double abs(double x)</div><div class="ttdef"><b>Definition:</b> Probability.cpp:10</div></div>
+<div class="ttc" id="aProbability_8h_html_a3974006c8e6b9526b925be95ff4913ae"><div class="ttname"><a href="Probability_8h.html#a3974006c8e6b9526b925be95ff4913ae">lm</a></div><div class="ttdeci">LinearModel lm(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y)</div><div class="ttdef"><b>Definition:</b> Probability.cpp:75</div></div>
+<div class="ttc" id="aProbability_8h_html_a40ec5539b5ccb2f39b8844ca4609b88d"><div class="ttname"><a href="Probability_8h.html#a40ec5539b5ccb2f39b8844ca4609b88d">Regression</a></div><div class="ttdeci">Matrix&lt; double &gt; Regression(const Matrix&lt; double &gt; &amp;A)</div><div class="ttdef"><b>Definition:</b> Probability.cpp:110</div></div>
+<div class="ttc" id="aProbability_8h_html_a4f0f49581ae9315695fb32a1e9fc4bdc"><div class="ttname"><a href="Probability_8h.html#a4f0f49581ae9315695fb32a1e9fc4bdc">pow</a></div><div class="ttdeci">double pow(double x, int exponent)</div><div class="ttdef"><b>Definition:</b> Probability.cpp:16</div></div>
+<div class="ttc" id="aProbability_8h_html_a87477d0585e56d94b550e186c12bfcc1"><div class="ttname"><a href="Probability_8h.html#a87477d0585e56d94b550e186c12bfcc1">abs</a></div><div class="ttdeci">double abs(double x)</div><div class="ttdef"><b>Definition:</b> Probability.cpp:12</div></div>
 <div class="ttc" id="aProbability_8h_html_a8c8648160cfcb34a69de946e4ad505b0ad4e07130bf8ac301c327f0e64bc2d292"><div class="ttname"><a href="Probability_8h.html#a8c8648160cfcb34a69de946e4ad505b0ad4e07130bf8ac301c327f0e64bc2d292">One</a></div><div class="ttdeci">@ One</div><div class="ttdoc">$$||x||_1$$</div><div class="ttdef"><b>Definition:</b> Probability.h:31</div></div>
 <div class="ttc" id="aProbability_8h_html_a8c8648160cfcb34a69de946e4ad505b0ae5732ead6288358557f404848f9da09c"><div class="ttname"><a href="Probability_8h.html#a8c8648160cfcb34a69de946e4ad505b0ae5732ead6288358557f404848f9da09c">Eukl</a></div><div class="ttdeci">@ Eukl</div><div class="ttdoc">$$||x||_2$$</div><div class="ttdef"><b>Definition:</b> Probability.h:33</div></div>
 <div class="ttc" id="aProbability_8h_html_a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784"><div class="ttname"><a href="Probability_8h.html#a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784">Inf</a></div><div class="ttdeci">@ Inf</div><div class="ttdoc">$$||x||_\infty$$</div><div class="ttdef"><b>Definition:</b> Probability.h:29</div></div>
-<div class="ttc" id="aProbability_8h_html_aa3e12acd040b791cdf25cbb4d3d41bb5"><div class="ttname"><a href="Probability_8h.html#aa3e12acd040b791cdf25cbb4d3d41bb5">round</a></div><div class="ttdeci">double round(double x, int precision)</div><div class="ttdef"><b>Definition:</b> Probability.cpp:5</div></div>
+<div class="ttc" id="aProbability_8h_html_aa3e12acd040b791cdf25cbb4d3d41bb5"><div class="ttname"><a href="Probability_8h.html#aa3e12acd040b791cdf25cbb4d3d41bb5">round</a></div><div class="ttdeci">double round(double x, int precision)</div><div class="ttdef"><b>Definition:</b> Probability.cpp:7</div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
 <div class="ttc" id="aclassMatrix_html_a953e5e97f987f47e261dd830cac64087"><div class="ttname"><a href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Matrix::Transpose</a></div><div class="ttdeci">constexpr Matrix&lt; T &gt; Transpose() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:216</div></div>
 <div class="ttc" id="anumerics_2utils_8h_html_aa1a08a76ee49f8a9717e4aa127984987"><div class="ttname"><a href="numerics_2utils_8h.html#aa1a08a76ee49f8a9717e4aa127984987">norm</a></div><div class="ttdeci">double norm(const Matrix&lt; double &gt; &amp;in)</div><div class="ttdef"><b>Definition:</b> utils.cpp:32</div></div>
