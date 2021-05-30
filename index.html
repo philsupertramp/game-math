@@ -130,7 +130,7 @@ Current feature support</h1>
 <li><a class="el" href="classPerceptron.html">Perceptron</a> classifier (<code><a class="el" href="classPerceptron.html">Perceptron</a></code>)</li>
 <li>Adaline Neuron <a class="el" href="classClassifier.html">Classifier</a><ul>
 <li>using gradient decent method (<code><a class="el" href="classAdalineGD.html">AdalineGD</a></code>)</li>
-<li>using statistics gradient decent method (<code><a class="el" href="classAdalineSGD.html">AdalineSGD</a></code>) </li>
+<li>using statistics gradient decent method (<code><a class="el" href="classAdalineSGD.html">AdalineSGD</a></code>)</li>
 </ul>
 </li>
 </ul>
@@ -141,6 +141,9 @@ Current feature support</h1>
 </li>
 </ul>
 <h1><a class="anchor" id="autotoc_md19"></a>
+Benchmarks</h1>
+<p>see <code>/benchmarks/README.md</code></p>
+<h1><a class="anchor" id="autotoc_md20"></a>
 Upcoming features</h1>
 <ul>
 <li>Data Science:<ul>
@@ -149,50 +152,50 @@ Upcoming features</h1>
 </ul>
 </li>
 </ul>
-<h4><a class="anchor" id="autotoc_md20"></a>
+<h4><a class="anchor" id="autotoc_md21"></a>
 Build requirements</h4>
 <p><code>gcc, cmake, clang</code></p>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md22"></a>
 Installation</h1>
 <ol type="1">
 <li>Download repository <code>git clone git@github.com:/philsupertramp/game-math</code></li>
 <li>Integration into your project</li>
 </ol>
 <p><b>Only CMake fully tested</b> </p>
-<h3><a class="anchor" id="autotoc_md22"></a>
+<h3><a class="anchor" id="autotoc_md23"></a>
 cmake:</h3>
 <p>in your <code>CMakeLists.txt</code> add </p><div class="fragment"><div class="line">link_libraries(math-lib)</div>
 <div class="line">include_directories(math/include)</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md23"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md24"></a>
 Usage</h1>
 <p>After linking the library correctly one is able to include the main header file <code><a class="el" href="math_8h.html">math.h</a></code> </p><div class="fragment"><div class="line"> {c++}</div>
 <div class="line">#include &lt;math/math.h&gt;</div>
 </div><!-- fragment --><p> Although one can explicitly include parts </p><div class="fragment"><div class="line"> {c++}</div>
 <div class="line">#include &lt;math/vec/vec2.h&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md24"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md25"></a>
 Extensions</h2>
 <p>Currently there are two different implementations of matrices/vectors </p>
-<h3><a class="anchor" id="autotoc_md25"></a>
+<h3><a class="anchor" id="autotoc_md26"></a>
 Implementation 1)</h3>
 <p>Game dev oriented. 2, 3 and 4 dimensional vector/matrix implementations. <br  />
  Tightly packed data to allow minimal memory usage. see <code>./include/math/vec</code> and <code>./include/math/mat</code> for implementation details.</p>
-<h3><a class="anchor" id="autotoc_md26"></a>
+<h3><a class="anchor" id="autotoc_md27"></a>
 Implementation 2)</h3>
 <p><code><a class="el" href="classMatrix.html">Matrix</a>&lt;T&gt;</code> (see <code>./include/math/Matrix.h</code>) represents a <code>m x n</code>-<a class="el" href="classMatrix.html">Matrix</a> of data of type <code>T</code></p>
 <p>a specific data science and numerics implementation. <br  />
  Capable of Matrix-Vector and Matrix-Multiplication, it also contains data science specific algorithms and statistical methods. </p>
-<h3><a class="anchor" id="autotoc_md27"></a>
+<h3><a class="anchor" id="autotoc_md28"></a>
 Available extensions:</h3>
-<h4><a class="anchor" id="autotoc_md28"></a>
+<h4><a class="anchor" id="autotoc_md29"></a>
 &lt;tt&gt;numerics&lt;/tt&gt;: Numerical methods for linear algebra and odes</h4>
 <div class="fragment"><div class="line"> {c++}</div>
 <div class="line">#include &lt;math/numerics/lin_alg.h&gt;</div>
 <div class="line">#include &lt;math/numerics/ode.h&gt;</div>
-</div><!-- fragment --> <h4><a class="anchor" id="autotoc_md29"></a>
+</div><!-- fragment --> <h4><a class="anchor" id="autotoc_md30"></a>
 &lt;tt&gt;ds&lt;/tt&gt;: Methods out of the field of data science</h4>
 <div class="fragment"><div class="line"> {c++}</div>
 <div class="line">#include &lt;math/ds.h&gt;</div>
-</div><!-- fragment --> <h4><a class="anchor" id="autotoc_md30"></a>
+</div><!-- fragment --> <h4><a class="anchor" id="autotoc_md31"></a>
 TOC</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -204,18 +207,18 @@ TOC</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>ds</code>   </td><td class="markdownTableBodyNone">Concepts of Data Science   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md31"></a>
+<h3><a class="anchor" id="autotoc_md32"></a>
 Add extensions to library</h3>
 <p>Some extensions are optional, to activate them use <code>MATH_EXTENSIONS</code> compile argument.</p>
 <p>Example build command adding <code>numerics</code> module and building test suite: </p><div class="fragment"><div class="line">mkdir -p build</div>
 <div class="line">cmake -DMATH_EXTENSIONS=numerics --build math/build -- -j 3 .</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md32"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md33"></a>
 Note, some extensions or parts of them require specific dependencies.</h3>
 <p>Look into module <code>README.md</code> files.</p>
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md34"></a>
 Development</h1>
 <p>Feel free to contribute to the project!</p>
-<h3><a class="anchor" id="autotoc_md34"></a>
+<h3><a class="anchor" id="autotoc_md35"></a>
 How to contribute</h3>
 <ul>
 <li>first time contributors<ul>
@@ -230,10 +233,10 @@ How to contribute</h3>
 </ul>
 <p><b>NOTE: please run <code>make lint</code> prior to submitting your code!</b> <br  />
  This requires <code>clang-format&gt;=11.0.0</code></p>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md36"></a>
 License</h1>
 <p>The project is under <code>MIT</code>-License see <code>LICENSE</code> for more</p>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md37"></a>
 Acknowledgements</h2>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->

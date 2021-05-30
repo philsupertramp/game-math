@@ -61,12 +61,13 @@
 \item Adaline Neuron \mbox{\hyperlink{classClassifier}{Classifier}}
 \begin{DoxyItemize}
 \item using gradient decent method ({\ttfamily \mbox{\hyperlink{classAdalineGD}{Adaline\+GD}}})
-\item using statistics gradient decent method ({\ttfamily \mbox{\hyperlink{classAdalineSGD}{Adaline\+SGD}}}) 
+\item using statistics gradient decent method ({\ttfamily \mbox{\hyperlink{classAdalineSGD}{Adaline\+SGD}}})
 \end{DoxyItemize}
 \end{DoxyItemize}
 \end{DoxyItemize}
 \end{DoxyItemize}
-\end{DoxyItemize}\hypertarget{index_autotoc_md19}{}\doxysection{Upcoming features}\label{index_autotoc_md19}
+\end{DoxyItemize}\hypertarget{index_autotoc_md19}{}\doxysection{Benchmarks}\label{index_autotoc_md19}
+see {\ttfamily /benchmarks/\+README.md}\hypertarget{index_autotoc_md20}{}\doxysection{Upcoming features}\label{index_autotoc_md20}
 
 \begin{DoxyItemize}
 \item Data Science\+:
@@ -74,22 +75,22 @@
 \item multi layer NNs
 \item Image classifier
 \end{DoxyItemize}
-\end{DoxyItemize}\hypertarget{index_autotoc_md20}{}\doxyparagraph{Build requirements}\label{index_autotoc_md20}
-{\ttfamily gcc, cmake, clang}\hypertarget{index_autotoc_md21}{}\doxysection{Installation}\label{index_autotoc_md21}
+\end{DoxyItemize}\hypertarget{index_autotoc_md21}{}\doxyparagraph{Build requirements}\label{index_autotoc_md21}
+{\ttfamily gcc, cmake, clang}\hypertarget{index_autotoc_md22}{}\doxysection{Installation}\label{index_autotoc_md22}
 
 \begin{DoxyEnumerate}
 \item Download repository {\ttfamily git clone git@github.\+com\+:/philsupertramp/game-\/math}
 \item Integration into your project
 \end{DoxyEnumerate}
 
-{\bfseries{Only CMake fully tested}} \hypertarget{index_autotoc_md22}{}\doxysubsubsection{cmake\+:}\label{index_autotoc_md22}
+{\bfseries{Only CMake fully tested}} \hypertarget{index_autotoc_md23}{}\doxysubsubsection{cmake\+:}\label{index_autotoc_md23}
 in your {\ttfamily CMake\+Lists.\+txt} add 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{link\_libraries(math-\/lib)}
 \DoxyCodeLine{include\_directories(math/include)}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md23}{}\doxysection{Usage}\label{index_autotoc_md23}
+\hypertarget{index_autotoc_md24}{}\doxysection{Usage}\label{index_autotoc_md24}
 After linking the library correctly one is able to include the main header file {\ttfamily \mbox{\hyperlink{math_8h}{math.\+h}}} 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{ \{c++\}}
@@ -102,15 +103,15 @@ After linking the library correctly one is able to include the main header file 
 \DoxyCodeLine{\#include <math/vec/vec2.h>}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md24}{}\doxysubsection{Extensions}\label{index_autotoc_md24}
-Currently there are two different implementations of matrices/vectors \hypertarget{index_autotoc_md25}{}\doxysubsubsection{Implementation 1)}\label{index_autotoc_md25}
+\hypertarget{index_autotoc_md25}{}\doxysubsection{Extensions}\label{index_autotoc_md25}
+Currently there are two different implementations of matrices/vectors \hypertarget{index_autotoc_md26}{}\doxysubsubsection{Implementation 1)}\label{index_autotoc_md26}
 Game dev oriented. 2, 3 and 4 dimensional vector/matrix implementations. ~\newline
- Tightly packed data to allow minimal memory usage. see {\ttfamily ./include/math/vec} and {\ttfamily ./include/math/mat} for implementation details.\hypertarget{index_autotoc_md26}{}\doxysubsubsection{Implementation 2)}\label{index_autotoc_md26}
+ Tightly packed data to allow minimal memory usage. see {\ttfamily ./include/math/vec} and {\ttfamily ./include/math/mat} for implementation details.\hypertarget{index_autotoc_md27}{}\doxysubsubsection{Implementation 2)}\label{index_autotoc_md27}
 {\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$} (see {\ttfamily ./include/math/\+Matrix.h}) represents a {\ttfamily m x n}-\/\mbox{\hyperlink{classMatrix}{Matrix}} of data of type {\ttfamily T}
 
 a specific data science and numerics implementation. ~\newline
- Capable of Matrix-\/\+Vector and Matrix-\/\+Multiplication, it also contains data science specific algorithms and statistical methods. \hypertarget{index_autotoc_md27}{}\doxysubsubsection{Available extensions\+:}\label{index_autotoc_md27}
-\hypertarget{index_autotoc_md28}{}\doxyparagraph{$<$tt$>$numerics$<$/tt$>$\+: Numerical methods for linear algebra and odes}\label{index_autotoc_md28}
+ Capable of Matrix-\/\+Vector and Matrix-\/\+Multiplication, it also contains data science specific algorithms and statistical methods. \hypertarget{index_autotoc_md28}{}\doxysubsubsection{Available extensions\+:}\label{index_autotoc_md28}
+\hypertarget{index_autotoc_md29}{}\doxyparagraph{$<$tt$>$numerics$<$/tt$>$\+: Numerical methods for linear algebra and odes}\label{index_autotoc_md29}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{ \{c++\}}
@@ -118,14 +119,14 @@ a specific data science and numerics implementation. ~\newline
 \DoxyCodeLine{\#include <math/numerics/ode.h>}
 
 \end{DoxyCode}
- \hypertarget{index_autotoc_md29}{}\doxyparagraph{$<$tt$>$ds$<$/tt$>$\+: Methods out of the field of data science}\label{index_autotoc_md29}
+ \hypertarget{index_autotoc_md30}{}\doxyparagraph{$<$tt$>$ds$<$/tt$>$\+: Methods out of the field of data science}\label{index_autotoc_md30}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{ \{c++\}}
 \DoxyCodeLine{\#include <math/ds.h>}
 
 \end{DoxyCode}
- \hypertarget{index_autotoc_md30}{}\doxyparagraph{TOC}\label{index_autotoc_md30}
+ \hypertarget{index_autotoc_md31}{}\doxyparagraph{TOC}\label{index_autotoc_md31}
 \tabulinesep=1mm
 \begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
 \hline
@@ -140,7 +141,7 @@ a specific data science and numerics implementation. ~\newline
 {\ttfamily numerics/ode}   &Solver for ordinary differential equations    \\\cline{1-2}
 {\ttfamily ds}   &Concepts of Data Science   \\\cline{1-2}
 \end{longtabu}
-\hypertarget{index_autotoc_md31}{}\doxysubsubsection{Add extensions to library}\label{index_autotoc_md31}
+\hypertarget{index_autotoc_md32}{}\doxysubsubsection{Add extensions to library}\label{index_autotoc_md32}
 Some extensions are optional, to activate them use {\ttfamily MATH\+\_\+\+EXTENSIONS} compile argument.
 
 Example build command adding {\ttfamily numerics} module and building test suite\+: 
@@ -149,9 +150,9 @@ Example build command adding {\ttfamily numerics} module and building test suite
 \DoxyCodeLine{cmake -\/DMATH\_EXTENSIONS=numerics -\/-\/build math/build -\/-\/ -\/j 3 .}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md32}{}\doxysubsubsection{Note, some extensions or parts of them require specific dependencies.}\label{index_autotoc_md32}
-Look into module {\ttfamily README.\+md} files.\hypertarget{index_autotoc_md33}{}\doxysection{Development}\label{index_autotoc_md33}
-Feel free to contribute to the project!\hypertarget{index_autotoc_md34}{}\doxysubsubsection{How to contribute}\label{index_autotoc_md34}
+\hypertarget{index_autotoc_md33}{}\doxysubsubsection{Note, some extensions or parts of them require specific dependencies.}\label{index_autotoc_md33}
+Look into module {\ttfamily README.\+md} files.\hypertarget{index_autotoc_md34}{}\doxysection{Development}\label{index_autotoc_md34}
+Feel free to contribute to the project!\hypertarget{index_autotoc_md35}{}\doxysubsubsection{How to contribute}\label{index_autotoc_md35}
 
 \begin{DoxyItemize}
 \item first time contributors
@@ -166,5 +167,5 @@ Feel free to contribute to the project!\hypertarget{index_autotoc_md34}{}\doxysu
 \end{DoxyItemize}
 
 {\bfseries{NOTE\+: please run {\ttfamily make lint} prior to submitting your code!}} ~\newline
- This requires {\ttfamily clang-\/format$>$=11.\+0.\+0}\hypertarget{index_autotoc_md35}{}\doxysection{License}\label{index_autotoc_md35}
-The project is under {\ttfamily MIT}-\/License see {\ttfamily LICENSE} for more\hypertarget{index_autotoc_md36}{}\doxysubsection{Acknowledgements}\label{index_autotoc_md36}
+ This requires {\ttfamily clang-\/format$>$=11.\+0.\+0}\hypertarget{index_autotoc_md36}{}\doxysection{License}\label{index_autotoc_md36}
+The project is under {\ttfamily MIT}-\/License see {\ttfamily LICENSE} for more\hypertarget{index_autotoc_md37}{}\doxysubsection{Acknowledgements}\label{index_autotoc_md37}
