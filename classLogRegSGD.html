@@ -154,6 +154,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Logistical regression model using statistic gradient decent method for model fitting. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="ds_2TestLogRegSGD_8cpp-example.html#_a0">ds/TestLogRegSGD.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afd641912a68b8c0b2981585fb2cfc068"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afd641912a68b8c0b2981585fb2cfc068">&#9670;&nbsp;</a></span>LogRegSGD()</h2>
@@ -202,10 +204,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>default constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_eta</td><td></td></tr>
-    <tr><td class="paramname">iter</td><td></td></tr>
-    <tr><td class="paramname">_shuffle</td><td></td></tr>
-    <tr><td class="paramname">_randomState</td><td></td></tr>
+    <tr><td class="paramname">_eta</td><td>learning rate </td></tr>
+    <tr><td class="paramname">iter</td><td>number learning iterations </td></tr>
+    <tr><td class="paramname">_shuffle</td><td>shuffle data in each iteration? </td></tr>
+    <tr><td class="paramname">_randomState</td><td>seed for random state </td></tr>
   </table>
   </dd>
 </dl>
@@ -236,13 +238,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </tr>
 </table>
 </div><div class="memdoc">
-<p>activate given input </p><dl class="params"><dt>Parameters</dt><dd>
+<p>activate given input $$x\mapsto \phi(x)$$ </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>activated values </dd></dl>
 
 <p>Implements <a class="el" href="classClassifier.html#a5be8488df3ee4e0e0903877bb19069a8">Classifier</a>.</p>
 
@@ -352,7 +354,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>calculate netinput </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
@@ -397,8 +399,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>partially fit weights </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
+    <tr><td class="paramname">y</td><td>target output values </td></tr>
   </table>
   </dd>
 </dl>
@@ -430,11 +432,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>predict output for given input </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>predicted output for given input </dd></dl>
 
 <p>Implements <a class="el" href="classClassifier.html#a0d47e1cccc5be1cdff3b202f48625afe">Classifier</a>.</p>
 

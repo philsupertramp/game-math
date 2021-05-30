@@ -13,9 +13,7 @@ std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$, std\+::vect
 \doxysubsection{Detailed Description}
 implements LU decomposition, places L and U in resulting matrix
 
-A = L $\ast$ U
-
-L = \mbox{[} 1, 0, 0, ... l\+\_\+\{2,1\}, 1, 0, ... l\+\_\+\{3,1\}, l\+\_\+\{3,2\}, 1, ... ... l\+\_\+\{m,1\}, ... \mbox{]} U = \mbox{[} 0, u\+\_\+\{1,2\}, u\+\_\+\{1,3\}, ..., u\+\_\+\{1,n\} 0, 0, u\+\_\+\{2,3\}, ..., u\+\_\+\{2,n\} 0, ..., 0, u\+\_\+\{m-\/1, n\} 0, ..., 0 \mbox{]} Result\+: L + U LU decomposition 
+\$\$ A = L \textbackslash{}cdot U \$\$ \$\$ L = \textbackslash{}begin\{pmatrix\} 1\& 0\& 0\& ... \textbackslash{}\textbackslash{} l\+\_\+\{2,1\}\& 1\& 0\& ... \textbackslash{}\textbackslash{} l\+\_\+\{3,1\}\& l\+\_\+\{3,2\}\& 1, ... \textbackslash{}\textbackslash{} ... \textbackslash{}\textbackslash{} l\+\_\+\{m,1\}\& ... \textbackslash{}end\{pmatrix\} \$\$ \$\$ U = \textbackslash{}begin\{pmatrix\} 0\& u\+\_\+\{1,2\}\& u\+\_\+\{1,3\}\& ...\& u\+\_\+\{1,n\}\textbackslash{}\textbackslash{} 0\& 0\& u\+\_\+\{2,3\}\& ...\& u\+\_\+\{2,n\}\textbackslash{}\textbackslash{} 0\& ...\& 0\& u\+\_\+\{m-\/1, n\}\textbackslash{}\textbackslash{} 0\& ...\& 0 \textbackslash{}end\{pmatrix\} \$\$ Result\+: \$\$L + U\$\$ LU decomposition 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{LU_8h_a5752113e8a55d6c775026f0f9386cea9}\label{LU_8h_a5752113e8a55d6c775026f0f9386cea9}} 
@@ -26,9 +24,12 @@ L = \mbox{[} 1, 0, 0, ... l\+\_\+\{2,1\}, 1, 0, ... l\+\_\+\{3,1\}, l\+\_\+\{3,2
 
 LU-\/decomposition of A 
 \begin{DoxyParams}{Parameters}
-{\em A} & \\
+{\em A} & matrix to decompose \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 in-\/place decomposed matrix L+U 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2lin_alg_2TestLU_8cpp-example}{numerics/lin\+\_\+alg/\+Test\+LU.\+cpp}}.\end{Desc}

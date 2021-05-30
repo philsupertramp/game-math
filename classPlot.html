@@ -153,7 +153,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="separator:a954fcb23b76680d6d0148f3f7af02f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a data plot, using gnuplot </p>
+<div class="textblock"><p>Represents a data plot, using gnuplot.</p>
+<p>Add data using the AddData methods. After you are done, call the plot to display the results.</p>
+<hr  />
+<p> Examples:</p>
+<p><a class="el" href="classPlot.html">Plot</a> plot("My plot"); plot.AddData({{1, 2}, {2, 3}}, "Some points", DataType::POINT); plot(); </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#_a6">plot/TestPlot.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad5c4ae2e4201841f833c2d6968681c0a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5c4ae2e4201841f833c2d6968681c0a">&#9670;&nbsp;</a></span>Plot()</h2>
@@ -178,9 +184,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </tr>
 </table>
 </div><div class="memdoc">
-<p>default constructor </p><dl class="params"><dt>Parameters</dt><dd>
+<p>default constructor. Prepares context for adding data. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">title</td><td></td></tr>
+    <tr><td class="paramname">title</td><td>desired title for plot </td></tr>
   </table>
   </dd>
 </dl>
@@ -235,9 +241,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 <p>Appends data to the storage file </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mat</td><td></td></tr>
-    <tr><td class="paramname">name</td><td></td></tr>
-    <tr><td class="paramname">dataTypeName</td><td></td></tr>
+    <tr><td class="paramname">mat</td><td>matrix containing dataset </td></tr>
+    <tr><td class="paramname">name</td><td>name of data set </td></tr>
+    <tr><td class="paramname">dataTypeName</td><td>desired plot type </td></tr>
+    <tr><td class="paramname">dimensions</td><td>indicator for dimension of dataset </td></tr>
   </table>
   </dd>
 </dl>
@@ -289,13 +296,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Helper to add pair-wise elements to plot context </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Helper to add pair-wise elements to plot context</p>
+<p>concatenates given X and Y and forwards new matrix to AddData with single matrix argument </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
-    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">x</td><td>x values </td></tr>
+    <tr><td class="paramname">y</td><td>y values </td></tr>
+    <tr><td class="paramname">name</td><td>name of dataset </td></tr>
+    <tr><td class="paramname">dataType</td><td>plot data type </td></tr>
   </table>
   </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a7">plot/TestPlot.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -325,7 +336,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 <p>setter for line width of plot data </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">size</td><td></td></tr>
+    <tr><td class="paramname">size</td><td>desired line size </td></tr>
   </table>
   </dd>
 </dl>
@@ -354,7 +365,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </tr>
 </table>
 </div><div class="memdoc">
-<p>execution using call operator </p>
+<p>execution using call operator</p>
+<p>Forwards data to gnuplot </p>
 
 <p>Reimplemented in <a class="el" href="classSurfacePlot.html#aa040cc2c1301dc37cb942a80647cde95">SurfacePlot</a>.</p>
 
@@ -385,7 +397,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 <p>setter for point size of plot data </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">size</td><td></td></tr>
+    <tr><td class="paramname">size</td><td>desired point size </td></tr>
   </table>
   </dd>
 </dl>
@@ -417,7 +429,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 <p>Setter for title label </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">title</td><td>desired plot title </td></tr>
   </table>
   </dd>
 </dl>
@@ -449,7 +461,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 <p>helper to write attributes to gnuplot context </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gnuplot</td><td></td></tr>
+    <tr><td class="paramname">gnuplot</td><td>pointer to gnuplot stream </td></tr>
   </table>
   </dd>
 </dl>
@@ -481,9 +493,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 <p>Setter for x-axis label </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">name</td><td>desired label name </td></tr>
   </table>
   </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a9">plot/TestPlot.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -513,9 +527,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 <p>Setter for y-axis label </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">name</td><td>desired label name </td></tr>
   </table>
   </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a10">plot/TestPlot.cpp</a>.</dd>
 </dl>
 
 </div>

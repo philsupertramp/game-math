@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ds_20_28data_20science_29_2dsubmodule_581',['ds (Data science)-submodule',['../md_include_math_ds_README.html',1,'']]]
+  ['_3ctt_3estatistics_3c_2ftt_3e_20module_667',['&lt;tt&gt;statistics&lt;/tt&gt; module',['../md_include_math_statistics_README.html',1,'']]]
 ];

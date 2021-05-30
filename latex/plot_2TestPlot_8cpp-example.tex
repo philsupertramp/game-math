@@ -1,0 +1,62 @@
+\hypertarget{plot_2TestPlot_8cpp-example}{}\doxysection{plot/\+Test\+Plot.\+cpp}
+This is an example on how to use the \mbox{\hyperlink{classPlot}{Plot}}, \mbox{\hyperlink{classScatterPlot}{Scatter\+Plot}}, \mbox{\hyperlink{classFunctionPlot}{Function\+Plot}} and \mbox{\hyperlink{classSurfacePlot}{Surface\+Plot}} classes.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../Test.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <math/numerics/analysis/SupportValues.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <math/visualization/Plot.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class }PlotTestCase : \textcolor{keyword}{public} Test}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestPlot() \{}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} X = \mbox{\hyperlink{numerics_2utils_8h_a3496a7aecd2c42b9bacd5bc9dc85dd88}{linspace}}(-\/5, 5, 5).\mbox{\hyperlink{classMatrix_a953e5e97f987f47e261dd830cac64087}{Transpose}}();}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} Y = X.\mbox{\hyperlink{classMatrix_aab08352f6e89b3dfb616c10998db4570}{Apply}}([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} in * in; \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \mbox{\hyperlink{classLagrangeBase}{LagrangeBase}} base(X, Y);}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} xi = \mbox{\hyperlink{numerics_2utils_8h_a3496a7aecd2c42b9bacd5bc9dc85dd88}{linspace}}(-\/3.5, 3.5, 5).\mbox{\hyperlink{classMatrix_a953e5e97f987f47e261dd830cac64087}{Transpose}}();}
+\DoxyCodeLine{        \textcolor{keyword}{auto} res          = base.\mbox{\hyperlink{classLagrangeBase_a205a0fc11d0f666a418f34615dac6ad1}{Evaluate}}(xi);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \mbox{\hyperlink{classPlot}{Plot}} plot(\textcolor{stringliteral}{"{}Comparison of approximation with true value"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(HorizontalConcat(X, Y), \textcolor{stringliteral}{"{}support values"{}});}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(HorizontalConcat(xi, res), \textcolor{stringliteral}{"{}approximation"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{        plot();}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestScatterPlot() \{}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} X = \mbox{\hyperlink{numerics_2utils_8h_a3496a7aecd2c42b9bacd5bc9dc85dd88}{linspace}}(-\/5, 5, 5).\mbox{\hyperlink{classMatrix_a953e5e97f987f47e261dd830cac64087}{Transpose}}();}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} Y = X.\mbox{\hyperlink{classMatrix_aab08352f6e89b3dfb616c10998db4570}{Apply}}([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} in * in; \});}
+\DoxyCodeLine{        \mbox{\hyperlink{classScatterPlot}{ScatterPlot}} plot2(\textcolor{stringliteral}{"{}Data visualization"{}});}
+\DoxyCodeLine{        plot2.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(X, Y, \textcolor{stringliteral}{"{}support values"{}});}
+\DoxyCodeLine{        plot2.\mbox{\hyperlink{classPlot_a71b26c829f6b3f4cf64957a3e323517f}{xAxis}}(\textcolor{stringliteral}{"{}X"{}});}
+\DoxyCodeLine{        plot2.\mbox{\hyperlink{classPlot_a56e462e8d1c707986dc1e4335a633b24}{yAxis}}(\textcolor{stringliteral}{"{}Y"{}});}
+\DoxyCodeLine{        plot2();}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestFunctionPlot() \{}
+\DoxyCodeLine{        \mbox{\hyperlink{classFunctionPlot}{FunctionPlot}} plot3([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} in * in; \}, \textcolor{stringliteral}{"{}x\string^2"{}});}
+\DoxyCodeLine{        plot3.\mbox{\hyperlink{classFunctionPlot_a6bea42610ef9f96447b91d622e918bc3}{AddData}}(-\/5, 5, 0.1, \textcolor{stringliteral}{"{}support values"{}});}
+\DoxyCodeLine{        plot3.xAxis(\textcolor{stringliteral}{"{}X"{}});}
+\DoxyCodeLine{        plot3.yAxis(\textcolor{stringliteral}{"{}Y"{}});}
+\DoxyCodeLine{        plot3();}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{        TestPlot();}
+\DoxyCodeLine{        TestScatterPlot();}
+\DoxyCodeLine{        TestFunctionPlot();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main() \{ PlotTestCase().run(); \}}
+
+\end{DoxyCodeInclude}
+ 

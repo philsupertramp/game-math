@@ -1,0 +1,359 @@
+\hypertarget{mat_2TestMat4_8cpp-example}{}\doxysection{mat/\+Test\+Mat4.\+cpp}
+This is an example on how to use the \mbox{\hyperlink{mat4_8h_source}{mat4.\+h}} file.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../Test.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{math_8h}{math/math.h}}>} \textcolor{comment}{// NOLINT}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{\textcolor{keyword}{class }Mat4TestCase : \textcolor{keyword}{public} Test}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestInitialization() \{}
+\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4<T>}} foo;}
+\DoxyCodeLine{        assert(foo[0][0] == (T)0);}
+\DoxyCodeLine{        assert(foo[0][1] == (T)0);}
+\DoxyCodeLine{        assert(foo[0][2] == (T)0);}
+\DoxyCodeLine{        assert(foo[0][3] == (T)0);}
+\DoxyCodeLine{        assert(foo[1][0] == (T)0);}
+\DoxyCodeLine{        assert(foo[1][1] == (T)0);}
+\DoxyCodeLine{        assert(foo[1][2] == (T)0);}
+\DoxyCodeLine{        assert(foo[1][3] == (T)0);}
+\DoxyCodeLine{        assert(foo[2][0] == (T)0);}
+\DoxyCodeLine{        assert(foo[2][1] == (T)0);}
+\DoxyCodeLine{        assert(foo[2][2] == (T)0);}
+\DoxyCodeLine{        assert(foo[2][3] == (T)0);}
+\DoxyCodeLine{        assert(foo[3][0] == (T)0);}
+\DoxyCodeLine{        assert(foo[3][1] == (T)0);}
+\DoxyCodeLine{        assert(foo[3][2] == (T)0);}
+\DoxyCodeLine{        assert(foo[3][3] == (T)0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestUtils() \{}
+\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4<T>}} foo = \mbox{\hyperlink{structmat4_a8992a591df412176cd5365e20af13490}{mat4<T>::Unit}}();}
+\DoxyCodeLine{        assert(foo[0][0] == (T)1);}
+\DoxyCodeLine{        assert(foo[0][1] == (T)0);}
+\DoxyCodeLine{        assert(foo[0][2] == (T)0);}
+\DoxyCodeLine{        assert(foo[0][3] == (T)0);}
+\DoxyCodeLine{        assert(foo[1][0] == (T)0);}
+\DoxyCodeLine{        assert(foo[1][1] == (T)1);}
+\DoxyCodeLine{        assert(foo[1][2] == (T)0);}
+\DoxyCodeLine{        assert(foo[1][3] == (T)0);}
+\DoxyCodeLine{        assert(foo[2][0] == (T)0);}
+\DoxyCodeLine{        assert(foo[2][1] == (T)0);}
+\DoxyCodeLine{        assert(foo[2][2] == (T)1);}
+\DoxyCodeLine{        assert(foo[2][3] == (T)0);}
+\DoxyCodeLine{        assert(foo[3][0] == (T)0);}
+\DoxyCodeLine{        assert(foo[3][1] == (T)0);}
+\DoxyCodeLine{        assert(foo[3][2] == (T)0);}
+\DoxyCodeLine{        assert(foo[3][3] == (T)1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        foo = \mbox{\hyperlink{structmat4}{mat4<T>}}((T)1, (T)2, (T)2, (T)2, (T)2, (T)1, (T)2, (T)2, (T)2, (T)2, (T)1, (T)2, (T)2, (T)2, (T)2, (T)1);}
+\DoxyCodeLine{        assert(foo[0][0] == (T)1);}
+\DoxyCodeLine{        assert(foo[0][1] == (T)2);}
+\DoxyCodeLine{        assert(foo[0][2] == (T)2);}
+\DoxyCodeLine{        assert(foo[0][3] == (T)2);}
+\DoxyCodeLine{        assert(foo[1][0] == (T)2);}
+\DoxyCodeLine{        assert(foo[1][1] == (T)1);}
+\DoxyCodeLine{        assert(foo[1][2] == (T)2);}
+\DoxyCodeLine{        assert(foo[1][3] == (T)2);}
+\DoxyCodeLine{        assert(foo[2][0] == (T)2);}
+\DoxyCodeLine{        assert(foo[2][1] == (T)2);}
+\DoxyCodeLine{        assert(foo[2][2] == (T)1);}
+\DoxyCodeLine{        assert(foo[2][3] == (T)2);}
+\DoxyCodeLine{        assert(foo[3][0] == (T)2);}
+\DoxyCodeLine{        assert(foo[3][1] == (T)2);}
+\DoxyCodeLine{        assert(foo[3][2] == (T)2);}
+\DoxyCodeLine{        assert(foo[3][3] == (T)1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        assert(foo.\mbox{\hyperlink{structmat4_a5cb4b663a9f710a01b2d9959595431c5}{IsSymmetric}}());}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4<T>}} fooCopy = foo;}
+\DoxyCodeLine{        assert(fooCopy[0][0] == foo[0][0]);}
+\DoxyCodeLine{        assert(fooCopy[0][1] == foo[0][1]);}
+\DoxyCodeLine{        assert(fooCopy[0][2] == foo[0][2]);}
+\DoxyCodeLine{        assert(fooCopy[0][3] == foo[0][3]);}
+\DoxyCodeLine{        assert(fooCopy[1][0] == foo[1][0]);}
+\DoxyCodeLine{        assert(fooCopy[1][1] == foo[1][1]);}
+\DoxyCodeLine{        assert(fooCopy[1][2] == foo[1][2]);}
+\DoxyCodeLine{        assert(fooCopy[1][3] == foo[1][3]);}
+\DoxyCodeLine{        assert(fooCopy[2][0] == foo[2][0]);}
+\DoxyCodeLine{        assert(fooCopy[2][1] == foo[2][1]);}
+\DoxyCodeLine{        assert(fooCopy[2][2] == foo[2][2]);}
+\DoxyCodeLine{        assert(fooCopy[2][3] == foo[2][3]);}
+\DoxyCodeLine{        assert(fooCopy[3][0] == foo[3][0]);}
+\DoxyCodeLine{        assert(fooCopy[3][1] == foo[3][1]);}
+\DoxyCodeLine{        assert(fooCopy[3][2] == foo[3][2]);}
+\DoxyCodeLine{        assert(fooCopy[3][3] == foo[3][3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        fooCopy = fooCopy.\mbox{\hyperlink{structmat4_aa6a61e9f0b4ddc318c80cc8bb894e1e7}{Transpose}}();}
+\DoxyCodeLine{        \textcolor{comment}{// nothing happened matrix is symmetric}}
+\DoxyCodeLine{        assert(fooCopy[0][0] == foo[0][0]);}
+\DoxyCodeLine{        assert(fooCopy[0][1] == foo[0][1]);}
+\DoxyCodeLine{        assert(fooCopy[0][2] == foo[0][2]);}
+\DoxyCodeLine{        assert(fooCopy[0][3] == foo[0][3]);}
+\DoxyCodeLine{        assert(fooCopy[1][0] == foo[1][0]);}
+\DoxyCodeLine{        assert(fooCopy[1][1] == foo[1][1]);}
+\DoxyCodeLine{        assert(fooCopy[1][2] == foo[1][2]);}
+\DoxyCodeLine{        assert(fooCopy[1][3] == foo[1][3]);}
+\DoxyCodeLine{        assert(fooCopy[2][0] == foo[2][0]);}
+\DoxyCodeLine{        assert(fooCopy[2][1] == foo[2][1]);}
+\DoxyCodeLine{        assert(fooCopy[2][2] == foo[2][2]);}
+\DoxyCodeLine{        assert(fooCopy[2][3] == foo[2][3]);}
+\DoxyCodeLine{        assert(fooCopy[3][0] == foo[3][0]);}
+\DoxyCodeLine{        assert(fooCopy[3][1] == foo[3][1]);}
+\DoxyCodeLine{        assert(fooCopy[3][2] == foo[3][2]);}
+\DoxyCodeLine{        assert(fooCopy[3][3] == foo[3][3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        fooCopy =}
+\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4<T>}}((T)0, (T)1, (T)1, (T)1, (T)-\/1, (T)0, (T)1, (T)1, (T)-\/1, (T)-\/1, (T)0, (T)1, (T)-\/1, (T)-\/1, (T)-\/1, (T)0);}
+\DoxyCodeLine{        fooCopy = fooCopy.\mbox{\hyperlink{structmat4_aa6a61e9f0b4ddc318c80cc8bb894e1e7}{Transpose}}();}
+\DoxyCodeLine{        assert(fooCopy[0][0] == (T)0);}
+\DoxyCodeLine{        assert(fooCopy[0][1] == (T)-\/1);}
+\DoxyCodeLine{        assert(fooCopy[0][2] == (T)-\/1);}
+\DoxyCodeLine{        assert(fooCopy[0][3] == (T)-\/1);}
+\DoxyCodeLine{        assert(fooCopy[1][0] == (T)1);}
+\DoxyCodeLine{        assert(fooCopy[1][1] == (T)0);}
+\DoxyCodeLine{        assert(fooCopy[1][2] == (T)-\/1);}
+\DoxyCodeLine{        assert(fooCopy[1][3] == (T)-\/1);}
+\DoxyCodeLine{        assert(fooCopy[2][0] == (T)1);}
+\DoxyCodeLine{        assert(fooCopy[2][1] == (T)1);}
+\DoxyCodeLine{        assert(fooCopy[2][2] == (T)0);}
+\DoxyCodeLine{        assert(fooCopy[2][3] == (T)-\/1);}
+\DoxyCodeLine{        assert(fooCopy[3][0] == (T)1);}
+\DoxyCodeLine{        assert(fooCopy[3][1] == (T)1);}
+\DoxyCodeLine{        assert(fooCopy[3][2] == (T)1);}
+\DoxyCodeLine{        assert(fooCopy[3][3] == (T)0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}mat4\(\backslash\)n"{}} << foo;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestMath() \{}
+\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4<T>}} foo(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);}
+\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4<T>}} bar(17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32);}
+\DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4<T>}} vec(1, 2, 3, 4);}
+\DoxyCodeLine{        \textcolor{keywordtype}{float} delta = 2.0f;}
+\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4<T>}} fooBar;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// +}}
+\DoxyCodeLine{        fooBar = foo + bar;}
+\DoxyCodeLine{        assert(fooBar[0][0] == (T)18.0f);}
+\DoxyCodeLine{        assert(fooBar[0][1] == (T)20.0f);}
+\DoxyCodeLine{        assert(fooBar[0][2] == (T)22.0f);}
+\DoxyCodeLine{        assert(fooBar[0][3] == (T)24.0f);}
+\DoxyCodeLine{        assert(fooBar[1][0] == (T)26.0f);}
+\DoxyCodeLine{        assert(fooBar[1][1] == (T)28.0f);}
+\DoxyCodeLine{        assert(fooBar[1][2] == (T)30.0f);}
+\DoxyCodeLine{        assert(fooBar[1][3] == (T)32.0f);}
+\DoxyCodeLine{        assert(fooBar[2][0] == (T)34.0f);}
+\DoxyCodeLine{        assert(fooBar[2][1] == (T)36.0f);}
+\DoxyCodeLine{        assert(fooBar[2][2] == (T)38.0f);}
+\DoxyCodeLine{        assert(fooBar[2][3] == (T)40.0f);}
+\DoxyCodeLine{        assert(fooBar[3][0] == (T)42.0f);}
+\DoxyCodeLine{        assert(fooBar[3][1] == (T)44.0f);}
+\DoxyCodeLine{        assert(fooBar[3][2] == (T)46.0f);}
+\DoxyCodeLine{        assert(fooBar[3][3] == (T)48.0f);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        fooBar = foo;}
+\DoxyCodeLine{        fooBar += bar;}
+\DoxyCodeLine{        assert(fooBar[0][0] == (T)18.0f);}
+\DoxyCodeLine{        assert(fooBar[0][1] == (T)20.0f);}
+\DoxyCodeLine{        assert(fooBar[0][2] == (T)22.0f);}
+\DoxyCodeLine{        assert(fooBar[0][3] == (T)24.0f);}
+\DoxyCodeLine{        assert(fooBar[1][0] == (T)26.0f);}
+\DoxyCodeLine{        assert(fooBar[1][1] == (T)28.0f);}
+\DoxyCodeLine{        assert(fooBar[1][2] == (T)30.0f);}
+\DoxyCodeLine{        assert(fooBar[1][3] == (T)32.0f);}
+\DoxyCodeLine{        assert(fooBar[2][0] == (T)34.0f);}
+\DoxyCodeLine{        assert(fooBar[2][1] == (T)36.0f);}
+\DoxyCodeLine{        assert(fooBar[2][2] == (T)38.0f);}
+\DoxyCodeLine{        assert(fooBar[2][3] == (T)40.0f);}
+\DoxyCodeLine{        assert(fooBar[3][0] == (T)42.0f);}
+\DoxyCodeLine{        assert(fooBar[3][1] == (T)44.0f);}
+\DoxyCodeLine{        assert(fooBar[3][2] == (T)46.0f);}
+\DoxyCodeLine{        assert(fooBar[3][3] == (T)48.0f);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// -\/}}
+\DoxyCodeLine{        fooBar = foo -\/ bar;}
+\DoxyCodeLine{        assert(fooBar[0][0] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[0][1] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[0][2] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[0][3] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[1][0] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[1][1] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[1][2] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[1][3] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[2][0] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[2][1] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[2][2] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[2][3] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[3][0] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[3][1] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[3][2] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[3][3] == (T)-\/16.0f);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        fooBar = foo;}
+\DoxyCodeLine{        fooBar -\/= bar;}
+\DoxyCodeLine{        assert(fooBar[0][0] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[0][1] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[0][2] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[0][3] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[1][0] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[1][1] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[1][2] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[1][3] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[2][0] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[2][1] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[2][2] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[2][3] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[3][0] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[3][1] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[3][2] == (T)-\/16.0f);}
+\DoxyCodeLine{        assert(fooBar[3][3] == (T)-\/16.0f);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// /}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        fooBar = foo / delta;}
+\DoxyCodeLine{        assert(fooBar[0][0] == (T)0.5f);}
+\DoxyCodeLine{        assert(fooBar[0][1] == (T)1.0f);}
+\DoxyCodeLine{        assert(fooBar[0][2] == (T)1.5f);}
+\DoxyCodeLine{        assert(fooBar[0][3] == (T)2.0f);}
+\DoxyCodeLine{        assert(fooBar[1][0] == (T)2.5f);}
+\DoxyCodeLine{        assert(fooBar[1][1] == (T)3.0f);}
+\DoxyCodeLine{        assert(fooBar[1][2] == (T)3.5f);}
+\DoxyCodeLine{        assert(fooBar[1][3] == (T)4.0f);}
+\DoxyCodeLine{        assert(fooBar[2][0] == (T)4.5f);}
+\DoxyCodeLine{        assert(fooBar[2][1] == (T)5.0f);}
+\DoxyCodeLine{        assert(fooBar[2][2] == (T)5.5f);}
+\DoxyCodeLine{        assert(fooBar[2][3] == (T)6.0f);}
+\DoxyCodeLine{        assert(fooBar[3][0] == (T)6.5f);}
+\DoxyCodeLine{        assert(fooBar[3][1] == (T)7.0f);}
+\DoxyCodeLine{        assert(fooBar[3][2] == (T)7.5f);}
+\DoxyCodeLine{        assert(fooBar[3][3] == (T)8.0f);}
+\DoxyCodeLine{        fooBar = foo;}
+\DoxyCodeLine{        fooBar /= delta;}
+\DoxyCodeLine{        assert(fooBar[0][0] == (T)0.5f);}
+\DoxyCodeLine{        assert(fooBar[0][1] == (T)1.0f);}
+\DoxyCodeLine{        assert(fooBar[0][2] == (T)1.5f);}
+\DoxyCodeLine{        assert(fooBar[0][3] == (T)2.0f);}
+\DoxyCodeLine{        assert(fooBar[1][0] == (T)2.5f);}
+\DoxyCodeLine{        assert(fooBar[1][1] == (T)3.0f);}
+\DoxyCodeLine{        assert(fooBar[1][2] == (T)3.5f);}
+\DoxyCodeLine{        assert(fooBar[1][3] == (T)4.0f);}
+\DoxyCodeLine{        assert(fooBar[2][0] == (T)4.5f);}
+\DoxyCodeLine{        assert(fooBar[2][1] == (T)5.0f);}
+\DoxyCodeLine{        assert(fooBar[2][2] == (T)5.5f);}
+\DoxyCodeLine{        assert(fooBar[2][3] == (T)6.0f);}
+\DoxyCodeLine{        assert(fooBar[3][0] == (T)6.5f);}
+\DoxyCodeLine{        assert(fooBar[3][1] == (T)7.0f);}
+\DoxyCodeLine{        assert(fooBar[3][2] == (T)7.5f);}
+\DoxyCodeLine{        assert(fooBar[3][3] == (T)8.0f);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// *}}
+\DoxyCodeLine{        fooBar = foo * bar;}
+\DoxyCodeLine{        assert(fooBar[0][0] == (T)250.0f);}
+\DoxyCodeLine{        assert(fooBar[0][1] == (T)260.0f);}
+\DoxyCodeLine{        assert(fooBar[0][2] == (T)270.0f);}
+\DoxyCodeLine{        assert(fooBar[0][3] == (T)280.0f);}
+\DoxyCodeLine{        assert(fooBar[1][0] == (T)618.0f);}
+\DoxyCodeLine{        assert(fooBar[1][1] == (T)644.0f);}
+\DoxyCodeLine{        assert(fooBar[1][2] == (T)670.0f);}
+\DoxyCodeLine{        assert(fooBar[1][3] == (T)696.0f);}
+\DoxyCodeLine{        assert(fooBar[2][0] == (T)986.0f);}
+\DoxyCodeLine{        assert(fooBar[2][1] == (T)1028.0f);}
+\DoxyCodeLine{        assert(fooBar[2][2] == (T)1070.0f);}
+\DoxyCodeLine{        assert(fooBar[2][3] == (T)1112.0f);}
+\DoxyCodeLine{        assert(fooBar[3][0] == (T)1354.0f);}
+\DoxyCodeLine{        assert(fooBar[3][1] == (T)1412.0f);}
+\DoxyCodeLine{        assert(fooBar[3][2] == (T)1470.0f);}
+\DoxyCodeLine{        assert(fooBar[3][3] == (T)1528.0f);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        fooBar = foo;}
+\DoxyCodeLine{        fooBar *= bar;}
+\DoxyCodeLine{        assert(fooBar[0][0] == (T)250.0f);}
+\DoxyCodeLine{        assert(fooBar[0][1] == (T)260.0f);}
+\DoxyCodeLine{        assert(fooBar[0][2] == (T)270.0f);}
+\DoxyCodeLine{        assert(fooBar[0][3] == (T)280.0f);}
+\DoxyCodeLine{        assert(fooBar[1][0] == (T)618.0f);}
+\DoxyCodeLine{        assert(fooBar[1][1] == (T)644.0f);}
+\DoxyCodeLine{        assert(fooBar[1][2] == (T)670.0f);}
+\DoxyCodeLine{        assert(fooBar[1][3] == (T)696.0f);}
+\DoxyCodeLine{        assert(fooBar[2][0] == (T)986.0f);}
+\DoxyCodeLine{        assert(fooBar[2][1] == (T)1028.0f);}
+\DoxyCodeLine{        assert(fooBar[2][2] == (T)1070.0f);}
+\DoxyCodeLine{        assert(fooBar[2][3] == (T)1112.0f);}
+\DoxyCodeLine{        assert(fooBar[3][0] == (T)1354.0f);}
+\DoxyCodeLine{        assert(fooBar[3][1] == (T)1412.0f);}
+\DoxyCodeLine{        assert(fooBar[3][2] == (T)1470.0f);}
+\DoxyCodeLine{        assert(fooBar[3][3] == (T)1528.0f);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4<T>}} fooVec = foo * vec;}
+\DoxyCodeLine{        assert(fooVec.x == (T)30.0f);}
+\DoxyCodeLine{        assert(fooVec.y == (T)70.0f);}
+\DoxyCodeLine{        assert(fooVec.z == (T)110.0f);}
+\DoxyCodeLine{        assert(fooVec.w == (T)150.0f);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        fooBar = foo * delta;}
+\DoxyCodeLine{        assert(fooBar[0][0] == (T)2.0f);}
+\DoxyCodeLine{        assert(fooBar[0][1] == (T)4.0f);}
+\DoxyCodeLine{        assert(fooBar[0][2] == (T)6.0f);}
+\DoxyCodeLine{        assert(fooBar[0][3] == (T)8.0f);}
+\DoxyCodeLine{        assert(fooBar[1][0] == (T)10.0f);}
+\DoxyCodeLine{        assert(fooBar[1][1] == (T)12.0f);}
+\DoxyCodeLine{        assert(fooBar[1][2] == (T)14.0f);}
+\DoxyCodeLine{        assert(fooBar[1][3] == (T)16.0f);}
+\DoxyCodeLine{        assert(fooBar[2][0] == (T)18.0f);}
+\DoxyCodeLine{        assert(fooBar[2][1] == (T)20.0f);}
+\DoxyCodeLine{        assert(fooBar[2][2] == (T)22.0f);}
+\DoxyCodeLine{        assert(fooBar[2][3] == (T)24.0f);}
+\DoxyCodeLine{        assert(fooBar[3][0] == (T)26.0f);}
+\DoxyCodeLine{        assert(fooBar[3][1] == (T)28.0f);}
+\DoxyCodeLine{        assert(fooBar[3][2] == (T)30.0f);}
+\DoxyCodeLine{        assert(fooBar[3][3] == (T)32.0f);}
+\DoxyCodeLine{        fooBar = foo;}
+\DoxyCodeLine{        fooBar *= delta;}
+\DoxyCodeLine{        assert(fooBar[0][0] == (T)2.0f);}
+\DoxyCodeLine{        assert(fooBar[0][1] == (T)4.0f);}
+\DoxyCodeLine{        assert(fooBar[0][2] == (T)6.0f);}
+\DoxyCodeLine{        assert(fooBar[0][3] == (T)8.0f);}
+\DoxyCodeLine{        assert(fooBar[1][0] == (T)10.0f);}
+\DoxyCodeLine{        assert(fooBar[1][1] == (T)12.0f);}
+\DoxyCodeLine{        assert(fooBar[1][2] == (T)14.0f);}
+\DoxyCodeLine{        assert(fooBar[1][3] == (T)16.0f);}
+\DoxyCodeLine{        assert(fooBar[2][0] == (T)18.0f);}
+\DoxyCodeLine{        assert(fooBar[2][1] == (T)20.0f);}
+\DoxyCodeLine{        assert(fooBar[2][2] == (T)22.0f);}
+\DoxyCodeLine{        assert(fooBar[2][3] == (T)24.0f);}
+\DoxyCodeLine{        assert(fooBar[3][0] == (T)26.0f);}
+\DoxyCodeLine{        assert(fooBar[3][1] == (T)28.0f);}
+\DoxyCodeLine{        assert(fooBar[3][2] == (T)30.0f);}
+\DoxyCodeLine{        assert(fooBar[3][3] == (T)32.0f);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{        TestInitialization();}
+\DoxyCodeLine{        TestUtils();}
+\DoxyCodeLine{        TestMath();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
+\DoxyCodeLine{    Mat4TestCase<int>().run();}
+\DoxyCodeLine{    \textcolor{keyword}{auto} testCase     = Mat4TestCase<float>();}
+\DoxyCodeLine{    testCase.extended = \textcolor{keyword}{true};}
+\DoxyCodeLine{    testCase.run();}
+\DoxyCodeLine{    \textcolor{keyword}{auto} testCase2     = Mat4TestCase<double>();}
+\DoxyCodeLine{    testCase2.extended = \textcolor{keyword}{true};}
+\DoxyCodeLine{    testCase2.run();}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

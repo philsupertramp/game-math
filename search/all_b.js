@@ -1,16 +1,4 @@
 var searchData=
 [
-  ['lagrangebase_83',['LagrangeBase',['../classLagrangeBase.html',1,'']]],
-  ['left_84',['left',['../classMathNode.html#a7246ecf47bdb68471202f2c725cb41e4',1,'MathNode']]],
-  ['length_85',['length',['../structvec2.html#a98b53c74527a746687775313f1774a63',1,'vec2::length()'],['../structvec3.html#ac029a16150f7428a8e6e3bf876da68b1',1,'vec3::length()'],['../structvec4.html#aa14d2adcfa8bb4c91325c2c743c1e673',1,'vec4::length()']]],
-  ['lerp_86',['lerp',['../utils_8h.html#ad354f16ece262d960b73ac51b550ae4d',1,'Math::Utils::lerp(vec4&lt; T &gt; p1, vec4&lt; T &gt; p2, const float &amp;v)'],['../utils_8h.html#a7d0cff957728efb27d5414c029e8b3af',1,'Math::Utils::lerp(vec3&lt; T &gt; p1, vec3&lt; T &gt; p2, const float &amp;v)']]],
-  ['linearequation_87',['LinearEquation',['../newton_8h.html#ae8b65eb11627dab8f1907f164294756b',1,'newton.h']]],
-  ['linestrength_88',['lineStrength',['../structPlotAttributes.html#a9c108066e425622ee8ee97a85cf31523',1,'PlotAttributes']]],
-  ['linewidth_89',['lineWidth',['../classPlot.html#a6030621e36e58f3119a7c81e4a9fbd31',1,'Plot']]],
-  ['linspace_90',['linspace',['../numerics_2utils_8h.html#a3496a7aecd2c42b9bacd5bc9dc85dd88',1,'utils.cpp']]],
-  ['logregsgd_91',['LogRegSGD',['../classLogRegSGD.html',1,'LogRegSGD'],['../classLogRegSGD.html#afd641912a68b8c0b2981585fb2cfc068',1,'LogRegSGD::LogRegSGD()']]],
-  ['lookat_92',['lookAt',['../utils_8h.html#ad84d5d2918361fd0e154c931b80db5ae',1,'Math::Utils']]],
-  ['lowest_93',['lowest',['../classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#a9f3c9d61cc0c2904345e6b2df6e442e9',1,'std::numeric_limits&lt; vec3&lt; T &gt; &gt;']]],
-  ['lu_94',['LU',['../LU_8h.html#a5752113e8a55d6c775026f0f9386cea9',1,'LU.h']]],
-  ['lu_2eh_95',['LU.h',['../LU_8h.html',1,'']]]
+  ['kroneckermulti_106',['KroneckerMulti',['../classMatrix.html#a3696cceb1d9290c69389a8a0553ec254',1,'Matrix']]]
 ];

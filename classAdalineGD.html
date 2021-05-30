@@ -134,6 +134,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Adaline neuron classifier using gradient decent method </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="ds_2TestAdalineGD_8cpp-example.html#_a0">ds/TestAdalineGD.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a604a399e6d0737bb62e0d20d83627f03"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a604a399e6d0737bb62e0d20d83627f03">&#9670;&nbsp;</a></span>AdalineGD()</h2>
@@ -170,8 +172,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>default constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_eta</td><td></td></tr>
-    <tr><td class="paramname">iter</td><td></td></tr>
+    <tr><td class="paramname">_eta</td><td>learning rate </td></tr>
+    <tr><td class="paramname">iter</td><td>max number iterations </td></tr>
   </table>
   </dd>
 </dl>
@@ -204,11 +206,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>activates given input </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>activated input </dd></dl>
 
 <p>Implements <a class="el" href="classClassifier.html#a5be8488df3ee4e0e0903877bb19069a8">Classifier</a>.</p>
 
@@ -238,13 +240,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table>
 </div><div class="memdoc">
 <p>calculates cost</p>
-<p>sum(X * X) / 2 </p><dl class="params"><dt>Parameters</dt><dd>
+<p>$$\frac{\sum X^2}{2} </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>squared cost </dd></dl>
 
 <p>Implements <a class="el" href="classClassifier.html#ae3508f6b16b8e4e770d1fc6e31f8eced">Classifier</a>.</p>
 
@@ -285,8 +287,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>fit method to train the classifier using gradient decent method </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input </td></tr>
+    <tr><td class="paramname">y</td><td>target output </td></tr>
   </table>
   </dd>
 </dl>
@@ -318,9 +320,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </tr>
 </table>
 </div><div class="memdoc">
-<p>calculates X * weights + b </p><dl class="params"><dt>Parameters</dt><dd>
+<p>calculates $$ X \cdot w + b </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
@@ -355,11 +357,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>predicts class of given input </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>prediction </dd></dl>
 
 <p>Implements <a class="el" href="classClassifier.html#a0d47e1cccc5be1cdff3b202f48625afe">Classifier</a>.</p>
 

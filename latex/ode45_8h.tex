@@ -31,15 +31,18 @@ TODO\+: use calculated error of 5th order -\/ 4th order to alter step width {\tt
 
 Implementation of 5th order Runge-\/\+Kutta-\/\+Method 
 \begin{DoxyParams}{Parameters}
-{\em fun} & \\
+{\em fun} & ode to approximate \\
 \hline
-{\em t\+Interval} & \\
+{\em t\+Interval} & interval to perform approximation on \\
 \hline
-{\em y0} & \\
+{\em y0} & start value \\
 \hline
-{\em h} & \\
+{\em h} & step width for time values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+approximated values 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2ode_2TestODE45_8cpp-example}{numerics/ode/\+Test\+ODE45.\+cpp}}.\end{Desc}

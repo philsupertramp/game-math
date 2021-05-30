@@ -1,0 +1,131 @@
+\hypertarget{classSpline}{}\doxysection{Spline Class Reference}
+\label{classSpline}\index{Spline@{Spline}}
+
+
+{\ttfamily \#include $<$Spline.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSpline_abdfa308c29717afc26e55319f30f837b}{Spline}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Y)
+\item 
+\mbox{\hyperlink{classSpline_a2b37f086957c486fd85a51350f0aed4e}{Spline}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Y, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Z)
+\item 
+double \mbox{\hyperlink{classSpline_a239567877be8316c97f232161245fc2d}{eval\+\_\+spline\+\_\+j}} (double x\+\_\+act, size\+\_\+t j, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mi)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSpline_a4bd1bdbc5888be3e26c6b3b4fecd1c49}{curv}} (double h)
+\item 
+void \mbox{\hyperlink{classSpline_a8c6b5b07aba1be33e8c33d4041212121}{Set\+Abstraction\+Value}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&tx, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&ty)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSpline_a670f547574c04f4e8c1cfba678d51bf0}{operator()}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&xi)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSpline_a4c5c216c01e0a19ef9ad62502a1fa478}{calculate\+Equidistant}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&xi)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classSpline}{Spline}} implementation.
+
+Capable of 1D Natural-\/\+Cubic-\/\+Splines as well as 2/3D Interpolation using approximations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSpline_abdfa308c29717afc26e55319f30f837b}\label{classSpline_abdfa308c29717afc26e55319f30f837b}} 
+\index{Spline@{Spline}!Spline@{Spline}}
+\index{Spline@{Spline}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{Spline()}{Spline()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Spline\+::\+Spline (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{Y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor 
+\begin{DoxyParams}{Parameters}
+{\em X} & x-\/axis support values \\
+\hline
+{\em Y} & y-\/axis support values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSpline_a2b37f086957c486fd85a51350f0aed4e}\label{classSpline_a2b37f086957c486fd85a51350f0aed4e}} 
+\index{Spline@{Spline}!Spline@{Spline}}
+\index{Spline@{Spline}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{Spline()}{Spline()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Spline\+::\+Spline (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{Y,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{Z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+3D approximation using a b=2 b-\/spline 
+\begin{DoxyParams}{Parameters}
+{\em X} & x-\/axis evaluation values \\
+\hline
+{\em Y} & y-\/axis evaluation values \\
+\hline
+{\em Z} & z-\/axis evaluation values \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpline_a4c5c216c01e0a19ef9ad62502a1fa478}\label{classSpline_a4c5c216c01e0a19ef9ad62502a1fa478}} 
+\index{Spline@{Spline}!calculateEquidistant@{calculateEquidistant}}
+\index{calculateEquidistant@{calculateEquidistant}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{calculateEquidistant()}{calculateEquidistant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Spline\+::calculate\+Equidistant (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{xi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates natural cubic spline for given input xi 
+\begin{DoxyParams}{Parameters}
+{\em xi} & input values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpline_a4bd1bdbc5888be3e26c6b3b4fecd1c49}\label{classSpline_a4bd1bdbc5888be3e26c6b3b4fecd1c49}} 
+\index{Spline@{Spline}!curv@{curv}}
+\index{curv@{curv}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{curv()}{curv()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Spline\+::curv (\begin{DoxyParamCaption}\item[{double}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates second derivative on given knot-\/points 
+\begin{DoxyParams}{Parameters}
+{\em h} & distance between points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpline_a239567877be8316c97f232161245fc2d}\label{classSpline_a239567877be8316c97f232161245fc2d}} 
+\index{Spline@{Spline}!eval\_spline\_j@{eval\_spline\_j}}
+\index{eval\_spline\_j@{eval\_spline\_j}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{eval\_spline\_j()}{eval\_spline\_j()}}
+{\footnotesize\ttfamily double Spline\+::eval\+\_\+spline\+\_\+j (\begin{DoxyParamCaption}\item[{double}]{x\+\_\+act,  }\item[{size\+\_\+t}]{j,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evaluation of cubic polynomial s\+\_\+j \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpline_a670f547574c04f4e8c1cfba678d51bf0}\label{classSpline_a670f547574c04f4e8c1cfba678d51bf0}} 
+\index{Spline@{Spline}!operator()@{operator()}}
+\index{operator()@{operator()}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Spline\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{xi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evaluates the spline for given values 
+\begin{DoxyParams}{Parameters}
+{\em xi} & input values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+evaluated input 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpline_a8c6b5b07aba1be33e8c33d4041212121}\label{classSpline_a8c6b5b07aba1be33e8c33d4041212121}} 
+\index{Spline@{Spline}!SetAbstractionValue@{SetAbstractionValue}}
+\index{SetAbstractionValue@{SetAbstractionValue}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{SetAbstractionValue()}{SetAbstractionValue()}}
+{\footnotesize\ttfamily void Spline\+::\+Set\+Abstraction\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{tx,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ty }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Setter for abstraction values t 
+\begin{DoxyParams}{Parameters}
+{\em tx} & x-\/axis \\
+\hline
+{\em ty} & y-\/axis \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/numerics/analysis/Spline.\+h\end{DoxyCompactItemize}

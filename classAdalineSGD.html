@@ -159,6 +159,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <ul>
 <li>[1] <a href="http://rasbt.github.io/mlxtend/user_guide/classifier/Adaline/">http://rasbt.github.io/mlxtend/user_guide/classifier/Adaline/</a> </li>
 </ul>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="ds_2TestAdalineSGD_8cpp-example.html#_a0">ds/TestAdalineSGD.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2f9c051f06bab810b1d7e92be9e8cfd8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f9c051f06bab810b1d7e92be9e8cfd8">&#9670;&nbsp;</a></span>AdalineSGD()</h2>
@@ -207,10 +209,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>default constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_eta</td><td></td></tr>
-    <tr><td class="paramname">iter</td><td></td></tr>
-    <tr><td class="paramname">_shuffle</td><td></td></tr>
-    <tr><td class="paramname">_randomState</td><td></td></tr>
+    <tr><td class="paramname">_eta</td><td>learning rate </td></tr>
+    <tr><td class="paramname">iter</td><td>number of learning iterations </td></tr>
+    <tr><td class="paramname">_shuffle</td><td>use shuffled data </td></tr>
+    <tr><td class="paramname">_randomState</td><td>seed of random state </td></tr>
   </table>
   </dd>
 </dl>
@@ -243,11 +245,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>activates given input </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>activated input values </dd></dl>
 
 <p>Implements <a class="el" href="classClassifier.html#a5be8488df3ee4e0e0903877bb19069a8">Classifier</a>.</p>
 
@@ -357,7 +359,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>alias for sdg.netInput </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
@@ -402,8 +404,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>partially fits the model </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
+    <tr><td class="paramname">y</td><td>target output values </td></tr>
   </table>
   </dd>
 </dl>
@@ -435,11 +437,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>predict output class of given input </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>predicted output </dd></dl>
 
 <p>Implements <a class="el" href="classClassifier.html#a0d47e1cccc5be1cdff3b202f48625afe">Classifier</a>.</p>
 

@@ -13,8 +13,7 @@ Inheritance diagram for Polynomial\+Base\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPolynomialBase_ae4ebc9c1138824e7d532cdd1497d6967}\label{classPolynomialBase_ae4ebc9c1138824e7d532cdd1497d6967}} 
-{\bfseries Polynomial\+Base} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, \mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Y)
+\mbox{\hyperlink{classPolynomialBase_ae4ebc9c1138824e7d532cdd1497d6967}{Polynomial\+Base}} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, \mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Y)
 \item 
 virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPolynomialBase_a11f1b8db4593f99082a96d0e218b915d}{Evaluate}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&) const =0
 \item 
@@ -23,8 +22,7 @@ virtual std\+::string \mbox{\hyperlink{classPolynomialBase_a7c5cff1055e525bd01ab
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPolynomialBase_ad949dc2b79d2291089f8cef06fda15e9}\label{classPolynomialBase_ad949dc2b79d2291089f8cef06fda15e9}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&ostr, const \mbox{\hyperlink{classPolynomialBase}{Polynomial\+Base}} \&base)
+std\+::ostream \& \mbox{\hyperlink{classPolynomialBase_ad949dc2b79d2291089f8cef06fda15e9}{operator$<$$<$}} (std\+::ostream \&ostr, const \mbox{\hyperlink{classPolynomialBase}{Polynomial\+Base}} \&base)
 \end{DoxyCompactItemize}
 
 
@@ -37,6 +35,22 @@ see \href{https://wiki.godesteem.de/wiki/interpolation-and-approximation/}{\text
 \item \mbox{\hyperlink{classLagrangeBase}{Lagrange\+Base}}
 \item \mbox{\hyperlink{classNewtonBase}{Newton\+Base}} 
 \end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPolynomialBase_ae4ebc9c1138824e7d532cdd1497d6967}\label{classPolynomialBase_ae4ebc9c1138824e7d532cdd1497d6967}} 
+\index{PolynomialBase@{PolynomialBase}!PolynomialBase@{PolynomialBase}}
+\index{PolynomialBase@{PolynomialBase}!PolynomialBase@{PolynomialBase}}
+\doxysubsubsection{\texorpdfstring{PolynomialBase()}{PolynomialBase()}}
+{\footnotesize\ttfamily Polynomial\+Base\+::\+Polynomial\+Base (\begin{DoxyParamCaption}\item[{\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]} \mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]} \mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{Y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor 
+\begin{DoxyParams}{Parameters}
+{\em X} & support values \$\$x\+\_\+i\$\$ \\
+\hline
+{\em Y} & evaluated support values \$\$y\+\_\+i\$\$ \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classPolynomialBase_a11f1b8db4593f99082a96d0e218b915d}\label{classPolynomialBase_a11f1b8db4593f99082a96d0e218b915d}} 
@@ -67,6 +81,25 @@ Don\textquotesingle{}t overthink this. simply return some kind of equation one c
 
 Implemented in \mbox{\hyperlink{classNewtonBase_ac7c02c3ac9dd2a752edb8529c53e47be}{Newton\+Base}}, \mbox{\hyperlink{classLagrangeBase_a8aedfef48106f6288e0a4883d17e6a00}{Lagrange\+Base}}, and \mbox{\hyperlink{classMonomBase_a4e86d536f746f544318c18c08c12b99f}{Monom\+Base}}.
 
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classPolynomialBase_ad949dc2b79d2291089f8cef06fda15e9}\label{classPolynomialBase_ad949dc2b79d2291089f8cef06fda15e9}} 
+\index{PolynomialBase@{PolynomialBase}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!PolynomialBase@{PolynomialBase}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostr,  }\item[{const \mbox{\hyperlink{classPolynomialBase}{Polynomial\+Base}} \&}]{base }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+std\+::cout operator 
+\begin{DoxyParams}{Parameters}
+{\em ostr} & \\
+\hline
+{\em base} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

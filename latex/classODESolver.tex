@@ -29,18 +29,21 @@ Proxy interface class for ODE solvers with static member functions as bridge to 
 
 proxy to ODE45 
 \begin{DoxyParams}{Parameters}
-{\em fun} & \\
+{\em fun} & ode to approximate \\
 \hline
-{\em t\+Interval} & \\
+{\em t\+Interval} & interval to perform approximation on \\
 \hline
-{\em y0} & \\
+{\em y0} & start value \\
 \hline
-{\em option} & \\
+{\em option} & solver options \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+\mbox{\hyperlink{ode45_8h_a88090203efe19f71864a54a7158c36b4}{ODE45}}(fun, t\+Interval, y0, option.\+h) 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2ode_2TestODE45_8cpp-example}{numerics/ode/\+Test\+ODE45.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classODESolver_a6e1e2b2a40e7f022da050975d475b33a}\label{classODESolver_a6e1e2b2a40e7f022da050975d475b33a}} 
 \index{ODESolver@{ODESolver}!odeBDF2@{odeBDF2}}
 \index{odeBDF2@{odeBDF2}!ODESolver@{ODESolver}}
@@ -49,18 +52,21 @@ proxy to ODE45
 
 proxy to ODEBDF2 
 \begin{DoxyParams}{Parameters}
-{\em fun} & \\
+{\em fun} & ode to approximate \\
 \hline
-{\em t\+Interval} & \\
+{\em t\+Interval} & interval to perform approximation on \\
 \hline
-{\em y0} & \\
+{\em y0} & start value \\
 \hline
-{\em option} & \\
+{\em option} & solver options \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+ODEBDF2(fun, t\+Interval, y0, option) 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2ode_2TestODEBDF2_8cpp-example}{numerics/ode/\+Test\+ODEBDF2.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classODESolver_a3ec6a0d320d62e8374abeead40a4927c}\label{classODESolver_a3ec6a0d320d62e8374abeead40a4927c}} 
 \index{ODESolver@{ODESolver}!odeExpEuler@{odeExpEuler}}
 \index{odeExpEuler@{odeExpEuler}!ODESolver@{ODESolver}}
@@ -69,18 +75,21 @@ proxy to ODEBDF2
 
 proxy to ODEExp\+Euler 
 \begin{DoxyParams}{Parameters}
-{\em fun} & \\
+{\em fun} & ode to approximate \\
 \hline
-{\em t\+Interval} & \\
+{\em t\+Interval} & interval to perform approximation on \\
 \hline
-{\em y0} & \\
+{\em y0} & start value \\
 \hline
-{\em option} & \\
+{\em option} & solver options \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+\mbox{\hyperlink{ExplicitEuler_8h_af98076bc70f573a584428cf3fe528af3}{ODEExp\+Euler}}(fun, t\+Interval, y0, option.\+h) 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2ode_2TestExplicitEuler_8cpp-example}{numerics/ode/\+Test\+Explicit\+Euler.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classODESolver_adb48f8bc9533b290a1cb560b3dea2c8b}\label{classODESolver_adb48f8bc9533b290a1cb560b3dea2c8b}} 
 \index{ODESolver@{ODESolver}!odeTrapez@{odeTrapez}}
 \index{odeTrapez@{odeTrapez}!ODESolver@{ODESolver}}
@@ -89,18 +98,21 @@ proxy to ODEExp\+Euler
 
 proxy to ODETrapez 
 \begin{DoxyParams}{Parameters}
-{\em fun} & \\
+{\em fun} & ode to approximate \\
 \hline
-{\em t\+Interval} & \\
+{\em t\+Interval} & interval to perform approximation on \\
 \hline
-{\em y0} & \\
+{\em y0} & start value \\
 \hline
-{\em option} & \\
+{\em option} & solver options \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+ODETrapez(fun, t\+Interval, y0, option) 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2ode_2TestODETrapez_8cpp-example}{numerics/ode/\+Test\+ODETrapez.\+cpp}}.\end{Desc}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

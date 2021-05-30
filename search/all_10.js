@@ -1,10 +1,26 @@
 var searchData=
 [
-  ['random_198',['Random',['../classRandom.html',1,'Random'],['../classMatrix.html#ab72c15d620fbe70b88578543b65e70ff',1,'Matrix::Random()']]],
-  ['randomstate_199',['randomState',['../classAdalineSGD.html#a7930ffb33b513fec12a6503191fa89a3',1,'AdalineSGD::randomState()'],['../classLogRegSGD.html#a654e74118d5644bc8e18ca5e5bcca997',1,'LogRegSGD::randomState()']]],
-  ['readfromfile_200',['ReadFromFile',['../structSet.html#a4f4968d31600cbf8497464eeab1ca139',1,'Set']]],
-  ['resize_201',['Resize',['../classMatrix.html#ab5931e4a60d936c1294c187a6fa162e8',1,'Matrix']]],
-  ['right_202',['right',['../classMathNode.html#af81f7d62cd9008544aa999c6a1c55934',1,'MathNode']]],
-  ['rotate_203',['rotate',['../utils_8h.html#a613016d9db9e0f9909b6c3a0a5b40b4e',1,'Math::Utils']]],
-  ['rows_204',['rows',['../structMatrixDimension.html#a93df531cf74c1c3a6d6c0519cb2789ef',1,'MatrixDimension::rows()'],['../classMatrix.html#a5330adf02b284293259eb9f7c9acaa99',1,'Matrix::rows()']]]
+  ['p_5fnorm_208',['P_NORM',['../Probability_8h.html#a8c8648160cfcb34a69de946e4ad505b0',1,'Probability.h']]],
+  ['partial_5ffit_209',['partial_fit',['../classSGD.html#a45c2d880b888167941d996ddf1b39b0b',1,'SGD::partial_fit()'],['../classLogRegSGD.html#a7e21cee4236b4f144cf507396849110f',1,'LogRegSGD::partial_fit()'],['../classAdalineSGD.html#a1e6915753b8004c988d4241af8c30fd8',1,'AdalineSGD::partial_fit()']]],
+  ['perceptron_210',['Perceptron',['../classPerceptron.html',1,'Perceptron'],['../classPerceptron.html#a499ae65d675aca14c0b803df31199705',1,'Perceptron::Perceptron()']]],
+  ['perspective_211',['perspective',['../utils_8h.html#a5c146479d4724c9d53208df533ea4ef8',1,'Math::Utils']]],
+  ['plot_212',['Plot',['../classPlot.html',1,'Plot'],['../classPlot.html#ad5c4ae2e4201841f833c2d6968681c0a',1,'Plot::Plot()']]],
+  ['plotattributes_213',['PlotAttributes',['../structPlotAttributes.html',1,'']]],
+  ['plotboundary_214',['PlotBoundary',['../structPlotBoundary.html',1,'']]],
+  ['plotindex_215',['PlotIndex',['../structPlotIndex.html',1,'']]],
+  ['plotindices_216',['plotIndices',['../structPlotAttributes.html#ab52812aea2de2730dbccf423d5f4797e',1,'PlotAttributes']]],
+  ['plotnames_217',['plotNames',['../structPlotAttributes.html#af1fbc2faf45c17722017f841f3e92639',1,'PlotAttributes']]],
+  ['plottype_218',['plotType',['../classPlot.html#a77875f7b918ccd9a43f72b189b2e102d',1,'Plot']]],
+  ['plottypename_219',['plotTypeName',['../classPlot.html#a84d0108c396f7665f228340fce807992',1,'Plot']]],
+  ['plottypes_220',['plotTypes',['../structPlotAttributes.html#a366b5a4078cb55cc358dc956bf3fef88',1,'PlotAttributes']]],
+  ['pointsize_221',['pointSize',['../classPlot.html#ab1ca4b31fc51ed85c65f1c8fcf786134',1,'Plot']]],
+  ['pointstrength_222',['pointStrength',['../structPlotAttributes.html#a84595caf0d1f946b36c8c4b5280830eb',1,'PlotAttributes']]],
+  ['polynomialbase_223',['PolynomialBase',['../classPolynomialBase.html#ae4ebc9c1138824e7d532cdd1497d6967',1,'PolynomialBase::PolynomialBase()'],['../classPolynomialBase.html',1,'PolynomialBase']]],
+  ['pow_224',['pow',['../Probability_8h.html#a4f0f49581ae9315695fb32a1e9fc4bdc',1,'Probability.cpp']]],
+  ['predict_225',['predict',['../classAdalineGD.html#a64117e06585fa2c98f577440b6e74e27',1,'AdalineGD::predict()'],['../classAdalineSGD.html#a5efda89a32f61566d068b2c37690f6b0',1,'AdalineSGD::predict()'],['../classClassifier.html#a0d47e1cccc5be1cdff3b202f48625afe',1,'Classifier::predict()'],['../classLogRegSGD.html#a3bd288cfafbd38b0c6c66fd67d316df1',1,'LogRegSGD::predict()'],['../classPerceptron.html#ac6859763b91ee84b799c1e7554e96eee',1,'Perceptron::predict()']]],
+  ['preparedirectory_226',['PrepareDirectory',['../classDataSet.html#a090f85f9a3c7ec81261ab6d3e2eda4a2',1,'DataSet::PrepareDirectory()'],['../classImageDataSet.html#a70c65453f974635726e64d371b39acee',1,'ImageDataSet::PrepareDirectory()']]],
+  ['print_227',['Print',['../classEquation.html#a6e0f72992a59285ca1d9548f65172a91',1,'Equation']]],
+  ['printtree_228',['PrintTree',['../classEquation.html#ab9daa6dd4f1c918d325ae90390503269',1,'Equation::PrintTree() const'],['../classEquation.html#a96bcd5581bd04a65fea7ba373815e418',1,'Equation::PrintTree(const std::shared_ptr&lt; MathNode &gt; &amp;node, int &amp;level, std::vector&lt; std::string &gt; &amp;tree) const']]],
+  ['priority_229',['priority',['../classOperator.html#aac3650047650adcb082c21b2a5bdfb1c',1,'Operator']]],
+  ['probability_2eh_230',['Probability.h',['../Probability_8h.html',1,'']]]
 ];

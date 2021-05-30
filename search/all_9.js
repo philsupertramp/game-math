@@ -1,5 +1,18 @@
 var searchData=
 [
-  ['jac_80',['Jac',['../structODEOption.html#a99dbd698766a95bb8a9cf0f2e28d7816',1,'ODEOption']]],
-  ['jacobian_81',['Jacobian',['../newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb',1,'newton.h']]]
+  ['i_89',['i',['../structInterest.html#a1cc071af1a8e0ad6c6916e7548da066a',1,'Interest']]],
+  ['imagedataset_90',['ImageDataSet',['../classImageDataSet.html#a6cb4942bbb5ce16e1ab67ccd550dc9e3',1,'ImageDataSet::ImageDataSet()'],['../classImageDataSet.html',1,'ImageDataSet']]],
+  ['imageheight_91',['imageHeight',['../classImageDataSet.html#ab83106b8cff6d5cc8359aa490d85d07e',1,'ImageDataSet']]],
+  ['imagewidth_92',['imageWidth',['../classImageDataSet.html#a9ba02bb2e1b60de7f6835ace293809f9',1,'ImageDataSet']]],
+  ['inf_93',['Inf',['../Probability_8h.html#a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784',1,'Probability.h']]],
+  ['initialize_5fweights_94',['initialize_weights',['../classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8',1,'Classifier']]],
+  ['input_95',['Input',['../structSet.html#a05d1a42371080cffdd7851cf9c00f81b',1,'Set']]],
+  ['inputcount_96',['InputCount',['../structSet.html#a2b7d3fdcba4188a6c2cd7808e8b0892a',1,'Set::InputCount()'],['../classDataSet.html#a9cc77d557deb5f130c5ca93267a88b69',1,'DataSet::InputCount()']]],
+  ['insurance_2eh_97',['Insurance.h',['../Insurance_8h.html',1,'']]],
+  ['interest_98',['Interest',['../structInterest.html',1,'']]],
+  ['is3d_99',['is3D',['../structPlotAttributes.html#a653cff4fb1567e4547763924cad62178',1,'PlotAttributes']]],
+  ['isnegative_100',['isNegative',['../classMathNode.html#a23bb4430c010646f85a41e722f30d7f6',1,'MathNode']]],
+  ['isstatplot_101',['isStatPlot',['../structPlotAttributes.html#ac6910d9ebfe2403059d206fe29fc4dc2',1,'PlotAttributes']]],
+  ['issymmetric_102',['IsSymmetric',['../structmat2.html#af01714893e2ef949e68b8fb915d35e0b',1,'mat2::IsSymmetric()'],['../structmat3.html#ab220413081e249d2895e14f3d287a3bc',1,'mat3::IsSymmetric()'],['../structmat4.html#a5cb4b663a9f710a01b2d9959595431c5',1,'mat4::IsSymmetric()']]],
+  ['iterations_103',['Iterations',['../structODEResult.html#a2c6a9c94926cc37485e885eed6c3fddc',1,'ODEResult']]]
 ];

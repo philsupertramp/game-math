@@ -43,7 +43,10 @@ int \mbox{\hyperlink{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}{random\+S
 
 
 \doxysubsection{Detailed Description}
-Logistical regression model using statistic gradient decent method for model fitting. 
+Logistical regression model using statistic gradient decent method for model fitting. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{ds_2TestLogRegSGD_8cpp-example}{ds/\+Test\+Log\+Reg\+SGD.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classLogRegSGD_afd641912a68b8c0b2981585fb2cfc068}\label{classLogRegSGD_afd641912a68b8c0b2981585fb2cfc068}} 
@@ -54,13 +57,13 @@ Logistical regression model using statistic gradient decent method for model fit
 
 default constructor 
 \begin{DoxyParams}{Parameters}
-{\em \+\_\+eta} & \\
+{\em \+\_\+eta} & learning rate \\
 \hline
-{\em iter} & \\
+{\em iter} & number learning iterations \\
 \hline
-{\em \+\_\+shuffle} & \\
+{\em \+\_\+shuffle} & shuffle data in each iteration? \\
 \hline
-{\em \+\_\+random\+State} & \\
+{\em \+\_\+random\+State} & seed for random state \\
 \hline
 \end{DoxyParams}
 
@@ -72,13 +75,13 @@ default constructor
 \doxysubsubsection{\texorpdfstring{activation()}{activation()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Log\+Reg\+SGD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-activate given input 
+activate given input \$\$x\textbackslash{}mapsto \textbackslash{}phi(x)\$\$ 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+activated values 
 \end{DoxyReturn}
 
 
@@ -126,7 +129,7 @@ Implements \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{C
 
 calculate netinput 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -144,9 +147,9 @@ Implements \mbox{\hyperlink{classClassifier_a0110e1eedbfae3c9a66f376868cbaffb}{C
 
 partially fit weights 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
-{\em y} & \\
+{\em y} & target output values \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classLogRegSGD_a3bd288cfafbd38b0c6c66fd67d316df1}\label{classLogRegSGD_a3bd288cfafbd38b0c6c66fd67d316df1}} 
@@ -157,11 +160,11 @@ partially fit weights
 
 predict output for given input 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+predicted output for given input 
 \end{DoxyReturn}
 
 

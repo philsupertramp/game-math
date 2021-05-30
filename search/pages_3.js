@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['symbolic_20extension_584',['symbolic extension',['../md_include_math_symb_README.html',1,'']]]
+  ['numerics_670',['numerics',['../md_include_math_numerics_docs_README.html',1,'']]]
 ];

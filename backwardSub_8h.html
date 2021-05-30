@@ -90,7 +90,7 @@ Functions</h2></td></tr>
 <tr class="separator:a41cdbff6147ed194eb02c9e53ae98d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Regular backward substitution. Calculates result given upper right triangular matrix z=R*b =&gt; R^-1b = z </p>
+<div class="textblock"><p>Regular backward substitution. Calculates result given upper right triangular matrix $$ z=R\cdot b \Rightarrow R^{-1}\cdot b = z $$ </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a41cdbff6147ed194eb02c9e53ae98d22"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a41cdbff6147ed194eb02c9e53ae98d22">&#9670;&nbsp;</a></span>backwardSub()</h2>
@@ -117,14 +117,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Backward-substitution calculates R*b = z </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Backward-substitution </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">R</td><td></td></tr>
-    <tr><td class="paramname">b</td><td></td></tr>
+    <tr><td class="paramname">R</td><td>Coefficient matrix </td></tr>
+    <tr><td class="paramname">b</td><td>result vector </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>R*b </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>z </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2lin_alg_2TestBackwardSub_8cpp-example.html#a1">numerics/lin_alg/TestBackwardSub.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>

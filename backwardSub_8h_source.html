@@ -77,43 +77,43 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="backwardSub_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../utils.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="backwardSub_8h.html#a41cdbff6147ed194eb02c9e53ae98d22">   19</a></span>&#160;<a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> <a class="code" href="backwardSub_8h.html#a41cdbff6147ed194eb02c9e53ae98d22">backwardSub</a>(<span class="keyword">const</span> <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>&amp; R, <span class="keyword">const</span> <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>&amp; b) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">size_t</span> m = R.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">size_t</span> n = R.<a class="code" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">size_t</span> v = b.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span>(v != m) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">// Error, cannot compute</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Matrix vector dimension miss match, error!\n&quot;</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span>(m != n) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="comment">// Error, cannot compute</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Matrix not squared. Dimension miss match, error!\n&quot;</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">auto</span> x = <a class="code" href="numerics_2utils_8h.html#a39df225669a531266ed2c16531359108">zerosV</a>(v);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">if</span>(R(m - 1, n - 1) != 0) { x(v - 1, 0) = b(v - 1, 0) / R(m - 1, n - 1); }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = (<span class="keywordtype">int</span>)m - 2; j &gt;= 0; j--) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">double</span> s_k = 0.0f;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = j + 1; k &lt; m; k++) { s_k = s_k + (R(j, k) * x(k, 0)); }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        x(j, 0) = (b(j, 0) - s_k) / R(j, j);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> x;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="ttc" id="abackwardSub_8h_html_a41cdbff6147ed194eb02c9e53ae98d22"><div class="ttname"><a href="backwardSub_8h.html#a41cdbff6147ed194eb02c9e53ae98d22">backwardSub</a></div><div class="ttdeci">Matrix&lt; double &gt; backwardSub(const Matrix&lt; double &gt; &amp;R, const Matrix&lt; double &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> backwardSub.h:19</div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../utils.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="backwardSub_8h.html#a41cdbff6147ed194eb02c9e53ae98d22">   22</a></span>&#160;<a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> <a class="code" href="backwardSub_8h.html#a41cdbff6147ed194eb02c9e53ae98d22">backwardSub</a>(<span class="keyword">const</span> <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>&amp; R, <span class="keyword">const</span> <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>&amp; b) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">size_t</span> m = R.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">size_t</span> n = R.<a class="code" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">size_t</span> v = b.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span>(v != m) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">// Error, cannot compute</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Matrix vector dimension miss match, error!\n&quot;</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span>(m != n) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">// Error, cannot compute</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Matrix not squared. Dimension miss match, error!\n&quot;</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">auto</span> x = <a class="code" href="numerics_2utils_8h.html#a39df225669a531266ed2c16531359108">zerosV</a>(v);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span>(R(m - 1, n - 1) != 0) { x(v - 1, 0) = b(v - 1, 0) / R(m - 1, n - 1); }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = (<span class="keywordtype">int</span>)m - 2; j &gt;= 0; j--) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">double</span> s_k = 0.0f;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = j + 1; k &lt; m; k++) { s_k = s_k + (R(j, k) * x(k, 0)); }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        x(j, 0) = (b(j, 0) - s_k) / R(j, j);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="ttc" id="abackwardSub_8h_html_a41cdbff6147ed194eb02c9e53ae98d22"><div class="ttname"><a href="backwardSub_8h.html#a41cdbff6147ed194eb02c9e53ae98d22">backwardSub</a></div><div class="ttdeci">Matrix&lt; double &gt; backwardSub(const Matrix&lt; double &gt; &amp;R, const Matrix&lt; double &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> backwardSub.h:22</div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
 <div class="ttc" id="aclassMatrix_html_a5330adf02b284293259eb9f7c9acaa99"><div class="ttname"><a href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">Matrix::rows</a></div><div class="ttdeci">size_t rows() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:159</div></div>
 <div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:164</div></div>
-<div class="ttc" id="anumerics_2utils_8h_html_a39df225669a531266ed2c16531359108"><div class="ttname"><a href="numerics_2utils_8h.html#a39df225669a531266ed2c16531359108">zerosV</a></div><div class="ttdeci">Matrix&lt; double &gt; zerosV(size_t rows)</div><div class="ttdef"><b>Definition:</b> utils.cpp:41</div></div>
+<div class="ttc" id="anumerics_2utils_8h_html_a39df225669a531266ed2c16531359108"><div class="ttname"><a href="numerics_2utils_8h.html#a39df225669a531266ed2c16531359108">zerosV</a></div><div class="ttdeci">Matrix&lt; double &gt; zerosV(size_t rows)</div><div class="ttdef"><b>Definition:</b> utils.cpp:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

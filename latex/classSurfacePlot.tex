@@ -1,5 +1,9 @@
 \hypertarget{classSurfacePlot}{}\doxysection{Surface\+Plot Class Reference}
 \label{classSurfacePlot}\index{SurfacePlot@{SurfacePlot}}
+
+
+{\ttfamily \#include $<$Plot.\+h$>$}
+
 Inheritance diagram for Surface\+Plot\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,12 +13,28 @@ Inheritance diagram for Surface\+Plot\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSurfacePlot_a7b88520f3e3935c0d32dba727bbd73b2}\label{classSurfacePlot_a7b88520f3e3935c0d32dba727bbd73b2}} 
-{\bfseries Surface\+Plot} (const std\+::string \&\mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}=\char`\"{}\char`\"{})
+\mbox{\hyperlink{classSurfacePlot_a7b88520f3e3935c0d32dba727bbd73b2}{Surface\+Plot}} (const std\+::string \&\mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}=\char`\"{}\char`\"{})
 \item 
 void \mbox{\hyperlink{classSurfacePlot_aa040cc2c1301dc37cb942a80647cde95}{operator()}} () const override
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classPlot}{Plot}} for only point data 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSurfacePlot_a7b88520f3e3935c0d32dba727bbd73b2}\label{classSurfacePlot_a7b88520f3e3935c0d32dba727bbd73b2}} 
+\index{SurfacePlot@{SurfacePlot}!SurfacePlot@{SurfacePlot}}
+\index{SurfacePlot@{SurfacePlot}!SurfacePlot@{SurfacePlot}}
+\doxysubsubsection{\texorpdfstring{SurfacePlot()}{SurfacePlot()}}
+{\footnotesize\ttfamily Surface\+Plot\+::\+Surface\+Plot (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor 
+\begin{DoxyParams}{Parameters}
+{\em title} & plot title \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -24,7 +44,9 @@ void \mbox{\hyperlink{classSurfacePlot_aa040cc2c1301dc37cb942a80647cde95}{operat
 \doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
 {\footnotesize\ttfamily void Surface\+Plot\+::operator() (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-execution using call operator 
+overridden call operator.
+
+interprets a file as surface plot and forwards whole content to gnuplot 
 
 Reimplemented from \mbox{\hyperlink{classPlot_afa0e8f10d7a0d4bd2b90037ec4ca3029}{Plot}}.
 

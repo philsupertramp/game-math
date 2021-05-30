@@ -90,7 +90,7 @@ Functions</h2></td></tr>
 <tr class="separator:aa12a13e10a88436c3a0c8f02991b6096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Regular forward substitution. Calculates result given lower left triangular matrix b=L*c =&gt; L^-1b = c </p>
+<div class="textblock"><p>Regular forward substitution. Calculates result given lower left triangular matrix $$ b=L\cdot c \Rightarrow L^{-1}\cdot b = c $$ </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="aa12a13e10a88436c3a0c8f02991b6096"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa12a13e10a88436c3a0c8f02991b6096">&#9670;&nbsp;</a></span>forwardSub()</h2>
@@ -117,14 +117,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Forward-substitution calculates L*c = b </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Forward-substitution </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">L</td><td></td></tr>
-    <tr><td class="paramname">b</td><td></td></tr>
+    <tr><td class="paramname">L</td><td>Coefficient <a class="el" href="classMatrix.html">Matrix</a> </td></tr>
+    <tr><td class="paramname">b</td><td>resulting vector </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>c </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2lin_alg_2TestForwardSub_8cpp-example.html#a1">numerics/lin_alg/TestForwardSub.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>

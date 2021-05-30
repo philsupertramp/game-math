@@ -104,13 +104,15 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> fun_value = fun(cur_t, cur_y);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">auto</span> yi = cur_y + fun_value * h;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; elem_size; j++) { y(i, j) = yi(0, j); }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        y.<a class="code" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">SetRow</a>(i, yi.GetSlice(0, 0, 0, elem_size - 1));</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        t(i, 0) = cur_t + h;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> { y, t };</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="ttc" id="aExplicitEuler_8h_html_af98076bc70f573a584428cf3fe528af3"><div class="ttname"><a href="ExplicitEuler_8h.html#af98076bc70f573a584428cf3fe528af3">ODEExpEuler</a></div><div class="ttdeci">ODEResult ODEExpEuler(const ODE &amp;fun, const std::vector&lt; double &gt; &amp;tInterval, const Matrix&lt; double &gt; &amp;y0, double h=0.0)</div><div class="ttdef"><b>Definition:</b> ExplicitEuler.h:21</div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassMatrix_html_a323be6fd46556adf05dbbd2d4e54a4c4"><div class="ttname"><a href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">Matrix::SetRow</a></div><div class="ttdeci">void SetRow(const size_t &amp;index, const Matrix&lt; T &gt; &amp;other)</div><div class="ttdef"><b>Definition:</b> Matrix.h:493</div></div>
 <div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:164</div></div>
 <div class="ttc" id="anumerics_2utils_8h_html_a3aad6934b9b0b392e582eda4dbfd8070"><div class="ttname"><a href="numerics_2utils_8h.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a></div><div class="ttdeci">Matrix&lt; double &gt; zeros(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:11</div></div>
 <div class="ttc" id="aode_2ode_8h_html"><div class="ttname"><a href="ode_2ode_8h.html">ode.h</a></div></div>

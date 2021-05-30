@@ -75,6 +75,8 @@ $(function() {
 <div class="title">SurfacePlot Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Plot_8h_source.html">Plot.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SurfacePlot:</div>
 <div class="dyncontent">
@@ -87,8 +89,7 @@ Inheritance diagram for SurfacePlot:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7b88520f3e3935c0d32dba727bbd73b2"><td class="memItemLeft" align="right" valign="top"><a id="a7b88520f3e3935c0d32dba727bbd73b2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SurfacePlot</b> (const std::string &amp;<a class="el" href="classPlot.html#afa4a5f262e9b00bfa393c54fccb3449a">title</a>=&quot;&quot;)</td></tr>
+<tr class="memitem:a7b88520f3e3935c0d32dba727bbd73b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSurfacePlot.html#a7b88520f3e3935c0d32dba727bbd73b2">SurfacePlot</a> (const std::string &amp;<a class="el" href="classPlot.html#afa4a5f262e9b00bfa393c54fccb3449a">title</a>=&quot;&quot;)</td></tr>
 <tr class="separator:a7b88520f3e3935c0d32dba727bbd73b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa040cc2c1301dc37cb942a80647cde95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSurfacePlot.html#aa040cc2c1301dc37cb942a80647cde95">operator()</a> () const override</td></tr>
 <tr class="separator:aa040cc2c1301dc37cb942a80647cde95"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,6 +150,41 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memdesc:a954fcb23b76680d6d0148f3f7af02f4c inherit pro_attribs_classPlot"><td class="mdescLeft">&#160;</td><td class="mdescRight">y-axis boundaries for the resulting plot <br /></td></tr>
 <tr class="separator:a954fcb23b76680d6d0148f3f7af02f4c inherit pro_attribs_classPlot"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classPlot.html">Plot</a> for only point data </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7b88520f3e3935c0d32dba727bbd73b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b88520f3e3935c0d32dba727bbd73b2">&#9670;&nbsp;</a></span>SurfacePlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SurfacePlot::SurfacePlot </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>title</em> = <code>&quot;&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Default constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>plot title </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa040cc2c1301dc37cb942a80647cde95"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa040cc2c1301dc37cb942a80647cde95">&#9670;&nbsp;</a></span>operator()()</h2>
@@ -172,7 +208,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </tr>
 </table>
 </div><div class="memdoc">
-<p>execution using call operator </p>
+<p>overridden call operator.</p>
+<p>interprets a file as surface plot and forwards whole content to gnuplot </p>
 
 <p>Reimplemented from <a class="el" href="classPlot.html#afa0e8f10d7a0d4bd2b90037ec4ca3029">Plot</a>.</p>
 

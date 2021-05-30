@@ -11,7 +11,7 @@
 
 
 \doxysubsection{Detailed Description}
-Regular backward substitution. Calculates result given upper right triangular matrix z=R$\ast$b =$>$ R$^\wedge$-\/1b = z 
+Regular backward substitution. Calculates result given upper right triangular matrix \$\$ z=R\textbackslash{}cdot b \textbackslash{}\+Rightarrow R$^\wedge$\{-\/1\}\textbackslash{}cdot b = z \$\$ 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{backwardSub_8h_a41cdbff6147ed194eb02c9e53ae98d22}\label{backwardSub_8h_a41cdbff6147ed194eb02c9e53ae98d22}} 
@@ -20,13 +20,16 @@ Regular backward substitution. Calculates result given upper right triangular ma
 \doxysubsubsection{\texorpdfstring{backwardSub()}{backwardSub()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ backward\+Sub (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{R,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{b }\end{DoxyParamCaption})}
 
-Backward-\/substitution calculates R$\ast$b = z 
+Backward-\/substitution 
 \begin{DoxyParams}{Parameters}
-{\em R} & \\
+{\em R} & Coefficient matrix \\
 \hline
-{\em b} & \\
+{\em b} & result vector \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-R$\ast$b 
+z 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2lin_alg_2TestBackwardSub_8cpp-example}{numerics/lin\+\_\+alg/\+Test\+Backward\+Sub.\+cpp}}.\end{Desc}

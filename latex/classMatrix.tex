@@ -104,7 +104,10 @@ The class is capable of regular matrix operations, including matrix -\/ vector c
 {\em T} & Element access using {\bfseries{matrix(row, column, element)}} notation\\
 \hline
 \end{DoxyTemplParams}
-Accessed elements can be modified! 
+Accessed elements can be modified! \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classMatrix_a58effd9020c6d066d0475d97ed78501d}\label{classMatrix_a58effd9020c6d066d0475d97ed78501d}} 
@@ -207,6 +210,9 @@ Apply given function to \mbox{\hyperlink{classMatrix}{Matrix}}
 \begin{DoxyReturn}{Returns}
 fun(this) 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{ds_2TestLogRegSGD_8cpp-example}{ds/\+Test\+Log\+Reg\+SGD.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}\label{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}} 
 \index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!assertSize@{assertSize}}
 \index{assertSize@{assertSize}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
@@ -229,6 +235,9 @@ size\+\_\+t \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::columns (\begin{D
 columns getter \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}, and \mbox{\hyperlink{numerics_2lin_alg_2TestForwardSub_8cpp-example}{numerics/lin\+\_\+alg/\+Test\+Forward\+Sub.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classMatrix_a5f91e3755bfb6eb7b8aa5d49d8fbadb2}\label{classMatrix_a5f91e3755bfb6eb7b8aa5d49d8fbadb2}} 
 \index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Determinant@{Determinant}}
 \index{Determinant@{Determinant}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
@@ -298,6 +307,9 @@ int \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::Get\+Index (\begin{DoxyPa
 \begin{DoxyReturn}{Returns}
 elem + col $\ast$ \mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements()}} + row $\ast$ \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns()}} $\ast$ \mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements()}} 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}\label{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}} 
 \index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!GetSlice@{GetSlice}}
 \index{GetSlice@{GetSlice}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
@@ -571,6 +583,9 @@ Generates a random matrix
 \begin{DoxyReturn}{Returns}
 matrix of dimension {\ttfamily rows}, {\ttfamily columns} initialized with random values from {\ttfamily min\+Value} to {\ttfamily max\+Value} 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}\label{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}} 
 \index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Resize@{Resize}}
 \index{Resize@{Resize}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
@@ -587,6 +602,9 @@ Resizes a matrix
 {\em element\+Size} & target number of elements per cell \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classMatrix_a5330adf02b284293259eb9f7c9acaa99}\label{classMatrix_a5330adf02b284293259eb9f7c9acaa99}} 
 \index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!rows@{rows}}
 \index{rows@{rows}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
@@ -597,6 +615,9 @@ size\+\_\+t \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::rows (\begin{Doxy
 row getter \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classMatrix_a2897f60a87af004b928da9e8d76eafaf}\label{classMatrix_a2897f60a87af004b928da9e8d76eafaf}} 
 \index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!SetColumn@{SetColumn}}
 \index{SetColumn@{SetColumn}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}

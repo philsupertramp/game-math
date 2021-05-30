@@ -23,14 +23,17 @@ virtual std\+::string \mbox{\hyperlink{classMonomBase_a4e86d536f746f544318c18c08
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}\label{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}} 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries A}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}}
+\begin{DoxyCompactList}\small\item\em Coefficient matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Monom-\/\+Base\+:
 
-y\+\_\+i = p(x\+\_\+i) = a\+\_\+0 + a\+\_\+1x\+\_\+i + ... + a\+\_\+nx\+\_\+i$^\wedge$n, \textbackslash{}forall i = 0, \textbackslash{}dots, n \href{https://wiki.godesteem.de/wiki/interpolation-and-approximation/\#Monom-Base}{\texttt{ https\+://wiki.\+godesteem.\+de/wiki/interpolation-\/and-\/approximation/\#\+Monom-\/\+Base}} 
+\$\$y\+\_\+i = p(x\+\_\+i) = a\+\_\+0 + a\+\_\+1x\+\_\+i + ... + a\+\_\+nx\+\_\+i$^\wedge$n, \textbackslash{}forall i = 0, \textbackslash{}dots, n\$\$ \href{https://wiki.godesteem.de/wiki/interpolation-and-approximation/\#Monom-Base}{\texttt{ https\+://wiki.\+godesteem.\+de/wiki/interpolation-\/and-\/approximation/\#\+Monom-\/\+Base}} \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2analysis_2TestSupportValues_8cpp-example}{numerics/analysis/\+Test\+Support\+Values.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classMonomBase_a47e7386045d2d95bf51b08e45dc316a1}\label{classMonomBase_a47e7386045d2d95bf51b08e45dc316a1}} 
@@ -39,6 +42,13 @@ y\+\_\+i = p(x\+\_\+i) = a\+\_\+0 + a\+\_\+1x\+\_\+i + ... + a\+\_\+nx\+\_\+i$^\
 \doxysubsubsection{\texorpdfstring{MonomBase()}{MonomBase()}}
 {\footnotesize\ttfamily Monom\+Base\+::\+Monom\+Base (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{Y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+Default constructor 
+\begin{DoxyParams}{Parameters}
+{\em X} & \$\$x\+\_\+i\$\$ support values \\
+\hline
+{\em Y} & \$\$y\+\_\+i\$\$ support values evaluated with function \\
+\hline
+\end{DoxyParams}
 quick test if everything is right, if det(out) = 1 we made some mistake computing the vandermonde-\/matrix per definition it\textquotesingle{}s determinant is always \textbackslash{}neq 0!
 
 \doxysubsection{Member Function Documentation}
@@ -50,11 +60,11 @@ quick test if everything is right, if det(out) = 1 we made some mistake computin
 
 iterative evaluation, nothing special 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & evaluation values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+approximation 
 \end{DoxyReturn}
 
 
@@ -66,10 +76,8 @@ Implements \mbox{\hyperlink{classPolynomialBase_a11f1b8db4593f99082a96d0e218b915
 \doxysubsubsection{\texorpdfstring{Function()}{Function()}}
 {\footnotesize\ttfamily virtual std\+::string Monom\+Base\+::\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
-string representation of interpolated polynomial
-
-Don\textquotesingle{}t overthink this. simply return some kind of equation one can copy into wolframalpha and simplify \begin{DoxyReturn}{Returns}
-
+String representation getter \begin{DoxyReturn}{Returns}
+string representation in monom base 
 \end{DoxyReturn}
 
 

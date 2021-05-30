@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['zeros_268',['zeros',['../numerics_2utils_8h.html#a3aad6934b9b0b392e582eda4dbfd8070',1,'utils.cpp']]],
-  ['zerosv_269',['zerosV',['../numerics_2utils_8h.html#a39df225669a531266ed2c16531359108',1,'utils.cpp']]]
+  ['y_307',['Y',['../structODEResult.html#aaef028566259040421ab1b73443c6f3b',1,'ODEResult']]],
+  ['y_5festimate_308',['y_estimate',['../structLinearModel.html#a1335876476367801bf8eb1814dd83967',1,'LinearModel']]],
+  ['yaxis_309',['yAxis',['../structPlotAttributes.html#a59b064dd22efe8ac933dec0665533c95',1,'PlotAttributes::yAxis()'],['../classPlot.html#a56e462e8d1c707986dc1e4335a633b24',1,'Plot::yAxis()']]]
 ];

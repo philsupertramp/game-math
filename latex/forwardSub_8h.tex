@@ -11,7 +11,7 @@
 
 
 \doxysubsection{Detailed Description}
-Regular forward substitution. Calculates result given lower left triangular matrix b=L$\ast$c =$>$ L$^\wedge$-\/1b = c 
+Regular forward substitution. Calculates result given lower left triangular matrix \$\$ b=L\textbackslash{}cdot c \textbackslash{}\+Rightarrow L$^\wedge$\{-\/1\}\textbackslash{}cdot b = c \$\$ 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{forwardSub_8h_aa12a13e10a88436c3a0c8f02991b6096}\label{forwardSub_8h_aa12a13e10a88436c3a0c8f02991b6096}} 
@@ -20,13 +20,16 @@ Regular forward substitution. Calculates result given lower left triangular matr
 \doxysubsubsection{\texorpdfstring{forwardSub()}{forwardSub()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ forward\+Sub (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{L,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{b }\end{DoxyParamCaption})}
 
-Forward-\/substitution calculates L$\ast$c = b 
+Forward-\/substitution 
 \begin{DoxyParams}{Parameters}
-{\em L} & \\
+{\em L} & Coefficient \mbox{\hyperlink{classMatrix}{Matrix}} \\
 \hline
-{\em b} & \\
+{\em b} & resulting vector \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+c 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2lin_alg_2TestForwardSub_8cpp-example}{numerics/lin\+\_\+alg/\+Test\+Forward\+Sub.\+cpp}}.\end{Desc}

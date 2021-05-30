@@ -1,0 +1,227 @@
+\hypertarget{Probability_8h}{}\doxysection{include/math/statistics/\+Probability.h File Reference}
+\label{Probability_8h}\index{include/math/statistics/Probability.h@{include/math/statistics/Probability.h}}
+{\ttfamily \#include \char`\"{}../\+Matrix.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structLinearModel}{Linear\+Model}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0}{P\+\_\+\+NORM}} \{ \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784}{Inf}}
+, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ad4e07130bf8ac301c327f0e64bc2d292}{One}}
+, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ae5732ead6288358557f404848f9da09c}{Eukl}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{Probability_8h_a6edda0f97cfab68707335fd17ca80462}{get\+Exponent}} (double x)
+\item 
+double \mbox{\hyperlink{Probability_8h_aa3e12acd040b791cdf25cbb4d3d41bb5}{round}} (double x, int precision)
+\item 
+double \mbox{\hyperlink{Probability_8h_a87477d0585e56d94b550e186c12bfcc1}{abs}} (double x)
+\item 
+double \mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}} (double x, int exponent)
+\item 
+double \mbox{\hyperlink{Probability_8h_aa20a9063eabaa291a04992e8f1d826c8}{norm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&vec, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0}{P\+\_\+\+NORM}} p\+Norm)
+\item 
+double \mbox{\hyperlink{Probability_8h_aca7f07a568ee49e5d34982dfd6d811db}{cov}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
+\item 
+double \mbox{\hyperlink{Probability_8h_a32c95d9cf965a5546fc02d8045b42314}{var}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x)
+\item 
+\mbox{\hyperlink{structLinearModel}{Linear\+Model}} \mbox{\hyperlink{Probability_8h_a3974006c8e6b9526b925be95ff4913ae}{lm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
+\item 
+double \mbox{\hyperlink{Probability_8h_a7edb177daf3663ea72006b9565610a7e}{coefficient\+Of\+Determination}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y\+Hat)
+\item 
+double \mbox{\hyperlink{Probability_8h_abe0754a080e477ad4e56f4dc869f7fa2}{likelihood}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains methods of the field of probability calculation. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0}\label{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0}} 
+\index{Probability.h@{Probability.h}!P\_NORM@{P\_NORM}}
+\index{P\_NORM@{P\_NORM}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{P\_NORM}{P\_NORM}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0}{P\+\_\+\+NORM}}}
+
+enum to chose a norm to compute \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Inf@{Inf}!Probability.h@{Probability.h}}\index{Probability.h@{Probability.h}!Inf@{Inf}}}\mbox{\Hypertarget{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784}\label{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784}} 
+Inf&\$\$$\vert$$\vert$x$\vert$$\vert$\+\_\+\textbackslash{}infty\$\$ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{One@{One}!Probability.h@{Probability.h}}\index{Probability.h@{Probability.h}!One@{One}}}\mbox{\Hypertarget{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ad4e07130bf8ac301c327f0e64bc2d292}\label{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ad4e07130bf8ac301c327f0e64bc2d292}} 
+One&\$\$$\vert$$\vert$x$\vert$$\vert$\+\_\+1\$\$ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Eukl@{Eukl}!Probability.h@{Probability.h}}\index{Probability.h@{Probability.h}!Eukl@{Eukl}}}\mbox{\Hypertarget{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ae5732ead6288358557f404848f9da09c}\label{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ae5732ead6288358557f404848f9da09c}} 
+Eukl&\$\$$\vert$$\vert$x$\vert$$\vert$\+\_\+2\$\$ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Probability_8h_a87477d0585e56d94b550e186c12bfcc1}\label{Probability_8h_a87477d0585e56d94b550e186c12bfcc1}} 
+\index{Probability.h@{Probability.h}!abs@{abs}}
+\index{abs@{abs}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{abs()}{abs()}}
+{\footnotesize\ttfamily double abs (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+Absolute value \$\$$\vert$x$\vert$\$\$ 
+\begin{DoxyParams}{Parameters}
+{\em x} & a value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$\$$\vert$x$\vert$\$\$ 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Probability_8h_a7edb177daf3663ea72006b9565610a7e}\label{Probability_8h_a7edb177daf3663ea72006b9565610a7e}} 
+\index{Probability.h@{Probability.h}!coefficientOfDetermination@{coefficientOfDetermination}}
+\index{coefficientOfDetermination@{coefficientOfDetermination}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{coefficientOfDetermination()}{coefficientOfDetermination()}}
+{\footnotesize\ttfamily double coefficient\+Of\+Determination (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y\+Hat }\end{DoxyParamCaption})}
+
+\$\$\textbackslash{}frac\{\textbackslash{}text\{var\}(y)\}\{\textbackslash{}text\{var\}(\textbackslash{}hat\{y\})\}\$\$ 
+\begin{DoxyParams}{Parameters}
+{\em y} & \$\$y\$\$ \\
+\hline
+{\em y\+Hat} & \$\$\textbackslash{}hat\{y\}\$\$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{Probability_8h_aca7f07a568ee49e5d34982dfd6d811db}\label{Probability_8h_aca7f07a568ee49e5d34982dfd6d811db}} 
+\index{Probability.h@{Probability.h}!cov@{cov}}
+\index{cov@{cov}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{cov()}{cov()}}
+{\footnotesize\ttfamily double cov (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})}
+
+Computes covariance of two given vectors \$\$\textbackslash{}text\{cov\}(x, y)\$\$ 
+\begin{DoxyParams}{Parameters}
+{\em x} & a vector \\
+\hline
+{\em y} & another vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+resulting covariance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Probability_8h_a6edda0f97cfab68707335fd17ca80462}\label{Probability_8h_a6edda0f97cfab68707335fd17ca80462}} 
+\index{Probability.h@{Probability.h}!getExponent@{getExponent}}
+\index{getExponent@{getExponent}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{getExponent()}{getExponent()}}
+{\footnotesize\ttfamily double get\+Exponent (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+regular helpers Method to calculate exponent of given value 
+\begin{DoxyParams}{Parameters}
+{\em x} & value to calculate exponent of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+exponent 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Probability_8h_abe0754a080e477ad4e56f4dc869f7fa2}\label{Probability_8h_abe0754a080e477ad4e56f4dc869f7fa2}} 
+\index{Probability.h@{Probability.h}!likelihood@{likelihood}}
+\index{likelihood@{likelihood}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{likelihood()}{likelihood()}}
+{\footnotesize\ttfamily double likelihood (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{vec }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{Probability_8h_a3974006c8e6b9526b925be95ff4913ae}\label{Probability_8h_a3974006c8e6b9526b925be95ff4913ae}} 
+\index{Probability.h@{Probability.h}!lm@{lm}}
+\index{lm@{lm}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{lm()}{lm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLinearModel}{Linear\+Model}} lm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})}
+
+Computes linear (regression) model for given random sample \$\$ (Y\+\_\+i; X\+\_\+i) \$\$ \$\$ Y\+\_\+i = \textbackslash{}beta\+\_\+0 + \textbackslash{}beta\+\_\+1\textbackslash{}phi\+\_\+1(x\+\_\+i) + \textbackslash{}epsilon\+\_\+i \$\$ 
+\begin{DoxyParams}{Parameters}
+{\em x} & \$\$\+X\+\_\+i\$\$ \\
+\hline
+{\em y} & \$\$\+Y\+\_\+i\$\$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+constructed linear model
+\end{DoxyReturn}
+probability computation \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Probability_8h_aa20a9063eabaa291a04992e8f1d826c8}\label{Probability_8h_aa20a9063eabaa291a04992e8f1d826c8}} 
+\index{Probability.h@{Probability.h}!norm@{norm}}
+\index{norm@{norm}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
+{\footnotesize\ttfamily double norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{vec,  }\item[{\mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0}{P\+\_\+\+NORM}}}]{p\+Norm }\end{DoxyParamCaption})}
+
+Calculates the Norm of a given vector 
+\begin{DoxyParams}{Parameters}
+{\em vec} & vector to calculate the norm of \\
+\hline
+{\em p\+Norm} & desired norm to compute \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+computed norm value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}\label{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}} 
+\index{Probability.h@{Probability.h}!pow@{pow}}
+\index{pow@{pow}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{pow()}{pow()}}
+{\footnotesize\ttfamily double pow (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{int}]{exponent }\end{DoxyParamCaption})}
+
+calculates \$\$x$^\wedge$\{exponent\}\$\$ 
+\begin{DoxyParams}{Parameters}
+{\em x} & a value \\
+\hline
+{\em exponent} & desired exponent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$\$x$^\wedge$\{exponent\}\$\$ 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Probability_8h_aa3e12acd040b791cdf25cbb4d3d41bb5}\label{Probability_8h_aa3e12acd040b791cdf25cbb4d3d41bb5}} 
+\index{Probability.h@{Probability.h}!round@{round}}
+\index{round@{round}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{round()}{round()}}
+{\footnotesize\ttfamily double round (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{int}]{precision }\end{DoxyParamCaption})}
+
+Rounds double value to given precision, cuts off other elements 
+\begin{DoxyParams}{Parameters}
+{\em x} & value to round \\
+\hline
+{\em precision} & precision in resulting value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rounded value
+\end{DoxyReturn}
+regular helpers \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Probability_8h_a32c95d9cf965a5546fc02d8045b42314}\label{Probability_8h_a32c95d9cf965a5546fc02d8045b42314}} 
+\index{Probability.h@{Probability.h}!var@{var}}
+\index{var@{var}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{var()}{var()}}
+{\footnotesize\ttfamily double var (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x }\end{DoxyParamCaption})}
+
+Computes variance of given vector \$\$\textbackslash{}text\{var\}(x)\$\$ 
+\begin{DoxyParams}{Parameters}
+{\em x} & a vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\$\$\textbackslash{}text\{var\}(x)\$\$ 
+\end{DoxyReturn}

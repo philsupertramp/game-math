@@ -13,8 +13,7 @@ Inheritance diagram for Lagrange\+Base\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classLagrangeBase_adb915a64f04cdb3326d82830a041abde}\label{classLagrangeBase_adb915a64f04cdb3326d82830a041abde}} 
-{\bfseries Lagrange\+Base} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Y)
+\mbox{\hyperlink{classLagrangeBase_adb915a64f04cdb3326d82830a041abde}{Lagrange\+Base}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&Y)
 \item 
 double \mbox{\hyperlink{classLagrangeBase_a4a8130da124cbc7cde51567d2c109f26}{Get\+Coefficient}} (const double \&xk, const size\+\_\+t i) const
 \item 
@@ -29,7 +28,26 @@ virtual std\+::string \mbox{\hyperlink{classLagrangeBase_a8aedfef48106f6288e0a48
 \doxysubsection{Detailed Description}
 Lagrange-\/\+Base using lagrange coefficients to build the polynomial
 
-\href{https://wiki.godesteem.de/wiki/interpolation-and-approximation/\#Lagrange-Base}{\texttt{ https\+://wiki.\+godesteem.\+de/wiki/interpolation-\/and-\/approximation/\#\+Lagrange-\/\+Base}} 
+\href{https://wiki.godesteem.de/wiki/interpolation-and-approximation/\#Lagrange-Base}{\texttt{ https\+://wiki.\+godesteem.\+de/wiki/interpolation-\/and-\/approximation/\#\+Lagrange-\/\+Base}} \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2analysis_2TestSupportValues_8cpp-example}{numerics/analysis/\+Test\+Support\+Values.\+cpp}}, and \mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLagrangeBase_adb915a64f04cdb3326d82830a041abde}\label{classLagrangeBase_adb915a64f04cdb3326d82830a041abde}} 
+\index{LagrangeBase@{LagrangeBase}!LagrangeBase@{LagrangeBase}}
+\index{LagrangeBase@{LagrangeBase}!LagrangeBase@{LagrangeBase}}
+\doxysubsubsection{\texorpdfstring{LagrangeBase()}{LagrangeBase()}}
+{\footnotesize\ttfamily Lagrange\+Base\+::\+Lagrange\+Base (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{Y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor 
+\begin{DoxyParams}{Parameters}
+{\em X} & \$\$x\+\_\+i\$\$ \\
+\hline
+{\em Y} & \$\$y\+\_\+i\$\$ \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classLagrangeBase_acb4a6981c7e2b32a38b0922af4051314}\label{classLagrangeBase_acb4a6981c7e2b32a38b0922af4051314}} 
@@ -38,37 +56,43 @@ Lagrange-\/\+Base using lagrange coefficients to build the polynomial
 \doxysubsubsection{\texorpdfstring{buildLx()}{buildLx()}}
 {\footnotesize\ttfamily std\+::string Lagrange\+Base\+::build\+Lx (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-builds lagrange coefficient L\+\_\+i 
+builds lagrange coefficient \$\$\+L\+\_\+i\$\$ string representation 
 \begin{DoxyParams}{Parameters}
-{\em i} & \\
+{\em i} & index \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+coefficient representation 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classLagrangeBase_a205a0fc11d0f666a418f34615dac6ad1}\label{classLagrangeBase_a205a0fc11d0f666a418f34615dac6ad1}} 
 \index{LagrangeBase@{LagrangeBase}!Evaluate@{Evaluate}}
 \index{Evaluate@{Evaluate}!LagrangeBase@{LagrangeBase}}
 \doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Lagrange\+Base\+::\+Evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Lagrange\+Base\+::\+Evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{in }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Evaluate a given vector based on the approximation, computes p(x) for given x \begin{DoxyReturn}{Returns}
-
+Evaluates the lagrange base 
+\begin{DoxyParams}{Parameters}
+{\em in} & values to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+interpolated values 
 \end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classPolynomialBase_a11f1b8db4593f99082a96d0e218b915d}{Polynomial\+Base}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classLagrangeBase_a8aedfef48106f6288e0a4883d17e6a00}\label{classLagrangeBase_a8aedfef48106f6288e0a4883d17e6a00}} 
 \index{LagrangeBase@{LagrangeBase}!Function@{Function}}
 \index{Function@{Function}!LagrangeBase@{LagrangeBase}}
 \doxysubsubsection{\texorpdfstring{Function()}{Function()}}
 {\footnotesize\ttfamily virtual std\+::string Lagrange\+Base\+::\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-string representation of interpolated polynomial
-
-Don\textquotesingle{}t overthink this. simply return some kind of equation one can copy into wolframalpha and simplify \begin{DoxyReturn}{Returns}
-
+Builds string representation in lagrange base \begin{DoxyReturn}{Returns}
+representational string 
 \end{DoxyReturn}
 
 
@@ -82,15 +106,15 @@ Implements \mbox{\hyperlink{classPolynomialBase_a7c5cff1055e525bd01ab24cf39bf9ed
 
 Computes i-\/th coefficient
 
-L\+\_\+i(x) = \textbackslash{}prod\+\_\+\{j=0, j\textbackslash{}neq i\}$^\wedge$\{n\} \textbackslash{}frac\{x-\/x\+\_\+j\}\{x\+\_\+i-\/x\+\_\+j\}, \textbackslash{}forall i=0, \textbackslash{}dots, n 
+\$\$\+L\+\_\+i(x) = \textbackslash{}prod\+\_\+\{j=0, j\textbackslash{}neq i\}$^\wedge$\{n\} \textbackslash{}frac\{x-\/x\+\_\+j\}\{x\+\_\+i-\/x\+\_\+j\}, \textbackslash{}forall i=0, \textbackslash{}dots, n\$\$ 
 \begin{DoxyParams}{Parameters}
-{\em xk} & \\
+{\em xk} & current value \$\$x\+\_\+k\$\$ \\
 \hline
-{\em i} & \\
+{\em i} & index i \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+coefficient value 
 \end{DoxyReturn}
 
 

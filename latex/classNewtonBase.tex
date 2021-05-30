@@ -13,13 +13,11 @@ Inheritance diagram for Newton\+Base\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classNewtonBase_a789b7658f5c76f974e7425976b62f796}\label{classNewtonBase_a789b7658f5c76f974e7425976b62f796}} 
-{\bfseries Newton\+Base} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
+\mbox{\hyperlink{classNewtonBase_a789b7658f5c76f974e7425976b62f796}{Newton\+Base}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
 \item 
 virtual std\+::string \mbox{\hyperlink{classNewtonBase_ac7c02c3ac9dd2a752edb8529c53e47be}{Function}} () const override
 \item 
-\mbox{\Hypertarget{classNewtonBase_a6c1dab8ac618446f83aec81320c67c4e}\label{classNewtonBase_a6c1dab8ac618446f83aec81320c67c4e}} 
-double {\bfseries Get\+Coefficient} (size\+\_\+t index, const double \&x) const
+double \mbox{\hyperlink{classNewtonBase_a6c1dab8ac618446f83aec81320c67c4e}{Get\+Coefficient}} (size\+\_\+t index, const double \&x) const
 \item 
 virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classNewtonBase_ab295b19eabdae37f87f71ff7ca3ea9f1}{Evaluate}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x\+In) const override
 \end{DoxyCompactItemize}
@@ -27,32 +25,50 @@ virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{cl
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classNewtonBase_ad33933afa51a82891d615d2789b089b0}\label{classNewtonBase_ad33933afa51a82891d615d2789b089b0}} 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ {\bfseries b}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}}
+\begin{DoxyCompactList}\small\item\em newton base coefficients \$\$b\+\_\+i\$\$ \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Newton-\/\+Base
 
-p(x) = \textbackslash{}sum\+\_\+\{i=0\}$^\wedge$\{n\} b\+\_\+i \textbackslash{}omega\+\_\+i(x) with
+\$\$ p(x) = \textbackslash{}sum\+\_\+\{i=0\}$^\wedge$\{n\} b\+\_\+i \textbackslash{}omega\+\_\+i(x) \$\$ with \$\$ b\+\_\+i = \textbackslash{}frac\{f\+\_\+\{\mbox{[}x\+\_\+\{r+1\}, ..., x\+\_\+s\mbox{]}\} -\/ f\+\_\+\{\mbox{[}x\+\_\+r, ..., x\+\_\+\{s-\/1\}\mbox{]}\}\}\{x\+\_\+s -\/ x\+\_\+r\} \$\$ and \$\$ \textbackslash{}omega\+\_\+i(x) = \textbackslash{}prod\+\_\+\{j=0\}$^\wedge$\{i-\/1\} (x -\/ x\+\_\+j), \textbackslash{}quad i = 1, \textbackslash{}dots n \$\$ and \$\$ \textbackslash{}omega\+\_\+0(x) = x\+\_\+0 \$\$
 
-b\+\_\+i = \textbackslash{}frac\{f\+\_\+\{\mbox{[}x\+\_\+\{r+1\}, ..., x\+\_\+s\mbox{]}\} -\/ f\+\_\+\{\mbox{[}x\+\_\+r, ..., x\+\_\+\{s-\/1\}\mbox{]}\}\}\{x\+\_\+s -\/ x\+\_\+r\} and
+\href{https://wiki.godesteem.de/wiki/interpolation-and-approximation/\#Newton-Base}{\texttt{ https\+://wiki.\+godesteem.\+de/wiki/interpolation-\/and-\/approximation/\#\+Newton-\/\+Base}} \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2analysis_2TestSupportValues_8cpp-example}{numerics/analysis/\+Test\+Support\+Values.\+cpp}}.\end{Desc}
 
-\textbackslash{}omega\+\_\+i(x) = \textbackslash{}prod\+\_\+\{j=0\}$^\wedge$\{i-\/1\} (x -\/ x\+\_\+j), \textbackslash{}quad i = 1, \textbackslash{}dots n
 
-and \textbackslash{}omega\+\_\+0(x) = x\+\_\+0
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNewtonBase_a789b7658f5c76f974e7425976b62f796}\label{classNewtonBase_a789b7658f5c76f974e7425976b62f796}} 
+\index{NewtonBase@{NewtonBase}!NewtonBase@{NewtonBase}}
+\index{NewtonBase@{NewtonBase}!NewtonBase@{NewtonBase}}
+\doxysubsubsection{\texorpdfstring{NewtonBase()}{NewtonBase()}}
+{\footnotesize\ttfamily Newton\+Base\+::\+Newton\+Base (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\href{https://wiki.godesteem.de/wiki/interpolation-and-approximation/\#Newton-Base}{\texttt{ https\+://wiki.\+godesteem.\+de/wiki/interpolation-\/and-\/approximation/\#\+Newton-\/\+Base}} 
+default constructor 
+\begin{DoxyParams}{Parameters}
+{\em x} & support values \$\$x\+\_\+i\$\$ \\
+\hline
+{\em y} & evaluated support values \$\$y\+\_\+i\$\$ \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classNewtonBase_ab295b19eabdae37f87f71ff7ca3ea9f1}\label{classNewtonBase_ab295b19eabdae37f87f71ff7ca3ea9f1}} 
 \index{NewtonBase@{NewtonBase}!Evaluate@{Evaluate}}
 \index{Evaluate@{Evaluate}!NewtonBase@{NewtonBase}}
 \doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Newton\+Base\+::\+Evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Newton\+Base\+::\+Evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x\+In }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Evaluate a given vector based on the approximation, computes p(x) for given x \begin{DoxyReturn}{Returns}
-
+Evaluate the newton base for given values 
+\begin{DoxyParams}{Parameters}
+{\em x\+In} & values to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+interpolated values 
 \end{DoxyReturn}
 
 
@@ -64,15 +80,29 @@ Implements \mbox{\hyperlink{classPolynomialBase_a11f1b8db4593f99082a96d0e218b915
 \doxysubsubsection{\texorpdfstring{Function()}{Function()}}
 {\footnotesize\ttfamily virtual std\+::string Newton\+Base\+::\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-string representation of interpolated polynomial
-
-Don\textquotesingle{}t overthink this. simply return some kind of equation one can copy into wolframalpha and simplify \begin{DoxyReturn}{Returns}
-
+String representation in newton base \begin{DoxyReturn}{Returns}
+representational string 
 \end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classPolynomialBase_a7c5cff1055e525bd01ab24cf39bf9ed5}{Polynomial\+Base}}.
 
+\mbox{\Hypertarget{classNewtonBase_a6c1dab8ac618446f83aec81320c67c4e}\label{classNewtonBase_a6c1dab8ac618446f83aec81320c67c4e}} 
+\index{NewtonBase@{NewtonBase}!GetCoefficient@{GetCoefficient}}
+\index{GetCoefficient@{GetCoefficient}!NewtonBase@{NewtonBase}}
+\doxysubsubsection{\texorpdfstring{GetCoefficient()}{GetCoefficient()}}
+{\footnotesize\ttfamily double Newton\+Base\+::\+Get\+Coefficient (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index,  }\item[{const double \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter for coefficient with index i for a value x 
+\begin{DoxyParams}{Parameters}
+{\em index} & index of coefficient \\
+\hline
+{\em x} & value to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+evaluated coefficient 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

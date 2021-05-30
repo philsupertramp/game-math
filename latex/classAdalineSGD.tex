@@ -52,7 +52,10 @@ Note\+: only allows binary classification and uses a single layer of weights see
 
 \begin{DoxyItemize}
 \item \mbox{[}1\mbox{]} \href{http://rasbt.github.io/mlxtend/user_guide/classifier/Adaline/}{\texttt{ http\+://rasbt.\+github.\+io/mlxtend/user\+\_\+guide/classifier/\+Adaline/}} 
-\end{DoxyItemize}
+\end{DoxyItemize}\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{ds_2TestAdalineSGD_8cpp-example}{ds/\+Test\+Adaline\+SGD.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classAdalineSGD_a2f9c051f06bab810b1d7e92be9e8cfd8}\label{classAdalineSGD_a2f9c051f06bab810b1d7e92be9e8cfd8}} 
@@ -63,13 +66,13 @@ Note\+: only allows binary classification and uses a single layer of weights see
 
 default constructor 
 \begin{DoxyParams}{Parameters}
-{\em \+\_\+eta} & \\
+{\em \+\_\+eta} & learning rate \\
 \hline
-{\em iter} & \\
+{\em iter} & number of learning iterations \\
 \hline
-{\em \+\_\+shuffle} & \\
+{\em \+\_\+shuffle} & use shuffled data \\
 \hline
-{\em \+\_\+random\+State} & \\
+{\em \+\_\+random\+State} & seed of random state \\
 \hline
 \end{DoxyParams}
 
@@ -83,11 +86,11 @@ default constructor
 
 activates given input 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+activated input values 
 \end{DoxyReturn}
 
 
@@ -135,7 +138,7 @@ Implements \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{C
 
 alias for sdg.\+net\+Input 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -153,9 +156,9 @@ Implements \mbox{\hyperlink{classClassifier_a0110e1eedbfae3c9a66f376868cbaffb}{C
 
 partially fits the model 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
-{\em y} & \\
+{\em y} & target output values \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classAdalineSGD_a5efda89a32f61566d068b2c37690f6b0}\label{classAdalineSGD_a5efda89a32f61566d068b2c37690f6b0}} 
@@ -166,11 +169,11 @@ partially fits the model
 
 predict output class of given input 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+predicted output 
 \end{DoxyReturn}
 
 

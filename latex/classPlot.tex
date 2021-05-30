@@ -66,7 +66,17 @@ int \mbox{\hyperlink{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}{num\+Elements}
 
 
 \doxysubsection{Detailed Description}
-Represents a data plot, using gnuplot 
+Represents a data plot, using gnuplot.
+
+Add data using the Add\+Data methods. After you are done, call the plot to display the results.
+
+\DoxyHorRuler{0}
+ Examples\+:
+
+\mbox{\hyperlink{classPlot}{Plot}} plot(\char`\"{}\+My plot\char`\"{}); plot.\+Add\+Data(\{\{1, 2\}, \{2, 3\}\}, \char`\"{}\+Some points\char`\"{}, Data\+Type\+::\+POINT); plot(); \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classPlot_ad5c4ae2e4201841f833c2d6968681c0a}\label{classPlot_ad5c4ae2e4201841f833c2d6968681c0a}} 
@@ -75,9 +85,9 @@ Represents a data plot, using gnuplot
 \doxysubsubsection{\texorpdfstring{Plot()}{Plot()}}
 {\footnotesize\ttfamily Plot\+::\+Plot (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
-default constructor 
+default constructor. Prepares context for adding data. 
 \begin{DoxyParams}{Parameters}
-{\em title} & \\
+{\em title} & desired title for plot \\
 \hline
 \end{DoxyParams}
 
@@ -91,11 +101,13 @@ default constructor
 
 Appends data to the storage file 
 \begin{DoxyParams}{Parameters}
-{\em mat} & \\
+{\em mat} & matrix containing dataset \\
 \hline
-{\em name} & \\
+{\em name} & name of data set \\
 \hline
-{\em data\+Type\+Name} & \\
+{\em data\+Type\+Name} & desired plot type \\
+\hline
+{\em dimensions} & indicator for dimension of dataset \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}\label{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}} 
@@ -104,15 +116,22 @@ Appends data to the storage file
 \doxysubsubsection{\texorpdfstring{AddData()}{AddData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const std\+::string \&}]{name,  }\item[{Data\+Types}]{data\+Type = {\ttfamily DataTypes\+:\+:NONE} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Helper to add pair-\/wise elements to plot context 
+Helper to add pair-\/wise elements to plot context
+
+concatenates given X and Y and forwards new matrix to Add\+Data with single matrix argument 
 \begin{DoxyParams}{Parameters}
-{\em x} & \\
+{\em x} & x values \\
 \hline
-{\em y} & \\
+{\em y} & y values \\
 \hline
-{\em name} & \\
+{\em name} & name of dataset \\
+\hline
+{\em data\+Type} & plot data type \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classPlot_a6030621e36e58f3119a7c81e4a9fbd31}\label{classPlot_a6030621e36e58f3119a7c81e4a9fbd31}} 
 \index{Plot@{Plot}!lineWidth@{lineWidth}}
 \index{lineWidth@{lineWidth}!Plot@{Plot}}
@@ -121,7 +140,7 @@ Helper to add pair-\/wise elements to plot context
 
 setter for line width of plot data 
 \begin{DoxyParams}{Parameters}
-{\em size} & \\
+{\em size} & desired line size \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classPlot_afa0e8f10d7a0d4bd2b90037ec4ca3029}\label{classPlot_afa0e8f10d7a0d4bd2b90037ec4ca3029}} 
@@ -130,7 +149,9 @@ setter for line width of plot data
 \doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
 {\footnotesize\ttfamily virtual void Plot\+::operator() (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
-execution using call operator 
+execution using call operator
+
+Forwards data to gnuplot 
 
 Reimplemented in \mbox{\hyperlink{classSurfacePlot_aa040cc2c1301dc37cb942a80647cde95}{Surface\+Plot}}.
 
@@ -142,7 +163,7 @@ Reimplemented in \mbox{\hyperlink{classSurfacePlot_aa040cc2c1301dc37cb942a80647c
 
 setter for point size of plot data 
 \begin{DoxyParams}{Parameters}
-{\em size} & \\
+{\em size} & desired point size \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}\label{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}} 
@@ -153,7 +174,7 @@ setter for point size of plot data
 
 Setter for title label 
 \begin{DoxyParams}{Parameters}
-{\em name} & \\
+{\em title} & desired plot title \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classPlot_a9bfd80c27c96636efaaec19b2d2b4b13}\label{classPlot_a9bfd80c27c96636efaaec19b2d2b4b13}} 
@@ -164,7 +185,7 @@ Setter for title label
 
 helper to write attributes to gnuplot context 
 \begin{DoxyParams}{Parameters}
-{\em gnuplot} & \\
+{\em gnuplot} & pointer to gnuplot stream \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classPlot_a71b26c829f6b3f4cf64957a3e323517f}\label{classPlot_a71b26c829f6b3f4cf64957a3e323517f}} 
@@ -175,9 +196,12 @@ helper to write attributes to gnuplot context
 
 Setter for x-\/axis label 
 \begin{DoxyParams}{Parameters}
-{\em name} & \\
+{\em name} & desired label name \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classPlot_a56e462e8d1c707986dc1e4335a633b24}\label{classPlot_a56e462e8d1c707986dc1e4335a633b24}} 
 \index{Plot@{Plot}!yAxis@{yAxis}}
 \index{yAxis@{yAxis}!Plot@{Plot}}
@@ -186,9 +210,12 @@ Setter for x-\/axis label
 
 Setter for y-\/axis label 
 \begin{DoxyParams}{Parameters}
-{\em name} & \\
+{\em name} & desired label name \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

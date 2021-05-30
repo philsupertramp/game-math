@@ -29,7 +29,10 @@ double \mbox{\hyperlink{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}{cost\+
 
 
 \doxysubsection{Detailed Description}
-Adaline neuron classifier using gradient decent method 
+Adaline neuron classifier using gradient decent method \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{ds_2TestAdalineGD_8cpp-example}{ds/\+Test\+Adaline\+GD.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classAdalineGD_a604a399e6d0737bb62e0d20d83627f03}\label{classAdalineGD_a604a399e6d0737bb62e0d20d83627f03}} 
@@ -40,9 +43,9 @@ Adaline neuron classifier using gradient decent method
 
 default constructor 
 \begin{DoxyParams}{Parameters}
-{\em \+\_\+eta} & \\
+{\em \+\_\+eta} & learning rate \\
 \hline
-{\em iter} & \\
+{\em iter} & max number iterations \\
 \hline
 \end{DoxyParams}
 
@@ -56,11 +59,11 @@ default constructor
 
 activates given input 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+activated input 
 \end{DoxyReturn}
 
 
@@ -74,13 +77,13 @@ Implements \mbox{\hyperlink{classClassifier_a5be8488df3ee4e0e0903877bb19069a8}{C
 
 calculates cost
 
-sum(\+X $\ast$ X) / 2 
+\$\$\textbackslash{}frac\{\textbackslash{}sum X$^\wedge$2\}\{2\} 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+squared cost 
 \end{DoxyReturn}
 
 
@@ -94,9 +97,9 @@ Implements \mbox{\hyperlink{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}{C
 
 fit method to train the classifier using gradient decent method 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input \\
 \hline
-{\em y} & \\
+{\em y} & target output \\
 \hline
 \end{DoxyParams}
 
@@ -109,9 +112,9 @@ Implements \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{C
 \doxysubsubsection{\texorpdfstring{netInput()}{netInput()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+GD\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-calculates X $\ast$ weights + b 
+calculates \$\$ X \textbackslash{}cdot w + b 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -129,11 +132,11 @@ Implements \mbox{\hyperlink{classClassifier_a0110e1eedbfae3c9a66f376868cbaffb}{C
 
 predicts class of given input 
 \begin{DoxyParams}{Parameters}
-{\em X} & \\
+{\em X} & input values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+prediction 
 \end{DoxyReturn}
 
 

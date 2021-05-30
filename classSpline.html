@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>philsupertramp/game-math: NaturalSpline Class Reference</title>
+<title>philsupertramp/game-math: Spline Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,32 +70,37 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classNaturalSpline-members.html">List of all members</a>  </div>
+<a href="classSpline-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">NaturalSpline Class Reference</div>  </div>
+<div class="title">Spline Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Spline_8h_source.html">Spline.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a35c18f31d8914ba305d56ddf125ad755"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNaturalSpline.html#a35c18f31d8914ba305d56ddf125ad755">NaturalSpline</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;Y)</td></tr>
-<tr class="separator:a35c18f31d8914ba305d56ddf125ad755"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a520b9a13a25551b6e8338931e6952088"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNaturalSpline.html#a520b9a13a25551b6e8338931e6952088">NaturalSpline</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;Y, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;Z)</td></tr>
-<tr class="separator:a520b9a13a25551b6e8338931e6952088"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a960a7e042a5a22439136b5186e0bec2a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNaturalSpline.html#a960a7e042a5a22439136b5186e0bec2a">eval_spline_j</a> (double x_act, size_t j, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mi)</td></tr>
-<tr class="separator:a960a7e042a5a22439136b5186e0bec2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3f8549e6a81617008b4b9af1e2e8c91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNaturalSpline.html#af3f8549e6a81617008b4b9af1e2e8c91">curv</a> (double h)</td></tr>
-<tr class="separator:af3f8549e6a81617008b4b9af1e2e8c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af480f3e66a64956fa63f92ebc2ce377b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNaturalSpline.html#af480f3e66a64956fa63f92ebc2ce377b">SetAbstractionValue</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;tx, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;ty)</td></tr>
-<tr class="separator:af480f3e66a64956fa63f92ebc2ce377b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae37703126fa8c835b50860f306f15d87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNaturalSpline.html#ae37703126fa8c835b50860f306f15d87">operator()</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;xi)</td></tr>
-<tr class="separator:ae37703126fa8c835b50860f306f15d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c734c569e9c734b35ff64a8a2d86245"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNaturalSpline.html#a4c734c569e9c734b35ff64a8a2d86245">calculateEquidistant</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;xi)</td></tr>
-<tr class="separator:a4c734c569e9c734b35ff64a8a2d86245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdfa308c29717afc26e55319f30f837b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpline.html#abdfa308c29717afc26e55319f30f837b">Spline</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;Y)</td></tr>
+<tr class="separator:abdfa308c29717afc26e55319f30f837b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b37f086957c486fd85a51350f0aed4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpline.html#a2b37f086957c486fd85a51350f0aed4e">Spline</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;Y, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;Z)</td></tr>
+<tr class="separator:a2b37f086957c486fd85a51350f0aed4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a239567877be8316c97f232161245fc2d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpline.html#a239567877be8316c97f232161245fc2d">eval_spline_j</a> (double x_act, size_t j, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mi)</td></tr>
+<tr class="separator:a239567877be8316c97f232161245fc2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bd1bdbc5888be3e26c6b3b4fecd1c49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpline.html#a4bd1bdbc5888be3e26c6b3b4fecd1c49">curv</a> (double h)</td></tr>
+<tr class="separator:a4bd1bdbc5888be3e26c6b3b4fecd1c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c6b5b07aba1be33e8c33d4041212121"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpline.html#a8c6b5b07aba1be33e8c33d4041212121">SetAbstractionValue</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;tx, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;ty)</td></tr>
+<tr class="separator:a8c6b5b07aba1be33e8c33d4041212121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a670f547574c04f4e8c1cfba678d51bf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpline.html#a670f547574c04f4e8c1cfba678d51bf0">operator()</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;xi)</td></tr>
+<tr class="separator:a670f547574c04f4e8c1cfba678d51bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c5c216c01e0a19ef9ad62502a1fa478"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpline.html#a4c5c216c01e0a19ef9ad62502a1fa478">calculateEquidistant</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;xi)</td></tr>
+<tr class="separator:a4c5c216c01e0a19ef9ad62502a1fa478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a35c18f31d8914ba305d56ddf125ad755"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35c18f31d8914ba305d56ddf125ad755">&#9670;&nbsp;</a></span>NaturalSpline() <span class="overload">[1/2]</span></h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classSpline.html">Spline</a> implementation.</p>
+<p>Capable of 1D Natural-Cubic-Splines as well as 2/3D Interpolation using approximations. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abdfa308c29717afc26e55319f30f837b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdfa308c29717afc26e55319f30f837b">&#9670;&nbsp;</a></span>Spline() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -104,7 +109,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">NaturalSpline::NaturalSpline </td>
+          <td class="memname">Spline::Spline </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>X</em>, </td>
@@ -127,18 +132,18 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Default constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
-    <tr><td class="paramname">Y</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>x-axis support values </td></tr>
+    <tr><td class="paramname">Y</td><td>y-axis support values </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a520b9a13a25551b6e8338931e6952088"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a520b9a13a25551b6e8338931e6952088">&#9670;&nbsp;</a></span>NaturalSpline() <span class="overload">[2/2]</span></h2>
+<a id="a2b37f086957c486fd85a51350f0aed4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b37f086957c486fd85a51350f0aed4e">&#9670;&nbsp;</a></span>Spline() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +152,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">NaturalSpline::NaturalSpline </td>
+          <td class="memname">Spline::Spline </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>X</em>, </td>
@@ -178,9 +183,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>3D approximation using a b=2 b-spline </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">X</td><td></td></tr>
-    <tr><td class="paramname">Y</td><td></td></tr>
-    <tr><td class="paramname">Z</td><td></td></tr>
+    <tr><td class="paramname">X</td><td>x-axis evaluation values </td></tr>
+    <tr><td class="paramname">Y</td><td>y-axis evaluation values </td></tr>
+    <tr><td class="paramname">Z</td><td>z-axis evaluation values </td></tr>
   </table>
   </dd>
 </dl>
@@ -188,8 +193,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4c734c569e9c734b35ff64a8a2d86245"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c734c569e9c734b35ff64a8a2d86245">&#9670;&nbsp;</a></span>calculateEquidistant()</h2>
+<a id="a4c5c216c01e0a19ef9ad62502a1fa478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c5c216c01e0a19ef9ad62502a1fa478">&#9670;&nbsp;</a></span>calculateEquidistant()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +203,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; NaturalSpline::calculateEquidistant </td>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; Spline::calculateEquidistant </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>xi</em></td><td>)</td>
@@ -211,9 +216,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Calculates natural cubic spline for given input xi </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">xi</td><td></td></tr>
+    <tr><td class="paramname">xi</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
@@ -221,8 +226,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af3f8549e6a81617008b4b9af1e2e8c91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3f8549e6a81617008b4b9af1e2e8c91">&#9670;&nbsp;</a></span>curv()</h2>
+<a id="a4bd1bdbc5888be3e26c6b3b4fecd1c49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bd1bdbc5888be3e26c6b3b4fecd1c49">&#9670;&nbsp;</a></span>curv()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +236,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; NaturalSpline::curv </td>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; Spline::curv </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>h</em></td><td>)</td>
@@ -244,9 +249,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Berechnung der zweiten Ableitungen an den Knoten </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Calculates second derivative on given knot-points </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">h</td><td></td></tr>
+    <tr><td class="paramname">h</td><td>distance between points </td></tr>
   </table>
   </dd>
 </dl>
@@ -254,8 +259,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a960a7e042a5a22439136b5186e0bec2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a960a7e042a5a22439136b5186e0bec2a">&#9670;&nbsp;</a></span>eval_spline_j()</h2>
+<a id="a239567877be8316c97f232161245fc2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a239567877be8316c97f232161245fc2d">&#9670;&nbsp;</a></span>eval_spline_j()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,7 +269,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double NaturalSpline::eval_spline_j </td>
+          <td class="memname">double Spline::eval_spline_j </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>x_act</em>, </td>
@@ -293,12 +298,12 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Auswertung des kubischen Polynoms s_j </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Evaluation of cubic polynomial s_j </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
-<a id="ae37703126fa8c835b50860f306f15d87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae37703126fa8c835b50860f306f15d87">&#9670;&nbsp;</a></span>operator()()</h2>
+<a id="a670f547574c04f4e8c1cfba678d51bf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a670f547574c04f4e8c1cfba678d51bf0">&#9670;&nbsp;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +312,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; NaturalSpline::operator() </td>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; Spline::operator() </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>xi</em></td><td>)</td>
@@ -320,18 +325,18 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Evaluates the spline for given values </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">xi</td><td></td></tr>
+    <tr><td class="paramname">xi</td><td>input values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>evaluated input </dd></dl>
 
 </div>
 </div>
-<a id="af480f3e66a64956fa63f92ebc2ce377b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af480f3e66a64956fa63f92ebc2ce377b">&#9670;&nbsp;</a></span>SetAbstractionValue()</h2>
+<a id="a8c6b5b07aba1be33e8c33d4041212121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c6b5b07aba1be33e8c33d4041212121">&#9670;&nbsp;</a></span>SetAbstractionValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,7 +345,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void NaturalSpline::SetAbstractionValue </td>
+          <td class="memname">void Spline::SetAbstractionValue </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>tx</em>, </td>
@@ -363,10 +368,10 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Setter for abstraction values t </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tx</td><td></td></tr>
-    <tr><td class="paramname">ty</td><td></td></tr>
+    <tr><td class="paramname">tx</td><td>x-axis </td></tr>
+    <tr><td class="paramname">ty</td><td>y-axis </td></tr>
   </table>
   </dd>
 </dl>
@@ -374,7 +379,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/math/numerics/analysis/<a class="el" href="NaturalSpline_8h_source.html">NaturalSpline.h</a></li>
+<li>include/math/numerics/analysis/<a class="el" href="Spline_8h_source.html">Spline.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

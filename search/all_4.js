@@ -1,14 +1,10 @@
 var searchData=
 [
-  ['elemdim_35',['elemDim',['../structMatrixDimension.html#a1f5be55c8a60262ddb045e4d3f4310e1',1,'MatrixDimension']]],
-  ['elements_36',['elements',['../classMatrix.html#ac9d3a0fe5ce995cf6f997209f72199cc',1,'Matrix']]],
-  ['elementwisecompare_37',['elementWiseCompare',['../classMatrix.html#afecf4f1a91e8aa51df4b65cbc0ce621b',1,'Matrix']]],
-  ['eps_38',['EPS',['../numerics_2utils_8h.html#a6ebf6899d6c1c8b7b9d09be872c05aae',1,'utils.h']]],
-  ['equation_39',['Equation',['../classEquation.html',1,'Equation'],['../classEquation.html#a35fa8e029070c8117fd30850fdd4a2ec',1,'Equation::Equation(const std::string &amp;val)'],['../classEquation.html#a35ed8dff1c0ccc38b4290afec957504c',1,'Equation::Equation(const char *val)']]],
-  ['eta_40',['eta',['../classClassifier.html#ada5781f6955d4584bb9e8a24216ce654',1,'Classifier::eta()'],['../classDataSet.html#a5e96a7989e932a765382ec05df96f02e',1,'DataSet::eta()']]],
-  ['eval_5fspline_5fj_41',['eval_spline_j',['../classNaturalSpline.html#a960a7e042a5a22439136b5186e0bec2a',1,'NaturalSpline']]],
-  ['evaluate_42',['Evaluate',['../classPolynomialBase.html#a11f1b8db4593f99082a96d0e218b915d',1,'PolynomialBase::Evaluate()'],['../classMonomBase.html#ac9a7f1914fb502273a6511d7c606012b',1,'MonomBase::Evaluate()'],['../classLagrangeBase.html#a205a0fc11d0f666a418f34615dac6ad1',1,'LagrangeBase::Evaluate()'],['../classNewtonBase.html#ab295b19eabdae37f87f71ff7ca3ea9f1',1,'NewtonBase::Evaluate()'],['../classMathNode.html#ac6689c4cc69071efbd524e0f2a7fe0f6',1,'MathNode::Evaluate()'],['../classOperator.html#ab60d42c50454ab1e8b21aabc03bd04e3',1,'Operator::Evaluate()'],['../classSymbolic.html#a10604f97ee4fb6bc798987ba4d5daa1d',1,'Symbolic::Evaluate()'],['../classNumber.html#a907df4526da3ccb91b8faead20e6fb66',1,'Number::Evaluate()']]],
-  ['evaluationvalue_43',['evaluationValue',['../classSymbolic.html#a9c806e242426832e2901f47fbeb4ff62',1,'Symbolic']]],
-  ['expliciteuler_2eh_44',['ExplicitEuler.h',['../ExplicitEuler_8h.html',1,'']]],
-  ['eye_45',['eye',['../numerics_2utils_8h.html#af2b3071fc3f2b2a1e903ceea3a9afa76',1,'utils.cpp']]]
+  ['datafilename_40',['dataFileName',['../classPlot.html#ac5c21369cb37d1e74741766bf26123ec',1,'Plot']]],
+  ['dataset_41',['DataSet',['../classDataSet.html',1,'DataSet'],['../classDataSet.html#a06a0a03f65d1ed5a3b9102242e761639',1,'DataSet::DataSet(const char *filePath, size_t inputCount, size_t outputCount)'],['../classDataSet.html#ad398cb9b594f7fc99ebec3e2fb227ebb',1,'DataSet::DataSet(size_t inputCount, size_t outputCount)']]],
+  ['determinant_42',['Determinant',['../classMatrix.html#a5f91e3755bfb6eb7b8aa5d49d8fbadb2',1,'Matrix::Determinant()'],['../structmat2.html#a2392950377c4cbb451ea9d528632b9f9',1,'mat2::Determinant()'],['../structmat3.html#a9590c23f7a73fa134eefdfa3e7bbbece',1,'mat3::Determinant()'],['../structmat4.html#a923b473e059a635bdc17bbfb1a0e878d',1,'mat4::Determinant()']]],
+  ['dim_43',['dim',['../structvec2.html#aa5afbdfa81ffd38272563940ffa7469c',1,'vec2::dim()'],['../structvec3.html#a345843fea85e1b96768cf3ab83c35889',1,'vec3::dim()'],['../structvec4.html#a75071b55935e61bf7f27c7408954dc61',1,'vec4::dim()']]],
+  ['discountfactor_44',['discountFactor',['../Insurance_8h.html#a7447721e5975127c235fe6daa2ce95f9',1,'Insurance.cpp']]],
+  ['distance_45',['distance',['../utils_8h.html#a0db82d57fef0c8540f30485e3e8d707f',1,'Math::Utils']]],
+  ['ds_20_28data_20science_29_2dsubmodule_46',['ds (Data science)-submodule',['../md_include_math_ds_README.html',1,'']]]
 ];

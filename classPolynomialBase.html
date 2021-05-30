@@ -92,8 +92,7 @@ Inheritance diagram for PolynomialBase:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae4ebc9c1138824e7d532cdd1497d6967"><td class="memItemLeft" align="right" valign="top"><a id="ae4ebc9c1138824e7d532cdd1497d6967"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PolynomialBase</b> ([[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, [[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;Y)</td></tr>
+<tr class="memitem:ae4ebc9c1138824e7d532cdd1497d6967"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPolynomialBase.html#ae4ebc9c1138824e7d532cdd1497d6967">PolynomialBase</a> ([[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, [[maybe_unused]] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;Y)</td></tr>
 <tr class="separator:ae4ebc9c1138824e7d532cdd1497d6967"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11f1b8db4593f99082a96d0e218b915d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPolynomialBase.html#a11f1b8db4593f99082a96d0e218b915d">Evaluate</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;) const =0</td></tr>
 <tr class="separator:a11f1b8db4593f99082a96d0e218b915d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,8 +101,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ad949dc2b79d2291089f8cef06fda15e9"><td class="memItemLeft" align="right" valign="top"><a id="ad949dc2b79d2291089f8cef06fda15e9"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;ostr, const <a class="el" href="classPolynomialBase.html">PolynomialBase</a> &amp;base)</td></tr>
+<tr class="memitem:ad949dc2b79d2291089f8cef06fda15e9"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPolynomialBase.html#ad949dc2b79d2291089f8cef06fda15e9">operator&lt;&lt;</a> (std::ostream &amp;ostr, const <a class="el" href="classPolynomialBase.html">PolynomialBase</a> &amp;base)</td></tr>
 <tr class="separator:ad949dc2b79d2291089f8cef06fda15e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -113,7 +111,51 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <li><a class="el" href="classLagrangeBase.html">LagrangeBase</a></li>
 <li><a class="el" href="classNewtonBase.html">NewtonBase</a> </li>
 </ul>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae4ebc9c1138824e7d532cdd1497d6967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ebc9c1138824e7d532cdd1497d6967">&#9670;&nbsp;</a></span>PolynomialBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PolynomialBase::PolynomialBase </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[[maybe_unused] ] const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Default constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td>support values $$x_i$$ </td></tr>
+    <tr><td class="paramname">Y</td><td>evaluated support values $$y_i$$ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a11f1b8db4593f99082a96d0e218b915d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a11f1b8db4593f99082a96d0e218b915d">&#9670;&nbsp;</a></span>Evaluate()</h2>
 
@@ -169,6 +211,51 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <p>Don't overthink this. simply return some kind of equation one can copy into wolframalpha and simplify </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Implemented in <a class="el" href="classNewtonBase.html#ac7c02c3ac9dd2a752edb8529c53e47be">NewtonBase</a>, <a class="el" href="classLagrangeBase.html#a8aedfef48106f6288e0a4883d17e6a00">LagrangeBase</a>, and <a class="el" href="classMonomBase.html#a4e86d536f746f544318c18c08c12b99f">MonomBase</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ad949dc2b79d2291089f8cef06fda15e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad949dc2b79d2291089f8cef06fda15e9">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>ostr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classPolynomialBase.html">PolynomialBase</a> &amp;&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>std::cout operator </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ostr</td><td></td></tr>
+    <tr><td class="paramname">base</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>

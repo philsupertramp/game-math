@@ -1,9 +1,20 @@
 var searchData=
 [
-  ['datafilename_29',['dataFileName',['../classPlot.html#ac5c21369cb37d1e74741766bf26123ec',1,'Plot']]],
-  ['dataset_30',['DataSet',['../classDataSet.html',1,'DataSet'],['../classDataSet.html#a06a0a03f65d1ed5a3b9102242e761639',1,'DataSet::DataSet(const char *filePath, size_t inputCount, size_t outputCount)'],['../classDataSet.html#ad398cb9b594f7fc99ebec3e2fb227ebb',1,'DataSet::DataSet(size_t inputCount, size_t outputCount)']]],
-  ['determinant_31',['Determinant',['../classMatrix.html#a5f91e3755bfb6eb7b8aa5d49d8fbadb2',1,'Matrix::Determinant()'],['../structmat2.html#a2392950377c4cbb451ea9d528632b9f9',1,'mat2::Determinant()'],['../structmat3.html#a9590c23f7a73fa134eefdfa3e7bbbece',1,'mat3::Determinant()'],['../structmat4.html#a923b473e059a635bdc17bbfb1a0e878d',1,'mat4::Determinant()']]],
-  ['dim_32',['dim',['../structvec2.html#aa5afbdfa81ffd38272563940ffa7469c',1,'vec2::dim()'],['../structvec3.html#a345843fea85e1b96768cf3ab83c35889',1,'vec3::dim()'],['../structvec4.html#a75071b55935e61bf7f27c7408954dc61',1,'vec4::dim()']]],
-  ['distance_33',['distance',['../utils_8h.html#a0db82d57fef0c8540f30485e3e8d707f',1,'Math::Utils']]],
-  ['ds_20_28data_20science_29_2dsubmodule_34',['ds (Data science)-submodule',['../md_include_math_ds_README.html',1,'']]]
+  ['cache_23',['Cache',['../classImageDataSet.html#abe20e5992ddda25f736dfb0789d764a3',1,'ImageDataSet']]],
+  ['calculateequidistant_24',['calculateEquidistant',['../classSpline.html#a4c5c216c01e0a19ef9ad62502a1fa478',1,'Spline']]],
+  ['classes_25',['classes',['../classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e',1,'ImageDataSet']]],
+  ['classifier_26',['Classifier',['../classClassifier.html#adf323be2120dbc43c65e1aed08efd5cb',1,'Classifier::Classifier()'],['../classClassifier.html',1,'Classifier']]],
+  ['classnames_27',['classNames',['../classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72',1,'ImageDataSet']]],
+  ['cmp_5fvec3i_28',['cmp_vec3i',['../structcmp__vec3i.html',1,'']]],
+  ['coefficientofdetermination_29',['coefficientOfDetermination',['../Probability_8h.html#a7edb177daf3663ea72006b9565610a7e',1,'Probability.cpp']]],
+  ['color_30',['color',['../structPlotAttributes.html#ad1aad84439cf5fbc865d07694e523f27',1,'PlotAttributes']]],
+  ['columns_31',['columns',['../structMatrixDimension.html#aef50c3f8f188346f84c30f0dae35436d',1,'MatrixDimension::columns()'],['../classMatrix.html#a710d9b6934a24229fe06789f65ed0571',1,'Matrix::columns()']]],
+  ['compoundingfactor_32',['compoundingFactor',['../Insurance_8h.html#a1445808f741ac180ac8352c230f9cc14',1,'Insurance.cpp']]],
+  ['cost_33',['cost',['../classSGD.html#a843697c86d1d89defc5b23e9847cdb4c',1,'SGD']]],
+  ['costfunction_34',['costFunction',['../classAdalineGD.html#aacea8e107e27c97f9f87cd802187a056',1,'AdalineGD::costFunction()'],['../classPerceptron.html#ae2e614bbd670e55d169644f2b9f66f57',1,'Perceptron::costFunction()'],['../classLogRegSGD.html#a2c5d62d0e888834e00d33fddb6e2e78b',1,'LogRegSGD::costFunction()'],['../classClassifier.html#ae3508f6b16b8e4e770d1fc6e31f8eced',1,'Classifier::costFunction()'],['../classAdalineSGD.html#a83b11a7b467744c0018d8852224275be',1,'AdalineSGD::costFunction()']]],
+  ['costs_35',['costs',['../classClassifier.html#a8688dfb2318e40a7c2f3747b68c96bae',1,'Classifier']]],
+  ['count_36',['count',['../structSet.html#a21819d28230d81776628a4d152a6fed0',1,'Set']]],
+  ['cov_37',['cov',['../Probability_8h.html#aca7f07a568ee49e5d34982dfd6d811db',1,'Probability.cpp']]],
+  ['cross_38',['cross',['../structvec3.html#a6659bbbbdec0fcf10942a8cbc205b952',1,'vec3']]],
+  ['curv_39',['curv',['../classSpline.html#a4bd1bdbc5888be3e26c6b3b4fecd1c49',1,'Spline']]]
 ];

@@ -22,13 +22,20 @@ Gaussian elimination to solve systems of linear equations. Uses column major piv
 \doxysubsubsection{\texorpdfstring{gaussSeidel()}{gaussSeidel()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ gauss\+Seidel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{b }\end{DoxyParamCaption})}
 
-Gauss-\/\+Seidel algorithm to evaluate system of linear equations. 
+Gauss-\/\+Seidel algorithm to evaluate system of linear equations.
+
+\$\$\+Ax = b\$\$
+
+
 \begin{DoxyParams}{Parameters}
-{\em A} & \\
+{\em A} & Coefficient matrix \\
 \hline
-{\em b} & \\
+{\em b} & resulting vector \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A \textbackslash{} b 
+\$\$x\$\$ 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2lin_alg_2TestGaussSeidel_8cpp-example}{numerics/lin\+\_\+alg/\+Test\+Gauss\+Seidel.\+cpp}}.\end{Desc}

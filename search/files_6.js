@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newton_2eh_324',['newton.h',['../newton_8h.html',1,'']]]
+  ['math_2eh_368',['math.h',['../math_8h.html',1,'']]]
 ];
