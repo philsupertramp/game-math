@@ -33,11 +33,9 @@ set(LIB_SOURCES
 if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_SOURCES
             ${LIB_SOURCES}
-            include/math/numerics.h
             include/math/Matrix.h
             include/math/numerics/utils.h
             include/math/numerics/utils.cpp
-            include/math/numerics/lin_alg.h
             include/math/numerics/lin_alg/newton.h
             include/math/numerics/lin_alg/backwardSub.h
             include/math/numerics/lin_alg/forwardSub.h
@@ -52,7 +50,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/ode/odeBDF2.h
 
             include/math/numerics/analysis/SupportValues.h
-            include/math/numerics/analysis/NaturalSpline.h
+            include/math/numerics/analysis/Spline.h
             )
 endif()
 if(MATH_EXTENSIONS MATCHES "(symb)")
@@ -66,7 +64,6 @@ endif()
 if (MATH_EXTENSIONS MATCHES "(ds)")
     set(LIB_SOURCES
         ${LIB_SOURCES}
-            include/math/ds.h
             include/math/Matrix.h
             include/math/ds/DataSet.h
             include/math/ds/Classifier.h

@@ -38,4 +38,3 @@ std::vector<std::string> split(const std::string& s) {
     split(s, std::back_inserter(elems));
     return elems;
 }
-

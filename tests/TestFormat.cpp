@@ -59,3 +59,7 @@ int main() {
     FormatTestCase().run();
     return 0;
 }
+/**
+ * \example TestFormat.cpp
+ * This is an example on how to use the format.h class.
+ */

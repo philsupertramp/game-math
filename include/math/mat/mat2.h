@@ -9,7 +9,6 @@
 template<class T>
 struct mat2 {
 public:
-
     //! loosely packed data
     T values[2][2];
 
@@ -219,3 +218,10 @@ std::ostream& operator<<(std::ostream& out, const mat2<U>& mat) {
     out << "[\n\t" << mat[0][0] << ", " << mat[0][1] << ";\n\t" << mat[1][0] << ", " << mat[1][1] << "\n]\n";
     return out;
 }
+
+
+/**
+ * \example mat/TestMat2.cpp
+ * This is an example on how to use the mat2.h file.
+ *
+ */

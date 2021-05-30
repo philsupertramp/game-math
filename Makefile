@@ -12,15 +12,15 @@ build-coverage:
 
 coverage:
 	./build.sh cmake-debug-coverage -c -o="MATH_EXTENSIONS=numerics,ds,stat,visualization -DMATH_IMAGE_PROCESSING=1";
-	lcov -c -d cmake-debug-coverage --rc lcov_branch_coverage=1 -o test.info -f --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\* --include \*/math/statistics/\*;
+	lcov -c -d cmake-debug-coverage --rc lcov_branch_coverage=1 --rc lcov_function_coverage=1 -o test.info -f --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\* --include \*/math/statistics/\*;
 	lcov -a test.info -a base.info -o cov.info;
-	genhtml cov.info -o coverage-report;
+	genhtml --demangle-cpp --function-coverage --branch-coverage cov.info -o coverage-report;
 
 test-coverage:
 	./build.sh cmake-debug-coverage -c -o="MATH_EXTENSIONS=numerics,ds,vis,symb,stat" --target=plot_TestPlot;
-	lcov -c -d cmake-debug-coverage --rc lcov_branch_coverage=1 -o test.info -f --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\* --include \*/math/statistics/\*;
+	lcov -c -d cmake-debug-coverage --rc lcov_branch_coverage=1 --rc lcov_function_coverage=1 -o test.info -f --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\* --include \*/math/statistics/\*;
 	lcov -a test.info -a base.info -o cov.info;
-	genhtml cov.info -o coverage-report;
+	genhtml --branch-coverage cov.info -o coverage-report;
 
 minimal:
 	./build.sh cmake-release-minimal -t=Release;

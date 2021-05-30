@@ -19,6 +19,11 @@
 class PolynomialBase
 {
 public:
+    /**
+     * Default constructor
+     * @param X support values $$x_i$$
+     * @param Y evaluated support values $$y_i$$
+     */
     PolynomialBase([[maybe_unused]] const Matrix<double>& X, [[maybe_unused]] const Matrix<double>& Y) { }
 
     /**
@@ -37,6 +42,12 @@ public:
      */
     virtual std::string Function() const = 0;
 
+    /**
+     * std::cout operator
+     * @param ostr
+     * @param base
+     * @return
+     */
     friend std::ostream& operator<<(std::ostream& ostr, const PolynomialBase& base) {
         ostr << base.Function() << std::flush;
         return ostr;
@@ -46,14 +57,20 @@ public:
 /**
  * Monom-Base:
  *
- * y_i = p(x_i) = a_0 + a_1x_i + ... + a_nx_i^n, \forall i = 0, \dots, n
+ * $$y_i = p(x_i) = a_0 + a_1x_i + ... + a_nx_i^n, \forall i = 0, \dots, n$$
  * https://wiki.godesteem.de/wiki/interpolation-and-approximation/#Monom-Base
  */
 class MonomBase : public PolynomialBase
 {
 public:
+    //! Coefficient matrix
     Matrix<double> A;
 
+    /**
+     * Default constructor
+     * @param X $$x_i$$ support values
+     * @param Y $$y_i$$ support values evaluated with function
+     */
     MonomBase(const Matrix<double>& X, const Matrix<double>& Y)
         : PolynomialBase(X, Y) {
         auto x = X;
@@ -76,8 +93,8 @@ public:
     }
     /**
      * iterative evaluation, nothing special
-     * @param X
-     * @return
+     * @param X evaluation values
+     * @return approximation
      */
     virtual Matrix<double> Evaluate(const Matrix<double>& X) const {
         Matrix<double> Y(A(0, 0), X.rows(), 1);
@@ -86,6 +103,10 @@ public:
         }
         return Y;
     };
+    /**
+     * String representation getter
+     * @return string representation in monom base
+     */
     virtual std::string Function() const {
         std::string out;
         for(size_t row = 0; row < A.rows(); ++row) {
@@ -105,10 +126,17 @@ public:
  */
 class LagrangeBase : public PolynomialBase
 {
+    //! $$x_i$$ Support values
     Matrix<double> x;
+    //! $$y_i$$ Support values evaluated with the function
     Matrix<double> y;
 
 public:
+    /**
+     * Default constructor
+     * @param X $$x_i$$
+     * @param Y $$y_i$$
+     */
     LagrangeBase(const Matrix<double>& X, const Matrix<double>& Y)
         : PolynomialBase(X, Y)
         , x(X)
@@ -117,10 +145,10 @@ public:
     /**
      * Computes i-th coefficient
      *
-     * L_i(x) = \prod_{j=0, j\neq i}^{n} \frac{x-x_j}{x_i-x_j}, \forall i=0, \dots, n
-     * @param xk
-     * @param i
-     * @return
+     * $$L_i(x) = \prod_{j=0, j\neq i}^{n} \frac{x-x_j}{x_i-x_j}, \forall i=0, \dots, n$$
+     * @param xk current value $$x_k$$
+     * @param i index i
+     * @return coefficient value
      */
     [[nodiscard]] double GetCoefficient(const double& xk, const size_t i) const {
         double out = 1.0;
@@ -132,6 +160,11 @@ public:
         return out;
     }
 
+    /**
+     * Evaluates the lagrange base
+     * @param in values to evaluate
+     * @return interpolated values
+     */
     virtual Matrix<double> Evaluate(const Matrix<double>& in) const override {
         Matrix<double> out(0, in.rows(), 1);
         for(size_t k = 0; k < in.rows(); ++k) {
@@ -140,9 +173,9 @@ public:
         return out;
     }
     /**
-     * builds lagrange coefficient L_i
-     * @param i
-     * @return
+     * builds lagrange coefficient $$L_i$$ string representation
+     * @param i index
+     * @return coefficient representation
      */
     [[nodiscard]] std::string buildLx(size_t i) const {
         std::string Lx;
@@ -177,6 +210,10 @@ public:
         }
         return Lx;
     }
+    /**
+     * Builds string representation in lagrange base
+     * @return representational string
+     */
     virtual std::string Function() const override {
         std::string out;
         for(size_t i = 0; i < y.rows(); ++i) {
@@ -195,25 +232,38 @@ public:
  * Newton-Base
  *
  *
+ * $$
  * p(x) = \sum_{i=0}^{n} b_i \omega_i(x)
+ * $$
  * with
- *
+ * $$
  *   b_i = \frac{f_{[x_{r+1}, ..., x_s]} - f_{[x_r, ..., x_{s-1}]}}{x_s - x_r}
+ * $$
  * and
- *
+ * $$
  *   \omega_i(x) = \prod_{j=0}^{i-1} (x - x_j), \quad i = 1, \dots n
- *
- * and \omega_0(x) = x_0
- *
+ * $$
+ * and
+ * $$
+ * \omega_0(x) = x_0
+ * $$
  *
  * https://wiki.godesteem.de/wiki/interpolation-and-approximation/#Newton-Base
  */
 class NewtonBase : public PolynomialBase
 {
+    //! support values $$x_i$$
     Matrix<double> X;
 
 public:
+    //! newton base coefficients $$b_i$$
     Matrix<double> b;
+
+    /**
+     * default constructor
+     * @param x support values $$x_i$$
+     * @param y evaluated support values $$y_i$$
+     */
     NewtonBase(const Matrix<double>& x, const Matrix<double>& y)
         : PolynomialBase(x, y)
         , X(x) {
@@ -225,6 +275,10 @@ public:
         }
         b = diag(F);
     }
+    /**
+     * String representation in newton base
+     * @return representational string
+     */
     virtual std::string Function() const override {
         std::string out;
         for(size_t i = 0; i < b.rows(); ++i) {
@@ -243,11 +297,23 @@ public:
         }
         return out;
     }
+
+    /**
+     * Getter for coefficient with index i for a value x
+     * @param index index of coefficient
+     * @param x value to evaluate
+     * @return evaluated coefficient
+     */
     double GetCoefficient(size_t index, const double& x) const {
         double out = 1;
         for(size_t i = 0; i < index - 1; ++i) { out *= (x - X(i, 0)); }
         return out;
     }
+    /**
+     * Evaluate the newton base for given values
+     * @param xIn values to evaluate
+     * @return interpolated values
+     */
     virtual Matrix<double> Evaluate(const Matrix<double>& xIn) const override {
         Matrix<double> y(b(b.rows() - 1, 0), xIn.rows(), 1);
         for(int j = b.rows() - 2; j >= 0; --j) {
@@ -261,3 +327,7 @@ public:
         return y;
     }
 };
+/**
+ * \example numerics/analysis/TestSupportValues.cpp
+ * This is an example on how to use the MonomBase, LagrangeBase and NewtonBase class.
+ */

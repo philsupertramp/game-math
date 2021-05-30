@@ -110,3 +110,9 @@ public:
      */
     virtual double costFunction(const Matrix<double>& X) override { return (double)(X(0, 0) != 0.0); }
 };
+
+/**
+ * \example ds/TestPerceptron.cpp
+ * This is an example on how to use the Perceptron class for binary classification.
+ *
+ */
