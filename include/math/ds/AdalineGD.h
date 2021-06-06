@@ -70,14 +70,14 @@ public:
      * @param X input
      * @return activated input
      */
-    virtual Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
+    virtual Matrix<double> activation(const Matrix<double>& X) { return netInput(X); }
 
     /**
      * predicts class of given input
      * @param X input values
      * @return prediction
      */
-    virtual Matrix<double> predict(const Matrix<double>& X) override {
+    virtual Matrix<double> predict(const Matrix<double>& X) {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }
@@ -89,7 +89,7 @@ public:
      * @param X input values
      * @return squared cost
      */
-    double costFunction(const Matrix<double>& X) override { return HadamardMulti<double>(X, X).sumElements() / 2.0; }
+    double costFunction(const Matrix<double>& X) { return HadamardMulti<double>(X, X).sumElements() / 2.0; }
 };
 /**
  * \example ds/TestAdalineGD.cpp

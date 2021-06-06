@@ -1,8 +1,6 @@
 #pragma once
 
 #include "../Matrix.h"
-#include <sys/wait.h>
-#include <unistd.h>
 #include <utility>
 
 
@@ -248,7 +246,6 @@ public:
      * Forwards data to gnuplot
      */
     virtual void operator()() const {
-        fork();
         FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
         for(int i = 0; i < numElements; ++i) {
@@ -400,7 +397,6 @@ public:
      * interprets a file as surface plot and forwards whole content to gnuplot using splot
      */
     void operator()() const override {
-        fork();
         FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
         fprintf(gnuplot, "%s", plotType);
@@ -450,9 +446,6 @@ public:
         fprintf(gnuplot, " title '%s'", attributes.plotNames[0]);
         fprintf(gnuplot, "\n");
         fclose(gnuplot);
-
-        // that should catch the child process
-        wait(nullptr);
     }
 };
 /**

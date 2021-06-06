@@ -55,7 +55,7 @@ do
 esac
 done
 
-function test_command() {
+test_command() {
   COMMAND="ctest --extra-verbose --output-on-failure"
 
   # Run test suite with or without coverage
