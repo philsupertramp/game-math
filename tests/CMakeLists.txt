@@ -45,6 +45,8 @@ add_test_source(TestFormat.cpp)
 
 if (MATH_EXTENSIONS MATCHES "(numerics)")
     add_test_source(numerics/TestUtils.cpp)
+    add_test_source(numerics/TestFractals.cpp)
+
     add_test_source(numerics/ode/TestODE45.cpp)
     add_test_source(numerics/ode/TestExplicitEuler.cpp)
     add_test_source(numerics/ode/TestODETrapez.cpp)

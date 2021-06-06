@@ -1,6 +1,8 @@
 #include "../../Test.h"
 #include <cmath>
+#include <math/numerics/Fractals.h>
 #include <math/numerics/lin_alg/newton.h>
+#include <math/visualization/Plot.h>
 #include <vector>
 
 
@@ -16,8 +18,8 @@ class NewtonTestCase : public Test
         auto res = newton(f, Df, x0, TOL, maxIter);
 
         std::vector<double> xExpt = { 0.73908513321516067 };
-        std::cout << res;
-        for(int i = 0; i < 1; ++i) { AssertEqual(res(i, 0), xExpt[i]); }
+
+        for(int i = 0; i < 1; ++i) { AssertEqual(res.first(i, 0), xExpt[i]); }
         return true;
     }
 

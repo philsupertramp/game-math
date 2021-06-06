@@ -65,10 +65,14 @@ struct PlotAttributes {
     int lineStrength;
     //! signalizes 3D plot
     bool is3D = false;
+    //! signalizes 2D plot
+    bool is2D = false;
     //! identifier for statistical plots for value comparison
     unsigned int isStatPlot;
     //! color used to plot elements
     const char* color;
+    //! color used to plot elements
+    const char* colorPalette;
     //! vector representing data series
     std::vector<const char*> plotNames;
     //! vector representing data series types
@@ -111,7 +115,7 @@ public:
 
         // create file and empty it
         storageFile = fopen(dataFileName, "w");
-        fprintf(storageFile, " ");
+        fprintf(storageFile, "\0");
         fclose(storageFile);
     }
 
@@ -181,16 +185,22 @@ public:
      */
     void AddData(
     const Matrix<double>& mat, const std::string& name, DataTypes dataTypeName = DataTypes::NONE, int dimensions = 2) {
-        // calculate boundaries
-        auto new_bX = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 0, 0));
-        auto new_bY = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 1, 1));
+        if(dimensions <= 3) {
+            // calculate boundaries
+            auto new_bX = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 0, 0));
+            auto new_bY = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 1, 1));
 
-        bX.min = bX.min > new_bX.min ? new_bX.min : bX.min;
-        bX.max = bX.max < new_bX.max ? new_bX.max : bX.max;
+            bX.min = bX.min > new_bX.min ? new_bX.min : bX.min;
+            bX.max = bX.max < new_bX.max ? new_bX.max : bX.max;
 
-        bY.min = bY.min > new_bY.min ? new_bY.min : bY.min;
-        bY.max = bY.max < new_bY.max ? new_bY.max : bY.max;
-
+            bY.min = bY.min > new_bY.min ? new_bY.min : bY.min;
+            bY.max = bY.max < new_bY.max ? new_bY.max : bY.max;
+        } else {
+            bX.min = 0;
+            bY.min = 0;
+            bX.max = mat.columns();
+            bY.max = mat.columns();
+        }
 
         // append storage file
         storageFile = fopen(dataFileName, "a");
@@ -310,6 +320,7 @@ protected:
         if(attributes.xAxis) { fprintf(gnuplot, "set xlabel '%s'\n", attributes.xAxis); }
         if(attributes.yAxis) { fprintf(gnuplot, "set ylabel '%s'\n", attributes.yAxis); }
         if(attributes.is3D) { fprintf(gnuplot, "set hidden3d\nset dgrid3d 30,30 qnorm 1\n"); }
+        if(attributes.colorPalette) { fprintf(gnuplot, "load '%s'\n", attributes.colorPalette); }
     }
 };
 
@@ -382,13 +393,55 @@ public:
     /**
      * overridden call operator.
      *
-     * interprets a file as surface plot and forwards whole content to gnuplot
+     * interprets a file as surface plot and forwards whole content to gnuplot using splot
      */
     void operator()() const override {
         FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
         fprintf(gnuplot, "%s", plotType);
-        fprintf(gnuplot, "'%s' with lines", dataFileName);
+        fprintf(gnuplot, " '%s' with lines", dataFileName);
+        fprintf(gnuplot, " title '%s'", attributes.plotNames[0]);
+        fprintf(gnuplot, "\n");
+        fclose(gnuplot);
+    }
+};
+
+/**
+ * Plot to display a 2 dimensional image
+ * based on matrix-like data
+ */
+class ImagePlot : public Plot
+{
+public:
+    /**
+     * Default constructor
+     *
+     * @param name Plot title
+     */
+    explicit ImagePlot(const char* name)
+        : Plot(name) {
+        attributes.is2D = true;
+    }
+
+    /**
+     * Helper to easily add matrix data to content file
+     * @param mat data matrix
+     * @param name name of dataset
+     */
+    void AddData(const Matrix<double>& mat, const std::string& name) {
+        Plot::AddData(mat, name, DataTypes::NONE, mat.columns());
+    }
+
+    /**
+     * overridden call operator.
+     *
+     * interprets a file as surface plot and forwards whole content to gnuplot using "plot matrix with image"
+     */
+    void operator()(const char* colorPalette = "magma.pal") {
+        FILE* gnuplot           = popen("gnuplot --persist", "w");
+        attributes.colorPalette = colorPalette;
+        writeAttributes(gnuplot);
+        fprintf(gnuplot, "plot '%s' matrix with image", dataFileName);
         fprintf(gnuplot, " title '%s'", attributes.plotNames[0]);
         fprintf(gnuplot, "\n");
         fclose(gnuplot);

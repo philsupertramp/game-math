@@ -21,9 +21,10 @@ using LinearEquation = std::function<Matrix<double>(const Matrix<double>&)>;
  * @param x0 start value
  * @param TOL desired tolerance of the method
  * @param maxIter maximum iterations for the method
- * @return approximated values
+ * @return approximated values paired with required number iterations for given tolerance
  */
-Matrix<double> newton(const LinearEquation& f, const Jacobian& Df, const Matrix<double>& x0, double TOL, int maxIter) {
+std::pair<Matrix<double>, int>
+newton(const LinearEquation& f, const Jacobian& Df, const Matrix<double>& x0, double TOL, int maxIter) {
     auto m = x0.rows();
     if(m < 1) {
         // error
@@ -47,7 +48,7 @@ Matrix<double> newton(const LinearEquation& f, const Jacobian& Df, const Matrix<
     if(iter == maxIter) {
         // error max Iter reached, no convergence
     }
-    return x;
+    return { x, iter };
 }
 
 /**

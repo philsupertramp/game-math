@@ -17,7 +17,7 @@ coverage:
 	genhtml --demangle-cpp --function-coverage --branch-coverage cov.info -o coverage-report;
 
 test-coverage:
-	./build.sh cmake-debug-coverage -c -o="MATH_EXTENSIONS=numerics,ds,vis,symb,stat" --target=plot_TestPlot;
+	./build.sh cmake-debug-coverage -c -o="MATH_EXTENSIONS=numerics,ds,vis,symb,stat" --target=numerics_lin_alg_TestNewton;
 	lcov -c -d cmake-debug-coverage --rc lcov_branch_coverage=1 --rc lcov_function_coverage=1 -o test.info -f --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\* --include \*/math/statistics/\*;
 	lcov -a test.info -a base.info -o cov.info;
 	genhtml --branch-coverage cov.info -o coverage-report;

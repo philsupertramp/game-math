@@ -51,7 +51,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
 
             include/math/numerics/analysis/SupportValues.h
             include/math/numerics/analysis/Spline.h
-            )
+            include/math/numerics/Fractals.h)
 endif()
 if(MATH_EXTENSIONS MATCHES "(symb)")
     set(LIB_SOURCES
@@ -88,6 +88,14 @@ if (MATH_EXTENSIONS MATCHES "(vis)")
     set(LIB_SOURCES ${LIB_SOURCES}
             include/math/visualization/Plot.h
         )
+
+    set(colorPallets gnpu magma inferno spectral)
+
+    foreach(pallet IN LISTS colorPallets)
+        configure_file(include/math/visualization/${pallet}.pal ${CMAKE_CURRENT_BINARY_DIR}/${pallet}.pal COPYONLY)
+        configure_file(include/math/visualization/${pallet}.pal ${CMAKE_CURRENT_BINARY_DIR}/tests/${pallet}.pal COPYONLY)
+    endforeach()
+
 endif ()
 if (MATH_EXTENSIONS MATCHES "(stat)")
     set(LIB_SOURCES ${LIB_SOURCES}
