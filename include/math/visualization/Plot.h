@@ -400,7 +400,7 @@ public:
      */
     void operator()() const override {
         fork();
-        FILE* gnuplot = popen("/usr/bin/gnuplot --persist", "w");
+        FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
         fprintf(gnuplot, "%s", plotType);
         fprintf(gnuplot, " '%s' with lines", dataFileName);
