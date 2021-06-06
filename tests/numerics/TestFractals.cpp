@@ -1,6 +1,7 @@
 #include "../Test.h"
 #include <math/numerics/Fractals.h>
 #include <math/numerics/utils.h>
+#include <math/visualization/Plot.h>
 
 
 class FractalsTestCase : public Test
@@ -54,6 +55,11 @@ class FractalsTestCase : public Test
                                   { 3, 4, 4, 4, 5, 5, 5, 4, 4, 4 } });
 
         AssertEqual(M, expected);
+
+        fractal.detail = 100;
+        ImagePlot plot("Mandelbrot");
+        plot.AddData(fractal(), "");
+        plot();
 
         return true;
     }

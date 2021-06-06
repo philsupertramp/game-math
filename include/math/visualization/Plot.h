@@ -2,6 +2,8 @@
 
 #include "../Matrix.h"
 #include <utility>
+#include <unistd.h>
+
 
 /**
  * data type enum to display a specific dataset
@@ -396,6 +398,7 @@ public:
      * interprets a file as surface plot and forwards whole content to gnuplot using splot
      */
     void operator()() const override {
+        fork();
         FILE* gnuplot = popen("/usr/bin/gnuplot --persist", "w");
         writeAttributes(gnuplot);
         fprintf(gnuplot, "%s", plotType);
