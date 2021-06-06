@@ -374,19 +374,30 @@ class NaturalSplineTestCase : public Test
         plot.AddData(out, "Test output", DataTypes::LINE, 3);
         plot();
 
+        //        // Spiral example
         //        double a = 0.75;
         //        int n = 56;
         //
         //        auto r = [a](const Matrix<double>& phi) { return a * phi; };
         //
         //        auto phi = linspace(0, 3 * 360, n);
-        //        xi = r(phi).HadamardMulti(phi.Apply([](double in){return cos(in); }));
-        //        yi = r(phi).HadamardMulti(phi.Apply([](double in){return sin(in); }));
+        //        auto theta = linspace(0, 360, n);
+        //        double m = 2.0;
+        //        auto xi = r(phi).HadamardMulti(phi.Apply([](double in){return cos(in); }));
+        //        auto yi = r(phi).HadamardMulti(phi.Apply([](double in){return sin(in); }));
+        //        auto zi = (m * r(phi)).Apply([](double in){return 2.0 + in; });
+        //        auto x     = linspace(min(xi), max(xi), 33).Transpose();
+        //        Spline spline(xi, yi, zi);
+        //        auto out = spline(x);
+        //
+        //        SurfacePlot plot("3D Test");
+        //        plot.AddData(out, "Test output", DataTypes::LINE, 3);
+        //        plot();
         return true;
     }
 
 public:
-    virtual void run() override {
+    virtual void run() {
         TestNaturalSpline();
         TestNotEquidistantNaturalSpline();
         TestSpline3D();

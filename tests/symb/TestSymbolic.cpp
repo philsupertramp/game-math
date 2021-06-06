@@ -165,7 +165,7 @@ class SymbolicTestCase : public Test
     }
 
 public:
-    void run() override {
+    virtual void run() {
         TestMathematicalProperties();
         TestNegative();
         TestParentheses();
