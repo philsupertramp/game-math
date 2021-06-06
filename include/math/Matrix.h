@@ -537,7 +537,12 @@ public:
         _rows         = rows;
         _columns      = cols;
         _element_size = elementSize;
-        _data         = (T*)malloc(rows * cols * elementSize * sizeof(T));
+        if(_data != nullptr){
+            _data = (T*)realloc(_data, rows * cols * elementSize * sizeof(T));
+        }
+        else {
+            _data         = (T*)malloc(rows * cols * elementSize * sizeof(T));
+        }
         _dataSize     = rows * cols * elementSize;
         needsFree     = true;
     }
@@ -550,7 +555,7 @@ public:
      * @return elem + col * elements() + row * columns() * elements()
      */
     [[nodiscard]] inline int GetIndex(const size_t& row, const size_t& col, const size_t& elem = 0) const {
-        assert(row < _rows && col < _columns && elem < _element_size);
+//        assert(row < _rows && col < _columns && elem < _element_size);
         return elem + col * _element_size + row * _columns * _element_size;
     }
 
@@ -609,7 +614,7 @@ private:
     size_t _element_size = 0;
 
     //! ongoing array representing data
-    T* _data;
+    T* _data = nullptr;
     //! total number of elements
     size_t _dataSize = 0;
     //!

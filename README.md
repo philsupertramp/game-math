@@ -47,12 +47,12 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
 see `/benchmarks/README.md`
 ```
 Matrix<double>:
-finished computation with 9 elements and 5000000 * operations. elapsed time: 1.20078s
-finished computation with 9 elements and 5000000 * operations. elapsed time: 0.901199s
-finished computation with 9 elements and 5000000 + operations. elapsed time: 1.0953s
+finished computation with 9 elements and 5000000 * operations. elapsed time: 1.13369s
+finished computation with 9 elements and 5000000 * operations. elapsed time: 0.115082s
+finished computation with 9 elements and 5000000 + operations. elapsed time: 1.16305s
 mat3<double>:
-finished computation with 9 elements and 5000000 * operations. elapsed time: 6.7e-08s
-finished computation with 9 elements and 5000000 + operations. elapsed time: 6.1e-08s
+finished computation with 9 elements and 5000000 * operations. elapsed time: 6.5e-08s
+finished computation with 9 elements and 5000000 + operations. elapsed time: 5.2e-08s
 ```
 
 # Upcoming features

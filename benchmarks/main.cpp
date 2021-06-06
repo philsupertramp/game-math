@@ -51,32 +51,26 @@ int main() {
     Random::Get(),
     Random::Get());
 
-    auto MatMulti  = [](const Matrix<double>& A, const Matrix<double>& B) { return A * B; };
-    auto MatAdd    = [](const Matrix<double>& A, const Matrix<double>& B) { return A + B; };
-    auto MatHad    = [](const Matrix<double>& A, const Matrix<double>& B) { return HadamardMulti(A, B); };
-    auto Mat3Multi = [](const mat3<double>& A, const mat3<double>& B) { return A * B; };
-    auto Mat3Add   = [](const mat3<double>& A, const mat3<double>& B) { return A + B; };
-
     std::cout << "Matrix<double>:" << std::endl;
     multi_timer.start();
-    for(size_t j = 0; j < J; ++j) { MatMulti(A, B); }
+    for(size_t j = 0; j < J; ++j) { A+B; }
     multi_timer.stop(A.rows() * A.columns(), J);
 
     multi_timer.start();
-    for(size_t j = 0; j < J; ++j) { MatHad(A, B); }
+    for(size_t j = 0; j < J; ++j) { A.HadamardMulti(B); }
     multi_timer.stop(A.rows() * A.columns(), J);
 
     add_timer.start();
-    for(size_t j = 0; j < J; ++j) { MatAdd(A, B); }
+    for(size_t j = 0; j < J; ++j) { A*B; }
     add_timer.stop(A.rows() * A.columns(), J);
 
     std::cout << "mat3<double>:" << std::endl;
     multi_timer.start();
-    for(size_t j = 0; j < J; ++j) { Mat3Multi(A3, B3); }
+    for(size_t j = 0; j < J; ++j) { A3*B3; }
     multi_timer.stop(3 * 3, J);
 
     add_timer.start();
-    for(size_t j = 0; j < J; ++j) { Mat3Add(A3, B3); }
+    for(size_t j = 0; j < J; ++j) { A3+B3; }
     add_timer.stop(3 * 3, J);
 
 
