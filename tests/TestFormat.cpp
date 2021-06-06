@@ -47,7 +47,7 @@ class FormatTestCase : public Test
     }
 
 public:
-    void run() override {
+    virtual void run() {
         TestFormat();
         TestFormatOverflow();
         TestStrip();

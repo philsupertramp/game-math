@@ -165,7 +165,7 @@ public:
      * @param in values to evaluate
      * @return interpolated values
      */
-    virtual Matrix<double> Evaluate(const Matrix<double>& in) const override {
+    virtual Matrix<double> Evaluate(const Matrix<double>& in) const {
         Matrix<double> out(0, in.rows(), 1);
         for(size_t k = 0; k < in.rows(); ++k) {
             for(size_t i = 0; i < y.rows(); ++i) { out(k, 0) += y(i, 0) * GetCoefficient(in(k, 0), i); }
@@ -214,7 +214,7 @@ public:
      * Builds string representation in lagrange base
      * @return representational string
      */
-    virtual std::string Function() const override {
+    virtual std::string Function() const {
         std::string out;
         for(size_t i = 0; i < y.rows(); ++i) {
             if(y(i, 0) == 0) continue;
@@ -279,7 +279,7 @@ public:
      * String representation in newton base
      * @return representational string
      */
-    virtual std::string Function() const override {
+    virtual std::string Function() const {
         std::string out;
         for(size_t i = 0; i < b.rows(); ++i) {
             if(i > 0) { out += " + "; }
@@ -314,7 +314,7 @@ public:
      * @param xIn values to evaluate
      * @return interpolated values
      */
-    virtual Matrix<double> Evaluate(const Matrix<double>& xIn) const override {
+    virtual Matrix<double> Evaluate(const Matrix<double>& xIn) const {
         Matrix<double> y(b(b.rows() - 1, 0), xIn.rows(), 1);
         for(int j = b.rows() - 2; j >= 0; --j) {
             auto bAct = b(j, 0);

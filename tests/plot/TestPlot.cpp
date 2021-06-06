@@ -64,7 +64,7 @@ class PlotTestCase : public Test
     }
 
 public:
-    void run() override {
+    virtual void run() {
         TestPlot();
         TestScatterPlot();
         TestFunctionPlot();

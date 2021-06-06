@@ -145,7 +145,7 @@ public:
      * @param mat
      * @return
      */
-    virtual double costFunction([[maybe_unused]] const Matrix<double>& mat) override { return 0; }
+    virtual double costFunction([[maybe_unused]] const Matrix<double>& mat) { return 0; }
 };
 
 

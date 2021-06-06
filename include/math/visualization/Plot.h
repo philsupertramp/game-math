@@ -1,8 +1,9 @@
 #pragma once
 
 #include "../Matrix.h"
-#include <utility>
+#include <sys/wait.h>
 #include <unistd.h>
+#include <utility>
 
 
 /**
@@ -442,7 +443,6 @@ public:
      * interprets a file as surface plot and forwards whole content to gnuplot using "plot matrix with image"
      */
     void operator()(const char* colorPalette = "magma.pal") {
-        fork();
         FILE* gnuplot           = popen("gnuplot --persist", "w");
         attributes.colorPalette = colorPalette;
         writeAttributes(gnuplot);
@@ -450,6 +450,9 @@ public:
         fprintf(gnuplot, " title '%s'", attributes.plotNames[0]);
         fprintf(gnuplot, "\n");
         fclose(gnuplot);
+
+        // that should catch the child process
+        wait(nullptr);
     }
 };
 /**
