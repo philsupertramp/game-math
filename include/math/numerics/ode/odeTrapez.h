@@ -1,7 +1,13 @@
 /**
- * @file
+ * @file odeTrapez
  *
  * Implementation of Trapezoid-Method to solve ordinary differential equations
+ *
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/ode/odeTrapez.h>
+ * \endcode
  */
 #pragma once
 

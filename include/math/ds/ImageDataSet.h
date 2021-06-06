@@ -28,7 +28,7 @@ public:
      * prepares a new set of data based on passed filePath
      * @param filePath path name of directory to prepare
      */
-    virtual void PrepareDirectory(const char* filePath) override {
+    virtual void PrepareDirectory(const char* filePath) {
         /** identifies "classes" as files in nested directories */
 
         std::cout << "Moving files..." << std::flush;

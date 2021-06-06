@@ -1,3 +1,11 @@
+/**
+ * @file Spline.h
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/analysis/Spline.h>
+ * \endcode
+ */
 #pragma once
 
 #include "../../Matrix.h"

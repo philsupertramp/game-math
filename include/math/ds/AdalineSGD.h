@@ -83,14 +83,14 @@ public:
      * @param X input values
      * @return activated input values
      */
-    virtual Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
+    virtual Matrix<double> activation(const Matrix<double>& X) { return netInput(X); }
 
     /**
      * predict output class of given input
      * @param X input values
      * @return predicted output
      */
-    virtual Matrix<double> predict(const Matrix<double>& X) override {
+    virtual Matrix<double> predict(const Matrix<double>& X) {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }

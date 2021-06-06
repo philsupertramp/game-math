@@ -1,6 +1,11 @@
 /**
- * @file
+ * @file utils.h
  *
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/utils.h>
+ * \endcode
  *
  * Numerical helper methods.
  *

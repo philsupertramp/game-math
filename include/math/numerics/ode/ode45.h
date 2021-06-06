@@ -10,6 +10,12 @@
  * - using 6/7 evaluations for 5th order RK
  *
  * TODO: use calculated error of 5th order - 4th order to alter step width `h` dynamically to fully implement dp-method.
+ *
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/ode/ode45.h>
+ * \endcode
  */
 #pragma once
 

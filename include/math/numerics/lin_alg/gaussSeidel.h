@@ -3,6 +3,11 @@
  *
  * Gaussian elimination to solve systems of linear equations.
  * Uses column major pivot elements to reduce number of operations.
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/lin_alg/gausseidel.h>
+ * \endcode
  */
 #pragma once
 #include "../../Matrix.h"
