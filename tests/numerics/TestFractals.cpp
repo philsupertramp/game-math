@@ -34,7 +34,6 @@ class FractalsTestCase : public Test
         });
 
         AssertEqual(M, expected);
-
         return true;
     }
 
