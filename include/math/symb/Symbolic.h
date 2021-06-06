@@ -767,7 +767,6 @@ public:
     }
 
 private:
-
     [[nodiscard]] std::shared_ptr<MathNode> SimplifyTree(const std::shared_ptr<MathNode> &node) const {
         auto out = SimplifyLevels(node);
         out = ResolveLevels(out);
@@ -1057,7 +1056,6 @@ private:
 
 private:
 
-
     /**
      * tests if value is number
      * @param in
@@ -1112,7 +1110,6 @@ private:
     static bool isParenthesesClose(const std::string& in) { return in.find(')') != std::string::npos; };
 
 public:
-
     /**
      * Creates A(bstract)S(yntax)T(ree) using shunting-yard algorithm, thanks Mr. Dijkstra :)
      * https://en.wikipedia.org/wiki/Shunting-yard_algorithm
@@ -1154,60 +1151,11 @@ public:
                 if(prevWasOperator && currentOp->value[0] == '-') {
                     nextIsNegative = true;
                 } else {
-                    if(!operatorStack.empty()) {
-                        auto stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
-                        while(stackTop != nullptr && stackTop->priority >= currentOp->priority
-                              && stackTop->value[0] != '(') {
-                            operatorStack.pop_back();
-                            if(stackTop->connectionType == NodeConnectionType::ConnectionType_None) {
-                                if(!operatorStack.empty())
-                                    stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
-                                continue;
-                            }
-
-                            if(stackTop->connectionType == NodeConnectionType::ConnectionType_Dual) {
-                                // inverse order, first right then left
-                                stackTop->right = operandStack[operandStack.size() - 1];
-
-                                operandStack.pop_back();
-                            }
-                            stackTop->left           = operandStack[operandStack.size() - 1];
-                            stackTop->hasParentheses = true;
-
-                            operandStack.pop_back();
-                            operandStack.push_back(stackTop);
-                            if(!operatorStack.empty()) {
-                                stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
-                            } else {
-                                break;
-                            }
-                        }
-                    }
+                    processCurrentOP(currentOp, operatorStack, operandStack);
                     operatorStack.push_back(c);
                 }
             } else if(isParenthesesClose(c)) {
-                auto stackTop = operatorStack[operatorStack.size() - 1];
-                while(!isParenthesesOpen(stackTop)) {
-                    // handle operator
-                    auto currentOp = GetOperator(stackTop);
-                    if(currentOp != nullptr) {
-                        if(currentOp->connectionType == NodeConnectionType::ConnectionType_Dual) {
-                            currentOp->right = operandStack[operandStack.size() - 1];
-                            operandStack.pop_back();
-                        }
-                        currentOp->left = operandStack[operandStack.size() - 1];
-                        operandStack.pop_back();
-
-                        operandStack.push_back(currentOp);
-                    }
-                    if(operatorStack.size() > 1) {
-                        operatorStack.pop_back();
-
-                        stackTop = operatorStack[operatorStack.size() - 1];
-                    } else
-                        break;
-                }
-                operatorStack.pop_back();
+                rearrangeStack(operatorStack, operandStack);
             } else if(isAny(c)) {
                 // ignore
             } else {
@@ -1237,5 +1185,73 @@ public:
         }
 
         return !operandStack.empty() ? operandStack.front() : nullptr;
+    }
+
+    /**
+     * process current operator until end of equation, next operator with higher priority or closing parentheses
+     * @param operatorStack current operator stack object
+     * @param operandStack current operand stack
+     * @param currentOp the operator to process
+     */
+    void processCurrentOP(const std::shared_ptr<Operator>& currentOp, std::vector<std::string>& operatorStack, std::vector<std::shared_ptr<MathNode>>& operandStack){
+        if(!operatorStack.empty()) {
+            auto stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
+            while(stackTop != nullptr && stackTop->priority >= currentOp->priority
+                  && stackTop->value[0] != '(') {
+                operatorStack.pop_back();
+                if(stackTop->connectionType == NodeConnectionType::ConnectionType_None) {
+                    if(!operatorStack.empty())
+                        stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
+                    continue;
+                }
+
+                if(stackTop->connectionType == NodeConnectionType::ConnectionType_Dual) {
+                    // inverse order, first right then left
+                    stackTop->right = operandStack[operandStack.size() - 1];
+
+                    operandStack.pop_back();
+                }
+                stackTop->left           = operandStack[operandStack.size() - 1];
+                stackTop->hasParentheses = true;
+
+                operandStack.pop_back();
+                operandStack.push_back(stackTop);
+                if(!operatorStack.empty()) {
+                    stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
+     * rearranges stack until end of equation of opening parentheses
+     * @param operatorStack operator stack object
+     * @param operandStack operand stack object
+     */
+    void rearrangeStack(std::vector<std::string>& operatorStack, std::vector<std::shared_ptr<MathNode>>& operandStack){
+        auto stackTop = operatorStack[operatorStack.size() - 1];
+        while(!isParenthesesOpen(stackTop)) {
+            // handle operator
+            auto currentOp = GetOperator(stackTop);
+            if(currentOp != nullptr) {
+                if(currentOp->connectionType == NodeConnectionType::ConnectionType_Dual) {
+                    currentOp->right = operandStack[operandStack.size() - 1];
+                    operandStack.pop_back();
+                }
+                currentOp->left = operandStack[operandStack.size() - 1];
+                operandStack.pop_back();
+
+                operandStack.push_back(currentOp);
+            }
+            if(operatorStack.size() > 1) {
+                operatorStack.pop_back();
+
+                stackTop = operatorStack[operatorStack.size() - 1];
+            } else
+                break;
+        }
+        operatorStack.pop_back();
     }
 };
