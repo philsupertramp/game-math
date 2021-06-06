@@ -1,0 +1,76 @@
+\hypertarget{classImagePlot}{}\doxysection{Image\+Plot Class Reference}
+\label{classImagePlot}\index{ImagePlot@{ImagePlot}}
+
+
+{\ttfamily \#include $<$Plot.\+h$>$}
+
+Inheritance diagram for Image\+Plot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classImagePlot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classImagePlot_ac58ba6ab6c1ad8223934403858497b03}{Image\+Plot}} (const char $\ast$name)
+\item 
+void \mbox{\hyperlink{classImagePlot_abcc293f8ea2f73b54d184baeb742b820}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat, const std\+::string \&name)
+\item 
+void \mbox{\hyperlink{classImagePlot_a0cb62df79fa5639015ad55a539e0bf6e}{operator()}} (const char $\ast$color\+Palette=\char`\"{}magma.\+pal\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classPlot}{Plot}} to display a 2 dimensional image based on matrix-\/like data \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2TestFractals_8cpp-example}{numerics/\+Test\+Fractals.\+cpp}}, and \mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classImagePlot_ac58ba6ab6c1ad8223934403858497b03}\label{classImagePlot_ac58ba6ab6c1ad8223934403858497b03}} 
+\index{ImagePlot@{ImagePlot}!ImagePlot@{ImagePlot}}
+\index{ImagePlot@{ImagePlot}!ImagePlot@{ImagePlot}}
+\doxysubsubsection{\texorpdfstring{ImagePlot()}{ImagePlot()}}
+{\footnotesize\ttfamily Image\+Plot\+::\+Image\+Plot (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Default constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \mbox{\hyperlink{classPlot}{Plot}} title \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classImagePlot_abcc293f8ea2f73b54d184baeb742b820}\label{classImagePlot_abcc293f8ea2f73b54d184baeb742b820}} 
+\index{ImagePlot@{ImagePlot}!AddData@{AddData}}
+\index{AddData@{AddData}!ImagePlot@{ImagePlot}}
+\doxysubsubsection{\texorpdfstring{AddData()}{AddData()}}
+{\footnotesize\ttfamily void Image\+Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mat,  }\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Helper to easily add matrix data to content file 
+\begin{DoxyParams}{Parameters}
+{\em mat} & data matrix \\
+\hline
+{\em name} & name of dataset \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2TestFractals_8cpp-example}{numerics/\+Test\+Fractals.\+cpp}}, and \mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{classImagePlot_a0cb62df79fa5639015ad55a539e0bf6e}\label{classImagePlot_a0cb62df79fa5639015ad55a539e0bf6e}} 
+\index{ImagePlot@{ImagePlot}!operator()@{operator()}}
+\index{operator()@{operator()}!ImagePlot@{ImagePlot}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily void Image\+Plot\+::operator() (\begin{DoxyParamCaption}\item[{const char $\ast$}]{color\+Palette = {\ttfamily \char`\"{}magma.pal\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+overridden call operator.
+
+interprets a file as surface plot and forwards whole content to gnuplot using \char`\"{}plot matrix with image\char`\"{} 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/visualization/Plot.\+h\end{DoxyCompactItemize}

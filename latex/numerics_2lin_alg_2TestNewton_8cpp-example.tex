@@ -5,7 +5,9 @@ This is an example on how to use newton.
 \begin{DoxyCodeInclude}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../../Test.h"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <math/numerics/Fractals.h>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{newton_8h}{math/numerics/lin\_alg/newton.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <math/visualization/Plot.h>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
@@ -18,11 +20,11 @@ This is an example on how to use newton.
 \DoxyCodeLine{        \textcolor{keywordtype}{int} maxIter = 100;}
 \DoxyCodeLine{        \textcolor{keywordtype}{double} TOL  = 1e-\/16;}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} x0(\{ \{ 1 \} \});}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{newton_8h_a3b00f9f0d19ec44732c8fd61e3d532f5}{newton}}(f, Df, x0, TOL, maxIter);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{newton_8h_aface2e60d9d28a41b436d94b96752e4e}{newton}}(f, Df, x0, TOL, maxIter);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        std::vector<double> xExpt = \{ 0.73908513321516067 \};}
-\DoxyCodeLine{        std::cout << res;}
-\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 1; ++i) \{ AssertEqual(res(i, 0), xExpt[i]); \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 1; ++i) \{ AssertEqual(res.first(i, 0), xExpt[i]); \}}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}

@@ -98,20 +98,20 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="new
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3b00f9f0d19ec44732c8fd61e3d532f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="newton_8h.html#a3b00f9f0d19ec44732c8fd61e3d532f5">newton</a> (const <a class="el" href="newton_8h.html#ae8b65eb11627dab8f1907f164294756b">LinearEquation</a> &amp;f, const <a class="el" href="newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb">Jacobian</a> &amp;Df, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x0, double TOL, int maxIter)</td></tr>
-<tr class="separator:a3b00f9f0d19ec44732c8fd61e3d532f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aface2e60d9d28a41b436d94b96752e4e"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="newton_8h.html#aface2e60d9d28a41b436d94b96752e4e">newton</a> (const <a class="el" href="newton_8h.html#ae8b65eb11627dab8f1907f164294756b">LinearEquation</a> &amp;f, const <a class="el" href="newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb">Jacobian</a> &amp;Df, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x0, double TOL, int maxIter)</td></tr>
+<tr class="separator:aface2e60d9d28a41b436d94b96752e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements newton-method to find roots </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a3b00f9f0d19ec44732c8fd61e3d532f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b00f9f0d19ec44732c8fd61e3d532f5">&#9670;&nbsp;</a></span>newton()</h2>
+<a id="aface2e60d9d28a41b436d94b96752e4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aface2e60d9d28a41b436d94b96752e4e">&#9670;&nbsp;</a></span>newton()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; newton </td>
+          <td class="memname">std::pair&lt;<a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt;, int&gt; newton </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="newton_8h.html#ae8b65eb11627dab8f1907f164294756b">LinearEquation</a> &amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
@@ -157,7 +157,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>approximated values </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>approximated values paired with required number iterations for given tolerance </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2lin_alg_2TestNewton_8cpp-example.html#a1">numerics/lin_alg/TestNewton.cpp</a>.</dd>
 </dl>
 

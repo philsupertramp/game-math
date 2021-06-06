@@ -75,7 +75,9 @@ $(function() {
 <p>This is an example on how to use newton.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;../../Test.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;math/numerics/Fractals.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="newton_8h.html">math/numerics/lin_alg/newton.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;math/visualization/Plot.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
@@ -88,11 +90,11 @@ $(function() {
 <div class="line">        <span class="keywordtype">int</span> maxIter = 100;</div>
 <div class="line">        <span class="keywordtype">double</span> TOL  = 1e-16;</div>
 <div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> x0({ { 1 } });</div>
-<div class="line">        <span class="keyword">auto</span> res = <a name="a1"></a><a class="code" href="newton_8h.html#a3b00f9f0d19ec44732c8fd61e3d532f5">newton</a>(f, Df, x0, TOL, maxIter);</div>
+<div class="line">        <span class="keyword">auto</span> res = <a name="a1"></a><a class="code" href="newton_8h.html#aface2e60d9d28a41b436d94b96752e4e">newton</a>(f, Df, x0, TOL, maxIter);</div>
 <div class="line"> </div>
 <div class="line">        std::vector&lt;double&gt; xExpt = { 0.73908513321516067 };</div>
-<div class="line">        std::cout &lt;&lt; res;</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 1; ++i) { AssertEqual(res(i, 0), xExpt[i]); }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 1; ++i) { AssertEqual(res.first(i, 0), xExpt[i]); }</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -103,7 +105,7 @@ $(function() {
 <div class="line"><span class="keywordtype">int</span> main() { NewtonTestCase().run(); }</div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
 <div class="ttc" id="anewton_8h_html"><div class="ttname"><a href="newton_8h.html">newton.h</a></div></div>
-<div class="ttc" id="anewton_8h_html_a3b00f9f0d19ec44732c8fd61e3d532f5"><div class="ttname"><a href="newton_8h.html#a3b00f9f0d19ec44732c8fd61e3d532f5">newton</a></div><div class="ttdeci">Matrix&lt; double &gt; newton(const LinearEquation &amp;f, const Jacobian &amp;Df, const Matrix&lt; double &gt; &amp;x0, double TOL, int maxIter)</div><div class="ttdef"><b>Definition:</b> newton.h:26</div></div>
+<div class="ttc" id="anewton_8h_html_aface2e60d9d28a41b436d94b96752e4e"><div class="ttname"><a href="newton_8h.html#aface2e60d9d28a41b436d94b96752e4e">newton</a></div><div class="ttdeci">std::pair&lt; Matrix&lt; double &gt;, int &gt; newton(const LinearEquation &amp;f, const Jacobian &amp;Df, const Matrix&lt; double &gt; &amp;x0, double TOL, int maxIter)</div><div class="ttdef"><b>Definition:</b> newton.h:27</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

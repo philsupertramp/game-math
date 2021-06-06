@@ -15,7 +15,7 @@ using \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equa
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{newton_8h_a3b00f9f0d19ec44732c8fd61e3d532f5}{newton}} (const \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equation}} \&f, const \mbox{\hyperlink{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}{Jacobian}} \&Df, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x0, double TOL, int max\+Iter)
+std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$, int $>$ \mbox{\hyperlink{newton_8h_aface2e60d9d28a41b436d94b96752e4e}{newton}} (const \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equation}} \&f, const \mbox{\hyperlink{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}{Jacobian}} \&Df, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x0, double TOL, int max\+Iter)
 \end{DoxyCompactItemize}
 
 
@@ -23,11 +23,11 @@ using \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equa
 Implements newton-\/method to find roots 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{newton_8h_a3b00f9f0d19ec44732c8fd61e3d532f5}\label{newton_8h_a3b00f9f0d19ec44732c8fd61e3d532f5}} 
+\mbox{\Hypertarget{newton_8h_aface2e60d9d28a41b436d94b96752e4e}\label{newton_8h_aface2e60d9d28a41b436d94b96752e4e}} 
 \index{newton.h@{newton.h}!newton@{newton}}
 \index{newton@{newton}!newton.h@{newton.h}}
 \doxysubsubsection{\texorpdfstring{newton()}{newton()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ newton (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equation}} \&}]{f,  }\item[{const \mbox{\hyperlink{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}{Jacobian}} \&}]{Df,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x0,  }\item[{double}]{TOL,  }\item[{int}]{max\+Iter }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::pair$<$\mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$, int$>$ newton (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equation}} \&}]{f,  }\item[{const \mbox{\hyperlink{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}{Jacobian}} \&}]{Df,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x0,  }\item[{double}]{TOL,  }\item[{int}]{max\+Iter }\end{DoxyParamCaption})}
 
 newton method to find roots of given function f 
 \begin{DoxyParams}{Parameters}
@@ -43,7 +43,7 @@ newton method to find roots of given function f
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-approximated values 
+approximated values paired with required number iterations for given tolerance 
 \end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['imagedataset_324',['ImageDataSet',['../classImageDataSet.html',1,'']]],
-  ['interest_325',['Interest',['../structInterest.html',1,'']]]
+  ['imagedataset_336',['ImageDataSet',['../classImageDataSet.html',1,'']]],
+  ['imageplot_337',['ImagePlot',['../classImagePlot.html',1,'']]],
+  ['interest_338',['Interest',['../structInterest.html',1,'']]]
 ];
