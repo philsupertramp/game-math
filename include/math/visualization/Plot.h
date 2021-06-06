@@ -247,7 +247,8 @@ public:
      * Forwards data to gnuplot
      */
     virtual void operator()() const {
-        FILE* gnuplot = popen("gnuplot --persist", "w");
+        fork();
+        FILE* gnuplot = popen("/usr/lib/gnuplot --persist", "w");
         writeAttributes(gnuplot);
         for(int i = 0; i < numElements; ++i) {
             fprintf(gnuplot, i == 0 ? plotType : "");
