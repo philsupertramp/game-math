@@ -1,5 +1,5 @@
 /**
- * @file
+ * @file LU.h
  *
  * implements LU decomposition, places L and U in resulting matrix
  *
@@ -25,6 +25,11 @@
  *  $$
  *  Result: $$L + U$$
  *  LU decomposition
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/lin_alg/LU.h>
+ * \endcode
  */
 
 #pragma once

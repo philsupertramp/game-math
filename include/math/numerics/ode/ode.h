@@ -1,7 +1,12 @@
 /**
- * @file
+ * @file ode.h
  *
  * This header file holds utility helper for ode solvers
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/ode/ode.h>
+ * \endcode
  */
 
 #pragma once

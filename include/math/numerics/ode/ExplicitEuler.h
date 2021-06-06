@@ -1,7 +1,12 @@
 /**
- * @file
+ * @file ExplicitEuler.h
  *
  * Implements explicit Euler-Method to solve ordinary differential equations.
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/ode/ExplicitEuler.h>
+ * \endcode
  */
 #pragma once
 

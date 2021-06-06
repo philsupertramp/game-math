@@ -3,6 +3,11 @@
  *
  *
  * Implements BDF(2)-Method to solve systems of ordinary differential equations
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/ode/odeBDF2.h>
+ * \endcode
  */
 #pragma once
 

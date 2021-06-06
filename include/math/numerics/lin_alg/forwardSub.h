@@ -6,6 +6,11 @@
  * $$
  * b=L\cdot c \Rightarrow L^{-1}\cdot b = c
  * $$
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/lin_alg/forwardSub.h>
+ * \endcode
  */
 
 #pragma once

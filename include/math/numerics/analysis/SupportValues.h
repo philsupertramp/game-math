@@ -3,6 +3,11 @@
  * support values
  *
  * see https://wiki.godesteem.de/wiki/interpolation-and-approximation/
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/analysis/SupportValues.h>
+ * \endcode
  */
 #pragma once
 

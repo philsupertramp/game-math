@@ -1,7 +1,12 @@
 /**
- * @file
+ * @file newton.h
  *
  * Implements newton-method to find roots
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/lin_alg/newton.h>
+ * \endcode
  */
 
 #pragma once

@@ -6,6 +6,11 @@
  * $$
  * z=R\cdot b \Rightarrow R^{-1}\cdot b = z
  * $$
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/lin_alg/backwardSub.h>
+ * \endcode
  */
 
 #pragma once

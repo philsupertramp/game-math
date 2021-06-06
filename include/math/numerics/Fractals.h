@@ -1,5 +1,11 @@
 /**
- * @file Fractals.h
+ * @file math/numerics/Fractals.h
+ *
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/Fractals.h>
+ * \endcode
  *
  * This file contains several implementations of fractals using different
  * approaches to generate a somewhat "nice" visualization.
@@ -78,7 +84,7 @@
  */
 #pragma once
 
-#include <math/numerics/lin_alg/newton.h>
+#include "lin_alg/newton.h"
 
 
 /**

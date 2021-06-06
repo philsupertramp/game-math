@@ -1,3 +1,12 @@
+/**
+ * @file ODESolver.h
+ *
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/ode/ODESolver.h>
+ * \endcode
+ */
 #pragma once
 
 #include "../../Matrix.h"

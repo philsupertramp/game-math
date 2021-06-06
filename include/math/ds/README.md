@@ -1,4 +1,5 @@
 ## ds (Data science)-submodule
+`MATH_EXTENSION=ds`
 
 Used for machine learning and data science tasks
 
