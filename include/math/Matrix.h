@@ -127,7 +127,6 @@ public:
      * Default destructor, doesn't do anything
      */
     ~Matrix() {
-        if(needsFree) { }
     }
 
     /**

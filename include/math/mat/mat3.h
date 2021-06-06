@@ -39,7 +39,6 @@ public:
          T _d, T _e, T _f, 
          T _g, T _h, T _i)
     {
-
         values[0][0] = _a; values[0][1] = _b; values[0][2] =_c;
         values[1][0] = _d; values[1][1] = _e; values[1][2] =_f;
         values[2][0] = _g; values[2][1] = _h; values[2][2] =_i; // clang-format on
