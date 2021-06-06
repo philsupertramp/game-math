@@ -17,6 +17,9 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
     - Trapezoid rule for odes (odeTrapez.h)
     - Backward differential formula (odeBDF2.h)
   - Solver for systems of linear equations gaussSeidel.h
+  - Fractals using numerical approximations (Fractals.h)
+    - NewtonFractal
+    - Mandelbrot
   - Newton method to approximate the zero-value for a given function based on an initial value newton.h
   - Function Interpolation/Approximation
     - 1D Interpolation
@@ -31,7 +34,7 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
 - (classic) Statistics:
   - Probability.h
   - Insurance.h
-- Plot support (uses/requires gnuplot see include/math/visualization/README.md)
+- Plot support (uses/requires gnuplot see include/math/visualization/README.md or Plot.h)
 - Data Science:
   - Neural networks
     - Feed Forward NNs
