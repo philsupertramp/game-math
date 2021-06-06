@@ -141,7 +141,7 @@ public:
         Matrix<double> M = zeros(detail, detail);
         for(size_t x = 0; x < detail; ++x) {
             for(size_t y = 0; y < detail; ++y) {
-                M(x, y)      = (double)fun((startX + stepWidthX * (double)x), (startY + stepWidthY * (double)y));
+                M(x, y) = (double)fun((startX + stepWidthX * (double)x), (startY + stepWidthY * (double)y));
             }
         }
         return M;

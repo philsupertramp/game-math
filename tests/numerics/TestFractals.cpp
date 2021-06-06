@@ -59,7 +59,7 @@ class FractalsTestCase : public Test
     }
 
 public:
-    virtual void run() override {
+    virtual void run() {
         TestNewton();
         TestMandelbrot();
     }

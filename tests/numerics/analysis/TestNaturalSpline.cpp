@@ -397,7 +397,7 @@ class NaturalSplineTestCase : public Test
     }
 
 public:
-    virtual void run() override {
+    virtual void run() {
         TestNaturalSpline();
         TestNotEquidistantNaturalSpline();
         TestSpline3D();

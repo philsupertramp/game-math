@@ -396,7 +396,7 @@ public:
      * interprets a file as surface plot and forwards whole content to gnuplot using splot
      */
     void operator()() const override {
-        FILE* gnuplot = popen("gnuplot --persist", "w");
+        FILE* gnuplot = popen("/usr/bin/gnuplot --persist", "w");
         writeAttributes(gnuplot);
         fprintf(gnuplot, "%s", plotType);
         fprintf(gnuplot, " '%s' with lines", dataFileName);

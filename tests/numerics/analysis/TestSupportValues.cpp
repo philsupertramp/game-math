@@ -48,7 +48,7 @@ class MonomBaseTestCase : public Test
     }
 
 public:
-    virtual void run() override {
+    virtual void run() {
         TestConstructor();
         TestFunction();
         TestEvaluate();
@@ -91,7 +91,7 @@ class LagrangeBaseTestCase : public Test
     }
 
 public:
-    virtual void run() override {
+    virtual void run() {
         TestConstructor();
         TestFunction();
         TestEvaluate();
@@ -139,7 +139,7 @@ class NewtonBaseTestCase : public Test
     }
 
 public:
-    virtual void run() override {
+    virtual void run() {
         TestConstructor();
         TestFunction();
         TestEvaluate();
