@@ -1055,11 +1055,68 @@ private:
         return out;
     }
 
+private:
+
+
+    /**
+     * tests if value is number
+     * @param in
+     * @return
+     */
+    static bool isNumber(const std::string& in) {
+        static auto numberRegex    = GetRegex(MathNodeType::NodeType_Numeric);
+        std::cmatch m;
+        return std::regex_match(in.c_str(), m, numberRegex);
+    };
+    /**
+     * tests if value is symbol
+     * @param in
+     * @return
+     */
+    static bool isSymbol(const std::string& in) {
+        static auto symbolRegex    = GetRegex(MathNodeType::NodeType_Symbolic);
+      std::cmatch m;
+      return std::regex_match(in.c_str(), m, symbolRegex);
+    };
+    /**
+     * test if value is operator
+     * @param in
+     * @return
+     */
+    static bool isOperator(const std::string& in) {
+        static auto operatorRegex =  GetRegex(MathNodeType::NodeType_Operator);
+      std::cmatch m;
+      return std::regex_match(in.c_str(), m, operatorRegex);
+    };
+    /**
+     * test if value is anything processable
+     * @param in
+     * @return
+     */
+    static bool isAny (const std::string& in) {
+        static auto anyRegex = GetRegex(MathNodeType::NodeType_Any);
+        std::cmatch m;
+        return std::regex_match(in.c_str(), m, anyRegex);
+    };
+    /**
+     * test if value is parentheses open
+     * @param in
+     * @return
+     */
+    static bool isParenthesesOpen(const std::string& in) { return in.find('(') != std::string::npos; };
+    /**
+     * test if value is parentheses close
+     * @param in
+     * @return
+     */
+    static bool isParenthesesClose(const std::string& in) { return in.find(')') != std::string::npos; };
+
+public:
+
     /**
      * Creates A(bstract)S(yntax)T(ree) using shunting-yard algorithm, thanks Mr. Dijkstra :)
      * https://en.wikipedia.org/wiki/Shunting-yard_algorithm
      *
-     * TODO: get rid of regex lambdas, let's create proper methods for it.
      * @param processString
      * @return
      */
@@ -1067,29 +1124,6 @@ private:
         auto regex_end = std::sregex_iterator();
         std::vector<std::string> operatorStack;
         std::vector<std::shared_ptr<MathNode>> operandStack;
-
-        auto numberRegex    = GetRegex(MathNodeType::NodeType_Numeric);
-        const auto isNumber = [numberRegex](const std::string& in) {
-            std::cmatch m;
-            return std::regex_match(in.c_str(), m, numberRegex);
-        };
-        auto symbolRegex    = GetRegex(MathNodeType::NodeType_Symbolic);
-        const auto isSymbol = [symbolRegex](const std::string& in) {
-            std::cmatch m;
-            return std::regex_match(in.c_str(), m, symbolRegex);
-        };
-        auto operatorRegex    = GetRegex(MathNodeType::NodeType_Operator);
-        const auto isOperator = [operatorRegex](const std::string& in) {
-            std::cmatch m;
-            return std::regex_match(in.c_str(), m, operatorRegex);
-        };
-        auto anyRegex    = GetRegex(MathNodeType::NodeType_Any);
-        const auto isAny = [anyRegex](const std::string& in) {
-            std::cmatch m;
-            return std::regex_match(in.c_str(), m, anyRegex);
-        };
-        const auto isParenthesesOpen  = [](const std::string& in) { return in.find('(') != std::string::npos; };
-        const auto isParenthesesClose = [](const std::string& in) { return in.find(')') != std::string::npos; };
 
         bool prevWasOperator = true;
         bool nextIsNegative  = false;
