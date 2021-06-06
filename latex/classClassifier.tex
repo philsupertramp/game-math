@@ -30,22 +30,17 @@ virtual double \mbox{\hyperlink{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8ece
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classClassifier_a5d4d61496164c06deab141329b6c878f}\label{classClassifier_a5d4d61496164c06deab141329b6c878f}} 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}
 \begin{DoxyCompactList}\small\item\em Vector holding weights. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}\label{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}} 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}{costs}}
 \begin{DoxyCompactList}\small\item\em Vector holding classification error per epoch. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classClassifier_ada5781f6955d4584bb9e8a24216ce654}\label{classClassifier_ada5781f6955d4584bb9e8a24216ce654}} 
 double \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}}
 \begin{DoxyCompactList}\small\item\em Learning rate. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classClassifier_a262d07b1324365425b12bb08a859984a}\label{classClassifier_a262d07b1324365425b12bb08a859984a}} 
 int \mbox{\hyperlink{classClassifier_a262d07b1324365425b12bb08a859984a}{n\+\_\+iter}}
 \begin{DoxyCompactList}\small\item\em number epochs \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classClassifier_a5c3236f91e4f14965715caaca167dec8}\label{classClassifier_a5c3236f91e4f14965715caaca167dec8}} 
 bool \mbox{\hyperlink{classClassifier_a5c3236f91e4f14965715caaca167dec8}{w\+\_\+initialized}} = false
 \begin{DoxyCompactList}\small\item\em flag to initialize weights only once \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -98,7 +93,7 @@ Activates a given input \begin{DoxyReturn}{Returns}
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classPerceptron_a8ffc64efb4c0f2c089fecd78a31cb259}{Perceptron}}, \mbox{\hyperlink{classLogRegSGD_aa055e337c1c4cd70b699bf29165aeb3a}{Log\+Reg\+SGD}}, \mbox{\hyperlink{classAdalineSGD_ad5514778713339dccde814e0cbb70bc0}{Adaline\+SGD}}, and \mbox{\hyperlink{classAdalineGD_aa49040ea4a41c4fb11e8f15c290b89c9}{Adaline\+GD}}.
+Implemented in \mbox{\hyperlink{classLogRegSGD_aa055e337c1c4cd70b699bf29165aeb3a}{Log\+Reg\+SGD}}, \mbox{\hyperlink{classPerceptron_ad937e4c3931bc06027c39908663752e8}{Perceptron}}, \mbox{\hyperlink{classAdalineSGD_a5c09ebf872254bbeb8c3448255e13571}{Adaline\+SGD}}, and \mbox{\hyperlink{classAdalineGD_a5df5dc2023227443ae83c7243bf9a7d6}{Adaline\+GD}}.
 
 \mbox{\Hypertarget{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}\label{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}} 
 \index{Classifier@{Classifier}!costFunction@{costFunction}}
@@ -108,7 +103,7 @@ Implemented in \mbox{\hyperlink{classPerceptron_a8ffc64efb4c0f2c089fecd78a31cb25
 
 calculates the current cost if unused override returning 0 
 
-Implemented in \mbox{\hyperlink{classPerceptron_ae2e614bbd670e55d169644f2b9f66f57}{Perceptron}}, and \mbox{\hyperlink{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}{Adaline\+GD}}.
+Implemented in \mbox{\hyperlink{classPerceptron_a832773d19fa85440d301b4159cee76f6}{Perceptron}}, and \mbox{\hyperlink{classAdalineGD_aa581a2f4df867d998f642c29c411b872}{Adaline\+GD}}.
 
 \mbox{\Hypertarget{classClassifier_a3fa552228aeeee5abe1108c97f676cad}\label{classClassifier_a3fa552228aeeee5abe1108c97f676cad}} 
 \index{Classifier@{Classifier}!fit@{fit}}
@@ -167,10 +162,63 @@ Makes prediction for given input \begin{DoxyReturn}{Returns}
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classPerceptron_ac6859763b91ee84b799c1e7554e96eee}{Perceptron}}, \mbox{\hyperlink{classLogRegSGD_a3bd288cfafbd38b0c6c66fd67d316df1}{Log\+Reg\+SGD}}, \mbox{\hyperlink{classAdalineSGD_a5efda89a32f61566d068b2c37690f6b0}{Adaline\+SGD}}, and \mbox{\hyperlink{classAdalineGD_a64117e06585fa2c98f577440b6e74e27}{Adaline\+GD}}.
+Implemented in \mbox{\hyperlink{classLogRegSGD_a3bd288cfafbd38b0c6c66fd67d316df1}{Log\+Reg\+SGD}}, \mbox{\hyperlink{classPerceptron_a5fb0ca58328958f6b6d6d929fc07b30a}{Perceptron}}, \mbox{\hyperlink{classAdalineSGD_a3a91134bd8e28d271bb06f91b2fa1803}{Adaline\+SGD}}, and \mbox{\hyperlink{classAdalineGD_a063dc8e39db4152bd4285c3666d4eb3f}{Adaline\+GD}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}\label{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}} 
+\index{Classifier@{Classifier}!costs@{costs}}
+\index{costs@{costs}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{costs}{costs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Classifier\+::costs}
+
+
+
+Vector holding classification error per epoch. 
+
+\mbox{\Hypertarget{classClassifier_ada5781f6955d4584bb9e8a24216ce654}\label{classClassifier_ada5781f6955d4584bb9e8a24216ce654}} 
+\index{Classifier@{Classifier}!eta@{eta}}
+\index{eta@{eta}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{eta}{eta}}
+{\footnotesize\ttfamily double Classifier\+::eta\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Learning rate. 
+
+\mbox{\Hypertarget{classClassifier_a262d07b1324365425b12bb08a859984a}\label{classClassifier_a262d07b1324365425b12bb08a859984a}} 
+\index{Classifier@{Classifier}!n\_iter@{n\_iter}}
+\index{n\_iter@{n\_iter}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{n\_iter}{n\_iter}}
+{\footnotesize\ttfamily int Classifier\+::n\+\_\+iter\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+number epochs 
+
+\mbox{\Hypertarget{classClassifier_a5c3236f91e4f14965715caaca167dec8}\label{classClassifier_a5c3236f91e4f14965715caaca167dec8}} 
+\index{Classifier@{Classifier}!w\_initialized@{w\_initialized}}
+\index{w\_initialized@{w\_initialized}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{w\_initialized}{w\_initialized}}
+{\footnotesize\ttfamily bool Classifier\+::w\+\_\+initialized = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+flag to initialize weights only once 
+
+\mbox{\Hypertarget{classClassifier_a5d4d61496164c06deab141329b6c878f}\label{classClassifier_a5d4d61496164c06deab141329b6c878f}} 
+\index{Classifier@{Classifier}!weights@{weights}}
+\index{weights@{weights}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{weights}{weights}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Classifier\+::weights}
+
+
+
+Vector holding weights. 
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/ds/Classifier.\+h\end{DoxyCompactItemize}
+include/math/ds/\mbox{\hyperlink{Classifier_8h}{Classifier.\+h}}\end{DoxyCompactItemize}

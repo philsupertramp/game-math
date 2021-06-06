@@ -1,5 +1,5 @@
 \hypertarget{vec_2TestVec3_8cpp-example}{}\doxysection{vec/\+Test\+Vec3.\+cpp}
-This is an example on how to use the \mbox{\hyperlink{vec3_8h_source}{vec3.\+h}} file.
+This is an example on how to use the \mbox{\hyperlink{vec3_8h}{vec3.\+h}} file.
 
 
 \begin{DoxyCodeInclude}{0}
@@ -12,25 +12,25 @@ This is an example on how to use the \mbox{\hyperlink{vec3_8h_source}{vec3.\+h}}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} testInitialization() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3<T>}} foo;}
-\DoxyCodeLine{        assert(foo.x == (T)0);}
-\DoxyCodeLine{        assert(foo.y == (T)0);}
-\DoxyCodeLine{        assert(foo.z == (T)0);}
+\DoxyCodeLine{        assert(foo.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == (T)0);}
+\DoxyCodeLine{        assert(foo.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == (T)0);}
+\DoxyCodeLine{        assert(foo.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == (T)0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3<T>}} foo2((T)1, (T)2, (T)3);}
-\DoxyCodeLine{        assert(foo2.x == (T)1);}
-\DoxyCodeLine{        assert(foo2.y == (T)2);}
-\DoxyCodeLine{        assert(foo2.z == (T)3);}
+\DoxyCodeLine{        assert(foo2.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == (T)1);}
+\DoxyCodeLine{        assert(foo2.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == (T)2);}
+\DoxyCodeLine{        assert(foo2.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == (T)3);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        T vals[3]   = \{ 2, 4, 6 \};}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3<T>}} vec = build\_vec3<T>((\textcolor{keywordtype}{void}*)vals);}
-\DoxyCodeLine{        assert(vec.x == (T)2);}
-\DoxyCodeLine{        assert(vec.y == (T)4);}
-\DoxyCodeLine{        assert(vec.z == (T)6);}
+\DoxyCodeLine{        assert(vec.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == (T)2);}
+\DoxyCodeLine{        assert(vec.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == (T)4);}
+\DoxyCodeLine{        assert(vec.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == (T)6);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3<T>}} anotherVec3(1);}
-\DoxyCodeLine{        assert(anotherVec3.x == (T)1);}
-\DoxyCodeLine{        assert(anotherVec3.y == (T)1);}
-\DoxyCodeLine{        assert(anotherVec3.z == (T)1);}
+\DoxyCodeLine{        assert(anotherVec3.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == (T)1);}
+\DoxyCodeLine{        assert(anotherVec3.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == (T)1);}
+\DoxyCodeLine{        assert(anotherVec3.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == (T)1);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4<T>}} a4(1, 1, 1, 1);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3<T>}} a4\_3(a4);}
@@ -42,29 +42,29 @@ This is an example on how to use the \mbox{\hyperlink{vec3_8h_source}{vec3.\+h}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} testAssignment() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3<T>}} foo;}
 \DoxyCodeLine{}
-\DoxyCodeLine{        foo.x = (T)1;}
-\DoxyCodeLine{        foo.y = (T)2;}
-\DoxyCodeLine{        foo.z = (T)3;}
+\DoxyCodeLine{        foo.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} = (T)1;}
+\DoxyCodeLine{        foo.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} = (T)2;}
+\DoxyCodeLine{        foo.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} = (T)3;}
 \DoxyCodeLine{}
-\DoxyCodeLine{        assert(foo.x == (T)1);}
-\DoxyCodeLine{        assert(foo.y == (T)2);}
-\DoxyCodeLine{        assert(foo.z == (T)3);}
+\DoxyCodeLine{        assert(foo.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == (T)1);}
+\DoxyCodeLine{        assert(foo.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == (T)2);}
+\DoxyCodeLine{        assert(foo.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == (T)3);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        foo[0] = (T)4;}
 \DoxyCodeLine{        foo[1] = (T)5;}
 \DoxyCodeLine{        foo[2] = (T)6;}
 \DoxyCodeLine{}
-\DoxyCodeLine{        assert(foo.x == (T)4);}
-\DoxyCodeLine{        assert(foo.y == (T)5);}
-\DoxyCodeLine{        assert(foo.z == (T)6);}
+\DoxyCodeLine{        assert(foo.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == (T)4);}
+\DoxyCodeLine{        assert(foo.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == (T)5);}
+\DoxyCodeLine{        assert(foo.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == (T)6);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} testMemberAccess() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3<T>}} foo;}
 \DoxyCodeLine{}
-\DoxyCodeLine{        foo.x = (T)1;}
-\DoxyCodeLine{        foo.y = (T)2;}
-\DoxyCodeLine{        foo.z = (T)3;}
+\DoxyCodeLine{        foo.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} = (T)1;}
+\DoxyCodeLine{        foo.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} = (T)2;}
+\DoxyCodeLine{        foo.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} = (T)3;}
 \DoxyCodeLine{}
 \DoxyCodeLine{        assert(foo[0] == 1);}
 \DoxyCodeLine{        assert(foo[1] == 2);}
@@ -94,15 +94,15 @@ This is an example on how to use the \mbox{\hyperlink{vec3_8h_source}{vec3.\+h}}
 \DoxyCodeLine{            \mbox{\hyperlink{structvec3}{vec3<T>}} normBaz = baz.\mbox{\hyperlink{structvec3_a78346761e14409bf1360d7b8827c751b}{normalize}}();}
 \DoxyCodeLine{}
 \DoxyCodeLine{            \textcolor{comment}{// floating point precision 1e-\/7}}
-\DoxyCodeLine{            assert(normFoo.x -\/ (T)0.577350259f < 1e-\/7);}
-\DoxyCodeLine{            assert(normFoo.y -\/ (T)0.577350259f < 1e-\/7);}
-\DoxyCodeLine{            assert(normFoo.z -\/ (T)0.577350259f < 1e-\/7);}
-\DoxyCodeLine{            assert(normBar.x -\/ (T)0.577350259f < 1e-\/7);}
-\DoxyCodeLine{            assert(normBar.y -\/ (T)-\/0.577350259f < 1e-\/7);}
-\DoxyCodeLine{            assert(normBar.z -\/ (T)0.577350259f < 1e-\/7);}
-\DoxyCodeLine{            assert(normBaz.x -\/ (T)0.980580688f < 1e-\/7);}
-\DoxyCodeLine{            assert(normBaz.y -\/ (T)0.0f < 1e-\/7);}
-\DoxyCodeLine{            assert(normBaz.z -\/ (T)0.196116135 < 1e-\/7);}
+\DoxyCodeLine{            assert(normFoo.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} -\/ (T)0.577350259f < 1e-\/7);}
+\DoxyCodeLine{            assert(normFoo.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} -\/ (T)0.577350259f < 1e-\/7);}
+\DoxyCodeLine{            assert(normFoo.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} -\/ (T)0.577350259f < 1e-\/7);}
+\DoxyCodeLine{            assert(normBar.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} -\/ (T)0.577350259f < 1e-\/7);}
+\DoxyCodeLine{            assert(normBar.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} -\/ (T)-\/0.577350259f < 1e-\/7);}
+\DoxyCodeLine{            assert(normBar.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} -\/ (T)0.577350259f < 1e-\/7);}
+\DoxyCodeLine{            assert(normBaz.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} -\/ (T)0.980580688f < 1e-\/7);}
+\DoxyCodeLine{            assert(normBaz.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} -\/ (T)0.0f < 1e-\/7);}
+\DoxyCodeLine{            assert(normBaz.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} -\/ (T)0.196116135 < 1e-\/7);}
 \DoxyCodeLine{        \}}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
@@ -113,35 +113,35 @@ This is an example on how to use the \mbox{\hyperlink{vec3_8h_source}{vec3.\+h}}
 \DoxyCodeLine{        \textcolor{comment}{// +}}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3<T>}} fooCopy = foo;}
 \DoxyCodeLine{        fooCopy += bar;}
-\DoxyCodeLine{        assert(fooCopy.x == 2.0f);}
-\DoxyCodeLine{        assert(fooCopy.y == 0.0f);}
-\DoxyCodeLine{        assert(fooCopy.z == 2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == 2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == 0.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == 2.0f);}
 \DoxyCodeLine{        fooCopy = foo + bar;}
-\DoxyCodeLine{        assert(fooCopy.x == 2.0f);}
-\DoxyCodeLine{        assert(fooCopy.y == 0.0f);}
-\DoxyCodeLine{        assert(fooCopy.z == 2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == 2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == 0.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == 2.0f);}
 \DoxyCodeLine{        fooCopy = foo;}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{comment}{// -\/}}
 \DoxyCodeLine{        fooCopy -\/= bar;}
-\DoxyCodeLine{        assert(fooCopy.x == 0.0f);}
-\DoxyCodeLine{        assert(fooCopy.y == 2.0f);}
-\DoxyCodeLine{        assert(fooCopy.z == 0.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == 0.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == 2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == 0.0f);}
 \DoxyCodeLine{        fooCopy = foo -\/ bar;}
-\DoxyCodeLine{        assert(fooCopy.x == 0.0f);}
-\DoxyCodeLine{        assert(fooCopy.y == 2.0f);}
-\DoxyCodeLine{        assert(fooCopy.z == 0.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == 0.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == 2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == 0.0f);}
 \DoxyCodeLine{        fooCopy = foo;}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{comment}{// *}}
 \DoxyCodeLine{        fooCopy *= 2.0f;}
-\DoxyCodeLine{        assert(fooCopy.x == (T)2.0f);}
-\DoxyCodeLine{        assert(fooCopy.y == (T)2.0f);}
-\DoxyCodeLine{        assert(fooCopy.z == (T)2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == (T)2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == (T)2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == (T)2.0f);}
 \DoxyCodeLine{        fooCopy = foo * 2.0f;}
-\DoxyCodeLine{        assert(fooCopy.x == (T)2.0f);}
-\DoxyCodeLine{        assert(fooCopy.y == (T)2.0f);}
-\DoxyCodeLine{        assert(fooCopy.z == (T)2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == (T)2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == (T)2.0f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == (T)2.0f);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordtype}{float} fooVal = foo * bar;}
 \DoxyCodeLine{        assert(fooVal == (T)1.0f);}
@@ -151,13 +151,13 @@ This is an example on how to use the \mbox{\hyperlink{vec3_8h_source}{vec3.\+h}}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{comment}{// /}}
 \DoxyCodeLine{        fooCopy /= 2.0f;}
-\DoxyCodeLine{        assert(fooCopy.x == (T)0.5f);}
-\DoxyCodeLine{        assert(fooCopy.y == (T)0.5f);}
-\DoxyCodeLine{        assert(fooCopy.z == (T)0.5f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == (T)0.5f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == (T)0.5f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == (T)0.5f);}
 \DoxyCodeLine{        fooCopy = foo / 2.0f;}
-\DoxyCodeLine{        assert(fooCopy.x == (T)0.5f);}
-\DoxyCodeLine{        assert(fooCopy.y == (T)0.5f);}
-\DoxyCodeLine{        assert(fooCopy.z == (T)0.5f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}} == (T)0.5f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}} == (T)0.5f);}
+\DoxyCodeLine{        assert(fooCopy.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}} == (T)0.5f);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{comment}{// ostream<<}}
 \DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}vec3:\(\backslash\)n"{}} << foo;}

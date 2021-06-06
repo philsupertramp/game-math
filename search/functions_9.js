@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kroneckermulti_450',['KroneckerMulti',['../classMatrix.html#a3696cceb1d9290c69389a8a0553ec254',1,'Matrix']]]
+  ['jac_625',['jac',['../classNewtonFractal.html#a297f6a51f9f2f9e193a755b157a4fec1',1,'NewtonFractal']]]
 ];

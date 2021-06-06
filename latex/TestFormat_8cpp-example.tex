@@ -34,21 +34,21 @@ This is an example on how to use the \mbox{\hyperlink{format_8h}{format.\+h}} fi
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestStrip() \{}
 \DoxyCodeLine{        std::string in = \textcolor{stringliteral}{"{}1 + 2 + 3 -\/ 5(x*2 + 3)"{}};}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{format_8h_a5f3e23cac814c84a5494842243316a4b}{strip}}(in), \textcolor{stringliteral}{"{}1+2+3-\/5(x*2+3)"{}});}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{format_8cpp_a5f3e23cac814c84a5494842243316a4b}{strip}}(in), \textcolor{stringliteral}{"{}1+2+3-\/5(x*2+3)"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestSplit() \{}
 \DoxyCodeLine{        std::string in = \textcolor{stringliteral}{"{}Hey there, my friend."{}};}
-\DoxyCodeLine{        \textcolor{keyword}{auto} out       = \mbox{\hyperlink{format_8h_a03529396588a5d4dac36c432989fdfaa}{split}}(in, \textcolor{charliteral}{' '});}
+\DoxyCodeLine{        \textcolor{keyword}{auto} out       = \mbox{\hyperlink{format_8cpp_a03529396588a5d4dac36c432989fdfaa}{split}}(in, \textcolor{charliteral}{' '});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        std::vector<std::string> ref = \{ \textcolor{stringliteral}{"{}Hey"{}}, \textcolor{stringliteral}{"{}there,"{}}, \textcolor{stringliteral}{"{}my"{}}, \textcolor{stringliteral}{"{}friend."{}} \};}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < ref.size(); ++i) \{ AssertEqual(ref[i], out[i]); \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{        std::string in2               = \textcolor{stringliteral}{"{}Hey"{}};}
-\DoxyCodeLine{        \textcolor{keyword}{auto} out2                     = \mbox{\hyperlink{format_8h_a03529396588a5d4dac36c432989fdfaa}{split}}(in2);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} out2                     = \mbox{\hyperlink{format_8cpp_a03529396588a5d4dac36c432989fdfaa}{split}}(in2);}
 \DoxyCodeLine{        std::vector<std::string> ref2 = \{ \textcolor{stringliteral}{"{}H"{}}, \textcolor{stringliteral}{"{}e"{}}, \textcolor{stringliteral}{"{}y"{}} \};}
 \DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < ref2.size(); ++i) \{ AssertEqual(ref2[i], out2[i]); \}}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}

@@ -20,38 +20,29 @@ Inheritance diagram for Image\+Data\+Set\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classImageDataSet_a6cb4942bbb5ce16e1ab67ccd550dc9e3}{Image\+Data\+Set}} (size\+\_\+t input\+Count, size\+\_\+t output\+Count)
 \item 
-virtual void \mbox{\hyperlink{classImageDataSet_a70c65453f974635726e64d371b39acee}{Prepare\+Directory}} (const char $\ast$file\+Path) override
+virtual void \mbox{\hyperlink{classImageDataSet_a9bbabe8ae4b48f1238be7828d6fe7233}{Prepare\+Directory}} (const char $\ast$file\+Path)
 \item 
 void \mbox{\hyperlink{classImageDataSet_abe20e5992ddda25f736dfb0789d764a3}{Cache}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classImageDataSet_ab83106b8cff6d5cc8359aa490d85d07e}\label{classImageDataSet_ab83106b8cff6d5cc8359aa490d85d07e}} 
 size\+\_\+t \mbox{\hyperlink{classImageDataSet_ab83106b8cff6d5cc8359aa490d85d07e}{image\+Height}} = 180
 \begin{DoxyCompactList}\small\item\em desired image height \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classImageDataSet_a9ba02bb2e1b60de7f6835ace293809f9}\label{classImageDataSet_a9ba02bb2e1b60de7f6835ace293809f9}} 
 size\+\_\+t \mbox{\hyperlink{classImageDataSet_a9ba02bb2e1b60de7f6835ace293809f9}{image\+Width}} = 180
 \begin{DoxyCompactList}\small\item\em desired image width \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classImageDataSet_a08ea2bd23adb1f8d45d888e820fe3e4d}\label{classImageDataSet_a08ea2bd23adb1f8d45d888e820fe3e4d}} 
 double \mbox{\hyperlink{classImageDataSet_a08ea2bd23adb1f8d45d888e820fe3e4d}{validation\+Share}} = 0.\+2
 \begin{DoxyCompactList}\small\item\em percentage of validation data \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}\label{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}} 
 const char $\ast$ \mbox{\hyperlink{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}{train\+Directory}} = \char`\"{}../../resources/image\+\_\+classification/training/\char`\"{}
 \begin{DoxyCompactList}\small\item\em target directory for training \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}\label{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}} 
 std\+::vector$<$ Matrix\+DS$<$ bool $>$ $>$ \mbox{\hyperlink{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}{classes}}
 \begin{DoxyCompactList}\small\item\em representation of all classes \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}\label{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}} 
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}{class\+Names}}
 \begin{DoxyCompactList}\small\item\em representation of all class names \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}\label{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}} 
 size\+\_\+t \mbox{\hyperlink{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}{total\+Count}} = 0
 \begin{DoxyCompactList}\small\item\em total number of data records \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classImageDataSet_a323ec5719d39c362c77960656b65f571}\label{classImageDataSet_a323ec5719d39c362c77960656b65f571}} 
 size\+\_\+t \mbox{\hyperlink{classImageDataSet_a323ec5719d39c362c77960656b65f571}{training\+Count}} = 0
 \begin{DoxyCompactList}\small\item\em number of training data records \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}\label{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}} 
 size\+\_\+t \mbox{\hyperlink{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}{validation\+Count}} = 0
 \begin{DoxyCompactList}\small\item\em number of validation data records \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -93,11 +84,11 @@ we split the dataset into
 \item 0\% test
 \end{DoxyItemize}
 
-Example\+: 100 images =$>$ 80 training, 20 validation, 0 test \mbox{\Hypertarget{classImageDataSet_a70c65453f974635726e64d371b39acee}\label{classImageDataSet_a70c65453f974635726e64d371b39acee}} 
+Example\+: 100 images =$>$ 80 training, 20 validation, 0 test \mbox{\Hypertarget{classImageDataSet_a9bbabe8ae4b48f1238be7828d6fe7233}\label{classImageDataSet_a9bbabe8ae4b48f1238be7828d6fe7233}} 
 \index{ImageDataSet@{ImageDataSet}!PrepareDirectory@{PrepareDirectory}}
 \index{PrepareDirectory@{PrepareDirectory}!ImageDataSet@{ImageDataSet}}
 \doxysubsubsection{\texorpdfstring{PrepareDirectory()}{PrepareDirectory()}}
-{\footnotesize\ttfamily virtual void Image\+Data\+Set\+::\+Prepare\+Directory (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual void Image\+Data\+Set\+::\+Prepare\+Directory (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 prepares a new set of data based on passed file\+Path 
 \begin{DoxyParams}{Parameters}
@@ -106,6 +97,99 @@ prepares a new set of data based on passed file\+Path
 \end{DoxyParams}
 identifies \char`\"{}classes\char`\"{} as files in nested directories
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}\label{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}} 
+\index{ImageDataSet@{ImageDataSet}!classes@{classes}}
+\index{classes@{classes}!ImageDataSet@{ImageDataSet}}
+\doxysubsubsection{\texorpdfstring{classes}{classes}}
+{\footnotesize\ttfamily std\+::vector$<$Matrix\+DS$<$bool$>$ $>$ Image\+Data\+Set\+::classes}
+
+
+
+representation of all classes 
+
+\mbox{\Hypertarget{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}\label{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}} 
+\index{ImageDataSet@{ImageDataSet}!classNames@{classNames}}
+\index{classNames@{classNames}!ImageDataSet@{ImageDataSet}}
+\doxysubsubsection{\texorpdfstring{classNames}{classNames}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Image\+Data\+Set\+::class\+Names}
+
+
+
+representation of all class names 
+
+\mbox{\Hypertarget{classImageDataSet_ab83106b8cff6d5cc8359aa490d85d07e}\label{classImageDataSet_ab83106b8cff6d5cc8359aa490d85d07e}} 
+\index{ImageDataSet@{ImageDataSet}!imageHeight@{imageHeight}}
+\index{imageHeight@{imageHeight}!ImageDataSet@{ImageDataSet}}
+\doxysubsubsection{\texorpdfstring{imageHeight}{imageHeight}}
+{\footnotesize\ttfamily size\+\_\+t Image\+Data\+Set\+::image\+Height = 180}
+
+
+
+desired image height 
+
+\mbox{\Hypertarget{classImageDataSet_a9ba02bb2e1b60de7f6835ace293809f9}\label{classImageDataSet_a9ba02bb2e1b60de7f6835ace293809f9}} 
+\index{ImageDataSet@{ImageDataSet}!imageWidth@{imageWidth}}
+\index{imageWidth@{imageWidth}!ImageDataSet@{ImageDataSet}}
+\doxysubsubsection{\texorpdfstring{imageWidth}{imageWidth}}
+{\footnotesize\ttfamily size\+\_\+t Image\+Data\+Set\+::image\+Width = 180}
+
+
+
+desired image width 
+
+\mbox{\Hypertarget{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}\label{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}} 
+\index{ImageDataSet@{ImageDataSet}!totalCount@{totalCount}}
+\index{totalCount@{totalCount}!ImageDataSet@{ImageDataSet}}
+\doxysubsubsection{\texorpdfstring{totalCount}{totalCount}}
+{\footnotesize\ttfamily size\+\_\+t Image\+Data\+Set\+::total\+Count = 0}
+
+
+
+total number of data records 
+
+\mbox{\Hypertarget{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}\label{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}} 
+\index{ImageDataSet@{ImageDataSet}!trainDirectory@{trainDirectory}}
+\index{trainDirectory@{trainDirectory}!ImageDataSet@{ImageDataSet}}
+\doxysubsubsection{\texorpdfstring{trainDirectory}{trainDirectory}}
+{\footnotesize\ttfamily const char$\ast$ Image\+Data\+Set\+::train\+Directory = \char`\"{}../../resources/image\+\_\+classification/training/\char`\"{}}
+
+
+
+target directory for training 
+
+\mbox{\Hypertarget{classImageDataSet_a323ec5719d39c362c77960656b65f571}\label{classImageDataSet_a323ec5719d39c362c77960656b65f571}} 
+\index{ImageDataSet@{ImageDataSet}!trainingCount@{trainingCount}}
+\index{trainingCount@{trainingCount}!ImageDataSet@{ImageDataSet}}
+\doxysubsubsection{\texorpdfstring{trainingCount}{trainingCount}}
+{\footnotesize\ttfamily size\+\_\+t Image\+Data\+Set\+::training\+Count = 0}
+
+
+
+number of training data records 
+
+\mbox{\Hypertarget{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}\label{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}} 
+\index{ImageDataSet@{ImageDataSet}!validationCount@{validationCount}}
+\index{validationCount@{validationCount}!ImageDataSet@{ImageDataSet}}
+\doxysubsubsection{\texorpdfstring{validationCount}{validationCount}}
+{\footnotesize\ttfamily size\+\_\+t Image\+Data\+Set\+::validation\+Count = 0}
+
+
+
+number of validation data records 
+
+\mbox{\Hypertarget{classImageDataSet_a08ea2bd23adb1f8d45d888e820fe3e4d}\label{classImageDataSet_a08ea2bd23adb1f8d45d888e820fe3e4d}} 
+\index{ImageDataSet@{ImageDataSet}!validationShare@{validationShare}}
+\index{validationShare@{validationShare}!ImageDataSet@{ImageDataSet}}
+\doxysubsubsection{\texorpdfstring{validationShare}{validationShare}}
+{\footnotesize\ttfamily double Image\+Data\+Set\+::validation\+Share = 0.\+2}
+
+
+
+percentage of validation data 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/ds/Image\+Data\+Set.\+h\end{DoxyCompactItemize}
+include/math/ds/\mbox{\hyperlink{ImageDataSet_8h}{Image\+Data\+Set.\+h}}\end{DoxyCompactItemize}

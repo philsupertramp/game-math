@@ -74,9 +74,9 @@ $(function() {
 <div class="contents">
 <p>This is an example on how to use the different Fractal classes.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;../Test.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;math/numerics/Fractals.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Fractals_8h.html">math/numerics/Fractals.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="numerics_2utils_8h.html">math/numerics/utils.h</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;math/visualization/Plot.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Plot_8h.html">math/visualization/Plot.h</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span>FractalsTestCase : <span class="keyword">public</span> Test</div>
@@ -109,7 +109,6 @@ $(function() {
 <div class="line">        });</div>
 <div class="line"> </div>
 <div class="line">        AssertEqual(M, expected);</div>
-<div class="line"> </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -120,20 +119,21 @@ $(function() {
 <div class="line"> </div>
 <div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> expected({ { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },</div>
 <div class="line">                                  { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },</div>
-<div class="line">                                  { 2, 3, 4, 4, 5, 125, 5, 4, 4, 3 },</div>
-<div class="line">                                  { 4, 4, 4, 5, 6, 125, 6, 5, 4, 4 },</div>
-<div class="line">                                  { 4, 4, 5, 8, 125, 125, 125, 8, 5, 4 },</div>
-<div class="line">                                  { 4, 5, 7, 9, 17, 125, 17, 9, 7, 5 },</div>
-<div class="line">                                  { 5, 7, 27, 125, 125, 125, 125, 125, 27, 7 },</div>
-<div class="line">                                  { 12, 125, 125, 125, 125, 125, 125, 125, 125, 125 },</div>
-<div class="line">                                  { 4, 6, 16, 125, 125, 13, 125, 125, 16, 6 },</div>
+<div class="line">                                  { 2, 3, 4, 4, 5, 0, 5, 4, 4, 3 },</div>
+<div class="line">                                  { 4, 4, 4, 5, 6, 0, 6, 5, 4, 4 },</div>
+<div class="line">                                  { 4, 4, 5, 8, 0, 0, 0, 8, 5, 4 },</div>
+<div class="line">                                  { 4, 5, 7, 9, 17, 0, 17, 9, 7, 5 },</div>
+<div class="line">                                  { 5, 7, 27, 0, 0, 0, 0, 0, 27, 7 },</div>
+<div class="line">                                  { 12, 0, 0, 0, 0, 0, 0, 0, 0, 0 },</div>
+<div class="line">                                  { 4, 6, 16, 0, 0, 13, 0, 0, 16, 6 },</div>
 <div class="line">                                  { 3, 4, 4, 4, 5, 5, 5, 4, 4, 4 } });</div>
 <div class="line"> </div>
 <div class="line">        AssertEqual(M, expected);</div>
 <div class="line"> </div>
-<div class="line">        fractal.<a class="code" href="classMandelbrot.html#a09a174794619b9f2a13010b4af19d498">detail</a> = 100;</div>
-<div class="line">        <a name="_a4"></a><a class="code" href="classImagePlot.html">ImagePlot</a> plot(<span class="stringliteral">&quot;Mandelbrot&quot;</span>);</div>
-<div class="line">        plot.<a name="a5"></a><a class="code" href="classImagePlot.html#abcc293f8ea2f73b54d184baeb742b820">AddData</a>(fractal(), <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line">        fractal.<a class="code" href="classMandelbrot.html#a09a174794619b9f2a13010b4af19d498">detail</a>   = 1250;</div>
+<div class="line">        fractal.<a name="a4"></a><a class="code" href="classMandelbrot.html#a02ac592d77e906df905626032b9af8aa">maxIters</a> = 99;</div>
+<div class="line">        <a name="_a5"></a><a class="code" href="classImagePlot.html">ImagePlot</a> plot(<span class="stringliteral">&quot;Mandelbrot&quot;</span>);</div>
+<div class="line">        plot.<a name="a6"></a><a class="code" href="classImagePlot.html#abcc293f8ea2f73b54d184baeb742b820">AddData</a>(fractal(), <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line">        plot();</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -150,12 +150,15 @@ $(function() {
 <div class="line">    FractalsTestCase().run();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassImagePlot_html"><div class="ttname"><a href="classImagePlot.html">ImagePlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:419</div></div>
-<div class="ttc" id="aclassImagePlot_html_abcc293f8ea2f73b54d184baeb742b820"><div class="ttname"><a href="classImagePlot.html#abcc293f8ea2f73b54d184baeb742b820">ImagePlot::AddData</a></div><div class="ttdeci">void AddData(const Matrix&lt; double &gt; &amp;mat, const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> Plot.h:436</div></div>
-<div class="ttc" id="aclassMandelbrot_html"><div class="ttname"><a href="classMandelbrot.html">Mandelbrot</a></div><div class="ttdef"><b>Definition:</b> Fractals.h:115</div></div>
-<div class="ttc" id="aclassMandelbrot_html_a09a174794619b9f2a13010b4af19d498"><div class="ttname"><a href="classMandelbrot.html#a09a174794619b9f2a13010b4af19d498">Mandelbrot::detail</a></div><div class="ttdeci">size_t detail</div><div class="ttdoc">detail factor for approximation</div><div class="ttdef"><b>Definition:</b> Fractals.h:124</div></div>
+<div class="ttc" id="aFractals_8h_html"><div class="ttname"><a href="Fractals_8h.html">Fractals.h</a></div></div>
+<div class="ttc" id="aPlot_8h_html"><div class="ttname"><a href="Plot_8h.html">Plot.h</a></div></div>
+<div class="ttc" id="aclassImagePlot_html"><div class="ttname"><a href="classImagePlot.html">ImagePlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:415</div></div>
+<div class="ttc" id="aclassImagePlot_html_abcc293f8ea2f73b54d184baeb742b820"><div class="ttname"><a href="classImagePlot.html#abcc293f8ea2f73b54d184baeb742b820">ImagePlot::AddData</a></div><div class="ttdeci">void AddData(const Matrix&lt; double &gt; &amp;mat, const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> Plot.h:432</div></div>
+<div class="ttc" id="aclassMandelbrot_html"><div class="ttname"><a href="classMandelbrot.html">Mandelbrot</a></div><div class="ttdef"><b>Definition:</b> Fractals.h:198</div></div>
+<div class="ttc" id="aclassMandelbrot_html_a02ac592d77e906df905626032b9af8aa"><div class="ttname"><a href="classMandelbrot.html#a02ac592d77e906df905626032b9af8aa">Mandelbrot::maxIters</a></div><div class="ttdeci">size_t maxIters</div><div class="ttdoc">max number iterations for approximation of single value</div><div class="ttdef"><b>Definition:</b> Fractals.h:201</div></div>
+<div class="ttc" id="aclassMandelbrot_html_a09a174794619b9f2a13010b4af19d498"><div class="ttname"><a href="classMandelbrot.html#a09a174794619b9f2a13010b4af19d498">Mandelbrot::detail</a></div><div class="ttdeci">size_t detail</div><div class="ttdoc">detail factor for approximation</div><div class="ttdef"><b>Definition:</b> Fractals.h:207</div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassNewtonFractal_html"><div class="ttname"><a href="classNewtonFractal.html">NewtonFractal</a></div><div class="ttdef"><b>Definition:</b> Fractals.h:10</div></div>
+<div class="ttc" id="aclassNewtonFractal_html"><div class="ttname"><a href="classNewtonFractal.html">NewtonFractal</a></div><div class="ttdef"><b>Definition:</b> Fractals.h:94</div></div>
 <div class="ttc" id="anumerics_2utils_8h_html"><div class="ttname"><a href="numerics_2utils_8h.html">utils.h</a></div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->

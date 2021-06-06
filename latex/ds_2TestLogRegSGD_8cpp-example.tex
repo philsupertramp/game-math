@@ -4,7 +4,7 @@ This is an example on how to use the \mbox{\hyperlink{classLogRegSGD}{Log\+Reg\+
 
 \begin{DoxyCodeInclude}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../Test.h"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include <math/ds/LogRegSGD.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{LogRegSGD_8h}{math/ds/LogRegSGD.h}}>}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{class }LogRegSGDTestCase : \textcolor{keyword}{public} Test}
@@ -26,9 +26,9 @@ This is an example on how to use the \mbox{\hyperlink{classLogRegSGD}{Log\+Reg\+
 \DoxyCodeLine{        \});}
 \DoxyCodeLine{        std::cout << A;}
 \DoxyCodeLine{        std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= 0.0); \};}
-\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} B                      = where(condition, A, \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
-\DoxyCodeLine{        \textcolor{keyword}{auto} maxVal                           = max(A);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} minVal                           = min(A);}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} B                      = \mbox{\hyperlink{Matrix_8h_a03aa8ab53460bc8174166baea67463c3}{where}}(condition, A, \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
+\DoxyCodeLine{        \textcolor{keyword}{auto} maxVal                           = \mbox{\hyperlink{Matrix_8h_a8dd66fbac5097923b2ecf481b0ae77e5}{max}}(A);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} minVal                           = \mbox{\hyperlink{Matrix_8h_a4bb73e4029612f323f406f1ecfc2ed57}{min}}(A);}
 \DoxyCodeLine{        A = A.\mbox{\hyperlink{classMatrix_aab08352f6e89b3dfb616c10998db4570}{Apply}}([minVal, maxVal](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} (in -\/ minVal) / (maxVal -\/ minVal); \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        logRegSgd.fit(A, B);}

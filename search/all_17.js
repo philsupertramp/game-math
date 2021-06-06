@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['xaxis_317',['xAxis',['../structPlotAttributes.html#a80a3dec051e0195255ff3471fa7ea9ea',1,'PlotAttributes::xAxis()'],['../classPlot.html#a71b26c829f6b3f4cf64957a3e323517f',1,'Plot::xAxis()']]],
-  ['xmin_318',['xMin',['../classNewtonFractal.html#ab61b91764458edf714b5fbf636ee8800',1,'NewtonFractal']]]
+  ['w_424',['w',['../structvec4.html#a36a56fd42283fa83e57a0a07212174de',1,'vec4']]],
+  ['w_5finitialized_425',['w_initialized',['../classClassifier.html#a5c3236f91e4f14965715caaca167dec8',1,'Classifier']]],
+  ['weight_5fupdate_426',['weight_update',['../classSGD.html#a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3',1,'SGD']]],
+  ['weights_427',['weights',['../classClassifier.html#a5d4d61496164c06deab141329b6c878f',1,'Classifier']]],
+  ['where_428',['where',['../Matrix_8h.html#a03aa8ab53460bc8174166baea67463c3',1,'Matrix.h']]],
+  ['writeattributes_429',['writeAttributes',['../classPlot.html#a9bfd80c27c96636efaaec19b2d2b4b13',1,'Plot']]]
 ];

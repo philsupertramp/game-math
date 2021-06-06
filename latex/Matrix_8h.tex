@@ -1,0 +1,515 @@
+\hypertarget{Matrix_8h}{}\doxysection{include/math/\+Matrix.h File Reference}
+\label{Matrix_8h}\index{include/math/Matrix.h@{include/math/Matrix.h}}
+{\ttfamily \#include \char`\"{}Random.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vec/vec3.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$initializer\+\_\+list$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMatrixDimension}{Matrix\+Dimension}}
+\item 
+class \mbox{\hyperlink{classMatrix}{Matrix$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a7fd5719a53190a6d99e4e735864ba1b2}{operator+}} (\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a68d411cd031e6e12903db0bd3bf2e026}{operator-\/}} (\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a2c9dfc027d3b44ee04c9321120dd7c39}{operator$\ast$}} (\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ lhs, const U \&rhs)
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a69ee5e87d09ff31503fc61ae354c91bb}{operator$\ast$}} (U lambda, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&A)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \& \mbox{\hyperlink{Matrix_8h_ae4521ab4b2840010a00c2fae45daa2b6}{operator$\ast$}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \& \mbox{\hyperlink{Matrix_8h_a372a02cc54eeaf01e321bb6bb59e2557}{Hadamard\+Multi}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \& \mbox{\hyperlink{Matrix_8h_a9a440c7b024da8498c7af6107d3a5609}{Kronecker\+Multi}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a9c0fb96647d1de47099f074cf20edf34}{Horizontal\+Concat}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \& \mbox{\hyperlink{Matrix_8h_a0248f25849e57a2e715d2dd3a43447f6}{Corr}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&A, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&B)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \& \mbox{\hyperlink{Matrix_8h_a155cb3592d490d8bc63d638741c2523d}{from\+\_\+vptr}} (const T $\ast$value, \mbox{\hyperlink{structMatrixDimension}{Matrix\+Dimension}} size)
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{Matrix_8h_a2a01e8ac881ea58d279cd73ec1803444}{argmax}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&mat)
+\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{Matrix_8h_a14c028e4d81577bbda70dd22db04afe8}{argmin}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&mat)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a03aa8ab53460bc8174166baea67463c3}{where}} (const std\+::function$<$ bool(T)$>$ \&condition, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&in, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&val\+If\+True, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&val\+If\+False)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ $>$ $>$ \mbox{\hyperlink{Matrix_8h_ae104c95cd9564e3f1b5c394b0c3407da}{zip}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&a, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&b)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{Matrix_8h_a8dd66fbac5097923b2ecf481b0ae77e5}{max}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&mat)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{Matrix_8h_a4bb73e4029612f323f406f1ecfc2ed57}{min}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&mat)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{Matrix_8h_adf917f83162312bfe4a7a861c6f0cbcb}{elem\+Max}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&mat, const size\+\_\+t \&elem\+Index)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{Matrix_8h_a438e42415f91a5cb3ff198e78e613e33}{mean}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&mat)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{Matrix_8h_aaad7330b0e1e9c27b308a224210a14f9}{elem\+Mean}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&mat, const size\+\_\+t \&elem\+Index)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a1f1cb7d36cc68c70008f8a96f6aa2cc4}{diag}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&in)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Matrix_8h_a2a01e8ac881ea58d279cd73ec1803444}\label{Matrix_8h_a2a01e8ac881ea58d279cd73ec1803444}} 
+\index{Matrix.h@{Matrix.h}!argmax@{argmax}}
+\index{argmax@{argmax}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{argmax()}{argmax()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t argmax (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+Search index of value with maximum value {\bfseries{Caution!}} This value does represent the index in a ongoing array.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Matrix_8h_a14c028e4d81577bbda70dd22db04afe8}\label{Matrix_8h_a14c028e4d81577bbda70dd22db04afe8}} 
+\index{Matrix.h@{Matrix.h}!argmin@{argmin}}
+\index{argmin@{argmin}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{argmin()}{argmin()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t argmin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+Search index of value with lowest value {\bfseries{Caution!}} This value does represent the index in a ongoing array. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & matrix value type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & element to search in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of minimal value 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Matrix_8h_a0248f25849e57a2e715d2dd3a43447f6}\label{Matrix_8h_a0248f25849e57a2e715d2dd3a43447f6}} 
+\index{Matrix.h@{Matrix.h}!Corr@{Corr}}
+\index{Corr@{Corr}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{Corr()}{Corr()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t\& Corr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{B }\end{DoxyParamCaption})}
+
+Counts correlations between {\ttfamily A} and {\ttfamily B} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & value type of {\ttfamily A} and {\ttfamily B} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em A} & matrix to compare \\
+\hline
+{\em B} & matrix to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of element wise equal elements 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Matrix_8h_a1f1cb7d36cc68c70008f8a96f6aa2cc4}\label{Matrix_8h_a1f1cb7d36cc68c70008f8a96f6aa2cc4}} 
+\index{Matrix.h@{Matrix.h}!diag@{diag}}
+\index{diag@{diag}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{diag()}{diag()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$ diag (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{in }\end{DoxyParamCaption})}
+
+Returns Vector of diagonal elements from matrix. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & given datatype \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em in} & input matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of diagonal elements 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Matrix_8h_adf917f83162312bfe4a7a861c6f0cbcb}\label{Matrix_8h_adf917f83162312bfe4a7a861c6f0cbcb}} 
+\index{Matrix.h@{Matrix.h}!elemMax@{elemMax}}
+\index{elemMax@{elemMax}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{elemMax()}{elemMax()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T elem\+Max (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{mat,  }\item[{const size\+\_\+t \&}]{elem\+Index }\end{DoxyParamCaption})}
+
+Max value from given element index in matrix 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & given datatype \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & matrix to search in \\
+\hline
+{\em elem\+Index} & index of element to compute max value of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+max value over all elements with given index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Matrix_8h_aaad7330b0e1e9c27b308a224210a14f9}\label{Matrix_8h_aaad7330b0e1e9c27b308a224210a14f9}} 
+\index{Matrix.h@{Matrix.h}!elemMean@{elemMean}}
+\index{elemMean@{elemMean}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{elemMean()}{elemMean()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T elem\+Mean (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{mat,  }\item[{const size\+\_\+t \&}]{elem\+Index }\end{DoxyParamCaption})}
+
+mean operation on element with given index 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & given datatype \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & input matrix \\
+\hline
+{\em elem\+Index} & index of element to compute mean of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mean of all elements 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Matrix_8h_a155cb3592d490d8bc63d638741c2523d}\label{Matrix_8h_a155cb3592d490d8bc63d638741c2523d}} 
+\index{Matrix.h@{Matrix.h}!from\_vptr@{from\_vptr}}
+\index{from\_vptr@{from\_vptr}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{from\_vptr()}{from\_vptr()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$\& from\+\_\+vptr (\begin{DoxyParamCaption}\item[{const T $\ast$}]{value,  }\item[{\mbox{\hyperlink{structMatrixDimension}{Matrix\+Dimension}}}]{size }\end{DoxyParamCaption})}
+
+Converts array of elements of type {\ttfamily T} into matrix of given {\ttfamily size} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & value type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em value} & pointer to array of elements of type {\ttfamily T} \\
+\hline
+{\em size} & dimension of target matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Matrix_8h_a372a02cc54eeaf01e321bb6bb59e2557}\label{Matrix_8h_a372a02cc54eeaf01e321bb6bb59e2557}} 
+\index{Matrix.h@{Matrix.h}!HadamardMulti@{HadamardMulti}}
+\index{HadamardMulti@{HadamardMulti}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{HadamardMulti()}{HadamardMulti()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$\& Hadamard\+Multi (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+Helper utilities Element wise multiplication 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & value type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & left hand side with dimension n1, m1 \\
+\hline
+{\em rhs} & right hand side with dimension n1, m1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+product of element wise multiplication of lhs $\ast$ rhs with dimension n1, m1 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Matrix_8h_a9c0fb96647d1de47099f074cf20edf34}\label{Matrix_8h_a9c0fb96647d1de47099f074cf20edf34}} 
+\index{Matrix.h@{Matrix.h}!HorizontalConcat@{HorizontalConcat}}
+\index{HorizontalConcat@{HorizontalConcat}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{HorizontalConcat()}{HorizontalConcat()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$ Horizontal\+Concat (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+Horizontal concatenation of 2 matrices of same Row size 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & value type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & left hand side with dimension n1, m1 \\
+\hline
+{\em rhs} & right hand side with dimension n1, m2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+concatenated matrix \mbox{[}lhs, rhs\mbox{]} of dimension n1, m1 + m2 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}, and \mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Matrix_8h_a9a440c7b024da8498c7af6107d3a5609}\label{Matrix_8h_a9a440c7b024da8498c7af6107d3a5609}} 
+\index{Matrix.h@{Matrix.h}!KroneckerMulti@{KroneckerMulti}}
+\index{KroneckerMulti@{KroneckerMulti}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{KroneckerMulti()}{KroneckerMulti()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$\& Kronecker\+Multi (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+A form of matrix multiplication For explicit reference please consult \href{https://en.wikipedia.org/wiki/Kronecker_product}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Kronecker\+\_\+product}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & value type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & left hand side with dimension n1, m1 \\
+\hline
+{\em rhs} & right hand side with dimension n2, m2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+resulting matrix with dimension n1 $\ast$ n2, m1 $\ast$ m2 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Matrix_8h_a8dd66fbac5097923b2ecf481b0ae77e5}\label{Matrix_8h_a8dd66fbac5097923b2ecf481b0ae77e5}} 
+\index{Matrix.h@{Matrix.h}!max@{max}}
+\index{max@{max}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T max (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+Max value of given \mbox{\hyperlink{classMatrix}{Matrix}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & given datatype \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & matrix to search max value in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+max value of given matrix 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{ds_2TestLogRegSGD_8cpp-example}{ds/\+Test\+Log\+Reg\+SGD.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Matrix_8h_a438e42415f91a5cb3ff198e78e613e33}\label{Matrix_8h_a438e42415f91a5cb3ff198e78e613e33}} 
+\index{Matrix.h@{Matrix.h}!mean@{mean}}
+\index{mean@{mean}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{mean()}{mean()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T mean (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+Calculates element-\/mean 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & given datatype \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & matrix to calculate mean of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mean of all elements of given matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Matrix_8h_a4bb73e4029612f323f406f1ecfc2ed57}\label{Matrix_8h_a4bb73e4029612f323f406f1ecfc2ed57}} 
+\index{Matrix.h@{Matrix.h}!min@{min}}
+\index{min@{min}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T min (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+Min value of given matrix 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & given datatype \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & matrix to search min value in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+min value of matrix 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{ds_2TestLogRegSGD_8cpp-example}{ds/\+Test\+Log\+Reg\+SGD.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Matrix_8h_ae4521ab4b2840010a00c2fae45daa2b6}\label{Matrix_8h_ae4521ab4b2840010a00c2fae45daa2b6}} 
+\index{Matrix.h@{Matrix.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$\& operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Regular Matrix-\/\+Matrix multiplication Calculates LHS $\ast$ RHS 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Rows x C result matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Matrix_8h_a2c9dfc027d3b44ee04c9321120dd7c39}\label{Matrix_8h_a2c9dfc027d3b44ee04c9321120dd7c39}} 
+\index{Matrix.h@{Matrix.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$}]{lhs,  }\item[{const U \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple \mbox{\hyperlink{classMatrix}{Matrix}} scalar multiplication 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+scaled matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Matrix_8h_a69ee5e87d09ff31503fc61ae354c91bb}\label{Matrix_8h_a69ee5e87d09ff31503fc61ae354c91bb}} 
+\index{Matrix.h@{Matrix.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{U}]{lambda,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{A }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Simple \mbox{\hyperlink{classMatrix}{Matrix}} scalar multiplication 
+\begin{DoxyParams}{Parameters}
+{\em lambda} & \\
+\hline
+{\em A} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+scaled matrix lambda $\ast$ A = B with B(i, j) = lambda $\ast$ A(i, j) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Matrix_8h_a7fd5719a53190a6d99e4e735864ba1b2}\label{Matrix_8h_a7fd5719a53190a6d99e4e735864ba1b2}} 
+\index{Matrix.h@{Matrix.h}!operator+@{operator+}}
+\index{operator+@{operator+}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$ operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Extra operators Matrix-\/\+Addition 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{Matrix_8h_a68d411cd031e6e12903db0bd3bf2e026}\label{Matrix_8h_a68d411cd031e6e12903db0bd3bf2e026}} 
+\index{Matrix.h@{Matrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$ operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Matrix-\/\+Subtraction 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{Matrix_8h_a03aa8ab53460bc8174166baea67463c3}\label{Matrix_8h_a03aa8ab53460bc8174166baea67463c3}} 
+\index{Matrix.h@{Matrix.h}!where@{where}}
+\index{where@{where}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{where()}{where()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$ where (\begin{DoxyParamCaption}\item[{const std\+::function$<$ bool(T)$>$ \&}]{condition,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{in,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{val\+If\+True,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{val\+If\+False }\end{DoxyParamCaption})}
+
+Returns elements chosen from {\ttfamily val\+If\+True} or {\ttfamily val\+If\+False} depending on {\ttfamily condition} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & value type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em condition} & lambda/function to test a condition on every element of {\ttfamily in} \\
+\hline
+{\em in} & input values \\
+\hline
+{\em val\+If\+True} & value vector with values in case {\ttfamily in} meets {\ttfamily condition} \\
+\hline
+{\em val\+If\+False} & value vector with values in case {\ttfamily in} does not meet {\ttfamily condition} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}, and \mbox{\hyperlink{ds_2TestLogRegSGD_8cpp-example}{ds/\+Test\+Log\+Reg\+SGD.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Matrix_8h_ae104c95cd9564e3f1b5c394b0c3407da}\label{Matrix_8h_ae104c95cd9564e3f1b5c394b0c3407da}} 
+\index{Matrix.h@{Matrix.h}!zip@{zip}}
+\index{zip@{zip}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{zip()}{zip()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$std\+::pair$<$\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$ $>$ $>$ zip (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{b }\end{DoxyParamCaption})}
+
+Converts two input matrices into a vector of row-\/wise pairs of {\ttfamily a} and {\ttfamily b} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & value type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

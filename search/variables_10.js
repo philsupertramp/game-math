@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['validation_647',['Validation',['../classDataSet.html#a83ba4064a6be64f1b1535de18005e270',1,'DataSet']]],
-  ['validationcount_648',['validationCount',['../classImageDataSet.html#a30efac5c5eb0ec2eb29ba294ddbc2648',1,'ImageDataSet']]],
-  ['validationshare_649',['validationShare',['../classImageDataSet.html#a08ea2bd23adb1f8d45d888e820fe3e4d',1,'ImageDataSet']]],
-  ['valsize_650',['valSize',['../classMathNode.html#a316c8023f8a4129fb93974e3ce12b65d',1,'MathNode']]],
-  ['value_651',['value',['../classMathNode.html#a2d7c199d2c5581160db369014654c084',1,'MathNode']]],
-  ['values_652',['values',['../structmat2.html#a10724abc4f4a7a7a1893764ad1aab03d',1,'mat2::values()'],['../structmat3.html#a300a9e41e1e0d66ce42907caf4996b53',1,'mat3::values()'],['../structmat4.html#a49e09f970e69ac9b355105324a517ba2',1,'mat4::values()']]],
-  ['verbose_653',['verbose',['../classDataSet.html#af05bcbf6eba3ef7dbb89e0d396d45596',1,'DataSet']]]
+  ['sgd_828',['sgd',['../classAdalineSGD.html#aea1fdb9d477c9d44016ef13e5bc2342f',1,'AdalineSGD::sgd()'],['../classLogRegSGD.html#af80d2b982ab742580caeda9bd2f48d97',1,'LogRegSGD::sgd()']]],
+  ['shuffle_829',['shuffle',['../classAdalineSGD.html#a2272921984f8d5a13dc75e60c5d006be',1,'AdalineSGD::shuffle()'],['../classLogRegSGD.html#a3bfe916ce0635c0b00c77731bf3ad77e',1,'LogRegSGD::shuffle()'],['../classSGD.html#a3150c7954c208f5f57f7744196ec1fcc',1,'SGD::shuffle()']]],
+  ['start_830',['start',['../structPlotIndex.html#adf5d747c854473c22634f06718f8d1c2',1,'PlotIndex']]],
+  ['startx_831',['startX',['../classMandelbrot.html#aaa65ca8561039deb5e74acc4cd2f920f',1,'Mandelbrot']]],
+  ['starty_832',['startY',['../classMandelbrot.html#af75cb6f92b971fdc1159248675c03e00',1,'Mandelbrot']]],
+  ['stop_833',['stop',['../structPlotIndex.html#a0ea32d0e0e56a4a5eb07705676fb1b1e',1,'PlotIndex']]],
+  ['stopthreshold_834',['stopThreshold',['../classDataSet.html#ac26562ed16c2c3b63aed463cb8c77fe3',1,'DataSet']]],
+  ['storagefile_835',['storageFile',['../classPlot.html#a80885621943f0e082328be034f1478f3',1,'Plot']]],
+  ['symbols_836',['symbols',['../classEquation.html#a3322e357ba9e92033eb40eb61e82b2f7',1,'Equation']]]
 ];

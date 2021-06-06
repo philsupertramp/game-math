@@ -30,15 +30,24 @@ virtual double \mbox{\hyperlink{classLogRegSGD_a4db46ff9ecc19620668f315a2cf7fed4
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classLogRegSGD_a3bfe916ce0635c0b00c77731bf3ad77e}\label{classLogRegSGD_a3bfe916ce0635c0b00c77731bf3ad77e}} 
 bool \mbox{\hyperlink{classLogRegSGD_a3bfe916ce0635c0b00c77731bf3ad77e}{shuffle}}
 \begin{DoxyCompactList}\small\item\em signalizes whether given dataset should be shuffled while fitting \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}\label{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}} 
 int \mbox{\hyperlink{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}{random\+State}}
 \begin{DoxyCompactList}\small\item\em initialize weights with random state \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classLogRegSGD_af80d2b982ab742580caeda9bd2f48d97}\label{classLogRegSGD_af80d2b982ab742580caeda9bd2f48d97}} 
 \mbox{\hyperlink{classSGD}{SGD}} $\ast$ \mbox{\hyperlink{classLogRegSGD_af80d2b982ab742580caeda9bd2f48d97}{sgd}} = nullptr
 \begin{DoxyCompactList}\small\item\em algorithmic object to represent fitting algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLogRegSGD_a5f875d85e17bcd4b5c094214e4ef0c23}{initialize\+\_\+weights}} (size\+\_\+t m)
+\item 
+double \mbox{\hyperlink{classLogRegSGD_ae0fa063b1608fd8695d5bb4d30fe76da}{update\+\_\+weights}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&xi, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&target)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classLogRegSGD_a2b3754286d323b019831606c03fb754d}{Log}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in)
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
@@ -121,6 +130,31 @@ this
 
 Implements \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{Classifier}}.
 
+\mbox{\Hypertarget{classLogRegSGD_a5f875d85e17bcd4b5c094214e4ef0c23}\label{classLogRegSGD_a5f875d85e17bcd4b5c094214e4ef0c23}} 
+\index{LogRegSGD@{LogRegSGD}!initialize\_weights@{initialize\_weights}}
+\index{initialize\_weights@{initialize\_weights}!LogRegSGD@{LogRegSGD}}
+\doxysubsubsection{\texorpdfstring{initialize\_weights()}{initialize\_weights()}}
+{\footnotesize\ttfamily void Log\+Reg\+SGD\+::initialize\+\_\+weights (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+helper to initialize weights matrix 
+\begin{DoxyParams}{Parameters}
+{\em m} & dimension \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLogRegSGD_a2b3754286d323b019831606c03fb754d}\label{classLogRegSGD_a2b3754286d323b019831606c03fb754d}} 
+\index{LogRegSGD@{LogRegSGD}!Log@{Log}}
+\index{Log@{Log}!LogRegSGD@{LogRegSGD}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Log\+Reg\+SGD\+::\+Log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+Calculates log of each element. Implementation doesn\textquotesingle{}t use \mbox{\hyperlink{classMatrix_aab08352f6e89b3dfb616c10998db4570}{Matrix\+::\+Apply}} 
+\begin{DoxyParams}{Parameters}
+{\em in} & input matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{classLogRegSGD_ac7ffba0eb63811c3261dd67269c7d7fa}\label{classLogRegSGD_ac7ffba0eb63811c3261dd67269c7d7fa}} 
 \index{LogRegSGD@{LogRegSGD}!netInput@{netInput}}
 \index{netInput@{netInput}!LogRegSGD@{LogRegSGD}}
@@ -170,8 +204,57 @@ predicted output for given input
 
 Implements \mbox{\hyperlink{classClassifier_a0d47e1cccc5be1cdff3b202f48625afe}{Classifier}}.
 
+\mbox{\Hypertarget{classLogRegSGD_ae0fa063b1608fd8695d5bb4d30fe76da}\label{classLogRegSGD_ae0fa063b1608fd8695d5bb4d30fe76da}} 
+\index{LogRegSGD@{LogRegSGD}!update\_weights@{update\_weights}}
+\index{update\_weights@{update\_weights}!LogRegSGD@{LogRegSGD}}
+\doxysubsubsection{\texorpdfstring{update\_weights()}{update\_weights()}}
+{\footnotesize\ttfamily double Log\+Reg\+SGD\+::update\+\_\+weights (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{xi,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+logistical regression 
+\begin{DoxyParams}{Parameters}
+{\em xi} & input values \\
+\hline
+{\em target} & target output values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cost 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}\label{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}} 
+\index{LogRegSGD@{LogRegSGD}!randomState@{randomState}}
+\index{randomState@{randomState}!LogRegSGD@{LogRegSGD}}
+\doxysubsubsection{\texorpdfstring{randomState}{randomState}}
+{\footnotesize\ttfamily int Log\+Reg\+SGD\+::random\+State}
+
+
+
+initialize weights with random state 
+
+\mbox{\Hypertarget{classLogRegSGD_af80d2b982ab742580caeda9bd2f48d97}\label{classLogRegSGD_af80d2b982ab742580caeda9bd2f48d97}} 
+\index{LogRegSGD@{LogRegSGD}!sgd@{sgd}}
+\index{sgd@{sgd}!LogRegSGD@{LogRegSGD}}
+\doxysubsubsection{\texorpdfstring{sgd}{sgd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSGD}{SGD}}$\ast$ Log\+Reg\+SGD\+::sgd = nullptr}
+
+
+
+algorithmic object to represent fitting algorithm 
+
+\mbox{\Hypertarget{classLogRegSGD_a3bfe916ce0635c0b00c77731bf3ad77e}\label{classLogRegSGD_a3bfe916ce0635c0b00c77731bf3ad77e}} 
+\index{LogRegSGD@{LogRegSGD}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!LogRegSGD@{LogRegSGD}}
+\doxysubsubsection{\texorpdfstring{shuffle}{shuffle}}
+{\footnotesize\ttfamily bool Log\+Reg\+SGD\+::shuffle}
+
+
+
+signalizes whether given dataset should be shuffled while fitting 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/ds/Log\+Reg\+SGD.\+h\end{DoxyCompactItemize}
+include/math/ds/\mbox{\hyperlink{LogRegSGD_8h}{Log\+Reg\+SGD.\+h}}\end{DoxyCompactItemize}

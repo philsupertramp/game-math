@@ -74,7 +74,7 @@ $(function() {
 <div class="contents">
 <p>This is an example on how to use ODEBDF2.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;../../Test.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;math/numerics/ode/ODESolver.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="ODESolver_8h.html">math/numerics/ode/ODESolver.h</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span>ODEBDF2TestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
@@ -323,14 +323,12 @@ $(function() {
 <div class="line">        { 1.091475327863198, -0.293492266690232 },  { 1.057764223465025, -0.381304859423884 },</div>
 <div class="line">        { 1.015379115888559, -0.467221091656128 },  { 0.964541035479971, -0.550645668246473 },</div>
 <div class="line">        { 0.905534727598532, -0.630904216178659 },</div>
-<div class="line"> </div>
 <div class="line">        });</div>
 <div class="line">        std::cout &lt;&lt; yResult &lt;&lt; std::endl;</div>
 <div class="line">        AssertEqual(yExpected, yResult);</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> i = 0; i &lt; yResult.rows(); i++) { AssertEqual(tExpected[i], tResult(i, 0)); }</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
-<div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{ TestOdeBDF2(); }</div>
@@ -340,9 +338,10 @@ $(function() {
 <div class="line">    ODEBDF2TestCase().run();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
+<div class="ttc" id="aODESolver_8h_html"><div class="ttname"><a href="ODESolver_8h.html">ODESolver.h</a></div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassODESolver_html_a6e1e2b2a40e7f022da050975d475b33a"><div class="ttname"><a href="classODESolver.html#a6e1e2b2a40e7f022da050975d475b33a">ODESolver::odeBDF2</a></div><div class="ttdeci">static ODEResult odeBDF2(const ODE &amp;fun, const std::vector&lt; double &gt; &amp;tInterval, const Matrix&lt; double &gt; &amp;y0, const ODEOption &amp;option)</div><div class="ttdef"><b>Definition:</b> ODESolver.h:62</div></div>
-<div class="ttc" id="astructODEOption_html"><div class="ttname"><a href="structODEOption.html">ODEOption</a></div><div class="ttdef"><b>Definition:</b> ode.h:51</div></div>
+<div class="ttc" id="aclassODESolver_html_a6e1e2b2a40e7f022da050975d475b33a"><div class="ttname"><a href="classODESolver.html#a6e1e2b2a40e7f022da050975d475b33a">ODESolver::odeBDF2</a></div><div class="ttdeci">static ODEResult odeBDF2(const ODE &amp;fun, const std::vector&lt; double &gt; &amp;tInterval, const Matrix&lt; double &gt; &amp;y0, const ODEOption &amp;option)</div><div class="ttdef"><b>Definition:</b> ODESolver.h:71</div></div>
+<div class="ttc" id="astructODEOption_html"><div class="ttname"><a href="structODEOption.html">ODEOption</a></div><div class="ttdef"><b>Definition:</b> ode.h:56</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

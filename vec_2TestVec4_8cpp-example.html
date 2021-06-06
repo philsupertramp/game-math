@@ -72,7 +72,7 @@ $(function() {
 <div class="title">vec/TestVec4.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example on how to use the <a class="el" href="vec4_8h_source.html">vec4.h</a> file.</p>
+<p>This is an example on how to use the <a class="el" href="vec4_8h.html">vec4.h</a> file.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;../Test.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="math_8h.html">math/math.h</a>&gt;</span> <span class="comment">// NOLINT</span></div>
 <div class="line"><span class="preprocessor">#include &lt;sstream&gt;</span></div>
@@ -83,27 +83,27 @@ $(function() {
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">bool</span> testInitialization() {</div>
 <div class="line">        <a name="_a0"></a><a class="code" href="structvec4.html">vec4&lt;T&gt;</a> foo;</div>
-<div class="line">        assert(foo.<a name="a1"></a>x == (T)0);</div>
-<div class="line">        assert(foo.<a name="a2"></a>y == (T)0);</div>
-<div class="line">        assert(foo.<a name="a3"></a>z == (T)0);</div>
-<div class="line">        assert(foo.<a name="a4"></a>w == (T)0);</div>
+<div class="line">        assert(foo.<a name="a1"></a><a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == (T)0);</div>
+<div class="line">        assert(foo.<a name="a2"></a><a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == (T)0);</div>
+<div class="line">        assert(foo.<a name="a3"></a><a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == (T)0);</div>
+<div class="line">        assert(foo.<a name="a4"></a><a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == (T)0);</div>
 <div class="line"> </div>
 <div class="line">        <a class="code" href="structvec4.html">vec4&lt;T&gt;</a> foo2((T)1, (T)2, (T)3, (T)4);</div>
-<div class="line">        assert(foo2.x == (T)1);</div>
-<div class="line">        assert(foo2.y == (T)2);</div>
-<div class="line">        assert(foo2.z == (T)3);</div>
-<div class="line">        assert(foo2.w == (T)4);</div>
+<div class="line">        assert(foo2.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == (T)1);</div>
+<div class="line">        assert(foo2.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == (T)2);</div>
+<div class="line">        assert(foo2.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == (T)3);</div>
+<div class="line">        assert(foo2.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == (T)4);</div>
 <div class="line"> </div>
 <div class="line">        T vals[4]   = { 2, 4, 6, 8 };</div>
 <div class="line">        <a class="code" href="structvec4.html">vec4&lt;T&gt;</a> vec = build_vec4&lt;T&gt;((<span class="keywordtype">void</span>*)vals);</div>
-<div class="line">        assert(vec.x == (T)2);</div>
-<div class="line">        assert(vec.y == (T)4);</div>
-<div class="line">        assert(vec.z == (T)6);</div>
-<div class="line">        assert(vec.w == (T)8);</div>
+<div class="line">        assert(vec.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == (T)2);</div>
+<div class="line">        assert(vec.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == (T)4);</div>
+<div class="line">        assert(vec.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == (T)6);</div>
+<div class="line">        assert(vec.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == (T)8);</div>
 <div class="line"> </div>
 <div class="line">        <a class="code" href="structvec4.html">vec4&lt;T&gt;</a> <a name="_a5"></a><a class="code" href="structvec2.html">vec2</a>(vals);</div>
-<div class="line">        assert(<a class="code" href="structvec2.html">vec2</a>.<a name="a6"></a>x == (T)2);</div>
-<div class="line">        assert(<a class="code" href="structvec2.html">vec2</a>.<a name="a7"></a>y == (T)4);</div>
+<div class="line">        assert(<a class="code" href="structvec2.html">vec2</a>.<a name="a6"></a><a class="code" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)2);</div>
+<div class="line">        assert(<a class="code" href="structvec2.html">vec2</a>.<a name="a7"></a><a class="code" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)4);</div>
 <div class="line">        assert(<a class="code" href="structvec2.html">vec2</a>.z == (T)6);</div>
 <div class="line">        assert(<a class="code" href="structvec2.html">vec2</a>.w == (T)8);</div>
 <div class="line"> </div>
@@ -112,34 +112,34 @@ $(function() {
 <div class="line">    <span class="keywordtype">bool</span> testAssignment() {</div>
 <div class="line">        <a class="code" href="structvec4.html">vec4&lt;T&gt;</a> foo;</div>
 <div class="line"> </div>
-<div class="line">        foo.x = (T)1;</div>
-<div class="line">        foo.y = (T)2;</div>
-<div class="line">        foo.z = (T)3;</div>
-<div class="line">        foo.w = (T)4;</div>
+<div class="line">        foo.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> = (T)1;</div>
+<div class="line">        foo.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> = (T)2;</div>
+<div class="line">        foo.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> = (T)3;</div>
+<div class="line">        foo.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> = (T)4;</div>
 <div class="line"> </div>
-<div class="line">        assert(foo.x == (T)1);</div>
-<div class="line">        assert(foo.y == (T)2);</div>
-<div class="line">        assert(foo.z == (T)3);</div>
-<div class="line">        assert(foo.w == (T)4);</div>
+<div class="line">        assert(foo.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == (T)1);</div>
+<div class="line">        assert(foo.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == (T)2);</div>
+<div class="line">        assert(foo.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == (T)3);</div>
+<div class="line">        assert(foo.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == (T)4);</div>
 <div class="line"> </div>
 <div class="line">        foo[0] = (T)5;</div>
 <div class="line">        foo[1] = (T)6;</div>
 <div class="line">        foo[2] = (T)7;</div>
 <div class="line">        foo[3] = (T)8;</div>
 <div class="line"> </div>
-<div class="line">        assert(foo.x == (T)5);</div>
-<div class="line">        assert(foo.y == (T)6);</div>
-<div class="line">        assert(foo.z == (T)7);</div>
-<div class="line">        assert(foo.w == (T)8);</div>
+<div class="line">        assert(foo.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == (T)5);</div>
+<div class="line">        assert(foo.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == (T)6);</div>
+<div class="line">        assert(foo.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == (T)7);</div>
+<div class="line">        assert(foo.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == (T)8);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> testMemberAccess() {</div>
 <div class="line">        <a class="code" href="structvec4.html">vec4&lt;T&gt;</a> foo;</div>
 <div class="line"> </div>
-<div class="line">        foo.x = (T)1;</div>
-<div class="line">        foo.y = (T)2;</div>
-<div class="line">        foo.z = (T)3;</div>
-<div class="line">        foo.w = (T)4;</div>
+<div class="line">        foo.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> = (T)1;</div>
+<div class="line">        foo.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> = (T)2;</div>
+<div class="line">        foo.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> = (T)3;</div>
+<div class="line">        foo.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> = (T)4;</div>
 <div class="line"> </div>
 <div class="line">        assert(foo[0] == 1);</div>
 <div class="line">        assert(foo[1] == 2);</div>
@@ -162,18 +162,18 @@ $(function() {
 <div class="line">            <a class="code" href="structvec4.html">vec4&lt;T&gt;</a> normBaz = baz.<a class="code" href="structvec4.html#a64fd4d39d8943f0085c945765e5c6eb2">normalize</a>();</div>
 <div class="line"> </div>
 <div class="line">            <span class="comment">// floating point precision 1e-7</span></div>
-<div class="line">            assert(normFoo.x - (T)0.5f &lt; 1e-7);</div>
-<div class="line">            assert(normFoo.y - (T)0.5f &lt; 1e-7);</div>
-<div class="line">            assert(normFoo.z - (T)0.5f &lt; 1e-7);</div>
-<div class="line">            assert(normFoo.w - (T)0.5f &lt; 1e-7);</div>
-<div class="line">            assert(normBar.x - (T)0.5f &lt; 1e-7);</div>
-<div class="line">            assert(normBar.y - (T)-0.5f &lt; 1e-7);</div>
-<div class="line">            assert(normBar.z - (T)0.5f &lt; 1e-7);</div>
-<div class="line">            assert(normBar.w - (T)0.5f &lt; 1e-7);</div>
-<div class="line">            assert(normBaz.x - (T)0.962250471f &lt; 1e-7);</div>
-<div class="line">            assert(normBaz.y - (T)0.0f &lt; 1e-7);</div>
-<div class="line">            assert(normBaz.z - (T)0.192450091f &lt; 1e-7);</div>
-<div class="line">            assert(normBaz.w - (T)0.192450091f &lt; 1e-7);</div>
+<div class="line">            assert(normFoo.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> - (T)0.5f &lt; 1e-7);</div>
+<div class="line">            assert(normFoo.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> - (T)0.5f &lt; 1e-7);</div>
+<div class="line">            assert(normFoo.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> - (T)0.5f &lt; 1e-7);</div>
+<div class="line">            assert(normFoo.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> - (T)0.5f &lt; 1e-7);</div>
+<div class="line">            assert(normBar.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> - (T)0.5f &lt; 1e-7);</div>
+<div class="line">            assert(normBar.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> - (T)-0.5f &lt; 1e-7);</div>
+<div class="line">            assert(normBar.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> - (T)0.5f &lt; 1e-7);</div>
+<div class="line">            assert(normBar.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> - (T)0.5f &lt; 1e-7);</div>
+<div class="line">            assert(normBaz.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> - (T)0.962250471f &lt; 1e-7);</div>
+<div class="line">            assert(normBaz.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> - (T)0.0f &lt; 1e-7);</div>
+<div class="line">            assert(normBaz.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> - (T)0.192450091f &lt; 1e-7);</div>
+<div class="line">            assert(normBaz.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> - (T)0.192450091f &lt; 1e-7);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
@@ -184,41 +184,41 @@ $(function() {
 <div class="line">        <span class="comment">// +</span></div>
 <div class="line">        <a class="code" href="structvec4.html">vec4&lt;T&gt;</a> fooCopy = foo;</div>
 <div class="line">        fooCopy += bar;</div>
-<div class="line">        assert(fooCopy.x == 2.0f);</div>
-<div class="line">        assert(fooCopy.y == 0.0f);</div>
-<div class="line">        assert(fooCopy.z == 2.0f);</div>
-<div class="line">        assert(fooCopy.w == 2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == 2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == 0.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == 2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == 2.0f);</div>
 <div class="line">        fooCopy = foo + bar;</div>
-<div class="line">        assert(fooCopy.x == 2.0f);</div>
-<div class="line">        assert(fooCopy.y == 0.0f);</div>
-<div class="line">        assert(fooCopy.z == 2.0f);</div>
-<div class="line">        assert(fooCopy.w == 2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == 2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == 0.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == 2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == 2.0f);</div>
 <div class="line">        fooCopy = foo;</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// -</span></div>
 <div class="line">        fooCopy -= bar;</div>
-<div class="line">        assert(fooCopy.x == 0.0f);</div>
-<div class="line">        assert(fooCopy.y == 2.0f);</div>
-<div class="line">        assert(fooCopy.z == 0.0f);</div>
-<div class="line">        assert(fooCopy.w == 0.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == 0.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == 2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == 0.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == 0.0f);</div>
 <div class="line">        fooCopy = foo - bar;</div>
-<div class="line">        assert(fooCopy.x == 0.0f);</div>
-<div class="line">        assert(fooCopy.y == 2.0f);</div>
-<div class="line">        assert(fooCopy.z == 0.0f);</div>
-<div class="line">        assert(fooCopy.w == 0.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == 0.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == 2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == 0.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == 0.0f);</div>
 <div class="line">        fooCopy = foo;</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// *</span></div>
 <div class="line">        fooCopy *= 2.0f;</div>
-<div class="line">        assert(fooCopy.x == (T)2.0f);</div>
-<div class="line">        assert(fooCopy.y == (T)2.0f);</div>
-<div class="line">        assert(fooCopy.z == (T)2.0f);</div>
-<div class="line">        assert(fooCopy.w == (T)2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == (T)2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == (T)2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == (T)2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == (T)2.0f);</div>
 <div class="line">        fooCopy = foo * 2.0f;</div>
-<div class="line">        assert(fooCopy.x == (T)2.0f);</div>
-<div class="line">        assert(fooCopy.y == (T)2.0f);</div>
-<div class="line">        assert(fooCopy.z == (T)2.0f);</div>
-<div class="line">        assert(fooCopy.w == (T)2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == (T)2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == (T)2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == (T)2.0f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == (T)2.0f);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordtype">float</span> fooVal = foo * bar;</div>
 <div class="line">        assert(fooVal == (T)2.0f);</div>
@@ -228,15 +228,15 @@ $(function() {
 <div class="line"> </div>
 <div class="line">        <span class="comment">// /</span></div>
 <div class="line">        fooCopy /= 2.0f;</div>
-<div class="line">        assert(fooCopy.x == (T)0.5f);</div>
-<div class="line">        assert(fooCopy.y == (T)0.5f);</div>
-<div class="line">        assert(fooCopy.z == (T)0.5f);</div>
-<div class="line">        assert(fooCopy.w == (T)0.5f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == (T)0.5f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == (T)0.5f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == (T)0.5f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == (T)0.5f);</div>
 <div class="line">        fooCopy = foo / 2.0f;</div>
-<div class="line">        assert(fooCopy.x == (T)0.5f);</div>
-<div class="line">        assert(fooCopy.y == (T)0.5f);</div>
-<div class="line">        assert(fooCopy.z == (T)0.5f);</div>
-<div class="line">        assert(fooCopy.w == (T)0.5f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">x</a> == (T)0.5f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> == (T)0.5f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">z</a> == (T)0.5f);</div>
+<div class="line">        assert(fooCopy.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a> == (T)0.5f);</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// ostream&lt;&lt;</span></div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;vec4:\n&quot;</span> &lt;&lt; foo;</div>
@@ -286,9 +286,15 @@ $(function() {
 <div class="line">}</div>
 <div class="ttc" id="amath_8h_html"><div class="ttname"><a href="math_8h.html">math.h</a></div></div>
 <div class="ttc" id="astructvec2_html"><div class="ttname"><a href="structvec2.html">vec2</a></div><div class="ttdef"><b>Definition:</b> vec2.h:11</div></div>
+<div class="ttc" id="astructvec2_html_a74bc54c64e2e47307e3807b2f1c6436b"><div class="ttname"><a href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">vec2::y</a></div><div class="ttdeci">T y</div><div class="ttdef"><b>Definition:</b> vec2.h:29</div></div>
+<div class="ttc" id="astructvec2_html_acbedc70458fbe177e24770b64267f07d"><div class="ttname"><a href="structvec2.html#acbedc70458fbe177e24770b64267f07d">vec2::x</a></div><div class="ttdeci">T x</div><div class="ttdef"><b>Definition:</b> vec2.h:29</div></div>
 <div class="ttc" id="astructvec4_html"><div class="ttname"><a href="structvec4.html">vec4</a></div><div class="ttdef"><b>Definition:</b> vec4.h:11</div></div>
+<div class="ttc" id="astructvec4_html_a36a56fd42283fa83e57a0a07212174de"><div class="ttname"><a href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">vec4::w</a></div><div class="ttdeci">T w</div><div class="ttdef"><b>Definition:</b> vec4.h:29</div></div>
 <div class="ttc" id="astructvec4_html_a64fd4d39d8943f0085c945765e5c6eb2"><div class="ttname"><a href="structvec4.html#a64fd4d39d8943f0085c945765e5c6eb2">vec4::normalize</a></div><div class="ttdeci">vec4&lt; T &gt; normalize() const</div><div class="ttdef"><b>Definition:</b> vec4.h:103</div></div>
+<div class="ttc" id="astructvec4_html_a794403b7afd3d540f2574f891c1363f4"><div class="ttname"><a href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">vec4::y</a></div><div class="ttdeci">T y</div><div class="ttdef"><b>Definition:</b> vec4.h:29</div></div>
 <div class="ttc" id="astructvec4_html_aa14d2adcfa8bb4c91325c2c743c1e673"><div class="ttname"><a href="structvec4.html#aa14d2adcfa8bb4c91325c2c743c1e673">vec4::length</a></div><div class="ttdeci">float length() const</div><div class="ttdef"><b>Definition:</b> vec4.h:97</div></div>
+<div class="ttc" id="astructvec4_html_ab2a475bab952f0b52ae276170e4ccce8"><div class="ttname"><a href="structvec4.html#ab2a475bab952f0b52ae276170e4ccce8">vec4::z</a></div><div class="ttdeci">T z</div><div class="ttdef"><b>Definition:</b> vec4.h:29</div></div>
+<div class="ttc" id="astructvec4_html_ac71a642a8279ea6d303006e81e4abf2a"><div class="ttname"><a href="structvec4.html#ac71a642a8279ea6d303006e81e4abf2a">vec4::x</a></div><div class="ttdeci">T x</div><div class="ttdef"><b>Definition:</b> vec4.h:29</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

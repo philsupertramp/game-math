@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['plotindices_617',['plotIndices',['../structPlotAttributes.html#ab52812aea2de2730dbccf423d5f4797e',1,'PlotAttributes']]],
-  ['plotnames_618',['plotNames',['../structPlotAttributes.html#af1fbc2faf45c17722017f841f3e92639',1,'PlotAttributes']]],
-  ['plottype_619',['plotType',['../classPlot.html#a77875f7b918ccd9a43f72b189b2e102d',1,'Plot']]],
-  ['plottypename_620',['plotTypeName',['../classPlot.html#a84d0108c396f7665f228340fce807992',1,'Plot']]],
-  ['plottypes_621',['plotTypes',['../structPlotAttributes.html#a366b5a4078cb55cc358dc956bf3fef88',1,'PlotAttributes']]],
-  ['pointstrength_622',['pointStrength',['../structPlotAttributes.html#a84595caf0d1f946b36c8c4b5280830eb',1,'PlotAttributes']]],
-  ['priority_623',['priority',['../classOperator.html#aac3650047650adcb082c21b2a5bdfb1c',1,'Operator']]]
+  ['n_806',['n',['../structInterest.html#a5cd8bfed735cebe9dfa4c46d14838b32',1,'Interest']]],
+  ['n_5fiter_807',['n_iter',['../classClassifier.html#a262d07b1324365425b12bb08a859984a',1,'Classifier::n_iter()'],['../classSGD.html#a41e45e615afc99e5336bde58de5d1e02',1,'SGD::n_iter()']]],
+  ['needsfree_808',['needsFree',['../classMatrix.html#a89669a80df8ca29a0d9c32ab5d73bd53',1,'Matrix']]],
+  ['net_5finput_5ffun_809',['net_input_fun',['../classSGD.html#abe4eb0710a8fc95e44ce409903a53fbb',1,'SGD']]],
+  ['numelements_810',['numElements',['../classPlot.html#a1617d33546bbcfe4458899bc00eeb0ef',1,'Plot']]],
+  ['numericvalue_811',['numericValue',['../classNumber.html#afbf6aa15724b701028af2647ae9dd337',1,'Number']]]
 ];

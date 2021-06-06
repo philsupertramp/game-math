@@ -24,28 +24,21 @@ std\+::string \mbox{\hyperlink{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}{
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classMathNode_a23bb4430c010646f85a41e722f30d7f6}\label{classMathNode_a23bb4430c010646f85a41e722f30d7f6}} 
 bool \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{is\+Negative}} = false
 \begin{DoxyCompactList}\small\item\em helper to determine whether a node is negated or not \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classMathNode_a9cff117d073cd15538cf3f1d385d3207}\label{classMathNode_a9cff117d073cd15538cf3f1d385d3207}} 
 bool \mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{has\+Parentheses}} = false
 \begin{DoxyCompactList}\small\item\em helper to determine if node is within parentheses \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}\label{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}} 
-Math\+Node\+Type \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}}
+\mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}} \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}}
 \begin{DoxyCompactList}\small\item\em node type representation \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}\label{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}} 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}} = nullptr
 \begin{DoxyCompactList}\small\item\em next node on left side \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classMathNode_af81f7d62cd9008544aa999c6a1c55934}\label{classMathNode_af81f7d62cd9008544aa999c6a1c55934}} 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}} = nullptr
 \begin{DoxyCompactList}\small\item\em next node on right side \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classMathNode_a2d7c199d2c5581160db369014654c084}\label{classMathNode_a2d7c199d2c5581160db369014654c084}} 
 char $\ast$ \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}} \{\}
 \begin{DoxyCompactList}\small\item\em char representation of value \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}\label{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}} 
 size\+\_\+t \mbox{\hyperlink{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}{val\+Size}} = 0
 \begin{DoxyCompactList}\small\item\em helper to store size of value \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
@@ -145,6 +138,79 @@ beautified output operator
 \end{DoxyReturn}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMathNode_a9cff117d073cd15538cf3f1d385d3207}\label{classMathNode_a9cff117d073cd15538cf3f1d385d3207}} 
+\index{MathNode@{MathNode}!hasParentheses@{hasParentheses}}
+\index{hasParentheses@{hasParentheses}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{hasParentheses}{hasParentheses}}
+{\footnotesize\ttfamily bool Math\+Node\+::has\+Parentheses = false}
+
+
+
+helper to determine if node is within parentheses 
+
+\mbox{\Hypertarget{classMathNode_a23bb4430c010646f85a41e722f30d7f6}\label{classMathNode_a23bb4430c010646f85a41e722f30d7f6}} 
+\index{MathNode@{MathNode}!isNegative@{isNegative}}
+\index{isNegative@{isNegative}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{isNegative}{isNegative}}
+{\footnotesize\ttfamily bool Math\+Node\+::is\+Negative = false}
+
+
+
+helper to determine whether a node is negated or not 
+
+\mbox{\Hypertarget{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}\label{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}} 
+\index{MathNode@{MathNode}!left@{left}}
+\index{left@{left}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{left}{left}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classMathNode}{Math\+Node}}$>$ Math\+Node\+::left = nullptr}
+
+
+
+next node on left side 
+
+\mbox{\Hypertarget{classMathNode_af81f7d62cd9008544aa999c6a1c55934}\label{classMathNode_af81f7d62cd9008544aa999c6a1c55934}} 
+\index{MathNode@{MathNode}!right@{right}}
+\index{right@{right}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{right}{right}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classMathNode}{Math\+Node}}$>$ Math\+Node\+::right = nullptr}
+
+
+
+next node on right side 
+
+\mbox{\Hypertarget{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}\label{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}} 
+\index{MathNode@{MathNode}!type@{type}}
+\index{type@{type}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}} Math\+Node\+::type}
+
+
+
+node type representation 
+
+\mbox{\Hypertarget{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}\label{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}} 
+\index{MathNode@{MathNode}!valSize@{valSize}}
+\index{valSize@{valSize}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{valSize}{valSize}}
+{\footnotesize\ttfamily size\+\_\+t Math\+Node\+::val\+Size = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+helper to store size of value 
+
+\mbox{\Hypertarget{classMathNode_a2d7c199d2c5581160db369014654c084}\label{classMathNode_a2d7c199d2c5581160db369014654c084}} 
+\index{MathNode@{MathNode}!value@{value}}
+\index{value@{value}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily char$\ast$ Math\+Node\+::value \{\}}
+
+
+
+char representation of value 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/symb/Symbolic.\+h\end{DoxyCompactItemize}
+include/math/symb/\mbox{\hyperlink{Symbolic_8h}{Symbolic.\+h}}\end{DoxyCompactItemize}

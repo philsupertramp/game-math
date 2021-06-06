@@ -4,7 +4,7 @@ This is an example on how to use the utils.\+h file.
 
 \begin{DoxyCodeInclude}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}Test.h"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include <math/Matrix.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{Matrix_8h}{math/Matrix.h}}>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{math_8h}{math/math.h}}>}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
@@ -14,39 +14,39 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} a(0, 0, 0);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b(2, 0, 0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a0db82d57fef0c8540f30485e3e8d707f}{Math::Utils::distance}}(a, b), 2.0f);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a0db82d57fef0c8540f30485e3e8d707f}{Math::Utils::distance}}(a, b), 2.0f);}
 \DoxyCodeLine{        b = \{ -\/2, 0, 0 \};}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a0db82d57fef0c8540f30485e3e8d707f}{Math::Utils::distance}}(a, b), 2.0f);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a0db82d57fef0c8540f30485e3e8d707f}{Math::Utils::distance}}(a, b), 2.0f);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestNormalize() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec2}{vec2f}} a2(3, 6);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec2}{vec2f}} b2 = a2.\mbox{\hyperlink{structvec2_a80386b186ebe3fc6d9a0e4f1fa2b1b1d}{normalize}}();}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a0dc178895f92579761e0a27a40494868}{Math::Utils::normalize}}(a2), b2);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a0dc178895f92579761e0a27a40494868}{Math::Utils::normalize}}(a2), b2);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} a3(0, 3, 6);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b3 = a3.\mbox{\hyperlink{structvec3_a78346761e14409bf1360d7b8827c751b}{normalize}}();}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a0dc178895f92579761e0a27a40494868}{Math::Utils::normalize}}(a3), b3);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a0dc178895f92579761e0a27a40494868}{Math::Utils::normalize}}(a3), b3);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4f}} a4(0, 3, 6, 9);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4f}} b4 = a4.\mbox{\hyperlink{structvec4_a64fd4d39d8943f0085c945765e5c6eb2}{normalize}}();}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a0dc178895f92579761e0a27a40494868}{Math::Utils::normalize}}(a4), b4);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a0dc178895f92579761e0a27a40494868}{Math::Utils::normalize}}(a4), b4);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestTranslate() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} model(0.0f);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} b = \mbox{\hyperlink{utils_8h_af2f6fbcc6208b71f72da58c6c09ad02a}{Math::Utils::translate}}(model, \{ 1.0, 1.0, 1.0 \});}
+\DoxyCodeLine{        \textcolor{keyword}{auto} b = \mbox{\hyperlink{namespaceMath_1_1Utils_af2f6fbcc6208b71f72da58c6c09ad02a}{Math::Utils::translate}}(model, \{ 1.0, 1.0, 1.0 \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(model, b);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestLookAt() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} \mbox{\hyperlink{numerics_2utils_8h_af2b3071fc3f2b2a1e903ceea3a9afa76}{eye}}(1, 0, 1);}
+\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} \mbox{\hyperlink{utils_8cpp_a02435943b506858e6dd5d86fc85991c0}{eye}}(1, 0, 1);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} center(0, 0, 0);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} up(0, 1, 0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{utils_8h_ad84d5d2918361fd0e154c931b80db5ae}{Math::Utils::lookAt}}(\mbox{\hyperlink{numerics_2utils_8h_af2b3071fc3f2b2a1e903ceea3a9afa76}{eye}}, center, up);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_ad84d5d2918361fd0e154c931b80db5ae}{Math::Utils::lookAt}}(\mbox{\hyperlink{utils_8cpp_a02435943b506858e6dd5d86fc85991c0}{eye}}, center, up);}
 \DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} expected(}
 \DoxyCodeLine{        \{ 0.7071068286895752, 0, 0.70710676908493042, 0 \},}
 \DoxyCodeLine{        \{ 0, 1, -\/0, 0 \},}
@@ -75,7 +75,7 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestAngleAxis() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} a(1, 1, 1);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{utils_8h_a68305043852a6bf7aeffd0c8495d1776}{Math::Utils::angleAxis}}(0, a);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_a68305043852a6bf7aeffd0c8495d1776}{Math::Utils::angleAxis}}(0, a);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} expected(0);}
 \DoxyCodeLine{        AssertEqual(res, expected);}
@@ -83,10 +83,10 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestScale() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} model(1.0f);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{utils_8h_ae671ae829d6aa8be033a023e8aafadda}{Math::Utils::scale}}(model, 1);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_ae671ae829d6aa8be033a023e8aafadda}{Math::Utils::scale}}(model, 1);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(model, res);}
-\DoxyCodeLine{        res = \mbox{\hyperlink{utils_8h_ae671ae829d6aa8be033a023e8aafadda}{Math::Utils::scale}}(model, 2);}
+\DoxyCodeLine{        res = \mbox{\hyperlink{namespaceMath_1_1Utils_ae671ae829d6aa8be033a023e8aafadda}{Math::Utils::scale}}(model, 2);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keyword}{auto} expected = model * 2.0f;}
 \DoxyCodeLine{}
@@ -97,7 +97,7 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestRotate() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} a(1.0f);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b(1.0f, 0, 0);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{utils_8h_a613016d9db9e0f9909b6c3a0a5b40b4e}{Math::Utils::rotate}}(a, 90, b);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_a613016d9db9e0f9909b6c3a0a5b40b4e}{Math::Utils::rotate}}(a, 90, b);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} expected(\{ \{ 1, 0, 0, 0 \},}
 \DoxyCodeLine{                         \{ 0, -\/0.4480736255645752, 0.89399665594100952, 0 \},}
@@ -110,27 +110,27 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} a(1, 0, 0);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b(2, 0, 0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a5fc3ba474ff6374ecf92ae619b6bf728}{Math::Utils::max}}(a, b), b);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a5fc3ba474ff6374ecf92ae619b6bf728}{Math::Utils::max}}(a, b), b);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestLerp() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} a(1, 0, 0);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b(2, 0, 0);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{utils_8h_a7d0cff957728efb27d5414c029e8b3af}{Math::Utils::lerp}}(a, b, 0.0);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_a7d0cff957728efb27d5414c029e8b3af}{Math::Utils::lerp}}(a, b, 0.0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(res, a);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        res = \mbox{\hyperlink{utils_8h_a7d0cff957728efb27d5414c029e8b3af}{Math::Utils::lerp}}(b, a, 0.0);}
+\DoxyCodeLine{        res = \mbox{\hyperlink{namespaceMath_1_1Utils_a7d0cff957728efb27d5414c029e8b3af}{Math::Utils::lerp}}(b, a, 0.0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(res, b);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        res = \mbox{\hyperlink{utils_8h_a7d0cff957728efb27d5414c029e8b3af}{Math::Utils::lerp}}(a, b, 0.5);}
+\DoxyCodeLine{        res = \mbox{\hyperlink{namespaceMath_1_1Utils_a7d0cff957728efb27d5414c029e8b3af}{Math::Utils::lerp}}(a, b, 0.5);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(res, \{ 1.5, 0, 0 \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4f}} a4(1, 0, 0, 0);}
 \DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4f}} b4(2, 0, 0, 0);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res4 = \mbox{\hyperlink{utils_8h_a7d0cff957728efb27d5414c029e8b3af}{Math::Utils::lerp}}(a4, b4, 0.0);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} res4 = \mbox{\hyperlink{namespaceMath_1_1Utils_a7d0cff957728efb27d5414c029e8b3af}{Math::Utils::lerp}}(a4, b4, 0.0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(res4, a4);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}

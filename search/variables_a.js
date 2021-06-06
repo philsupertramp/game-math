@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['n_611',['n',['../structInterest.html#a5cd8bfed735cebe9dfa4c46d14838b32',1,'Interest']]],
-  ['n_5fiter_612',['n_iter',['../classClassifier.html#a262d07b1324365425b12bb08a859984a',1,'Classifier']]],
-  ['numelements_613',['numElements',['../classPlot.html#a1617d33546bbcfe4458899bc00eeb0ef',1,'Plot']]]
+  ['left_799',['left',['../classMathNode.html#a7246ecf47bdb68471202f2c725cb41e4',1,'MathNode']]],
+  ['linestrength_800',['lineStrength',['../structPlotAttributes.html#a9c108066e425622ee8ee97a85cf31523',1,'PlotAttributes']]]
 ];

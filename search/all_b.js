@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['kroneckermulti_110',['KroneckerMulti',['../classMatrix.html#a3696cceb1d9290c69389a8a0553ec254',1,'Matrix']]]
+  ['jac_148',['jac',['../classNewtonFractal.html#a297f6a51f9f2f9e193a755b157a4fec1',1,'NewtonFractal']]],
+  ['jac_149',['Jac',['../structODEOption.html#a99dbd698766a95bb8a9cf0f2e28d7816',1,'ODEOption']]],
+  ['jacobian_150',['Jacobian',['../newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb',1,'newton.h']]]
 ];

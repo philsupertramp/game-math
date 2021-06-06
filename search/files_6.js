@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['math_2eh_384',['math.h',['../math_8h.html',1,'']]]
+  ['gaussseidel_2eh_515',['gaussSeidel.h',['../gaussSeidel_8h.html',1,'']]]
 ];

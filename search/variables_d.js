@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['r_624',['R',['../structInterest.html#a9857fe887e98a30e7ba7bee2e8dec26f',1,'Interest']]],
-  ['randomstate_625',['randomState',['../classAdalineSGD.html#a7930ffb33b513fec12a6503191fa89a3',1,'AdalineSGD::randomState()'],['../classLogRegSGD.html#a654e74118d5644bc8e18ca5e5bcca997',1,'LogRegSGD::randomState()']]],
-  ['residuals_626',['residuals',['../structLinearModel.html#a8501968c7d6871dd6f3c6aa00e7b1f4d',1,'LinearModel']]],
-  ['right_627',['right',['../classMathNode.html#af81f7d62cd9008544aa999c6a1c55934',1,'MathNode']]],
-  ['rows_628',['rows',['../structMatrixDimension.html#a93df531cf74c1c3a6d6c0519cb2789ef',1,'MatrixDimension']]]
+  ['op_812',['op',['../classOperator.html#aa1053c93ac197de3d97d527ce54c6992',1,'Operator']]],
+  ['output_813',['Output',['../structSet.html#abeb4570e7f558220e76e3fcb03551813',1,'Set']]],
+  ['outputcount_814',['OutputCount',['../structSet.html#a6064a5992e5bc26890f985a836b4aa59',1,'Set::OutputCount()'],['../classDataSet.html#a80e15af63fd1574afb65efa990187203',1,'DataSet::OutputCount()']]]
 ];

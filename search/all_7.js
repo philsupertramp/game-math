@@ -1,15 +1,19 @@
 var searchData=
 [
-  ['game_2dmath_20_3cimg_20src_3d_22https_3a_2f_2fgithub_2ecom_2fphilsupertramp_2fgame_2dmath_2fworkflows_2fcmake_2fbadge_2esvg_3fbranch_3dmaster_22_20alt_3d_22tests_22_2f_3e_74',['game-math &lt;img src=&quot;https://github.com/philsupertramp/game-math/workflows/CMake/badge.svg?branch=master&quot; alt=&quot;Tests&quot;/&gt;',['../index.html',1,'']]],
-  ['gaussseidel_75',['gaussSeidel',['../gaussSeidel_8h.html#ae8be91b27330eabce92d034d3f7bd8b8',1,'gaussSeidel.h']]],
-  ['gaussseidel_2eh_76',['gaussSeidel.h',['../gaussSeidel_8h.html',1,'']]],
-  ['get_77',['Get',['../classRandom.html#a5e7703d9e1a4de62e6483748afe35243',1,'Random::Get(double l=0.0, double r=1.0)'],['../classRandom.html#a2c5d23fef3a61442fb787277bc40b2a6',1,'Random::Get(double l=0.0, double r=1.0)'],['../classRandom.html#a228d4451f162b53d6b03b4b2366bd523',1,'Random::Get(double l=0.0, double r=1.0)'],['../classRandom.html#a890437c0c6efb065847530461df4ea07',1,'Random::Get(double l=0.0, double r=1.0)']]],
-  ['getbatch_78',['GetBatch',['../structSet.html#a38774f6f226f344d4444507fc5e53dc5',1,'Set']]],
-  ['getcoefficient_79',['GetCoefficient',['../classLagrangeBase.html#a4a8130da124cbc7cde51567d2c109f26',1,'LagrangeBase::GetCoefficient()'],['../classNewtonBase.html#a6c1dab8ac618446f83aec81320c67c4e',1,'NewtonBase::GetCoefficient()']]],
-  ['getcomponents_80',['GetComponents',['../classMatrix.html#afe8019630662f76ab9b199e9a0b3e5d1',1,'Matrix']]],
-  ['getdepth_81',['GetDepth',['../classEquation.html#af24aea49f8fddde7c8ac1157bc99c636',1,'Equation']]],
-  ['getexponent_82',['getExponent',['../Probability_8h.html#a6edda0f97cfab68707335fd17ca80462',1,'Probability.cpp']]],
-  ['getindex_83',['GetIndex',['../classMatrix.html#ad0c643ba4f2849b377eb867d3d13722f',1,'Matrix']]],
-  ['getslice_84',['GetSlice',['../classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b',1,'Matrix']]],
-  ['getstring_85',['GetString',['../classMathNode.html#abb5b146cee0a672f8fac4f2fd64c2c5e',1,'MathNode::GetString()'],['../classEquation.html#a5e5434dd97f523734bd6dc41db0ea79a',1,'Equation::GetString()']]]
+  ['finance_2ecpp_88',['Finance.cpp',['../Finance_8cpp.html',1,'']]],
+  ['finance_2eh_89',['Finance.h',['../Finance_8h.html',1,'']]],
+  ['fit_90',['fit',['../classSGD.html#ac1c260b0af030ec1016eb21c18a32952',1,'SGD::fit()'],['../classPerceptron.html#a430fcf4782a3020add0094f986a1c54e',1,'Perceptron::fit()'],['../classLogRegSGD.html#aef4c82d4582b263409e37a1b6d461cbd',1,'LogRegSGD::fit()'],['../classAdalineGD.html#a16791c4ac85a0e7117105f8835a19f69',1,'AdalineGD::fit()'],['../classAdalineSGD.html#a8b97d260bc04aa8cd6d02436fb5f3c76',1,'AdalineSGD::fit()'],['../classClassifier.html#a3fa552228aeeee5abe1108c97f676cad',1,'Classifier::fit()']]],
+  ['format_91',['format',['../format_8h.html#a1921b31564b858b45e94efff9e9d54bf',1,'format.h']]],
+  ['format_2ecpp_92',['format.cpp',['../format_8cpp.html',1,'']]],
+  ['format_2eh_93',['format.h',['../format_8h.html',1,'']]],
+  ['forwardsub_94',['forwardSub',['../forwardSub_8h.html#aa12a13e10a88436c3a0c8f02991b6096',1,'forwardSub.h']]],
+  ['forwardsub_2eh_95',['forwardSub.h',['../forwardSub_8h.html',1,'']]],
+  ['fractals_2eh_96',['Fractals.h',['../Fractals_8h.html',1,'']]],
+  ['from_5fvptr_97',['from_vptr',['../Matrix_8h.html#a155cb3592d490d8bc63d638741c2523d',1,'Matrix.h']]],
+  ['fun_98',['fun',['../classNewtonFractal.html#affdb486db79e645d15419c260cad44c2',1,'NewtonFractal::fun()'],['../classMandelbrot.html#a6b86afb4db2158631df99a45e9821574',1,'Mandelbrot::fun()']]],
+  ['function_99',['Function',['../classFunctionPlot.html#a16148c2b8c06689ceaabfb48a302cb44',1,'FunctionPlot::Function()'],['../classNewtonBase.html#af59cf5892ed772c87c830ceb701160dd',1,'NewtonBase::Function()'],['../classLagrangeBase.html#a56f2ac80cd5872fc9438283ae5460ed2',1,'LagrangeBase::Function()'],['../classMonomBase.html#a4e86d536f746f544318c18c08c12b99f',1,'MonomBase::Function()'],['../classPolynomialBase.html#a7c5cff1055e525bd01ab24cf39bf9ed5',1,'PolynomialBase::Function()']]],
+  ['functionplot_100',['FunctionPlot',['../classFunctionPlot.html#acf609f64cac77f3e556747b73e70fbc1',1,'FunctionPlot::FunctionPlot()'],['../classFunctionPlot.html',1,'FunctionPlot']]],
+  ['fundamentalvalue_101',['fundamentalValue',['../Insurance_8cpp.html#a2e4591777325c288be997cd25344e55f',1,'fundamentalValue(Interest Z):&#160;Insurance.cpp'],['../Insurance_8h.html#a4c101853644e44b2a6a4dc2688ecd77d',1,'fundamentalValue(Interest I):&#160;Insurance.cpp']]],
+  ['fundamentalvalueofannuityinadvance_102',['fundamentalValueOfAnnuityInAdvance',['../Insurance_8cpp.html#a4763e7aa594fde3354b7ee4e2f1ebf54',1,'fundamentalValueOfAnnuityInAdvance(Interest Z):&#160;Insurance.cpp'],['../Insurance_8h.html#a39e7cd069b9d37942e201e0a1992fce5',1,'fundamentalValueOfAnnuityInAdvance(Interest I):&#160;Insurance.cpp']]],
+  ['fundamentalvalueofannuityinarrear_103',['fundamentalValueOfAnnuityInArrear',['../Insurance_8cpp.html#aa27da02ba815ce851c253c1bc2162179',1,'fundamentalValueOfAnnuityInArrear(Interest Z):&#160;Insurance.cpp'],['../Insurance_8h.html#a9425f6005e68c3c2a41871b7edc133d4',1,'fundamentalValueOfAnnuityInArrear(Interest I):&#160;Insurance.cpp']]]
 ];

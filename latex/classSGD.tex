@@ -25,9 +25,21 @@ static \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{cla
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSGD_a843697c86d1d89defc5b23e9847cdb4c}\label{classSGD_a843697c86d1d89defc5b23e9847cdb4c}} 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSGD_a843697c86d1d89defc5b23e9847cdb4c}{cost}}
 \begin{DoxyCompactList}\small\item\em matrix holding cost per epoch \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{classSGD_a41e45e615afc99e5336bde58de5d1e02}{n\+\_\+iter}}
+\begin{DoxyCompactList}\small\item\em number iterations (epochs) during fit \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSGD_ad45df4b7453474d02c8d7888dddcdcdf}{eta}}
+\begin{DoxyCompactList}\small\item\em cost factor \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSGD_a3150c7954c208f5f57f7744196ec1fcc}{shuffle}} = false
+\begin{DoxyCompactList}\small\item\em shuffle during training \end{DoxyCompactList}\item 
+std\+::function$<$ double(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \mbox{\hyperlink{classSGD_a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3}{weight\+\_\+update}} = nullptr
+\begin{DoxyCompactList}\small\item\em represents weight update function \end{DoxyCompactList}\item 
+std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \mbox{\hyperlink{classSGD_abe4eb0710a8fc95e44ce409903a53fbb}{net\+\_\+input\+\_\+fun}} = nullptr
+\begin{DoxyCompactList}\small\item\em represents net input function \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -138,6 +150,69 @@ calculates update values (mean-\/square-\/error)
 \end{DoxyReturn}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSGD_a843697c86d1d89defc5b23e9847cdb4c}\label{classSGD_a843697c86d1d89defc5b23e9847cdb4c}} 
+\index{SGD@{SGD}!cost@{cost}}
+\index{cost@{cost}!SGD@{SGD}}
+\doxysubsubsection{\texorpdfstring{cost}{cost}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ SGD\+::cost}
+
+
+
+matrix holding cost per epoch 
+
+\mbox{\Hypertarget{classSGD_ad45df4b7453474d02c8d7888dddcdcdf}\label{classSGD_ad45df4b7453474d02c8d7888dddcdcdf}} 
+\index{SGD@{SGD}!eta@{eta}}
+\index{eta@{eta}!SGD@{SGD}}
+\doxysubsubsection{\texorpdfstring{eta}{eta}}
+{\footnotesize\ttfamily double SGD\+::eta\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+cost factor 
+
+\mbox{\Hypertarget{classSGD_a41e45e615afc99e5336bde58de5d1e02}\label{classSGD_a41e45e615afc99e5336bde58de5d1e02}} 
+\index{SGD@{SGD}!n\_iter@{n\_iter}}
+\index{n\_iter@{n\_iter}!SGD@{SGD}}
+\doxysubsubsection{\texorpdfstring{n\_iter}{n\_iter}}
+{\footnotesize\ttfamily size\+\_\+t SGD\+::n\+\_\+iter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+number iterations (epochs) during fit 
+
+\mbox{\Hypertarget{classSGD_abe4eb0710a8fc95e44ce409903a53fbb}\label{classSGD_abe4eb0710a8fc95e44ce409903a53fbb}} 
+\index{SGD@{SGD}!net\_input\_fun@{net\_input\_fun}}
+\index{net\_input\_fun@{net\_input\_fun}!SGD@{SGD}}
+\doxysubsubsection{\texorpdfstring{net\_input\_fun}{net\_input\_fun}}
+{\footnotesize\ttfamily std\+::function$<$\mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$const \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$\&)$>$ SGD\+::net\+\_\+input\+\_\+fun = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+represents net input function 
+
+\mbox{\Hypertarget{classSGD_a3150c7954c208f5f57f7744196ec1fcc}\label{classSGD_a3150c7954c208f5f57f7744196ec1fcc}} 
+\index{SGD@{SGD}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!SGD@{SGD}}
+\doxysubsubsection{\texorpdfstring{shuffle}{shuffle}}
+{\footnotesize\ttfamily bool SGD\+::shuffle = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+shuffle during training 
+
+\mbox{\Hypertarget{classSGD_a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3}\label{classSGD_a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3}} 
+\index{SGD@{SGD}!weight\_update@{weight\_update}}
+\index{weight\_update@{weight\_update}!SGD@{SGD}}
+\doxysubsubsection{\texorpdfstring{weight\_update}{weight\_update}}
+{\footnotesize\ttfamily std\+::function$<$double(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$\&, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$\&)$>$ SGD\+::weight\+\_\+update = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+represents weight update function 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/ds/SGD.\+h\end{DoxyCompactItemize}
+include/math/ds/\mbox{\hyperlink{SGD_8h}{SGD.\+h}}\end{DoxyCompactItemize}

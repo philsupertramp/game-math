@@ -1,12 +1,5 @@
 var searchData=
 [
-  ['b_568',['b',['../classNewtonBase.html#ad33933afa51a82891d615d2789b089b0',1,'NewtonBase']]],
-  ['b_5f0_569',['B_0',['../structInterest.html#a9bc8fe329ac0da084b26f5af5b25671d',1,'Interest']]],
-  ['b_5fn_570',['B_N',['../structInterest.html#a8fac92e1df946d13d36248dc00a649e7',1,'Interest']]],
-  ['basenode_571',['baseNode',['../classEquation.html#af1bd5572e55f920d9be6285874219c6e',1,'Equation']]],
-  ['batchsize_572',['batchSize',['../classDataSet.html#a72f424eb8039147514fe51fbd2e0948b',1,'DataSet']]],
-  ['beta_5f0_573',['beta_0',['../structLinearModel.html#a832c911ddcbe62705f3b64895e5da04c',1,'LinearModel']]],
-  ['beta_5f1_574',['beta_1',['../structLinearModel.html#ab0455e1b1547e449b9043044680d7773',1,'LinearModel']]],
-  ['bx_575',['bX',['../classPlot.html#a954fcb23b76680d6d0148f3f7af02f4c',1,'Plot']]],
-  ['by_576',['bY',['../classPlot.html#aa8a4a800b93ba4d22b4e4c01eacc583a',1,'Plot']]]
+  ['a_757',['A',['../classMonomBase.html#a7e8455277c9d45cf6d4a108f7421bad0',1,'MonomBase']]],
+  ['attributes_758',['attributes',['../classPlot.html#adccf50e0f1dde033486c08da47fb8c3e',1,'Plot']]]
 ];

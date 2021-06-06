@@ -4,9 +4,9 @@ This is an example on how to use the different Fractal classes.
 
 \begin{DoxyCodeInclude}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../Test.h"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include <math/numerics/Fractals.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{Fractals_8h}{math/numerics/Fractals.h}}>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{numerics_2utils_8h}{math/numerics/utils.h}}>}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include <math/visualization/Plot.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{Plot_8h}{math/visualization/Plot.h}}>}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{class }FractalsTestCase : \textcolor{keyword}{public} Test}
@@ -39,7 +39,6 @@ This is an example on how to use the different Fractal classes.
 \DoxyCodeLine{        \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(M, expected);}
-\DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
@@ -50,18 +49,19 @@ This is an example on how to use the different Fractal classes.
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} expected(\{ \{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 \},}
 \DoxyCodeLine{                                  \{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 \},}
-\DoxyCodeLine{                                  \{ 2, 3, 4, 4, 5, 125, 5, 4, 4, 3 \},}
-\DoxyCodeLine{                                  \{ 4, 4, 4, 5, 6, 125, 6, 5, 4, 4 \},}
-\DoxyCodeLine{                                  \{ 4, 4, 5, 8, 125, 125, 125, 8, 5, 4 \},}
-\DoxyCodeLine{                                  \{ 4, 5, 7, 9, 17, 125, 17, 9, 7, 5 \},}
-\DoxyCodeLine{                                  \{ 5, 7, 27, 125, 125, 125, 125, 125, 27, 7 \},}
-\DoxyCodeLine{                                  \{ 12, 125, 125, 125, 125, 125, 125, 125, 125, 125 \},}
-\DoxyCodeLine{                                  \{ 4, 6, 16, 125, 125, 13, 125, 125, 16, 6 \},}
+\DoxyCodeLine{                                  \{ 2, 3, 4, 4, 5, 0, 5, 4, 4, 3 \},}
+\DoxyCodeLine{                                  \{ 4, 4, 4, 5, 6, 0, 6, 5, 4, 4 \},}
+\DoxyCodeLine{                                  \{ 4, 4, 5, 8, 0, 0, 0, 8, 5, 4 \},}
+\DoxyCodeLine{                                  \{ 4, 5, 7, 9, 17, 0, 17, 9, 7, 5 \},}
+\DoxyCodeLine{                                  \{ 5, 7, 27, 0, 0, 0, 0, 0, 27, 7 \},}
+\DoxyCodeLine{                                  \{ 12, 0, 0, 0, 0, 0, 0, 0, 0, 0 \},}
+\DoxyCodeLine{                                  \{ 4, 6, 16, 0, 0, 13, 0, 0, 16, 6 \},}
 \DoxyCodeLine{                                  \{ 3, 4, 4, 4, 5, 5, 5, 4, 4, 4 \} \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(M, expected);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        fractal.\mbox{\hyperlink{classMandelbrot_a09a174794619b9f2a13010b4af19d498}{detail}} = 100;}
+\DoxyCodeLine{        fractal.\mbox{\hyperlink{classMandelbrot_a09a174794619b9f2a13010b4af19d498}{detail}}   = 1250;}
+\DoxyCodeLine{        fractal.\mbox{\hyperlink{classMandelbrot_a02ac592d77e906df905626032b9af8aa}{maxIters}} = 99;}
 \DoxyCodeLine{        \mbox{\hyperlink{classImagePlot}{ImagePlot}} plot(\textcolor{stringliteral}{"{}Mandelbrot"{}});}
 \DoxyCodeLine{        plot.\mbox{\hyperlink{classImagePlot_abcc293f8ea2f73b54d184baeb742b820}{AddData}}(fractal(), \textcolor{stringliteral}{"{}"{}});}
 \DoxyCodeLine{        plot();}

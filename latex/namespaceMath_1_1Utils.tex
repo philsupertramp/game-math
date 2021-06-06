@@ -1,0 +1,383 @@
+\hypertarget{namespaceMath_1_1Utils}{}\doxysection{Math\+::Utils Namespace Reference}
+\label{namespaceMath_1_1Utils}\index{Math::Utils@{Math::Utils}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class V $>$ }\\float \mbox{\hyperlink{namespaceMath_1_1Utils_a0db82d57fef0c8540f30485e3e8d707f}{distance}} (V a, V b)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a0dc178895f92579761e0a27a40494868}{normalize}} (\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ a)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a99cb57cc1b1dfaf5d364ae7aeba52b47}{normalize}} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ a)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a3dffe7baa24a37cf69425c89ef5898c9}{normalize}} (\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ a)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_af2f6fbcc6208b71f72da58c6c09ad02a}{translate}} (\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ M, \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ V)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_ad84d5d2918361fd0e154c931b80db5ae}{look\+At}} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \mbox{\hyperlink{numerics_2utils_8h_af2b3071fc3f2b2a1e903ceea3a9afa76}{eye}}, \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ center, \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ up)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a4e51b560dfbac7c0f5e6a35ec98f9c27}{ortho}} (const float \&left, const float \&right, const float \&bottom, const float \&top)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a5c146479d4724c9d53208df533ea4ef8}{perspective}} (const float \&FOV, const float \&width, const float \&height, const float \&z\+Near, const float \&z\+Far)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a68305043852a6bf7aeffd0c8495d1776}{angle\+Axis}} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const float \&angle, \mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&axis)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_ae671ae829d6aa8be033a023e8aafadda}{scale}} (\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ mat, const float \&factor)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a613016d9db9e0f9909b6c3a0a5b40b4e}{rotate}} (\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ m, const float \&angle, \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ u)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a5fc3ba474ff6374ecf92ae619b6bf728}{max}} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ a, \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ b)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a7d0cff957728efb27d5414c029e8b3af}{lerp}} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ p1, \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ p2, const float \&v)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_ad354f16ece262d960b73ac51b550ae4d}{lerp}} (\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ p1, \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ p2, const float \&v)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a68305043852a6bf7aeffd0c8495d1776}\label{namespaceMath_1_1Utils_a68305043852a6bf7aeffd0c8495d1776}} 
+\index{Math::Utils@{Math::Utils}!angleAxis@{angleAxis}}
+\index{angleAxis@{angleAxis}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{angleAxis()}{angleAxis()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ Math\+::\+Utils\+::angle\+Axis (\begin{DoxyParamCaption}\item[{\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]} \mbox{]} const float \&}]{angle,  }\item[{\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]} \mbox{]} const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&}]{axis }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+{\em axis} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a0db82d57fef0c8540f30485e3e8d707f}\label{namespaceMath_1_1Utils_a0db82d57fef0c8540f30485e3e8d707f}} 
+\index{Math::Utils@{Math::Utils}!distance@{distance}}
+\index{distance@{distance}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+float Math\+::\+Utils\+::distance (\begin{DoxyParamCaption}\item[{V}]{a,  }\item[{V}]{b }\end{DoxyParamCaption})}
+
+Calculates distance between given vectors 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em V} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a7d0cff957728efb27d5414c029e8b3af}\label{namespaceMath_1_1Utils_a7d0cff957728efb27d5414c029e8b3af}} 
+\index{Math::Utils@{Math::Utils}!lerp@{lerp}}
+\index{lerp@{lerp}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{lerp()}{lerp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structvec3}{vec3}}$<$T$>$ Math\+::\+Utils\+::lerp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{p1,  }\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{p2,  }\item[{const float \&}]{v }\end{DoxyParamCaption})}
+
+linear interpolates a 3D-\/vector by given values 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & \\
+\hline
+{\em p2} & \\
+\hline
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_ad354f16ece262d960b73ac51b550ae4d}\label{namespaceMath_1_1Utils_ad354f16ece262d960b73ac51b550ae4d}} 
+\index{Math::Utils@{Math::Utils}!lerp@{lerp}}
+\index{lerp@{lerp}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{lerp()}{lerp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structvec4}{vec4}}$<$T$>$ Math\+::\+Utils\+::lerp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$}]{p1,  }\item[{\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$}]{p2,  }\item[{const float \&}]{v }\end{DoxyParamCaption})}
+
+linear interpolates a 4D-\/vector by given values 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & \\
+\hline
+{\em p2} & \\
+\hline
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_ad84d5d2918361fd0e154c931b80db5ae}\label{namespaceMath_1_1Utils_ad84d5d2918361fd0e154c931b80db5ae}} 
+\index{Math::Utils@{Math::Utils}!lookAt@{lookAt}}
+\index{lookAt@{lookAt}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{lookAt()}{lookAt()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ Math\+::\+Utils\+::look\+At (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{eye,  }\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{center,  }\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{up }\end{DoxyParamCaption})}
+
+Computes look at matrix for given data 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em eye} & \\
+\hline
+{\em center} & \\
+\hline
+{\em up} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a5fc3ba474ff6374ecf92ae619b6bf728}\label{namespaceMath_1_1Utils_a5fc3ba474ff6374ecf92ae619b6bf728}} 
+\index{Math::Utils@{Math::Utils}!max@{max}}
+\index{max@{max}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structvec3}{vec3}}$<$T$>$ Math\+::\+Utils\+::max (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{a,  }\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{b }\end{DoxyParamCaption})}
+
+Computes max-\/value between two given 3D-\/vectors 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a0dc178895f92579761e0a27a40494868}\label{namespaceMath_1_1Utils_a0dc178895f92579761e0a27a40494868}} 
+\index{Math::Utils@{Math::Utils}!normalize@{normalize}}
+\index{normalize@{normalize}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structvec2}{vec2}}$<$T$>$ Math\+::\+Utils\+::normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$}]{a }\end{DoxyParamCaption})}
+
+helper to normalize 2D-\/vector 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a99cb57cc1b1dfaf5d364ae7aeba52b47}\label{namespaceMath_1_1Utils_a99cb57cc1b1dfaf5d364ae7aeba52b47}} 
+\index{Math::Utils@{Math::Utils}!normalize@{normalize}}
+\index{normalize@{normalize}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structvec3}{vec3}}$<$T$>$ Math\+::\+Utils\+::normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{a }\end{DoxyParamCaption})}
+
+helper to normalize 3D-\/vector 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a3dffe7baa24a37cf69425c89ef5898c9}\label{namespaceMath_1_1Utils_a3dffe7baa24a37cf69425c89ef5898c9}} 
+\index{Math::Utils@{Math::Utils}!normalize@{normalize}}
+\index{normalize@{normalize}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structvec4}{vec4}}$<$T$>$ Math\+::\+Utils\+::normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$}]{a }\end{DoxyParamCaption})}
+
+helper to normalize 4D-\/vector 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a4e51b560dfbac7c0f5e6a35ec98f9c27}\label{namespaceMath_1_1Utils_a4e51b560dfbac7c0f5e6a35ec98f9c27}} 
+\index{Math::Utils@{Math::Utils}!ortho@{ortho}}
+\index{ortho@{ortho}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{ortho()}{ortho()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ Math\+::\+Utils\+::ortho (\begin{DoxyParamCaption}\item[{const float \&}]{left,  }\item[{const float \&}]{right,  }\item[{const float \&}]{bottom,  }\item[{const float \&}]{top }\end{DoxyParamCaption})}
+
+calculates orthogonal projection plane 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em left} & \\
+\hline
+{\em right} & \\
+\hline
+{\em bottom} & \\
+\hline
+{\em top} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a5c146479d4724c9d53208df533ea4ef8}\label{namespaceMath_1_1Utils_a5c146479d4724c9d53208df533ea4ef8}} 
+\index{Math::Utils@{Math::Utils}!perspective@{perspective}}
+\index{perspective@{perspective}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{perspective()}{perspective()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ Math\+::\+Utils\+::perspective (\begin{DoxyParamCaption}\item[{const float \&}]{FOV,  }\item[{const float \&}]{width,  }\item[{const float \&}]{height,  }\item[{const float \&}]{z\+Near,  }\item[{const float \&}]{z\+Far }\end{DoxyParamCaption})}
+
+Computes perspective projection matrix 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em FOV} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+{\em z\+Near} & \\
+\hline
+{\em z\+Far} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a613016d9db9e0f9909b6c3a0a5b40b4e}\label{namespaceMath_1_1Utils_a613016d9db9e0f9909b6c3a0a5b40b4e}} 
+\index{Math::Utils@{Math::Utils}!rotate@{rotate}}
+\index{rotate@{rotate}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ Math\+::\+Utils\+::rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$}]{m,  }\item[{const float \&}]{angle,  }\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{u }\end{DoxyParamCaption})}
+
+Rotates a given matrix m by an angle angle around given axis u 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+{\em angle} & \\
+\hline
+{\em u} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_ae671ae829d6aa8be033a023e8aafadda}\label{namespaceMath_1_1Utils_ae671ae829d6aa8be033a023e8aafadda}} 
+\index{Math::Utils@{Math::Utils}!scale@{scale}}
+\index{scale@{scale}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ Math\+::\+Utils\+::scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$}]{mat,  }\item[{const float \&}]{factor }\end{DoxyParamCaption})}
+
+scales a given matrix by a factor 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & \\
+\hline
+{\em factor} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_af2f6fbcc6208b71f72da58c6c09ad02a}\label{namespaceMath_1_1Utils_af2f6fbcc6208b71f72da58c6c09ad02a}} 
+\index{Math::Utils@{Math::Utils}!translate@{translate}}
+\index{translate@{translate}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{translate()}{translate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ Math\+::\+Utils\+::translate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$}]{M,  }\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{V }\end{DoxyParamCaption})}
+
+Translates a given 4-\/by-\/4 matrix M by given vector V 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em M} & \\
+\hline
+{\em V} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}

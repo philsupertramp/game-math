@@ -87,13 +87,11 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aa3d3f9218597552f3ff4726daa5d68eb"><td class="memItemLeft" align="right" valign="top"><a id="aa3d3f9218597552f3ff4726daa5d68eb"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb">Jacobian</a> = std::function&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt;</td></tr>
-<tr class="memdesc:aa3d3f9218597552f3ff4726daa5d68eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of jacobian <br /></td></tr>
+<tr class="memitem:aa3d3f9218597552f3ff4726daa5d68eb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb">Jacobian</a> = std::function&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt;</td></tr>
+<tr class="memdesc:aa3d3f9218597552f3ff4726daa5d68eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of jacobian  <a href="newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb">More...</a><br /></td></tr>
 <tr class="separator:aa3d3f9218597552f3ff4726daa5d68eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8b65eb11627dab8f1907f164294756b"><td class="memItemLeft" align="right" valign="top"><a id="ae8b65eb11627dab8f1907f164294756b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="newton_8h.html#ae8b65eb11627dab8f1907f164294756b">LinearEquation</a> = std::function&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt;</td></tr>
-<tr class="memdesc:ae8b65eb11627dab8f1907f164294756b"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of linear equation <br /></td></tr>
+<tr class="memitem:ae8b65eb11627dab8f1907f164294756b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="newton_8h.html#ae8b65eb11627dab8f1907f164294756b">LinearEquation</a> = std::function&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt;</td></tr>
+<tr class="memdesc:ae8b65eb11627dab8f1907f164294756b"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of linear equation  <a href="newton_8h.html#ae8b65eb11627dab8f1907f164294756b">More...</a><br /></td></tr>
 <tr class="separator:ae8b65eb11627dab8f1907f164294756b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -102,8 +100,43 @@ Functions</h2></td></tr>
 <tr class="separator:aface2e60d9d28a41b436d94b96752e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implements newton-method to find roots </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+<div class="textblock"><p>Implements newton-method to find roots</p>
+<p>Requires: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="newton_8h.html">math/numerics/lin_alg/newton.h</a>&gt;</span></div>
+<div class="ttc" id="anewton_8h_html"><div class="ttname"><a href="newton_8h.html">newton.h</a></div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="aa3d3f9218597552f3ff4726daa5d68eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3d3f9218597552f3ff4726daa5d68eb">&#9670;&nbsp;</a></span>Jacobian</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb">Jacobian</a> =  std::function&lt;<a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt;(const <a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt;&amp;)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>representation of jacobian </p>
+
+</div>
+</div>
+<a id="ae8b65eb11627dab8f1907f164294756b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8b65eb11627dab8f1907f164294756b">&#9670;&nbsp;</a></span>LinearEquation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="newton_8h.html#ae8b65eb11627dab8f1907f164294756b">LinearEquation</a> =  std::function&lt;<a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt;(const <a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt;&amp;)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>representation of linear equation </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="aface2e60d9d28a41b436d94b96752e4e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aface2e60d9d28a41b436d94b96752e4e">&#9670;&nbsp;</a></span>newton()</h2>
 

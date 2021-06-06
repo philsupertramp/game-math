@@ -1,11 +1,25 @@
 var searchData=
 [
-  ['datafilename_41',['dataFileName',['../classPlot.html#ac5c21369cb37d1e74741766bf26123ec',1,'Plot']]],
-  ['dataset_42',['DataSet',['../classDataSet.html',1,'DataSet'],['../classDataSet.html#a06a0a03f65d1ed5a3b9102242e761639',1,'DataSet::DataSet(const char *filePath, size_t inputCount, size_t outputCount)'],['../classDataSet.html#ad398cb9b594f7fc99ebec3e2fb227ebb',1,'DataSet::DataSet(size_t inputCount, size_t outputCount)']]],
-  ['detail_43',['detail',['../classMandelbrot.html#a09a174794619b9f2a13010b4af19d498',1,'Mandelbrot']]],
-  ['determinant_44',['Determinant',['../classMatrix.html#a5f91e3755bfb6eb7b8aa5d49d8fbadb2',1,'Matrix::Determinant()'],['../structmat2.html#a2392950377c4cbb451ea9d528632b9f9',1,'mat2::Determinant()'],['../structmat3.html#a9590c23f7a73fa134eefdfa3e7bbbece',1,'mat3::Determinant()'],['../structmat4.html#a923b473e059a635bdc17bbfb1a0e878d',1,'mat4::Determinant()']]],
-  ['dim_45',['dim',['../structvec2.html#aa5afbdfa81ffd38272563940ffa7469c',1,'vec2::dim()'],['../structvec3.html#a345843fea85e1b96768cf3ab83c35889',1,'vec3::dim()'],['../structvec4.html#a75071b55935e61bf7f27c7408954dc61',1,'vec4::dim()']]],
-  ['discountfactor_46',['discountFactor',['../Insurance_8h.html#a7447721e5975127c235fe6daa2ce95f9',1,'Insurance.cpp']]],
-  ['distance_47',['distance',['../utils_8h.html#a0db82d57fef0c8540f30485e3e8d707f',1,'Math::Utils']]],
-  ['ds_20_28data_20science_29_2dsubmodule_48',['ds (Data science)-submodule',['../md_include_math_ds_README.html',1,'']]]
+  ['cache_35',['Cache',['../classImageDataSet.html#abe20e5992ddda25f736dfb0789d764a3',1,'ImageDataSet']]],
+  ['calculateequidistant_36',['calculateEquidistant',['../classSpline.html#a4c5c216c01e0a19ef9ad62502a1fa478',1,'Spline']]],
+  ['classes_37',['classes',['../classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e',1,'ImageDataSet']]],
+  ['classifier_38',['Classifier',['../classClassifier.html#adf323be2120dbc43c65e1aed08efd5cb',1,'Classifier::Classifier()'],['../classClassifier.html',1,'Classifier']]],
+  ['classifier_2eh_39',['Classifier.h',['../Classifier_8h.html',1,'']]],
+  ['classnames_40',['classNames',['../classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72',1,'ImageDataSet']]],
+  ['cmp_5fvec3i_41',['cmp_vec3i',['../structcmp__vec3i.html',1,'']]],
+  ['coefficientofdetermination_42',['coefficientOfDetermination',['../Probability_8cpp.html#a7edb177daf3663ea72006b9565610a7e',1,'coefficientOfDetermination(const Matrix&lt; double &gt; &amp;y, const Matrix&lt; double &gt; &amp;yHat):&#160;Probability.cpp'],['../Probability_8h.html#a7edb177daf3663ea72006b9565610a7e',1,'coefficientOfDetermination(const Matrix&lt; double &gt; &amp;y, const Matrix&lt; double &gt; &amp;yHat):&#160;Probability.cpp']]],
+  ['col_5fmean_43',['COL_MEAN',['../DataSet_8h.html#a8436cce5c4911a0849d9e3e6f6ac2d95aff671eea9cd628361f1a7713ed372ce8',1,'DataSet.h']]],
+  ['color_44',['color',['../structPlotAttributes.html#ad1aad84439cf5fbc865d07694e523f27',1,'PlotAttributes']]],
+  ['colorpalette_45',['colorPalette',['../structPlotAttributes.html#a8738b4d86a5db807f0128370bc167043',1,'PlotAttributes']]],
+  ['columns_46',['columns',['../structMatrixDimension.html#aef50c3f8f188346f84c30f0dae35436d',1,'MatrixDimension::columns()'],['../classMatrix.html#a710d9b6934a24229fe06789f65ed0571',1,'Matrix::columns()']]],
+  ['compoundingfactor_47',['compoundingFactor',['../Insurance_8h.html#a1445808f741ac180ac8352c230f9cc14',1,'compoundingFactor(double i):&#160;Insurance.cpp'],['../Insurance_8cpp.html#a1445808f741ac180ac8352c230f9cc14',1,'compoundingFactor(double i):&#160;Insurance.cpp']]],
+  ['corr_48',['Corr',['../Matrix_8h.html#a0248f25849e57a2e715d2dd3a43447f6',1,'Matrix.h']]],
+  ['cost_49',['cost',['../classSGD.html#a843697c86d1d89defc5b23e9847cdb4c',1,'SGD']]],
+  ['costfunction_50',['costFunction',['../classClassifier.html#ae3508f6b16b8e4e770d1fc6e31f8eced',1,'Classifier::costFunction()'],['../classPerceptron.html#a832773d19fa85440d301b4159cee76f6',1,'Perceptron::costFunction()'],['../classLogRegSGD.html#a4db46ff9ecc19620668f315a2cf7fed4',1,'LogRegSGD::costFunction()'],['../classAdalineSGD.html#a83b11a7b467744c0018d8852224275be',1,'AdalineSGD::costFunction()'],['../classAdalineGD.html#aa581a2f4df867d998f642c29c411b872',1,'AdalineGD::costFunction()']]],
+  ['costs_51',['costs',['../classClassifier.html#a8688dfb2318e40a7c2f3747b68c96bae',1,'Classifier']]],
+  ['count_52',['count',['../structSet.html#a21819d28230d81776628a4d152a6fed0',1,'Set']]],
+  ['cov_53',['cov',['../Probability_8cpp.html#aca7f07a568ee49e5d34982dfd6d811db',1,'cov(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y):&#160;Probability.cpp'],['../Probability_8h.html#aca7f07a568ee49e5d34982dfd6d811db',1,'cov(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y):&#160;Probability.cpp']]],
+  ['createast_54',['createAST',['../classEquation.html#a32c3966e224318da04252ca49d442919',1,'Equation']]],
+  ['cross_55',['cross',['../structvec3.html#a6659bbbbdec0fcf10942a8cbc205b952',1,'vec3']]],
+  ['curv_56',['curv',['../classSpline.html#a4bd1bdbc5888be3e26c6b3b4fecd1c49',1,'Spline']]]
 ];

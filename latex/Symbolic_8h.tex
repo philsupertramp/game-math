@@ -1,0 +1,230 @@
+\hypertarget{Symbolic_8h}{}\doxysection{include/math/symb/\+Symbolic.h File Reference}
+\label{Symbolic_8h}\index{include/math/symb/Symbolic.h@{include/math/symb/Symbolic.h}}
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include \char`\"{}../format.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMathNode}{Math\+Node}}
+\item 
+class \mbox{\hyperlink{classOperator}{Operator}}
+\item 
+class \mbox{\hyperlink{classOperand}{Operand}}
+\item 
+class \mbox{\hyperlink{classSymbolic}{Symbolic}}
+\item 
+class \mbox{\hyperlink{classNumber}{Number}}
+\item 
+class \mbox{\hyperlink{classEquation}{Equation}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}} \{ \newline
+\mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefea1c144f8bf59ab742c4408ec393602d02}{Node\+Type\+\_\+\+Operator}} = 0
+, \mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefea1e2b34bb3fd76d1773c0e739ab757f0b}{Node\+Type\+\_\+\+Symbolic}} = 1
+, \mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefead04e2797598b259ea0d4a18142932f96}{Node\+Type\+\_\+\+Numeric}} = 2
+, \mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefeabb22938ecb03779ebe89024bb122529a}{Node\+Type\+\_\+\+Parentheses}} = 3
+, \newline
+\mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefea33343182081eb115cca4d5655d15fe4d}{Node\+Type\+\_\+\+Any}} = 4
+ \}
+\item 
+enum \mbox{\hyperlink{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7}{Operator\+Priority}} \{ \mbox{\hyperlink{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7a16fb5a99927a6fe55a41cd184a41c55b}{OPClass\+Unknown}} = 0
+, \mbox{\hyperlink{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7a14a7e4e3f29c74875a1560a628f7e560}{OPClass\+Line}} = 1
+, \mbox{\hyperlink{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7ad2cb6f029c9332ded1b1359c5021aea5}{OPClass\+Dot}} = 2
+, \mbox{\hyperlink{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7acb85e0b74531a7513ce7efbd0982e893}{OPClass\+Parentheses}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117}{Operator\+Type}} \{ \newline
+\mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a9d2ba264cfc9d4b4d48afaa051abc576}{TYPE\+\_\+\+ADDITION}} = 0
+, \mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a7637e5c33286f4e519ec1622c113e273}{TYPE\+\_\+\+SUBTRACTION}} = 1
+, \mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a40c6b3a7d7ccf0fb358be439f7a969d9}{TYPE\+\_\+\+MULTIPLICATION}} = 2
+, \mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a40d27ed340959efbbe20f81dc93028fb}{TYPE\+\_\+\+DIVISION}} = 3
+, \newline
+\mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a234eaa29e4af2f0d4711216c296a6445}{TYPE\+\_\+\+POWER}} = 4
+, \mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117adb06169322e6eae6db269eab60a12117}{TYPE\+\_\+\+PARENTHESES\+\_\+\+OPEN}} = 5
+, \mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117aca16c2cd01b23b65503c291f19a8235c}{TYPE\+\_\+\+PARENTHESES\+\_\+\+CLOSE}} = 6
+ \}
+\item 
+enum \mbox{\hyperlink{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2e}{Operator\+Value}} \+: char \{ \newline
+\mbox{\hyperlink{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea0f0b1eeb14adb11a5f39fb471f3ac52c}{VALUE\+\_\+\+ADDITION}} = \textquotesingle{}+\textquotesingle{}
+, \mbox{\hyperlink{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2eab7eb88eb1f8cc909905bd1890b093599}{VALUE\+\_\+\+SUBTRACTION}} = \textquotesingle{}-\/\textquotesingle{}
+, \mbox{\hyperlink{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea4206b2e10138126515fc5c585fd39912}{VALUE\+\_\+\+MULTIPLICATION}} = \textquotesingle{}$\ast$\textquotesingle{}
+, \mbox{\hyperlink{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea63579227fd6e6d1bb6ee75015b18eb56}{VALUE\+\_\+\+DIVISION}} = \textquotesingle{}/\textquotesingle{}
+, \newline
+\mbox{\hyperlink{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea2826b73297c6ccf5e8f8b74f3ce39f6b}{VALUE\+\_\+\+POWER}} = \textquotesingle{}$^\wedge$\textquotesingle{}
+, \mbox{\hyperlink{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea4e1a812af2c01c4dc422c5bbd055caa9}{VALUE\+\_\+\+PARENTHESES\+\_\+\+OPEN}} = \textquotesingle{}(\textquotesingle{}
+, \mbox{\hyperlink{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea28e6bebd88b6bb7db193e4e0e2624b13}{VALUE\+\_\+\+PARENTHESES\+\_\+\+CLOSE}} = \textquotesingle{})\textquotesingle{}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::regex \mbox{\hyperlink{Symbolic_8h_a85bcdf174a2e5f29fc70bab45310509c}{Get\+Regex}} (\mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}} type)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \mbox{\hyperlink{Symbolic_8h_a43825be2424c20130e3d099c8490c709}{Generate\+Operator}} (\mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117}{Operator\+Type}} type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{Symbolic_8h_af66185625ec6e66044e64693a29dfefe}\label{Symbolic_8h_af66185625ec6e66044e64693a29dfefe}} 
+\index{Symbolic.h@{Symbolic.h}!MathNodeType@{MathNodeType}}
+\index{MathNodeType@{MathNodeType}!Symbolic.h@{Symbolic.h}}
+\doxysubsubsection{\texorpdfstring{MathNodeType}{MathNodeType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}}}
+
+Node type representation \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NodeType\_Operator@{NodeType\_Operator}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!NodeType\_Operator@{NodeType\_Operator}}}\mbox{\Hypertarget{Symbolic_8h_af66185625ec6e66044e64693a29dfefea1c144f8bf59ab742c4408ec393602d02}\label{Symbolic_8h_af66185625ec6e66044e64693a29dfefea1c144f8bf59ab742c4408ec393602d02}} 
+Node\+Type\+\_\+\+Operator&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NodeType\_Symbolic@{NodeType\_Symbolic}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!NodeType\_Symbolic@{NodeType\_Symbolic}}}\mbox{\Hypertarget{Symbolic_8h_af66185625ec6e66044e64693a29dfefea1e2b34bb3fd76d1773c0e739ab757f0b}\label{Symbolic_8h_af66185625ec6e66044e64693a29dfefea1e2b34bb3fd76d1773c0e739ab757f0b}} 
+Node\+Type\+\_\+\+Symbolic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NodeType\_Numeric@{NodeType\_Numeric}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!NodeType\_Numeric@{NodeType\_Numeric}}}\mbox{\Hypertarget{Symbolic_8h_af66185625ec6e66044e64693a29dfefead04e2797598b259ea0d4a18142932f96}\label{Symbolic_8h_af66185625ec6e66044e64693a29dfefead04e2797598b259ea0d4a18142932f96}} 
+Node\+Type\+\_\+\+Numeric&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NodeType\_Parentheses@{NodeType\_Parentheses}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!NodeType\_Parentheses@{NodeType\_Parentheses}}}\mbox{\Hypertarget{Symbolic_8h_af66185625ec6e66044e64693a29dfefeabb22938ecb03779ebe89024bb122529a}\label{Symbolic_8h_af66185625ec6e66044e64693a29dfefeabb22938ecb03779ebe89024bb122529a}} 
+Node\+Type\+\_\+\+Parentheses&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NodeType\_Any@{NodeType\_Any}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!NodeType\_Any@{NodeType\_Any}}}\mbox{\Hypertarget{Symbolic_8h_af66185625ec6e66044e64693a29dfefea33343182081eb115cca4d5655d15fe4d}\label{Symbolic_8h_af66185625ec6e66044e64693a29dfefea33343182081eb115cca4d5655d15fe4d}} 
+Node\+Type\+\_\+\+Any&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7}\label{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7}} 
+\index{Symbolic.h@{Symbolic.h}!OperatorPriority@{OperatorPriority}}
+\index{OperatorPriority@{OperatorPriority}!Symbolic.h@{Symbolic.h}}
+\doxysubsubsection{\texorpdfstring{OperatorPriority}{OperatorPriority}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7}{Operator\+Priority}}}
+
+Priority definition for AST generation, used in shunting-\/yard algorithm, the \mbox{\hyperlink{classEquation}{Equation}} class builds nodes using a stack based on priorities \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPClassUnknown@{OPClassUnknown}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!OPClassUnknown@{OPClassUnknown}}}\mbox{\Hypertarget{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7a16fb5a99927a6fe55a41cd184a41c55b}\label{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7a16fb5a99927a6fe55a41cd184a41c55b}} 
+OPClass\+Unknown&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPClassLine@{OPClassLine}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!OPClassLine@{OPClassLine}}}\mbox{\Hypertarget{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7a14a7e4e3f29c74875a1560a628f7e560}\label{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7a14a7e4e3f29c74875a1560a628f7e560}} 
+OPClass\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPClassDot@{OPClassDot}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!OPClassDot@{OPClassDot}}}\mbox{\Hypertarget{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7ad2cb6f029c9332ded1b1359c5021aea5}\label{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7ad2cb6f029c9332ded1b1359c5021aea5}} 
+OPClass\+Dot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPClassParentheses@{OPClassParentheses}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!OPClassParentheses@{OPClassParentheses}}}\mbox{\Hypertarget{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7acb85e0b74531a7513ce7efbd0982e893}\label{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7acb85e0b74531a7513ce7efbd0982e893}} 
+OPClass\+Parentheses&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117}\label{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117}} 
+\index{Symbolic.h@{Symbolic.h}!OperatorType@{OperatorType}}
+\index{OperatorType@{OperatorType}!Symbolic.h@{Symbolic.h}}
+\doxysubsubsection{\texorpdfstring{OperatorType}{OperatorType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117}{Operator\+Type}}}
+
+Representation of operator type used in factories \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TYPE\_ADDITION@{TYPE\_ADDITION}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!TYPE\_ADDITION@{TYPE\_ADDITION}}}\mbox{\Hypertarget{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a9d2ba264cfc9d4b4d48afaa051abc576}\label{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a9d2ba264cfc9d4b4d48afaa051abc576}} 
+TYPE\+\_\+\+ADDITION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TYPE\_SUBTRACTION@{TYPE\_SUBTRACTION}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!TYPE\_SUBTRACTION@{TYPE\_SUBTRACTION}}}\mbox{\Hypertarget{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a7637e5c33286f4e519ec1622c113e273}\label{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a7637e5c33286f4e519ec1622c113e273}} 
+TYPE\+\_\+\+SUBTRACTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TYPE\_MULTIPLICATION@{TYPE\_MULTIPLICATION}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!TYPE\_MULTIPLICATION@{TYPE\_MULTIPLICATION}}}\mbox{\Hypertarget{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a40c6b3a7d7ccf0fb358be439f7a969d9}\label{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a40c6b3a7d7ccf0fb358be439f7a969d9}} 
+TYPE\+\_\+\+MULTIPLICATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TYPE\_DIVISION@{TYPE\_DIVISION}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!TYPE\_DIVISION@{TYPE\_DIVISION}}}\mbox{\Hypertarget{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a40d27ed340959efbbe20f81dc93028fb}\label{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a40d27ed340959efbbe20f81dc93028fb}} 
+TYPE\+\_\+\+DIVISION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TYPE\_POWER@{TYPE\_POWER}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!TYPE\_POWER@{TYPE\_POWER}}}\mbox{\Hypertarget{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a234eaa29e4af2f0d4711216c296a6445}\label{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117a234eaa29e4af2f0d4711216c296a6445}} 
+TYPE\+\_\+\+POWER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TYPE\_PARENTHESES\_OPEN@{TYPE\_PARENTHESES\_OPEN}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!TYPE\_PARENTHESES\_OPEN@{TYPE\_PARENTHESES\_OPEN}}}\mbox{\Hypertarget{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117adb06169322e6eae6db269eab60a12117}\label{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117adb06169322e6eae6db269eab60a12117}} 
+TYPE\+\_\+\+PARENTHESES\+\_\+\+OPEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TYPE\_PARENTHESES\_CLOSE@{TYPE\_PARENTHESES\_CLOSE}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!TYPE\_PARENTHESES\_CLOSE@{TYPE\_PARENTHESES\_CLOSE}}}\mbox{\Hypertarget{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117aca16c2cd01b23b65503c291f19a8235c}\label{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117aca16c2cd01b23b65503c291f19a8235c}} 
+TYPE\+\_\+\+PARENTHESES\+\_\+\+CLOSE&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2e}\label{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2e}} 
+\index{Symbolic.h@{Symbolic.h}!OperatorValue@{OperatorValue}}
+\index{OperatorValue@{OperatorValue}!Symbolic.h@{Symbolic.h}}
+\doxysubsubsection{\texorpdfstring{OperatorValue}{OperatorValue}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2e}{Operator\+Value}} \+: char}
+
+representation of operator value in char \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VALUE\_ADDITION@{VALUE\_ADDITION}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!VALUE\_ADDITION@{VALUE\_ADDITION}}}\mbox{\Hypertarget{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea0f0b1eeb14adb11a5f39fb471f3ac52c}\label{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea0f0b1eeb14adb11a5f39fb471f3ac52c}} 
+VALUE\+\_\+\+ADDITION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VALUE\_SUBTRACTION@{VALUE\_SUBTRACTION}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!VALUE\_SUBTRACTION@{VALUE\_SUBTRACTION}}}\mbox{\Hypertarget{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2eab7eb88eb1f8cc909905bd1890b093599}\label{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2eab7eb88eb1f8cc909905bd1890b093599}} 
+VALUE\+\_\+\+SUBTRACTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VALUE\_MULTIPLICATION@{VALUE\_MULTIPLICATION}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!VALUE\_MULTIPLICATION@{VALUE\_MULTIPLICATION}}}\mbox{\Hypertarget{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea4206b2e10138126515fc5c585fd39912}\label{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea4206b2e10138126515fc5c585fd39912}} 
+VALUE\+\_\+\+MULTIPLICATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VALUE\_DIVISION@{VALUE\_DIVISION}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!VALUE\_DIVISION@{VALUE\_DIVISION}}}\mbox{\Hypertarget{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea63579227fd6e6d1bb6ee75015b18eb56}\label{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea63579227fd6e6d1bb6ee75015b18eb56}} 
+VALUE\+\_\+\+DIVISION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VALUE\_POWER@{VALUE\_POWER}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!VALUE\_POWER@{VALUE\_POWER}}}\mbox{\Hypertarget{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea2826b73297c6ccf5e8f8b74f3ce39f6b}\label{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea2826b73297c6ccf5e8f8b74f3ce39f6b}} 
+VALUE\+\_\+\+POWER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VALUE\_PARENTHESES\_OPEN@{VALUE\_PARENTHESES\_OPEN}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!VALUE\_PARENTHESES\_OPEN@{VALUE\_PARENTHESES\_OPEN}}}\mbox{\Hypertarget{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea4e1a812af2c01c4dc422c5bbd055caa9}\label{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea4e1a812af2c01c4dc422c5bbd055caa9}} 
+VALUE\+\_\+\+PARENTHESES\+\_\+\+OPEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VALUE\_PARENTHESES\_CLOSE@{VALUE\_PARENTHESES\_CLOSE}!Symbolic.h@{Symbolic.h}}\index{Symbolic.h@{Symbolic.h}!VALUE\_PARENTHESES\_CLOSE@{VALUE\_PARENTHESES\_CLOSE}}}\mbox{\Hypertarget{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea28e6bebd88b6bb7db193e4e0e2624b13}\label{Symbolic_8h_a9ed491928ed861a174dee2dadc145b2ea28e6bebd88b6bb7db193e4e0e2624b13}} 
+VALUE\+\_\+\+PARENTHESES\+\_\+\+CLOSE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Symbolic_8h_a43825be2424c20130e3d099c8490c709}\label{Symbolic_8h_a43825be2424c20130e3d099c8490c709}} 
+\index{Symbolic.h@{Symbolic.h}!GenerateOperator@{GenerateOperator}}
+\index{GenerateOperator@{GenerateOperator}!Symbolic.h@{Symbolic.h}}
+\doxysubsubsection{\texorpdfstring{GenerateOperator()}{GenerateOperator()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classOperator}{Operator}}$>$ Generate\+Operator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Symbolic_8h_a6a02b2d1d62293b20242e3dcfbdd0117}{Operator\+Type}}}]{type }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classOperator}{Operator}} factory, returns shared\+\_\+ptr to operator with given type 
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{Symbolic_8h_a85bcdf174a2e5f29fc70bab45310509c}\label{Symbolic_8h_a85bcdf174a2e5f29fc70bab45310509c}} 
+\index{Symbolic.h@{Symbolic.h}!GetRegex@{GetRegex}}
+\index{GetRegex@{GetRegex}!Symbolic.h@{Symbolic.h}}
+\doxysubsubsection{\texorpdfstring{GetRegex()}{GetRegex()}}
+{\footnotesize\ttfamily std\+::regex Get\+Regex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}}}]{type }\end{DoxyParamCaption})}
+
+regex factory for node types 
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+regex for given type 
+\end{DoxyReturn}

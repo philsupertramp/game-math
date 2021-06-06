@@ -23,24 +23,19 @@ void \mbox{\hyperlink{structSet_a87905c022276dc73d862e58a6315ec06}{Normalize\+Ro
 \item 
 void \mbox{\hyperlink{structSet_a92e8cf6700597dd78c5221b0a8d7a374}{Normalize\+Col\+Mean}} ()
 \item 
-void \mbox{\hyperlink{structSet_ad9bb56d9eb99ff66113e7c2978449500}{Normalize}} (Normalizer\+Method method=Normalizer\+Method\+::\+SET\+\_\+\+MEAN)
+void \mbox{\hyperlink{structSet_ad9bb56d9eb99ff66113e7c2978449500}{Normalize}} (\mbox{\hyperlink{DataSet_8h_a8436cce5c4911a0849d9e3e6f6ac2d95}{Normalizer\+Method}} method=\mbox{\hyperlink{DataSet_8h_a8436cce5c4911a0849d9e3e6f6ac2d95aa833163aabec0b8502288f07e10734ea}{Normalizer\+Method\+::\+SET\+\_\+\+MEAN}})
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structSet_a05d1a42371080cffdd7851cf9c00f81b}\label{structSet_a05d1a42371080cffdd7851cf9c00f81b}} 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{structSet_a05d1a42371080cffdd7851cf9c00f81b}{Input}}
 \begin{DoxyCompactList}\small\item\em input data \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structSet_abeb4570e7f558220e76e3fcb03551813}\label{structSet_abeb4570e7f558220e76e3fcb03551813}} 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{structSet_abeb4570e7f558220e76e3fcb03551813}{Output}}
 \begin{DoxyCompactList}\small\item\em expected output data \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structSet_a2b7d3fdcba4188a6c2cd7808e8b0892a}\label{structSet_a2b7d3fdcba4188a6c2cd7808e8b0892a}} 
 size\+\_\+t \mbox{\hyperlink{structSet_a2b7d3fdcba4188a6c2cd7808e8b0892a}{Input\+Count}} = 0
 \begin{DoxyCompactList}\small\item\em number of input elements \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structSet_a6064a5992e5bc26890f985a836b4aa59}\label{structSet_a6064a5992e5bc26890f985a836b4aa59}} 
 size\+\_\+t \mbox{\hyperlink{structSet_a6064a5992e5bc26890f985a836b4aa59}{Output\+Count}} = 0
 \begin{DoxyCompactList}\small\item\em number of output elements \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structSet_a21819d28230d81776628a4d152a6fed0}\label{structSet_a21819d28230d81776628a4d152a6fed0}} 
 size\+\_\+t \mbox{\hyperlink{structSet_a21819d28230d81776628a4d152a6fed0}{count}} = 0
 \begin{DoxyCompactList}\small\item\em number of input-\/output pairs \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -104,7 +99,7 @@ Generates batch of given size based on inputs and outputs
 \index{Set@{Set}!Normalize@{Normalize}}
 \index{Normalize@{Normalize}!Set@{Set}}
 \doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
-{\footnotesize\ttfamily void Set\+::\+Normalize (\begin{DoxyParamCaption}\item[{Normalizer\+Method}]{method = {\ttfamily NormalizerMethod\+:\+:SET\+\_\+MEAN} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Set\+::\+Normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{DataSet_8h_a8436cce5c4911a0849d9e3e6f6ac2d95}{Normalizer\+Method}}}]{method = {\ttfamily \mbox{\hyperlink{DataSet_8h_a8436cce5c4911a0849d9e3e6f6ac2d95aa833163aabec0b8502288f07e10734ea}{Normalizer\+Method\+::\+SET\+\_\+\+MEAN}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 helper to normalize set based on Normalizer\+Method 
 \begin{DoxyParams}{Parameters}
@@ -146,6 +141,59 @@ File needs to have tab separated records
 \end{DoxyParams}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structSet_a21819d28230d81776628a4d152a6fed0}\label{structSet_a21819d28230d81776628a4d152a6fed0}} 
+\index{Set@{Set}!count@{count}}
+\index{count@{count}!Set@{Set}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily size\+\_\+t Set\+::count = 0}
+
+
+
+number of input-\/output pairs 
+
+\mbox{\Hypertarget{structSet_a05d1a42371080cffdd7851cf9c00f81b}\label{structSet_a05d1a42371080cffdd7851cf9c00f81b}} 
+\index{Set@{Set}!Input@{Input}}
+\index{Input@{Input}!Set@{Set}}
+\doxysubsubsection{\texorpdfstring{Input}{Input}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Set\+::\+Input}
+
+
+
+input data 
+
+\mbox{\Hypertarget{structSet_a2b7d3fdcba4188a6c2cd7808e8b0892a}\label{structSet_a2b7d3fdcba4188a6c2cd7808e8b0892a}} 
+\index{Set@{Set}!InputCount@{InputCount}}
+\index{InputCount@{InputCount}!Set@{Set}}
+\doxysubsubsection{\texorpdfstring{InputCount}{InputCount}}
+{\footnotesize\ttfamily size\+\_\+t Set\+::\+Input\+Count = 0}
+
+
+
+number of input elements 
+
+\mbox{\Hypertarget{structSet_abeb4570e7f558220e76e3fcb03551813}\label{structSet_abeb4570e7f558220e76e3fcb03551813}} 
+\index{Set@{Set}!Output@{Output}}
+\index{Output@{Output}!Set@{Set}}
+\doxysubsubsection{\texorpdfstring{Output}{Output}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Set\+::\+Output}
+
+
+
+expected output data 
+
+\mbox{\Hypertarget{structSet_a6064a5992e5bc26890f985a836b4aa59}\label{structSet_a6064a5992e5bc26890f985a836b4aa59}} 
+\index{Set@{Set}!OutputCount@{OutputCount}}
+\index{OutputCount@{OutputCount}!Set@{Set}}
+\doxysubsubsection{\texorpdfstring{OutputCount}{OutputCount}}
+{\footnotesize\ttfamily size\+\_\+t Set\+::\+Output\+Count = 0}
+
+
+
+number of output elements 
+
+
+
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/ds/Data\+Set.\+h\end{DoxyCompactItemize}
+include/math/ds/\mbox{\hyperlink{DataSet_8h}{Data\+Set.\+h}}\end{DoxyCompactItemize}

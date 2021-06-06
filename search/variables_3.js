@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['datafilename_585',['dataFileName',['../classPlot.html#ac5c21369cb37d1e74741766bf26123ec',1,'Plot']]],
-  ['detail_586',['detail',['../classMandelbrot.html#a09a174794619b9f2a13010b4af19d498',1,'Mandelbrot']]],
-  ['dim_587',['dim',['../structvec2.html#aa5afbdfa81ffd38272563940ffa7469c',1,'vec2::dim()'],['../structvec3.html#a345843fea85e1b96768cf3ab83c35889',1,'vec3::dim()'],['../structvec4.html#a75071b55935e61bf7f27c7408954dc61',1,'vec4::dim()']]]
+  ['classes_768',['classes',['../classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e',1,'ImageDataSet']]],
+  ['classnames_769',['classNames',['../classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72',1,'ImageDataSet']]],
+  ['color_770',['color',['../structPlotAttributes.html#ad1aad84439cf5fbc865d07694e523f27',1,'PlotAttributes']]],
+  ['colorpalette_771',['colorPalette',['../structPlotAttributes.html#a8738b4d86a5db807f0128370bc167043',1,'PlotAttributes']]],
+  ['columns_772',['columns',['../structMatrixDimension.html#aef50c3f8f188346f84c30f0dae35436d',1,'MatrixDimension']]],
+  ['cost_773',['cost',['../classSGD.html#a843697c86d1d89defc5b23e9847cdb4c',1,'SGD']]],
+  ['costs_774',['costs',['../classClassifier.html#a8688dfb2318e40a7c2f3747b68c96bae',1,'Classifier']]],
+  ['count_775',['count',['../structSet.html#a21819d28230d81776628a4d152a6fed0',1,'Set']]]
 ];

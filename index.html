@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>philsupertramp/game-math: game-math &lt;img src=&quot;https://github.com/philsupertramp/game-math/workflows/CMake/badge.svg?branch=master&quot; alt=&quot;Tests&quot;/&gt;</title>
+<title>philsupertramp/game-math: game-math</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,15 +69,16 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">game-math <img src="https://github.com/philsupertramp/game-math/workflows/CMake/badge.svg?branch=master" alt="Tests" style="pointer-events: none;" class="inline"/> </div>  </div>
+<div class="title">game-math </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> Mathematical library for game developers. <br  />
+<div class="textblock"><p><a class="anchor" id="md_README"></a><img src="https://github.com/philsupertramp/game-math/workflows/CMake/badge.svg?branch=master" alt="Tests" style="pointer-events: none;" class="inline"/> <a href="https://www.codefactor.io/repository/github/philsupertramp/game-math"><img src="https://www.codefactor.io/repository/github/philsupertramp/game-math/badge" alt="CodeFactor" class="inline"/></a></p>
+<p>Mathematical library for game developers. <br  />
  The library contains necessary elements of <a class="el" href="classMatrix.html">Matrix</a> Algebra to enable working in 2D and 3D space.</p>
 <h1><a class="anchor" id="autotoc_md18"></a>
 Current feature support</h1>
 <ul>
-<li>Math:<ul>
+<li><a class="el" href="namespaceMath.html">Math</a>:<ul>
 <li>2,3,4-dimensional Matrix/Vector algebra (<a class="el" href="math_8h.html">math.h</a>)</li>
 </ul>
 </li>
@@ -95,6 +96,11 @@ Current feature support</h1>
 </ul>
 </li>
 <li>Solver for systems of linear equations <a class="el" href="gaussSeidel_8h.html">gaussSeidel.h</a></li>
+<li>Fractals using numerical approximations (<a class="el" href="Fractals_8h.html">Fractals.h</a>)<ul>
+<li><a class="el" href="classNewtonFractal.html">NewtonFractal</a></li>
+<li><a class="el" href="classMandelbrot.html">Mandelbrot</a></li>
+</ul>
+</li>
 <li>Newton method to approximate the zero-value for a given function based on an initial value <a class="el" href="newton_8h.html">newton.h</a></li>
 <li>Function Interpolation/Approximation<ul>
 <li>1D Interpolation<ul>
@@ -123,7 +129,7 @@ Current feature support</h1>
 <li><a class="el" href="Insurance_8h.html">Insurance.h</a></li>
 </ul>
 </li>
-<li><a class="el" href="classPlot.html">Plot</a> support (uses/requires gnuplot see include/math/visualization/README.md)</li>
+<li><a class="el" href="classPlot.html">Plot</a> support (uses/requires gnuplot see <a class="el" href="include_2math_2visualization_2README_8md.html">include/math/visualization/README.md</a> or <a class="el" href="Plot_8h.html">Plot.h</a>)</li>
 <li>Data Science:<ul>
 <li>Neural networks<ul>
 <li>Feed Forward NNs<ul>
@@ -142,8 +148,14 @@ Current feature support</h1>
 </ul>
 <h1><a class="anchor" id="autotoc_md19"></a>
 Benchmarks</h1>
-<p>see <code>/benchmarks/README.md</code></p>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<p>see <code>/benchmarks/README.md</code> </p><div class="fragment"><div class="line">Matrix&lt;double&gt;:</div>
+<div class="line">finished computation with 9 elements and 5000000 * operations. elapsed time: 1.20078s</div>
+<div class="line">finished computation with 9 elements and 5000000 * operations. elapsed time: 0.901199s</div>
+<div class="line">finished computation with 9 elements and 5000000 + operations. elapsed time: 1.0953s</div>
+<div class="line">mat3&lt;double&gt;:</div>
+<div class="line">finished computation with 9 elements and 5000000 * operations. elapsed time: 6.7e-08s</div>
+<div class="line">finished computation with 9 elements and 5000000 + operations. elapsed time: 6.1e-08s</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md20"></a>
 Upcoming features</h1>
 <ul>
 <li>Data Science:<ul>

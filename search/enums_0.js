@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['p_5fnorm_684',['P_NORM',['../Probability_8h.html#a8c8648160cfcb34a69de946e4ad505b0',1,'Probability.h']]]
+  ['datatypes_898',['DataTypes',['../Plot_8h.html#afb6eb4f28419b652027fad41104a6d22',1,'Plot.h']]]
 ];

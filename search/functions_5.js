@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['fit_425',['fit',['../classAdalineGD.html#a16791c4ac85a0e7117105f8835a19f69',1,'AdalineGD::fit()'],['../classAdalineSGD.html#a8b97d260bc04aa8cd6d02436fb5f3c76',1,'AdalineSGD::fit()'],['../classClassifier.html#a3fa552228aeeee5abe1108c97f676cad',1,'Classifier::fit()'],['../classLogRegSGD.html#aef4c82d4582b263409e37a1b6d461cbd',1,'LogRegSGD::fit()'],['../classPerceptron.html#a430fcf4782a3020add0094f986a1c54e',1,'Perceptron::fit()'],['../classSGD.html#ac1c260b0af030ec1016eb21c18a32952',1,'SGD::fit()']]],
-  ['format_426',['format',['../format_8h.html#a1921b31564b858b45e94efff9e9d54bf',1,'format.h']]],
-  ['forwardsub_427',['forwardSub',['../forwardSub_8h.html#aa12a13e10a88436c3a0c8f02991b6096',1,'forwardSub.h']]],
-  ['function_428',['Function',['../classPolynomialBase.html#a7c5cff1055e525bd01ab24cf39bf9ed5',1,'PolynomialBase::Function()'],['../classMonomBase.html#a4e86d536f746f544318c18c08c12b99f',1,'MonomBase::Function()'],['../classLagrangeBase.html#a56f2ac80cd5872fc9438283ae5460ed2',1,'LagrangeBase::Function()'],['../classNewtonBase.html#af59cf5892ed772c87c830ceb701160dd',1,'NewtonBase::Function()']]],
-  ['functionplot_429',['FunctionPlot',['../classFunctionPlot.html#acf609f64cac77f3e556747b73e70fbc1',1,'FunctionPlot']]],
-  ['fundamentalvalue_430',['fundamentalValue',['../Insurance_8h.html#a4c101853644e44b2a6a4dc2688ecd77d',1,'Insurance.cpp']]],
-  ['fundamentalvalueofannuityinadvance_431',['fundamentalValueOfAnnuityInAdvance',['../Insurance_8h.html#a39e7cd069b9d37942e201e0a1992fce5',1,'Insurance.cpp']]],
-  ['fundamentalvalueofannuityinarrear_432',['fundamentalValueOfAnnuityInArrear',['../Insurance_8h.html#a9425f6005e68c3c2a41871b7edc133d4',1,'Insurance.cpp']]]
+  ['fit_591',['fit',['../classAdalineSGD.html#a8b97d260bc04aa8cd6d02436fb5f3c76',1,'AdalineSGD::fit()'],['../classClassifier.html#a3fa552228aeeee5abe1108c97f676cad',1,'Classifier::fit()'],['../classLogRegSGD.html#aef4c82d4582b263409e37a1b6d461cbd',1,'LogRegSGD::fit()'],['../classPerceptron.html#a430fcf4782a3020add0094f986a1c54e',1,'Perceptron::fit()'],['../classSGD.html#ac1c260b0af030ec1016eb21c18a32952',1,'SGD::fit()'],['../classAdalineGD.html#a16791c4ac85a0e7117105f8835a19f69',1,'AdalineGD::fit()']]],
+  ['format_592',['format',['../format_8h.html#a1921b31564b858b45e94efff9e9d54bf',1,'format.h']]],
+  ['forwardsub_593',['forwardSub',['../forwardSub_8h.html#aa12a13e10a88436c3a0c8f02991b6096',1,'forwardSub.h']]],
+  ['from_5fvptr_594',['from_vptr',['../Matrix_8h.html#a155cb3592d490d8bc63d638741c2523d',1,'Matrix.h']]],
+  ['fun_595',['fun',['../classNewtonFractal.html#affdb486db79e645d15419c260cad44c2',1,'NewtonFractal::fun()'],['../classMandelbrot.html#a6b86afb4db2158631df99a45e9821574',1,'Mandelbrot::fun()']]],
+  ['function_596',['Function',['../classNewtonBase.html#af59cf5892ed772c87c830ceb701160dd',1,'NewtonBase::Function()'],['../classLagrangeBase.html#a56f2ac80cd5872fc9438283ae5460ed2',1,'LagrangeBase::Function()'],['../classMonomBase.html#a4e86d536f746f544318c18c08c12b99f',1,'MonomBase::Function()'],['../classPolynomialBase.html#a7c5cff1055e525bd01ab24cf39bf9ed5',1,'PolynomialBase::Function()']]],
+  ['functionplot_597',['FunctionPlot',['../classFunctionPlot.html#acf609f64cac77f3e556747b73e70fbc1',1,'FunctionPlot']]],
+  ['fundamentalvalue_598',['fundamentalValue',['../Insurance_8cpp.html#a2e4591777325c288be997cd25344e55f',1,'fundamentalValue(Interest Z):&#160;Insurance.cpp'],['../Insurance_8h.html#a4c101853644e44b2a6a4dc2688ecd77d',1,'fundamentalValue(Interest I):&#160;Insurance.cpp']]],
+  ['fundamentalvalueofannuityinadvance_599',['fundamentalValueOfAnnuityInAdvance',['../Insurance_8cpp.html#a4763e7aa594fde3354b7ee4e2f1ebf54',1,'fundamentalValueOfAnnuityInAdvance(Interest Z):&#160;Insurance.cpp'],['../Insurance_8h.html#a39e7cd069b9d37942e201e0a1992fce5',1,'fundamentalValueOfAnnuityInAdvance(Interest I):&#160;Insurance.cpp']]],
+  ['fundamentalvalueofannuityinarrear_600',['fundamentalValueOfAnnuityInArrear',['../Insurance_8cpp.html#aa27da02ba815ce851c253c1bc2162179',1,'fundamentalValueOfAnnuityInArrear(Interest Z):&#160;Insurance.cpp'],['../Insurance_8h.html#a9425f6005e68c3c2a41871b7edc133d4',1,'fundamentalValueOfAnnuityInArrear(Interest I):&#160;Insurance.cpp']]]
 ];

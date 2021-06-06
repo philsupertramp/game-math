@@ -1,10 +1,12 @@
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
- Mathematical library for game developers. ~\newline
+ \href{https://www.codefactor.io/repository/github/philsupertramp/game-math}{\texttt{ }}
+
+Mathematical library for game developers. ~\newline
  The library contains necessary elements of \mbox{\hyperlink{classMatrix}{Matrix}} Algebra to enable working in 2D and 3D space.\hypertarget{index_autotoc_md18}{}\doxysection{Current feature support}\label{index_autotoc_md18}
 
 \begin{DoxyItemize}
-\item Math\+:
+\item \mbox{\hyperlink{namespaceMath}{Math}}\+:
 \begin{DoxyItemize}
 \item 2,3,4-\/dimensional Matrix/\+Vector algebra (\mbox{\hyperlink{math_8h}{math.\+h}})
 \end{DoxyItemize}
@@ -23,6 +25,11 @@
 \item Backward differential formula (\mbox{\hyperlink{odeBDF2_8h}{ode\+BDF2.\+h}})
 \end{DoxyItemize}
 \item Solver for systems of linear equations \mbox{\hyperlink{gaussSeidel_8h}{gauss\+Seidel.\+h}}
+\item Fractals using numerical approximations (\mbox{\hyperlink{Fractals_8h}{Fractals.\+h}})
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classNewtonFractal}{Newton\+Fractal}}
+\item \mbox{\hyperlink{classMandelbrot}{Mandelbrot}}
+\end{DoxyItemize}
 \item Newton method to approximate the zero-\/value for a given function based on an initial value \mbox{\hyperlink{newton_8h}{newton.\+h}}
 \item Function Interpolation/\+Approximation
 \begin{DoxyItemize}
@@ -50,7 +57,7 @@
 \item \mbox{\hyperlink{Probability_8h}{Probability.\+h}}
 \item \mbox{\hyperlink{Insurance_8h}{Insurance.\+h}}
 \end{DoxyItemize}
-\item \mbox{\hyperlink{classPlot}{Plot}} support (uses/requires gnuplot see include/math/visualization/\+README.\+md)
+\item \mbox{\hyperlink{classPlot}{Plot}} support (uses/requires gnuplot see \mbox{\hyperlink{include_2math_2visualization_2README_8md}{include/math/visualization/\+README.\+md}} or \mbox{\hyperlink{Plot_8h}{Plot.\+h}})
 \item Data Science\+:
 \begin{DoxyItemize}
 \item Neural networks
@@ -67,7 +74,18 @@
 \end{DoxyItemize}
 \end{DoxyItemize}
 \end{DoxyItemize}\hypertarget{index_autotoc_md19}{}\doxysection{Benchmarks}\label{index_autotoc_md19}
-see {\ttfamily /benchmarks/\+README.md}\hypertarget{index_autotoc_md20}{}\doxysection{Upcoming features}\label{index_autotoc_md20}
+see {\ttfamily /benchmarks/\+README.md} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Matrix<double>:}
+\DoxyCodeLine{finished computation with 9 elements and 5000000 * operations. elapsed time: 1.20078s}
+\DoxyCodeLine{finished computation with 9 elements and 5000000 * operations. elapsed time: 0.901199s}
+\DoxyCodeLine{finished computation with 9 elements and 5000000 + operations. elapsed time: 1.0953s}
+\DoxyCodeLine{mat3<double>:}
+\DoxyCodeLine{finished computation with 9 elements and 5000000 * operations. elapsed time: 6.7e-\/08s}
+\DoxyCodeLine{finished computation with 9 elements and 5000000 + operations. elapsed time: 6.1e-\/08s}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md20}{}\doxysection{Upcoming features}\label{index_autotoc_md20}
 
 \begin{DoxyItemize}
 \item Data Science\+:

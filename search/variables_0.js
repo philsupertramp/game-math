@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['a_566',['A',['../classMonomBase.html#a7e8455277c9d45cf6d4a108f7421bad0',1,'MonomBase']]],
-  ['attributes_567',['attributes',['../classPlot.html#adccf50e0f1dde033486c08da47fb8c3e',1,'Plot']]]
+  ['_5fcolumns_752',['_columns',['../classMatrix.html#a917e7aecff2b6032e340de6fc2ba2486',1,'Matrix']]],
+  ['_5fdata_753',['_data',['../classMatrix.html#aaf42bea604b00c6d359febbf68dae696',1,'Matrix']]],
+  ['_5fdatasize_754',['_dataSize',['../classMatrix.html#abfda24d2db48d6823153c4c4885a3921',1,'Matrix']]],
+  ['_5felement_5fsize_755',['_element_size',['../classMatrix.html#a8f16df385b6c87b59e39a5ca5a2f2c38',1,'Matrix']]],
+  ['_5frows_756',['_rows',['../classMatrix.html#ae0adccdb5efc8720a6ff499c670d5361',1,'Matrix']]]
 ];

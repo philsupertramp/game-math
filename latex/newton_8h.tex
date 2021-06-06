@@ -6,10 +6,8 @@
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}\label{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}} 
 using \mbox{\hyperlink{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}{Jacobian}} = std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$
 \begin{DoxyCompactList}\small\item\em representation of jacobian \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{newton_8h_ae8b65eb11627dab8f1907f164294756b}\label{newton_8h_ae8b65eb11627dab8f1907f164294756b}} 
 using \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equation}} = std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$
 \begin{DoxyCompactList}\small\item\em representation of linear equation \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
@@ -20,7 +18,37 @@ std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$, int $>$ \mb
 
 
 \doxysubsection{Detailed Description}
-Implements newton-\/method to find roots 
+Implements newton-\/method to find roots
+
+Requires\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{newton_8h}{math/numerics/lin\_alg/newton.h}}>}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}\label{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}} 
+\index{newton.h@{newton.h}!Jacobian@{Jacobian}}
+\index{Jacobian@{Jacobian}!newton.h@{newton.h}}
+\doxysubsubsection{\texorpdfstring{Jacobian}{Jacobian}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{newton_8h_aa3d3f9218597552f3ff4726daa5d68eb}{Jacobian}} =  std\+::function$<$\mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$\&)$>$}
+
+
+
+representation of jacobian 
+
+\mbox{\Hypertarget{newton_8h_ae8b65eb11627dab8f1907f164294756b}\label{newton_8h_ae8b65eb11627dab8f1907f164294756b}} 
+\index{newton.h@{newton.h}!LinearEquation@{LinearEquation}}
+\index{LinearEquation@{LinearEquation}!newton.h@{newton.h}}
+\doxysubsubsection{\texorpdfstring{LinearEquation}{LinearEquation}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{newton_8h_ae8b65eb11627dab8f1907f164294756b}{Linear\+Equation}} =  std\+::function$<$\mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$\&)$>$}
+
+
+
+representation of linear equation 
+
+
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{newton_8h_aface2e60d9d28a41b436d94b96752e4e}\label{newton_8h_aface2e60d9d28a41b436d94b96752e4e}} 

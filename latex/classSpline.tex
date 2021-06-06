@@ -21,6 +21,21 @@ void \mbox{\hyperlink{classSpline_a8c6b5b07aba1be33e8c33d4041212121}{Set\+Abstra
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSpline_a4c5c216c01e0a19ef9ad62502a1fa478}{calculate\+Equidistant}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&xi)
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSpline_aec3e4ba42a25a84af7b30e9a93a34548}{XI}}
+\begin{DoxyCompactList}\small\item\em x-\/axis support values \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSpline_ad89c7a69b3b12323fb7068e32b90f645}{YI}}
+\begin{DoxyCompactList}\small\item\em y-\/axis support values \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSpline_a397d8dba46f9e602ad7115719aa912f6}{ZI}}
+\begin{DoxyCompactList}\small\item\em z-\/axis support values \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSpline_a5e906d09d287cdee484389ca7e08a128}{Tx}}
+\begin{DoxyCompactList}\small\item\em t-\/\+Values for x \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSpline_aaaab7d2f16a8d4fb98d75576eccd56d0}{Ty}}
+\begin{DoxyCompactList}\small\item\em t-\/\+Values for y \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSpline_ad4e25b6cb7ad208568ddaee957d76c29}{is\+Equidistant}} = true
+\begin{DoxyCompactList}\small\item\em flag to signalize that support values do not lie equidistant to each other \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -126,6 +141,69 @@ Setter for abstraction values t
 \end{DoxyParams}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSpline_ad4e25b6cb7ad208568ddaee957d76c29}\label{classSpline_ad4e25b6cb7ad208568ddaee957d76c29}} 
+\index{Spline@{Spline}!isEquidistant@{isEquidistant}}
+\index{isEquidistant@{isEquidistant}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{isEquidistant}{isEquidistant}}
+{\footnotesize\ttfamily bool Spline\+::is\+Equidistant = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+flag to signalize that support values do not lie equidistant to each other 
+
+\mbox{\Hypertarget{classSpline_a5e906d09d287cdee484389ca7e08a128}\label{classSpline_a5e906d09d287cdee484389ca7e08a128}} 
+\index{Spline@{Spline}!Tx@{Tx}}
+\index{Tx@{Tx}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{Tx}{Tx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Spline\+::\+Tx\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+t-\/\+Values for x 
+
+\mbox{\Hypertarget{classSpline_aaaab7d2f16a8d4fb98d75576eccd56d0}\label{classSpline_aaaab7d2f16a8d4fb98d75576eccd56d0}} 
+\index{Spline@{Spline}!Ty@{Ty}}
+\index{Ty@{Ty}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{Ty}{Ty}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Spline\+::\+Ty\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+t-\/\+Values for y 
+
+\mbox{\Hypertarget{classSpline_aec3e4ba42a25a84af7b30e9a93a34548}\label{classSpline_aec3e4ba42a25a84af7b30e9a93a34548}} 
+\index{Spline@{Spline}!XI@{XI}}
+\index{XI@{XI}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{XI}{XI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Spline\+::\+XI\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+x-\/axis support values 
+
+\mbox{\Hypertarget{classSpline_ad89c7a69b3b12323fb7068e32b90f645}\label{classSpline_ad89c7a69b3b12323fb7068e32b90f645}} 
+\index{Spline@{Spline}!YI@{YI}}
+\index{YI@{YI}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{YI}{YI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Spline\+::\+YI\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+y-\/axis support values 
+
+\mbox{\Hypertarget{classSpline_a397d8dba46f9e602ad7115719aa912f6}\label{classSpline_a397d8dba46f9e602ad7115719aa912f6}} 
+\index{Spline@{Spline}!ZI@{ZI}}
+\index{ZI@{ZI}!Spline@{Spline}}
+\doxysubsubsection{\texorpdfstring{ZI}{ZI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Spline\+::\+ZI\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+z-\/axis support values 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/numerics/analysis/Spline.\+h\end{DoxyCompactItemize}
+include/math/numerics/analysis/\mbox{\hyperlink{Spline_8h}{Spline.\+h}}\end{DoxyCompactItemize}

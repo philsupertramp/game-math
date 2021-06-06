@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['_7emat2_562',['~mat2',['../structmat2.html#a221acc89f9f55571a6c4614ad055e5c6',1,'mat2']]],
-  ['_7emat3_563',['~mat3',['../structmat3.html#ab0e1ea37f7dd2db765ae834502267b73',1,'mat3']]],
-  ['_7emat4_564',['~mat4',['../structmat4.html#af219b6950330e081ef19a02db696173c',1,'mat4']]],
-  ['_7ematrix_565',['~Matrix',['../classMatrix.html#a91aa704de674203e96aece9e1955ccd3',1,'Matrix']]]
+  ['zeros_745',['zeros',['../utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070',1,'zeros(size_t rows, size_t columns):&#160;utils.cpp'],['../numerics_2utils_8h.html#a3aad6934b9b0b392e582eda4dbfd8070',1,'zeros(size_t rows, size_t columns):&#160;utils.cpp']]],
+  ['zerosv_746',['zerosV',['../utils_8cpp.html#a39df225669a531266ed2c16531359108',1,'zerosV(size_t rows):&#160;utils.cpp'],['../numerics_2utils_8h.html#a39df225669a531266ed2c16531359108',1,'zerosV(size_t rows):&#160;utils.cpp']]],
+  ['zip_747',['zip',['../Matrix_8h.html#ae104c95cd9564e3f1b5c394b0c3407da',1,'Matrix.h']]]
 ];

@@ -23,20 +23,17 @@ void \mbox{\hyperlink{classAdalineSGD_a1e6915753b8004c988d4241af8c30fd8}{partial
 \item 
 double \mbox{\hyperlink{classAdalineSGD_a83b11a7b467744c0018d8852224275be}{cost\+Function}} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_ad5514778713339dccde814e0cbb70bc0}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_a5c09ebf872254bbeb8c3448255e13571}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_a5efda89a32f61566d068b2c37690f6b0}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_a3a91134bd8e28d271bb06f91b2fa1803}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAdalineSGD_a2272921984f8d5a13dc75e60c5d006be}\label{classAdalineSGD_a2272921984f8d5a13dc75e60c5d006be}} 
 bool \mbox{\hyperlink{classAdalineSGD_a2272921984f8d5a13dc75e60c5d006be}{shuffle}}
 \begin{DoxyCompactList}\small\item\em signalizes whether given dataset should be shuffled while fitting \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classAdalineSGD_a7930ffb33b513fec12a6503191fa89a3}\label{classAdalineSGD_a7930ffb33b513fec12a6503191fa89a3}} 
 int \mbox{\hyperlink{classAdalineSGD_a7930ffb33b513fec12a6503191fa89a3}{random\+State}}
 \begin{DoxyCompactList}\small\item\em initialize weights with random state \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classAdalineSGD_aea1fdb9d477c9d44016ef13e5bc2342f}\label{classAdalineSGD_aea1fdb9d477c9d44016ef13e5bc2342f}} 
 \mbox{\hyperlink{classSGD}{SGD}} \mbox{\hyperlink{classAdalineSGD_aea1fdb9d477c9d44016ef13e5bc2342f}{sgd}}
 \begin{DoxyCompactList}\small\item\em algorithmic object to represent fitting algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
@@ -78,11 +75,11 @@ default constructor
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classAdalineSGD_ad5514778713339dccde814e0cbb70bc0}\label{classAdalineSGD_ad5514778713339dccde814e0cbb70bc0}} 
+\mbox{\Hypertarget{classAdalineSGD_a5c09ebf872254bbeb8c3448255e13571}\label{classAdalineSGD_a5c09ebf872254bbeb8c3448255e13571}} 
 \index{AdalineSGD@{AdalineSGD}!activation@{activation}}
 \index{activation@{activation}!AdalineSGD@{AdalineSGD}}
 \doxysubsubsection{\texorpdfstring{activation()}{activation()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+SGD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+SGD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 activates given input 
 \begin{DoxyParams}{Parameters}
@@ -161,11 +158,11 @@ partially fits the model
 {\em y} & target output values \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classAdalineSGD_a5efda89a32f61566d068b2c37690f6b0}\label{classAdalineSGD_a5efda89a32f61566d068b2c37690f6b0}} 
+\mbox{\Hypertarget{classAdalineSGD_a3a91134bd8e28d271bb06f91b2fa1803}\label{classAdalineSGD_a3a91134bd8e28d271bb06f91b2fa1803}} 
 \index{AdalineSGD@{AdalineSGD}!predict@{predict}}
 \index{predict@{predict}!AdalineSGD@{AdalineSGD}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+SGD\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+SGD\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 predict output class of given input 
 \begin{DoxyParams}{Parameters}
@@ -181,6 +178,39 @@ Implements \mbox{\hyperlink{classClassifier_a0d47e1cccc5be1cdff3b202f48625afe}{C
 
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classAdalineSGD_a7930ffb33b513fec12a6503191fa89a3}\label{classAdalineSGD_a7930ffb33b513fec12a6503191fa89a3}} 
+\index{AdalineSGD@{AdalineSGD}!randomState@{randomState}}
+\index{randomState@{randomState}!AdalineSGD@{AdalineSGD}}
+\doxysubsubsection{\texorpdfstring{randomState}{randomState}}
+{\footnotesize\ttfamily int Adaline\+SGD\+::random\+State}
+
+
+
+initialize weights with random state 
+
+\mbox{\Hypertarget{classAdalineSGD_aea1fdb9d477c9d44016ef13e5bc2342f}\label{classAdalineSGD_aea1fdb9d477c9d44016ef13e5bc2342f}} 
+\index{AdalineSGD@{AdalineSGD}!sgd@{sgd}}
+\index{sgd@{sgd}!AdalineSGD@{AdalineSGD}}
+\doxysubsubsection{\texorpdfstring{sgd}{sgd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSGD}{SGD}} Adaline\+SGD\+::sgd}
+
+
+
+algorithmic object to represent fitting algorithm 
+
+\mbox{\Hypertarget{classAdalineSGD_a2272921984f8d5a13dc75e60c5d006be}\label{classAdalineSGD_a2272921984f8d5a13dc75e60c5d006be}} 
+\index{AdalineSGD@{AdalineSGD}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!AdalineSGD@{AdalineSGD}}
+\doxysubsubsection{\texorpdfstring{shuffle}{shuffle}}
+{\footnotesize\ttfamily bool Adaline\+SGD\+::shuffle}
+
+
+
+signalizes whether given dataset should be shuffled while fitting 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/ds/Adaline\+SGD.\+h\end{DoxyCompactItemize}
+include/math/ds/\mbox{\hyperlink{AdalineSGD_8h}{Adaline\+SGD.\+h}}\end{DoxyCompactItemize}

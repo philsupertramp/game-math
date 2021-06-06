@@ -36,9 +36,23 @@ void \mbox{\hyperlink{classEquation_a96bcd5581bd04a65fea7ba373815e418}{Print\+Tr
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classEquation_af1bd5572e55f920d9be6285874219c6e}\label{classEquation_af1bd5572e55f920d9be6285874219c6e}} 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classEquation_af1bd5572e55f920d9be6285874219c6e}{base\+Node}} = nullptr
 \begin{DoxyCompactList}\small\item\em Holds the base node of the abstract syntax tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classEquation_a32c3966e224318da04252ca49d442919}{create\+AST}} (const std\+::string \&process\+String)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \mbox{\hyperlink{classEquation_a316ebd517f00c32c7a8825bda2d0477e}{Get\+Operator}} (const std\+::string \&val\+String)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ $>$ \mbox{\hyperlink{classEquation_a3322e357ba9e92033eb40eb61e82b2f7}{symbols}}
+\begin{DoxyCompactList}\small\item\em storage for containing symbols \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -70,6 +84,20 @@ default constructor for string representation
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEquation_a32c3966e224318da04252ca49d442919}\label{classEquation_a32c3966e224318da04252ca49d442919}} 
+\index{Equation@{Equation}!createAST@{createAST}}
+\index{createAST@{createAST}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{createAST()}{createAST()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classMathNode}{Math\+Node}}$>$ Equation\+::create\+AST (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{process\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Creates A(bstract)S(yntax)T(ree) using shunting-\/yard algorithm, thanks Mr. Dijkstra \+:) \href{https://en.wikipedia.org/wiki/Shunting-yard_algorithm}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Shunting-\/yard\+\_\+algorithm}} 
+\begin{DoxyParams}{Parameters}
+{\em process\+String} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{classEquation_af24aea49f8fddde7c8ac1157bc99c636}\label{classEquation_af24aea49f8fddde7c8ac1157bc99c636}} 
 \index{Equation@{Equation}!GetDepth@{GetDepth}}
 \index{GetDepth@{GetDepth}!Equation@{Equation}}
@@ -85,6 +113,20 @@ Getter for max AST depth
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 current depth if last node in branch, else max of left depth and right depth 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEquation_a316ebd517f00c32c7a8825bda2d0477e}\label{classEquation_a316ebd517f00c32c7a8825bda2d0477e}} 
+\index{Equation@{Equation}!GetOperator@{GetOperator}}
+\index{GetOperator@{GetOperator}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{GetOperator()}{GetOperator()}}
+{\footnotesize\ttfamily static std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classOperator}{Operator}}$>$ Equation\+::\+Get\+Operator (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{val\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+Determines first connecting operator 
+\begin{DoxyParams}{Parameters}
+{\em val\+String} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
 \end{DoxyReturn}
 \mbox{\Hypertarget{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}\label{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}} 
 \index{Equation@{Equation}!GetString@{GetString}}
@@ -216,6 +258,29 @@ setter for evaluation values for symbolic nodes using a vector of values
 \end{DoxyParams}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEquation_af1bd5572e55f920d9be6285874219c6e}\label{classEquation_af1bd5572e55f920d9be6285874219c6e}} 
+\index{Equation@{Equation}!baseNode@{baseNode}}
+\index{baseNode@{baseNode}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{baseNode}{baseNode}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classMathNode}{Math\+Node}}$>$ Equation\+::base\+Node = nullptr}
+
+
+
+Holds the base node of the abstract syntax tree. 
+
+\mbox{\Hypertarget{classEquation_a3322e357ba9e92033eb40eb61e82b2f7}\label{classEquation_a3322e357ba9e92033eb40eb61e82b2f7}} 
+\index{Equation@{Equation}!symbols@{symbols}}
+\index{symbols@{symbols}!Equation@{Equation}}
+\doxysubsubsection{\texorpdfstring{symbols}{symbols}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classSymbolic}{Symbolic}}$>$ $>$ Equation\+::symbols\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+storage for containing symbols 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/symb/Symbolic.\+h\end{DoxyCompactItemize}
+include/math/symb/\mbox{\hyperlink{Symbolic_8h}{Symbolic.\+h}}\end{DoxyCompactItemize}

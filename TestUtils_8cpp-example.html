@@ -74,7 +74,7 @@ $(function() {
 <div class="contents">
 <p>This is an example on how to use the utils.h file.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Test.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;math/Matrix.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Matrix_8h.html">math/Matrix.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="math_8h.html">math/math.h</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
@@ -84,39 +84,39 @@ $(function() {
 <div class="line">        <a name="_a0"></a><a class="code" href="structvec3.html">vec3f</a> a(0, 0, 0);</div>
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> b(2, 0, 0);</div>
 <div class="line"> </div>
-<div class="line">        AssertEqual(<a name="a1"></a><a class="code" href="utils_8h.html#a0db82d57fef0c8540f30485e3e8d707f">Math::Utils::distance</a>(a, b), 2.0f);</div>
+<div class="line">        AssertEqual(<a name="a1"></a><a class="code" href="namespaceMath_1_1Utils.html#a0db82d57fef0c8540f30485e3e8d707f">Math::Utils::distance</a>(a, b), 2.0f);</div>
 <div class="line">        b = { -2, 0, 0 };</div>
-<div class="line">        AssertEqual(<a class="code" href="utils_8h.html#a0db82d57fef0c8540f30485e3e8d707f">Math::Utils::distance</a>(a, b), 2.0f);</div>
+<div class="line">        AssertEqual(<a class="code" href="namespaceMath_1_1Utils.html#a0db82d57fef0c8540f30485e3e8d707f">Math::Utils::distance</a>(a, b), 2.0f);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestNormalize() {</div>
 <div class="line">        <a name="_a2"></a><a class="code" href="structvec2.html">vec2f</a> a2(3, 6);</div>
 <div class="line">        <a class="code" href="structvec2.html">vec2f</a> b2 = a2.<a name="a3"></a><a class="code" href="structvec2.html#a80386b186ebe3fc6d9a0e4f1fa2b1b1d">normalize</a>();</div>
-<div class="line">        AssertEqual(<a name="a4"></a><a class="code" href="utils_8h.html#a0dc178895f92579761e0a27a40494868">Math::Utils::normalize</a>(a2), b2);</div>
+<div class="line">        AssertEqual(<a name="a4"></a><a class="code" href="namespaceMath_1_1Utils.html#a0dc178895f92579761e0a27a40494868">Math::Utils::normalize</a>(a2), b2);</div>
 <div class="line"> </div>
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> a3(0, 3, 6);</div>
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> b3 = a3.<a name="a5"></a><a class="code" href="structvec3.html#a78346761e14409bf1360d7b8827c751b">normalize</a>();</div>
-<div class="line">        AssertEqual(<a class="code" href="utils_8h.html#a0dc178895f92579761e0a27a40494868">Math::Utils::normalize</a>(a3), b3);</div>
+<div class="line">        AssertEqual(<a class="code" href="namespaceMath_1_1Utils.html#a0dc178895f92579761e0a27a40494868">Math::Utils::normalize</a>(a3), b3);</div>
 <div class="line"> </div>
 <div class="line">        <a name="_a6"></a><a class="code" href="structvec4.html">vec4f</a> a4(0, 3, 6, 9);</div>
 <div class="line">        <a class="code" href="structvec4.html">vec4f</a> b4 = a4.<a name="a7"></a><a class="code" href="structvec4.html#a64fd4d39d8943f0085c945765e5c6eb2">normalize</a>();</div>
-<div class="line">        AssertEqual(<a class="code" href="utils_8h.html#a0dc178895f92579761e0a27a40494868">Math::Utils::normalize</a>(a4), b4);</div>
+<div class="line">        AssertEqual(<a class="code" href="namespaceMath_1_1Utils.html#a0dc178895f92579761e0a27a40494868">Math::Utils::normalize</a>(a4), b4);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestTranslate() {</div>
 <div class="line">        <a name="_a8"></a><a class="code" href="structmat4.html">mat4f</a> model(0.0f);</div>
-<div class="line">        <span class="keyword">auto</span> b = <a name="a9"></a><a class="code" href="utils_8h.html#af2f6fbcc6208b71f72da58c6c09ad02a">Math::Utils::translate</a>(model, { 1.0, 1.0, 1.0 });</div>
+<div class="line">        <span class="keyword">auto</span> b = <a name="a9"></a><a class="code" href="namespaceMath_1_1Utils.html#af2f6fbcc6208b71f72da58c6c09ad02a">Math::Utils::translate</a>(model, { 1.0, 1.0, 1.0 });</div>
 <div class="line"> </div>
 <div class="line">        AssertEqual(model, b);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestLookAt() {</div>
-<div class="line">        <a class="code" href="structvec3.html">vec3f</a> <a name="a10"></a><a class="code" href="numerics_2utils_8h.html#af2b3071fc3f2b2a1e903ceea3a9afa76">eye</a>(1, 0, 1);</div>
+<div class="line">        <a class="code" href="structvec3.html">vec3f</a> <a name="a10"></a><a class="code" href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a>(1, 0, 1);</div>
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> center(0, 0, 0);</div>
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> up(0, 1, 0);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">auto</span> res = <a name="a11"></a><a class="code" href="utils_8h.html#ad84d5d2918361fd0e154c931b80db5ae">Math::Utils::lookAt</a>(<a class="code" href="numerics_2utils_8h.html#af2b3071fc3f2b2a1e903ceea3a9afa76">eye</a>, center, up);</div>
+<div class="line">        <span class="keyword">auto</span> res = <a name="a11"></a><a class="code" href="namespaceMath_1_1Utils.html#ad84d5d2918361fd0e154c931b80db5ae">Math::Utils::lookAt</a>(<a class="code" href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a>, center, up);</div>
 <div class="line">        <a class="code" href="structmat4.html">mat4f</a> expected(</div>
 <div class="line">        { 0.7071068286895752, 0, 0.70710676908493042, 0 },</div>
 <div class="line">        { 0, 1, -0, 0 },</div>
@@ -145,7 +145,7 @@ $(function() {
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestAngleAxis() {</div>
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> a(1, 1, 1);</div>
-<div class="line">        <span class="keyword">auto</span> res = <a name="a12"></a><a class="code" href="utils_8h.html#a68305043852a6bf7aeffd0c8495d1776">Math::Utils::angleAxis</a>(0, a);</div>
+<div class="line">        <span class="keyword">auto</span> res = <a name="a12"></a><a class="code" href="namespaceMath_1_1Utils.html#a68305043852a6bf7aeffd0c8495d1776">Math::Utils::angleAxis</a>(0, a);</div>
 <div class="line"> </div>
 <div class="line">        <a class="code" href="structmat4.html">mat4f</a> expected(0);</div>
 <div class="line">        AssertEqual(res, expected);</div>
@@ -153,10 +153,10 @@ $(function() {
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestScale() {</div>
 <div class="line">        <a class="code" href="structmat4.html">mat4f</a> model(1.0f);</div>
-<div class="line">        <span class="keyword">auto</span> res = <a name="a13"></a><a class="code" href="utils_8h.html#ae671ae829d6aa8be033a023e8aafadda">Math::Utils::scale</a>(model, 1);</div>
+<div class="line">        <span class="keyword">auto</span> res = <a name="a13"></a><a class="code" href="namespaceMath_1_1Utils.html#ae671ae829d6aa8be033a023e8aafadda">Math::Utils::scale</a>(model, 1);</div>
 <div class="line"> </div>
 <div class="line">        AssertEqual(model, res);</div>
-<div class="line">        res = <a class="code" href="utils_8h.html#ae671ae829d6aa8be033a023e8aafadda">Math::Utils::scale</a>(model, 2);</div>
+<div class="line">        res = <a class="code" href="namespaceMath_1_1Utils.html#ae671ae829d6aa8be033a023e8aafadda">Math::Utils::scale</a>(model, 2);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keyword">auto</span> expected = model * 2.0f;</div>
 <div class="line"> </div>
@@ -167,7 +167,7 @@ $(function() {
 <div class="line">    <span class="keywordtype">bool</span> TestRotate() {</div>
 <div class="line">        <a class="code" href="structmat4.html">mat4f</a> a(1.0f);</div>
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> b(1.0f, 0, 0);</div>
-<div class="line">        <span class="keyword">auto</span> res = <a name="a14"></a><a class="code" href="utils_8h.html#a613016d9db9e0f9909b6c3a0a5b40b4e">Math::Utils::rotate</a>(a, 90, b);</div>
+<div class="line">        <span class="keyword">auto</span> res = <a name="a14"></a><a class="code" href="namespaceMath_1_1Utils.html#a613016d9db9e0f9909b6c3a0a5b40b4e">Math::Utils::rotate</a>(a, 90, b);</div>
 <div class="line"> </div>
 <div class="line">        <a class="code" href="structmat4.html">mat4f</a> expected({ { 1, 0, 0, 0 },</div>
 <div class="line">                         { 0, -0.4480736255645752, 0.89399665594100952, 0 },</div>
@@ -180,27 +180,27 @@ $(function() {
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> a(1, 0, 0);</div>
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> b(2, 0, 0);</div>
 <div class="line"> </div>
-<div class="line">        AssertEqual(<a name="a15"></a><a class="code" href="utils_8h.html#a5fc3ba474ff6374ecf92ae619b6bf728">Math::Utils::max</a>(a, b), b);</div>
+<div class="line">        AssertEqual(<a name="a15"></a><a class="code" href="namespaceMath_1_1Utils.html#a5fc3ba474ff6374ecf92ae619b6bf728">Math::Utils::max</a>(a, b), b);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestLerp() {</div>
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> a(1, 0, 0);</div>
 <div class="line">        <a class="code" href="structvec3.html">vec3f</a> b(2, 0, 0);</div>
-<div class="line">        <span class="keyword">auto</span> res = <a name="a16"></a><a class="code" href="utils_8h.html#a7d0cff957728efb27d5414c029e8b3af">Math::Utils::lerp</a>(a, b, 0.0);</div>
+<div class="line">        <span class="keyword">auto</span> res = <a name="a16"></a><a class="code" href="namespaceMath_1_1Utils.html#a7d0cff957728efb27d5414c029e8b3af">Math::Utils::lerp</a>(a, b, 0.0);</div>
 <div class="line"> </div>
 <div class="line">        AssertEqual(res, a);</div>
 <div class="line"> </div>
-<div class="line">        res = <a class="code" href="utils_8h.html#a7d0cff957728efb27d5414c029e8b3af">Math::Utils::lerp</a>(b, a, 0.0);</div>
+<div class="line">        res = <a class="code" href="namespaceMath_1_1Utils.html#a7d0cff957728efb27d5414c029e8b3af">Math::Utils::lerp</a>(b, a, 0.0);</div>
 <div class="line"> </div>
 <div class="line">        AssertEqual(res, b);</div>
 <div class="line"> </div>
-<div class="line">        res = <a class="code" href="utils_8h.html#a7d0cff957728efb27d5414c029e8b3af">Math::Utils::lerp</a>(a, b, 0.5);</div>
+<div class="line">        res = <a class="code" href="namespaceMath_1_1Utils.html#a7d0cff957728efb27d5414c029e8b3af">Math::Utils::lerp</a>(a, b, 0.5);</div>
 <div class="line"> </div>
 <div class="line">        AssertEqual(res, { 1.5, 0, 0 });</div>
 <div class="line"> </div>
 <div class="line">        <a class="code" href="structvec4.html">vec4f</a> a4(1, 0, 0, 0);</div>
 <div class="line">        <a class="code" href="structvec4.html">vec4f</a> b4(2, 0, 0, 0);</div>
-<div class="line">        <span class="keyword">auto</span> res4 = <a class="code" href="utils_8h.html#a7d0cff957728efb27d5414c029e8b3af">Math::Utils::lerp</a>(a4, b4, 0.0);</div>
+<div class="line">        <span class="keyword">auto</span> res4 = <a class="code" href="namespaceMath_1_1Utils.html#a7d0cff957728efb27d5414c029e8b3af">Math::Utils::lerp</a>(a4, b4, 0.0);</div>
 <div class="line"> </div>
 <div class="line">        AssertEqual(res4, a4);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -259,8 +259,17 @@ $(function() {
 <div class="line">    UtilsTestCase().run();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
+<div class="ttc" id="aMatrix_8h_html"><div class="ttname"><a href="Matrix_8h.html">Matrix.h</a></div></div>
 <div class="ttc" id="amath_8h_html"><div class="ttname"><a href="math_8h.html">math.h</a></div></div>
-<div class="ttc" id="anumerics_2utils_8h_html_af2b3071fc3f2b2a1e903ceea3a9afa76"><div class="ttname"><a href="numerics_2utils_8h.html#af2b3071fc3f2b2a1e903ceea3a9afa76">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns=0)</div><div class="ttdef"><b>Definition:</b> utils.cpp:14</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a0db82d57fef0c8540f30485e3e8d707f"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a0db82d57fef0c8540f30485e3e8d707f">Math::Utils::distance</a></div><div class="ttdeci">float distance(V a, V b)</div><div class="ttdef"><b>Definition:</b> utils.h:27</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a0dc178895f92579761e0a27a40494868"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a0dc178895f92579761e0a27a40494868">Math::Utils::normalize</a></div><div class="ttdeci">vec2&lt; T &gt; normalize(vec2&lt; T &gt; a)</div><div class="ttdef"><b>Definition:</b> utils.h:38</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a5fc3ba474ff6374ecf92ae619b6bf728"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a5fc3ba474ff6374ecf92ae619b6bf728">Math::Utils::max</a></div><div class="ttdeci">vec3&lt; T &gt; max(vec3&lt; T &gt; a, vec3&lt; T &gt; b)</div><div class="ttdef"><b>Definition:</b> utils.h:234</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a613016d9db9e0f9909b6c3a0a5b40b4e"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a613016d9db9e0f9909b6c3a0a5b40b4e">Math::Utils::rotate</a></div><div class="ttdeci">mat4&lt; T &gt; rotate(mat4&lt; T &gt; m, const float &amp;angle, vec3&lt; T &gt; u)</div><div class="ttdef"><b>Definition:</b> utils.h:199</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a68305043852a6bf7aeffd0c8495d1776"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a68305043852a6bf7aeffd0c8495d1776">Math::Utils::angleAxis</a></div><div class="ttdeci">mat4&lt; T &gt; angleAxis([[maybe_unused]] const float &amp;angle, [[maybe_unused]] const vec3&lt; T &gt; &amp;axis)</div><div class="ttdef"><b>Definition:</b> utils.h:173</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a7d0cff957728efb27d5414c029e8b3af"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a7d0cff957728efb27d5414c029e8b3af">Math::Utils::lerp</a></div><div class="ttdeci">vec3&lt; T &gt; lerp(vec3&lt; T &gt; p1, vec3&lt; T &gt; p2, const float &amp;v)</div><div class="ttdef"><b>Definition:</b> utils.h:247</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_ad84d5d2918361fd0e154c931b80db5ae"><div class="ttname"><a href="namespaceMath_1_1Utils.html#ad84d5d2918361fd0e154c931b80db5ae">Math::Utils::lookAt</a></div><div class="ttdeci">mat4&lt; T &gt; lookAt(vec3&lt; T &gt; eye, vec3&lt; T &gt; center, vec3&lt; T &gt; up)</div><div class="ttdef"><b>Definition:</b> utils.h:90</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_ae671ae829d6aa8be033a023e8aafadda"><div class="ttname"><a href="namespaceMath_1_1Utils.html#ae671ae829d6aa8be033a023e8aafadda">Math::Utils::scale</a></div><div class="ttdeci">mat4&lt; T &gt; scale(mat4&lt; T &gt; mat, const float &amp;factor)</div><div class="ttdef"><b>Definition:</b> utils.h:186</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_af2f6fbcc6208b71f72da58c6c09ad02a"><div class="ttname"><a href="namespaceMath_1_1Utils.html#af2f6fbcc6208b71f72da58c6c09ad02a">Math::Utils::translate</a></div><div class="ttdeci">mat4&lt; T &gt; translate(mat4&lt; T &gt; M, vec3&lt; T &gt; V)</div><div class="ttdef"><b>Definition:</b> utils.h:72</div></div>
 <div class="ttc" id="astructmat2_html"><div class="ttname"><a href="structmat2.html">mat2</a></div><div class="ttdef"><b>Definition:</b> mat2.h:10</div></div>
 <div class="ttc" id="astructmat3_html"><div class="ttname"><a href="structmat3.html">mat3</a></div><div class="ttdef"><b>Definition:</b> mat3.h:10</div></div>
 <div class="ttc" id="astructmat4_html"><div class="ttname"><a href="structmat4.html">mat4</a></div><div class="ttdef"><b>Definition:</b> mat4.h:11</div></div>
@@ -270,16 +279,8 @@ $(function() {
 <div class="ttc" id="astructvec3_html_a78346761e14409bf1360d7b8827c751b"><div class="ttname"><a href="structvec3.html#a78346761e14409bf1360d7b8827c751b">vec3::normalize</a></div><div class="ttdeci">vec3&lt; T &gt; normalize() const</div><div class="ttdef"><b>Definition:</b> vec3.h:122</div></div>
 <div class="ttc" id="astructvec4_html"><div class="ttname"><a href="structvec4.html">vec4</a></div><div class="ttdef"><b>Definition:</b> vec4.h:11</div></div>
 <div class="ttc" id="astructvec4_html_a64fd4d39d8943f0085c945765e5c6eb2"><div class="ttname"><a href="structvec4.html#a64fd4d39d8943f0085c945765e5c6eb2">vec4::normalize</a></div><div class="ttdeci">vec4&lt; T &gt; normalize() const</div><div class="ttdef"><b>Definition:</b> vec4.h:103</div></div>
-<div class="ttc" id="autils_8h_html_a0db82d57fef0c8540f30485e3e8d707f"><div class="ttname"><a href="utils_8h.html#a0db82d57fef0c8540f30485e3e8d707f">Math::Utils::distance</a></div><div class="ttdeci">float distance(V a, V b)</div><div class="ttdef"><b>Definition:</b> utils.h:27</div></div>
-<div class="ttc" id="autils_8h_html_a0dc178895f92579761e0a27a40494868"><div class="ttname"><a href="utils_8h.html#a0dc178895f92579761e0a27a40494868">Math::Utils::normalize</a></div><div class="ttdeci">vec2&lt; T &gt; normalize(vec2&lt; T &gt; a)</div><div class="ttdef"><b>Definition:</b> utils.h:38</div></div>
-<div class="ttc" id="autils_8h_html_a5fc3ba474ff6374ecf92ae619b6bf728"><div class="ttname"><a href="utils_8h.html#a5fc3ba474ff6374ecf92ae619b6bf728">Math::Utils::max</a></div><div class="ttdeci">vec3&lt; T &gt; max(vec3&lt; T &gt; a, vec3&lt; T &gt; b)</div><div class="ttdef"><b>Definition:</b> utils.h:234</div></div>
-<div class="ttc" id="autils_8h_html_a613016d9db9e0f9909b6c3a0a5b40b4e"><div class="ttname"><a href="utils_8h.html#a613016d9db9e0f9909b6c3a0a5b40b4e">Math::Utils::rotate</a></div><div class="ttdeci">mat4&lt; T &gt; rotate(mat4&lt; T &gt; m, const float &amp;angle, vec3&lt; T &gt; u)</div><div class="ttdef"><b>Definition:</b> utils.h:199</div></div>
-<div class="ttc" id="autils_8h_html_a68305043852a6bf7aeffd0c8495d1776"><div class="ttname"><a href="utils_8h.html#a68305043852a6bf7aeffd0c8495d1776">Math::Utils::angleAxis</a></div><div class="ttdeci">mat4&lt; T &gt; angleAxis([[maybe_unused]] const float &amp;angle, [[maybe_unused]] const vec3&lt; T &gt; &amp;axis)</div><div class="ttdef"><b>Definition:</b> utils.h:173</div></div>
+<div class="ttc" id="autils_8cpp_html_a02435943b506858e6dd5d86fc85991c0"><div class="ttname"><a href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:14</div></div>
 <div class="ttc" id="autils_8h_html_a749790974bbc88bb6bf6283952da1606"><div class="ttname"><a href="utils_8h.html#a749790974bbc88bb6bf6283952da1606">value_ptr</a></div><div class="ttdeci">void * value_ptr(vec2&lt; T &gt; &amp;vec)</div><div class="ttdef"><b>Definition:</b> utils.h:279</div></div>
-<div class="ttc" id="autils_8h_html_a7d0cff957728efb27d5414c029e8b3af"><div class="ttname"><a href="utils_8h.html#a7d0cff957728efb27d5414c029e8b3af">Math::Utils::lerp</a></div><div class="ttdeci">vec3&lt; T &gt; lerp(vec3&lt; T &gt; p1, vec3&lt; T &gt; p2, const float &amp;v)</div><div class="ttdef"><b>Definition:</b> utils.h:247</div></div>
-<div class="ttc" id="autils_8h_html_ad84d5d2918361fd0e154c931b80db5ae"><div class="ttname"><a href="utils_8h.html#ad84d5d2918361fd0e154c931b80db5ae">Math::Utils::lookAt</a></div><div class="ttdeci">mat4&lt; T &gt; lookAt(vec3&lt; T &gt; eye, vec3&lt; T &gt; center, vec3&lt; T &gt; up)</div><div class="ttdef"><b>Definition:</b> utils.h:90</div></div>
-<div class="ttc" id="autils_8h_html_ae671ae829d6aa8be033a023e8aafadda"><div class="ttname"><a href="utils_8h.html#ae671ae829d6aa8be033a023e8aafadda">Math::Utils::scale</a></div><div class="ttdeci">mat4&lt; T &gt; scale(mat4&lt; T &gt; mat, const float &amp;factor)</div><div class="ttdef"><b>Definition:</b> utils.h:186</div></div>
-<div class="ttc" id="autils_8h_html_af2f6fbcc6208b71f72da58c6c09ad02a"><div class="ttname"><a href="utils_8h.html#af2f6fbcc6208b71f72da58c6c09ad02a">Math::Utils::translate</a></div><div class="ttdeci">mat4&lt; T &gt; translate(mat4&lt; T &gt; M, vec3&lt; T &gt; V)</div><div class="ttdef"><b>Definition:</b> utils.h:72</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

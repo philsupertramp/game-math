@@ -14,7 +14,7 @@ This is an example on how to use the Porbability.\+h file.
 \DoxyCodeLine{        x                = x.\mbox{\hyperlink{classMatrix_a953e5e97f987f47e261dd830cac64087}{Transpose}}();}
 \DoxyCodeLine{        y                = y.\mbox{\hyperlink{classMatrix_a953e5e97f987f47e261dd830cac64087}{Transpose}}();}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} out = \mbox{\hyperlink{Probability_8h_a3974006c8e6b9526b925be95ff4913ae}{lm}}(x, y);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} out = \mbox{\hyperlink{Probability_8cpp_a3974006c8e6b9526b925be95ff4913ae}{lm}}(x, y);}
 \DoxyCodeLine{        AssertEqual(out.beta\_0, -\/0.0031336232606394786);}
 \DoxyCodeLine{        AssertEqual(out.beta\_1, 15.373424692163542);}
 \DoxyCodeLine{}
@@ -22,32 +22,32 @@ This is an example on how to use the Porbability.\+h file.
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestRound() \{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_aa3e12acd040b791cdf25cbb4d3d41bb5}{round}}(0.00001, 4), 0);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_aa3e12acd040b791cdf25cbb4d3d41bb5}{round}}(0.000011, 5), 0.00001);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_aa3e12acd040b791cdf25cbb4d3d41bb5}{round}}(0.1, 0), 0.0);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_aa3e12acd040b791cdf25cbb4d3d41bb5}{round}}(0.00001, 4), 0);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_aa3e12acd040b791cdf25cbb4d3d41bb5}{round}}(0.000011, 5), 0.00001);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_aa3e12acd040b791cdf25cbb4d3d41bb5}{round}}(0.1, 0), 0.0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestABS() \{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_a87477d0585e56d94b550e186c12bfcc1}{abs}}(-\/1.0), 1.0);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_a87477d0585e56d94b550e186c12bfcc1}{abs}}(0.0), 0.0);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_a87477d0585e56d94b550e186c12bfcc1}{abs}}(1.0), 1.0);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_a87477d0585e56d94b550e186c12bfcc1}{abs}}(-\/1.0), 1.0);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_a87477d0585e56d94b550e186c12bfcc1}{abs}}(0.0), 0.0);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_a87477d0585e56d94b550e186c12bfcc1}{abs}}(1.0), 1.0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestPow() \{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}}(2, 2), 4);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}}(5, 2), 25);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}}(1, 20), 1);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}}(-\/1, 20), 1);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}}(-\/1, 21), -\/1);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(2, 2), 4);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(5, 2), 25);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(1, 20), 1);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(-\/1, 20), 1);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(-\/1, 21), -\/1);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestNorm() \{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\{ \{ 1.0 \} \}, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784}{P\_NORM::Inf}}), 1.0);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\{ \{ 1.0, 10.0 \} \}, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784}{P\_NORM::Inf}}), 10.0);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\{ \{ 1.0, 10.0 \} \}, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ad4e07130bf8ac301c327f0e64bc2d292}{P\_NORM::One}}), 11.0);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\{ \{ 1.0, 1.0 \} \}, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ae5732ead6288358557f404848f9da09c}{P\_NORM::Eukl}}), sqrt(2.0));}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8cpp_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\{ \{ 1.0 \} \}, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784}{P\_NORM::Inf}}), 1.0);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8cpp_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\{ \{ 1.0, 10.0 \} \}, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784}{P\_NORM::Inf}}), 10.0);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8cpp_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\{ \{ 1.0, 10.0 \} \}, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ad4e07130bf8ac301c327f0e64bc2d292}{P\_NORM::One}}), 11.0);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8cpp_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\{ \{ 1.0, 1.0 \} \}, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ae5732ead6288358557f404848f9da09c}{P\_NORM::Eukl}}), sqrt(2.0));}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestCov() \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}}
@@ -59,7 +59,7 @@ This is an example on how to use the Porbability.\+h file.
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestRegression() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A = \{ \{ -\/1, 0, 3, 7, 4, 6, 10 \} \};}
-\DoxyCodeLine{        \textcolor{keyword}{auto} out         = \mbox{\hyperlink{Probability_8h_a40ec5539b5ccb2f39b8844ca4609b88d}{Regression}}(A.\mbox{\hyperlink{classMatrix_a953e5e97f987f47e261dd830cac64087}{Transpose}}());}
+\DoxyCodeLine{        \textcolor{keyword}{auto} out         = \mbox{\hyperlink{Probability_8cpp_a423a20e13b076fe53eb4a957b493061a}{Regression}}(A.\mbox{\hyperlink{classMatrix_a953e5e97f987f47e261dd830cac64087}{Transpose}}());}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} expected = \{ \{ -\/0.7857142857142847,}
 \DoxyCodeLine{                                      0.8571428571428577,}

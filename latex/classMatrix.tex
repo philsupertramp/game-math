@@ -86,6 +86,26 @@ int \mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{Get\+Index}}
 \item 
 static \mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_ab72c15d620fbe70b88578543b65e70ff}{Random}} (size\+\_\+t \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, size\+\_\+t \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}, size\+\_\+t element\+\_\+size=1, double min\+Value=0.\+0, double max\+Value=1.\+0)
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classMatrix_a25f848c1725de46544bb6a9c2c974ea1}{Has\+Det}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\+\_\+rows}} = 0
+\begin{DoxyCompactList}\small\item\em number rows \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\+\_\+columns}} = 0
+\begin{DoxyCompactList}\small\item\em number columns \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\+\_\+element\+\_\+size}} = 0
+\begin{DoxyCompactList}\small\item\em number elements \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\+\_\+data}}
+\begin{DoxyCompactList}\small\item\em ongoing array representing data \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classMatrix_abfda24d2db48d6823153c4c4885a3921}{\+\_\+data\+Size}} = 0
+\begin{DoxyCompactList}\small\item\em total number of elements \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMatrix_a89669a80df8ca29a0d9c32ab5d73bd53}{needs\+Free}} = false
+\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -346,6 +366,16 @@ Hadamard Multiplication Z\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} = A\mbox{[}i\mbox{]}
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMatrix_a25f848c1725de46544bb6a9c2c974ea1}\label{classMatrix_a25f848c1725de46544bb6a9c2c974ea1}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!HasDet@{HasDet}}
+\index{HasDet@{HasDet}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{HasDet()}{HasDet()}}
+{\footnotesize\ttfamily template$<$typename T  = double$>$ \\
+bool \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::Has\+Det (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Helper to test if \mbox{\hyperlink{classMatrix}{Matrix}} can have a determinant \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classMatrix_a5b58a839f095a53cc6dd56fe58e2d4c2}\label{classMatrix_a5b58a839f095a53cc6dd56fe58e2d4c2}} 
@@ -688,6 +718,71 @@ ostream operator, beatified representation
 \end{DoxyReturn}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}\label{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!\_columns@{\_columns}}
+\index{\_columns@{\_columns}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_columns}{\_columns}}
+{\footnotesize\ttfamily template$<$typename T  = double$>$ \\
+size\+\_\+t \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\+\_\+columns = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+number columns 
+
+\mbox{\Hypertarget{classMatrix_aaf42bea604b00c6d359febbf68dae696}\label{classMatrix_aaf42bea604b00c6d359febbf68dae696}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!\_data@{\_data}}
+\index{\_data@{\_data}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_data}{\_data}}
+{\footnotesize\ttfamily template$<$typename T  = double$>$ \\
+T$\ast$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ongoing array representing data 
+
+\mbox{\Hypertarget{classMatrix_abfda24d2db48d6823153c4c4885a3921}\label{classMatrix_abfda24d2db48d6823153c4c4885a3921}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!\_dataSize@{\_dataSize}}
+\index{\_dataSize@{\_dataSize}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_dataSize}{\_dataSize}}
+{\footnotesize\ttfamily template$<$typename T  = double$>$ \\
+size\+\_\+t \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\+\_\+data\+Size = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+total number of elements 
+
+\mbox{\Hypertarget{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}\label{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!\_element\_size@{\_element\_size}}
+\index{\_element\_size@{\_element\_size}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_element\_size}{\_element\_size}}
+{\footnotesize\ttfamily template$<$typename T  = double$>$ \\
+size\+\_\+t \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\+\_\+element\+\_\+size = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+number elements 
+
+\mbox{\Hypertarget{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}\label{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!\_rows@{\_rows}}
+\index{\_rows@{\_rows}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_rows}{\_rows}}
+{\footnotesize\ttfamily template$<$typename T  = double$>$ \\
+size\+\_\+t \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\+\_\+rows = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+number rows 
+
+\mbox{\Hypertarget{classMatrix_a89669a80df8ca29a0d9c32ab5d73bd53}\label{classMatrix_a89669a80df8ca29a0d9c32ab5d73bd53}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!needsFree@{needsFree}}
+\index{needsFree@{needsFree}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{needsFree}{needsFree}}
+{\footnotesize\ttfamily template$<$typename T  = double$>$ \\
+bool \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::needs\+Free = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/Matrix.\+h\end{DoxyCompactItemize}
+include/math/\mbox{\hyperlink{Matrix_8h}{Matrix.\+h}}\end{DoxyCompactItemize}

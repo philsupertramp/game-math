@@ -90,7 +90,7 @@ Inheritance diagram for Operator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad483de0fdafcc9ff8b060b07a0bc41ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperator.html#ad483de0fdafcc9ff8b060b07a0bc41ba">Operator</a> (const std::string &amp;name, std::function&lt; double(double, double)&gt; fun, OperatorPriority operatorPriority)</td></tr>
+<tr class="memitem:ad483de0fdafcc9ff8b060b07a0bc41ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperator.html#ad483de0fdafcc9ff8b060b07a0bc41ba">Operator</a> (const std::string &amp;name, std::function&lt; double(double, double)&gt; fun, <a class="el" href="Symbolic_8h.html#a46dd797d9c42218918ba2a83eb5b8db7">OperatorPriority</a> operatorPriority)</td></tr>
 <tr class="separator:ad483de0fdafcc9ff8b060b07a0bc41ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad091ebe59393f33035c648995c331799"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperator.html#ad091ebe59393f33035c648995c331799">Operator</a> (const <a class="el" href="classOperator.html">Operator</a> &amp;other)</td></tr>
 <tr class="separator:ad091ebe59393f33035c648995c331799"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,46 +106,37 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa1053c93ac197de3d97d527ce54c6992"><td class="memItemLeft" align="right" valign="top"><a id="aa1053c93ac197de3d97d527ce54c6992"></a>
-std::function&lt; double(double, double)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperator.html#aa1053c93ac197de3d97d527ce54c6992">op</a></td></tr>
-<tr class="memdesc:aa1053c93ac197de3d97d527ce54c6992"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classOperator.html">Operator</a> implementation, this will be evaluated during <code>Evaluate</code> calls. <br /></td></tr>
+<tr class="memitem:aa1053c93ac197de3d97d527ce54c6992"><td class="memItemLeft" align="right" valign="top">std::function&lt; double(double, double)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperator.html#aa1053c93ac197de3d97d527ce54c6992">op</a></td></tr>
+<tr class="memdesc:aa1053c93ac197de3d97d527ce54c6992"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classOperator.html">Operator</a> implementation, this will be evaluated during <code>Evaluate</code> calls.  <a href="classOperator.html#aa1053c93ac197de3d97d527ce54c6992">More...</a><br /></td></tr>
 <tr class="separator:aa1053c93ac197de3d97d527ce54c6992"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac3650047650adcb082c21b2a5bdfb1c"><td class="memItemLeft" align="right" valign="top"><a id="aac3650047650adcb082c21b2a5bdfb1c"></a>
-OperatorPriority&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperator.html#aac3650047650adcb082c21b2a5bdfb1c">priority</a></td></tr>
-<tr class="memdesc:aac3650047650adcb082c21b2a5bdfb1c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classOperator.html">Operator</a> priority, used to create AST. <br /></td></tr>
+<tr class="memitem:aac3650047650adcb082c21b2a5bdfb1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Symbolic_8h.html#a46dd797d9c42218918ba2a83eb5b8db7">OperatorPriority</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperator.html#aac3650047650adcb082c21b2a5bdfb1c">priority</a></td></tr>
+<tr class="memdesc:aac3650047650adcb082c21b2a5bdfb1c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classOperator.html">Operator</a> priority, used to create AST.  <a href="classOperator.html#aac3650047650adcb082c21b2a5bdfb1c">More...</a><br /></td></tr>
 <tr class="separator:aac3650047650adcb082c21b2a5bdfb1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classMathNode"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classMathNode')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classMathNode.html">MathNode</a></td></tr>
-<tr class="memitem:a23bb4430c010646f85a41e722f30d7f6 inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top"><a id="a23bb4430c010646f85a41e722f30d7f6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a23bb4430c010646f85a41e722f30d7f6">isNegative</a> = false</td></tr>
-<tr class="memdesc:a23bb4430c010646f85a41e722f30d7f6 inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper to determine whether a node is negated or not <br /></td></tr>
+<tr class="memitem:a23bb4430c010646f85a41e722f30d7f6 inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a23bb4430c010646f85a41e722f30d7f6">isNegative</a> = false</td></tr>
+<tr class="memdesc:a23bb4430c010646f85a41e722f30d7f6 inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper to determine whether a node is negated or not  <a href="classMathNode.html#a23bb4430c010646f85a41e722f30d7f6">More...</a><br /></td></tr>
 <tr class="separator:a23bb4430c010646f85a41e722f30d7f6 inherit pub_attribs_classMathNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cff117d073cd15538cf3f1d385d3207 inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top"><a id="a9cff117d073cd15538cf3f1d385d3207"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a9cff117d073cd15538cf3f1d385d3207">hasParentheses</a> = false</td></tr>
-<tr class="memdesc:a9cff117d073cd15538cf3f1d385d3207 inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper to determine if node is within parentheses <br /></td></tr>
+<tr class="memitem:a9cff117d073cd15538cf3f1d385d3207 inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a9cff117d073cd15538cf3f1d385d3207">hasParentheses</a> = false</td></tr>
+<tr class="memdesc:a9cff117d073cd15538cf3f1d385d3207 inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper to determine if node is within parentheses  <a href="classMathNode.html#a9cff117d073cd15538cf3f1d385d3207">More...</a><br /></td></tr>
 <tr class="separator:a9cff117d073cd15538cf3f1d385d3207 inherit pub_attribs_classMathNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab70eeffac4cad37de01dc063eeb93d8c inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top"><a id="ab70eeffac4cad37de01dc063eeb93d8c"></a>
-MathNodeType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#ab70eeffac4cad37de01dc063eeb93d8c">type</a></td></tr>
-<tr class="memdesc:ab70eeffac4cad37de01dc063eeb93d8c inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">node type representation <br /></td></tr>
+<tr class="memitem:ab70eeffac4cad37de01dc063eeb93d8c inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Symbolic_8h.html#af66185625ec6e66044e64693a29dfefe">MathNodeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#ab70eeffac4cad37de01dc063eeb93d8c">type</a></td></tr>
+<tr class="memdesc:ab70eeffac4cad37de01dc063eeb93d8c inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">node type representation  <a href="classMathNode.html#ab70eeffac4cad37de01dc063eeb93d8c">More...</a><br /></td></tr>
 <tr class="separator:ab70eeffac4cad37de01dc063eeb93d8c inherit pub_attribs_classMathNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7246ecf47bdb68471202f2c725cb41e4 inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top"><a id="a7246ecf47bdb68471202f2c725cb41e4"></a>
-std::shared_ptr&lt; <a class="el" href="classMathNode.html">MathNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a7246ecf47bdb68471202f2c725cb41e4">left</a> = nullptr</td></tr>
-<tr class="memdesc:a7246ecf47bdb68471202f2c725cb41e4 inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">next node on left side <br /></td></tr>
+<tr class="memitem:a7246ecf47bdb68471202f2c725cb41e4 inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classMathNode.html">MathNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a7246ecf47bdb68471202f2c725cb41e4">left</a> = nullptr</td></tr>
+<tr class="memdesc:a7246ecf47bdb68471202f2c725cb41e4 inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">next node on left side  <a href="classMathNode.html#a7246ecf47bdb68471202f2c725cb41e4">More...</a><br /></td></tr>
 <tr class="separator:a7246ecf47bdb68471202f2c725cb41e4 inherit pub_attribs_classMathNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af81f7d62cd9008544aa999c6a1c55934 inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top"><a id="af81f7d62cd9008544aa999c6a1c55934"></a>
-std::shared_ptr&lt; <a class="el" href="classMathNode.html">MathNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#af81f7d62cd9008544aa999c6a1c55934">right</a> = nullptr</td></tr>
-<tr class="memdesc:af81f7d62cd9008544aa999c6a1c55934 inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">next node on right side <br /></td></tr>
+<tr class="memitem:af81f7d62cd9008544aa999c6a1c55934 inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classMathNode.html">MathNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#af81f7d62cd9008544aa999c6a1c55934">right</a> = nullptr</td></tr>
+<tr class="memdesc:af81f7d62cd9008544aa999c6a1c55934 inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">next node on right side  <a href="classMathNode.html#af81f7d62cd9008544aa999c6a1c55934">More...</a><br /></td></tr>
 <tr class="separator:af81f7d62cd9008544aa999c6a1c55934 inherit pub_attribs_classMathNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d7c199d2c5581160db369014654c084 inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top"><a id="a2d7c199d2c5581160db369014654c084"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a2d7c199d2c5581160db369014654c084">value</a> {}</td></tr>
-<tr class="memdesc:a2d7c199d2c5581160db369014654c084 inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">char representation of value <br /></td></tr>
+<tr class="memitem:a2d7c199d2c5581160db369014654c084 inherit pub_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a2d7c199d2c5581160db369014654c084">value</a> {}</td></tr>
+<tr class="memdesc:a2d7c199d2c5581160db369014654c084 inherit pub_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">char representation of value  <a href="classMathNode.html#a2d7c199d2c5581160db369014654c084">More...</a><br /></td></tr>
 <tr class="separator:a2d7c199d2c5581160db369014654c084 inherit pub_attribs_classMathNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classMathNode"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classMathNode')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classMathNode.html">MathNode</a></td></tr>
-<tr class="memitem:a316c8023f8a4129fb93974e3ce12b65d inherit pro_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top"><a id="a316c8023f8a4129fb93974e3ce12b65d"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a316c8023f8a4129fb93974e3ce12b65d">valSize</a> = 0</td></tr>
-<tr class="memdesc:a316c8023f8a4129fb93974e3ce12b65d inherit pro_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper to store size of value <br /></td></tr>
+<tr class="memitem:a316c8023f8a4129fb93974e3ce12b65d inherit pro_attribs_classMathNode"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a316c8023f8a4129fb93974e3ce12b65d">valSize</a> = 0</td></tr>
+<tr class="memdesc:a316c8023f8a4129fb93974e3ce12b65d inherit pro_attribs_classMathNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper to store size of value  <a href="classMathNode.html#a316c8023f8a4129fb93974e3ce12b65d">More...</a><br /></td></tr>
 <tr class="separator:a316c8023f8a4129fb93974e3ce12b65d inherit pro_attribs_classMathNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -175,7 +166,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">OperatorPriority&#160;</td>
+          <td class="paramtype"><a class="el" href="Symbolic_8h.html#a46dd797d9c42218918ba2a83eb5b8db7">OperatorPriority</a>&#160;</td>
           <td class="paramname"><em>operatorPriority</em>&#160;</td>
         </tr>
         <tr>
@@ -259,6 +250,39 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <p>evaluates op(left, right) </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Implements <a class="el" href="classMathNode.html#ac6689c4cc69071efbd524e0f2a7fe0f6">MathNode</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa1053c93ac197de3d97d527ce54c6992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1053c93ac197de3d97d527ce54c6992">&#9670;&nbsp;</a></span>op</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;double(double, double)&gt; Operator::op</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classOperator.html">Operator</a> implementation, this will be evaluated during <code>Evaluate</code> calls. </p>
+
+</div>
+</div>
+<a id="aac3650047650adcb082c21b2a5bdfb1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac3650047650adcb082c21b2a5bdfb1c">&#9670;&nbsp;</a></span>priority</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Symbolic_8h.html#a46dd797d9c42218918ba2a83eb5b8db7">OperatorPriority</a> Operator::priority</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classOperator.html">Operator</a> priority, used to create AST. </p>
 
 </div>
 </div>

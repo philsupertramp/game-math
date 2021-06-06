@@ -74,24 +74,24 @@ $(function() {
 <div class="contents">
 <p>This is an example on how to use the <a class="el" href="classPlot.html">Plot</a>, <a class="el" href="classScatterPlot.html">ScatterPlot</a>, <a class="el" href="classFunctionPlot.html">FunctionPlot</a> and <a class="el" href="classSurfacePlot.html">SurfacePlot</a> classes.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;../Test.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;math/numerics/analysis/SupportValues.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;math/visualization/Plot.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="SupportValues_8h.html">math/numerics/analysis/SupportValues.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Plot_8h.html">math/visualization/Plot.h</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span>PlotTestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">bool</span> TestPlot() {</div>
-<div class="line">        <a name="_a0"></a><a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> X = <a name="a1"></a><a class="code" href="numerics_2utils_8h.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a>(-5, 5, 5).<a name="a2"></a><a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>();</div>
+<div class="line">        <a name="_a0"></a><a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> X = <a name="a1"></a><a class="code" href="utils_8cpp.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a>(-5, 5, 5).<a name="a2"></a><a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>();</div>
 <div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> Y = X.<a name="a3"></a><a class="code" href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Apply</a>([](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; in) { <span class="keywordflow">return</span> in * in; });</div>
 <div class="line"> </div>
 <div class="line">        <a name="_a4"></a><a class="code" href="classLagrangeBase.html">LagrangeBase</a> base(X, Y);</div>
-<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> xi = <a class="code" href="numerics_2utils_8h.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a>(-3.5, 3.5, 5).<a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>();</div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> xi = <a class="code" href="utils_8cpp.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a>(-3.5, 3.5, 5).<a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>();</div>
 <div class="line">        <span class="keyword">auto</span> res          = base.<a name="a5"></a><a class="code" href="classLagrangeBase.html#a3fd7409a95d233a92e7f57d31e9332d0">Evaluate</a>(xi);</div>
 <div class="line"> </div>
 <div class="line">        <a name="_a6"></a><a class="code" href="classPlot.html">Plot</a> plot(<span class="stringliteral">&quot;Comparison of approximation with true value&quot;</span>);</div>
 <div class="line"> </div>
-<div class="line">        plot.<a name="a7"></a><a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(HorizontalConcat(X, Y), <span class="stringliteral">&quot;support values&quot;</span>);</div>
-<div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(HorizontalConcat(xi, res), <span class="stringliteral">&quot;approximation&quot;</span>);</div>
+<div class="line">        plot.<a name="a7"></a><a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(<a name="a8"></a><a class="code" href="Matrix_8h.html#a9c0fb96647d1de47099f074cf20edf34">HorizontalConcat</a>(X, Y), <span class="stringliteral">&quot;support values&quot;</span>);</div>
+<div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(<a class="code" href="Matrix_8h.html#a9c0fb96647d1de47099f074cf20edf34">HorizontalConcat</a>(xi, res), <span class="stringliteral">&quot;approximation&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">        plot();</div>
 <div class="line"> </div>
@@ -99,41 +99,41 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestScatterPlot() {</div>
-<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> X = <a class="code" href="numerics_2utils_8h.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a>(-5, 5, 5).<a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>();</div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> X = <a class="code" href="utils_8cpp.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a>(-5, 5, 5).<a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>();</div>
 <div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> Y = X.<a class="code" href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Apply</a>([](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; in) { <span class="keywordflow">return</span> in * in; });</div>
-<div class="line">        <a name="_a8"></a><a class="code" href="classScatterPlot.html">ScatterPlot</a> plot2(<span class="stringliteral">&quot;Data visualization&quot;</span>);</div>
+<div class="line">        <a name="_a9"></a><a class="code" href="classScatterPlot.html">ScatterPlot</a> plot2(<span class="stringliteral">&quot;Data visualization&quot;</span>);</div>
 <div class="line">        plot2.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(X, Y, <span class="stringliteral">&quot;support values&quot;</span>);</div>
-<div class="line">        plot2.<a name="a9"></a><a class="code" href="classPlot.html#a71b26c829f6b3f4cf64957a3e323517f">xAxis</a>(<span class="stringliteral">&quot;X&quot;</span>);</div>
-<div class="line">        plot2.<a name="a10"></a><a class="code" href="classPlot.html#a56e462e8d1c707986dc1e4335a633b24">yAxis</a>(<span class="stringliteral">&quot;Y&quot;</span>);</div>
+<div class="line">        plot2.<a name="a10"></a><a class="code" href="classPlot.html#a71b26c829f6b3f4cf64957a3e323517f">xAxis</a>(<span class="stringliteral">&quot;X&quot;</span>);</div>
+<div class="line">        plot2.<a name="a11"></a><a class="code" href="classPlot.html#a56e462e8d1c707986dc1e4335a633b24">yAxis</a>(<span class="stringliteral">&quot;Y&quot;</span>);</div>
 <div class="line">        plot2();</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestFunctionPlot() {</div>
-<div class="line">        <a name="_a11"></a><a class="code" href="classFunctionPlot.html">FunctionPlot</a> plot3([](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; in) { <span class="keywordflow">return</span> in * in; }, <span class="stringliteral">&quot;x^2&quot;</span>);</div>
-<div class="line">        plot3.<a name="a12"></a><a class="code" href="classFunctionPlot.html#a6bea42610ef9f96447b91d622e918bc3">AddData</a>(-5, 5, 0.1, <span class="stringliteral">&quot;support values&quot;</span>);</div>
+<div class="line">        <a name="_a12"></a><a class="code" href="classFunctionPlot.html">FunctionPlot</a> plot3([](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; in) { <span class="keywordflow">return</span> in * in; }, <span class="stringliteral">&quot;x^2&quot;</span>);</div>
+<div class="line">        plot3.<a name="a13"></a><a class="code" href="classFunctionPlot.html#a6bea42610ef9f96447b91d622e918bc3">AddData</a>(-5, 5, 0.1, <span class="stringliteral">&quot;support values&quot;</span>);</div>
 <div class="line">        plot3.xAxis(<span class="stringliteral">&quot;X&quot;</span>);</div>
 <div class="line">        plot3.yAxis(<span class="stringliteral">&quot;Y&quot;</span>);</div>
 <div class="line">        plot3();</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestSurfacePlot() {</div>
-<div class="line">        <a name="_a13"></a><a class="code" href="classSurfacePlot.html">SurfacePlot</a> plot(<span class="stringliteral">&quot;Test&quot;</span>);</div>
-<div class="line">        <span class="keyword">auto</span> dat = <a name="a14"></a><a class="code" href="numerics_2utils_8h.html#a6c64c3880ee3e78a28478b382e7593b9">ones</a>(100, 3);</div>
-<div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(dat, <span class="stringliteral">&quot;some data&quot;</span>, DataTypes::LINE, 3);</div>
+<div class="line">        <a name="_a14"></a><a class="code" href="classSurfacePlot.html">SurfacePlot</a> plot(<span class="stringliteral">&quot;Test&quot;</span>);</div>
+<div class="line">        <span class="keyword">auto</span> dat = <a name="a15"></a><a class="code" href="utils_8cpp.html#afae8c7a061ee86e6e7315625ae4e53e6">ones</a>(100, 3);</div>
+<div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(dat, <span class="stringliteral">&quot;some data&quot;</span>, <a name="a16"></a><a class="code" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">DataTypes::LINE</a>, 3);</div>
 <div class="line">        plot();</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestImagePlot() {</div>
-<div class="line">        <a name="_a15"></a><a class="code" href="classImagePlot.html">ImagePlot</a> plot(<span class="stringliteral">&quot;Test&quot;</span>);</div>
-<div class="line">        <span class="keyword">auto</span> in = <a name="a16"></a><a class="code" href="numerics_2utils_8h.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a>(10, 10);</div>
+<div class="line">        <a name="_a17"></a><a class="code" href="classImagePlot.html">ImagePlot</a> plot(<span class="stringliteral">&quot;Test&quot;</span>);</div>
+<div class="line">        <span class="keyword">auto</span> in = <a name="a18"></a><a class="code" href="utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a>(10, 10);</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 10; ++i) {</div>
 <div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; 10; ++j) {</div>
 <div class="line">                <span class="keywordflow">if</span>((i &lt;= 5 &amp;&amp; j &lt;= 5) || (i &gt; 5 &amp;&amp; j &gt; 5)) { in(i, j) = 1.0; }</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
-<div class="line">        plot.<a name="a17"></a><a class="code" href="classImagePlot.html#abcc293f8ea2f73b54d184baeb742b820">AddData</a>(in, <span class="stringliteral">&quot;some data&quot;</span>);</div>
+<div class="line">        plot.<a name="a19"></a><a class="code" href="classImagePlot.html#abcc293f8ea2f73b54d184baeb742b820">AddData</a>(in, <span class="stringliteral">&quot;some data&quot;</span>);</div>
 <div class="line">        plot();</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
@@ -150,24 +150,28 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() { PlotTestCase().run(); }</div>
-<div class="ttc" id="aclassFunctionPlot_html"><div class="ttname"><a href="classFunctionPlot.html">FunctionPlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:352</div></div>
-<div class="ttc" id="aclassFunctionPlot_html_a6bea42610ef9f96447b91d622e918bc3"><div class="ttname"><a href="classFunctionPlot.html#a6bea42610ef9f96447b91d622e918bc3">FunctionPlot::AddData</a></div><div class="ttdeci">void AddData(const double &amp;start, const double &amp;end, const double &amp;stepSize, const char *name)</div><div class="ttdef"><b>Definition:</b> Plot.h:373</div></div>
-<div class="ttc" id="aclassImagePlot_html"><div class="ttname"><a href="classImagePlot.html">ImagePlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:419</div></div>
-<div class="ttc" id="aclassImagePlot_html_abcc293f8ea2f73b54d184baeb742b820"><div class="ttname"><a href="classImagePlot.html#abcc293f8ea2f73b54d184baeb742b820">ImagePlot::AddData</a></div><div class="ttdeci">void AddData(const Matrix&lt; double &gt; &amp;mat, const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> Plot.h:436</div></div>
-<div class="ttc" id="aclassLagrangeBase_html"><div class="ttname"><a href="classLagrangeBase.html">LagrangeBase</a></div><div class="ttdef"><b>Definition:</b> SupportValues.h:128</div></div>
-<div class="ttc" id="aclassLagrangeBase_html_a3fd7409a95d233a92e7f57d31e9332d0"><div class="ttname"><a href="classLagrangeBase.html#a3fd7409a95d233a92e7f57d31e9332d0">LagrangeBase::Evaluate</a></div><div class="ttdeci">virtual Matrix&lt; double &gt; Evaluate(const Matrix&lt; double &gt; &amp;in) const</div><div class="ttdef"><b>Definition:</b> SupportValues.h:168</div></div>
+<div class="ttc" id="aMatrix_8h_html_a9c0fb96647d1de47099f074cf20edf34"><div class="ttname"><a href="Matrix_8h.html#a9c0fb96647d1de47099f074cf20edf34">HorizontalConcat</a></div><div class="ttdeci">Matrix&lt; T &gt; HorizontalConcat(const Matrix&lt; T &gt; &amp;lhs, const Matrix&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> Matrix.h:775</div></div>
+<div class="ttc" id="aPlot_8h_html"><div class="ttname"><a href="Plot_8h.html">Plot.h</a></div></div>
+<div class="ttc" id="aPlot_8h_html_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c"><div class="ttname"><a href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a></div><div class="ttdeci">@ LINE</div><div class="ttdoc">Creates line data.</div><div class="ttdef"><b>Definition:</b> Plot.h:12</div></div>
+<div class="ttc" id="aSupportValues_8h_html"><div class="ttname"><a href="SupportValues_8h.html">SupportValues.h</a></div></div>
+<div class="ttc" id="aclassFunctionPlot_html"><div class="ttname"><a href="classFunctionPlot.html">FunctionPlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:349</div></div>
+<div class="ttc" id="aclassFunctionPlot_html_a6bea42610ef9f96447b91d622e918bc3"><div class="ttname"><a href="classFunctionPlot.html#a6bea42610ef9f96447b91d622e918bc3">FunctionPlot::AddData</a></div><div class="ttdeci">void AddData(const double &amp;start, const double &amp;end, const double &amp;stepSize, const char *name)</div><div class="ttdef"><b>Definition:</b> Plot.h:370</div></div>
+<div class="ttc" id="aclassImagePlot_html"><div class="ttname"><a href="classImagePlot.html">ImagePlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:415</div></div>
+<div class="ttc" id="aclassImagePlot_html_abcc293f8ea2f73b54d184baeb742b820"><div class="ttname"><a href="classImagePlot.html#abcc293f8ea2f73b54d184baeb742b820">ImagePlot::AddData</a></div><div class="ttdeci">void AddData(const Matrix&lt; double &gt; &amp;mat, const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> Plot.h:432</div></div>
+<div class="ttc" id="aclassLagrangeBase_html"><div class="ttname"><a href="classLagrangeBase.html">LagrangeBase</a></div><div class="ttdef"><b>Definition:</b> SupportValues.h:133</div></div>
+<div class="ttc" id="aclassLagrangeBase_html_a3fd7409a95d233a92e7f57d31e9332d0"><div class="ttname"><a href="classLagrangeBase.html#a3fd7409a95d233a92e7f57d31e9332d0">LagrangeBase::Evaluate</a></div><div class="ttdeci">virtual Matrix&lt; double &gt; Evaluate(const Matrix&lt; double &gt; &amp;in) const</div><div class="ttdef"><b>Definition:</b> SupportValues.h:173</div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassMatrix_html_a953e5e97f987f47e261dd830cac64087"><div class="ttname"><a href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Matrix::Transpose</a></div><div class="ttdeci">constexpr Matrix&lt; T &gt; Transpose() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:216</div></div>
-<div class="ttc" id="aclassMatrix_html_aab08352f6e89b3dfb616c10998db4570"><div class="ttname"><a href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Matrix::Apply</a></div><div class="ttdeci">Matrix&lt; T &gt; Apply(const std::function&lt; T(T)&gt; &amp;fun) const</div><div class="ttdef"><b>Definition:</b> Matrix.h:325</div></div>
-<div class="ttc" id="aclassPlot_html"><div class="ttname"><a href="classPlot.html">Plot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:101</div></div>
-<div class="ttc" id="aclassPlot_html_a56e462e8d1c707986dc1e4335a633b24"><div class="ttname"><a href="classPlot.html#a56e462e8d1c707986dc1e4335a633b24">Plot::yAxis</a></div><div class="ttdeci">void yAxis(const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> Plot.h:149</div></div>
-<div class="ttc" id="aclassPlot_html_a71b26c829f6b3f4cf64957a3e323517f"><div class="ttname"><a href="classPlot.html#a71b26c829f6b3f4cf64957a3e323517f">Plot::xAxis</a></div><div class="ttdeci">void xAxis(const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> Plot.h:139</div></div>
-<div class="ttc" id="aclassPlot_html_ad08d9746d9372ce9c14c042e12cb0a45"><div class="ttname"><a href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">Plot::AddData</a></div><div class="ttdeci">void AddData(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y, const std::string &amp;name, DataTypes dataType=DataTypes::NONE)</div><div class="ttdef"><b>Definition:</b> Plot.h:176</div></div>
-<div class="ttc" id="aclassScatterPlot_html"><div class="ttname"><a href="classScatterPlot.html">ScatterPlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:335</div></div>
-<div class="ttc" id="aclassSurfacePlot_html"><div class="ttname"><a href="classSurfacePlot.html">SurfacePlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:385</div></div>
-<div class="ttc" id="anumerics_2utils_8h_html_a3496a7aecd2c42b9bacd5bc9dc85dd88"><div class="ttname"><a href="numerics_2utils_8h.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a></div><div class="ttdeci">Matrix&lt; double &gt; linspace(double start, double end, unsigned long num_elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:4</div></div>
-<div class="ttc" id="anumerics_2utils_8h_html_a3aad6934b9b0b392e582eda4dbfd8070"><div class="ttname"><a href="numerics_2utils_8h.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a></div><div class="ttdeci">Matrix&lt; double &gt; zeros(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:11</div></div>
-<div class="ttc" id="anumerics_2utils_8h_html_a6c64c3880ee3e78a28478b382e7593b9"><div class="ttname"><a href="numerics_2utils_8h.html#a6c64c3880ee3e78a28478b382e7593b9">ones</a></div><div class="ttdeci">Matrix&lt; double &gt; ones(size_t rows, size_t columns=1)</div><div class="ttdef"><b>Definition:</b> utils.cpp:12</div></div>
+<div class="ttc" id="aclassMatrix_html_a953e5e97f987f47e261dd830cac64087"><div class="ttname"><a href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Matrix::Transpose</a></div><div class="ttdeci">constexpr Matrix&lt; T &gt; Transpose() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:215</div></div>
+<div class="ttc" id="aclassMatrix_html_aab08352f6e89b3dfb616c10998db4570"><div class="ttname"><a href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Matrix::Apply</a></div><div class="ttdeci">Matrix&lt; T &gt; Apply(const std::function&lt; T(T)&gt; &amp;fun) const</div><div class="ttdef"><b>Definition:</b> Matrix.h:324</div></div>
+<div class="ttc" id="aclassPlot_html"><div class="ttname"><a href="classPlot.html">Plot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:99</div></div>
+<div class="ttc" id="aclassPlot_html_a56e462e8d1c707986dc1e4335a633b24"><div class="ttname"><a href="classPlot.html#a56e462e8d1c707986dc1e4335a633b24">Plot::yAxis</a></div><div class="ttdeci">void yAxis(const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> Plot.h:147</div></div>
+<div class="ttc" id="aclassPlot_html_a71b26c829f6b3f4cf64957a3e323517f"><div class="ttname"><a href="classPlot.html#a71b26c829f6b3f4cf64957a3e323517f">Plot::xAxis</a></div><div class="ttdeci">void xAxis(const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> Plot.h:137</div></div>
+<div class="ttc" id="aclassPlot_html_ad08d9746d9372ce9c14c042e12cb0a45"><div class="ttname"><a href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">Plot::AddData</a></div><div class="ttdeci">void AddData(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y, const std::string &amp;name, DataTypes dataType=DataTypes::NONE)</div><div class="ttdef"><b>Definition:</b> Plot.h:174</div></div>
+<div class="ttc" id="aclassScatterPlot_html"><div class="ttname"><a href="classScatterPlot.html">ScatterPlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:332</div></div>
+<div class="ttc" id="aclassSurfacePlot_html"><div class="ttname"><a href="classSurfacePlot.html">SurfacePlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:382</div></div>
+<div class="ttc" id="autils_8cpp_html_a3496a7aecd2c42b9bacd5bc9dc85dd88"><div class="ttname"><a href="utils_8cpp.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a></div><div class="ttdeci">Matrix&lt; double &gt; linspace(double start, double end, unsigned long num_elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:4</div></div>
+<div class="ttc" id="autils_8cpp_html_a3aad6934b9b0b392e582eda4dbfd8070"><div class="ttname"><a href="utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a></div><div class="ttdeci">Matrix&lt; double &gt; zeros(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:11</div></div>
+<div class="ttc" id="autils_8cpp_html_afae8c7a061ee86e6e7315625ae4e53e6"><div class="ttname"><a href="utils_8cpp.html#afae8c7a061ee86e6e7315625ae4e53e6">ones</a></div><div class="ttdeci">Matrix&lt; double &gt; ones(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:12</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

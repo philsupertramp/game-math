@@ -4,7 +4,7 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 
 \begin{DoxyCodeInclude}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}Test.h"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include <math/Matrix.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{Matrix_8h}{math/Matrix.h}}>}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{class }MatrixTestCase : \textcolor{keyword}{public} Test}
@@ -96,7 +96,7 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{        D.HadamardMulti(E);}
 \DoxyCodeLine{        assert(D == resultB);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} resD2E = HadamardMulti(D2, E);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} resD2E = \mbox{\hyperlink{Matrix_8h_a372a02cc54eeaf01e321bb6bb59e2557}{HadamardMulti}}(D2, E);}
 \DoxyCodeLine{        assert(resD2E == resultA);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} Q1(10.0, 2, 5);}
@@ -140,7 +140,7 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{        \textcolor{keyword}{auto} resC = A3.\mbox{\hyperlink{classMatrix_a3696cceb1d9290c69389a8a0553ec254}{KroneckerMulti}}(B3);}
 \DoxyCodeLine{        assert(resC == C3);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} resC2 = KroneckerMulti(A32, B3);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} resC2 = \mbox{\hyperlink{Matrix_8h_a9a440c7b024da8498c7af6107d3a5609}{KroneckerMulti}}(A32, B3);}
 \DoxyCodeLine{        assert(resC2 == resC \&\& resC2 == C3);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
@@ -156,7 +156,7 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{}
 \DoxyCodeLine{        assert(res1 == C);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res2 = HorizontalConcat(A2, B);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} res2 = \mbox{\hyperlink{Matrix_8h_a9c0fb96647d1de47099f074cf20edf34}{HorizontalConcat}}(A2, B);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        assert(res2 == C);}
 \DoxyCodeLine{}
@@ -247,7 +247,7 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestWhere() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A(\{ \{ 0, 0 \}, \{ 1, 1 \}, \{ 0, 0 \} \});}
 \DoxyCodeLine{        std::function<bool(\textcolor{keywordtype}{double})> cond = [](\textcolor{keywordtype}{double} i) \{ \textcolor{keywordflow}{return} bool(i == 1); \};}
-\DoxyCodeLine{        \textcolor{keyword}{auto} B = where(cond, A, \{ \{ 1, 1 \}, \{ 1, 1 \}, \{ 1, 1 \} \}, \{ \{ 0, 0 \}, \{ 0, 0 \}, \{ 0, 0 \} \});}
+\DoxyCodeLine{        \textcolor{keyword}{auto} B = \mbox{\hyperlink{Matrix_8h_a03aa8ab53460bc8174166baea67463c3}{where}}(cond, A, \{ \{ 1, 1 \}, \{ 1, 1 \}, \{ 1, 1 \} \}, \{ \{ 0, 0 \}, \{ 0, 0 \}, \{ 0, 0 \} \});}
 \DoxyCodeLine{        std::cout << B;}
 \DoxyCodeLine{        assert(B == A);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
@@ -282,8 +282,8 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestArgMinMax() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<int>}} A(\{ \{ 2, 3, 2, 2 \}, \{ 2, 2, 1, 2 \} \});}
-\DoxyCodeLine{        assert(argmin(A) == 6);}
-\DoxyCodeLine{        assert(argmax(A) == 1);}
+\DoxyCodeLine{        assert(\mbox{\hyperlink{Matrix_8h_a14c028e4d81577bbda70dd22db04afe8}{argmin}}(A) == 6);}
+\DoxyCodeLine{        assert(\mbox{\hyperlink{Matrix_8h_a2a01e8ac881ea58d279cd73ec1803444}{argmax}}(A) == 1);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
@@ -291,7 +291,7 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<int>}} A(\{ \{ 1, 2, 3, 4, 5 \} \});}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<int>}} B(\{ \{ 5, 4, 3, 2, 1 \} \});}
 \DoxyCodeLine{}
-\DoxyCodeLine{        assert(Corr(A, B) == 1);}
+\DoxyCodeLine{        assert(\mbox{\hyperlink{Matrix_8h_a0248f25849e57a2e715d2dd3a43447f6}{Corr}}(A, B) == 1);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
@@ -300,14 +300,14 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A = \mbox{\hyperlink{classMatrix_ab72c15d620fbe70b88578543b65e70ff}{Matrix<double>::Random}}(2, 2, 1, -\/100, 100);}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} B(0, 2, 2);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        assert(Corr(A, B) < 4);}
+\DoxyCodeLine{        assert(\mbox{\hyperlink{Matrix_8h_a0248f25849e57a2e715d2dd3a43447f6}{Corr}}(A, B) < 4);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestFromVPtr() \{}
 \DoxyCodeLine{        \textcolor{keywordtype}{float} in[4] = \{ 1, 2, 3, 4 \};}
-\DoxyCodeLine{        \textcolor{keyword}{auto} A      = from\_vptr(in, \{ 2, 2 \});}
+\DoxyCodeLine{        \textcolor{keyword}{auto} A      = \mbox{\hyperlink{Matrix_8h_a155cb3592d490d8bc63d638741c2523d}{from\_vptr}}(in, \{ 2, 2 \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<float>}} B(\{ \{ 1, 2 \}, \{ 3, 4 \} \});}
 \DoxyCodeLine{        assert(A == B);}

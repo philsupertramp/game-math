@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inf_686',['Inf',['../Probability_8h.html#a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784',1,'Probability.h']]]
+  ['dots_906',['DOTS',['../Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49',1,'Plot.h']]]
 ];

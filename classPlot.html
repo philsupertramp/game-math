@@ -72,6 +72,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classPlot-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Plot Class Reference</div>  </div>
@@ -106,9 +107,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab1ca4b31fc51ed85c65f1c8fcf786134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6030621e36e58f3119a7c81e4a9fbd31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a6030621e36e58f3119a7c81e4a9fbd31">lineWidth</a> (const int &amp;size)</td></tr>
 <tr class="separator:a6030621e36e58f3119a7c81e4a9fbd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad08d9746d9372ce9c14c042e12cb0a45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, const std::string &amp;name, DataTypes dataType=DataTypes::NONE)</td></tr>
+<tr class="memitem:ad08d9746d9372ce9c14c042e12cb0a45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, const std::string &amp;name, <a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22">DataTypes</a> dataType=<a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ac157bdf0b85a40d2619cbc8bc1ae5fe2">DataTypes::NONE</a>)</td></tr>
 <tr class="separator:ad08d9746d9372ce9c14c042e12cb0a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44d1cd30b39263da1e8aa2d7db625bbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a44d1cd30b39263da1e8aa2d7db625bbd">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mat, const std::string &amp;name, DataTypes dataTypeName=DataTypes::NONE, int dimensions=2)</td></tr>
+<tr class="memitem:a44d1cd30b39263da1e8aa2d7db625bbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a44d1cd30b39263da1e8aa2d7db625bbd">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mat, const std::string &amp;name, <a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22">DataTypes</a> dataTypeName=<a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ac157bdf0b85a40d2619cbc8bc1ae5fe2">DataTypes::NONE</a>, int dimensions=2)</td></tr>
 <tr class="separator:a44d1cd30b39263da1e8aa2d7db625bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa0e8f10d7a0d4bd2b90037ec4ca3029"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#afa0e8f10d7a0d4bd2b90037ec4ca3029">operator()</a> () const</td></tr>
 <tr class="separator:afa0e8f10d7a0d4bd2b90037ec4ca3029"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,38 +121,35 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ac5c21369cb37d1e74741766bf26123ec"><td class="memItemLeft" align="right" valign="top"><a id="ac5c21369cb37d1e74741766bf26123ec"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#ac5c21369cb37d1e74741766bf26123ec">dataFileName</a></td></tr>
-<tr class="memdesc:ac5c21369cb37d1e74741766bf26123ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">data storage file name <br /></td></tr>
+<tr class="memitem:ac5c21369cb37d1e74741766bf26123ec"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#ac5c21369cb37d1e74741766bf26123ec">dataFileName</a></td></tr>
+<tr class="memdesc:ac5c21369cb37d1e74741766bf26123ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">data storage file name  <a href="classPlot.html#ac5c21369cb37d1e74741766bf26123ec">More...</a><br /></td></tr>
 <tr class="separator:ac5c21369cb37d1e74741766bf26123ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84d0108c396f7665f228340fce807992"><td class="memItemLeft" align="right" valign="top"><a id="a84d0108c396f7665f228340fce807992"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a84d0108c396f7665f228340fce807992">plotTypeName</a></td></tr>
-<tr class="memdesc:a84d0108c396f7665f228340fce807992"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of plot type <br /></td></tr>
+<tr class="memitem:a84d0108c396f7665f228340fce807992"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a84d0108c396f7665f228340fce807992">plotTypeName</a></td></tr>
+<tr class="memdesc:a84d0108c396f7665f228340fce807992"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of plot type  <a href="classPlot.html#a84d0108c396f7665f228340fce807992">More...</a><br /></td></tr>
 <tr class="separator:a84d0108c396f7665f228340fce807992"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77875f7b918ccd9a43f72b189b2e102d"><td class="memItemLeft" align="right" valign="top"><a id="a77875f7b918ccd9a43f72b189b2e102d"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a77875f7b918ccd9a43f72b189b2e102d">plotType</a> = &quot;plot&quot;</td></tr>
-<tr class="memdesc:a77875f7b918ccd9a43f72b189b2e102d"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of plot type <br /></td></tr>
+<tr class="memitem:a77875f7b918ccd9a43f72b189b2e102d"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a77875f7b918ccd9a43f72b189b2e102d">plotType</a> = &quot;plot&quot;</td></tr>
+<tr class="memdesc:a77875f7b918ccd9a43f72b189b2e102d"><td class="mdescLeft">&#160;</td><td class="mdescRight">representation of plot type  <a href="classPlot.html#a77875f7b918ccd9a43f72b189b2e102d">More...</a><br /></td></tr>
 <tr class="separator:a77875f7b918ccd9a43f72b189b2e102d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80885621943f0e082328be034f1478f3"><td class="memItemLeft" align="right" valign="top"><a id="a80885621943f0e082328be034f1478f3"></a>
-FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a80885621943f0e082328be034f1478f3">storageFile</a> = nullptr</td></tr>
-<tr class="memdesc:a80885621943f0e082328be034f1478f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">data storage file <br /></td></tr>
+<tr class="memitem:a80885621943f0e082328be034f1478f3"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a80885621943f0e082328be034f1478f3">storageFile</a> = nullptr</td></tr>
+<tr class="memdesc:a80885621943f0e082328be034f1478f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">data storage file  <a href="classPlot.html#a80885621943f0e082328be034f1478f3">More...</a><br /></td></tr>
 <tr class="separator:a80885621943f0e082328be034f1478f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adccf50e0f1dde033486c08da47fb8c3e"><td class="memItemLeft" align="right" valign="top"><a id="adccf50e0f1dde033486c08da47fb8c3e"></a>
-<a class="el" href="structPlotAttributes.html">PlotAttributes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#adccf50e0f1dde033486c08da47fb8c3e">attributes</a> = {}</td></tr>
-<tr class="memdesc:adccf50e0f1dde033486c08da47fb8c3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">attributes for plot <br /></td></tr>
+<tr class="memitem:adccf50e0f1dde033486c08da47fb8c3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPlotAttributes.html">PlotAttributes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#adccf50e0f1dde033486c08da47fb8c3e">attributes</a> = {}</td></tr>
+<tr class="memdesc:adccf50e0f1dde033486c08da47fb8c3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">attributes for plot  <a href="classPlot.html#adccf50e0f1dde033486c08da47fb8c3e">More...</a><br /></td></tr>
 <tr class="separator:adccf50e0f1dde033486c08da47fb8c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1617d33546bbcfe4458899bc00eeb0ef"><td class="memItemLeft" align="right" valign="top"><a id="a1617d33546bbcfe4458899bc00eeb0ef"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a1617d33546bbcfe4458899bc00eeb0ef">numElements</a> = 0</td></tr>
-<tr class="memdesc:a1617d33546bbcfe4458899bc00eeb0ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">number elements within the plot <br /></td></tr>
+<tr class="memitem:a1617d33546bbcfe4458899bc00eeb0ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a1617d33546bbcfe4458899bc00eeb0ef">numElements</a> = 0</td></tr>
+<tr class="memdesc:a1617d33546bbcfe4458899bc00eeb0ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">number elements within the plot  <a href="classPlot.html#a1617d33546bbcfe4458899bc00eeb0ef">More...</a><br /></td></tr>
 <tr class="separator:a1617d33546bbcfe4458899bc00eeb0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8a4a800b93ba4d22b4e4c01eacc583a"><td class="memItemLeft" align="right" valign="top"><a id="aa8a4a800b93ba4d22b4e4c01eacc583a"></a>
-<a class="el" href="structPlotBoundary.html">PlotBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#aa8a4a800b93ba4d22b4e4c01eacc583a">bY</a> {}</td></tr>
-<tr class="memdesc:aa8a4a800b93ba4d22b4e4c01eacc583a"><td class="mdescLeft">&#160;</td><td class="mdescRight">x-axis boundaries for the resulting plot <br /></td></tr>
+<tr class="memitem:aa8a4a800b93ba4d22b4e4c01eacc583a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPlotBoundary.html">PlotBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#aa8a4a800b93ba4d22b4e4c01eacc583a">bY</a> {}</td></tr>
+<tr class="memdesc:aa8a4a800b93ba4d22b4e4c01eacc583a"><td class="mdescLeft">&#160;</td><td class="mdescRight">x-axis boundaries for the resulting plot  <a href="classPlot.html#aa8a4a800b93ba4d22b4e4c01eacc583a">More...</a><br /></td></tr>
 <tr class="separator:aa8a4a800b93ba4d22b4e4c01eacc583a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a954fcb23b76680d6d0148f3f7af02f4c"><td class="memItemLeft" align="right" valign="top"><a id="a954fcb23b76680d6d0148f3f7af02f4c"></a>
-<a class="el" href="structPlotBoundary.html">PlotBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a954fcb23b76680d6d0148f3f7af02f4c">bX</a> {}</td></tr>
-<tr class="memdesc:a954fcb23b76680d6d0148f3f7af02f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">y-axis boundaries for the resulting plot <br /></td></tr>
+<tr class="memitem:a954fcb23b76680d6d0148f3f7af02f4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPlotBoundary.html">PlotBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a954fcb23b76680d6d0148f3f7af02f4c">bX</a> {}</td></tr>
+<tr class="memdesc:a954fcb23b76680d6d0148f3f7af02f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">y-axis boundaries for the resulting plot  <a href="classPlot.html#a954fcb23b76680d6d0148f3f7af02f4c">More...</a><br /></td></tr>
 <tr class="separator:a954fcb23b76680d6d0148f3f7af02f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:abdbf7c37362b8b8b739b62ceb00a9b70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPlotBoundary.html">PlotBoundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#abdbf7c37362b8b8b739b62ceb00a9b70">getBoundaries</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x) const</td></tr>
+<tr class="separator:abdbf7c37362b8b8b739b62ceb00a9b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a data plot, using gnuplot.</p>
@@ -219,8 +217,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">DataTypes&#160;</td>
-          <td class="paramname"><em>dataTypeName</em> = <code>DataTypes::NONE</code>, </td>
+          <td class="paramtype"><a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22">DataTypes</a>&#160;</td>
+          <td class="paramname"><em>dataTypeName</em> = <code><a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ac157bdf0b85a40d2619cbc8bc1ae5fe2">DataTypes::NONE</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -282,8 +280,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">DataTypes&#160;</td>
-          <td class="paramname"><em>dataType</em> = <code>DataTypes::NONE</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22">DataTypes</a>&#160;</td>
+          <td class="paramname"><em>dataType</em> = <code><a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ac157bdf0b85a40d2619cbc8bc1ae5fe2">DataTypes::NONE</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -309,6 +307,39 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a7">plot/TestPlot.cpp</a>.</dd>
 </dl>
+
+</div>
+</div>
+<a id="abdbf7c37362b8b8b739b62ceb00a9b70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdbf7c37362b8b8b739b62ceb00a9b70">&#9670;&nbsp;</a></span>getBoundaries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPlotBoundary.html">PlotBoundary</a> Plot::getBoundaries </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>calculates boundaries of given matrix (min and max values) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>input vector to calculate boundaries of </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boundaries of input </dd></dl>
 
 </div>
 </div>
@@ -498,7 +529,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a9">plot/TestPlot.cpp</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a10">plot/TestPlot.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -532,8 +563,201 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a10">plot/TestPlot.cpp</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a11">plot/TestPlot.cpp</a>.</dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="adccf50e0f1dde033486c08da47fb8c3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adccf50e0f1dde033486c08da47fb8c3e">&#9670;&nbsp;</a></span>attributes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPlotAttributes.html">PlotAttributes</a> Plot::attributes = {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>attributes for plot </p>
+
+</div>
+</div>
+<a id="a954fcb23b76680d6d0148f3f7af02f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a954fcb23b76680d6d0148f3f7af02f4c">&#9670;&nbsp;</a></span>bX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPlotBoundary.html">PlotBoundary</a> Plot::bX {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>y-axis boundaries for the resulting plot </p>
+
+</div>
+</div>
+<a id="aa8a4a800b93ba4d22b4e4c01eacc583a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8a4a800b93ba4d22b4e4c01eacc583a">&#9670;&nbsp;</a></span>bY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPlotBoundary.html">PlotBoundary</a> Plot::bY {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>x-axis boundaries for the resulting plot </p>
+
+</div>
+</div>
+<a id="ac5c21369cb37d1e74741766bf26123ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5c21369cb37d1e74741766bf26123ec">&#9670;&nbsp;</a></span>dataFileName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* Plot::dataFileName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>data storage file name </p>
+
+</div>
+</div>
+<a id="a1617d33546bbcfe4458899bc00eeb0ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1617d33546bbcfe4458899bc00eeb0ef">&#9670;&nbsp;</a></span>numElements</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Plot::numElements = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number elements within the plot </p>
+
+</div>
+</div>
+<a id="a77875f7b918ccd9a43f72b189b2e102d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77875f7b918ccd9a43f72b189b2e102d">&#9670;&nbsp;</a></span>plotType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* Plot::plotType = &quot;plot&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>representation of plot type </p>
+
+</div>
+</div>
+<a id="a84d0108c396f7665f228340fce807992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84d0108c396f7665f228340fce807992">&#9670;&nbsp;</a></span>plotTypeName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* Plot::plotTypeName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>representation of plot type </p>
+
+</div>
+</div>
+<a id="a80885621943f0e082328be034f1478f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80885621943f0e082328be034f1478f3">&#9670;&nbsp;</a></span>storageFile</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* Plot::storageFile = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>data storage file </p>
 
 </div>
 </div>

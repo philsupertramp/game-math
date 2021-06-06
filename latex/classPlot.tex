@@ -25,9 +25,9 @@ void \mbox{\hyperlink{classPlot_ab1ca4b31fc51ed85c65f1c8fcf786134}{point\+Size}}
 \item 
 void \mbox{\hyperlink{classPlot_a6030621e36e58f3119a7c81e4a9fbd31}{line\+Width}} (const int \&size)
 \item 
-void \mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const std\+::string \&name, Data\+Types data\+Type=Data\+Types\+::\+NONE)
+void \mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const std\+::string \&name, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}} data\+Type=\mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ac157bdf0b85a40d2619cbc8bc1ae5fe2}{Data\+Types\+::\+NONE}})
 \item 
-void \mbox{\hyperlink{classPlot_a44d1cd30b39263da1e8aa2d7db625bbd}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat, const std\+::string \&name, Data\+Types data\+Type\+Name=Data\+Types\+::\+NONE, int dimensions=2)
+void \mbox{\hyperlink{classPlot_a44d1cd30b39263da1e8aa2d7db625bbd}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat, const std\+::string \&name, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}} data\+Type\+Name=\mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ac157bdf0b85a40d2619cbc8bc1ae5fe2}{Data\+Types\+::\+NONE}}, int dimensions=2)
 \item 
 virtual void \mbox{\hyperlink{classPlot_afa0e8f10d7a0d4bd2b90037ec4ca3029}{operator()}} () const
 \end{DoxyCompactItemize}
@@ -39,30 +39,27 @@ void \mbox{\hyperlink{classPlot_a9bfd80c27c96636efaaec19b2d2b4b13}{write\+Attrib
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPlot_ac5c21369cb37d1e74741766bf26123ec}\label{classPlot_ac5c21369cb37d1e74741766bf26123ec}} 
 const char $\ast$ \mbox{\hyperlink{classPlot_ac5c21369cb37d1e74741766bf26123ec}{data\+File\+Name}}
 \begin{DoxyCompactList}\small\item\em data storage file name \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPlot_a84d0108c396f7665f228340fce807992}\label{classPlot_a84d0108c396f7665f228340fce807992}} 
 const char $\ast$ \mbox{\hyperlink{classPlot_a84d0108c396f7665f228340fce807992}{plot\+Type\+Name}}
 \begin{DoxyCompactList}\small\item\em representation of plot type \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPlot_a77875f7b918ccd9a43f72b189b2e102d}\label{classPlot_a77875f7b918ccd9a43f72b189b2e102d}} 
 const char $\ast$ \mbox{\hyperlink{classPlot_a77875f7b918ccd9a43f72b189b2e102d}{plot\+Type}} = \char`\"{}plot\char`\"{}
 \begin{DoxyCompactList}\small\item\em representation of plot type \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPlot_a80885621943f0e082328be034f1478f3}\label{classPlot_a80885621943f0e082328be034f1478f3}} 
 FILE $\ast$ \mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storage\+File}} = nullptr
 \begin{DoxyCompactList}\small\item\em data storage file \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPlot_adccf50e0f1dde033486c08da47fb8c3e}\label{classPlot_adccf50e0f1dde033486c08da47fb8c3e}} 
 \mbox{\hyperlink{structPlotAttributes}{Plot\+Attributes}} \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}} = \{\}
 \begin{DoxyCompactList}\small\item\em attributes for plot \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}\label{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}} 
 int \mbox{\hyperlink{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}{num\+Elements}} = 0
 \begin{DoxyCompactList}\small\item\em number elements within the plot \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}\label{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}} 
 \mbox{\hyperlink{structPlotBoundary}{Plot\+Boundary}} \mbox{\hyperlink{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}{bY}} \{\}
 \begin{DoxyCompactList}\small\item\em x-\/axis boundaries for the resulting plot \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}\label{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}} 
 \mbox{\hyperlink{structPlotBoundary}{Plot\+Boundary}} \mbox{\hyperlink{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}{bX}} \{\}
 \begin{DoxyCompactList}\small\item\em y-\/axis boundaries for the resulting plot \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structPlotBoundary}{Plot\+Boundary}} \mbox{\hyperlink{classPlot_abdbf7c37362b8b8b739b62ceb00a9b70}{get\+Boundaries}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x) const
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -97,7 +94,7 @@ default constructor. Prepares context for adding data.
 \index{Plot@{Plot}!AddData@{AddData}}
 \index{AddData@{AddData}!Plot@{Plot}}
 \doxysubsubsection{\texorpdfstring{AddData()}{AddData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mat,  }\item[{const std\+::string \&}]{name,  }\item[{Data\+Types}]{data\+Type\+Name = {\ttfamily DataTypes\+:\+:NONE},  }\item[{int}]{dimensions = {\ttfamily 2} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mat,  }\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}}}]{data\+Type\+Name = {\ttfamily \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ac157bdf0b85a40d2619cbc8bc1ae5fe2}{Data\+Types\+::\+NONE}}},  }\item[{int}]{dimensions = {\ttfamily 2} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Appends data to the storage file 
 \begin{DoxyParams}{Parameters}
@@ -114,7 +111,7 @@ Appends data to the storage file
 \index{Plot@{Plot}!AddData@{AddData}}
 \index{AddData@{AddData}!Plot@{Plot}}
 \doxysubsubsection{\texorpdfstring{AddData()}{AddData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const std\+::string \&}]{name,  }\item[{Data\+Types}]{data\+Type = {\ttfamily DataTypes\+:\+:NONE} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}}}]{data\+Type = {\ttfamily \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ac157bdf0b85a40d2619cbc8bc1ae5fe2}{Data\+Types\+::\+NONE}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Helper to add pair-\/wise elements to plot context
 
@@ -132,6 +129,20 @@ concatenates given X and Y and forwards new matrix to Add\+Data with single matr
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{classPlot_abdbf7c37362b8b8b739b62ceb00a9b70}\label{classPlot_abdbf7c37362b8b8b739b62ceb00a9b70}} 
+\index{Plot@{Plot}!getBoundaries@{getBoundaries}}
+\index{getBoundaries@{getBoundaries}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{getBoundaries()}{getBoundaries()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlotBoundary}{Plot\+Boundary}} Plot\+::get\+Boundaries (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+calculates boundaries of given matrix (min and max values) 
+\begin{DoxyParams}{Parameters}
+{\em x} & input vector to calculate boundaries of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boundaries of input 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classPlot_a6030621e36e58f3119a7c81e4a9fbd31}\label{classPlot_a6030621e36e58f3119a7c81e4a9fbd31}} 
 \index{Plot@{Plot}!lineWidth@{lineWidth}}
 \index{lineWidth@{lineWidth}!Plot@{Plot}}
@@ -218,6 +229,89 @@ Setter for y-\/axis label
 \mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classPlot_adccf50e0f1dde033486c08da47fb8c3e}\label{classPlot_adccf50e0f1dde033486c08da47fb8c3e}} 
+\index{Plot@{Plot}!attributes@{attributes}}
+\index{attributes@{attributes}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{attributes}{attributes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlotAttributes}{Plot\+Attributes}} Plot\+::attributes = \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+attributes for plot 
+
+\mbox{\Hypertarget{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}\label{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}} 
+\index{Plot@{Plot}!bX@{bX}}
+\index{bX@{bX}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{bX}{bX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlotBoundary}{Plot\+Boundary}} Plot\+::bX \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+y-\/axis boundaries for the resulting plot 
+
+\mbox{\Hypertarget{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}\label{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}} 
+\index{Plot@{Plot}!bY@{bY}}
+\index{bY@{bY}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{bY}{bY}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlotBoundary}{Plot\+Boundary}} Plot\+::bY \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+x-\/axis boundaries for the resulting plot 
+
+\mbox{\Hypertarget{classPlot_ac5c21369cb37d1e74741766bf26123ec}\label{classPlot_ac5c21369cb37d1e74741766bf26123ec}} 
+\index{Plot@{Plot}!dataFileName@{dataFileName}}
+\index{dataFileName@{dataFileName}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{dataFileName}{dataFileName}}
+{\footnotesize\ttfamily const char$\ast$ Plot\+::data\+File\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+data storage file name 
+
+\mbox{\Hypertarget{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}\label{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}} 
+\index{Plot@{Plot}!numElements@{numElements}}
+\index{numElements@{numElements}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{numElements}{numElements}}
+{\footnotesize\ttfamily int Plot\+::num\+Elements = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+number elements within the plot 
+
+\mbox{\Hypertarget{classPlot_a77875f7b918ccd9a43f72b189b2e102d}\label{classPlot_a77875f7b918ccd9a43f72b189b2e102d}} 
+\index{Plot@{Plot}!plotType@{plotType}}
+\index{plotType@{plotType}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{plotType}{plotType}}
+{\footnotesize\ttfamily const char$\ast$ Plot\+::plot\+Type = \char`\"{}plot\char`\"{}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+representation of plot type 
+
+\mbox{\Hypertarget{classPlot_a84d0108c396f7665f228340fce807992}\label{classPlot_a84d0108c396f7665f228340fce807992}} 
+\index{Plot@{Plot}!plotTypeName@{plotTypeName}}
+\index{plotTypeName@{plotTypeName}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{plotTypeName}{plotTypeName}}
+{\footnotesize\ttfamily const char$\ast$ Plot\+::plot\+Type\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+representation of plot type 
+
+\mbox{\Hypertarget{classPlot_a80885621943f0e082328be034f1478f3}\label{classPlot_a80885621943f0e082328be034f1478f3}} 
+\index{Plot@{Plot}!storageFile@{storageFile}}
+\index{storageFile@{storageFile}!Plot@{Plot}}
+\doxysubsubsection{\texorpdfstring{storageFile}{storageFile}}
+{\footnotesize\ttfamily FILE$\ast$ Plot\+::storage\+File = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+data storage file 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/visualization/Plot.\+h\end{DoxyCompactItemize}
+include/math/visualization/\mbox{\hyperlink{Plot_8h}{Plot.\+h}}\end{DoxyCompactItemize}

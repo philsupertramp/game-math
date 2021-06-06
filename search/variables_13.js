@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['y_658',['Y',['../structODEResult.html#aaef028566259040421ab1b73443c6f3b',1,'ODEResult']]],
-  ['y_5festimate_659',['y_estimate',['../structLinearModel.html#a1335876476367801bf8eb1814dd83967',1,'LinearModel']]],
-  ['yaxis_660',['yAxis',['../structPlotAttributes.html#a59b064dd22efe8ac933dec0665533c95',1,'PlotAttributes']]],
-  ['ymin_661',['yMin',['../classNewtonFractal.html#af442f7377e1fa72f5a9431f7536815f7',1,'NewtonFractal']]]
+  ['w_857',['w',['../structvec4.html#a36a56fd42283fa83e57a0a07212174de',1,'vec4']]],
+  ['w_5finitialized_858',['w_initialized',['../classClassifier.html#a5c3236f91e4f14965715caaca167dec8',1,'Classifier']]],
+  ['weight_5fupdate_859',['weight_update',['../classSGD.html#a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3',1,'SGD']]],
+  ['weights_860',['weights',['../classClassifier.html#a5d4d61496164c06deab141329b6c878f',1,'Classifier']]]
 ];

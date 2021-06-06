@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['lagrangebase_339',['LagrangeBase',['../classLagrangeBase.html',1,'']]],
-  ['linearmodel_340',['LinearModel',['../structLinearModel.html',1,'']]],
-  ['logregsgd_341',['LogRegSGD',['../classLogRegSGD.html',1,'']]]
+  ['lagrangebase_462',['LagrangeBase',['../classLagrangeBase.html',1,'']]],
+  ['linearmodel_463',['LinearModel',['../structLinearModel.html',1,'']]],
+  ['logregsgd_464',['LogRegSGD',['../classLogRegSGD.html',1,'']]]
 ];

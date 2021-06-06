@@ -1,5 +1,24 @@
 var searchData=
 [
-  ['jac_108',['Jac',['../structODEOption.html#a99dbd698766a95bb8a9cf0f2e28d7816',1,'ODEOption']]],
-  ['jacobian_109',['Jacobian',['../newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb',1,'newton.h']]]
+  ['i_127',['i',['../structInterest.html#a1cc071af1a8e0ad6c6916e7548da066a',1,'Interest']]],
+  ['imagedataset_128',['ImageDataSet',['../classImageDataSet.html',1,'ImageDataSet'],['../classDataSet.html#ace55546372c7d22ae3fd467bdd6d1b5d',1,'DataSet::ImageDataSet()'],['../classImageDataSet.html#a6cb4942bbb5ce16e1ab67ccd550dc9e3',1,'ImageDataSet::ImageDataSet()']]],
+  ['imagedataset_2eh_129',['ImageDataSet.h',['../ImageDataSet_8h.html',1,'']]],
+  ['imageheight_130',['imageHeight',['../classImageDataSet.html#ab83106b8cff6d5cc8359aa490d85d07e',1,'ImageDataSet']]],
+  ['imageplot_131',['ImagePlot',['../classImagePlot.html',1,'ImagePlot'],['../classImagePlot.html#ac58ba6ab6c1ad8223934403858497b03',1,'ImagePlot::ImagePlot()']]],
+  ['imagewidth_132',['imageWidth',['../classImageDataSet.html#a9ba02bb2e1b60de7f6835ace293809f9',1,'ImageDataSet']]],
+  ['inf_133',['Inf',['../Probability_8h.html#a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784',1,'Probability.h']]],
+  ['initialize_5fweights_134',['initialize_weights',['../classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8',1,'Classifier::initialize_weights()'],['../classLogRegSGD.html#a5f875d85e17bcd4b5c094214e4ef0c23',1,'LogRegSGD::initialize_weights()']]],
+  ['inittime_135',['InitTime',['../classRandom.html#a1ded95446bdeffc95358e33de5d7de3b',1,'Random']]],
+  ['input_136',['Input',['../structSet.html#a05d1a42371080cffdd7851cf9c00f81b',1,'Set']]],
+  ['inputcount_137',['InputCount',['../structSet.html#a2b7d3fdcba4188a6c2cd7808e8b0892a',1,'Set::InputCount()'],['../classDataSet.html#a9cc77d557deb5f130c5ca93267a88b69',1,'DataSet::InputCount()']]],
+  ['insurance_2ecpp_138',['Insurance.cpp',['../Insurance_8cpp.html',1,'']]],
+  ['insurance_2eh_139',['Insurance.h',['../Insurance_8h.html',1,'']]],
+  ['interest_140',['Interest',['../structInterest.html',1,'']]],
+  ['is2d_141',['is2D',['../structPlotAttributes.html#a6617bc812d985c05ae7f30dbf189bdc2',1,'PlotAttributes']]],
+  ['is3d_142',['is3D',['../structPlotAttributes.html#a653cff4fb1567e4547763924cad62178',1,'PlotAttributes']]],
+  ['isequidistant_143',['isEquidistant',['../classSpline.html#ad4e25b6cb7ad208568ddaee957d76c29',1,'Spline']]],
+  ['isnegative_144',['isNegative',['../classMathNode.html#a23bb4430c010646f85a41e722f30d7f6',1,'MathNode']]],
+  ['isstatplot_145',['isStatPlot',['../structPlotAttributes.html#ac6910d9ebfe2403059d206fe29fc4dc2',1,'PlotAttributes']]],
+  ['issymmetric_146',['IsSymmetric',['../structmat2.html#af01714893e2ef949e68b8fb915d35e0b',1,'mat2::IsSymmetric()'],['../structmat3.html#ab220413081e249d2895e14f3d287a3bc',1,'mat3::IsSymmetric()'],['../structmat4.html#a5cb4b663a9f710a01b2d9959595431c5',1,'mat4::IsSymmetric()']]],
+  ['iterations_147',['Iterations',['../structODEResult.html#a2c6a9c94926cc37485e885eed6c3fddc',1,'ODEResult']]]
 ];

@@ -72,6 +72,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classSGD-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SGD Class Reference</div>  </div>
@@ -100,10 +101,27 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a843697c86d1d89defc5b23e9847cdb4c"><td class="memItemLeft" align="right" valign="top"><a id="a843697c86d1d89defc5b23e9847cdb4c"></a>
-<a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#a843697c86d1d89defc5b23e9847cdb4c">cost</a></td></tr>
-<tr class="memdesc:a843697c86d1d89defc5b23e9847cdb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">matrix holding cost per epoch <br /></td></tr>
+<tr class="memitem:a843697c86d1d89defc5b23e9847cdb4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#a843697c86d1d89defc5b23e9847cdb4c">cost</a></td></tr>
+<tr class="memdesc:a843697c86d1d89defc5b23e9847cdb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">matrix holding cost per epoch  <a href="classSGD.html#a843697c86d1d89defc5b23e9847cdb4c">More...</a><br /></td></tr>
 <tr class="separator:a843697c86d1d89defc5b23e9847cdb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a41e45e615afc99e5336bde58de5d1e02"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#a41e45e615afc99e5336bde58de5d1e02">n_iter</a></td></tr>
+<tr class="memdesc:a41e45e615afc99e5336bde58de5d1e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">number iterations (epochs) during fit  <a href="classSGD.html#a41e45e615afc99e5336bde58de5d1e02">More...</a><br /></td></tr>
+<tr class="separator:a41e45e615afc99e5336bde58de5d1e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad45df4b7453474d02c8d7888dddcdcdf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#ad45df4b7453474d02c8d7888dddcdcdf">eta</a></td></tr>
+<tr class="memdesc:ad45df4b7453474d02c8d7888dddcdcdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">cost factor  <a href="classSGD.html#ad45df4b7453474d02c8d7888dddcdcdf">More...</a><br /></td></tr>
+<tr class="separator:ad45df4b7453474d02c8d7888dddcdcdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3150c7954c208f5f57f7744196ec1fcc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#a3150c7954c208f5f57f7744196ec1fcc">shuffle</a> = false</td></tr>
+<tr class="memdesc:a3150c7954c208f5f57f7744196ec1fcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">shuffle during training  <a href="classSGD.html#a3150c7954c208f5f57f7744196ec1fcc">More...</a><br /></td></tr>
+<tr class="separator:a3150c7954c208f5f57f7744196ec1fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3"><td class="memItemLeft" align="right" valign="top">std::function&lt; double(const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3">weight_update</a> = nullptr</td></tr>
+<tr class="memdesc:a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">represents weight update function  <a href="classSGD.html#a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3">More...</a><br /></td></tr>
+<tr class="separator:a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe4eb0710a8fc95e44ce409903a53fbb"><td class="memItemLeft" align="right" valign="top">std::function&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSGD.html#abe4eb0710a8fc95e44ce409903a53fbb">net_input_fun</a> = nullptr</td></tr>
+<tr class="memdesc:abe4eb0710a8fc95e44ce409903a53fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">represents net input function  <a href="classSGD.html#abe4eb0710a8fc95e44ce409903a53fbb">More...</a><br /></td></tr>
+<tr class="separator:abe4eb0710a8fc95e44ce409903a53fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements statistic gradient decent method to fit a model </p>
@@ -409,6 +427,143 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a843697c86d1d89defc5b23e9847cdb4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a843697c86d1d89defc5b23e9847cdb4c">&#9670;&nbsp;</a></span>cost</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; SGD::cost</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>matrix holding cost per epoch </p>
+
+</div>
+</div>
+<a id="ad45df4b7453474d02c8d7888dddcdcdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad45df4b7453474d02c8d7888dddcdcdf">&#9670;&nbsp;</a></span>eta</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double SGD::eta</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>cost factor </p>
+
+</div>
+</div>
+<a id="a41e45e615afc99e5336bde58de5d1e02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41e45e615afc99e5336bde58de5d1e02">&#9670;&nbsp;</a></span>n_iter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t SGD::n_iter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number iterations (epochs) during fit </p>
+
+</div>
+</div>
+<a id="abe4eb0710a8fc95e44ce409903a53fbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe4eb0710a8fc95e44ce409903a53fbb">&#9670;&nbsp;</a></span>net_input_fun</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;<a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt;const <a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt;&amp;)&gt; SGD::net_input_fun = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>represents net input function </p>
+
+</div>
+</div>
+<a id="a3150c7954c208f5f57f7744196ec1fcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3150c7954c208f5f57f7744196ec1fcc">&#9670;&nbsp;</a></span>shuffle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SGD::shuffle = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>shuffle during training </p>
+
+</div>
+</div>
+<a id="a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3">&#9670;&nbsp;</a></span>weight_update</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;double(const <a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt;&amp;, const <a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt;&amp;)&gt; SGD::weight_update = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>represents weight update function </p>
 
 </div>
 </div>
