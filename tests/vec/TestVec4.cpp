@@ -187,7 +187,7 @@ class Vec4TestCase : public Test
     }
 
 public:
-    void run() override {
+    virtual void run() {
         testInitialization();
         testAssignment();
         testMemberAccess();

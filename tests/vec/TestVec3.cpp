@@ -178,7 +178,7 @@ class Vec3TestCase : public Test
     }
 
 public:
-    virtual void run() override {
+    virtual void run() {
         testInitialization();
         testAssignment();
         testMemberAccess();
