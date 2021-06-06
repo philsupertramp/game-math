@@ -248,7 +248,7 @@ public:
      */
     virtual void operator()() const {
         fork();
-        FILE* gnuplot = popen("/usr/lib/gnuplot --persist", "w");
+        FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
         for(int i = 0; i < numElements; ++i) {
             fprintf(gnuplot, i == 0 ? plotType : "");
@@ -442,6 +442,7 @@ public:
      * interprets a file as surface plot and forwards whole content to gnuplot using "plot matrix with image"
      */
     void operator()(const char* colorPalette = "magma.pal") {
+        fork();
         FILE* gnuplot           = popen("gnuplot --persist", "w");
         attributes.colorPalette = colorPalette;
         writeAttributes(gnuplot);
