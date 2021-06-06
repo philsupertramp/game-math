@@ -62,8 +62,19 @@
  *    	2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
  *    	2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
  *    	2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
- * ]
+ * ]// clang-format on
  * \endcode
+ *
+ * or as plot using ImagePlot
+ * \code
+ * Mandelbrot fractal;
+ * fractal.detail   = 1250;
+ * fractal.maxIters = 99;
+ * ImagePlot plot("Mandelbrot");
+ * plot.AddData(fractal(), "");
+ * plot();
+ * \endcode
+ * \image html mandelbrot.svg width=50%
  */
 #pragma once
 
@@ -208,6 +219,7 @@ public:
         for(size_t x = 0; x < detail; ++x) {
             for(size_t y = 0; y < detail; ++y) {
                 M(x, y) = (double)fun((startX + stepWidthX * (double)x), (startY + stepWidthY * (double)y));
+                if(M(x, y) == (double)maxIters) { M(x, y) = 0; }
             }
         }
         return M;
