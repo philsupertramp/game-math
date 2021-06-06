@@ -1,4 +1,5 @@
-# game-math ![Tests](https://github.com/philsupertramp/game-math/workflows/CMake/badge.svg?branch=master)
+# game-math 
+![Tests](https://github.com/philsupertramp/game-math/workflows/CMake/badge.svg?branch=master) [![CodeFactor](https://www.codefactor.io/repository/github/philsupertramp/game-math/badge)](https://www.codefactor.io/repository/github/philsupertramp/game-math)
 
 Mathematical library for game developers.  
 The library contains necessary elements of Matrix Algebra to enable working in 2D and 3D space.
