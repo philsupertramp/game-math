@@ -99,42 +99,48 @@ private:
      * @return success
      */
     bool parseSequence(const std::string& c){
-        if(isNumber(c)) {
-            auto sym        = std::make_shared<Number>(c);
+        std::string copy = c;
+        if(isNumber(copy)) {
+            auto sym        = std::make_shared<Number>(copy);
             sym->isNegative = nextIsNegative;
             nextIsNegative  = false;
             operandStack.push_back(sym);
-        } else if(isConstant(c)) {
-            auto sym        = DefaultSymbols[c];
+        } else if(isConstant(copy)) {
+            auto sym        = DefaultSymbols[copy];
             sym->isNegative = nextIsNegative;
             nextIsNegative  = false;
             operandStack.push_back(sym);
-        } else if(isSymbol(c)) {
-            auto symbol        = std::make_shared<Symbolic>(c);
+        } else if(isSymbol(copy)) {
+            auto symbol        = std::make_shared<Symbolic>(copy);
             symbol->isNegative = nextIsNegative;
             nextIsNegative     = false;
             operandStack.push_back(symbol);
             if(!hasSymbol(symbols, symbol)) symbols.push_back(symbol);
-        } else if(isParenthesesOpen(c) || isFunction(c)) {
-            operatorStack.push_back(c);
-        } else if(isOperator(c)) {
-            auto currentOp = GetOperator(c);
+        } else if(isParenthesesOpen(copy) || isFunction(copy)) {
+            operatorStack.push_back(copy);
+        } else if(isOperator(copy)) {
+            auto currentOp = GetOperator(copy);
             if(prevWasOperator && currentOp->value[0] == '-') {
-                nextIsNegative = true;
+                nextIsNegative = !nextIsNegative;
             } else {
+                if(currentOp->value[0] == '-'){
+                    currentOp = GetOperator("+");
+                    copy = "+";
+                    nextIsNegative = !nextIsNegative;
+                }
                 processCurrentOP(currentOp, operatorStack, operandStack);
-                operatorStack.push_back(c);
+                operatorStack.push_back(copy);
             }
-        } else if(isParenthesesClose(c)) {
+        } else if(isParenthesesClose(copy)) {
             rearrangeStack(operatorStack, operandStack);
-        } else if(isAny(c)) {
+        } else if(isAny(copy)) {
             // ignore
         } else {
             // error
-            std::cerr << "Error detecting character " << c << std::endl;
+            std::cerr << "Error detecting character " << copy << std::endl;
             return false;
         }
-        prevWasOperator = isOperator(c);
+        prevWasOperator = isOperator(copy);
         return true;
     }
 
@@ -261,3 +267,7 @@ private:
      */
     std::vector<std::string> extractObjects(std::string& eq, const std::vector<std::string> &container);
 };
+/**
+ * \example symb/TestSymbolic.cpp
+ * This is an example on how to use the symb module.
+ */

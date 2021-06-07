@@ -1,9 +1,7 @@
 /**
- * TODO:
- * - split into sub-files
- * - create header/source files
- * - reduce complexity
- * - finalize simplification
+ * @file Equation.h
+ *
+ *
  */
 
 #pragma once
@@ -65,9 +63,9 @@ public:
     /**
      * Prints equation into std::cout
      */
-    void Print() {
-        std::cout << baseNode;
-        std::cout << std::endl;
+    void Print(std::ostream& ostr = std::cout) {
+        ostr << baseNode;
+        ostr << std::endl;
     }
 
     /**
@@ -323,37 +321,37 @@ public:
 
 private:
     /**
-     * TODO
-     * @param node
-     * @return
+     * Simplify equation tree given by node
+     * @param node tree to simplify
+     * @return simplified tree
      */
     [[nodiscard]] std::shared_ptr<MathNode> SimplifyTree(const std::shared_ptr<MathNode> &node) const {
-        auto out = SimplifyLevels(node);
-        out = ResolveLevels(out);
-
-        return out;
-    }
-
-    /**
-     *TODO
-     * @param node
-     * @return
-     */
-    [[nodiscard]] std::shared_ptr<MathNode> ResolveLevels(const std::shared_ptr<MathNode> &node) const {
-        if(node->type == NodeType_Numeric || node->type == NodeType_Symbolic)
-            return node;
-
         auto out = node;
+        switch(out->type) {
+            case NodeType_Any:
+            case NodeType_Parentheses:
+                break;
+            case NodeType_Symbolic:
+            case NodeType_Numeric:
+            case NodeType_DefaultSymbol:
+            case NodeType_Operator:
+            case NodeType_Functional:
+                out = simplifyOP(out);
+        }
+
+        if(out->type == NodeType_Numeric || out->type == NodeType_Symbolic)
+            return out;
+
         if(out->type == NodeType_Operator){
             auto op = EquationParser::GetOperator(out->value);
             // resolve line operators +/-
             switch(op->priority){
                 case OPClassLine:
                 case OPClassDot:
-                    {
-                        resolveOP(out, op);
-                        break;
-                    }
+                {
+                    resolveOP(out, op);
+                    break;
+                }
                 case OPClassUnknown:
                 case OPClassParentheses:
                 case OPClassFunction: break;
@@ -362,10 +360,11 @@ private:
         return out;
     }
 
+
     /**
-     * TODO
-     * @param out
-     * @param op
+     * resolves operator scope as far as possible
+     * @param out output node
+     * @param op operator scope to resolve
      */
     void resolveOP(std::shared_ptr<MathNode>& out, const std::shared_ptr<Operator>& op) const {
         // left value is numeric. Search for left side of right operand
@@ -380,69 +379,69 @@ private:
             }
         }
         else if(out->right->type == NodeType_Numeric){
+            if(EquationParser::GetOperator(out->value)->priority != OperatorPriority::OPClassLine){
+                return;
+            }
             auto leftNode = out->left;
+            auto parent = out;
             while(leftNode != nullptr){
                 if(leftNode->type == NodeType_Numeric){
-                    out = ApplyOperator(leftNode, op, out->right->Evaluate(), false);
+                    parent->right = ApplyOperator(leftNode, op, out->right->Evaluate(), false);
+                    out = out->left;
                     break;
                 }
+                parent = leftNode;
                 leftNode = leftNode->right;
             }
         }
     }
 
     /**
-     * Simplifies Equation Scopes.
+     * Simplifies operator scope
      *
      * Within a scope the following rules are applied:
      *
      *   - Functions:
      *      Functions with numeric values as left hand nodes can be simplified to numeric nodes
      *
-     *   - Line operators:
-     *      Within same tree it is allowed to combine nodes.
-     *      Same symbols can be simplified as Number*Symbol leaf.
-     *
-     *   - Dot operators:
+     *   - Operators:
      *      Numeric values can be combined.
      *
-     * @param node tree to simplify
-     * @return simplified tree
-     */
-    [[nodiscard]] std::shared_ptr<MathNode> SimplifyLevels(const std::shared_ptr<MathNode> &node) const {
-        switch(node->type) {
-            case NodeType_Any:
-            case NodeType_Parentheses:
-                break;
-            case NodeType_Symbolic:
-            case NodeType_Numeric:
-            case NodeType_DefaultSymbol:
-            case NodeType_Operator:
-            case NodeType_Functional:
-                return simplifyOP(node);
-        }
-        return node;
-    }
-
-    /**
-     * Simplifies operation tree
      * @param node operator node (-tree) to simplify
      * @return simplified tree with [num_nodes_in >= num_nodes_out]
      */
     [[nodiscard]] std::shared_ptr<MathNode> simplifyOP(const std::shared_ptr<MathNode> &node) const {
-        if(node->left->type == NodeType_Operator
-           || node->left->type == NodeType_Functional){
-            node->left = SimplifyTree(node->left);
+        std::shared_ptr<MathNode> nodeOut = node;
+        // node is function, simplify f(x) -> y
+        if(nodeOut->type == NodeType_Functional
+           && nodeOut->left->type == NodeType_Numeric){
+            return std::make_shared<Number>(std::to_string(nodeOut->Evaluate()));
         }
-        if(node->right != nullptr) {
-            if(node->right->type == NodeType_Operator || node->right->type == NodeType_Functional) {
-                node->right = SimplifyTree(node->right);
-            }
-            if(node->left->type == NodeType_Numeric && node->right->type == NodeType_Numeric) {
-                return std::make_shared<Number>(std::to_string(node->Evaluate()));
-            }
+
+        // left is Operator, simplify left := f(x) -> y
+        if(nodeOut->left->type == NodeType_Operator
+           || nodeOut->left->type == NodeType_Functional){
+            nodeOut->left = SimplifyTree(nodeOut->left);
         }
-        return node;
+
+        // All done
+        if(nodeOut->type != NodeType_Operator)
+            return nodeOut;
+
+        // from now on right is required
+        assert(nodeOut->right != nullptr);
+
+        // left and right are both Number, evaluate op
+        if(nodeOut->left->type == NodeType_Numeric && nodeOut->right->type == NodeType_Numeric) {
+            return std::make_shared<Number>(std::to_string(nodeOut->Evaluate()));
+        }
+
+        // right is Operator, simplify right := f(x) -> y
+        if(nodeOut->right->type == NodeType_Operator || nodeOut->right->type == NodeType_Functional) {
+            nodeOut->right = SimplifyTree(nodeOut->right);
+        }
+
+        return nodeOut;
     }
 
     /**
@@ -484,3 +483,8 @@ private:
         return out;
     }
 };
+
+/**
+ * \example symb/TestSymbolic.cpp
+ * This is an example on how to use the symb module.
+ */

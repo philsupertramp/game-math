@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <map>
 #include <memory>
+#include <cmath>
 #include <string>
 #include <unordered_set>
 /**
@@ -88,6 +89,12 @@ public:
     : Operand(val) {
         type         = MathNodeType::NodeType_Numeric;
         numericValue = strtod(value, nullptr);
+        isNegative = (numericValue > 0) ? false : ((numericValue < 0) ? true : false);
+        numericValue = fabs(numericValue);
+        std::string realValue = std::to_string(numericValue);
+        value          = new char[realValue.size() + 1];
+        std::copy(realValue.begin(), realValue.end(), value);
+        value[realValue.size()] = '\0'; // don't forget the terminating 0
     }
 
     /**
@@ -96,3 +103,8 @@ public:
      */
     [[nodiscard]] double Evaluate() const override { return isNegative ? numericValue * (-1.0) : numericValue; }
 };
+
+/**
+ * \example symb/TestSymbolic.cpp
+ * This is an example on how to use the symb module.
+ */

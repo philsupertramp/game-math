@@ -124,6 +124,7 @@ public:
     : Operator(
     val, [fun](double a, [[maybe_unused]] double b) { return fun(a); }, OperatorPriority::OPClassFunction) {
         connectionType = NodeConnectionType::ConnectionType_Left;
+        type = MathNodeType::NodeType_Functional;
     }
 
     /**
@@ -136,6 +137,7 @@ public:
     Function(const std::string& val, const std::function<double(double, double)>& fun)
     : Operator(val, fun, OperatorPriority::OPClassFunction) {
         connectionType = NodeConnectionType::ConnectionType_Dual;
+        type = MathNodeType::NodeType_Functional;
         std::cerr << "This can't be parsed yet!!!!!!" << std::endl;
     }
 
@@ -163,3 +165,8 @@ const std::map<std::string, std::shared_ptr<Function>> DefaultFunctions = {
  * @return
  */
 bool isFunction(const std::string& in);
+
+/**
+ * \example symb/TestSymbolic.cpp
+ * This is an example on how to use the symb module.
+ */

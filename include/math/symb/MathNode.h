@@ -144,3 +144,8 @@ public:
         return ostr;
     }
 };
+
+/**
+ * \example symb/TestSymbolic.cpp
+ * This is an example on how to use the symb module.
+ */
