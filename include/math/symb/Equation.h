@@ -327,34 +327,24 @@ private:
      */
     [[nodiscard]] std::shared_ptr<MathNode> SimplifyTree(const std::shared_ptr<MathNode> &node) const {
         auto out = node;
-        switch(out->type) {
-            case NodeType_Any:
-            case NodeType_Parentheses:
-                break;
-            case NodeType_Symbolic:
-            case NodeType_Numeric:
-            case NodeType_DefaultSymbol:
-            case NodeType_Operator:
-            case NodeType_Functional:
-                out = simplifyOP(out);
+        if(out->type == NodeType_Numeric
+            || out->type == NodeType_Operator
+            || out->type == NodeType_DefaultSymbol
+            || out->type == NodeType_Symbolic
+            || out->type == NodeType_Functional) {
+            out = simplifyOP(out);
         }
 
+        // early exit
         if(out->type == NodeType_Numeric || out->type == NodeType_Symbolic)
             return out;
 
         if(out->type == NodeType_Operator){
             auto op = EquationParser::GetOperator(out->value);
             // resolve line operators +/-
-            switch(op->priority){
-                case OPClassLine:
-                case OPClassDot:
-                {
-                    resolveOP(out, op);
-                    break;
-                }
-                case OPClassUnknown:
-                case OPClassParentheses:
-                case OPClassFunction: break;
+            if(op->priority == OPClassLine
+               || op->priority == OPClassDot){
+                resolveOP(out, op);
             }
         }
         return out;
