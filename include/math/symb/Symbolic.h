@@ -1,3 +1,11 @@
+/**
+ * TODO:
+ * - split into sub-files
+ * - create header/source files
+ * - reduce complexity
+ * - finalize simplification
+ */
+
 #pragma once
 
 
@@ -717,7 +725,7 @@ public:
 
 private:
     /**
-     *
+     * TODO
      * @param node
      * @return
      */
@@ -727,8 +735,9 @@ private:
 
         return out;
     }
+
     /**
-     *
+     *TODO
      * @param node
      * @return
      */
@@ -755,8 +764,12 @@ private:
         return out;
     }
 
+    /**
+     * TODO
+     * @param out
+     * @param op
+     */
     void resolveOP(std::shared_ptr<MathNode>& out, const std::shared_ptr<Operator>& op) const {
-
         // left value is numeric. Search for left side of right operand
         if(out->left->type == NodeType_Numeric){
             auto rightNode = out->right;
@@ -813,6 +826,11 @@ private:
         return node;
     }
 
+    /**
+     * TODO
+     * @param node
+     * @return
+     */
     [[nodiscard]] std::shared_ptr<MathNode> simplifyDualOperation(const std::shared_ptr<MathNode> &node) const {
         if(node->left->type == NodeType_Operator
            || node->left->type == NodeType_Functional){
@@ -829,6 +847,14 @@ private:
         return node;
     }
 
+    /**
+     * TODO
+     * @param node
+     * @param op
+     * @param val
+     * @param isLeft
+     * @return
+     */
     [[nodiscard]] std::shared_ptr<MathNode> Apply(const std::shared_ptr<MathNode>& node, const std::shared_ptr<Operator>& op, const double& val, bool isLeft) const {
         auto out = node;
         switch(out->connectionType) {
@@ -1148,6 +1174,7 @@ public:
         return !operandStack.empty() ? operandStack.front() : nullptr;
     }
 
+private:
     /**
      * process current operator until end of equation, next operator with higher priority or closing parentheses
      * @param operatorStack current operator stack object
