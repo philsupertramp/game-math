@@ -16,6 +16,15 @@ class EquationParser
     //! equation string to parse
     std::string processString;
 
+
+    //! flag for parsing process
+    bool prevWasOperator = true;
+    //! flag for parsing process to detect whether a node is negated
+    bool nextIsNegative  = false;
+    //! operator stack object, used during parsing
+    std::vector<std::string> operatorStack;
+    //! operand stack object, used during parsing
+    std::vector<std::shared_ptr<MathNode>> operandStack;
 public:
     //! storage for symbols, gets cleared on EquationParser::createAST
     std::vector<std::shared_ptr<Symbolic>> symbols;
@@ -84,6 +93,51 @@ public:
     }
 
 private:
+    /**
+     * parses a sequence, can be a Function, Operator, Number, Symbol or ANY
+     * @param c sequence to parse
+     * @return success
+     */
+    bool parseSequence(const std::string& c){
+        if(isNumber(c)) {
+            auto sym        = std::make_shared<Number>(c);
+            sym->isNegative = nextIsNegative;
+            nextIsNegative  = false;
+            operandStack.push_back(sym);
+        } else if(isConstant(c)) {
+            auto sym        = DefaultSymbols[c];
+            sym->isNegative = nextIsNegative;
+            nextIsNegative  = false;
+            operandStack.push_back(sym);
+        } else if(isSymbol(c)) {
+            auto symbol        = std::make_shared<Symbolic>(c);
+            symbol->isNegative = nextIsNegative;
+            nextIsNegative     = false;
+            operandStack.push_back(symbol);
+            if(!hasSymbol(symbols, symbol)) symbols.push_back(symbol);
+        } else if(isParenthesesOpen(c) || isFunction(c)) {
+            operatorStack.push_back(c);
+        } else if(isOperator(c)) {
+            auto currentOp = GetOperator(c);
+            if(prevWasOperator && currentOp->value[0] == '-') {
+                nextIsNegative = true;
+            } else {
+                processCurrentOP(currentOp, operatorStack, operandStack);
+                operatorStack.push_back(c);
+            }
+        } else if(isParenthesesClose(c)) {
+            rearrangeStack(operatorStack, operandStack);
+        } else if(isAny(c)) {
+            // ignore
+        } else {
+            // error
+            std::cerr << "Error detecting character " << c << std::endl;
+            return false;
+        }
+        prevWasOperator = isOperator(c);
+        return true;
+    }
+
     /**
      * Lexer function to detect a Function node.
      * @param valString element of DefaultFunctions vector

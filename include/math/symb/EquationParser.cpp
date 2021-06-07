@@ -4,51 +4,16 @@
 
 std::shared_ptr<MathNode> EquationParser::createAST() {
     symbols.clear();
+    operandStack.clear();
+    operatorStack.clear();
 
     auto regex_end = std::sregex_iterator();
-    std::vector<std::string> operatorStack;
-    std::vector<std::shared_ptr<MathNode>> operandStack;
 
-    bool prevWasOperator = true;
-    bool nextIsNegative  = false;
+    prevWasOperator = true;
+    nextIsNegative  = false;
     auto eqParts         = splitEquation(processString);
     for(const auto& c : eqParts) {
-        if(isNumber(c)) {
-            auto sym        = std::make_shared<Number>(c);
-            sym->isNegative = nextIsNegative;
-            nextIsNegative  = false;
-            operandStack.push_back(sym);
-        } else if(isConstant(c)) {
-            auto sym        = DefaultSymbols[c];
-            sym->isNegative = nextIsNegative;
-            nextIsNegative  = false;
-            operandStack.push_back(sym);
-        } else if(isSymbol(c)) {
-            auto symbol        = std::make_shared<Symbolic>(c);
-            symbol->isNegative = nextIsNegative;
-            nextIsNegative     = false;
-            operandStack.push_back(symbol);
-            if(!hasSymbol(symbols, symbol)) symbols.push_back(symbol);
-        } else if(isParenthesesOpen(c) || isFunction(c)) {
-            operatorStack.push_back(c);
-        } else if(isOperator(c)) {
-            auto currentOp = GetOperator(c);
-            if(prevWasOperator && currentOp->value[0] == '-') {
-                nextIsNegative = true;
-            } else {
-                processCurrentOP(currentOp, operatorStack, operandStack);
-                operatorStack.push_back(c);
-            }
-        } else if(isParenthesesClose(c)) {
-            rearrangeStack(operatorStack, operandStack);
-        } else if(isAny(c)) {
-            // ignore
-        } else {
-            // error
-            std::cerr << "Error detecting character " << c << std::endl;
-            return nullptr;
-        }
-        prevWasOperator = isOperator(c);
+        if(!parseSequence(c)) return nullptr;
     }
 
     while(!operatorStack.empty()) {
