@@ -799,9 +799,7 @@ private:
      * @return simplified tree
      */
     [[nodiscard]] std::shared_ptr<MathNode> SimplifyLevels(const std::shared_ptr<MathNode> &node) const {
-        auto newBase = node;
-
-        switch(newBase->type) {
+        switch(node->type) {
             case NodeType_Any:
             case NodeType_Parentheses:
                 break;
@@ -809,30 +807,26 @@ private:
             case NodeType_Numeric:
             case NodeType_DefaultSymbol:
             case NodeType_Operator:
-                if(newBase->left->type == NodeType_Operator
-                   || newBase->left->type == NodeType_Functional){
-                    newBase->left = SimplifyTree(newBase->left);
-                }
-                if(newBase->right->type == NodeType_Operator
-                   || newBase->right->type == NodeType_Functional){
-                    newBase->right = SimplifyTree(newBase->right);
-                }
-                if(newBase->left->type == NodeType_Numeric
-                   && newBase->right->type == NodeType_Numeric){
-                    return std::make_shared<Number>(std::to_string(newBase->Evaluate()));
-                }
-                break;
             case NodeType_Functional:
-                if(newBase->left->type == NodeType_Operator
-                   || newBase->left->type == NodeType_Functional){
-                    newBase->left = SimplifyTree(newBase->left);
-                }
-                if(newBase->left->type == NodeType_Numeric){
-                    return std::make_shared<Number>(std::to_string(newBase->Evaluate()));
-                }
-                break;
+                return simplifyDualOperation(node);
         }
-        return newBase;
+        return node;
+    }
+
+    [[nodiscard]] std::shared_ptr<MathNode> simplifyDualOperation(const std::shared_ptr<MathNode> &node) const {
+        if(node->left->type == NodeType_Operator
+           || node->left->type == NodeType_Functional){
+            node->left = SimplifyTree(node->left);
+        }
+        if(node->right != nullptr) {
+            if(node->right->type == NodeType_Operator || node->right->type == NodeType_Functional) {
+                node->right = SimplifyTree(node->right);
+            }
+            if(node->left->type == NodeType_Numeric && node->right->type == NodeType_Numeric) {
+                return std::make_shared<Number>(std::to_string(node->Evaluate()));
+            }
+        }
+        return node;
     }
 
     [[nodiscard]] std::shared_ptr<MathNode> Apply(const std::shared_ptr<MathNode>& node, const std::shared_ptr<Operator>& op, const double& val, bool isLeft) const {

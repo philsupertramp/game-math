@@ -230,7 +230,7 @@ class SymbolicTestCase : public Test
     }
 
     bool TestSimplify(){
-        Equation eq("2 + 1 * x");
+        Equation eq("2 + sqrt(1) + x");
         eq.Print();
         auto newEq = eq.Simplify();
         newEq.Print();
