@@ -716,12 +716,22 @@ public:
     }
 
 private:
+    /**
+     *
+     * @param node
+     * @return
+     */
     [[nodiscard]] std::shared_ptr<MathNode> SimplifyTree(const std::shared_ptr<MathNode> &node) const {
         auto out = SimplifyLevels(node);
         out = ResolveLevels(out);
 
         return out;
     }
+    /**
+     *
+     * @param node
+     * @return
+     */
     [[nodiscard]] std::shared_ptr<MathNode> ResolveLevels(const std::shared_ptr<MathNode> &node) const {
         if(node->type == NodeType_Numeric || node->type == NodeType_Symbolic)
             return node;
@@ -898,63 +908,25 @@ private:
     }
 
     /**
-     * Recursive split of input string into function/symbol/operator/numerical substrings.
+     * Recursively split of input string into function/symbol/operator/numerical substrings.
      * @param processString
      * @return
      */
     std::vector<std::string> splitFunctionsOrElementwise(const std::string& processString) {
-        std::vector<std::string> functionNames;
-        std::vector<std::string> constantNames;
-        functionNames.reserve(DefaultFunctions.size());
-        for(const auto& elem : DefaultFunctions) { functionNames.push_back(elem.first); }
-        constantNames.reserve(DefaultSymbols.size());
-        for(const auto& elem : DefaultSymbols) { constantNames.push_back(elem.first); }
-
         std::vector<std::string> out;
         auto eq = processString;
-        // check if we have a function inside
-        bool keepRunning = true;
-        while(keepRunning) {
-            for(const auto& funStr : functionNames) {
-                auto start  = eq.find(funStr);
-                keepRunning = false;
-                if(start != std::string::npos) {
-                    if(start > 0) {
-                        auto ls = splitFunctionsOrElementwise(eq.substr(0, start));
-                        out.insert(out.end(), ls.begin(), ls.end());
-                    }
-                    out.push_back(funStr);
-                    auto endPos = start + funStr.size();
-                    if(endPos < eq.size()) {
-                        eq          = eq.substr(endPos, eq.size() - endPos);
-                        keepRunning = true;
-                    } else {
-                        keepRunning = false;
-                    }
-                }
-            }
-        }
-        keepRunning = true;
-        while(keepRunning) {
-            for(const auto& funStr : constantNames) {
-                auto start  = eq.find(funStr);
-                keepRunning = false;
-                if(start != std::string::npos) {
-                    if(start > 0) {
-                        auto ls = splitFunctionsOrElementwise(eq.substr(0, start));
-                        out.insert(out.end(), ls.begin(), ls.end());
-                    }
-                    out.push_back(funStr);
-                    auto endPos = start + funStr.size();
-                    if(endPos < eq.size()) {
-                        eq          = eq.substr(endPos, eq.size() - endPos);
-                        keepRunning = true;
-                    } else {
-                        keepRunning = false;
-                    }
-                }
-            }
-        }
+
+        std::vector<std::string> functionNames;
+        functionNames.reserve(DefaultFunctions.size());
+        for(const auto& elem : DefaultFunctions) { functionNames.push_back(elem.first); }
+        auto res = extractObjects(eq, functionNames);
+        out.insert(out.end(), res.begin(), res.end());
+
+        std::vector<std::string> constantNames;
+        constantNames.reserve(DefaultSymbols.size());
+        for(const auto& elem : DefaultSymbols) { constantNames.push_back(elem.first); }
+        res = extractObjects(eq, constantNames);
+        out.insert(out.end(), res.begin(), res.end());
 
         if(!eq.empty()) {
             auto remainingPart = split(eq);
@@ -964,9 +936,42 @@ private:
     }
 
     /**
+     * extracts given objects from given equation string
+     * @param eq equation string
+     * @param container container containing objects to search for
+     * @return extracted objects
+     */
+    std::vector<std::string> extractObjects(std::string& eq, const std::vector<std::string> &container){
+        std::vector<std::string> out;
+        bool keepRunning = true;
+        while(keepRunning) {
+            for(const auto& funStr : container) {
+                auto start  = eq.find(funStr);
+                keepRunning = false;
+                if(start != std::string::npos) {
+                    if(start > 0) {
+                        auto ls = splitFunctionsOrElementwise(eq.substr(0, start));
+                        out.insert(out.end(), ls.begin(), ls.end());
+                    }
+                    out.push_back(funStr);
+                    auto endPos = start + funStr.size();
+                    if(endPos < eq.size()) {
+                        // remaining right side, continue
+                        eq          = eq.substr(endPos, eq.size() - endPos);
+                        keepRunning = true;
+                    } else {
+                        // processing done, return
+                        keepRunning = false;
+                    }
+                }
+            }
+        }
+        return out;
+    }
+
+    /**
      * Splits an equation string into a vector of strings
      *
-     * TODO: simplify, there's some duplicated code for function detection... that should be somewhere else
      * @param processString equation string to split
      * @return vector with equation elements
      */
@@ -977,9 +982,6 @@ private:
         auto numberRegex        = GetRegex(MathNodeType::NodeType_Numeric);
         auto symbolRegex        = GetRegex(MathNodeType::NodeType_Symbolic);
         auto operatorRegex      = GetRegex(MathNodeType::NodeType_Operator);
-        auto anyRegex           = GetRegex(MathNodeType::NodeType_Any);
-        auto functionRegex      = GetRegex(MathNodeType::NodeType_Functional);
-        auto defaultSymbolRegex = GetRegex(MathNodeType::NodeType_DefaultSymbol);
 
         auto splitEq = split(processString, ' ');
 
@@ -988,10 +990,13 @@ private:
             out = splitFunctionsOrElementwise(splitEq[0]);
         } else {
             for(const auto& elem : splitEq) {
+                // only allow full matches
                 if((elem.size() == 1)
-               || ((std::regex_match(elem.c_str(), m, symbolRegex) && m.str().size() == elem.size())
-                    || (std::regex_match(elem.c_str(), m, numberRegex) && m.str().size() == elem.size())
-                    || (std::regex_match(elem.c_str(), m, operatorRegex) && m.str().size() == elem.size()))){
+                   || (
+                        (std::regex_match(elem.c_str(), m, symbolRegex) && m.str().size() == elem.size())
+                        || (std::regex_match(elem.c_str(), m, numberRegex) && m.str().size() == elem.size())
+                        || (std::regex_match(elem.c_str(), m, operatorRegex) && m.str().size() == elem.size())
+                   )){
                     out.push_back(elem);
                 } else {
                     auto withFun = splitFunctionsOrElementwise(elem);
@@ -1004,7 +1009,6 @@ private:
     }
 
 private:
-
     /**
      * tests if value is number
      * @param in
