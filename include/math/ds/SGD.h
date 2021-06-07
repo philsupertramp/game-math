@@ -12,9 +12,9 @@ class SGD
     //! shuffle during training
     bool shuffle = false;
     //! represents weight update function
-    std::function<double(const Matrix<double>&, const Matrix<double>&)> weight_update;
+    std::function<double(const Matrix<double>&, const Matrix<double>&)> weight_update = nullptr;
     //! represents net input function
-    std::function<Matrix<double>(const Matrix<double>&)> net_input_fun;
+    std::function<Matrix<double>(const Matrix<double>&)> net_input_fun = nullptr;
 
 public:
     //! matrix holding cost per epoch
@@ -103,7 +103,7 @@ public:
         weights.SetRow(0, weights(0) + eta * error);
         auto delta = eta * (xi.Transpose() * error);
         for(size_t i = 0; i < weights.rows() - 1; i++) { weights.SetRow(i + 1, weights(i + 1) + delta(i)); }
-        return ((error * error) * 0.5).sumElements() / target.rows();
+        return ((error * error) * 0.5).sumElements() / (double)target.rows();
     }
 
     /**

@@ -3,6 +3,11 @@
  *
  *
  * Implements BDF(2)-Method to solve systems of ordinary differential equations
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/ode/odeBDF2.h>
+ * \endcode
  */
 #pragma once
 
@@ -15,11 +20,11 @@
 
 /**
  * BDF(2) solver implementation
- * @param fun
- * @param tInterval
- * @param y0
- * @param option
- * @return
+ * @param fun ode to approximate
+ * @param tInterval interval to perform approximation on
+ * @param y0 start value
+ * @param option solver options
+ * @return approximated values
  */
 ODEResult
 ODEBDF2(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, const ODEOption& option) {
@@ -67,3 +72,8 @@ ODEBDF2(const ODE& fun, const std::vector<double>& tInterval, const Matrix<doubl
     }
     return { y, t, iter };
 }
+
+/**
+ * \example numerics/ode/TestODEBDF2.cpp
+ * This is an example on how to use ODEBDF2.
+ */

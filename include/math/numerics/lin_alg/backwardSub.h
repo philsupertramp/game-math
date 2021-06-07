@@ -2,7 +2,15 @@
  * @file
  *
  * Regular backward substitution.
- * Calculates result given upper right triangular matrix z=R*b => R^-1b = z
+ * Calculates result given upper right triangular matrix
+ * $$
+ * z=R\cdot b \Rightarrow R^{-1}\cdot b = z
+ * $$
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/lin_alg/backwardSub.h>
+ * \endcode
  */
 
 #pragma once
@@ -11,10 +19,10 @@
 #include <vector>
 
 /**
- * Backward-substitution calculates R*b = z
- * @param R
- * @param b
- * @return R*b
+ * Backward-substitution
+ * @param R Coefficient matrix
+ * @param b result vector
+ * @return z
  */
 Matrix<double> backwardSub(const Matrix<double>& R, const Matrix<double>& b) {
     size_t m = R.rows();
@@ -43,3 +51,7 @@ Matrix<double> backwardSub(const Matrix<double>& R, const Matrix<double>& b) {
 
     return x;
 }
+/**
+ * \example numerics/lin_alg/TestBackwardSub.cpp
+ * This is an example on how to use backwardSub.
+ */

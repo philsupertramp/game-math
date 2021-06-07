@@ -1,5 +1,5 @@
 #include "../Test.h"
-#include <math/numerics/analysis/symb/Symbolic.h>
+#include <math/symb/Symbolic.h>
 
 
 class SymbolicTestCase : public Test
@@ -165,7 +165,7 @@ class SymbolicTestCase : public Test
     }
 
 public:
-    void run() override {
+    virtual void run() {
         TestMathematicalProperties();
         TestNegative();
         TestParentheses();

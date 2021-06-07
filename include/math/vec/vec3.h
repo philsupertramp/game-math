@@ -366,3 +366,9 @@ namespace std {
         // One can implement other methods if needed
     };
 } // namespace std
+
+/**
+ * \example vec/TestVec3.cpp
+ * This is an example on how to use the vec3.h file.
+ *
+ */

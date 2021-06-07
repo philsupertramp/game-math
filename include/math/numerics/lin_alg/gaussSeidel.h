@@ -3,6 +3,11 @@
  *
  * Gaussian elimination to solve systems of linear equations.
  * Uses column major pivot elements to reduce number of operations.
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/lin_alg/gausseidel.h>
+ * \endcode
  */
 #pragma once
 #include "../../Matrix.h"
@@ -13,9 +18,12 @@
 
 /**
  * Gauss-Seidel algorithm to evaluate system of linear equations.
- * @param A
- * @param b
- * @return A \ b
+ *
+ * $$Ax = b$$
+ *
+ * @param A Coefficient matrix
+ * @param b resulting vector
+ * @return $$x$$
  */
 Matrix<double> gaussSeidel(const Matrix<double>& A, const Matrix<double>& b) {
     auto LR = LU(A);
@@ -26,3 +34,8 @@ Matrix<double> gaussSeidel(const Matrix<double>& A, const Matrix<double>& b) {
     auto c = forwardSub(LR.first, b);
     return backwardSub(LR.first, c);
 }
+
+/**
+ * \example numerics/lin_alg/TestGaussSeidel.cpp
+ * This is an example on how to use gaussSeidel.
+ */

@@ -86,3 +86,8 @@ void split(const std::string& s, Out result);
 std::vector<std::string> split(const std::string& s);
 
 /** ----------------------------------------------- **/
+
+/**
+ * \example TestFormat.cpp
+ * This is an example on how to use the format.h file.
+ */

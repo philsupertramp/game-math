@@ -394,3 +394,8 @@ template<class T>
 const void* value_ptr(mat4<T> const& mat) {
     return &(mat[0][0]);
 }
+
+/**
+ * \example TestUtils.cpp
+ * This is an example on how to use the utils.h file.
+ */

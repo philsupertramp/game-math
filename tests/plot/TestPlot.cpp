@@ -42,12 +42,35 @@ class PlotTestCase : public Test
         plot3();
         return true;
     }
+    bool TestSurfacePlot() {
+        SurfacePlot plot("Test");
+        auto dat = ones(100, 3);
+        plot.AddData(dat, "some data", DataTypes::LINE, 3);
+        plot();
+        return true;
+    }
+
+    bool TestImagePlot() {
+        ImagePlot plot("Test");
+        auto in = zeros(10, 10);
+        for(size_t i = 0; i < 10; ++i) {
+            for(size_t j = 0; j < 10; ++j) {
+                if((i <= 5 && j <= 5) || (i > 5 && j > 5)) { in(i, j) = 1.0; }
+            }
+        }
+        plot.AddData(in, "some data");
+        plot();
+        return true;
+    }
 
 public:
-    void run() override {
+    virtual void run() {
         TestPlot();
         TestScatterPlot();
         TestFunctionPlot();
+        TestImagePlot();
+        TestSurfacePlot();
+        TestImagePlot();
     }
 };
 

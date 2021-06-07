@@ -1,5 +1,5 @@
 #include "../Test.h"
-#include <math/ds.h>
+#include <math/ds/AdalineGD.h>
 
 class AdalineGDTestCase : public Test
 {

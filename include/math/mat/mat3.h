@@ -39,7 +39,6 @@ public:
          T _d, T _e, T _f, 
          T _g, T _h, T _i)
     {
-
         values[0][0] = _a; values[0][1] = _b; values[0][2] =_c;
         values[1][0] = _d; values[1][1] = _e; values[1][2] =_f;
         values[2][0] = _g; values[2][1] = _h; values[2][2] =_i; // clang-format on
@@ -269,3 +268,9 @@ std::ostream& operator<<(std::ostream& out, const mat3<U>& mat) {
         << mat[2][0] << ", " << mat[2][1] << ", " << mat[2][2] << "\n]\n"; // clang-format on
     return out;
 }
+
+/**
+ * \example mat/TestMat3.cpp
+ * This is an example on how to use the mat3.h file.
+ *
+ */

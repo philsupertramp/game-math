@@ -30,10 +30,10 @@ public:
 public:
     /**
      * default constructor
-     * @param _eta
-     * @param iter
-     * @param _shuffle
-     * @param _randomState
+     * @param _eta learning rate
+     * @param iter number of learning iterations
+     * @param _shuffle use shuffled data
+     * @param _randomState seed of random state
      */
     explicit AdalineSGD(double _eta = 0.01, int iter = 10, bool _shuffle = false, int _randomState = 0)
         : Classifier(_eta, iter)
@@ -56,8 +56,8 @@ public:
 
     /**
      * partially fits the model
-     * @param X
-     * @param y
+     * @param X input values
+     * @param y target output values
      */
     void partial_fit(const Matrix<double>& X, const Matrix<double>& y) {
         if(!w_initialized) { initialize_weights(X.columns()); }
@@ -66,7 +66,7 @@ public:
 
     /**
      * alias for sdg.netInput
-     * @param X
+     * @param X input values
      * @return
      */
     Matrix<double> netInput(const Matrix<double>& X) override { return sgd.netInput(X, weights); }
@@ -80,18 +80,25 @@ public:
 
     /**
      * activates given input
-     * @param X
-     * @return
+     * @param X input values
+     * @return activated input values
      */
-    virtual Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
+    virtual Matrix<double> activation(const Matrix<double>& X) { return netInput(X); }
 
     /**
      * predict output class of given input
-     * @param X
-     * @return
+     * @param X input values
+     * @return predicted output
      */
-    virtual Matrix<double> predict(const Matrix<double>& X) override {
+    virtual Matrix<double> predict(const Matrix<double>& X) {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }
 };
+
+
+/**
+ * \example ds/TestAdalineSGD.cpp
+ * This is an example on how to use the AdalineSGD class for binary classification.
+ *
+ */

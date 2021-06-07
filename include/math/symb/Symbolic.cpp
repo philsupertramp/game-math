@@ -1,7 +1,6 @@
 #include "Symbolic.h"
 
-std::regex GetRegex(MathNodeType type)
-{
+std::regex GetRegex(MathNodeType type) {
     static const std::regex symbol_regex("([-]?[A-Za-z_]{1}[A-Za-z0-9_]*)");
     static const std::regex number_regex("([-]?[0-9]+)");
     static const std::regex parentheses_regex("\\(([\\(\\)+\\-*\\/\\^A-Za-z\\s0-9]*)\\)");
@@ -16,8 +15,7 @@ std::regex GetRegex(MathNodeType type)
     }
 }
 
-std::shared_ptr<Operator> GenerateOperator(OperatorType type){
-
+std::shared_ptr<Operator> GenerateOperator(OperatorType type) {
     switch(type) {
         case TYPE_ADDITION:
             return std::make_shared<Operator>(
@@ -53,4 +51,3 @@ std::shared_ptr<Operator> GenerateOperator(OperatorType type){
     },
     OperatorPriority::OPClassUnknown);
 }
-

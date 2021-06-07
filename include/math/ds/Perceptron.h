@@ -91,14 +91,14 @@ public:
      * @param X
      * @return
      */
-    virtual Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
+    virtual Matrix<double> activation(const Matrix<double>& X) { return netInput(X); }
 
     /**
      * predict class of given input
      * @param X
      * @return
      */
-    virtual Matrix<double> predict(const Matrix<double>& X) override {
+    virtual Matrix<double> predict(const Matrix<double>& X) {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }
@@ -108,5 +108,11 @@ public:
      * @param X
      * @return
      */
-    virtual double costFunction(const Matrix<double>& X) override { return (double)(X(0, 0) != 0.0); }
+    virtual double costFunction(const Matrix<double>& X) { return (double)(X(0, 0) != 0.0); }
 };
+
+/**
+ * \example ds/TestPerceptron.cpp
+ * This is an example on how to use the Perceptron class for binary classification.
+ *
+ */

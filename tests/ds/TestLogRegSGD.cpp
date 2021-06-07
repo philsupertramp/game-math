@@ -1,5 +1,5 @@
 #include "../Test.h"
-#include <math/ds.h>
+#include <math/ds/LogRegSGD.h>
 
 
 class LogRegSGDTestCase : public Test
@@ -31,7 +31,7 @@ class LogRegSGDTestCase : public Test
         auto val  = logRegSgd.predict({ { -1.0 } })(0, 0);
         auto val2 = logRegSgd.predict({ { 2.0 } })(0, 0);
 
-        AssertEqual(val, 1);  // == 1
+        AssertEqual(val, 1);     // == 1
         AssertEqual(val2, -1.0); // == -1
         return true;
     }

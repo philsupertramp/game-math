@@ -300,3 +300,9 @@ vec4<T> build_vec4(void* in) {
     vec4<T> out(values[0], values[1], values[2], values[3]);
     return out;
 }
+
+/**
+ * \example vec/TestVec4.cpp
+ * This is an example on how to use the vec4.h file.
+ *
+ */

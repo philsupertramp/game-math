@@ -1,7 +1,12 @@
 /**
- * @file
+ * @file ExplicitEuler.h
  *
  * Implements explicit Euler-Method to solve ordinary differential equations.
+ *
+ * Requires:
+ * \code
+ * #include <math/numerics/ode/ExplicitEuler.h>
+ * \endcode
  */
 #pragma once
 
@@ -12,10 +17,10 @@
 
 /**
  * implementation of explicit euler method
- * @param fun
- * @param tInterval
- * @param y0
- * @param h
+ * @param fun ode to approximate
+ * @param tInterval interval to perform approximation on
+ * @param y0 start value
+ * @param h stepwith,  $$h = t_{i+1} - t_i$$
  * @return
  */
 ODEResult ODEExpEuler(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, double h = 0.0) {
@@ -38,8 +43,13 @@ ODEResult ODEExpEuler(const ODE& fun, const std::vector<double>& tInterval, cons
         Matrix<double> fun_value = fun(cur_t, cur_y);
 
         auto yi = cur_y + fun_value * h;
-        for(size_t j = 0; j < elem_size; j++) { y(i, j) = yi(0, j); }
+        y.SetRow(i, yi.GetSlice(0, 0, 0, elem_size - 1));
         t(i, 0) = cur_t + h;
     }
     return { y, t };
 }
+
+/**
+ * \example numerics/ode/TestExplicitEuler.cpp
+ * This is an example on how to use ODEExpEuler.
+ */

@@ -1,13 +1,13 @@
 #pragma once
 
 
+#include <cassert>
+#include <cmath>
+#include <functional>
+#include <iostream>
 #include <regex>
 #include <sstream>
 #include <utility>
-#include <cassert>
-#include <functional>
-#include <cmath>
-#include <iostream>
 
 #include "../format.h"
 
@@ -74,17 +74,18 @@ class MathNode
 {
 public:
     //! helper to determine whether a node is negated or not
-    bool isNegative     = false;
+    bool isNegative = false;
     //! helper to determine if node is within parentheses
     bool hasParentheses = false;
     //! node type representation
     MathNodeType type;
     //! next node on left side
-    std::shared_ptr<MathNode> left  = nullptr;
+    std::shared_ptr<MathNode> left = nullptr;
     //! next node on right side
     std::shared_ptr<MathNode> right = nullptr;
     //! char representation of value
     char* value{};
+
 protected:
     //! helper to store size of value
     size_t valSize = 0;
@@ -258,7 +259,7 @@ public:
      */
     Symbolic(const Symbolic& other)
         : Operand(other) {
-        type = other.type;
+        type            = other.type;
         evaluationValue = other.evaluationValue;
     }
 
@@ -371,18 +372,16 @@ public:
     void SetSymbols([[maybe_unused]] const int& index) { }
 
 
-		/**
-		 * setter for evaluation values for symbolic nodes using a vector of values
-		 *
-		 * @param values vector containing values for symbols
-		 */
-		void SetSymbols(const std::vector<double> &values){
-			assert(values.size() == symbols.size());
+    /**
+     * setter for evaluation values for symbolic nodes using a vector of values
+     *
+     * @param values vector containing values for symbols
+     */
+    void SetSymbols(const std::vector<double>& values) {
+        assert(values.size() == symbols.size());
 
-			for(size_t i = 0; i < symbols.size(); ++i){
-				symbols[i]->evaluationValue = values[i];
-			}
-		}
+        for(size_t i = 0; i < symbols.size(); ++i) { symbols[i]->evaluationValue = values[i]; }
+    }
 
     /**
      * Helper to check for existence of symbolic

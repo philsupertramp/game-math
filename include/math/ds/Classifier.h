@@ -35,8 +35,8 @@ public:
 
     /**
      * default constructor
-     * @param _eta
-     * @param _n_iter
+     * @param _eta learning rate
+     * @param _n_iter number learning iterations
      */
     Classifier(double _eta, int _n_iter)
         : eta(_eta)

@@ -28,7 +28,7 @@ public:
      * prepares a new set of data based on passed filePath
      * @param filePath path name of directory to prepare
      */
-    virtual void PrepareDirectory(const char* filePath) override {
+    virtual void PrepareDirectory(const char* filePath) {
         /** identifies "classes" as files in nested directories */
 
         std::cout << "Moving files..." << std::flush;
@@ -129,11 +129,11 @@ public:
 
 public:
     //! desired image height
-    size_t imageHeight         = 180;
+    size_t imageHeight = 180;
     //! desired image width
-    size_t imageWidth          = 180;
+    size_t imageWidth = 180;
     //! percentage of validation data
-    double validationShare     = 0.2;
+    double validationShare = 0.2;
     //! target directory for training
     const char* trainDirectory = "../../resources/image_classification/training/";
     //! representation of all classes
@@ -141,9 +141,9 @@ public:
     //! representation of all class names
     std::vector<std::string> classNames;
     //! total number of data records
-    size_t totalCount      = 0;
+    size_t totalCount = 0;
     //! number of training data records
-    size_t trainingCount   = 0;
+    size_t trainingCount = 0;
     //! number of validation data records
     size_t validationCount = 0;
 };

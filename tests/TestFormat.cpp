@@ -47,7 +47,7 @@ class FormatTestCase : public Test
     }
 
 public:
-    void run() override {
+    virtual void run() {
         TestFormat();
         TestFormatOverflow();
         TestStrip();
@@ -59,3 +59,7 @@ int main() {
     FormatTestCase().run();
     return 0;
 }
+/**
+ * \example TestFormat.cpp
+ * This is an example on how to use the format.h class.
+ */
