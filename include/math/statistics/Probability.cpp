@@ -20,35 +20,42 @@ double pow(double x, int p) {
     for(int i = 0; i < p - 1; i++) result = result * x;
     return result;
 }
+double max_norm(const Matrix<double>& x){
+    double maximum = x(0, 0);
+    bool useRows = x.rows() > x.columns();
+    size_t size  = useRows ? x.rows() : x.columns();
+    for(int i = 1; i < size; i++) {
+        if(abs(x(useRows ? i : 0, useRows ? 0 : i)) > maximum) {
+            maximum = abs(x(useRows ? i : 0, useRows ? 0 : i));
+        }
+    }
+    return maximum;
+}
+double one_norm(const Matrix<double>& x){
+    bool useRows = x.rows() > x.columns();
+    size_t size  = useRows ? x.rows() : x.columns();
+    double sum = 0.0;
+    for(int i = 0; i < size; i++) { sum += abs(x(useRows ? i : 0, useRows ? 0 : i)); }
+    return sum;
+}
+double eukl_norm(const Matrix<double>& x){
+    bool useRows = x.rows() > x.columns();
+    size_t size  = useRows ? x.rows() : x.columns();
+    double sum = 0.0;
+    for(int i = 0; i < size; i++) { sum += pow(x(useRows ? i : 0, useRows ? 0 : i), 2.0); }
+    return sqrt(sum);
+}
 double norm(const Matrix<double>& x, P_NORM pNorm) {
     // Vector-norm!
     assert(x.columns() == 1 || x.rows() == 1);
-    bool useRows = x.rows() > x.columns();
-    size_t size  = useRows ? x.rows() : x.columns();
     switch(pNorm) {
         case P_NORM::Inf:
-            {
-                double maximum = x(0, 0);
-                for(int i = 1; i < size; i++) {
-                    if(abs(x(useRows ? i : 0, useRows ? 0 : i)) > maximum) {
-                        maximum = abs(x(useRows ? i : 0, useRows ? 0 : i));
-                    }
-                }
-                return maximum;
-            }
+            return max_norm(x);
         case P_NORM::One:
-            {
-                double sum = 0.0;
-                for(int i = 0; i < size; i++) { sum += abs(x(useRows ? i : 0, useRows ? 0 : i)); }
-                return sum;
-            }
+            return one_norm(x);
         case P_NORM::Eukl:
         default:
-            {
-                double sum = 0.0;
-                for(int i = 0; i < size; i++) { sum += pow(x(useRows ? i : 0, useRows ? 0 : i), 2.0); }
-                return sqrt(sum);
-            }
+            return eukl_norm(x);
     }
 }
 double cov(const Matrix<double>& x, const Matrix<double>& y) {
