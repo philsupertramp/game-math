@@ -55,7 +55,7 @@ private:
 
     /**
      * Calculates log of each element.
-     * Implementation doesn't use Matrix::Apply
+     * Implementation doesn't use Matrix::ApplyOperator
      * @param in input matrix
      * @return
      */

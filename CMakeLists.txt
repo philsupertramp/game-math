@@ -57,9 +57,9 @@ if(MATH_EXTENSIONS MATCHES "(symb)")
     set(LIB_SOURCES
         ${LIB_SOURCES}
 
-        include/math/symb/Symbolic.h
-        include/math/symb/Symbolic.cpp
-    )
+            include/math/symb/Equation.h
+            include/math/symb/Equation.cpp
+            include/math/symb/MathNode.cpp include/math/symb/MathNode.h)
 endif()
 if (MATH_EXTENSIONS MATCHES "(ds)")
     set(LIB_SOURCES
@@ -105,7 +105,7 @@ if (MATH_EXTENSIONS MATCHES "(stat)")
             include/math/statistics/Insurance.cpp
             include/math/statistics/Finance.h
             include/math/statistics/Finance.cpp
-        )
+            include/math/symb/Operator.cpp include/math/symb/Operator.h include/math/symb/Operand.cpp include/math/symb/Operand.h include/math/symb/EquationParser.cpp include/math/symb/EquationParser.h)
 endif ()
 
 add_library(math-lib SHARED ${LIB_SOURCES})

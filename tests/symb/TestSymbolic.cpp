@@ -1,5 +1,5 @@
 #include "../Test.h"
-#include <math/symb/Symbolic.h>
+#include <math/symb/Equation.h>
 
 
 class SymbolicTestCase : public Test
