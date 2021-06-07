@@ -740,32 +740,46 @@ private:
         if(out->type == NodeType_Operator){
             auto op = GetOperator(out->value);
             // resolve line operators +/-
-            if(op->priority == OPClassLine){
-                // left value is numeric. Search for left side of right operand
-                if(out->left->type == NodeType_Numeric){
-                    auto rightNode = out->right;
-                    while(rightNode != nullptr){
-                        if(rightNode->type == NodeType_Numeric){
-                            out = Apply(rightNode, op, out->left->Evaluate(), true);
-                            break;
-                        }
-                        rightNode = rightNode->left;
+            switch(op->priority){
+                case OPClassLine:
+                case OPClassDot:
+                    {
+                        resolveOP(out, op);
+                        break;
                     }
-                }
-                else if(out->right->type == NodeType_Numeric){
-                    auto leftNode = out->left;
-                    while(leftNode != nullptr){
-                        if(leftNode->type == NodeType_Numeric){
-                            out = Apply(leftNode, op, out->right->Evaluate(), false);
-                            break;
-                        }
-                        leftNode = leftNode->right;
-                    }
-                }
+                case OPClassUnknown:
+                case OPClassParentheses:
+                case OPClassFunction: break;
             }
         }
         return out;
     }
+
+    void resolveOP(std::shared_ptr<MathNode>& out, const std::shared_ptr<Operator>& op) const {
+
+        // left value is numeric. Search for left side of right operand
+        if(out->left->type == NodeType_Numeric){
+            auto rightNode = out->right;
+            while(rightNode != nullptr){
+                if(rightNode->type == NodeType_Numeric){
+                    out = Apply(rightNode, op, out->left->Evaluate(), true);
+                    break;
+                }
+                rightNode = rightNode->left;
+            }
+        }
+        else if(out->right->type == NodeType_Numeric){
+            auto leftNode = out->left;
+            while(leftNode != nullptr){
+                if(leftNode->type == NodeType_Numeric){
+                    out = Apply(leftNode, op, out->right->Evaluate(), false);
+                    break;
+                }
+                leftNode = leftNode->right;
+            }
+        }
+    }
+
     /**
      * Simplifies Equation Scopes.
      *
