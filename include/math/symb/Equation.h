@@ -35,6 +35,9 @@ public:
     //! Holds the base node of the abstract syntax tree
     std::shared_ptr<MathNode> baseNode = nullptr;
 
+    //! degree of equation. Linear equation = 1, quadratic = 2, ...
+    int degree = 1;
+
     /**
      * empty default constructor
      */
@@ -49,6 +52,7 @@ public:
         EquationParser parser(eq);
         baseNode = parser.createAST();
         symbols = parser.symbols;
+        degree = GetDegree(baseNode);
     }
     /**
      * default constructor for string representation
@@ -58,6 +62,27 @@ public:
         EquationParser parser(val);
         baseNode = parser.createAST();
         symbols = parser.symbols;
+        degree = GetDegree(baseNode);
+    }
+
+    Equation(const Equation& other){
+        baseNode = other.baseNode;
+        symbols = other.symbols;
+        degree = other.degree;
+    }
+
+    int GetDegree(const std::shared_ptr<MathNode>& node){
+        if(node == nullptr) return 0;
+
+        if(node->type == NodeType_Operator){
+            if(node->value[0] == '^' && node->left->type == NodeType_Symbolic){
+                return (int)node->right->Evaluate();
+            }
+            auto left = GetDegree(node->left);
+            auto right = GetDegree(node->right);
+            return left > right ? left : right;
+        }
+        return 1;
     }
 
     /**
@@ -300,11 +325,13 @@ public:
      * @return simplified equation
      */
     [[nodiscard]] Equation Simplify() const {
-        Equation out = *this;
+        Equation out;
+        out.degree = degree;
+        out.symbols = symbols;
 
-        auto newBase = baseNode;
+        std::shared_ptr<MathNode> newBase;
         // Early exit for constants
-        switch(newBase->type) {
+        switch(baseNode->type) {
             case NodeType_Symbolic:
             case NodeType_Numeric:
             case NodeType_DefaultSymbol:
@@ -313,7 +340,8 @@ public:
             case NodeType_Operator:
             case NodeType_Parentheses:
             case NodeType_Functional:
-                out.baseNode = SimplifyTree(newBase);
+                out.baseNode = SimplifyTree(baseNode);
+            case NodeType_Operator_or_Parentheses: break;
         }
 
         return out;

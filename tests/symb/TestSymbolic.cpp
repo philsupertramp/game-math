@@ -63,7 +63,6 @@ class SymbolicTestCase : public Test
         AssertEqual(equation(2), -7);
         AssertEqual(equation(-2), -3);
         equation = Equation("-x - -5");
-        equation.Print();
         AssertEqual(equation(2), 3);
         AssertEqual(equation(-2), 7);
         return true;
@@ -236,24 +235,32 @@ class SymbolicTestCase : public Test
         return true;
     }
 
+    bool TestDegree(){
+        Equation eq("x^2");
+        AssertEqual(eq.degree, 2);
+        eq = Equation("x^1");
+        AssertEqual(eq.degree, 1);
+        eq = Equation("x^10");
+        AssertEqual(eq.degree, 10);
+        eq = Equation("x^3*3+y^5*5");
+        AssertEqual(eq.degree, 5);
+        return true;
+    }
+
     bool TestSimplify(){
-        Equation eq("2 + sqrt(1) + x");
-        eq.Print();
-        auto newEq = eq.Simplify();
-        newEq.Print();
-
         // x-11
-        eq = Equation("1*3 + x - 5 * 3 - 2 + 3");
-        eq.Print();
-        std::string expected = "((3.000000+x)+-14.000000)\n";
-        newEq = eq.Simplify();
-
+        Equation eq("1*3 + x - 5 * 3 - 2 + 3");
+        std::string expected = "((3.000000+x)+-11.000000)\n";
         std::stringstream stream;
-        newEq.Print(stream);
+        eq.Print();
 
-        std::cout << stream.str();
+        eq.Simplify().Print(stream);
+        eq.Print();
+        eq.Simplify().Print();
 
         AssertEqual(expected, stream.str());
+
+        AssertEqual(eq(5), eq.Simplify()(5));
         return true;
     }
 
@@ -274,6 +281,7 @@ public:
         TestDefaultSymbols();
         TestSimplify();
         TestParser();
+        TestDegree();
     }
 };
 

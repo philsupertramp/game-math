@@ -16,6 +16,7 @@ enum MathNodeType {
     NodeType_Functional    = 4,
     NodeType_DefaultSymbol = 5,
     NodeType_Any           = 6,
+    NodeType_Operator_or_Parentheses           = 7,
 };
 
 enum NodeConnectionType {

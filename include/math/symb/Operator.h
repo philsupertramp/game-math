@@ -91,6 +91,9 @@ public:
      * @return
      */
     [[nodiscard]] double Evaluate() const override {
+        if(priority == OPClassParentheses){
+            return left->Evaluate();
+        }
         assert(left != nullptr && right != nullptr);
         return op(left->Evaluate(), right->Evaluate());
     }

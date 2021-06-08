@@ -176,7 +176,7 @@ private:
         out.insert(out.end(), res.begin(), res.end());
 
         if(!eq.empty()) {
-            auto remainingPart = split(eq);
+            auto remainingPart = split_by_regex(eq, GetRegex(MathNodeType::NodeType_Operator_or_Parentheses));
             out.insert(out.end(), remainingPart.begin(), remainingPart.end());
         }
         return out;
