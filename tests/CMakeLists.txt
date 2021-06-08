@@ -60,6 +60,7 @@ if (MATH_EXTENSIONS MATCHES "(numerics)")
 
     add_test_source(numerics/analysis/TestSupportValues.cpp)
     add_test_source(numerics/analysis/TestNaturalSpline.cpp)
+    add_test_source(numerics/analysis/TestDifferentiation.cpp)
 endif()
 
 if(MATH_EXTENSIONS MATCHES "(symb)")

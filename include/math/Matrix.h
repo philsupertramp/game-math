@@ -744,6 +744,27 @@ Matrix<T>& HadamardMulti(const Matrix<T>& lhs, const Matrix<T>& rhs) {
 }
 
 /**
+ * Element wise division
+ * @tparam T value type
+ * @param lhs left hand side with dimension n1, m1
+ * @param rhs right hand side with dimension n1, m1
+ * @return product of element wise multiplication of lhs * rhs with dimension n1, m1
+ */
+template<typename T>
+Matrix<T>& HadamardDiv(const Matrix<T>& lhs, const Matrix<T>& rhs) {
+    lhs.assertSize(rhs);
+    auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
+    for(size_t i = 0; i < result->rows(); i++) {
+        for(size_t j = 0; j < result->columns(); j++) {
+            for(size_t elem = 0; elem < result->elements(); elem++) {
+                (*result)(i, j, elem) = lhs(i, j, elem) / rhs(i, j, elem);
+            }
+        }
+    }
+    return *result;
+}
+
+/**
  * A form of matrix multiplication
  * For explicit reference please consult https://en.wikipedia.org/wiki/Kronecker_product
  * @tparam T value type

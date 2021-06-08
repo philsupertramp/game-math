@@ -51,6 +51,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
 
             include/math/numerics/analysis/SupportValues.h
             include/math/numerics/analysis/Spline.h
+            include/math/numerics/analysis/Differentiation.h
             include/math/numerics/Fractals.h)
 endif()
 if(MATH_EXTENSIONS MATCHES "(symb)")
