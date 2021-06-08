@@ -38,17 +38,17 @@ enum OperatorType {
  */
 enum OperatorValue : char {
     //! l + r
-    VALUE_ADDITION          = '+',
+    VALUE_ADDITION = '+',
     //! l - r
-    VALUE_SUBTRACTION       = '-',
+    VALUE_SUBTRACTION = '-',
     //! l * r
-    VALUE_MULTIPLICATION    = '*',
+    VALUE_MULTIPLICATION = '*',
     // l / r
-    VALUE_DIVISION          = '/',
+    VALUE_DIVISION = '/',
     //! l^r
-    VALUE_POWER             = '^',
+    VALUE_POWER = '^',
     //! (
-    VALUE_PARENTHESES_OPEN  = '(',
+    VALUE_PARENTHESES_OPEN = '(',
     //! )
     VALUE_PARENTHESES_CLOSE = ')',
 };
@@ -70,9 +70,9 @@ public:
      * @param operatorPriority
      */
     Operator(const std::string& name, std::function<double(double, double)> fun, OperatorPriority operatorPriority)
-    : MathNode(name)
-    , op(std::move(fun))
-    , priority(operatorPriority) {
+        : MathNode(name)
+        , op(std::move(fun))
+        , priority(operatorPriority) {
         type = MathNodeType::NodeType_Operator;
     }
 
@@ -81,7 +81,7 @@ public:
      * @param other
      */
     Operator(const Operator& other)
-    : MathNode(other) {
+        : MathNode(other) {
         op       = other.op;
         priority = other.priority;
     }
@@ -91,9 +91,7 @@ public:
      * @return
      */
     [[nodiscard]] double Evaluate() const override {
-        if(priority == OPClassParentheses){
-            return left->Evaluate();
-        }
+        if(priority == OPClassParentheses) { return left->Evaluate(); }
         assert(left != nullptr && right != nullptr);
         return op(left->Evaluate(), right->Evaluate());
     }
@@ -124,10 +122,10 @@ public:
      * @param fun single value evaluation function
      */
     Function(const std::string& val, const std::function<double(double)>& fun)
-    : Operator(
-    val, [fun](double a, [[maybe_unused]] double b) { return fun(a); }, OperatorPriority::OPClassFunction) {
+        : Operator(
+        val, [fun](double a, [[maybe_unused]] double b) { return fun(a); }, OperatorPriority::OPClassFunction) {
         connectionType = NodeConnectionType::ConnectionType_Left;
-        type = MathNodeType::NodeType_Functional;
+        type           = MathNodeType::NodeType_Functional;
     }
 
     /**
@@ -138,9 +136,9 @@ public:
      * TODO: enable parsing for this kind of function!
      */
     Function(const std::string& val, const std::function<double(double, double)>& fun)
-    : Operator(val, fun, OperatorPriority::OPClassFunction) {
+        : Operator(val, fun, OperatorPriority::OPClassFunction) {
         connectionType = NodeConnectionType::ConnectionType_Dual;
-        type = MathNodeType::NodeType_Functional;
+        type           = MathNodeType::NodeType_Functional;
         std::cerr << "This can't be parsed yet!!!!!!" << std::endl;
     }
 
@@ -157,10 +155,10 @@ public:
  * Default functions for parser
  */
 const std::map<std::string, std::shared_ptr<Function>> DefaultFunctions = {
-{ "sqrt", std::make_shared<Function>("sqrt", [](double a) { return sqrt(a); }) },
-{ "log", std::make_shared<Function>("log", [](double a) { return log(a); }) },
-{ "sin", std::make_shared<Function>("sin", [](double a) { return sin(a); }) },
-{ "cos", std::make_shared<Function>("cos", [](double a) { return cos(a); }) },
+    { "sqrt", std::make_shared<Function>("sqrt", [](double a) { return sqrt(a); }) },
+    { "log", std::make_shared<Function>("log", [](double a) { return log(a); }) },
+    { "sin", std::make_shared<Function>("sin", [](double a) { return sin(a); }) },
+    { "cos", std::make_shared<Function>("cos", [](double a) { return cos(a); }) },
 };
 /**
  * Helper function to test if string is function representation

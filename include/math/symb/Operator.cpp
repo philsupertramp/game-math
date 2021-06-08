@@ -18,34 +18,34 @@ std::shared_ptr<Operator> GenerateOperator(OperatorType type) {
             return std::make_shared<Operator>(
             "^", [](double a, double b) { return pow(a, b); }, OperatorPriority::OPClassDot);
         case TYPE_PARENTHESES_OPEN:
-        {
-            auto op = std::make_shared<Operator>(
-            "(",
-            []([[maybe_unused]] double a, [[maybe_unused]] double b) { return 0.0; },
-            OperatorPriority::OPClassParentheses);
-            op->connectionType = NodeConnectionType::ConnectionType_None;
-            return op;
-        }
+            {
+                auto op = std::make_shared<Operator>(
+                "(",
+                []([[maybe_unused]] double a, [[maybe_unused]] double b) { return 0.0; },
+                OperatorPriority::OPClassParentheses);
+                op->connectionType = NodeConnectionType::ConnectionType_None;
+                return op;
+            }
         case TYPE_PARENTHESES_CLOSE:
-        {
-            auto op = std::make_shared<Operator>(
-            ")",
-            []([[maybe_unused]] double a, [[maybe_unused]] double b) { return 0.0; },
-            OperatorPriority::OPClassParentheses);
-            op->connectionType = NodeConnectionType::ConnectionType_None;
-            return op;
-        }
+            {
+                auto op = std::make_shared<Operator>(
+                ")",
+                []([[maybe_unused]] double a, [[maybe_unused]] double b) { return 0.0; },
+                OperatorPriority::OPClassParentheses);
+                op->connectionType = NodeConnectionType::ConnectionType_None;
+                return op;
+            }
     }
     return std::make_shared<Operator>(
     "",
     []([[maybe_unused]] double a, [[maybe_unused]] double b) {
-      std::cerr << "Operator not found.\n" << std::flush;
-      return -1;
+        std::cerr << "Operator not found.\n" << std::flush;
+        return -1;
     },
     OperatorPriority::OPClassUnknown);
 }
 
-bool isFunction(const std::string& in){
+bool isFunction(const std::string& in) {
     std::unordered_set<std::string> funList;
     for(const auto& elem : DefaultFunctions) { funList.insert(elem.first); }
     return funList.find(in) != funList.end();

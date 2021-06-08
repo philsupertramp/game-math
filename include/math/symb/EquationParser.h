@@ -20,11 +20,12 @@ class EquationParser
     //! flag for parsing process
     bool prevWasOperator = true;
     //! flag for parsing process to detect whether a node is negated
-    bool nextIsNegative  = false;
+    bool nextIsNegative = false;
     //! operator stack object, used during parsing
     std::vector<std::string> operatorStack;
     //! operand stack object, used during parsing
     std::vector<std::shared_ptr<MathNode>> operandStack;
+
 public:
     //! storage for symbols, gets cleared on EquationParser::createAST
     std::vector<std::shared_ptr<Symbolic>> symbols;
@@ -32,7 +33,8 @@ public:
     /**
      * Default constructor
      */
-    explicit EquationParser(std::string in): processString(std::move(in)) {}
+    explicit EquationParser(std::string in)
+        : processString(std::move(in)) { }
 
     /**
      * helper method to generate superset of given vectors
@@ -44,10 +46,10 @@ public:
     const std::vector<std::shared_ptr<Symbolic>>& a, const std::vector<std::shared_ptr<Symbolic>>& b) {
         std::vector<std::shared_ptr<Symbolic>> out = a;
         auto testIsInContainer                     = [&out](const std::shared_ptr<Symbolic>& sym) {
-          for(const auto& elem : out) {
-              if(bool(strcmp(elem->value, sym->value) == 0) && elem->isNegative == sym->isNegative) return true;
-          }
-          return false;
+            for(const auto& elem : out) {
+                if(bool(strcmp(elem->value, sym->value) == 0) && elem->isNegative == sym->isNegative) return true;
+            }
+            return false;
         };
 
         size_t numElements = out.size();
@@ -98,7 +100,7 @@ private:
      * @param c sequence to parse
      * @return success
      */
-    bool parseSequence(const std::string& c){
+    bool parseSequence(const std::string& c) {
         std::string copy = c;
         if(isNumber(copy)) {
             auto sym        = std::make_shared<Number>(copy);
@@ -123,9 +125,9 @@ private:
             if(prevWasOperator && currentOp->value[0] == '-') {
                 nextIsNegative = !nextIsNegative;
             } else {
-                if(currentOp->value[0] == '-'){
-                    currentOp = GetOperator("+");
-                    copy = "+";
+                if(currentOp->value[0] == '-') {
+                    currentOp      = GetOperator("+");
+                    copy           = "+";
                     nextIsNegative = !nextIsNegative;
                 }
                 processCurrentOP(currentOp, operatorStack, operandStack);
@@ -196,7 +198,7 @@ private:
      * @return
      */
     static bool isNumber(const std::string& in) {
-        static auto numberRegex    = GetRegex(MathNodeType::NodeType_Numeric);
+        static auto numberRegex = GetRegex(MathNodeType::NodeType_Numeric);
         std::cmatch m;
         return std::regex_match(in.c_str(), m, numberRegex);
     };
@@ -206,7 +208,7 @@ private:
      * @return
      */
     static bool isSymbol(const std::string& in) {
-        static auto symbolRegex    = GetRegex(MathNodeType::NodeType_Symbolic);
+        static auto symbolRegex = GetRegex(MathNodeType::NodeType_Symbolic);
         std::cmatch m;
         return std::regex_match(in.c_str(), m, symbolRegex);
     };
@@ -216,7 +218,7 @@ private:
      * @return
      */
     static bool isOperator(const std::string& in) {
-        static auto operatorRegex =  GetRegex(MathNodeType::NodeType_Operator);
+        static auto operatorRegex = GetRegex(MathNodeType::NodeType_Operator);
         std::cmatch m;
         return std::regex_match(in.c_str(), m, operatorRegex);
     };
@@ -225,7 +227,7 @@ private:
      * @param in
      * @return
      */
-    static bool isAny (const std::string& in) {
+    static bool isAny(const std::string& in) {
         static auto anyRegex = GetRegex(MathNodeType::NodeType_Any);
         std::cmatch m;
         return std::regex_match(in.c_str(), m, anyRegex);
@@ -249,14 +251,18 @@ private:
      * @param operandStack current operand stack
      * @param currentOp the operator to process
      */
-    static void processCurrentOP(const std::shared_ptr<Operator>& currentOp, std::vector<std::string>& operatorStack, std::vector<std::shared_ptr<MathNode>>& operandStack);
+    static void processCurrentOP(
+    const std::shared_ptr<Operator>& currentOp,
+    std::vector<std::string>& operatorStack,
+    std::vector<std::shared_ptr<MathNode>>& operandStack);
 
     /**
      * rearranges stack until end of equation of opening parentheses
      * @param operatorStack operator stack object
      * @param operandStack operand stack object
      */
-    static void rearrangeStack(std::vector<std::string>& operatorStack, std::vector<std::shared_ptr<MathNode>>& operandStack);
+    static void
+    rearrangeStack(std::vector<std::string>& operatorStack, std::vector<std::shared_ptr<MathNode>>& operandStack);
 
 
     /**
@@ -265,7 +271,7 @@ private:
      * @param container container containing objects to search for
      * @return extracted objects
      */
-    std::vector<std::string> extractObjects(std::string& eq, const std::vector<std::string> &container);
+    std::vector<std::string> extractObjects(std::string& eq, const std::vector<std::string>& container);
 };
 /**
  * \example symb/TestSymbolic.cpp

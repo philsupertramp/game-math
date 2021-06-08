@@ -9,14 +9,14 @@
  * Node type representation
  */
 enum MathNodeType {
-    NodeType_Operator      = 0,
-    NodeType_Symbolic      = 1,
-    NodeType_Numeric       = 2,
-    NodeType_Parentheses   = 3,
-    NodeType_Functional    = 4,
-    NodeType_DefaultSymbol = 5,
-    NodeType_Any           = 6,
-    NodeType_Operator_or_Parentheses           = 7,
+    NodeType_Operator                = 0,
+    NodeType_Symbolic                = 1,
+    NodeType_Numeric                 = 2,
+    NodeType_Parentheses             = 3,
+    NodeType_Functional              = 4,
+    NodeType_DefaultSymbol           = 5,
+    NodeType_Any                     = 6,
+    NodeType_Operator_or_Parentheses = 7,
 };
 
 enum NodeConnectionType {
@@ -42,7 +42,7 @@ class MathNode
 {
 public:
     //! helper to determine whether a node is negated or not
-    bool isNegative     = false;
+    bool isNegative = false;
     //! helper to determine if node is within parentheses
     bool hasParentheses = false;
     //! node type representation
@@ -50,11 +50,12 @@ public:
     //! type of connection allowed for this node
     NodeConnectionType connectionType = NodeConnectionType::ConnectionType_Dual;
     //! next node on left side
-    std::shared_ptr<MathNode> left  = nullptr;
+    std::shared_ptr<MathNode> left = nullptr;
     //! next node on right side
     std::shared_ptr<MathNode> right = nullptr;
     //! char representation of value
     char* value{};
+
 protected:
     //! helper to store size of value
     size_t valSize = 0;

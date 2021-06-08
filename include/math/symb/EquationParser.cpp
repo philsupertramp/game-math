@@ -11,7 +11,7 @@ std::shared_ptr<MathNode> EquationParser::createAST() {
 
     prevWasOperator = true;
     nextIsNegative  = false;
-    auto eqParts         = splitEquation(processString);
+    auto eqParts    = splitEquation(processString);
     for(const auto& c : eqParts) {
         if(!parseSequence(c)) return nullptr;
     }
@@ -44,13 +44,11 @@ std::vector<std::shared_ptr<MathNode>>& operandStack) {
     // early exit
     if(operatorStack.empty()) return;
     bool hasParentheses = true;
-    auto stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
-    while(stackTop != nullptr && stackTop->priority >= currentOp->priority
-          && stackTop->value[0] != '(') {
+    auto stackTop       = GetOperator(operatorStack[operatorStack.size() - 1]);
+    while(stackTop != nullptr && stackTop->priority >= currentOp->priority && stackTop->value[0] != '(') {
         operatorStack.pop_back();
         if(stackTop->connectionType == NodeConnectionType::ConnectionType_None) {
-            if(!operatorStack.empty())
-                stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
+            if(!operatorStack.empty()) stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
             continue;
         }
 
@@ -73,8 +71,7 @@ std::vector<std::shared_ptr<MathNode>>& operandStack) {
     }
 }
 void EquationParser::rearrangeStack(
-std::vector<std::string>& operatorStack, std::vector<std::shared_ptr<MathNode>>& operandStack)
-{
+std::vector<std::string>& operatorStack, std::vector<std::shared_ptr<MathNode>>& operandStack) {
     auto stackTop = operatorStack[operatorStack.size() - 1];
     while(!isParenthesesOpen(stackTop)) {
         // handle operator
@@ -98,14 +95,13 @@ std::vector<std::string>& operatorStack, std::vector<std::shared_ptr<MathNode>>&
     }
     operatorStack.pop_back();
 }
-std::vector<std::string> EquationParser::splitEquation(const std::string& processString)
-{
+std::vector<std::string> EquationParser::splitEquation(const std::string& processString) {
     std::vector<std::string> out;
     std::cmatch m;
 
-    auto numberRegex        = GetRegex(MathNodeType::NodeType_Numeric);
-    auto symbolRegex        = GetRegex(MathNodeType::NodeType_Symbolic);
-    auto operatorRegex      = GetRegex(MathNodeType::NodeType_Operator);
+    auto numberRegex   = GetRegex(MathNodeType::NodeType_Numeric);
+    auto symbolRegex   = GetRegex(MathNodeType::NodeType_Symbolic);
+    auto operatorRegex = GetRegex(MathNodeType::NodeType_Operator);
 
     auto splitEq = split(processString, ' ');
 
@@ -131,8 +127,7 @@ std::vector<std::string> EquationParser::splitEquation(const std::string& proces
 
     return out;
 }
-std::vector<std::string> EquationParser::extractObjects(std::string& eq, const std::vector<std::string>& container)
-{
+std::vector<std::string> EquationParser::extractObjects(std::string& eq, const std::vector<std::string>& container) {
     std::vector<std::string> out;
     bool keepRunning = true;
     while(keepRunning) {

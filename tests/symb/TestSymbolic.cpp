@@ -6,7 +6,7 @@ class SymbolicTestCase : public Test
 {
     friend Equation;
 
-    bool TestParser(){
+    bool TestParser() {
         Equation eq("x+2-((3*5)-x)-2");
 
         return true;
@@ -235,7 +235,7 @@ class SymbolicTestCase : public Test
         return true;
     }
 
-    bool TestDegree(){
+    bool TestDegree() {
         Equation eq("x^2");
         AssertEqual(eq.degree, 2);
         eq = Equation("x^1");
@@ -247,7 +247,7 @@ class SymbolicTestCase : public Test
         return true;
     }
 
-    bool TestSimplify(){
+    bool TestSimplify() {
         // x-11
         Equation eq("1*3 + x - 5 * 3 - 2 + 3");
         std::string expected = "((3.000000+x)+-14.000000)\n";
@@ -265,9 +265,7 @@ class SymbolicTestCase : public Test
         return true;
     }
 
-    bool TestDefaultSymbols(){
-        return true;
-    }
+    bool TestDefaultSymbols() { return true; }
 
 public:
     virtual void run() {

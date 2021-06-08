@@ -41,27 +41,21 @@ std::vector<std::string> split(const std::string& s) {
 }
 std::vector<std::string> split_by_regex(const std::string& s, const std::regex& regex) {
     std::vector<std::string> elems;
-    auto copyString = s;
+    auto copyString                 = s;
     std::sregex_token_iterator iter = std::sregex_token_iterator(copyString.begin(), copyString.end(), regex, -1);
-    if((*iter).str().empty()){
-        ++iter;
-    }
+    if((*iter).str().empty()) { ++iter; }
     std::sregex_token_iterator end;
-    while (!copyString.empty() && iter != end){
+    while(!copyString.empty() && iter != end) {
         auto sub = (*iter).str();
         auto pos = copyString.find(sub);
-        if(pos > 0){
-            elems.push_back(copyString.substr(0, pos));
-        }
+        if(pos > 0) { elems.push_back(copyString.substr(0, pos)); }
         elems.push_back(sub);
-        copyString = copyString.substr(pos+sub.size(), copyString.size()-(pos+sub.size()));
-        iter = std::sregex_token_iterator(copyString.begin(), copyString.end(), regex, -1);
-        if((*iter).str().empty()){
-            ++iter;
-        }
+        copyString = copyString.substr(pos + sub.size(), copyString.size() - (pos + sub.size()));
+        iter       = std::sregex_token_iterator(copyString.begin(), copyString.end(), regex, -1);
+        if((*iter).str().empty()) { ++iter; }
     }
     // remaining operators?
-    if(!copyString.empty()){
+    if(!copyString.empty()) {
         auto pasta = split(copyString);
         elems.insert(elems.end(), pasta.begin(), pasta.end());
     }

@@ -2,10 +2,10 @@
 
 
 #include "MathNode.h"
+#include <cmath>
 #include <cstdlib>
 #include <map>
 #include <memory>
-#include <cmath>
 #include <string>
 #include <unordered_set>
 /**
@@ -20,7 +20,7 @@ public:
      * @param name
      */
     explicit Operand(const std::string& name)
-    : MathNode(name) {
+        : MathNode(name) {
         connectionType = NodeConnectionType::ConnectionType_None;
     }
 };
@@ -41,8 +41,8 @@ public:
      * @param name
      */
     explicit Symbolic(const std::string& name, double defaultValue = 0.0)
-    : Operand(name)
-    , evaluationValue(defaultValue) {
+        : Operand(name)
+        , evaluationValue(defaultValue) {
         type = MathNodeType::NodeType_Symbolic;
     }
 
@@ -51,7 +51,7 @@ public:
      * @param other
      */
     Symbolic(const Symbolic& other)
-    : Operand(other) {
+        : Operand(other) {
         type            = other.type;
         evaluationValue = other.evaluationValue;
     }
@@ -64,9 +64,9 @@ public:
 };
 
 static std::map<std::string, std::shared_ptr<Symbolic>> DefaultSymbols = {
-{ "pi",
-       std::make_shared<Symbolic>("pi", 3.1415926535897932384626433832795028841971693993751058209749445923078164) },
-{ "e", std::make_shared<Symbolic>("e", 2.71828182845904523536028747135266249775724709369995957496696762772407663) },
+    { "pi",
+      std::make_shared<Symbolic>("pi", 3.1415926535897932384626433832795028841971693993751058209749445923078164) },
+    { "e", std::make_shared<Symbolic>("e", 2.71828182845904523536028747135266249775724709369995957496696762772407663) },
 };
 
 bool isConstant(const std::string& in);
@@ -86,13 +86,13 @@ public:
      * @param val
      */
     explicit Number(const std::string& val)
-    : Operand(val) {
-        type         = MathNodeType::NodeType_Numeric;
-        numericValue = strtod(value, nullptr);
-        isNegative = (numericValue > 0) ? false : ((numericValue < 0) ? true : false);
-        numericValue = fabs(numericValue);
+        : Operand(val) {
+        type                  = MathNodeType::NodeType_Numeric;
+        numericValue          = strtod(value, nullptr);
+        isNegative            = (numericValue > 0) ? false : ((numericValue < 0) ? true : false);
+        numericValue          = fabs(numericValue);
         std::string realValue = std::to_string(numericValue);
-        value          = new char[realValue.size() + 1];
+        value                 = new char[realValue.size() + 1];
         std::copy(realValue.begin(), realValue.end(), value);
         value[realValue.size()] = '\0'; // don't forget the terminating 0
     }
