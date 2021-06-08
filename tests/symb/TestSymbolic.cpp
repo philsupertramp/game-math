@@ -250,16 +250,13 @@ class SymbolicTestCase : public Test
     bool TestSimplify(){
         // x-11
         Equation eq("1*3 + x - 5 * 3 - 2 + 3");
-        std::string expected = "((3.000000+x)+-11.000000)\n";
+        std::string expected = "((3.000000+x)+-14.000000)\n";
         std::stringstream stream;
-        eq.Print();
-
         eq.Simplify().Print(stream);
-        eq.Print();
-        eq.Simplify().Print();
 
         AssertEqual(expected, stream.str());
 
+        eq = Equation("1*3 + x - 5 * 3 - 2 + 3");
         AssertEqual(eq(5), eq.Simplify()(5));
         return true;
     }

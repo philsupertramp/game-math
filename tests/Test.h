@@ -62,4 +62,9 @@ public:
 
     void AssertTrue(const bool& a) { assert(a); }
     void AssertFalse(const bool& a) { assert(!a); }
+
+    void AssertLessThenEqual(const double& a, const double& b) { assert(a<=b);}
+    void AssertGreaterThenEqual(const double& a, const double& b) { assert(a>=b);}
+    void AssertLess(const double& a, const double& b) { assert(a<b);}
+    void AssertGreater(const double& a, const double& b) { assert(a>b);}
 };

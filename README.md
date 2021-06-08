@@ -31,6 +31,7 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
         - Spline: implements Natural cubic spline, as well as a B-Spline capable of interpolating 3D values 
     - 2D/3D Interpolation
       - see Spline
+  - Differential calculus (Differentiation.h)
 - (classic) Statistics:
   - Probability.h
   - Insurance.h
