@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>philsupertramp/game-math: include/math/symb/Symbolic.cpp File Reference</title>
+<title>philsupertramp/game-math: include/math/symb/Operator.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,17 +75,17 @@ $(function() {
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Symbolic.cpp File Reference</div>  </div>
+<div class="title">Operator.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="Symbolic_8h_source.html">Symbolic.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="Operator_8h_source.html">Operator.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a85bcdf174a2e5f29fc70bab45310509c"><td class="memItemLeft" align="right" valign="top">std::regex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Symbolic_8cpp.html#a85bcdf174a2e5f29fc70bab45310509c">GetRegex</a> (<a class="el" href="Symbolic_8h.html#af66185625ec6e66044e64693a29dfefe">MathNodeType</a> type)</td></tr>
-<tr class="separator:a85bcdf174a2e5f29fc70bab45310509c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43825be2424c20130e3d099c8490c709"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classOperator.html">Operator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Symbolic_8cpp.html#a43825be2424c20130e3d099c8490c709">GenerateOperator</a> (<a class="el" href="Symbolic_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117">OperatorType</a> type)</td></tr>
+<tr class="memitem:a43825be2424c20130e3d099c8490c709"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classOperator.html">Operator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Operator_8cpp.html#a43825be2424c20130e3d099c8490c709">GenerateOperator</a> (<a class="el" href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117">OperatorType</a> type)</td></tr>
 <tr class="separator:a43825be2424c20130e3d099c8490c709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa26df455b0a2615c65df309cb038167f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Operator_8cpp.html#aa26df455b0a2615c65df309cb038167f">isFunction</a> (const std::string &amp;in)</td></tr>
+<tr class="separator:aa26df455b0a2615c65df309cb038167f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a43825be2424c20130e3d099c8490c709"></a>
@@ -97,7 +97,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="classOperator.html">Operator</a>&gt; GenerateOperator </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="Symbolic_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117">OperatorType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117">OperatorType</a>&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
@@ -110,31 +110,33 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="symb_2TestSymbolic_8cpp-example.html#a9">symb/TestSymbolic.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a85bcdf174a2e5f29fc70bab45310509c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85bcdf174a2e5f29fc70bab45310509c">&#9670;&nbsp;</a></span>GetRegex()</h2>
+<a id="aa26df455b0a2615c65df309cb038167f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa26df455b0a2615c65df309cb038167f">&#9670;&nbsp;</a></span>isFunction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::regex GetRegex </td>
+          <td class="memname">bool isFunction </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="Symbolic_8h.html#af66185625ec6e66044e64693a29dfefe">MathNodeType</a>&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>regex factory for node types </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Helper function to test if string is function representation </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">type</td><td></td></tr>
+    <tr><td class="paramname">in</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>regex for given type </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>

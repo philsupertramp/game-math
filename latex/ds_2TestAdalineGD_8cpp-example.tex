@@ -38,11 +38,8 @@ This is an example on how to use the \mbox{\hyperlink{classAdalineGD}{Adaline\+G
 \DoxyCodeLine{        \};}
 \DoxyCodeLine{}
 \DoxyCodeLine{        adalineGd.fit(A, B);}
-\DoxyCodeLine{        std::cout << adalineGd.weights;}
-\DoxyCodeLine{        assert(adalineGd.predict(\{ \{ 5.4, 0.2 \} \})(0, 0) == -\/1); \textcolor{comment}{// == -\/1}}
-\DoxyCodeLine{        assert(adalineGd.predict(\{ \{ 5.7, 4.2 \} \})(0, 0) == 1);  \textcolor{comment}{// == -\/1}}
-\DoxyCodeLine{        \textcolor{comment}{// [-\/0.01174401 -\/0.02122706  0.09641832]}}
-\DoxyCodeLine{        std::cout << adalineGd.weights;}
+\DoxyCodeLine{        AssertEqual(adalineGd.predict(\{ \{ 5.4, 0.2 \} \})(0, 0), -\/1); \textcolor{comment}{// == -\/1}}
+\DoxyCodeLine{        AssertEqual(adalineGd.predict(\{ \{ 5.7, 4.2 \} \})(0, 0), 1);  \textcolor{comment}{// == -\/1}}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}

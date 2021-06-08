@@ -24,20 +24,20 @@ This is an example on how to use the \mbox{\hyperlink{classLogRegSGD}{Log\+Reg\+
 \DoxyCodeLine{        \{ 0.41344311936636324 \},}
 \DoxyCodeLine{        \{ 0.0089382791988343868 \},}
 \DoxyCodeLine{        \});}
-\DoxyCodeLine{        std::cout << A;}
+\DoxyCodeLine{        \textcolor{comment}{//        std::cout << A;}}
 \DoxyCodeLine{        std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= 0.0); \};}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} B                      = \mbox{\hyperlink{Matrix_8h_a03aa8ab53460bc8174166baea67463c3}{where}}(condition, A, \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
 \DoxyCodeLine{        \textcolor{keyword}{auto} maxVal                           = \mbox{\hyperlink{Matrix_8h_a8dd66fbac5097923b2ecf481b0ae77e5}{max}}(A);}
 \DoxyCodeLine{        \textcolor{keyword}{auto} minVal                           = \mbox{\hyperlink{Matrix_8h_a4bb73e4029612f323f406f1ecfc2ed57}{min}}(A);}
-\DoxyCodeLine{        A = A.\mbox{\hyperlink{classMatrix_aab08352f6e89b3dfb616c10998db4570}{Apply}}([minVal, maxVal](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} (in -\/ minVal) / (maxVal -\/ minVal); \});}
+\DoxyCodeLine{        A = A.Apply([minVal, maxVal](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} (in -\/ minVal) / (maxVal -\/ minVal); \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        logRegSgd.fit(A, B);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keyword}{auto} val  = logRegSgd.predict(\{ \{ -\/1.0 \} \})(0, 0);}
 \DoxyCodeLine{        \textcolor{keyword}{auto} val2 = logRegSgd.predict(\{ \{ 2.0 \} \})(0, 0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(val, 1);     \textcolor{comment}{// == 1}}
-\DoxyCodeLine{        AssertEqual(val2, -\/1.0); \textcolor{comment}{// == -\/1}}
+\DoxyCodeLine{        AssertEqual(val, 1);   \textcolor{comment}{// == 1}}
+\DoxyCodeLine{        AssertEqual(val2, -\/1); \textcolor{comment}{// == -\/1}}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
@@ -50,7 +50,7 @@ This is an example on how to use the \mbox{\hyperlink{classLogRegSGD}{Log\+Reg\+
 \DoxyCodeLine{\textcolor{keyword}{public}:}
 \DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{}
 \DoxyCodeLine{        TestLogReg();}
-\DoxyCodeLine{        TestNoCost();}
+\DoxyCodeLine{        \textcolor{comment}{//        TestNoCost();}}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}

@@ -94,20 +94,20 @@ $(function() {
 <div class="line">        { 0.41344311936636324 },</div>
 <div class="line">        { 0.0089382791988343868 },</div>
 <div class="line">        });</div>
-<div class="line">        std::cout &lt;&lt; A;</div>
+<div class="line">        <span class="comment">//        std::cout &lt;&lt; A;</span></div>
 <div class="line">        std::function&lt;bool(<span class="keywordtype">double</span>)&gt; condition = [](<span class="keywordtype">double</span> x) { <span class="keywordflow">return</span> bool(x &gt;= 0.0); };</div>
 <div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> B                      = <a name="a2"></a><a class="code" href="Matrix_8h.html#a03aa8ab53460bc8174166baea67463c3">where</a>(condition, A, { { 1 } }, { { -1 } });</div>
 <div class="line">        <span class="keyword">auto</span> maxVal                           = <a name="a3"></a><a class="code" href="Matrix_8h.html#a8dd66fbac5097923b2ecf481b0ae77e5">max</a>(A);</div>
 <div class="line">        <span class="keyword">auto</span> minVal                           = <a name="a4"></a><a class="code" href="Matrix_8h.html#a4bb73e4029612f323f406f1ecfc2ed57">min</a>(A);</div>
-<div class="line">        A = A.<a name="a5"></a><a class="code" href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Apply</a>([minVal, maxVal](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; in) { <span class="keywordflow">return</span> (in - minVal) / (maxVal - minVal); });</div>
+<div class="line">        A = A.Apply([minVal, maxVal](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; in) { <span class="keywordflow">return</span> (in - minVal) / (maxVal - minVal); });</div>
 <div class="line"> </div>
 <div class="line">        logRegSgd.fit(A, B);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keyword">auto</span> val  = logRegSgd.predict({ { -1.0 } })(0, 0);</div>
 <div class="line">        <span class="keyword">auto</span> val2 = logRegSgd.predict({ { 2.0 } })(0, 0);</div>
 <div class="line"> </div>
-<div class="line">        AssertEqual(val, 1);     <span class="comment">// == 1</span></div>
-<div class="line">        AssertEqual(val2, -1.0); <span class="comment">// == -1</span></div>
+<div class="line">        AssertEqual(val, 1);   <span class="comment">// == 1</span></div>
+<div class="line">        AssertEqual(val2, -1); <span class="comment">// == -1</span></div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -120,7 +120,7 @@ $(function() {
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
 <div class="line">        TestLogReg();</div>
-<div class="line">        TestNoCost();</div>
+<div class="line">        <span class="comment">//        TestNoCost();</span></div>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="line"> </div>
@@ -129,12 +129,11 @@ $(function() {
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aLogRegSGD_8h_html"><div class="ttname"><a href="LogRegSGD_8h.html">LogRegSGD.h</a></div></div>
-<div class="ttc" id="aMatrix_8h_html_a03aa8ab53460bc8174166baea67463c3"><div class="ttname"><a href="Matrix_8h.html#a03aa8ab53460bc8174166baea67463c3">where</a></div><div class="ttdeci">Matrix&lt; T &gt; where(const std::function&lt; bool(T)&gt; &amp;condition, const Matrix&lt; T &gt; &amp;in, const Matrix&lt; T &gt; &amp;valIfTrue, const Matrix&lt; T &gt; &amp;valIfFalse)</div><div class="ttdef"><b>Definition:</b> Matrix.h:893</div></div>
-<div class="ttc" id="aMatrix_8h_html_a4bb73e4029612f323f406f1ecfc2ed57"><div class="ttname"><a href="Matrix_8h.html#a4bb73e4029612f323f406f1ecfc2ed57">min</a></div><div class="ttdeci">T min(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:964</div></div>
-<div class="ttc" id="aMatrix_8h_html_a8dd66fbac5097923b2ecf481b0ae77e5"><div class="ttname"><a href="Matrix_8h.html#a8dd66fbac5097923b2ecf481b0ae77e5">max</a></div><div class="ttdeci">T max(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:946</div></div>
+<div class="ttc" id="aMatrix_8h_html_a03aa8ab53460bc8174166baea67463c3"><div class="ttname"><a href="Matrix_8h.html#a03aa8ab53460bc8174166baea67463c3">where</a></div><div class="ttdeci">Matrix&lt; T &gt; where(const std::function&lt; bool(T)&gt; &amp;condition, const Matrix&lt; T &gt; &amp;in, const Matrix&lt; T &gt; &amp;valIfTrue, const Matrix&lt; T &gt; &amp;valIfFalse)</div><div class="ttdef"><b>Definition:</b> Matrix.h:912</div></div>
+<div class="ttc" id="aMatrix_8h_html_a4bb73e4029612f323f406f1ecfc2ed57"><div class="ttname"><a href="Matrix_8h.html#a4bb73e4029612f323f406f1ecfc2ed57">min</a></div><div class="ttdeci">T min(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:983</div></div>
+<div class="ttc" id="aMatrix_8h_html_a8dd66fbac5097923b2ecf481b0ae77e5"><div class="ttname"><a href="Matrix_8h.html#a8dd66fbac5097923b2ecf481b0ae77e5">max</a></div><div class="ttdeci">T max(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:965</div></div>
 <div class="ttc" id="aclassLogRegSGD_html"><div class="ttname"><a href="classLogRegSGD.html">LogRegSGD</a></div><div class="ttdef"><b>Definition:</b> LogRegSGD.h:12</div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclassMatrix_html_aab08352f6e89b3dfb616c10998db4570"><div class="ttname"><a href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Matrix::Apply</a></div><div class="ttdeci">Matrix&lt; T &gt; Apply(const std::function&lt; T(T)&gt; &amp;fun) const</div><div class="ttdef"><b>Definition:</b> Matrix.h:324</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

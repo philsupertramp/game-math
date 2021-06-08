@@ -1,0 +1,63 @@
+\hypertarget{Operand_8h}{}\doxysection{include/math/symb/\+Operand.h File Reference}
+\label{Operand_8h}\index{include/math/symb/Operand.h@{include/math/symb/Operand.h}}
+{\ttfamily \#include \char`\"{}Math\+Node.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classOperand}{Operand}}
+\item 
+class \mbox{\hyperlink{classSymbolic}{Symbolic}}
+\item 
+class \mbox{\hyperlink{classNumber}{Number}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{Operand_8h_ae9c1d0ee9dd7d56df829ae0e10aceb37}{is\+Constant}} (const std\+::string \&in)
+\item 
+bool \mbox{\hyperlink{Operand_8h_ab1f5f5c6561dd2e852cf0d06836417fa}{has\+Symbol}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$$>$ \&container, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ \&sym)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ $>$ \mbox{\hyperlink{Operand_8h_aa4aad1c453d503a883b6a3a05252e5c2}{Default\+Symbols}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Operand_8h_ab1f5f5c6561dd2e852cf0d06836417fa}\label{Operand_8h_ab1f5f5c6561dd2e852cf0d06836417fa}} 
+\index{Operand.h@{Operand.h}!hasSymbol@{hasSymbol}}
+\index{hasSymbol@{hasSymbol}!Operand.h@{Operand.h}}
+\doxysubsubsection{\texorpdfstring{hasSymbol()}{hasSymbol()}}
+{\footnotesize\ttfamily bool has\+Symbol (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$$>$ \&}]{container,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ \&}]{sym }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Operand_8h_ae9c1d0ee9dd7d56df829ae0e10aceb37}\label{Operand_8h_ae9c1d0ee9dd7d56df829ae0e10aceb37}} 
+\index{Operand.h@{Operand.h}!isConstant@{isConstant}}
+\index{isConstant@{isConstant}!Operand.h@{Operand.h}}
+\doxysubsubsection{\texorpdfstring{isConstant()}{isConstant()}}
+{\footnotesize\ttfamily bool is\+Constant (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{in }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{Operand_8h_aa4aad1c453d503a883b6a3a05252e5c2}\label{Operand_8h_aa4aad1c453d503a883b6a3a05252e5c2}} 
+\index{Operand.h@{Operand.h}!DefaultSymbols@{DefaultSymbols}}
+\index{DefaultSymbols@{DefaultSymbols}!Operand.h@{Operand.h}}
+\doxysubsubsection{\texorpdfstring{DefaultSymbols}{DefaultSymbols}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classSymbolic}{Symbolic}}$>$ $>$ Default\+Symbols\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \{ \textcolor{stringliteral}{"{}pi"{}},}
+\DoxyCodeLine{      std::make\_shared<Symbolic>(\textcolor{stringliteral}{"{}pi"{}}, 3.1415926535897932384626433832795028841971693993751058209749445923078164) \},}
+\DoxyCodeLine{    \{ \textcolor{stringliteral}{"{}e"{}}, std::make\_shared<Symbolic>(\textcolor{stringliteral}{"{}e"{}}, 2.71828182845904523536028747135266249775724709369995957496696762772407663) \},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

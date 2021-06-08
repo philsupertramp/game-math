@@ -18,13 +18,11 @@ This is an example on how to use LU.
 \DoxyCodeLine{        \textcolor{keyword}{auto} result = \mbox{\hyperlink{LU_8h_a5752113e8a55d6c775026f0f9386cea9}{LU}}(A);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{comment}{// A stays A}}
-\DoxyCodeLine{        std::cout << A << B;}
 \DoxyCodeLine{        AssertEqual(A, B);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        std::vector<unsigned int> p = \{ 0, 1, 2 \};}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} LR           = \{ \{ 4.0, 2.0, 3.0 \}, \{ 0.5, 1.0, -\/0.5 \}, \{ 0.5, 1.0, 1.0 \} \};}
 \DoxyCodeLine{}
-\DoxyCodeLine{        std::cout << LR << result.first;}
 \DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} col = 0; col < 3; col++) \{}
 \DoxyCodeLine{            assert(result.second[col] == p[col]);}
 \DoxyCodeLine{            \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} row = 0; row < 3; row++) \{ AssertEqual(result.first(col, row), LR(col, row)); \}}

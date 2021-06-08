@@ -68,11 +68,16 @@ Represents a data plot, using gnuplot.
 Add data using the Add\+Data methods. After you are done, call the plot to display the results.
 
 \DoxyHorRuler{0}
- Examples\+:
+ Examples\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classPlot}{Plot}} plot(\textcolor{stringliteral}{"{}My plot"{}});}
+\DoxyCodeLine{plot.AddData(\{\{1, 2\}, \{2, 3\}\}, \textcolor{stringliteral}{"{}Some points"{}}, DataType::POINT);}
+\DoxyCodeLine{plot();}
 
-\mbox{\hyperlink{classPlot}{Plot}} plot(\char`\"{}\+My plot\char`\"{}); plot.\+Add\+Data(\{\{1, 2\}, \{2, 3\}\}, \char`\"{}\+Some points\char`\"{}, Data\+Type\+::\+POINT); plot(); \begin{Desc}
+\end{DoxyCode}
+ \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
+\mbox{\hyperlink{numerics_2analysis_2TestDifferentiation_8cpp-example}{numerics/analysis/\+Test\+Differentiation.\+cpp}}, and \mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -128,7 +133,7 @@ concatenates given X and Y and forwards new matrix to Add\+Data with single matr
 \end{DoxyParams}
 \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
+\mbox{\hyperlink{numerics_2analysis_2TestDifferentiation_8cpp-example}{numerics/analysis/\+Test\+Differentiation.\+cpp}}, and \mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classPlot_abdbf7c37362b8b8b739b62ceb00a9b70}\label{classPlot_abdbf7c37362b8b8b739b62ceb00a9b70}} 
 \index{Plot@{Plot}!getBoundaries@{getBoundaries}}
 \index{getBoundaries@{getBoundaries}!Plot@{Plot}}

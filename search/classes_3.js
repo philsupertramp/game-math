@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['equation_457',['Equation',['../classEquation.html',1,'']]]
+  ['equation_519',['Equation',['../classEquation.html',1,'']]],
+  ['equationparser_520',['EquationParser',['../classEquationParser.html',1,'']]]
 ];

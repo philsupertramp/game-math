@@ -79,7 +79,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="Symbolic_8h_source.html">Symbolic.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="MathNode_8h_source.html">MathNode.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MathNode:</div>
 <div class="dyncontent">
@@ -87,9 +87,10 @@ Inheritance diagram for MathNode:</div>
   <img src="classMathNode.png" usemap="#MathNode_map" alt=""/>
   <map id="MathNode_map" name="MathNode_map">
 <area href="classOperand.html" alt="Operand" shape="rect" coords="40,56,110,80"/>
-<area href="classOperator.html" alt="Operator" shape="rect" coords="120,56,190,80"/>
+<area href="classOperator.html" alt="Operator" shape="rect" coords="160,56,230,80"/>
 <area href="classNumber.html" alt="Number" shape="rect" coords="0,112,70,136"/>
 <area href="classSymbolic.html" alt="Symbolic" shape="rect" coords="80,112,150,136"/>
+<area href="classFunction.html" alt="Function" shape="rect" coords="160,112,230,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -103,6 +104,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac6689c4cc69071efbd524e0f2a7fe0f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb5b146cee0a672f8fac4f2fd64c2c5e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#abb5b146cee0a672f8fac4f2fd64c2c5e">GetString</a> () const</td></tr>
 <tr class="separator:abb5b146cee0a672f8fac4f2fd64c2c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c411ca0bd88075c3b1ba8b64bc6a47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a81c411ca0bd88075c3b1ba8b64bc6a47">operator==</a> (<a class="el" href="classMathNode.html">MathNode</a> *rhs)</td></tr>
+<tr class="separator:a81c411ca0bd88075c3b1ba8b64bc6a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -112,9 +115,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a9cff117d073cd15538cf3f1d385d3207"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a9cff117d073cd15538cf3f1d385d3207">hasParentheses</a> = false</td></tr>
 <tr class="memdesc:a9cff117d073cd15538cf3f1d385d3207"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper to determine if node is within parentheses  <a href="classMathNode.html#a9cff117d073cd15538cf3f1d385d3207">More...</a><br /></td></tr>
 <tr class="separator:a9cff117d073cd15538cf3f1d385d3207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab70eeffac4cad37de01dc063eeb93d8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Symbolic_8h.html#af66185625ec6e66044e64693a29dfefe">MathNodeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#ab70eeffac4cad37de01dc063eeb93d8c">type</a></td></tr>
+<tr class="memitem:ab70eeffac4cad37de01dc063eeb93d8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="MathNode_8h.html#af66185625ec6e66044e64693a29dfefe">MathNodeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#ab70eeffac4cad37de01dc063eeb93d8c">type</a></td></tr>
 <tr class="memdesc:ab70eeffac4cad37de01dc063eeb93d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">node type representation  <a href="classMathNode.html#ab70eeffac4cad37de01dc063eeb93d8c">More...</a><br /></td></tr>
 <tr class="separator:ab70eeffac4cad37de01dc063eeb93d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af971f001f9f6b2478dd28d9fa752c5e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="MathNode_8h.html#ac3957c9768ee90555a77588a75a747ab">NodeConnectionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#af971f001f9f6b2478dd28d9fa752c5e9">connectionType</a> = <a class="el" href="MathNode_8h.html#ac3957c9768ee90555a77588a75a747aba7e556deecd3a56edd17baf888f865259">NodeConnectionType::ConnectionType_Dual</a></td></tr>
+<tr class="memdesc:af971f001f9f6b2478dd28d9fa752c5e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of connection allowed for this node  <a href="classMathNode.html#af971f001f9f6b2478dd28d9fa752c5e9">More...</a><br /></td></tr>
+<tr class="separator:af971f001f9f6b2478dd28d9fa752c5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7246ecf47bdb68471202f2c725cb41e4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classMathNode.html">MathNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a7246ecf47bdb68471202f2c725cb41e4">left</a> = nullptr</td></tr>
 <tr class="memdesc:a7246ecf47bdb68471202f2c725cb41e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">next node on left side  <a href="classMathNode.html#a7246ecf47bdb68471202f2c725cb41e4">More...</a><br /></td></tr>
 <tr class="separator:a7246ecf47bdb68471202f2c725cb41e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,6 +139,8 @@ Protected Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
+<tr class="memitem:a4c18ebd160a10ba1e053417d553e0c6c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a4c18ebd160a10ba1e053417d553e0c6c">operator==</a> (const <a class="el" href="classMathNode.html">MathNode</a> &amp;lhs, const <a class="el" href="classMathNode.html">MathNode</a> &amp;rhs)</td></tr>
+<tr class="separator:a4c18ebd160a10ba1e053417d553e0c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6172a6f35f4bac4d9aa2f6f218eea353"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#a6172a6f35f4bac4d9aa2f6f218eea353">operator&lt;&lt;</a> (std::ostream &amp;ostr, const <a class="el" href="classMathNode.html">MathNode</a> &amp;other)</td></tr>
 <tr class="separator:a6172a6f35f4bac4d9aa2f6f218eea353"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad56aa5e3b9cd26a34e6aa91e866bb743"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathNode.html#ad56aa5e3b9cd26a34e6aa91e866bb743">operator&lt;&lt;</a> (std::ostream &amp;ostr, <a class="el" href="classMathNode.html">MathNode</a> *other)</td></tr>
@@ -230,7 +238,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Interface function for evaluation of node, needs to be implemented to add new type of node </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Implemented in <a class="el" href="classNumber.html#a907df4526da3ccb91b8faead20e6fb66">Number</a>, <a class="el" href="classSymbolic.html#a10604f97ee4fb6bc798987ba4d5daa1d">Symbolic</a>, and <a class="el" href="classOperator.html#ab60d42c50454ab1e8b21aabc03bd04e3">Operator</a>.</p>
+<p>Implemented in <a class="el" href="classFunction.html#a519eb048f3d3431d14fee138fcae67a6">Function</a>, <a class="el" href="classOperator.html#ab60d42c50454ab1e8b21aabc03bd04e3">Operator</a>, <a class="el" href="classNumber.html#a907df4526da3ccb91b8faead20e6fb66">Number</a>, and <a class="el" href="classSymbolic.html#a10604f97ee4fb6bc798987ba4d5daa1d">Symbolic</a>.</p>
 
 </div>
 </div>
@@ -257,6 +265,32 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Getter for string representation of node </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a81c411ca0bd88075c3b1ba8b64bc6a47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c411ca0bd88075c3b1ba8b64bc6a47">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MathNode::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMathNode.html">MathNode</a> *&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -349,7 +383,59 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a4c18ebd160a10ba1e053417d553e0c6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c18ebd160a10ba1e053417d553e0c6c">&#9670;&nbsp;</a></span>operator==</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMathNode.html">MathNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMathNode.html">MathNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="af971f001f9f6b2478dd28d9fa752c5e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af971f001f9f6b2478dd28d9fa752c5e9">&#9670;&nbsp;</a></span>connectionType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="MathNode_8h.html#ac3957c9768ee90555a77588a75a747ab">NodeConnectionType</a> MathNode::connectionType = <a class="el" href="MathNode_8h.html#ac3957c9768ee90555a77588a75a747aba7e556deecd3a56edd17baf888f865259">NodeConnectionType::ConnectionType_Dual</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of connection allowed for this node </p>
+
+</div>
+</div>
 <a id="a9cff117d073cd15538cf3f1d385d3207"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9cff117d073cd15538cf3f1d385d3207">&#9670;&nbsp;</a></span>hasParentheses</h2>
 
@@ -421,7 +507,7 @@ Friends</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="Symbolic_8h.html#af66185625ec6e66044e64693a29dfefe">MathNodeType</a> MathNode::type</td>
+          <td class="memname"><a class="el" href="MathNode_8h.html#af66185625ec6e66044e64693a29dfefe">MathNodeType</a> MathNode::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -471,7 +557,7 @@ Friends</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/math/symb/<a class="el" href="Symbolic_8h_source.html">Symbolic.h</a></li>
+<li>include/math/symb/<a class="el" href="MathNode_8h_source.html">MathNode.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -108,11 +108,8 @@ $(function() {
 <div class="line">        };</div>
 <div class="line"> </div>
 <div class="line">        adalineGd.fit(A, B);</div>
-<div class="line">        std::cout &lt;&lt; adalineGd.weights;</div>
-<div class="line">        assert(adalineGd.predict({ { 5.4, 0.2 } })(0, 0) == -1); <span class="comment">// == -1</span></div>
-<div class="line">        assert(adalineGd.predict({ { 5.7, 4.2 } })(0, 0) == 1);  <span class="comment">// == -1</span></div>
-<div class="line">        <span class="comment">// [-0.01174401 -0.02122706  0.09641832]</span></div>
-<div class="line">        std::cout &lt;&lt; adalineGd.weights;</div>
+<div class="line">        AssertEqual(adalineGd.predict({ { 5.4, 0.2 } })(0, 0), -1); <span class="comment">// == -1</span></div>
+<div class="line">        AssertEqual(adalineGd.predict({ { 5.7, 4.2 } })(0, 0), 1);  <span class="comment">// == -1</span></div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>

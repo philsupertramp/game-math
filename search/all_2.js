@@ -10,8 +10,9 @@ var searchData=
   ['adddata_13',['AddData',['../classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45',1,'Plot::AddData()'],['../classImagePlot.html#abcc293f8ea2f73b54d184baeb742b820',1,'ImagePlot::AddData()'],['../classFunctionPlot.html#a6bea42610ef9f96447b91d622e918bc3',1,'FunctionPlot::AddData()'],['../classPlot.html#a44d1cd30b39263da1e8aa2d7db625bbd',1,'Plot::AddData()']]],
   ['angleaxis_14',['angleAxis',['../namespaceMath_1_1Utils.html#a68305043852a6bf7aeffd0c8495d1776',1,'Math::Utils']]],
   ['apply_15',['Apply',['../classMatrix.html#aab08352f6e89b3dfb616c10998db4570',1,'Matrix']]],
-  ['argmax_16',['argmax',['../Matrix_8h.html#a2a01e8ac881ea58d279cd73ec1803444',1,'Matrix.h']]],
-  ['argmin_17',['argmin',['../Matrix_8h.html#a14c028e4d81577bbda70dd22db04afe8',1,'Matrix.h']]],
-  ['assertsize_18',['assertSize',['../classMatrix.html#a7ff3adb55a7fcd61963647884d97cbd1',1,'Matrix']]],
-  ['attributes_19',['attributes',['../classPlot.html#adccf50e0f1dde033486c08da47fb8c3e',1,'Plot']]]
+  ['applyoperator_16',['ApplyOperator',['../classEquation.html#aa6bea10829435b0ce9d3899bd9423254',1,'Equation']]],
+  ['argmax_17',['argmax',['../Matrix_8h.html#a2a01e8ac881ea58d279cd73ec1803444',1,'Matrix.h']]],
+  ['argmin_18',['argmin',['../Matrix_8h.html#a14c028e4d81577bbda70dd22db04afe8',1,'Matrix.h']]],
+  ['assertsize_19',['assertSize',['../classMatrix.html#a7ff3adb55a7fcd61963647884d97cbd1',1,'Matrix']]],
+  ['attributes_20',['attributes',['../classPlot.html#adccf50e0f1dde033486c08da47fb8c3e',1,'Plot']]]
 ];

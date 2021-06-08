@@ -30,7 +30,7 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{            \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < C3.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); ++j) \{ assert(C3(i, j) == 4.0); \}}
 \DoxyCodeLine{        \}}
 \DoxyCodeLine{        \textcolor{keyword}{auto} E = A * B;}
-\DoxyCodeLine{        std::cout << E;}
+\DoxyCodeLine{        \textcolor{comment}{//        std::cout << E;}}
 \DoxyCodeLine{        assert(E.columns() == 3);}
 \DoxyCodeLine{        assert(E.rows() == 3);}
 \DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < E.rows(); ++i) \{}
@@ -248,7 +248,7 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A(\{ \{ 0, 0 \}, \{ 1, 1 \}, \{ 0, 0 \} \});}
 \DoxyCodeLine{        std::function<bool(\textcolor{keywordtype}{double})> cond = [](\textcolor{keywordtype}{double} i) \{ \textcolor{keywordflow}{return} bool(i == 1); \};}
 \DoxyCodeLine{        \textcolor{keyword}{auto} B = \mbox{\hyperlink{Matrix_8h_a03aa8ab53460bc8174166baea67463c3}{where}}(cond, A, \{ \{ 1, 1 \}, \{ 1, 1 \}, \{ 1, 1 \} \}, \{ \{ 0, 0 \}, \{ 0, 0 \}, \{ 0, 0 \} \});}
-\DoxyCodeLine{        std::cout << B;}
+\DoxyCodeLine{        \textcolor{comment}{//        std::cout << B;}}
 \DoxyCodeLine{        assert(B == A);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
@@ -334,7 +334,7 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<int>}} D(\{ \{ 1, 2 \} \});}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<int>}} E(\{ \{ 3, 4 \} \});}
 \DoxyCodeLine{}
-\DoxyCodeLine{        std::cout << C(0) << C(1);}
+\DoxyCodeLine{        \textcolor{comment}{//        std::cout << C(0) << C(1);}}
 \DoxyCodeLine{        AssertEqual(C(0), D);}
 \DoxyCodeLine{        AssertEqual(C(1), E);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}

@@ -12,6 +12,12 @@ double \mbox{\hyperlink{Probability_8cpp_a87477d0585e56d94b550e186c12bfcc1}{abs}
 \item 
 double \mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}} (double x, int p)
 \item 
+double \mbox{\hyperlink{Probability_8cpp_ae8a2d1d9ab800b0737bdd11b8b349314}{max\+\_\+norm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x)
+\item 
+double \mbox{\hyperlink{Probability_8cpp_a0f95f95f23c7b02085f1fdb96640ac22}{one\+\_\+norm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x)
+\item 
+double \mbox{\hyperlink{Probability_8cpp_a7750cd481a33352a37c83c0751b27ff5}{eukl\+\_\+norm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x)
+\item 
 double \mbox{\hyperlink{Probability_8cpp_a1ecbe532cccaa39b50a32a0553af4ae9}{norm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0}{P\+\_\+\+NORM}} p\+Norm)
 \item 
 double \mbox{\hyperlink{Probability_8cpp_aca7f07a568ee49e5d34982dfd6d811db}{cov}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
@@ -80,6 +86,12 @@ Computes covariance of two given vectors \$\$\textbackslash{}text\{cov\}(x, y)\$
 \begin{DoxyReturn}{Returns}
 resulting covariance 
 \end{DoxyReturn}
+\mbox{\Hypertarget{Probability_8cpp_a7750cd481a33352a37c83c0751b27ff5}\label{Probability_8cpp_a7750cd481a33352a37c83c0751b27ff5}} 
+\index{Probability.cpp@{Probability.cpp}!eukl\_norm@{eukl\_norm}}
+\index{eukl\_norm@{eukl\_norm}!Probability.cpp@{Probability.cpp}}
+\doxysubsubsection{\texorpdfstring{eukl\_norm()}{eukl\_norm()}}
+{\footnotesize\ttfamily double eukl\+\_\+norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{Probability_8cpp_a6edda0f97cfab68707335fd17ca80462}\label{Probability_8cpp_a6edda0f97cfab68707335fd17ca80462}} 
 \index{Probability.cpp@{Probability.cpp}!getExponent@{getExponent}}
 \index{getExponent@{getExponent}!Probability.cpp@{Probability.cpp}}
@@ -112,6 +124,12 @@ exponent
 probability computation \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Probability_8cpp_ae8a2d1d9ab800b0737bdd11b8b349314}\label{Probability_8cpp_ae8a2d1d9ab800b0737bdd11b8b349314}} 
+\index{Probability.cpp@{Probability.cpp}!max\_norm@{max\_norm}}
+\index{max\_norm@{max\_norm}!Probability.cpp@{Probability.cpp}}
+\doxysubsubsection{\texorpdfstring{max\_norm()}{max\_norm()}}
+{\footnotesize\ttfamily double max\+\_\+norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{Probability_8cpp_a1ecbe532cccaa39b50a32a0553af4ae9}\label{Probability_8cpp_a1ecbe532cccaa39b50a32a0553af4ae9}} 
 \index{Probability.cpp@{Probability.cpp}!norm@{norm}}
 \index{norm@{norm}!Probability.cpp@{Probability.cpp}}
@@ -128,6 +146,12 @@ Calculates the Norm of a given vector
 \begin{DoxyReturn}{Returns}
 computed norm value 
 \end{DoxyReturn}
+\mbox{\Hypertarget{Probability_8cpp_a0f95f95f23c7b02085f1fdb96640ac22}\label{Probability_8cpp_a0f95f95f23c7b02085f1fdb96640ac22}} 
+\index{Probability.cpp@{Probability.cpp}!one\_norm@{one\_norm}}
+\index{one\_norm@{one\_norm}!Probability.cpp@{Probability.cpp}}
+\doxysubsubsection{\texorpdfstring{one\_norm()}{one\_norm()}}
+{\footnotesize\ttfamily double one\+\_\+norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}\label{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}} 
 \index{Probability.cpp@{Probability.cpp}!pow@{pow}}
 \index{pow@{pow}!Probability.cpp@{Probability.cpp}}
@@ -146,7 +170,7 @@ calculates \$\$x$^\wedge$\{exponent\}\$\$
 \end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
+\mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}, and \mbox{\hyperlink{symb_2TestSymbolic_8cpp-example}{symb/\+Test\+Symbolic.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{Probability_8cpp_a423a20e13b076fe53eb4a957b493061a}\label{Probability_8cpp_a423a20e13b076fe53eb4a957b493061a}} 
 \index{Probability.cpp@{Probability.cpp}!Regression@{Regression}}
 \index{Regression@{Regression}!Probability.cpp@{Probability.cpp}}

@@ -2,7 +2,7 @@
 \label{classMathNode}\index{MathNode@{MathNode}}
 
 
-{\ttfamily \#include $<$Symbolic.\+h$>$}
+{\ttfamily \#include $<$Math\+Node.\+h$>$}
 
 Inheritance diagram for Math\+Node\+:\begin{figure}[H]
 \begin{center}
@@ -20,6 +20,8 @@ Inheritance diagram for Math\+Node\+:\begin{figure}[H]
 virtual double \mbox{\hyperlink{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}{Evaluate}} () const =0
 \item 
 std\+::string \mbox{\hyperlink{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}{Get\+String}} () const
+\item 
+bool \mbox{\hyperlink{classMathNode_a81c411ca0bd88075c3b1ba8b64bc6a47}{operator==}} (\mbox{\hyperlink{classMathNode}{Math\+Node}} $\ast$rhs)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -28,8 +30,10 @@ bool \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{is\+Negat
 \begin{DoxyCompactList}\small\item\em helper to determine whether a node is negated or not \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{has\+Parentheses}} = false
 \begin{DoxyCompactList}\small\item\em helper to determine if node is within parentheses \end{DoxyCompactList}\item 
-\mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}} \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}}
+\mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}} \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}}
 \begin{DoxyCompactList}\small\item\em node type representation \end{DoxyCompactList}\item 
+\mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747ab}{Node\+Connection\+Type}} \mbox{\hyperlink{classMathNode_af971f001f9f6b2478dd28d9fa752c5e9}{connection\+Type}} = \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747aba7e556deecd3a56edd17baf888f865259}{Node\+Connection\+Type\+::\+Connection\+Type\+\_\+\+Dual}}
+\begin{DoxyCompactList}\small\item\em type of connection allowed for this node \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}} = nullptr
 \begin{DoxyCompactList}\small\item\em next node on left side \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}} = nullptr
@@ -43,6 +47,8 @@ size\+\_\+t \mbox{\hyperlink{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}{va
 \begin{DoxyCompactList}\small\item\em helper to store size of value \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classMathNode_a4c18ebd160a10ba1e053417d553e0c6c}{operator==}} (const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&lhs, const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&rhs)
 \item 
 std\+::ostream \& \mbox{\hyperlink{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}{operator$<$$<$}} (std\+::ostream \&ostr, const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&other)
 \item 
@@ -90,7 +96,7 @@ Interface function for evaluation of node, needs to be implemented to add new ty
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classNumber_a907df4526da3ccb91b8faead20e6fb66}{Number}}, \mbox{\hyperlink{classSymbolic_a10604f97ee4fb6bc798987ba4d5daa1d}{Symbolic}}, and \mbox{\hyperlink{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}{Operator}}.
+Implemented in \mbox{\hyperlink{classFunction_a519eb048f3d3431d14fee138fcae67a6}{Function}}, \mbox{\hyperlink{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}{Operator}}, \mbox{\hyperlink{classNumber_a907df4526da3ccb91b8faead20e6fb66}{Number}}, and \mbox{\hyperlink{classSymbolic_a10604f97ee4fb6bc798987ba4d5daa1d}{Symbolic}}.
 
 \mbox{\Hypertarget{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}\label{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}} 
 \index{MathNode@{MathNode}!GetString@{GetString}}
@@ -101,6 +107,12 @@ Implemented in \mbox{\hyperlink{classNumber_a907df4526da3ccb91b8faead20e6fb66}{N
 Getter for string representation of node \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classMathNode_a81c411ca0bd88075c3b1ba8b64bc6a47}\label{classMathNode_a81c411ca0bd88075c3b1ba8b64bc6a47}} 
+\index{MathNode@{MathNode}!operator==@{operator==}}
+\index{operator==@{operator==}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Math\+Node\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMathNode}{Math\+Node}} $\ast$}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 
 
 \doxysubsection{Friends And Related Function Documentation}
@@ -136,9 +148,25 @@ beautified output operator
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classMathNode_a4c18ebd160a10ba1e053417d553e0c6c}\label{classMathNode_a4c18ebd160a10ba1e053417d553e0c6c}} 
+\index{MathNode@{MathNode}!operator==@{operator==}}
+\index{operator==@{operator==}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMathNode_af971f001f9f6b2478dd28d9fa752c5e9}\label{classMathNode_af971f001f9f6b2478dd28d9fa752c5e9}} 
+\index{MathNode@{MathNode}!connectionType@{connectionType}}
+\index{connectionType@{connectionType}!MathNode@{MathNode}}
+\doxysubsubsection{\texorpdfstring{connectionType}{connectionType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747ab}{Node\+Connection\+Type}} Math\+Node\+::connection\+Type = \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747aba7e556deecd3a56edd17baf888f865259}{Node\+Connection\+Type\+::\+Connection\+Type\+\_\+\+Dual}}}
+
+
+
+type of connection allowed for this node 
+
 \mbox{\Hypertarget{classMathNode_a9cff117d073cd15538cf3f1d385d3207}\label{classMathNode_a9cff117d073cd15538cf3f1d385d3207}} 
 \index{MathNode@{MathNode}!hasParentheses@{hasParentheses}}
 \index{hasParentheses@{hasParentheses}!MathNode@{MathNode}}
@@ -183,7 +211,7 @@ next node on right side
 \index{MathNode@{MathNode}!type@{type}}
 \index{type@{type}!MathNode@{MathNode}}
 \doxysubsubsection{\texorpdfstring{type}{type}}
-{\footnotesize\ttfamily \mbox{\hyperlink{Symbolic_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}} Math\+Node\+::type}
+{\footnotesize\ttfamily \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}} Math\+Node\+::type}
 
 
 
@@ -213,4 +241,4 @@ char representation of value
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/symb/\mbox{\hyperlink{Symbolic_8h}{Symbolic.\+h}}\end{DoxyCompactItemize}
+include/math/symb/\mbox{\hyperlink{MathNode_8h}{Math\+Node.\+h}}\end{DoxyCompactItemize}

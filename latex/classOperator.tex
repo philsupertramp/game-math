@@ -2,18 +2,18 @@
 \label{classOperator}\index{Operator@{Operator}}
 
 
-{\ttfamily \#include $<$Symbolic.\+h$>$}
+{\ttfamily \#include $<$Operator.\+h$>$}
 
 Inheritance diagram for Operator\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classOperator}
+\includegraphics[height=3.000000cm]{classOperator}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classOperator_ad483de0fdafcc9ff8b060b07a0bc41ba}{Operator}} (const std\+::string \&name, std\+::function$<$ double(double, double)$>$ fun, \mbox{\hyperlink{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7}{Operator\+Priority}} operator\+Priority)
+\mbox{\hyperlink{classOperator_ad483de0fdafcc9ff8b060b07a0bc41ba}{Operator}} (const std\+::string \&name, std\+::function$<$ double(double, double)$>$ fun, \mbox{\hyperlink{Operator_8h_a46dd797d9c42218918ba2a83eb5b8db7}{Operator\+Priority}} operator\+Priority)
 \item 
 \mbox{\hyperlink{classOperator_ad091ebe59393f33035c648995c331799}{Operator}} (const \mbox{\hyperlink{classOperator}{Operator}} \&other)
 \item 
@@ -24,7 +24,7 @@ double \mbox{\hyperlink{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}{Evaluat
 \item 
 std\+::function$<$ double(double, double)$>$ \mbox{\hyperlink{classOperator_aa1053c93ac197de3d97d527ce54c6992}{op}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classOperator}{Operator}} implementation, this will be evaluated during {\ttfamily Evaluate} calls. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7}{Operator\+Priority}} \mbox{\hyperlink{classOperator_aac3650047650adcb082c21b2a5bdfb1c}{priority}}
+\mbox{\hyperlink{Operator_8h_a46dd797d9c42218918ba2a83eb5b8db7}{Operator\+Priority}} \mbox{\hyperlink{classOperator_aac3650047650adcb082c21b2a5bdfb1c}{priority}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classOperator}{Operator}} priority, used to create AST. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -37,7 +37,7 @@ Left-\/to-\/right operator representation
 \index{Operator@{Operator}!Operator@{Operator}}
 \index{Operator@{Operator}!Operator@{Operator}}
 \doxysubsubsection{\texorpdfstring{Operator()}{Operator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Operator\+::\+Operator (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{std\+::function$<$ double(double, double)$>$}]{fun,  }\item[{\mbox{\hyperlink{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7}{Operator\+Priority}}}]{operator\+Priority }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Operator\+::\+Operator (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{std\+::function$<$ double(double, double)$>$}]{fun,  }\item[{\mbox{\hyperlink{Operator_8h_a46dd797d9c42218918ba2a83eb5b8db7}{Operator\+Priority}}}]{operator\+Priority }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 default constructor 
 \begin{DoxyParams}{Parameters}
@@ -77,6 +77,10 @@ Implements \mbox{\hyperlink{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}{Mat
 
 
 
+Reimplemented in \mbox{\hyperlink{classFunction_a519eb048f3d3431d14fee138fcae67a6}{Function}}.
+
+
+
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{classOperator_aa1053c93ac197de3d97d527ce54c6992}\label{classOperator_aa1053c93ac197de3d97d527ce54c6992}} 
 \index{Operator@{Operator}!op@{op}}
@@ -92,7 +96,7 @@ Implements \mbox{\hyperlink{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}{Mat
 \index{Operator@{Operator}!priority@{priority}}
 \index{priority@{priority}!Operator@{Operator}}
 \doxysubsubsection{\texorpdfstring{priority}{priority}}
-{\footnotesize\ttfamily \mbox{\hyperlink{Symbolic_8h_a46dd797d9c42218918ba2a83eb5b8db7}{Operator\+Priority}} Operator\+::priority}
+{\footnotesize\ttfamily \mbox{\hyperlink{Operator_8h_a46dd797d9c42218918ba2a83eb5b8db7}{Operator\+Priority}} Operator\+::priority}
 
 
 
@@ -102,4 +106,4 @@ Implements \mbox{\hyperlink{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}{Mat
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/math/symb/\mbox{\hyperlink{Symbolic_8h}{Symbolic.\+h}}\end{DoxyCompactItemize}
+include/math/symb/\mbox{\hyperlink{Operator_8h}{Operator.\+h}}\end{DoxyCompactItemize}

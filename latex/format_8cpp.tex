@@ -1,6 +1,7 @@
 \hypertarget{format_8cpp}{}\doxysection{include/math/format.cpp File Reference}
 \label{format_8cpp}\index{include/math/format.cpp@{include/math/format.cpp}}
 {\ttfamily \#include \char`\"{}format.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,6 +14,8 @@ std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{format_8cpp_ae924c9b43cd7b08
 {\footnotesize template$<$typename Out $>$ }\\void \mbox{\hyperlink{format_8cpp_a9f228a0aba90f49160a09ccde4133fa1}{split}} (const std\+::string \&s, Out result)
 \item 
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{format_8cpp_a63fc61cca71b8d9322df00cc0d07f9aa}{split}} (const std\+::string \&s)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{format_8cpp_ae5ce57fa9a9190ce70fbfd3e3a4655a6}{split\+\_\+by\+\_\+regex}} (const std\+::string \&s, const std\+::regex \&regex)
 \end{DoxyCompactItemize}
 
 
@@ -91,6 +94,12 @@ Split after each character
 {\em result} & container to write results in \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{format_8cpp_ae5ce57fa9a9190ce70fbfd3e3a4655a6}\label{format_8cpp_ae5ce57fa9a9190ce70fbfd3e3a4655a6}} 
+\index{format.cpp@{format.cpp}!split\_by\_regex@{split\_by\_regex}}
+\index{split\_by\_regex@{split\_by\_regex}!format.cpp@{format.cpp}}
+\doxysubsubsection{\texorpdfstring{split\_by\_regex()}{split\_by\_regex()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ split\+\_\+by\+\_\+regex (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{const std\+::regex \&}]{regex }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{format_8cpp_a5f3e23cac814c84a5494842243316a4b}\label{format_8cpp_a5f3e23cac814c84a5494842243316a4b}} 
 \index{format.cpp@{format.cpp}!strip@{strip}}
 \index{strip@{strip}!format.cpp@{format.cpp}}
