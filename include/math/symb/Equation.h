@@ -320,16 +320,9 @@ public:
     }
 
     /**
-     * Simplifies an equation according to mathematical rules.
-     *
-     * @return simplified equation
+     * Simplifies an equation in place according to mathematical rules.
      */
-    [[nodiscard]] Equation Simplify() const {
-        Equation out;
-        out.degree = degree;
-        out.symbols = symbols;
-
-        std::shared_ptr<MathNode> newBase;
+    void Simplify() {
         // Early exit for constants
         switch(baseNode->type) {
             case NodeType_Symbolic:
@@ -340,11 +333,9 @@ public:
             case NodeType_Operator:
             case NodeType_Parentheses:
             case NodeType_Functional:
-                out.baseNode = SimplifyTree(baseNode);
+                baseNode = SimplifyTree(baseNode);
             case NodeType_Operator_or_Parentheses: break;
         }
-
-        return out;
     }
 
 private:
