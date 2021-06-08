@@ -39,10 +39,10 @@ class AdalineSGDTestCase : public Test
         };
 
         adalineSgd.fit(A, B);
-        std::cout << adalineSgd.weights;
+        //        std::cout << adalineSgd.weights;
         assert(adalineSgd.predict({ { 5.4, 0.2 } })(0, 0) == -1); // == -1
         // [-0.16661009 -0.19663501  0.58227774]
-        std::cout << adalineSgd.weights;
+        //        std::cout << adalineSgd.weights;
         return true;
     }
 
@@ -76,10 +76,10 @@ class AdalineSGDTestCase : public Test
         };
 
         adalineSgd.fit(A, B);
-        std::cout << adalineSgd.weights;
+        //        std::cout << adalineSgd.weights;
         assert(adalineSgd.predict({ { 5.4, 0.2 } })(0, 0) == -1); // == -1
         // [-0.16661009 -0.19663501  0.58227774]
-        std::cout << adalineSgd.weights;
+        //        std::cout << adalineSgd.weights;
         return true;
     }
 

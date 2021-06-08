@@ -5,7 +5,7 @@ class SGDTestCase : public Test
     bool TestUpdateWeights() { return true; }
 
 public:
-    virtual void run() override { }
+    virtual void run() { }
 };
 
 int main() {

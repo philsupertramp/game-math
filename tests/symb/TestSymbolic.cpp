@@ -1,10 +1,16 @@
 #include "../Test.h"
-#include <math/symb/Symbolic.h>
+#include <math/symb/Equation.h>
 
 
 class SymbolicTestCase : public Test
 {
     friend Equation;
+
+    bool TestParser() {
+        Equation eq("x+2-((3*5)-x)-2");
+
+        return true;
+    }
 
     bool TestMathematicalProperties() {
         Equation equation = Equation("2 + x + 1 + 2 + y");
@@ -69,26 +75,21 @@ class SymbolicTestCase : public Test
         AssertEqual(equation(60), 118);
         equation = Equation("2 * (x - (1 * y)) - 2");
 
-        equation.Print();
         AssertEqual(equation(1, 1), -2);
         AssertEqual(equation(1, 2), -4);
 
         equation = Equation("2 * (x - 1 + y) - 2");
 
-        equation.Print();
         AssertEqual(equation(1, 1), 0);
         AssertEqual(equation(1, 2), 2);
 
         equation = Equation("(x - 1 + y) * 2 - 2");
 
-        equation.Print();
         AssertEqual(equation(1, 1), 0);
         AssertEqual(equation(1, 2), 2);
 
         equation = Equation("2 * (x - 1) - 2");
 
-        equation.Print();
-        equation.PrintTree();
         AssertEqual(equation(1), -2);
         AssertEqual(equation(2), 0);
         AssertEqual(equation(3), 2);
@@ -164,6 +165,108 @@ class SymbolicTestCase : public Test
         return true;
     }
 
+    bool TestChaining() {
+        Equation a("x");
+        Equation b("1");
+
+        auto combined = Equation::Chain(a, b, GenerateOperator(OperatorType::TYPE_ADDITION));
+
+        Equation expected("x + 1");
+        for(int i = -10; i < 10; ++i) AssertEqual(expected(i), combined(i));
+
+        // can chain using different operator
+        a        = Equation("x");
+        b        = Equation("1");
+        combined = Equation::Chain(a, b, GenerateOperator(OperatorType::TYPE_SUBTRACTION));
+        expected = Equation("x - 1");
+
+        for(int i = -10; i < 10; ++i) AssertEqual(combined(i), expected(i));
+
+        // can chain using same symbols
+        a        = Equation("x");
+        b        = Equation("x");
+        combined = Equation::Chain(a, b, GenerateOperator(OperatorType::TYPE_ADDITION));
+        expected = Equation("x + x"); // although real equation is "x + x"
+
+        for(int i = -10; i < 10; ++i) AssertEqual(combined(i), expected(i));
+
+        // can chain using different symbols
+        a        = Equation("x");
+        b        = Equation("y");
+        combined = Equation::Chain(a, b, GenerateOperator(OperatorType::TYPE_ADDITION));
+        expected = Equation("x + y");
+
+        for(int i = -10; i < 10; ++i) AssertEqual(combined(1, i), expected(1, i));
+        return true;
+    }
+
+    bool TestFunctions() {
+        Equation equation("sqrt(x)");
+        AssertEqual(equation(1.0), 1.0);
+        AssertEqual(equation(2.0), 1.414213562373095);
+        equation = Equation("sqrt(x) + 1");
+        AssertEqual(equation(1.0), 2.0);
+        AssertEqual(equation(2.0), 2.414213562373095);
+        equation = Equation("2 * 3 + sqrt(x) + 1");
+        AssertEqual(equation(1.0), 8.0);
+        AssertEqual(equation(2.0), 8.414213562373095);
+        equation = Equation("2 * 3 + sqrt(x+1) + 1");
+        AssertEqual(equation(0.0), 8.0);
+        AssertEqual(equation(1.0), 8.414213562373095);
+        equation = Equation("2*3+sqrt(x+1) + 1");
+        AssertEqual(equation(0.0), 8.0);
+        AssertEqual(equation(1.0), 8.414213562373095);
+
+        equation = Equation("sqrt(x)^2");
+        AssertEqual(equation(1.0), 1.0);
+        AssertEqual(equation(2.0), 2.0);
+
+        equation = Equation("sin(x)");
+        AssertEqual(equation(0), 0);
+        AssertEqual(equation(1), 0.8414709848078965);
+
+        equation = Equation("sin(pi)");
+        AssertEqual(equation(), 0);
+
+        Equation circle("r^2 * pi");
+
+        AssertEqual(circle(1), 3.1415926535897932384626433832795028841971693993751058209749445923078164);
+
+        return true;
+    }
+
+    bool TestDegree() {
+        Equation eq("x^2");
+        AssertEqual(eq.degree, 2);
+        eq = Equation("x^1");
+        AssertEqual(eq.degree, 1);
+        eq = Equation("x^10");
+        AssertEqual(eq.degree, 10);
+        eq = Equation("x^3*3+y^5*5");
+        AssertEqual(eq.degree, 5);
+        return true;
+    }
+
+    bool TestSimplify() {
+        // x-11
+        Equation eq("1*3 + x - 5 * 3 - 2 + 3");
+        std::string expected = "((3.000000+x)+-14.000000)\n";
+        std::stringstream stream;
+        eq.Simplify();
+        eq.Print(stream);
+
+        AssertEqual(expected, stream.str());
+
+        eq = Equation("1*3 + x - 5 * 3 - 2 + 3");
+        eq.Simplify();
+
+        AssertEqual(Equation("1*3 + x - 5 * 3 - 2 + 3")(5), -6);
+        AssertEqual(eq(5), -6);
+        return true;
+    }
+
+    bool TestDefaultSymbols() { return true; }
+
 public:
     virtual void run() {
         TestMathematicalProperties();
@@ -172,6 +275,12 @@ public:
         TestFailsGracefully();
         TestGetRegex();
         TestGenerateOperator();
+        TestChaining();
+        TestFunctions();
+        TestDefaultSymbols();
+        TestSimplify();
+        TestParser();
+        TestDegree();
     }
 };
 

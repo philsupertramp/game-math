@@ -383,9 +383,9 @@ class NaturalSplineTestCase : public Test
         //        auto phi = linspace(0, 3 * 360, n);
         //        auto theta = linspace(0, 360, n);
         //        double m = 2.0;
-        //        auto xi = r(phi).HadamardMulti(phi.Apply([](double in){return cos(in); }));
-        //        auto yi = r(phi).HadamardMulti(phi.Apply([](double in){return sin(in); }));
-        //        auto zi = (m * r(phi)).Apply([](double in){return 2.0 + in; });
+        //        auto xi = r(phi).HadamardMulti(phi.ApplyOperator([](double in){return cos(in); }));
+        //        auto yi = r(phi).HadamardMulti(phi.ApplyOperator([](double in){return sin(in); }));
+        //        auto zi = (m * r(phi)).ApplyOperator([](double in){return 2.0 + in; });
         //        auto x     = linspace(min(xi), max(xi), 33).Transpose();
         //        Spline spline(xi, yi, zi);
         //        auto out = spline(x);

@@ -87,7 +87,7 @@ class NumUtilsTestCase : public Test
     }
 
 public:
-    virtual void run() override {
+    virtual void run() {
         TestEye();
         TestOnes();
         TestZeros();

@@ -53,7 +53,7 @@ int main() {
 
     std::cout << "Matrix<double>:" << std::endl;
     multi_timer.start();
-    for(size_t j = 0; j < J; ++j) { A+B; }
+    for(size_t j = 0; j < J; ++j) { A + B; }
     multi_timer.stop(A.rows() * A.columns(), J);
 
     multi_timer.start();
@@ -61,16 +61,16 @@ int main() {
     multi_timer.stop(A.rows() * A.columns(), J);
 
     add_timer.start();
-    for(size_t j = 0; j < J; ++j) { A*B; }
+    for(size_t j = 0; j < J; ++j) { A* B; }
     add_timer.stop(A.rows() * A.columns(), J);
 
     std::cout << "mat3<double>:" << std::endl;
     multi_timer.start();
-    for(size_t j = 0; j < J; ++j) { A3*B3; }
+    for(size_t j = 0; j < J; ++j) { A3* B3; }
     multi_timer.stop(3 * 3, J);
 
     add_timer.start();
-    for(size_t j = 0; j < J; ++j) { A3+B3; }
+    for(size_t j = 0; j < J; ++j) { A3 + B3; }
     add_timer.stop(3 * 3, J);
 
 

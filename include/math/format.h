@@ -7,6 +7,7 @@
  */
 #pragma once
 #include <cstdarg>
+#include <regex>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -84,6 +85,8 @@ void split(const std::string& s, Out result);
  * @return split vector of strings
  */
 std::vector<std::string> split(const std::string& s);
+
+std::vector<std::string> split_by_regex(const std::string& s, const std::regex& regex);
 
 /** ----------------------------------------------- **/
 

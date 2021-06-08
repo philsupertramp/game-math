@@ -126,8 +126,7 @@ public:
     /**
      * Default destructor, doesn't do anything
      */
-    ~Matrix() {
-    }
+    ~Matrix() { }
 
     /**
      * Generates a random matrix
@@ -537,14 +536,13 @@ public:
         _rows         = rows;
         _columns      = cols;
         _element_size = elementSize;
-        if(_data != nullptr){
+        if(_data != nullptr) {
             _data = (T*)realloc(_data, rows * cols * elementSize * sizeof(T));
+        } else {
+            _data = (T*)malloc(rows * cols * elementSize * sizeof(T));
         }
-        else {
-            _data         = (T*)malloc(rows * cols * elementSize * sizeof(T));
-        }
-        _dataSize     = rows * cols * elementSize;
-        needsFree     = true;
+        _dataSize = rows * cols * elementSize;
+        needsFree = true;
     }
 
     /**
@@ -555,7 +553,7 @@ public:
      * @return elem + col * elements() + row * columns() * elements()
      */
     [[nodiscard]] inline int GetIndex(const size_t& row, const size_t& col, const size_t& elem = 0) const {
-//        assert(row < _rows && col < _columns && elem < _element_size);
+        //        assert(row < _rows && col < _columns && elem < _element_size);
         return elem + col * _element_size + row * _columns * _element_size;
     }
 
@@ -737,6 +735,27 @@ Matrix<T>& HadamardMulti(const Matrix<T>& lhs, const Matrix<T>& rhs) {
         for(size_t j = 0; j < result->columns(); j++) {
             for(size_t elem = 0; elem < result->elements(); elem++) {
                 (*result)(i, j, elem) = lhs(i, j, elem) * rhs(i, j, elem);
+            }
+        }
+    }
+    return *result;
+}
+
+/**
+ * Element wise division
+ * @tparam T value type
+ * @param lhs left hand side with dimension n1, m1
+ * @param rhs right hand side with dimension n1, m1
+ * @return product of element wise multiplication of lhs * rhs with dimension n1, m1
+ */
+template<typename T>
+Matrix<T>& HadamardDiv(const Matrix<T>& lhs, const Matrix<T>& rhs) {
+    lhs.assertSize(rhs);
+    auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
+    for(size_t i = 0; i < result->rows(); i++) {
+        for(size_t j = 0; j < result->columns(); j++) {
+            for(size_t elem = 0; elem < result->elements(); elem++) {
+                (*result)(i, j, elem) = lhs(i, j, elem) / rhs(i, j, elem);
             }
         }
     }
