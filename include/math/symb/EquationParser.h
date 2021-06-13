@@ -187,10 +187,10 @@ private:
     /**
      * Splits an equation string into a vector of strings
      *
-     * @param processString equation string to split
+     * @param eqString equation string to split
      * @return vector with equation elements
      */
-    std::vector<std::string> splitEquation(const std::string& processString);
+    std::vector<std::string> splitEquation(const std::string& eqString);
 
     /**
      * tests if value is number

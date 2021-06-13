@@ -47,6 +47,7 @@ std::vector<std::string> split_by_regex(const std::string& s, const std::regex& 
     std::sregex_token_iterator end;
     while(!copyString.empty() && iter != end) {
         auto sub = (*iter).str();
+        if(sub.size() == 0) break;
         auto pos = copyString.find(sub);
         if(pos > 0) { elems.push_back(copyString.substr(0, pos)); }
         elems.push_back(sub);

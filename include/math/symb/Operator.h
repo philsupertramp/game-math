@@ -16,8 +16,9 @@ enum OperatorPriority {
     OPClassUnknown     = 0,
     OPClassLine        = 1,
     OPClassDot         = 2,
-    OPClassParentheses = 3,
-    OPClassFunction    = 4,
+    OPClassPow         = 3,
+    OPClassParentheses = 4,
+    OPClassFunction    = 5,
 };
 
 /**
@@ -144,8 +145,11 @@ public:
 
     [[nodiscard]] double Evaluate() const override {
         if(connectionType == NodeConnectionType::ConnectionType_Left) return op(left->Evaluate(), 0.0);
+        /**
+         * TODO: whenever enabled comment out.
         else if(connectionType == NodeConnectionType::ConnectionType_Dual)
             return op(left->Evaluate(), right->Evaluate());
+        **/
         return NAN;
     }
 

@@ -16,7 +16,7 @@ std::shared_ptr<Operator> GenerateOperator(OperatorType type) {
             "/", [](double a, double b) { return a / b; }, OperatorPriority::OPClassDot);
         case TYPE_POWER:
             return std::make_shared<Operator>(
-            "^", [](double a, double b) { return pow(a, b); }, OperatorPriority::OPClassDot);
+            "^", [](double a, double b) { return pow(a, b); }, OperatorPriority::OPClassPow);
         case TYPE_PARENTHESES_OPEN:
             {
                 auto op = std::make_shared<Operator>(

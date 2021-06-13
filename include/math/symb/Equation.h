@@ -65,12 +65,6 @@ public:
         degree   = GetDegree(baseNode);
     }
 
-    Equation(const Equation& other) {
-        baseNode = other.baseNode;
-        symbols  = other.symbols;
-        degree   = other.degree;
-    }
-
     int GetDegree(const std::shared_ptr<MathNode>& node) {
         if(node == nullptr) return 0;
 

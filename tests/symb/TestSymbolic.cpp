@@ -68,6 +68,20 @@ class SymbolicTestCase : public Test
         return true;
     }
 
+    bool TestPower(){
+        Equation eq("2 + x^2");
+
+        AssertEqual(eq(2), 6);
+
+        eq = Equation("2 * x^2");
+        AssertEqual(eq(2), 8);
+        eq = Equation("2 * x^(3+y)");
+        AssertEqual(eq(2, 1), 2 * (2 * 2 * 2 * 2));
+        eq = Equation("2 * x ^ (3+y)");
+        AssertEqual(eq(2, 1), 2 * (2 * 2 * 2 * 2));
+        return true;
+    }
+
     bool TestParentheses() {
         Equation equation("2 * (x - 1)");
         AssertEqual(equation(1), 0);
@@ -227,6 +241,10 @@ class SymbolicTestCase : public Test
 
         equation = Equation("sin(pi)");
         AssertEqual(equation(), 0);
+        equation = Equation("cos(pi)");
+        AssertEqual(equation(), -1);
+        equation = Equation("log(1)");
+        AssertEqual(equation(), 0);
 
         Equation circle("r^2 * pi");
 
@@ -242,7 +260,7 @@ class SymbolicTestCase : public Test
         AssertEqual(eq.degree, 1);
         eq = Equation("x^10");
         AssertEqual(eq.degree, 10);
-        eq = Equation("x^3*3+y^5*5");
+        eq = Equation("3*x^3+5*y^5");
         AssertEqual(eq.degree, 5);
         return true;
     }
@@ -269,6 +287,7 @@ class SymbolicTestCase : public Test
 
 public:
     virtual void run() {
+        TestPower();
         TestMathematicalProperties();
         TestNegative();
         TestParentheses();
