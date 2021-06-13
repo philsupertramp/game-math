@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['perceptron_548',['Perceptron',['../classPerceptron.html',1,'']]],
-  ['plot_549',['Plot',['../classPlot.html',1,'']]],
-  ['plotattributes_550',['PlotAttributes',['../structPlotAttributes.html',1,'']]],
-  ['plotboundary_551',['PlotBoundary',['../structPlotBoundary.html',1,'']]],
-  ['plotindex_552',['PlotIndex',['../structPlotIndex.html',1,'']]],
-  ['polynomialbase_553',['PolynomialBase',['../classPolynomialBase.html',1,'']]]
+  ['perceptron_549',['Perceptron',['../classPerceptron.html',1,'']]],
+  ['plot_550',['Plot',['../classPlot.html',1,'']]],
+  ['plotattributes_551',['PlotAttributes',['../structPlotAttributes.html',1,'']]],
+  ['plotboundary_552',['PlotBoundary',['../structPlotBoundary.html',1,'']]],
+  ['plotindex_553',['PlotIndex',['../structPlotIndex.html',1,'']]],
+  ['polynomialbase_554',['PolynomialBase',['../classPolynomialBase.html',1,'']]]
 ];

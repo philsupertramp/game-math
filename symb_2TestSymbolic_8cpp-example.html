@@ -143,6 +143,20 @@ $(function() {
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> TestPower(){</div>
+<div class="line">        <a class="code" href="classEquation.html">Equation</a> eq(<span class="stringliteral">&quot;2 + x^2&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">        AssertEqual(eq(2), 6);</div>
+<div class="line"> </div>
+<div class="line">        eq = <a class="code" href="classEquation.html">Equation</a>(<span class="stringliteral">&quot;2 * x^2&quot;</span>);</div>
+<div class="line">        AssertEqual(eq(2), 8);</div>
+<div class="line">        eq = <a class="code" href="classEquation.html">Equation</a>(<span class="stringliteral">&quot;2 * x^(3+y)&quot;</span>);</div>
+<div class="line">        AssertEqual(eq(2, 1), 2 * (2 * 2 * 2 * 2));</div>
+<div class="line">        eq = <a class="code" href="classEquation.html">Equation</a>(<span class="stringliteral">&quot;2 * x ^ (3+y)&quot;</span>);</div>
+<div class="line">        AssertEqual(eq(2, 1), 2 * (2 * 2 * 2 * 2));</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestParentheses() {</div>
 <div class="line">        <a class="code" href="classEquation.html">Equation</a> equation(<span class="stringliteral">&quot;2 * (x - 1)&quot;</span>);</div>
 <div class="line">        AssertEqual(equation(1), 0);</div>
@@ -302,6 +316,10 @@ $(function() {
 <div class="line"> </div>
 <div class="line">        equation = <a class="code" href="classEquation.html">Equation</a>(<span class="stringliteral">&quot;sin(pi)&quot;</span>);</div>
 <div class="line">        AssertEqual(equation(), 0);</div>
+<div class="line">        equation = <a class="code" href="classEquation.html">Equation</a>(<span class="stringliteral">&quot;cos(pi)&quot;</span>);</div>
+<div class="line">        AssertEqual(equation(), -1);</div>
+<div class="line">        equation = <a class="code" href="classEquation.html">Equation</a>(<span class="stringliteral">&quot;log(1)&quot;</span>);</div>
+<div class="line">        AssertEqual(equation(), 0);</div>
 <div class="line"> </div>
 <div class="line">        <a class="code" href="classEquation.html">Equation</a> circle(<span class="stringliteral">&quot;r^2 * pi&quot;</span>);</div>
 <div class="line"> </div>
@@ -317,7 +335,7 @@ $(function() {
 <div class="line">        AssertEqual(eq.<a class="code" href="classEquation.html#aa481dd44906c7a8682b043b82d8cc562">degree</a>, 1);</div>
 <div class="line">        eq = <a class="code" href="classEquation.html">Equation</a>(<span class="stringliteral">&quot;x^10&quot;</span>);</div>
 <div class="line">        AssertEqual(eq.<a class="code" href="classEquation.html#aa481dd44906c7a8682b043b82d8cc562">degree</a>, 10);</div>
-<div class="line">        eq = <a class="code" href="classEquation.html">Equation</a>(<span class="stringliteral">&quot;x^3*3+y^5*5&quot;</span>);</div>
+<div class="line">        eq = <a class="code" href="classEquation.html">Equation</a>(<span class="stringliteral">&quot;3*x^3+5*y^5&quot;</span>);</div>
 <div class="line">        AssertEqual(eq.<a class="code" href="classEquation.html#aa481dd44906c7a8682b043b82d8cc562">degree</a>, 5);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
@@ -344,6 +362,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> run() {</div>
+<div class="line">        TestPower();</div>
 <div class="line">        TestMathematicalProperties();</div>
 <div class="line">        TestNegative();</div>
 <div class="line">        TestParentheses();</div>
@@ -371,19 +390,19 @@ $(function() {
 <div class="ttc" id="aMathNode_8h_html_af66185625ec6e66044e64693a29dfefeabb22938ecb03779ebe89024bb122529a"><div class="ttname"><a href="MathNode_8h.html#af66185625ec6e66044e64693a29dfefeabb22938ecb03779ebe89024bb122529a">NodeType_Parentheses</a></div><div class="ttdeci">@ NodeType_Parentheses</div><div class="ttdef"><b>Definition:</b> MathNode.h:15</div></div>
 <div class="ttc" id="aMathNode_8h_html_af66185625ec6e66044e64693a29dfefead04e2797598b259ea0d4a18142932f96"><div class="ttname"><a href="MathNode_8h.html#af66185625ec6e66044e64693a29dfefead04e2797598b259ea0d4a18142932f96">NodeType_Numeric</a></div><div class="ttdeci">@ NodeType_Numeric</div><div class="ttdef"><b>Definition:</b> MathNode.h:14</div></div>
 <div class="ttc" id="aOperator_8cpp_html_a43825be2424c20130e3d099c8490c709"><div class="ttname"><a href="Operator_8cpp.html#a43825be2424c20130e3d099c8490c709">GenerateOperator</a></div><div class="ttdeci">std::shared_ptr&lt; Operator &gt; GenerateOperator(OperatorType type)</div><div class="ttdef"><b>Definition:</b> Operator.cpp:3</div></div>
-<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117">OperatorType</a></div><div class="ttdeci">OperatorType</div><div class="ttdef"><b>Definition:</b> Operator.h:26</div></div>
-<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117a234eaa29e4af2f0d4711216c296a6445"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a234eaa29e4af2f0d4711216c296a6445">TYPE_POWER</a></div><div class="ttdeci">@ TYPE_POWER</div><div class="ttdef"><b>Definition:</b> Operator.h:31</div></div>
-<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117a40c6b3a7d7ccf0fb358be439f7a969d9"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a40c6b3a7d7ccf0fb358be439f7a969d9">TYPE_MULTIPLICATION</a></div><div class="ttdeci">@ TYPE_MULTIPLICATION</div><div class="ttdef"><b>Definition:</b> Operator.h:29</div></div>
-<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117a40d27ed340959efbbe20f81dc93028fb"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a40d27ed340959efbbe20f81dc93028fb">TYPE_DIVISION</a></div><div class="ttdeci">@ TYPE_DIVISION</div><div class="ttdef"><b>Definition:</b> Operator.h:30</div></div>
-<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117a7637e5c33286f4e519ec1622c113e273"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a7637e5c33286f4e519ec1622c113e273">TYPE_SUBTRACTION</a></div><div class="ttdeci">@ TYPE_SUBTRACTION</div><div class="ttdef"><b>Definition:</b> Operator.h:28</div></div>
-<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117a9d2ba264cfc9d4b4d48afaa051abc576"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a9d2ba264cfc9d4b4d48afaa051abc576">TYPE_ADDITION</a></div><div class="ttdeci">@ TYPE_ADDITION</div><div class="ttdef"><b>Definition:</b> Operator.h:27</div></div>
-<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117aca16c2cd01b23b65503c291f19a8235c"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117aca16c2cd01b23b65503c291f19a8235c">TYPE_PARENTHESES_CLOSE</a></div><div class="ttdeci">@ TYPE_PARENTHESES_CLOSE</div><div class="ttdef"><b>Definition:</b> Operator.h:33</div></div>
-<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117adb06169322e6eae6db269eab60a12117"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117adb06169322e6eae6db269eab60a12117">TYPE_PARENTHESES_OPEN</a></div><div class="ttdeci">@ TYPE_PARENTHESES_OPEN</div><div class="ttdef"><b>Definition:</b> Operator.h:32</div></div>
+<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117">OperatorType</a></div><div class="ttdeci">OperatorType</div><div class="ttdef"><b>Definition:</b> Operator.h:27</div></div>
+<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117a234eaa29e4af2f0d4711216c296a6445"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a234eaa29e4af2f0d4711216c296a6445">TYPE_POWER</a></div><div class="ttdeci">@ TYPE_POWER</div><div class="ttdef"><b>Definition:</b> Operator.h:32</div></div>
+<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117a40c6b3a7d7ccf0fb358be439f7a969d9"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a40c6b3a7d7ccf0fb358be439f7a969d9">TYPE_MULTIPLICATION</a></div><div class="ttdeci">@ TYPE_MULTIPLICATION</div><div class="ttdef"><b>Definition:</b> Operator.h:30</div></div>
+<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117a40d27ed340959efbbe20f81dc93028fb"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a40d27ed340959efbbe20f81dc93028fb">TYPE_DIVISION</a></div><div class="ttdeci">@ TYPE_DIVISION</div><div class="ttdef"><b>Definition:</b> Operator.h:31</div></div>
+<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117a7637e5c33286f4e519ec1622c113e273"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a7637e5c33286f4e519ec1622c113e273">TYPE_SUBTRACTION</a></div><div class="ttdeci">@ TYPE_SUBTRACTION</div><div class="ttdef"><b>Definition:</b> Operator.h:29</div></div>
+<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117a9d2ba264cfc9d4b4d48afaa051abc576"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117a9d2ba264cfc9d4b4d48afaa051abc576">TYPE_ADDITION</a></div><div class="ttdeci">@ TYPE_ADDITION</div><div class="ttdef"><b>Definition:</b> Operator.h:28</div></div>
+<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117aca16c2cd01b23b65503c291f19a8235c"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117aca16c2cd01b23b65503c291f19a8235c">TYPE_PARENTHESES_CLOSE</a></div><div class="ttdeci">@ TYPE_PARENTHESES_CLOSE</div><div class="ttdef"><b>Definition:</b> Operator.h:34</div></div>
+<div class="ttc" id="aOperator_8h_html_a6a02b2d1d62293b20242e3dcfbdd0117adb06169322e6eae6db269eab60a12117"><div class="ttname"><a href="Operator_8h.html#a6a02b2d1d62293b20242e3dcfbdd0117adb06169322e6eae6db269eab60a12117">TYPE_PARENTHESES_OPEN</a></div><div class="ttdeci">@ TYPE_PARENTHESES_OPEN</div><div class="ttdef"><b>Definition:</b> Operator.h:33</div></div>
 <div class="ttc" id="aProbability_8cpp_html_a580e83323168ca896c7f2b9bc22bb559"><div class="ttname"><a href="Probability_8cpp.html#a580e83323168ca896c7f2b9bc22bb559">pow</a></div><div class="ttdeci">double pow(double x, int p)</div><div class="ttdef"><b>Definition:</b> Probability.cpp:16</div></div>
 <div class="ttc" id="aclassEquation_html"><div class="ttname"><a href="classEquation.html">Equation</a></div><div class="ttdef"><b>Definition:</b> Equation.h:30</div></div>
-<div class="ttc" id="aclassEquation_html_a0b6d13c55c719fec5f2b2995ced8fa35"><div class="ttname"><a href="classEquation.html#a0b6d13c55c719fec5f2b2995ced8fa35">Equation::Simplify</a></div><div class="ttdeci">void Simplify()</div><div class="ttdef"><b>Definition:</b> Equation.h:323</div></div>
-<div class="ttc" id="aclassEquation_html_a97a934b003b26bdf3b5c0c1a8a73cf14"><div class="ttname"><a href="classEquation.html#a97a934b003b26bdf3b5c0c1a8a73cf14">Equation::Print</a></div><div class="ttdeci">void Print(std::ostream &amp;ostr=std::cout)</div><div class="ttdef"><b>Definition:</b> Equation.h:89</div></div>
-<div class="ttc" id="aclassEquation_html_a9d6bd2cd4533aee69ef03cc494f61d94"><div class="ttname"><a href="classEquation.html#a9d6bd2cd4533aee69ef03cc494f61d94">Equation::Chain</a></div><div class="ttdeci">static Equation Chain(const Equation &amp;left, const Equation &amp;right, const std::shared_ptr&lt; Operator &gt; &amp;op)</div><div class="ttdef"><b>Definition:</b> Equation.h:311</div></div>
+<div class="ttc" id="aclassEquation_html_a0b6d13c55c719fec5f2b2995ced8fa35"><div class="ttname"><a href="classEquation.html#a0b6d13c55c719fec5f2b2995ced8fa35">Equation::Simplify</a></div><div class="ttdeci">void Simplify()</div><div class="ttdef"><b>Definition:</b> Equation.h:317</div></div>
+<div class="ttc" id="aclassEquation_html_a97a934b003b26bdf3b5c0c1a8a73cf14"><div class="ttname"><a href="classEquation.html#a97a934b003b26bdf3b5c0c1a8a73cf14">Equation::Print</a></div><div class="ttdeci">void Print(std::ostream &amp;ostr=std::cout)</div><div class="ttdef"><b>Definition:</b> Equation.h:83</div></div>
+<div class="ttc" id="aclassEquation_html_a9d6bd2cd4533aee69ef03cc494f61d94"><div class="ttname"><a href="classEquation.html#a9d6bd2cd4533aee69ef03cc494f61d94">Equation::Chain</a></div><div class="ttdeci">static Equation Chain(const Equation &amp;left, const Equation &amp;right, const std::shared_ptr&lt; Operator &gt; &amp;op)</div><div class="ttdef"><b>Definition:</b> Equation.h:305</div></div>
 <div class="ttc" id="aclassEquation_html_aa481dd44906c7a8682b043b82d8cc562"><div class="ttname"><a href="classEquation.html#aa481dd44906c7a8682b043b82d8cc562">Equation::degree</a></div><div class="ttdeci">int degree</div><div class="ttdoc">degree of equation. Linear equation = 1, quadratic = 2, ...</div><div class="ttdef"><b>Definition:</b> Equation.h:39</div></div>
 <div class="ttc" id="aclassEquation_html_af1bd5572e55f920d9be6285874219c6e"><div class="ttname"><a href="classEquation.html#af1bd5572e55f920d9be6285874219c6e">Equation::baseNode</a></div><div class="ttdeci">std::shared_ptr&lt; MathNode &gt; baseNode</div><div class="ttdoc">Holds the base node of the abstract syntax tree.</div><div class="ttdef"><b>Definition:</b> Equation.h:36</div></div>
 </div><!-- fragment --> </div><!-- contents -->

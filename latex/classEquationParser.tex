@@ -30,7 +30,7 @@ bool \mbox{\hyperlink{classEquationParser_ad72d227db1eff3ff488cb8e9696550b6}{par
 \item 
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classEquationParser_a05b9ab44026e2514b1143d1f90c62009}{split\+Functions\+Or\+Elementwise}} (const std\+::string \&in)
 \item 
-std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classEquationParser_a0e361b92bc33fb82f4c9e522b3cf8abf}{split\+Equation}} (const std\+::string \&\mbox{\hyperlink{classEquationParser_a827fc71df4f69659b5ebbfbad6deb517}{process\+String}})
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classEquationParser_a4c16356572c6ad78227979449c964dc2}{split\+Equation}} (const std\+::string \&eq\+String)
 \item 
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classEquationParser_a636f9adde9cb56b19054bc4474c798bd}{extract\+Objects}} (std\+::string \&eq, const std\+::vector$<$ std\+::string $>$ \&container)
 \end{DoxyCompactItemize}
@@ -285,17 +285,17 @@ rearranges stack until end of equation of opening parentheses
 {\em operand\+Stack} & operand stack object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classEquationParser_a0e361b92bc33fb82f4c9e522b3cf8abf}\label{classEquationParser_a0e361b92bc33fb82f4c9e522b3cf8abf}} 
+\mbox{\Hypertarget{classEquationParser_a4c16356572c6ad78227979449c964dc2}\label{classEquationParser_a4c16356572c6ad78227979449c964dc2}} 
 \index{EquationParser@{EquationParser}!splitEquation@{splitEquation}}
 \index{splitEquation@{splitEquation}!EquationParser@{EquationParser}}
 \doxysubsubsection{\texorpdfstring{splitEquation()}{splitEquation()}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Equation\+Parser\+::split\+Equation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{process\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Equation\+Parser\+::split\+Equation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{eq\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 Splits an equation string into a vector of strings
 
 
 \begin{DoxyParams}{Parameters}
-{\em process\+String} & equation string to split \\
+{\em eq\+String} & equation string to split \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

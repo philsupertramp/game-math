@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['random_801',['Random',['../classMatrix.html#ab72c15d620fbe70b88578543b65e70ff',1,'Matrix']]],
-  ['readfromfile_802',['ReadFromFile',['../structSet.html#a4f4968d31600cbf8497464eeab1ca139',1,'Set']]],
-  ['rearrangestack_803',['rearrangeStack',['../classEquationParser.html#ab6f9a3e3bb94fb16f5ba973952f8bb58',1,'EquationParser']]],
-  ['regression_804',['Regression',['../Probability_8cpp.html#a423a20e13b076fe53eb4a957b493061a',1,'Regression(const Matrix&lt; double &gt; &amp;a):&#160;Probability.cpp'],['../Probability_8h.html#a40ec5539b5ccb2f39b8844ca4609b88d',1,'Regression(const Matrix&lt; double &gt; &amp;A):&#160;Probability.cpp']]],
-  ['relu_805',['relu',['../ds_2utils_8h.html#a911f8108af3ac874d00214c27ead7e11',1,'utils.h']]],
-  ['resize_806',['Resize',['../classMatrix.html#ab5931e4a60d936c1294c187a6fa162e8',1,'Matrix']]],
-  ['resolveop_807',['resolveOP',['../classEquation.html#a97a7ed33a1b30e31257b1663610f303b',1,'Equation']]],
-  ['rotate_808',['rotate',['../namespaceMath_1_1Utils.html#a613016d9db9e0f9909b6c3a0a5b40b4e',1,'Math::Utils']]],
-  ['round_809',['round',['../Probability_8cpp.html#aa3e12acd040b791cdf25cbb4d3d41bb5',1,'round(double x, int precision):&#160;Probability.cpp'],['../Probability_8h.html#aa3e12acd040b791cdf25cbb4d3d41bb5',1,'round(double x, int precision):&#160;Probability.cpp']]],
-  ['rows_810',['rows',['../classMatrix.html#a5330adf02b284293259eb9f7c9acaa99',1,'Matrix']]]
+  ['random_802',['Random',['../classMatrix.html#ab72c15d620fbe70b88578543b65e70ff',1,'Matrix']]],
+  ['readfromfile_803',['ReadFromFile',['../structSet.html#a4f4968d31600cbf8497464eeab1ca139',1,'Set']]],
+  ['rearrangestack_804',['rearrangeStack',['../classEquationParser.html#ab6f9a3e3bb94fb16f5ba973952f8bb58',1,'EquationParser']]],
+  ['regression_805',['Regression',['../Probability_8cpp.html#a423a20e13b076fe53eb4a957b493061a',1,'Regression(const Matrix&lt; double &gt; &amp;a):&#160;Probability.cpp'],['../Probability_8h.html#a40ec5539b5ccb2f39b8844ca4609b88d',1,'Regression(const Matrix&lt; double &gt; &amp;A):&#160;Probability.cpp']]],
+  ['relu_806',['relu',['../ds_2utils_8h.html#a911f8108af3ac874d00214c27ead7e11',1,'utils.h']]],
+  ['resize_807',['Resize',['../classMatrix.html#ab5931e4a60d936c1294c187a6fa162e8',1,'Matrix']]],
+  ['resolveop_808',['resolveOP',['../classEquation.html#a97a7ed33a1b30e31257b1663610f303b',1,'Equation']]],
+  ['rotate_809',['rotate',['../namespaceMath_1_1Utils.html#a613016d9db9e0f9909b6c3a0a5b40b4e',1,'Math::Utils']]],
+  ['round_810',['round',['../Probability_8cpp.html#aa3e12acd040b791cdf25cbb4d3d41bb5',1,'round(double x, int precision):&#160;Probability.cpp'],['../Probability_8h.html#aa3e12acd040b791cdf25cbb4d3d41bb5',1,'round(double x, int precision):&#160;Probability.cpp']]],
+  ['rows_811',['rows',['../classMatrix.html#a5330adf02b284293259eb9f7c9acaa99',1,'Matrix']]]
 ];
