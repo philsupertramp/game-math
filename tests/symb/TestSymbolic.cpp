@@ -77,6 +77,8 @@ class SymbolicTestCase : public Test
         AssertEqual(eq(2), 8);
         eq = Equation("2 * x^(3+y)");
         AssertEqual(eq(2, 1), 2 * (2 * 2 * 2 * 2));
+        eq = Equation("2 * x ^ (3+y)");
+        AssertEqual(eq(2, 1), 2 * (2 * 2 * 2 * 2));
         return true;
     }
 
@@ -238,6 +240,10 @@ class SymbolicTestCase : public Test
         AssertEqual(equation(1), 0.8414709848078965);
 
         equation = Equation("sin(pi)");
+        AssertEqual(equation(), 0);
+        equation = Equation("cos(pi)");
+        AssertEqual(equation(), -1);
+        equation = Equation("log(1)");
         AssertEqual(equation(), 0);
 
         Equation circle("r^2 * pi");
