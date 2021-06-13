@@ -6,7 +6,7 @@ std::regex GetRegex(MathNodeType type) {
     static const std::regex number_regex("([0-9]+)");
     static const std::regex parentheses_regex("\\(([^\\)]*)\\)");
     static const std::regex operator_regex("([\\-+*/\\^]+)");
-    static const std::regex operator_or_parentheses_regex("([\\(\\)\\-+*/\\^]+)");
+    static const std::regex operator_or_parentheses_regex("([\\(\\)\\-+*/\\^])");
     static const std::regex any_regex("([\\x00-\\x7F]+)");
     switch(type) {
         case NodeType_Symbolic: return symbol_regex;

@@ -16,8 +16,9 @@ enum OperatorPriority {
     OPClassUnknown     = 0,
     OPClassLine        = 1,
     OPClassDot         = 2,
-    OPClassParentheses = 3,
-    OPClassFunction    = 4,
+    OPClassPow         = 3,
+    OPClassParentheses = 4,
+    OPClassFunction    = 5,
 };
 
 /**
