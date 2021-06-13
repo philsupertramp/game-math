@@ -7,8 +7,6 @@ std::shared_ptr<MathNode> EquationParser::createAST() {
     operandStack.clear();
     operatorStack.clear();
 
-    auto regex_end = std::sregex_iterator();
-
     prevWasOperator = true;
     nextIsNegative  = false;
     auto eqParts    = splitEquation(processString);
@@ -43,7 +41,6 @@ std::vector<std::string>& operatorStack,
 std::vector<std::shared_ptr<MathNode>>& operandStack) {
     // early exit
     if(operatorStack.empty()) return;
-    bool hasParentheses = true;
     auto stackTop       = GetOperator(operatorStack[operatorStack.size() - 1]);
     while(stackTop != nullptr && stackTop->priority >= currentOp->priority && stackTop->value[0] != '(') {
         operatorStack.pop_back();
@@ -95,7 +92,7 @@ std::vector<std::string>& operatorStack, std::vector<std::shared_ptr<MathNode>>&
     }
     operatorStack.pop_back();
 }
-std::vector<std::string> EquationParser::splitEquation(const std::string& processString) {
+std::vector<std::string> EquationParser::splitEquation(const std::string& eqString) {
     std::vector<std::string> out;
     std::cmatch m;
 
@@ -103,7 +100,7 @@ std::vector<std::string> EquationParser::splitEquation(const std::string& proces
     auto symbolRegex   = GetRegex(MathNodeType::NodeType_Symbolic);
     auto operatorRegex = GetRegex(MathNodeType::NodeType_Operator);
 
-    auto splitEq = split(processString, ' ');
+    auto splitEq = split(eqString, ' ');
 
     // bigger as -x?
     if(splitEq.size() == 1) {
