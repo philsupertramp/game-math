@@ -13,13 +13,11 @@ class LUTestCase : public Test
         auto result = LU(A);
 
         // A stays A
-        std::cout << A << B;
         AssertEqual(A, B);
 
         std::vector<unsigned int> p = { 0, 1, 2 };
         Matrix<double> LR           = { { 4.0, 2.0, 3.0 }, { 0.5, 1.0, -0.5 }, { 0.5, 1.0, 1.0 } };
 
-        std::cout << LR << result.first;
         for(size_t col = 0; col < 3; col++) {
             assert(result.second[col] == p[col]);
             for(size_t row = 0; row < 3; row++) { AssertEqual(result.first(col, row), LR(col, row)); }

@@ -61,7 +61,7 @@ class InsuranceTestCase : public Test
     }
 
 public:
-    virtual void run() override {
+    virtual void run() {
         TestCompoundingFactor();
         TestDiscountFactor();
         TestFundamentalValue();

@@ -1,8 +1,6 @@
 #include "../../Test.h"
 #include <cmath>
-#include <math/numerics/Fractals.h>
 #include <math/numerics/lin_alg/newton.h>
-#include <math/visualization/Plot.h>
 #include <vector>
 
 

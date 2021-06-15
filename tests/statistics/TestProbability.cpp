@@ -70,7 +70,7 @@ class ProbabilityTestCase : public Test
     }
 
 public:
-    virtual void run() override {
+    virtual void run() {
         TestRound();
         TestABS();
         TestPow();
