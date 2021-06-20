@@ -120,6 +120,8 @@ public:
      */
     friend vec2<T> operator*(const T& lhs, vec2<T> rhs) { return rhs *= lhs; }
 
+    friend vec2<T> operator/(const vec2<T>& lhs, vec2<T> rhs) { return rhs /= lhs; }
+
     /**
      * vector-vector multiplication (dot-product)
      * @param lhs
@@ -175,6 +177,11 @@ public:
     vec2<T>& operator/=(const T& rhs) {
         x /= rhs;
         y /= rhs;
+        return *this;
+    }
+    vec2<T>& operator/=(const vec2<T>& rhs) {
+        x /= rhs.x;
+        y /= rhs.y;
         return *this;
     }
 

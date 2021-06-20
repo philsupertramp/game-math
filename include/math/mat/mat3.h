@@ -58,6 +58,22 @@ public:
     }
 
     /**
+     * Constructor from pointer of values
+     * @param vals array of arrays of values
+     */
+    explicit mat3(T* vals){
+        values[0][0] = vals[0][0];
+        values[0][2] = vals[0][1];
+        values[0][1] = vals[0][2];
+        values[1][0] = vals[1][0];
+        values[1][2] = vals[1][1];
+        values[1][1] = vals[1][2];
+        values[2][0] = vals[2][0];
+        values[2][2] = vals[2][1];
+        values[2][1] = vals[2][2];
+    }
+
+    /**
      * default destructor
      */
     ~mat3() = default;
@@ -83,6 +99,15 @@ public:
             values[0][0], values[1][0], values[2][0], 
             values[0][1], values[1][1], values[2][1], 
             values[0][2], values[1][2], values[2][2]); // clang-format on
+    }
+
+    /**
+     * Potentially calculates the inverse matrix
+     * @return inverse (A -> A^-1)
+     */
+    inline mat3<T> Inverse(){
+        auto invDet = 1.0f/Determinant();
+        return invDet * Transpose();
     }
 
     /**

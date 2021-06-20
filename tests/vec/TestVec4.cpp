@@ -145,9 +145,9 @@ class Vec4TestCase : public Test
         assert(fooCopy.z == (T)2.0f);
         assert(fooCopy.w == (T)2.0f);
 
-        float fooVal = foo * bar;
+        float fooVal = (foo * bar).sum();
         assert(fooVal == (T)2.0f);
-        fooVal = foo * baz;
+        fooVal = (foo * baz).sum();
         assert(fooVal == (T)11.0f);
         fooCopy = foo;
 

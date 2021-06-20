@@ -77,6 +77,17 @@ public:
     }
 
     /**
+     * vec2 + T constructor
+     * @param a 2D vector
+     * @param z element z
+     */
+    vec3(vec2<T> a, const T& z) {
+        this->x = a.x;
+        this->y = a.y;
+        this->z = z;
+    }
+
+    /**
      * single value constructor
      * @param _v
      */
@@ -339,6 +350,7 @@ vec3<T> build_vec3(void* in) {
     vec3<T> out(values[0], values[1], values[2]);
     return out;
 }
+
 namespace std {
     /**
      * vec3 implementation of numeric_limits

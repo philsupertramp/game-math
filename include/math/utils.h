@@ -186,6 +186,53 @@ namespace Math::Utils {
     mat4<T> scale(mat4<T> mat, const float& factor) {
         return (mat4<T>::Unit() * factor) * mat;
     }
+    template<class T>
+    mat4<T> scale(mat4<T> mat, const vec3<T>& factor) {
+        mat4<T> out;
+        out[0][0] = mat[0][0] * factor[0];
+        out[0][1] = mat[0][1] * factor[0];
+        out[0][2] = mat[0][2] * factor[0];
+        out[0][3] = mat[0][3] * factor[0];
+        out[1][0] = mat[1][0] * factor[1];
+        out[1][1] = mat[1][1] * factor[1];
+        out[1][2] = mat[1][2] * factor[1];
+        out[1][3] = mat[1][3] * factor[1];
+        out[2][0] = mat[2][0] * factor[2];
+        out[2][1] = mat[2][1] * factor[2];
+        out[2][2] = mat[2][2] * factor[2];
+        out[2][3] = mat[2][3] * factor[2];
+        out[3][0] = static_cast<T>(1.0);
+        out[3][1] = static_cast<T>(1.0);
+        out[3][2] = static_cast<T>(1.0);
+        out[3][3] = static_cast<T>(1.0);
+        return out;
+    }
+
+    /**
+     * Inverts projection
+     * @tparam T
+     * @tparam U
+     * @param win 3D point to convert from window space
+     * @param model (model * view)-matrix
+     * @param proj projection matrix
+     * @param viewport 4D vector for window viewport (most likely { 0, 0, SCREEN_WIDTH, SCREEN_WIDTH })
+     * @return
+     */
+    template<typename T, typename U>
+    vec3<T> unProject(vec3<T> const& win, mat4<T> const& model, mat4<T> const& proj, vec4<U> const& viewport){
+        mat4<T> Inverse = (proj * model).Inverse();
+
+        vec4<T> tmp(win, T(1));
+        tmp.x = (tmp.x - T(viewport[0])) / T(viewport[2]);
+        tmp.y = (tmp.y - T(viewport[1])) / T(viewport[3]);
+        tmp.x = tmp.x * static_cast<T>(2) - static_cast<T>(1);
+        tmp.y = tmp.y * static_cast<T>(2) - static_cast<T>(1);
+
+        vec4<T> obj = Inverse * tmp;
+        obj *= 1.0f/obj.w;
+
+        return vec3<T>(obj);
+    }
 
     /**
      * Rotates a given matrix m by an angle angle around given axis u

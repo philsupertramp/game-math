@@ -67,6 +67,13 @@ public:
         w = _w;
     }
 
+    explicit vec4(const T& v){
+        x = v;
+        y = v;
+        z = v;
+        w = v;
+    }
+
     /**
      * data array constructor
      * @param v
@@ -89,6 +96,14 @@ public:
         w = v[3];
     }
 
+    template<typename V>
+    vec4(const V& v, T w) {
+        x = v[0];
+        y = v[1];
+        z = v[2];
+        w = w;
+    }
+
     /* Misc functions */
     /**
      * Getter for vector length
@@ -101,6 +116,8 @@ public:
      * @return
      */
     inline vec4<T> normalize() const { return *this / length(); }
+
+    inline T sum() const { return x+y+z+w; }
 
     /* Arithmetic operators */
     /**
@@ -140,8 +157,8 @@ public:
      * @param rhs
      * @return
      */
-    friend T operator*(vec4<T> lhs, const vec4<T>& rhs) {
-        return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * lhs.w;
+    friend vec4<T> operator*(vec4<T> lhs, const vec4<T>& rhs) {
+        return vec4<T>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * lhs.w);
     }
     /**
      * vector-scalar division
