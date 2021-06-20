@@ -23,6 +23,10 @@
 \item 
 {\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_ae671ae829d6aa8be033a023e8aafadda}{scale}} (\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ mat, const float \&factor)
 \item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_afef2454fdb4e5cec1d14a5516ef6fe3f}{scale}} (\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ mat, const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&factor)
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a75c7951664772417dbbefcce3b1312d9}{un\+Project}} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ const \&win, \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ const \&model, \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ const \&proj, \mbox{\hyperlink{structvec4}{vec4}}$<$ U $>$ const \&viewport)
+\item 
 {\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a613016d9db9e0f9909b6c3a0a5b40b4e}{rotate}} (\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ m, const float \&angle, \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ u)
 \item 
 {\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \mbox{\hyperlink{namespaceMath_1_1Utils_a5fc3ba474ff6374ecf92ae619b6bf728}{max}} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ a, \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ b)
@@ -334,7 +338,7 @@ Rotates a given matrix m by an angle angle around given axis u
 \mbox{\Hypertarget{namespaceMath_1_1Utils_ae671ae829d6aa8be033a023e8aafadda}\label{namespaceMath_1_1Utils_ae671ae829d6aa8be033a023e8aafadda}} 
 \index{Math::Utils@{Math::Utils}!scale@{scale}}
 \index{scale@{scale}!Math::Utils@{Math::Utils}}
-\doxysubsubsection{\texorpdfstring{scale()}{scale()}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ Math\+::\+Utils\+::scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$}]{mat,  }\item[{const float \&}]{factor }\end{DoxyParamCaption})}
 
@@ -356,6 +360,13 @@ scales a given matrix by a factor
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_afef2454fdb4e5cec1d14a5516ef6fe3f}\label{namespaceMath_1_1Utils_afef2454fdb4e5cec1d14a5516ef6fe3f}} 
+\index{Math::Utils@{Math::Utils}!scale@{scale}}
+\index{scale@{scale}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ Math\+::\+Utils\+::scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$}]{mat,  }\item[{const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&}]{factor }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{namespaceMath_1_1Utils_af2f6fbcc6208b71f72da58c6c09ad02a}\label{namespaceMath_1_1Utils_af2f6fbcc6208b71f72da58c6c09ad02a}} 
 \index{Math::Utils@{Math::Utils}!translate@{translate}}
 \index{translate@{translate}!Math::Utils@{Math::Utils}}
@@ -381,3 +392,31 @@ Translates a given 4-\/by-\/4 matrix M by given vector V
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{namespaceMath_1_1Utils_a75c7951664772417dbbefcce3b1312d9}\label{namespaceMath_1_1Utils_a75c7951664772417dbbefcce3b1312d9}} 
+\index{Math::Utils@{Math::Utils}!unProject@{unProject}}
+\index{unProject@{unProject}!Math::Utils@{Math::Utils}}
+\doxysubsubsection{\texorpdfstring{unProject()}{unProject()}}
+{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
+\mbox{\hyperlink{structvec3}{vec3}}$<$T$>$ Math\+::\+Utils\+::un\+Project (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ const \&}]{win,  }\item[{\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ const \&}]{model,  }\item[{\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ const \&}]{proj,  }\item[{\mbox{\hyperlink{structvec4}{vec4}}$<$ U $>$ const \&}]{viewport }\end{DoxyParamCaption})}
+
+Inverts projection 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em U} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em win} & 3D point to convert from window space \\
+\hline
+{\em model} & (model $\ast$ view)-\/matrix \\
+\hline
+{\em proj} & projection matrix \\
+\hline
+{\em viewport} & 4D vector for window viewport (most likely \{ 0, 0, SCREEN\+\_\+\+WIDTH, SCREEN\+\_\+\+WIDTH \}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

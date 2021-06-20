@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['classes_876',['classes',['../classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e',1,'ImageDataSet']]],
-  ['classnames_877',['classNames',['../classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72',1,'ImageDataSet']]],
-  ['color_878',['color',['../structPlotAttributes.html#ad1aad84439cf5fbc865d07694e523f27',1,'PlotAttributes']]],
-  ['colorpalette_879',['colorPalette',['../structPlotAttributes.html#a8738b4d86a5db807f0128370bc167043',1,'PlotAttributes']]],
-  ['columns_880',['columns',['../structMatrixDimension.html#aef50c3f8f188346f84c30f0dae35436d',1,'MatrixDimension']]],
-  ['connectiontype_881',['connectionType',['../classMathNode.html#af971f001f9f6b2478dd28d9fa752c5e9',1,'MathNode']]],
-  ['cost_882',['cost',['../classSGD.html#a843697c86d1d89defc5b23e9847cdb4c',1,'SGD']]],
-  ['costs_883',['costs',['../classClassifier.html#a8688dfb2318e40a7c2f3747b68c96bae',1,'Classifier']]],
-  ['count_884',['count',['../structSet.html#a21819d28230d81776628a4d152a6fed0',1,'Set']]]
+  ['classes_885',['classes',['../classImageDataSet.html#a588cd839a8dcf3f9bbd487610347825e',1,'ImageDataSet']]],
+  ['classnames_886',['classNames',['../classImageDataSet.html#a948b82a4dc6b7594c6c8029909aa6b72',1,'ImageDataSet']]],
+  ['color_887',['color',['../structPlotAttributes.html#ad1aad84439cf5fbc865d07694e523f27',1,'PlotAttributes']]],
+  ['colorpalette_888',['colorPalette',['../structPlotAttributes.html#a8738b4d86a5db807f0128370bc167043',1,'PlotAttributes']]],
+  ['columns_889',['columns',['../structMatrixDimension.html#aef50c3f8f188346f84c30f0dae35436d',1,'MatrixDimension']]],
+  ['connectiontype_890',['connectionType',['../classMathNode.html#af971f001f9f6b2478dd28d9fa752c5e9',1,'MathNode']]],
+  ['cost_891',['cost',['../classSGD.html#a843697c86d1d89defc5b23e9847cdb4c',1,'SGD']]],
+  ['costs_892',['costs',['../classClassifier.html#a8688dfb2318e40a7c2f3747b68c96bae',1,'Classifier']]],
+  ['count_893',['count',['../structSet.html#a21819d28230d81776628a4d152a6fed0',1,'Set']]]
 ];

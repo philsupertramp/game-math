@@ -89,10 +89,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a92eee1afad9630a7e14f535e467ea76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa2e5084ddf702c20549dfd4777fc5de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat3.html#afa2e5084ddf702c20549dfd4777fc5de">mat3</a> (<a class="el" href="structvec3.html">vec3</a>&lt; T &gt; A, <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; B, <a class="el" href="structvec3.html">vec3</a>&lt; T &gt; C)</td></tr>
 <tr class="separator:afa2e5084ddf702c20549dfd4777fc5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03c3a6fd21513ef43339b6adc49811c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat3.html#a03c3a6fd21513ef43339b6adc49811c2">mat3</a> (T *vals)</td></tr>
+<tr class="separator:a03c3a6fd21513ef43339b6adc49811c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0e1ea37f7dd2db765ae834502267b73"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat3.html#ab0e1ea37f7dd2db765ae834502267b73">~mat3</a> ()=default</td></tr>
 <tr class="separator:ab0e1ea37f7dd2db765ae834502267b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a202512a8816d26220a97dc78dd138731"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat3.html">mat3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat3.html#a202512a8816d26220a97dc78dd138731">Transpose</a> ()</td></tr>
 <tr class="separator:a202512a8816d26220a97dc78dd138731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7d372f5044c63d91ad3ddaefd295239"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat3.html">mat3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat3.html#ab7d372f5044c63d91ad3ddaefd295239">Inverse</a> ()</td></tr>
+<tr class="separator:ab7d372f5044c63d91ad3ddaefd295239"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab220413081e249d2895e14f3d287a3bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat3.html#ab220413081e249d2895e14f3d287a3bc">IsSymmetric</a> ()</td></tr>
 <tr class="separator:ab220413081e249d2895e14f3d287a3bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9590c23f7a73fa134eefdfa3e7bbbece"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat3.html#a9590c23f7a73fa134eefdfa3e7bbbece">Determinant</a> ()</td></tr>
@@ -155,7 +159,7 @@ struct mat3&lt; T &gt;</h3>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad34809818e3d656da6ea2c7f72f2b727"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad34809818e3d656da6ea2c7f72f2b727">&#9670;&nbsp;</a></span>mat3() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad34809818e3d656da6ea2c7f72f2b727">&#9670;&nbsp;</a></span>mat3() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +187,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a92eee1afad9630a7e14f535e467ea76b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92eee1afad9630a7e14f535e467ea76b">&#9670;&nbsp;</a></span>mat3() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a92eee1afad9630a7e14f535e467ea76b">&#9670;&nbsp;</a></span>mat3() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,7 +281,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="afa2e5084ddf702c20549dfd4777fc5de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa2e5084ddf702c20549dfd4777fc5de">&#9670;&nbsp;</a></span>mat3() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2e5084ddf702c20549dfd4777fc5de">&#9670;&nbsp;</a></span>mat3() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,6 +326,40 @@ template&lt;class T &gt; </div>
     <tr><td class="paramname">A</td><td>first column vector </td></tr>
     <tr><td class="paramname">B</td><td>second column vector </td></tr>
     <tr><td class="paramname">C</td><td>third column vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a03c3a6fd21513ef43339b6adc49811c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c3a6fd21513ef43339b6adc49811c2">&#9670;&nbsp;</a></span>mat3() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat3.html">mat3</a>&lt; T &gt;::<a class="el" href="structmat3.html">mat3</a> </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>vals</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor from pointer of values </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vals</td><td>array of arrays of values </td></tr>
   </table>
   </dd>
 </dl>
@@ -382,6 +420,34 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>calculates determinant </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ab7d372f5044c63d91ad3ddaefd295239"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d372f5044c63d91ad3ddaefd295239">&#9670;&nbsp;</a></span>Inverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat3.html">mat3</a>&lt;T&gt; <a class="el" href="structmat3.html">mat3</a>&lt; T &gt;::Inverse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Potentially calculates the inverse matrix </p><dl class="section return"><dt>Returns</dt><dd>inverse (A -&gt; A^-1) </dd></dl>
 
 </div>
 </div>

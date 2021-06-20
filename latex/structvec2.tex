@@ -27,6 +27,8 @@ float \mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}} ()
 \item 
 \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \& \mbox{\hyperlink{structvec2_a660179957f2800878e8c9be2a4f133b2}{operator/=}} (const T \&rhs)
 \item 
+\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \& \mbox{\hyperlink{structvec2_a1eb680ae1407cd8e0cff0c82ea6f1852}{operator/=}} (const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&rhs)
+\item 
 constexpr \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \& \mbox{\hyperlink{structvec2_afa1144f38cf9c20c0eedfaa8afbc0155}{operator=}} (\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ const \&V)
 \item 
 T \& \mbox{\hyperlink{structvec2_ac086e4abfa54bb9d522e9a0ff49ab61e}{operator\mbox{[}$\,$\mbox{]}}} (int index)
@@ -60,6 +62,8 @@ const size\+\_\+t \mbox{\hyperlink{structvec2_aa5afbdfa81ffd38272563940ffa7469c}
 \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \mbox{\hyperlink{structvec2_a5688a87531968a432fb715e3472c406a}{operator$\ast$}} (\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ lhs, const T \&rhs)
 \item 
 \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \mbox{\hyperlink{structvec2_aec6ee3a7705b728eeb0ff0129f2e7fd7}{operator$\ast$}} (const T \&lhs, \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ rhs)
+\item 
+\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \mbox{\hyperlink{structvec2_a3d54a146258dd7b764de587951f5b6ca}{operator/}} (const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&lhs, \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ rhs)
 \item 
 T \mbox{\hyperlink{structvec2_a3cfba91b3cd28c026bf68e02891fe6d8}{operator$\ast$}} (\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ lhs, const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&rhs)
 \item 
@@ -224,7 +228,7 @@ vector-\/vector subtraction
 \mbox{\Hypertarget{structvec2_a660179957f2800878e8c9be2a4f133b2}\label{structvec2_a660179957f2800878e8c9be2a4f133b2}} 
 \index{vec2$<$ T $>$@{vec2$<$ T $>$}!operator/=@{operator/=}}
 \index{operator/=@{operator/=}!vec2$<$ T $>$@{vec2$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{structvec2}{vec2}}$<$T$>$\& \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::operator/= (\begin{DoxyParamCaption}\item[{const T \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -236,6 +240,13 @@ vector-\/scalar division
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\mbox{\Hypertarget{structvec2_a1eb680ae1407cd8e0cff0c82ea6f1852}\label{structvec2_a1eb680ae1407cd8e0cff0c82ea6f1852}} 
+\index{vec2$<$ T $>$@{vec2$<$ T $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!vec2$<$ T $>$@{vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structvec2}{vec2}}$<$T$>$\& \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::operator/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \mbox{\Hypertarget{structvec2_afa1144f38cf9c20c0eedfaa8afbc0155}\label{structvec2_afa1144f38cf9c20c0eedfaa8afbc0155}} 
 \index{vec2$<$ T $>$@{vec2$<$ T $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!vec2$<$ T $>$@{vec2$<$ T $>$}}
@@ -369,10 +380,17 @@ vec-\/vec subtraction
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\mbox{\Hypertarget{structvec2_a3d54a146258dd7b764de587951f5b6ca}\label{structvec2_a3d54a146258dd7b764de587951f5b6ca}} 
+\index{vec2$<$ T $>$@{vec2$<$ T $>$}!operator/@{operator/}}
+\index{operator/@{operator/}!vec2$<$ T $>$@{vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structvec2}{vec2}}$<$T$>$ operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&}]{lhs,  }\item[{\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
 \mbox{\Hypertarget{structvec2_a3d419ad41e4f7be26a11f7dc8839ef0e}\label{structvec2_a3d419ad41e4f7be26a11f7dc8839ef0e}} 
 \index{vec2$<$ T $>$@{vec2$<$ T $>$}!operator/@{operator/}}
 \index{operator/@{operator/}!vec2$<$ T $>$@{vec2$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{structvec2}{vec2}}$<$T$>$ operator/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$}]{lhs,  }\item[{const T \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
 

@@ -99,6 +99,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5cb4b663a9f710a01b2d9959595431c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a923b473e059a635bdc17bbfb1a0e878d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat4.html#a923b473e059a635bdc17bbfb1a0e878d">Determinant</a> ()</td></tr>
 <tr class="separator:a923b473e059a635bdc17bbfb1a0e878d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae08cc8148056d24fecfedf3f746763b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat3.html">mat3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat4.html#ae08cc8148056d24fecfedf3f746763b7">getMinor</a> (size_t i, size_t j)</td></tr>
+<tr class="separator:ae08cc8148056d24fecfedf3f746763b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6111cf770a3769b25e2dd4bd13fa5868"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat4.html">mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat4.html#a6111cf770a3769b25e2dd4bd13fa5868">Inverse</a> ()</td></tr>
+<tr class="separator:a6111cf770a3769b25e2dd4bd13fa5868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3dbe83c63f9a46fe5ef90622561c864"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat4.html">mat4</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat4.html#ae3dbe83c63f9a46fe5ef90622561c864">operator+=</a> (const <a class="el" href="structmat4.html">mat4</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:ae3dbe83c63f9a46fe5ef90622561c864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a738da494d3d9beb5dfae31d5787b7456"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmat4.html">mat4</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmat4.html#a738da494d3d9beb5dfae31d5787b7456">operator-=</a> (const <a class="el" href="structmat4.html">mat4</a>&lt; T &gt; &amp;rhs)</td></tr>
@@ -480,6 +484,81 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>computes determinant </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ae08cc8148056d24fecfedf3f746763b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae08cc8148056d24fecfedf3f746763b7">&#9670;&nbsp;</a></span>getMinor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat3.html">mat3</a>&lt;T&gt; <a class="el" href="structmat4.html">mat4</a>&lt; T &gt;::getMinor </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get minor matrix by exclusion indices</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>row to exclude </td></tr>
+    <tr><td class="paramname">j</td><td>column to exclude </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>values without row i and column j </dd></dl>
+
+</div>
+</div>
+<a id="a6111cf770a3769b25e2dd4bd13fa5868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6111cf770a3769b25e2dd4bd13fa5868">&#9670;&nbsp;</a></span>Inverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmat4.html">mat4</a> <a class="el" href="structmat4.html">mat4</a>&lt; T &gt;::Inverse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate inverse matrix </p><dl class="section return"><dt>Returns</dt><dd>A -&gt; A^-1 </dd></dl>
 
 </div>
 </div>

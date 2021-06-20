@@ -15,8 +15,9 @@ var searchData=
   ['getexponent_141',['getExponent',['../Probability_8cpp.html#a6edda0f97cfab68707335fd17ca80462',1,'getExponent(double x):&#160;Probability.cpp'],['../Probability_8h.html#a6edda0f97cfab68707335fd17ca80462',1,'getExponent(double x):&#160;Probability.cpp']]],
   ['getfunction_142',['GetFunction',['../classEquationParser.html#aa57d470e1d62e6a2d78db1fc4ded8367',1,'EquationParser']]],
   ['getindex_143',['GetIndex',['../classMatrix.html#ad0c643ba4f2849b377eb867d3d13722f',1,'Matrix']]],
-  ['getoperator_144',['GetOperator',['../classEquationParser.html#a685d49c1b1cafc2b09f1301b50edab44',1,'EquationParser']]],
-  ['getregex_145',['GetRegex',['../MathNode_8cpp.html#a85bcdf174a2e5f29fc70bab45310509c',1,'GetRegex(MathNodeType type):&#160;MathNode.cpp'],['../MathNode_8h.html#a85bcdf174a2e5f29fc70bab45310509c',1,'GetRegex(MathNodeType type):&#160;MathNode.cpp']]],
-  ['getslice_146',['GetSlice',['../classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b',1,'Matrix']]],
-  ['getstring_147',['GetString',['../classEquation.html#a5e5434dd97f523734bd6dc41db0ea79a',1,'Equation::GetString()'],['../classMathNode.html#abb5b146cee0a672f8fac4f2fd64c2c5e',1,'MathNode::GetString()']]]
+  ['getminor_144',['getMinor',['../structmat4.html#ae08cc8148056d24fecfedf3f746763b7',1,'mat4']]],
+  ['getoperator_145',['GetOperator',['../classEquationParser.html#a685d49c1b1cafc2b09f1301b50edab44',1,'EquationParser']]],
+  ['getregex_146',['GetRegex',['../MathNode_8cpp.html#a85bcdf174a2e5f29fc70bab45310509c',1,'GetRegex(MathNodeType type):&#160;MathNode.cpp'],['../MathNode_8h.html#a85bcdf174a2e5f29fc70bab45310509c',1,'GetRegex(MathNodeType type):&#160;MathNode.cpp']]],
+  ['getslice_147',['GetSlice',['../classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b',1,'Matrix']]],
+  ['getstring_148',['GetString',['../classEquation.html#a5e5434dd97f523734bd6dc41db0ea79a',1,'Equation::GetString()'],['../classMathNode.html#abb5b146cee0a672f8fac4f2fd64c2c5e',1,'MathNode::GetString()']]]
 ];
