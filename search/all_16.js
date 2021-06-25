@@ -20,7 +20,7 @@ var searchData=
   ['vec2d_476',['vec2d',['../math_8h.html#a896cbea49b17ec427bc2b008bc8ce032',1,'math.h']]],
   ['vec2f_477',['vec2f',['../math_8h.html#a3418c768487496819c6aaf75cea672df',1,'math.h']]],
   ['vec2i_478',['vec2i',['../math_8h.html#a88418238a07be48785a077136d626e48',1,'math.h']]],
-  ['vec3_479',['vec3',['../structvec3.html',1,'vec3&lt; T &gt;'],['../structvec3.html#afb7342872bc442bf0da6a7da1671e77e',1,'vec3::vec3()'],['../structvec3.html#aae003cd1de08a8e9dc1f268d1d536979',1,'vec3::vec3(const vec3&lt; T &gt; &amp;v)'],['../structvec3.html#a2b1ec73adbd504ee31d05b5e2ae4a720',1,'vec3::vec3(T _v)'],['../structvec3.html#aba82ddabae1f434285f3eb3134aef402',1,'vec3::vec3(vec2&lt; T &gt; a, const T &amp;z)'],['../structvec3.html#a71875515a97dbaa28c1d177915772b79',1,'vec3::vec3(vec4&lt; T &gt; a)'],['../structvec3.html#a70b4645f1ef288d95a9b13376dd9c14a',1,'vec3::vec3(T _x, T _y, T _z)']]],
+  ['vec3_479',['vec3',['../structvec3.html',1,'vec3&lt; T &gt;'],['../structvec3.html#afb7342872bc442bf0da6a7da1671e77e',1,'vec3::vec3()'],['../structvec3.html#aae003cd1de08a8e9dc1f268d1d536979',1,'vec3::vec3(const vec3&lt; T &gt; &amp;v)'],['../structvec3.html#a2b1ec73adbd504ee31d05b5e2ae4a720',1,'vec3::vec3(T _v)'],['../structvec3.html#aca60d87fb328266fb92d531e7cbf94e1',1,'vec3::vec3(const vec2&lt; T &gt; &amp;a, const T &amp;z)'],['../structvec3.html#a71875515a97dbaa28c1d177915772b79',1,'vec3::vec3(vec4&lt; T &gt; a)'],['../structvec3.html#a70b4645f1ef288d95a9b13376dd9c14a',1,'vec3::vec3(T _x, T _y, T _z)']]],
   ['vec3_2eh_480',['vec3.h',['../vec3_8h.html',1,'']]],
   ['vec3d_481',['vec3d',['../math_8h.html#a9256692298cfedf737d91efbc7ca6f20',1,'math.h']]],
   ['vec3f_482',['vec3f',['../math_8h.html#a5b881e853d1ba24e8dd9b88fe3d0cdec',1,'math.h']]],
