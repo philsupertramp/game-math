@@ -81,7 +81,7 @@ public:
      * @param a 2D vector
      * @param z element z
      */
-    vec3(vec2<T> a, const T& z) {
+    vec3(const vec2<T>& a, const T& z) {
         this->x = a.x;
         this->y = a.y;
         this->z = z;
