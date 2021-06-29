@@ -331,11 +331,24 @@ class Mat4TestCase : public Test
         return true;
     }
 
+    bool TestInverse(){
+        mat4<T> A = mat4<T>::Unit();
+
+        AssertEqual(A.Inverse(), A);
+        if(extended){
+            A = mat4<T>(1, 1, 1, -1, 1, 1, -1, 1, 1, -1, 1, 1, -1, 1, 1, 1);
+            auto B = A * static_cast<T>(0.25);
+            AssertEqual(A.Inverse(), B);
+        }
+        return true;
+    }
+
 public:
     void run() override {
         TestInitialization();
         TestUtils();
         TestMath();
+//        TestInverse();
     }
 };
 

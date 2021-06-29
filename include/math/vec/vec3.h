@@ -60,7 +60,7 @@ public:
      * @param _y
      * @param _z
      */
-    vec3(T _x, T _y, T _z) {
+    vec3(const T& _x, const T& _y, const T& _z) {
         this->x = _x;
         this->y = _y;
         this->z = _z;
@@ -70,7 +70,7 @@ public:
      * vec4 to vec3 cast
      * @param a
      */
-    vec3(vec4<T> a) {
+    vec3(const vec4<T>& a) {
         this->x = a.x;
         this->y = a.y;
         this->z = a.z;
@@ -91,7 +91,7 @@ public:
      * single value constructor
      * @param _v
      */
-    vec3(T _v) {
+    vec3(const T& _v) {
         this->x = _v;
         this->y = _v;
         this->z = _v;
@@ -113,7 +113,7 @@ public:
      * @param rhs
      * @return
      */
-    inline vec3<T> cross(vec3<T> rhs) const {
+    inline vec3<T> cross(const vec3<T>& rhs) const {
         return vec3<T>(
         (float)y * rhs.z - (float)z * rhs.y, (float)z * rhs.x - (float)x * rhs.z, (float)x * rhs.y - y * rhs.x);
     }
@@ -287,7 +287,7 @@ public:
      * @param index
      * @return
      */
-    T& operator[](int index) {
+    T& operator[](const int& index) {
         switch(index) {
             default:
             case 0: return x;
@@ -300,7 +300,7 @@ public:
      * @param index
      * @return
      */
-    const T& operator[](int index) const {
+    const T& operator[](const int& index) const {
         switch(index) {
             default:
             case 0: return x;
@@ -315,7 +315,7 @@ public:
      * @return vec3<U>(vec3<T>)
      */
     template<typename U>
-    operator vec3<U>() {
+    explicit operator vec3<U>() {
         return vec3<U>(x, y, z);
     }
 

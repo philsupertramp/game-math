@@ -35,9 +35,9 @@ public:
      * @param _h
      * @param _i
      */
-    mat3(T _a, T _b, T _c, 
-         T _d, T _e, T _f, 
-         T _g, T _h, T _i)
+    mat3(const T& _a, const T& _b, const T& _c, 
+         const T& _d, const T& _e, const T& _f, 
+         const T& _g, const T& _h, const T& _i)
     {
         values[0][0] = _a; values[0][1] = _b; values[0][2] =_c;
         values[1][0] = _d; values[1][1] = _e; values[1][2] =_f;
@@ -50,7 +50,7 @@ public:
      * @param B second column vector
      * @param C third column vector
      */
-    mat3(vec3<T> A, vec3<T> B, vec3<T> C) {
+    mat3(const vec3<T>& A, const vec3<T>& B, const vec3<T>& C) {
         // clang-format off
         values[0][0] = A.x; values[0][1] = A.y; values[0][2] = A.z;
         values[1][0] = B.x; values[1][1] = B.y; values[1][2] = B.z;

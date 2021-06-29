@@ -60,7 +60,7 @@ public:
      * @param _z
      * @param _w
      */
-    vec4(T _x, T _y, T _z, T _w) {
+    vec4(const T& _x, const T& _y, const T& _z, const T& _w) {
         x = _x;
         y = _y;
         z = _z;
@@ -78,7 +78,7 @@ public:
      * data array constructor
      * @param v
      */
-    vec4(T* v) {
+    explicit vec4(T* v) {
         x = v[0];
         y = v[1];
         z = v[2];
@@ -97,11 +97,11 @@ public:
     }
 
     template<typename V>
-    vec4(const V& v, T w) {
+    vec4(const V& v, const T& _w) {
         x = v[0];
         y = v[1];
         z = v[2];
-        w = w;
+        w = _w;
     }
 
     /* Misc functions */
@@ -251,7 +251,7 @@ public:
      * @param index
      * @return
      */
-    T& operator[](int index) {
+    T& operator[](const int& index) {
         switch(index) {
             default:
             case 0: return x;
@@ -265,7 +265,7 @@ public:
      * @param index
      * @return
      */
-    const T& operator[](int index) const {
+    const T& operator[](const int& index) const {
         switch(index) {
             default:
             case 0: return x;
@@ -282,7 +282,7 @@ public:
      * @return vec4<U>(vec4<T>)
      */
     template<typename U>
-    operator vec4<U>() {
+    explicit operator vec4<U>() {
         return vec4<U>(x, y, z, w);
     }
 

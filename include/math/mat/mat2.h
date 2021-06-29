@@ -28,7 +28,7 @@ public:
      * @param _c m_21
      * @param _d m_22
      */
-    mat2(T _a, T _b, T _c, T _d) {
+    mat2(const T& _a, const T& _b, const T& _c, const T& _d) {
         // clang-format off
         values[0][0] = _a; values[0][1] = _b;
         values[1][0] = _c; values[1][1] = _d; // clang-format on
@@ -39,7 +39,7 @@ public:
      * @param A first column vector
      * @param B second column vector
      */
-    mat2(vec2<T> A, vec2<T> B) {
+    mat2(const vec2<T>& A, const vec2<T>& B) {
         // clang-format off
         values[0][0] = A.x; values[0][1] = B.x;
         values[1][0] = A.y; values[1][1] = B.y; // clang-format on
@@ -74,6 +74,8 @@ public:
      * @return
      */
     inline float Determinant() { return values[0][0] * values[1][1] - values[0][1] * values[1][0]; }
+
+    inline mat2<T> Inverse() const { return mat2<T>(values[1][1], -values[0][1], -values[1][0], values[0][0]) * static_cast<T>(1/(values[0][0]*values[1][1]-values[0][1]*values[1][0])); }
 
     /**
      * matrix-matrix addition
@@ -194,13 +196,13 @@ public:
      * @param index
      * @return
      */
-    T* operator[](int index) { return values[index]; }
+    T* operator[](const int& index) { return values[index]; }
     /**
      * element access
      * @param index
      * @return
      */
-    const T* operator[](int index) const { return values[index]; }
+    const T* operator[](const int& index) const { return values[index]; }
 
     /* stream operators */
     /**

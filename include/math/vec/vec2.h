@@ -55,7 +55,7 @@ public:
      * @param _x
      * @param _y
      */
-    vec2(T _x, T _y) {
+    vec2(const T& _x, const T& _y) {
         x = _x;
         y = _y;
     }
@@ -64,7 +64,7 @@ public:
      * single value constructor initializes all elements with given _v
      * @param _v
      */
-    explicit vec2(T _v) {
+    explicit vec2(const T& _v) {
         x = _v;
         y = _v;
     }
@@ -213,7 +213,7 @@ public:
      * @param index
      * @return
      */
-    T& operator[](int index) {
+    T& operator[](const int& index) {
         switch(index) {
             default:
             case 0: return x;
@@ -225,7 +225,7 @@ public:
      * @param index
      * @return
      */
-    const T& operator[](int index) const {
+    const T& operator[](const int& index) const {
         switch(index) {
             default:
             case 0: return x;
@@ -239,7 +239,7 @@ public:
      * @return
      */
     template<typename U>
-    operator vec2<U>() {
+    explicit operator vec2<U>() {
         return vec2<U>(x, y);
     }
 

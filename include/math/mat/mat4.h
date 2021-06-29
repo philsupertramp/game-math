@@ -44,10 +44,10 @@ public:
      * @param _o
      * @param _p
      */
-    mat4(T _a, T _b, T _c, T _d, 
-         T _e, T _f, T _g, T _h, 
-         T _i, T _j, T _k, T _l, 
-         T _m, T _n, T _o, T _p)
+    mat4(const T& _a, const T& _b, const T& _c, const T& _d, 
+         const T& _e, const T& _f, const T& _g, const T& _h, 
+         const T& _i, const T& _j, const T& _k, const T& _l, 
+         const T& _m, const T& _n, const T& _o, const T& _p)
     {
         values[0][0] = _a; values[0][1] = _b; values[0][2] = _c; values[0][3] = _d;
         values[1][0] = _e; values[1][1] = _f; values[1][2] = _g; values[1][3] = _h;
@@ -62,7 +62,7 @@ public:
      * @param C
      * @param D
      */
-    mat4(vec4<T> A, vec4<T> B, vec4<T> C, vec4<T> D) {
+    mat4(const vec4<T>& A, const vec4<T>& B, const vec4<T>& C, const vec4<T>& D) {
         // clang-format off
         values[0][0] = A.x; values[0][1] = A.y; values[0][2] = A.z; values[0][3] = A.w;
         values[1][0] = B.x; values[1][1] = B.y; values[1][2] = B.z; values[1][3] = B.w;
@@ -74,7 +74,7 @@ public:
      * single-value constructor
      * @param _a
      */
-    mat4(T _a) {
+    explicit mat4(const T& _a) {
         // clang-format off
         values[0][0] = _a; values[0][1] = static_cast<T>(0); values[0][2] = static_cast<T>(0); values[0][3] = static_cast<T>(0);
         values[1][0] = static_cast<T>(0); values[1][1] = _a; values[1][2] = static_cast<T>(0); values[1][3] = static_cast<T>(0);
@@ -104,7 +104,7 @@ public:
      * @param m
      * @return
      */
-    static inline mat4<T> Transformation(mat3<T> m) {
+    static inline mat4<T> Transformation(const mat3<T>& m) {
         return mat4<T>( // clang-format off
             m[0][0], m[0][1], m[0][2], static_cast<T>(0), 
             m[1][0], m[1][1], m[1][2], static_cast<T>(0), 
@@ -152,7 +152,7 @@ public:
      * @param j column to exclude
      * @return values without row i and column j
      */
-    inline mat3<T> getMinor(size_t i , size_t j){
+    inline mat3<T> getMinor(const size_t& i , const size_t& j){
         mat3<T> out;
         for(size_t row = 0; row < 4; ++row){
             for(size_t col = 0; col < 4; ++col){
@@ -215,7 +215,7 @@ public:
 
         vec4<T> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
 
-        vec4<T> Dot0(values[0] * Row0);
+        vec4<T> Dot0(vec4<T>(values[0]) * Row0);
         T Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
 
         T OneOverDeterminant = static_cast<T>(1) / Dot1;
