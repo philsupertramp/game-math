@@ -24,36 +24,26 @@
  * @return $$A^{-1}$$
  */
 Matrix<double> gaussJordan(const Matrix<double>& A) {
-    /*
-     *
-# Applying Guass Jordan Elimination
-for i in range(n):
-    if a[i][i] == 0.0:
-        sys.exit('Divide by zero detected!')
-
-    for j in range(n):
-        if i != j:
-            ratio = a[j][i]/a[i][i]
-
-            for k in range(2*n):
-                a[j][k] = a[j][k] - ratio * a[i][k]
-
-# Row operation to make principal diagonal element to 1
-for i in range(n):
-    divisor = a[i][i]
-    for j in range(2*n):
-        a[i][j] = a[i][j]/divisor
+    // This is rubbish
+    // We need row major pivot in here
+    /**
+     * Idea is simple,
+     * - keep A as is, create copy
+     * - generate identity matrix of dimensions of A
+     * - potentially check out https://github.com/hbtalha/Matrix-Library, https://www.cplusplus.com/forum/beginner/267832/
      */
-    auto B = HorizontalConcat(A, eye(A.rows(), A.columns()));
-    for(size_t i = 0; i < A.rows(); ++i) {
-        if(A(i, i) == 0.0f) {
+    auto res = LU(A);
+    auto B = res.first;
+    std::cout << B << std::endl;
+    for(size_t i = 0; i < B.rows(); ++i){
+        if(B(i, i) == 0.0f){
             // error
-            std::cerr << "DIVISION BY 0!!! for " << i << "=" << A(i, i) << std::endl;
-            std::cerr << A << std::endl;
+            std::cerr << "DIVISION BY 0!!! for " << i << "=" << B(i, i) << std::endl;
+            std::cerr << B << std::endl;
         }
-        for(size_t j = 0; j < A.columns(); ++j) {
+        for(size_t j = 0; j < B.columns(); ++j){
             if(i != j) {
-                auto ratio = A(j, i) / A(i, i);
+                auto ratio = B(j, i) / B(i, i);
                 for(size_t k = j; k < B.columns(); ++k) { B(j, k) = B(j, k) - ratio * B(i, k); }
             }
         }
