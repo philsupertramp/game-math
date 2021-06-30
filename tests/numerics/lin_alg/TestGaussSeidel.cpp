@@ -1,4 +1,5 @@
 #include "../../Test.h"
+#include <math/numerics/lin_alg/gaussJordan.h>
 #include <math/numerics/lin_alg/gaussSeidel.h>
 #include <vector>
 
@@ -25,10 +26,35 @@ class GaussSeidelTestCase : public Test
         return true;
     }
 
+    bool TestGaussSeidelInverse(){
+        Matrix<double> A = eye(2);
+        std::cout << A << std::endl;
+        auto out = gaussJordan(A);
+        std::cout << out << std::endl;
+
+        A = {
+            {1, 1, 1, -1},
+            {1, 1, -1, 1},
+            {1, -1, 1, 1},
+            {-1, 1, 1, 1},
+        };
+        std::cout << gaussJordan(A) << std::endl;
+        Matrix<double> B = {
+            {1./4,1./4,1./4,-1./4},
+            {1./4,1./4,-1./4,1./4},
+            {1./4,-1./4,1./4,1./4},
+            {-1./4,1./4,1./4,1./4},
+        };
+        std::cout << B << std::endl;
+        return true;
+    }
+
 public:
     void run() override {
         TestGaussSeidel();
         TestGaussSeidel2();
+        TestGaussSeidelInverse();
+
     }
 };
 

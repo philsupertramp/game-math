@@ -5,9 +5,9 @@
 
 /** regular helpers **/
 double round(double x, int precision) {
-    int prec      = pow(10, precision);
+    int prec      = (int)pow(10, precision);
     int lastDigit = abs((int)(x * prec * 10) % 10);
-    return ((int)(x * prec) + (lastDigit > 0 && lastDigit >= 5 ? 1 : 0) * (x > 0 ? 1 : -1)) / (double)prec;
+    return ((int)(x * prec) + (lastDigit >= 5 ? 1 : 0) * (x >= 0 ? 1 : -1)) / (double)prec;
 }
 double abs(double x) {
     if(x < 0.) return x * (-1.);
@@ -107,10 +107,11 @@ double likelihood(const Matrix<double>& vec) {
     for(int i = 0; i < vec.rows(); ++i) {
         //vec->_e[i];
     }
+    return 0.0;
 }
 
 Matrix<double> Regression(const Matrix<double>& a) {
-    int size             = a.rows() > a.columns() ? a.rows() : a.columns();
+    int size             = int(a.rows() > a.columns() ? a.rows() : a.columns());
     auto u1              = linspace(1, size, size).Transpose();
     auto u2              = ones(size, 1);
     Matrix<double> right = { { (a.Transpose() * u1)(0, 0) }, { (a.Transpose() * u2)(0, 0) } };

@@ -29,9 +29,10 @@ Matrix<double> gaussSeidel(const Matrix<double>& A, const Matrix<double>& b) {
     auto LR = LU(A);
 
     auto bCopy = b;
-    for(size_t i = 0; i < b.rows(); i++) { b(i, 0) = bCopy(LR.second[i], 0); }
+    for(size_t i = 0; i < b.rows(); i++) { bCopy.SetRow(i, b(LR.second[i])); }
 
-    auto c = forwardSub(LR.first, b);
+    auto c = forwardSub(LR.first, bCopy);
+    std::cout << c << std::endl;
     return backwardSub(LR.first, c);
 }
 
