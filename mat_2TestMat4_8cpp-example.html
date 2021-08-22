@@ -406,11 +406,24 @@ $(function() {
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> TestInverse(){</div>
+<div class="line">        <a class="code" href="structmat4.html">mat4&lt;T&gt;</a> A = <a class="code" href="structmat4.html#a8992a591df412176cd5365e20af13490">mat4&lt;T&gt;::Unit</a>();</div>
+<div class="line"> </div>
+<div class="line">        AssertEqual(A.<a name="a9"></a><a class="code" href="structmat4.html#a6111cf770a3769b25e2dd4bd13fa5868">Inverse</a>(), A);</div>
+<div class="line">        <span class="keywordflow">if</span>(extended){</div>
+<div class="line">            A = <a class="code" href="structmat4.html">mat4&lt;T&gt;</a>(1, 1, 1, -1, 1, 1, -1, 1, 1, -1, 1, 1, -1, 1, 1, 1);</div>
+<div class="line">            <span class="keyword">auto</span> B = A * <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.25);</div>
+<div class="line">            AssertEqual(A.<a class="code" href="structmat4.html#a6111cf770a3769b25e2dd4bd13fa5868">Inverse</a>(), B);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
 <div class="line">        TestInitialization();</div>
 <div class="line">        TestUtils();</div>
 <div class="line">        TestMath();</div>
+<div class="line"><span class="comment">//        TestInverse();</span></div>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="line"> </div>
@@ -427,6 +440,7 @@ $(function() {
 <div class="ttc" id="amath_8h_html"><div class="ttname"><a href="math_8h.html">math.h</a></div></div>
 <div class="ttc" id="astructmat4_html"><div class="ttname"><a href="structmat4.html">mat4</a></div><div class="ttdef"><b>Definition:</b> mat4.h:11</div></div>
 <div class="ttc" id="astructmat4_html_a5cb4b663a9f710a01b2d9959595431c5"><div class="ttname"><a href="structmat4.html#a5cb4b663a9f710a01b2d9959595431c5">mat4::IsSymmetric</a></div><div class="ttdeci">bool IsSymmetric()</div><div class="ttdef"><b>Definition:</b> mat4.h:131</div></div>
+<div class="ttc" id="astructmat4_html_a6111cf770a3769b25e2dd4bd13fa5868"><div class="ttname"><a href="structmat4.html#a6111cf770a3769b25e2dd4bd13fa5868">mat4::Inverse</a></div><div class="ttdeci">mat4 Inverse()</div><div class="ttdef"><b>Definition:</b> mat4.h:169</div></div>
 <div class="ttc" id="astructmat4_html_a8992a591df412176cd5365e20af13490"><div class="ttname"><a href="structmat4.html#a8992a591df412176cd5365e20af13490">mat4::Unit</a></div><div class="ttdeci">static mat4&lt; T &gt; Unit()</div><div class="ttdef"><b>Definition:</b> mat4.h:94</div></div>
 <div class="ttc" id="astructmat4_html_aa6a61e9f0b4ddc318c80cc8bb894e1e7"><div class="ttname"><a href="structmat4.html#aa6a61e9f0b4ddc318c80cc8bb894e1e7">mat4::Transpose</a></div><div class="ttdeci">mat4&lt; T &gt; Transpose()</div><div class="ttdef"><b>Definition:</b> mat4.h:119</div></div>
 <div class="ttc" id="astructvec4_html"><div class="ttname"><a href="structvec4.html">vec4</a></div><div class="ttdef"><b>Definition:</b> vec4.h:11</div></div>

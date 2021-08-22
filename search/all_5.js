@@ -13,7 +13,7 @@ var searchData=
   ['differentiation_2eh_80',['Differentiation.h',['../Differentiation_8h.html',1,'']]],
   ['dim_81',['dim',['../structvec2.html#aa5afbdfa81ffd38272563940ffa7469c',1,'vec2::dim()'],['../structvec3.html#a345843fea85e1b96768cf3ab83c35889',1,'vec3::dim()'],['../structvec4.html#a75071b55935e61bf7f27c7408954dc61',1,'vec4::dim()']]],
   ['discountfactor_82',['discountFactor',['../Insurance_8cpp.html#a7447721e5975127c235fe6daa2ce95f9',1,'discountFactor(double i):&#160;Insurance.cpp'],['../Insurance_8h.html#a7447721e5975127c235fe6daa2ce95f9',1,'discountFactor(double i):&#160;Insurance.cpp']]],
-  ['distance_83',['distance',['../namespaceMath_1_1Utils.html#a0db82d57fef0c8540f30485e3e8d707f',1,'Math::Utils']]],
+  ['distance_83',['distance',['../namespaceMath_1_1Utils.html#a0648d54048d8ebffd974f0bb280b10b4',1,'Math::Utils']]],
   ['dots_84',['DOTS',['../Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49',1,'Plot.h']]],
   ['ds_20_28data_20science_29_2dsubmodule_85',['ds (Data science)-submodule',['../md_include_math_ds_README.html',1,'']]]
 ];

@@ -9,9 +9,9 @@
 \item 
 \mbox{\hyperlink{structvec2_a4307f112f2113890dc1107f1106a9376}{vec2}} ()
 \item 
-\mbox{\hyperlink{structvec2_a25dffd1366280473acb142d748b4c0df}{vec2}} (T \+\_\+x, T \+\_\+y)
+\mbox{\hyperlink{structvec2_ae20b5d22cb8752513b4adff218dccb76}{vec2}} (const T \&\+\_\+x, const T \&\+\_\+y)
 \item 
-\mbox{\hyperlink{structvec2_ac6e67e669cb5ca4f2287217ba6ffe9cc}{vec2}} (T \+\_\+v)
+\mbox{\hyperlink{structvec2_af783c06d303c7c0ed0e4f394fb314bce}{vec2}} (const T \&\+\_\+v)
 \item 
 \mbox{\hyperlink{structvec2_a533cbc72a42f0b16e3b493e1da8285e3}{vec2}} (const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&\+\_\+v)
 \item 
@@ -31,9 +31,9 @@ float \mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}} ()
 \item 
 constexpr \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \& \mbox{\hyperlink{structvec2_afa1144f38cf9c20c0eedfaa8afbc0155}{operator=}} (\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ const \&V)
 \item 
-T \& \mbox{\hyperlink{structvec2_ac086e4abfa54bb9d522e9a0ff49ab61e}{operator\mbox{[}$\,$\mbox{]}}} (int index)
+T \& \mbox{\hyperlink{structvec2_ad90917d1fafbdf8826b3ef23c3fbe29f}{operator\mbox{[}$\,$\mbox{]}}} (const int \&index)
 \item 
-const T \& \mbox{\hyperlink{structvec2_a662342522d7f0ece2f52fbf973cc5504}{operator\mbox{[}$\,$\mbox{]}}} (int index) const
+const T \& \mbox{\hyperlink{structvec2_a2524d835e982bcc91eb4b815da4046f9}{operator\mbox{[}$\,$\mbox{]}}} (const int \&index) const
 \item 
 {\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structvec2_a57f14e1d34a40c10be3a8b73186df809}{operator vec2$<$ U $>$}} ()
 \end{DoxyCompactItemize}
@@ -97,12 +97,12 @@ struct vec2$<$ T $>$}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::\mbox{\hyperlink{structvec2}{vec2}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-default constructor \mbox{\Hypertarget{structvec2_a25dffd1366280473acb142d748b4c0df}\label{structvec2_a25dffd1366280473acb142d748b4c0df}} 
+default constructor \mbox{\Hypertarget{structvec2_ae20b5d22cb8752513b4adff218dccb76}\label{structvec2_ae20b5d22cb8752513b4adff218dccb76}} 
 \index{vec2$<$ T $>$@{vec2$<$ T $>$}!vec2@{vec2}}
 \index{vec2@{vec2}!vec2$<$ T $>$@{vec2$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{vec2()}{vec2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::\mbox{\hyperlink{structvec2}{vec2}} (\begin{DoxyParamCaption}\item[{T}]{\+\_\+x,  }\item[{T}]{\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::\mbox{\hyperlink{structvec2}{vec2}} (\begin{DoxyParamCaption}\item[{const T \&}]{\+\_\+x,  }\item[{const T \&}]{\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 two-\/element constructor 
 \begin{DoxyParams}{Parameters}
@@ -111,12 +111,12 @@ two-\/element constructor
 {\em \+\_\+y} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{structvec2_ac6e67e669cb5ca4f2287217ba6ffe9cc}\label{structvec2_ac6e67e669cb5ca4f2287217ba6ffe9cc}} 
+\mbox{\Hypertarget{structvec2_af783c06d303c7c0ed0e4f394fb314bce}\label{structvec2_af783c06d303c7c0ed0e4f394fb314bce}} 
 \index{vec2$<$ T $>$@{vec2$<$ T $>$}!vec2@{vec2}}
 \index{vec2@{vec2}!vec2$<$ T $>$@{vec2$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{vec2()}{vec2()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::\mbox{\hyperlink{structvec2}{vec2}} (\begin{DoxyParamCaption}\item[{T}]{\+\_\+v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::\mbox{\hyperlink{structvec2}{vec2}} (\begin{DoxyParamCaption}\item[{const T \&}]{\+\_\+v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 single value constructor initializes all elements with given \+\_\+v 
 \begin{DoxyParams}{Parameters}
@@ -170,7 +170,7 @@ getter for normalized vector \begin{DoxyReturn}{Returns}
 \doxysubsubsection{\texorpdfstring{operator vec2$<$ U $>$()}{operator vec2< U >()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 template$<$typename U $>$ \\
-\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::operator \mbox{\hyperlink{structvec2}{vec2}}$<$ U $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::operator \mbox{\hyperlink{structvec2}{vec2}}$<$ U $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 cast into other type 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -262,12 +262,12 @@ assignment operator
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structvec2_ac086e4abfa54bb9d522e9a0ff49ab61e}\label{structvec2_ac086e4abfa54bb9d522e9a0ff49ab61e}} 
+\mbox{\Hypertarget{structvec2_ad90917d1fafbdf8826b3ef23c3fbe29f}\label{structvec2_ad90917d1fafbdf8826b3ef23c3fbe29f}} 
 \index{vec2$<$ T $>$@{vec2$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!vec2$<$ T $>$@{vec2$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-T\& \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+T\& \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 member access 
 \begin{DoxyParams}{Parameters}
@@ -277,12 +277,12 @@ member access
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structvec2_a662342522d7f0ece2f52fbf973cc5504}\label{structvec2_a662342522d7f0ece2f52fbf973cc5504}} 
+\mbox{\Hypertarget{structvec2_a2524d835e982bcc91eb4b815da4046f9}\label{structvec2_a2524d835e982bcc91eb4b815da4046f9}} 
 \index{vec2$<$ T $>$@{vec2$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!vec2$<$ T $>$@{vec2$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-const T\& \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+const T\& \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 const member access 
 \begin{DoxyParams}{Parameters}

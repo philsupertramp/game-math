@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>philsupertramp/game-math: include/math/numerics/lin_alg Directory Reference</title>
+<title>philsupertramp/game-math: include/math/numerics/lin_alg/gaussJordan.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,26 +72,57 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">lin_alg Directory Reference</div>  </div>
+<div class="title">gaussJordan.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="Matrix_8h_source.html">../../Matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="LU_8h_source.html">LU.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="backwardSub_8h_source.html">backwardSub.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="forwardSub_8h_source.html">forwardSub.h</a>&quot;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div>
+<p><a href="gaussJordan_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:backwardSub_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backwardSub_8h.html">backwardSub.h</a> <a href="backwardSub_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:forwardSub_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="forwardSub_8h.html">forwardSub.h</a> <a href="forwardSub_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaussJordan_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gaussJordan_8h.html">gaussJordan.h</a> <a href="gaussJordan_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaussSeidel_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gaussSeidel_8h.html">gaussSeidel.h</a> <a href="gaussSeidel_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:LU_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LU_8h.html">LU.h</a> <a href="LU_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:newton_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="newton_8h.html">newton.h</a> <a href="newton_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0d15e5b46633b36b4b48fc5665c822d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gaussJordan_8h.html#a0d15e5b46633b36b4b48fc5665c822d9">gaussJordan</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;A)</td></tr>
+<tr class="separator:a0d15e5b46633b36b4b48fc5665c822d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Gaussian elimination to solve systems of linear equations. Uses column major pivot elements to reduce number of operations.</p>
+<p>Requires: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;math/numerics/lin_alg/gausseidel.h&gt;</span></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a0d15e5b46633b36b4b48fc5665c822d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d15e5b46633b36b4b48fc5665c822d9">&#9670;&nbsp;</a></span>gaussJordan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt;double&gt; gaussJordan </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>A</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gauss-Jordan algorithm to calculate inverse of given squared matrix.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>squared Coefficient matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>$$A^{-1}$$ </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2lin_alg_2TestGaussSeidel_8cpp-example.html#a3">numerics/lin_alg/TestGaussSeidel.cpp</a>.</dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

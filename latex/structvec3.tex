@@ -9,17 +9,19 @@
 \item 
 \mbox{\hyperlink{structvec3_afb7342872bc442bf0da6a7da1671e77e}{vec3}} ()
 \item 
-\mbox{\hyperlink{structvec3_a70b4645f1ef288d95a9b13376dd9c14a}{vec3}} (T \+\_\+x, T \+\_\+y, T \+\_\+z)
+\mbox{\hyperlink{structvec3_a9c39ad65ab50e553679bfec6145522ec}{vec3}} (const T \&\+\_\+x, const T \&\+\_\+y, const T \&\+\_\+z)
 \item 
-\mbox{\hyperlink{structvec3_a71875515a97dbaa28c1d177915772b79}{vec3}} (\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ a)
+\mbox{\hyperlink{structvec3_acbeba773314e08dc2b590894e6bde589}{vec3}} (const \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \&a)
 \item 
 \mbox{\hyperlink{structvec3_aca60d87fb328266fb92d531e7cbf94e1}{vec3}} (const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&a, const T \&\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}})
 \item 
-\mbox{\hyperlink{structvec3_a2b1ec73adbd504ee31d05b5e2ae4a720}{vec3}} (T \+\_\+v)
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structvec3_a38a2bda6ed138360134323b311840aec}{vec3}} (const U \&\+\_\+v)
 \item 
 \mbox{\hyperlink{structvec3_aae003cd1de08a8e9dc1f268d1d536979}{vec3}} (const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&v)
 \item 
-\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \mbox{\hyperlink{structvec3_a6659bbbbdec0fcf10942a8cbc205b952}{cross}} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ rhs) const
+\mbox{\hyperlink{structvec3_a543be758276c26d9bb238f83f0ac1c0f}{vec3}} (const T $\ast$v)
+\item 
+\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \mbox{\hyperlink{structvec3_afe3d7159a0462443dfb67610ee069465}{cross}} (const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&rhs) const
 \item 
 float \mbox{\hyperlink{structvec3_ac029a16150f7428a8e6e3bf876da68b1}{length}} () const
 \item 
@@ -35,9 +37,9 @@ float \mbox{\hyperlink{structvec3_ac029a16150f7428a8e6e3bf876da68b1}{length}} ()
 \item 
 constexpr \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \& \mbox{\hyperlink{structvec3_a0f9a0ce136b3bd4f4212ceccc0c08b36}{operator=}} (\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ const \&V)
 \item 
-T \& \mbox{\hyperlink{structvec3_a0e0a232651cb724638ad5a3e61370ab8}{operator\mbox{[}$\,$\mbox{]}}} (int index)
+T \& \mbox{\hyperlink{structvec3_a0097fbb193a4b999aea70819a1683c63}{operator\mbox{[}$\,$\mbox{]}}} (const int \&index)
 \item 
-const T \& \mbox{\hyperlink{structvec3_aed3cd464bbbf75eca47ee0d11504b4d3}{operator\mbox{[}$\,$\mbox{]}}} (int index) const
+const T \& \mbox{\hyperlink{structvec3_aad80efa69fef42e07c8a854ded0b718d}{operator\mbox{[}$\,$\mbox{]}}} (const int \&index) const
 \item 
 {\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structvec3_a5001c9f4f18ddd32c9d8c771a5d54b9b}{operator vec3$<$ U $>$}} ()
 \end{DoxyCompactItemize}
@@ -102,16 +104,16 @@ struct vec3$<$ T $>$}
 \mbox{\Hypertarget{structvec3_afb7342872bc442bf0da6a7da1671e77e}\label{structvec3_afb7342872bc442bf0da6a7da1671e77e}} 
 \index{vec3$<$ T $>$@{vec3$<$ T $>$}!vec3@{vec3}}
 \index{vec3@{vec3}!vec3$<$ T $>$@{vec3$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::\mbox{\hyperlink{structvec3}{vec3}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-default constructor initializes elements with 0 \mbox{\Hypertarget{structvec3_a70b4645f1ef288d95a9b13376dd9c14a}\label{structvec3_a70b4645f1ef288d95a9b13376dd9c14a}} 
+default constructor initializes elements with 0 \mbox{\Hypertarget{structvec3_a9c39ad65ab50e553679bfec6145522ec}\label{structvec3_a9c39ad65ab50e553679bfec6145522ec}} 
 \index{vec3$<$ T $>$@{vec3$<$ T $>$}!vec3@{vec3}}
 \index{vec3@{vec3}!vec3$<$ T $>$@{vec3$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::\mbox{\hyperlink{structvec3}{vec3}} (\begin{DoxyParamCaption}\item[{T}]{\+\_\+x,  }\item[{T}]{\+\_\+y,  }\item[{T}]{\+\_\+z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::\mbox{\hyperlink{structvec3}{vec3}} (\begin{DoxyParamCaption}\item[{const T \&}]{\+\_\+x,  }\item[{const T \&}]{\+\_\+y,  }\item[{const T \&}]{\+\_\+z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 3 element 
 \begin{DoxyParams}{Parameters}
@@ -122,12 +124,12 @@ default constructor initializes elements with 0 \mbox{\Hypertarget{structvec3_a7
 {\em \+\_\+z} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{structvec3_a71875515a97dbaa28c1d177915772b79}\label{structvec3_a71875515a97dbaa28c1d177915772b79}} 
+\mbox{\Hypertarget{structvec3_acbeba773314e08dc2b590894e6bde589}\label{structvec3_acbeba773314e08dc2b590894e6bde589}} 
 \index{vec3$<$ T $>$@{vec3$<$ T $>$}!vec3@{vec3}}
 \index{vec3@{vec3}!vec3$<$ T $>$@{vec3$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::\mbox{\hyperlink{structvec3}{vec3}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::\mbox{\hyperlink{structvec3}{vec3}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 \mbox{\hyperlink{structvec4}{vec4}} to \mbox{\hyperlink{structvec3}{vec3}} cast 
 \begin{DoxyParams}{Parameters}
@@ -137,7 +139,7 @@ default constructor initializes elements with 0 \mbox{\Hypertarget{structvec3_a7
 \mbox{\Hypertarget{structvec3_aca60d87fb328266fb92d531e7cbf94e1}\label{structvec3_aca60d87fb328266fb92d531e7cbf94e1}} 
 \index{vec3$<$ T $>$@{vec3$<$ T $>$}!vec3@{vec3}}
 \index{vec3@{vec3}!vec3$<$ T $>$@{vec3$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::\mbox{\hyperlink{structvec3}{vec3}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&}]{a,  }\item[{const T \&}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -148,12 +150,13 @@ default constructor initializes elements with 0 \mbox{\Hypertarget{structvec3_a7
 {\em z} & element z \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{structvec3_a2b1ec73adbd504ee31d05b5e2ae4a720}\label{structvec3_a2b1ec73adbd504ee31d05b5e2ae4a720}} 
+\mbox{\Hypertarget{structvec3_a38a2bda6ed138360134323b311840aec}\label{structvec3_a38a2bda6ed138360134323b311840aec}} 
 \index{vec3$<$ T $>$@{vec3$<$ T $>$}!vec3@{vec3}}
 \index{vec3@{vec3}!vec3$<$ T $>$@{vec3$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::\mbox{\hyperlink{structvec3}{vec3}} (\begin{DoxyParamCaption}\item[{T}]{\+\_\+v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+template$<$typename U $>$ \\
+\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::\mbox{\hyperlink{structvec3}{vec3}} (\begin{DoxyParamCaption}\item[{const U \&}]{\+\_\+v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 single value constructor 
 \begin{DoxyParams}{Parameters}
@@ -163,7 +166,7 @@ single value constructor
 \mbox{\Hypertarget{structvec3_aae003cd1de08a8e9dc1f268d1d536979}\label{structvec3_aae003cd1de08a8e9dc1f268d1d536979}} 
 \index{vec3$<$ T $>$@{vec3$<$ T $>$}!vec3@{vec3}}
 \index{vec3@{vec3}!vec3$<$ T $>$@{vec3$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::\mbox{\hyperlink{structvec3}{vec3}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -172,15 +175,22 @@ copy-\/constructor
 {\em v} & \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{structvec3_a543be758276c26d9bb238f83f0ac1c0f}\label{structvec3_a543be758276c26d9bb238f83f0ac1c0f}} 
+\index{vec3$<$ T $>$@{vec3$<$ T $>$}!vec3@{vec3}}
+\index{vec3@{vec3}!vec3$<$ T $>$@{vec3$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{vec3()}{vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::\mbox{\hyperlink{structvec3}{vec3}} (\begin{DoxyParamCaption}\item[{const T $\ast$}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{structvec3_a6659bbbbdec0fcf10942a8cbc205b952}\label{structvec3_a6659bbbbdec0fcf10942a8cbc205b952}} 
+\mbox{\Hypertarget{structvec3_afe3d7159a0462443dfb67610ee069465}\label{structvec3_afe3d7159a0462443dfb67610ee069465}} 
 \index{vec3$<$ T $>$@{vec3$<$ T $>$}!cross@{cross}}
 \index{cross@{cross}!vec3$<$ T $>$@{vec3$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{cross()}{cross()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structvec3}{vec3}}$<$T$>$ \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::cross (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structvec3}{vec3}}$<$T$>$ \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::cross (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 cross-\/product 
 \begin{DoxyParams}{Parameters}
@@ -227,7 +237,7 @@ returns normalized vector \begin{DoxyReturn}{Returns}
 \doxysubsubsection{\texorpdfstring{operator vec3$<$ U $>$()}{operator vec3< U >()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 template$<$typename U $>$ \\
-\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::operator \mbox{\hyperlink{structvec3}{vec3}}$<$ U $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::operator \mbox{\hyperlink{structvec3}{vec3}}$<$ U $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 cast operator into new type U 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -312,12 +322,12 @@ copy constructor
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structvec3_a0e0a232651cb724638ad5a3e61370ab8}\label{structvec3_a0e0a232651cb724638ad5a3e61370ab8}} 
+\mbox{\Hypertarget{structvec3_a0097fbb193a4b999aea70819a1683c63}\label{structvec3_a0097fbb193a4b999aea70819a1683c63}} 
 \index{vec3$<$ T $>$@{vec3$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!vec3$<$ T $>$@{vec3$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-T\& \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+T\& \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 element access 
 \begin{DoxyParams}{Parameters}
@@ -327,12 +337,12 @@ element access
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structvec3_aed3cd464bbbf75eca47ee0d11504b4d3}\label{structvec3_aed3cd464bbbf75eca47ee0d11504b4d3}} 
+\mbox{\Hypertarget{structvec3_aad80efa69fef42e07c8a854ded0b718d}\label{structvec3_aad80efa69fef42e07c8a854ded0b718d}} 
 \index{vec3$<$ T $>$@{vec3$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!vec3$<$ T $>$@{vec3$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-const T\& \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+const T\& \mbox{\hyperlink{structvec3}{vec3}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 const element access 
 \begin{DoxyParams}{Parameters}

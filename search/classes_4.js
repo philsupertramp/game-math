@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['function_526',['Function',['../classFunction.html',1,'']]],
-  ['functionplot_527',['FunctionPlot',['../classFunctionPlot.html',1,'']]]
+  ['function_530',['Function',['../classFunction.html',1,'']]],
+  ['functionplot_531',['FunctionPlot',['../classFunctionPlot.html',1,'']]]
 ];

@@ -207,11 +207,22 @@ $(function() {
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> TestInverse(){</div>
+<div class="line">        <a class="code" href="structmat2.html">mat2&lt;T&gt;</a> A = <a class="code" href="structmat2.html">mat2&lt;T&gt;</a>(1, 0, 0, 1);</div>
+<div class="line">        AssertEqual(A, A.<a name="a7"></a><a class="code" href="structmat2.html#aba78ee0c43f742b069bd7c789411117e">Inverse</a>());</div>
+<div class="line">        <span class="keywordflow">if</span>(extended) {</div>
+<div class="line">            A = <a class="code" href="structmat2.html">mat2&lt;T&gt;</a>(4, 7, 2, 6);</div>
+<div class="line">            AssertEqual(A.<a class="code" href="structmat2.html#aba78ee0c43f742b069bd7c789411117e">Inverse</a>(), <a class="code" href="structmat2.html">mat2&lt;T&gt;</a>(0.6, -0.7, -0.2, 0.4));</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
 <div class="line">        TestInitialization();</div>
 <div class="line">        TestUtils();</div>
 <div class="line">        TestMath();</div>
+<div class="line">        TestInverse();</div>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="line"> </div>
@@ -229,6 +240,7 @@ $(function() {
 <div class="ttc" id="astructmat2_html"><div class="ttname"><a href="structmat2.html">mat2</a></div><div class="ttdef"><b>Definition:</b> mat2.h:10</div></div>
 <div class="ttc" id="astructmat2_html_a583178c3bdc6bca0c4d03bccbffa7388"><div class="ttname"><a href="structmat2.html#a583178c3bdc6bca0c4d03bccbffa7388">mat2::Transpose</a></div><div class="ttdeci">mat2&lt; T &gt; Transpose()</div><div class="ttdef"><b>Definition:</b> mat2.h:65</div></div>
 <div class="ttc" id="astructmat2_html_a77284ffa9e21eb9242ec441a8af5f081"><div class="ttname"><a href="structmat2.html#a77284ffa9e21eb9242ec441a8af5f081">mat2::Unit</a></div><div class="ttdeci">static mat2&lt; T &gt; Unit()</div><div class="ttdef"><b>Definition:</b> mat2.h:57</div></div>
+<div class="ttc" id="astructmat2_html_aba78ee0c43f742b069bd7c789411117e"><div class="ttname"><a href="structmat2.html#aba78ee0c43f742b069bd7c789411117e">mat2::Inverse</a></div><div class="ttdeci">mat2&lt; T &gt; Inverse() const</div><div class="ttdef"><b>Definition:</b> mat2.h:78</div></div>
 <div class="ttc" id="astructmat2_html_af01714893e2ef949e68b8fb915d35e0b"><div class="ttname"><a href="structmat2.html#af01714893e2ef949e68b8fb915d35e0b">mat2::IsSymmetric</a></div><div class="ttdeci">bool IsSymmetric()</div><div class="ttdef"><b>Definition:</b> mat2.h:71</div></div>
 <div class="ttc" id="astructvec2_html"><div class="ttname"><a href="structvec2.html">vec2</a></div><div class="ttdef"><b>Definition:</b> vec2.h:11</div></div>
 <div class="ttc" id="astructvec2_html_a74bc54c64e2e47307e3807b2f1c6436b"><div class="ttname"><a href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">vec2::y</a></div><div class="ttdeci">T y</div><div class="ttdef"><b>Definition:</b> vec2.h:29</div></div>

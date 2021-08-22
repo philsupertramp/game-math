@@ -29,6 +29,6 @@ var searchData=
   ['count_65',['count',['../structSet.html#a21819d28230d81776628a4d152a6fed0',1,'Set']]],
   ['cov_66',['cov',['../Probability_8cpp.html#aca7f07a568ee49e5d34982dfd6d811db',1,'cov(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y):&#160;Probability.cpp'],['../Probability_8h.html#aca7f07a568ee49e5d34982dfd6d811db',1,'cov(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y):&#160;Probability.cpp']]],
   ['createast_67',['createAST',['../classEquationParser.html#a2c458c39a4259accdf8dec7020b6ba8e',1,'EquationParser']]],
-  ['cross_68',['cross',['../structvec3.html#a6659bbbbdec0fcf10942a8cbc205b952',1,'vec3']]],
+  ['cross_68',['cross',['../structvec3.html#afe3d7159a0462443dfb67610ee069465',1,'vec3']]],
   ['curv_69',['curv',['../classSpline.html#a4bd1bdbc5888be3e26c6b3b4fecd1c49',1,'Spline']]]
 ];

@@ -9,11 +9,11 @@
 \item 
 \mbox{\hyperlink{structmat4_a26e492c3f7812d780d6f0cabef0b2f72}{mat4}} ()
 \item 
-\mbox{\hyperlink{structmat4_a5c1e441ae3bfaddc9633803d8cfb6427}{mat4}} (T \+\_\+a, T \+\_\+b, T \+\_\+c, T \+\_\+d, T \+\_\+e, T \+\_\+f, T \+\_\+g, T \+\_\+h, T \+\_\+i, T \+\_\+j, T \+\_\+k, T \+\_\+l, T \+\_\+m, T \+\_\+n, T \+\_\+o, T \+\_\+p)
+\mbox{\hyperlink{structmat4_af5740167a7407e0bbfcd38cde6f4676a}{mat4}} (const T \&\+\_\+a, const T \&\+\_\+b, const T \&\+\_\+c, const T \&\+\_\+d, const T \&\+\_\+e, const T \&\+\_\+f, const T \&\+\_\+g, const T \&\+\_\+h, const T \&\+\_\+i, const T \&\+\_\+j, const T \&\+\_\+k, const T \&\+\_\+l, const T \&\+\_\+m, const T \&\+\_\+n, const T \&\+\_\+o, const T \&\+\_\+p)
 \item 
-\mbox{\hyperlink{structmat4_a7ea9e53e9354aa1b4c9b595fa184598b}{mat4}} (\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ A, \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ B, \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ C, \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ D)
+\mbox{\hyperlink{structmat4_afee32bd62e09cb42241a2ca40ca1bf7d}{mat4}} (const \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \&A, const \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \&B, const \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \&C, const \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \&D)
 \item 
-\mbox{\hyperlink{structmat4_a101395b56b9c8d49e6851ebdb4c2d178}{mat4}} (T \+\_\+a)
+\mbox{\hyperlink{structmat4_ad689d5d14984d1f0c6f378040b22d997}{mat4}} (const T \&\+\_\+a)
 \item 
 \mbox{\hyperlink{structmat4_af219b6950330e081ef19a02db696173c}{$\sim$mat4}} ()=default
 \item 
@@ -23,7 +23,7 @@ bool \mbox{\hyperlink{structmat4_a5cb4b663a9f710a01b2d9959595431c5}{Is\+Symmetri
 \item 
 float \mbox{\hyperlink{structmat4_a923b473e059a635bdc17bbfb1a0e878d}{Determinant}} ()
 \item 
-\mbox{\hyperlink{structmat3}{mat3}}$<$ T $>$ \mbox{\hyperlink{structmat4_ae08cc8148056d24fecfedf3f746763b7}{get\+Minor}} (size\+\_\+t i, size\+\_\+t j)
+\mbox{\hyperlink{structmat3}{mat3}}$<$ T $>$ \mbox{\hyperlink{structmat4_ae071a80705665db72be5c3be41b0de1e}{get\+Minor}} (const size\+\_\+t \&i, const size\+\_\+t \&j)
 \item 
 \mbox{\hyperlink{structmat4}{mat4}} \mbox{\hyperlink{structmat4_a6111cf770a3769b25e2dd4bd13fa5868}{Inverse}} ()
 \item 
@@ -50,7 +50,7 @@ const T $\ast$ \mbox{\hyperlink{structmat4_a6dbfb8f1cf77e4812fa07f5621fc96a0}{op
 \item 
 static \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{structmat4_a8992a591df412176cd5365e20af13490}{Unit}} ()
 \item 
-static \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{structmat4_a6fd7a73644b54cf127ddcec5848232c7}{Transformation}} (\mbox{\hyperlink{structmat3}{mat3}}$<$ T $>$ m)
+static \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ \mbox{\hyperlink{structmat4_ac3c1a286cc5bae5284799fe7462d0bc2}{Transformation}} (const \mbox{\hyperlink{structmat3}{mat3}}$<$ T $>$ \&m)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -98,12 +98,12 @@ struct mat4$<$ T $>$}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::\mbox{\hyperlink{structmat4}{mat4}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-default constructor \mbox{\Hypertarget{structmat4_a5c1e441ae3bfaddc9633803d8cfb6427}\label{structmat4_a5c1e441ae3bfaddc9633803d8cfb6427}} 
+default constructor \mbox{\Hypertarget{structmat4_af5740167a7407e0bbfcd38cde6f4676a}\label{structmat4_af5740167a7407e0bbfcd38cde6f4676a}} 
 \index{mat4$<$ T $>$@{mat4$<$ T $>$}!mat4@{mat4}}
 \index{mat4@{mat4}!mat4$<$ T $>$@{mat4$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{mat4()}{mat4()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::\mbox{\hyperlink{structmat4}{mat4}} (\begin{DoxyParamCaption}\item[{T}]{\+\_\+a,  }\item[{T}]{\+\_\+b,  }\item[{T}]{\+\_\+c,  }\item[{T}]{\+\_\+d,  }\item[{T}]{\+\_\+e,  }\item[{T}]{\+\_\+f,  }\item[{T}]{\+\_\+g,  }\item[{T}]{\+\_\+h,  }\item[{T}]{\+\_\+i,  }\item[{T}]{\+\_\+j,  }\item[{T}]{\+\_\+k,  }\item[{T}]{\+\_\+l,  }\item[{T}]{\+\_\+m,  }\item[{T}]{\+\_\+n,  }\item[{T}]{\+\_\+o,  }\item[{T}]{\+\_\+p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::\mbox{\hyperlink{structmat4}{mat4}} (\begin{DoxyParamCaption}\item[{const T \&}]{\+\_\+a,  }\item[{const T \&}]{\+\_\+b,  }\item[{const T \&}]{\+\_\+c,  }\item[{const T \&}]{\+\_\+d,  }\item[{const T \&}]{\+\_\+e,  }\item[{const T \&}]{\+\_\+f,  }\item[{const T \&}]{\+\_\+g,  }\item[{const T \&}]{\+\_\+h,  }\item[{const T \&}]{\+\_\+i,  }\item[{const T \&}]{\+\_\+j,  }\item[{const T \&}]{\+\_\+k,  }\item[{const T \&}]{\+\_\+l,  }\item[{const T \&}]{\+\_\+m,  }\item[{const T \&}]{\+\_\+n,  }\item[{const T \&}]{\+\_\+o,  }\item[{const T \&}]{\+\_\+p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 16-\/element constructor 
 \begin{DoxyParams}{Parameters}
@@ -140,12 +140,12 @@ default constructor \mbox{\Hypertarget{structmat4_a5c1e441ae3bfaddc9633803d8cfb6
 {\em \+\_\+p} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{structmat4_a7ea9e53e9354aa1b4c9b595fa184598b}\label{structmat4_a7ea9e53e9354aa1b4c9b595fa184598b}} 
+\mbox{\Hypertarget{structmat4_afee32bd62e09cb42241a2ca40ca1bf7d}\label{structmat4_afee32bd62e09cb42241a2ca40ca1bf7d}} 
 \index{mat4$<$ T $>$@{mat4$<$ T $>$}!mat4@{mat4}}
 \index{mat4@{mat4}!mat4$<$ T $>$@{mat4$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{mat4()}{mat4()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::\mbox{\hyperlink{structmat4}{mat4}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$}]{A,  }\item[{\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$}]{B,  }\item[{\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$}]{C,  }\item[{\mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$}]{D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::\mbox{\hyperlink{structmat4}{mat4}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \&}]{B,  }\item[{const \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \&}]{C,  }\item[{const \mbox{\hyperlink{structvec4}{vec4}}$<$ T $>$ \&}]{D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 column-\/based constructor 
 \begin{DoxyParams}{Parameters}
@@ -158,12 +158,12 @@ column-\/based constructor
 {\em D} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{structmat4_a101395b56b9c8d49e6851ebdb4c2d178}\label{structmat4_a101395b56b9c8d49e6851ebdb4c2d178}} 
+\mbox{\Hypertarget{structmat4_ad689d5d14984d1f0c6f378040b22d997}\label{structmat4_ad689d5d14984d1f0c6f378040b22d997}} 
 \index{mat4$<$ T $>$@{mat4$<$ T $>$}!mat4@{mat4}}
 \index{mat4@{mat4}!mat4$<$ T $>$@{mat4$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{mat4()}{mat4()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::\mbox{\hyperlink{structmat4}{mat4}} (\begin{DoxyParamCaption}\item[{T}]{\+\_\+a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::\mbox{\hyperlink{structmat4}{mat4}} (\begin{DoxyParamCaption}\item[{const T \&}]{\+\_\+a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 single-\/value constructor 
 \begin{DoxyParams}{Parameters}
@@ -190,12 +190,12 @@ float \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::Determinant (\begin{DoxyPa
 computes determinant \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structmat4_ae08cc8148056d24fecfedf3f746763b7}\label{structmat4_ae08cc8148056d24fecfedf3f746763b7}} 
+\mbox{\Hypertarget{structmat4_ae071a80705665db72be5c3be41b0de1e}\label{structmat4_ae071a80705665db72be5c3be41b0de1e}} 
 \index{mat4$<$ T $>$@{mat4$<$ T $>$}!getMinor@{getMinor}}
 \index{getMinor@{getMinor}!mat4$<$ T $>$@{mat4$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getMinor()}{getMinor()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structmat3}{mat3}}$<$T$>$ \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::get\+Minor (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i,  }\item[{size\+\_\+t}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structmat3}{mat3}}$<$T$>$ \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::get\+Minor (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{i,  }\item[{const size\+\_\+t \&}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get minor matrix by exclusion indices
 
@@ -219,6 +219,9 @@ values without row i and column j
 Calculate inverse matrix \begin{DoxyReturn}{Returns}
 A -\/$>$ A$^\wedge$-\/1 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{mat_2TestMat4_8cpp-example}{mat/\+Test\+Mat4.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{structmat4_a5cb4b663a9f710a01b2d9959595431c5}\label{structmat4_a5cb4b663a9f710a01b2d9959595431c5}} 
 \index{mat4$<$ T $>$@{mat4$<$ T $>$}!IsSymmetric@{IsSymmetric}}
 \index{IsSymmetric@{IsSymmetric}!mat4$<$ T $>$@{mat4$<$ T $>$}}
@@ -367,12 +370,12 @@ const member access
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structmat4_a6fd7a73644b54cf127ddcec5848232c7}\label{structmat4_a6fd7a73644b54cf127ddcec5848232c7}} 
+\mbox{\Hypertarget{structmat4_ac3c1a286cc5bae5284799fe7462d0bc2}\label{structmat4_ac3c1a286cc5bae5284799fe7462d0bc2}} 
 \index{mat4$<$ T $>$@{mat4$<$ T $>$}!Transformation@{Transformation}}
 \index{Transformation@{Transformation}!mat4$<$ T $>$@{mat4$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{Transformation()}{Transformation()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-static \mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::Transformation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmat3}{mat3}}$<$ T $>$}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+static \mbox{\hyperlink{structmat4}{mat4}}$<$T$>$ \mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$\+::Transformation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structmat3}{mat3}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 transforms around given matrix 
 \begin{DoxyParams}{Parameters}

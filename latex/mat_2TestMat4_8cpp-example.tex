@@ -336,11 +336,24 @@ This is an example on how to use the \mbox{\hyperlink{mat4_8h}{mat4.\+h}} file.
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestInverse()\{}
+\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4<T>}} A = \mbox{\hyperlink{structmat4_a8992a591df412176cd5365e20af13490}{mat4<T>::Unit}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{        AssertEqual(A.\mbox{\hyperlink{structmat4_a6111cf770a3769b25e2dd4bd13fa5868}{Inverse}}(), A);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(extended)\{}
+\DoxyCodeLine{            A = \mbox{\hyperlink{structmat4}{mat4<T>}}(1, 1, 1, -\/1, 1, 1, -\/1, 1, 1, -\/1, 1, 1, -\/1, 1, 1, 1);}
+\DoxyCodeLine{            \textcolor{keyword}{auto} B = A * \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0.25);}
+\DoxyCodeLine{            AssertEqual(A.\mbox{\hyperlink{structmat4_a6111cf770a3769b25e2dd4bd13fa5868}{Inverse}}(), B);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}
 \DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{}
 \DoxyCodeLine{        TestInitialization();}
 \DoxyCodeLine{        TestUtils();}
 \DoxyCodeLine{        TestMath();}
+\DoxyCodeLine{\textcolor{comment}{//        TestInverse();}}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}

@@ -4,6 +4,7 @@ This is an example on how to use gauss\+Seidel.
 
 \begin{DoxyCodeInclude}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../../Test.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{gaussJordan_8h}{math/numerics/lin\_alg/gaussJordan.h}}>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{gaussSeidel_8h}{math/numerics/lin\_alg/gaussSeidel.h}}>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{}
@@ -30,10 +31,35 @@ This is an example on how to use gauss\+Seidel.
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestGaussSeidelInverse()\{}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A = \mbox{\hyperlink{utils_8cpp_a02435943b506858e6dd5d86fc85991c0}{eye}}(2);}
+\DoxyCodeLine{        std::cout << A << std::endl;}
+\DoxyCodeLine{        \textcolor{keyword}{auto} out = \mbox{\hyperlink{gaussJordan_8h_a0d15e5b46633b36b4b48fc5665c822d9}{gaussJordan}}(A);}
+\DoxyCodeLine{        std::cout << out << std::endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        A = \{}
+\DoxyCodeLine{            \{1, 1, 1, -\/1\},}
+\DoxyCodeLine{            \{1, 1, -\/1, 1\},}
+\DoxyCodeLine{            \{1, -\/1, 1, 1\},}
+\DoxyCodeLine{            \{-\/1, 1, 1, 1\},}
+\DoxyCodeLine{        \};}
+\DoxyCodeLine{        std::cout << \mbox{\hyperlink{gaussJordan_8h_a0d15e5b46633b36b4b48fc5665c822d9}{gaussJordan}}(A) << std::endl;}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} B = \{}
+\DoxyCodeLine{            \{1./4,1./4,1./4,-\/1./4\},}
+\DoxyCodeLine{            \{1./4,1./4,-\/1./4,1./4\},}
+\DoxyCodeLine{            \{1./4,-\/1./4,1./4,1./4\},}
+\DoxyCodeLine{            \{-\/1./4,1./4,1./4,1./4\},}
+\DoxyCodeLine{        \};}
+\DoxyCodeLine{        std::cout << B << std::endl;}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}
 \DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{}
 \DoxyCodeLine{        TestGaussSeidel();}
 \DoxyCodeLine{        TestGaussSeidel2();}
+\DoxyCodeLine{        TestGaussSeidelInverse();}
+\DoxyCodeLine{}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}

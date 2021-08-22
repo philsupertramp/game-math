@@ -137,11 +137,22 @@ This is an example on how to use the \mbox{\hyperlink{mat2_8h}{mat2.\+h}} file.
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestInverse()\{}
+\DoxyCodeLine{        \mbox{\hyperlink{structmat2}{mat2<T>}} A = \mbox{\hyperlink{structmat2}{mat2<T>}}(1, 0, 0, 1);}
+\DoxyCodeLine{        AssertEqual(A, A.\mbox{\hyperlink{structmat2_aba78ee0c43f742b069bd7c789411117e}{Inverse}}());}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(extended) \{}
+\DoxyCodeLine{            A = \mbox{\hyperlink{structmat2}{mat2<T>}}(4, 7, 2, 6);}
+\DoxyCodeLine{            AssertEqual(A.\mbox{\hyperlink{structmat2_aba78ee0c43f742b069bd7c789411117e}{Inverse}}(), \mbox{\hyperlink{structmat2}{mat2<T>}}(0.6, -\/0.7, -\/0.2, 0.4));}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}
 \DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{}
 \DoxyCodeLine{        TestInitialization();}
 \DoxyCodeLine{        TestUtils();}
 \DoxyCodeLine{        TestMath();}
+\DoxyCodeLine{        TestInverse();}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}

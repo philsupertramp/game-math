@@ -9,9 +9,9 @@
 \item 
 \mbox{\hyperlink{structmat2_a4866cefe04818775be00cdb2bd360a18}{mat2}} ()
 \item 
-\mbox{\hyperlink{structmat2_a01a2950137f51b6bb10a2bd395e5493d}{mat2}} (T \+\_\+a, T \+\_\+b, T \+\_\+c, T \+\_\+d)
+\mbox{\hyperlink{structmat2_af49673be653a8225b397c223eb38e053}{mat2}} (const T \&\+\_\+a, const T \&\+\_\+b, const T \&\+\_\+c, const T \&\+\_\+d)
 \item 
-\mbox{\hyperlink{structmat2_a28d158dd8c09958a41a515470ad27775}{mat2}} (\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ A, \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ B)
+\mbox{\hyperlink{structmat2_ac20f7185913b71703ea48853e2f65461}{mat2}} (const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&A, const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&B)
 \item 
 \mbox{\hyperlink{structmat2_a221acc89f9f55571a6c4614ad055e5c6}{$\sim$mat2}} ()=default
 \item 
@@ -20,6 +20,8 @@
 bool \mbox{\hyperlink{structmat2_af01714893e2ef949e68b8fb915d35e0b}{Is\+Symmetric}} ()
 \item 
 float \mbox{\hyperlink{structmat2_a2392950377c4cbb451ea9d528632b9f9}{Determinant}} ()
+\item 
+\mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$ \mbox{\hyperlink{structmat2_aba78ee0c43f742b069bd7c789411117e}{Inverse}} () const
 \item 
 \mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$ \& \mbox{\hyperlink{structmat2_aca5b778da5a6d6d616de931578886f79}{operator+=}} (const \mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$ \&rhs)
 \item 
@@ -31,9 +33,9 @@ float \mbox{\hyperlink{structmat2_a2392950377c4cbb451ea9d528632b9f9}{Determinant
 \item 
 \mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$ \& \mbox{\hyperlink{structmat2_aba01f90118f20d084e894b8361d5a207}{operator/=}} (const T \&rhs)
 \item 
-T $\ast$ \mbox{\hyperlink{structmat2_a8a0fb5665048ebd03d6410ba9dd4a04a}{operator\mbox{[}$\,$\mbox{]}}} (int index)
+T $\ast$ \mbox{\hyperlink{structmat2_a50710f16b685f4e3b301ee0bd7b2aff1}{operator\mbox{[}$\,$\mbox{]}}} (const int \&index)
 \item 
-const T $\ast$ \mbox{\hyperlink{structmat2_a28dac3665dbece4453e3f799b286e8e1}{operator\mbox{[}$\,$\mbox{]}}} (int index) const
+const T $\ast$ \mbox{\hyperlink{structmat2_a5a2734e83aa94b9a08a896f826c78fa1}{operator\mbox{[}$\,$\mbox{]}}} (const int \&index) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -86,12 +88,12 @@ struct mat2$<$ T $>$}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::\mbox{\hyperlink{structmat2}{mat2}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-default constructor, initializes null matrix \mbox{\Hypertarget{structmat2_a01a2950137f51b6bb10a2bd395e5493d}\label{structmat2_a01a2950137f51b6bb10a2bd395e5493d}} 
+default constructor, initializes null matrix \mbox{\Hypertarget{structmat2_af49673be653a8225b397c223eb38e053}\label{structmat2_af49673be653a8225b397c223eb38e053}} 
 \index{mat2$<$ T $>$@{mat2$<$ T $>$}!mat2@{mat2}}
 \index{mat2@{mat2}!mat2$<$ T $>$@{mat2$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{mat2()}{mat2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::\mbox{\hyperlink{structmat2}{mat2}} (\begin{DoxyParamCaption}\item[{T}]{\+\_\+a,  }\item[{T}]{\+\_\+b,  }\item[{T}]{\+\_\+c,  }\item[{T}]{\+\_\+d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::\mbox{\hyperlink{structmat2}{mat2}} (\begin{DoxyParamCaption}\item[{const T \&}]{\+\_\+a,  }\item[{const T \&}]{\+\_\+b,  }\item[{const T \&}]{\+\_\+c,  }\item[{const T \&}]{\+\_\+d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \mbox{\hyperlink{structmat2}{mat2(a, b, c, d)}} -\/$>$ \mbox{[}a, b, c, d\mbox{]} 
 \begin{DoxyParams}{Parameters}
@@ -104,12 +106,12 @@ default constructor, initializes null matrix \mbox{\Hypertarget{structmat2_a01a2
 {\em \+\_\+d} & m\+\_\+22 \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{structmat2_a28d158dd8c09958a41a515470ad27775}\label{structmat2_a28d158dd8c09958a41a515470ad27775}} 
+\mbox{\Hypertarget{structmat2_ac20f7185913b71703ea48853e2f65461}\label{structmat2_ac20f7185913b71703ea48853e2f65461}} 
 \index{mat2$<$ T $>$@{mat2$<$ T $>$}!mat2@{mat2}}
 \index{mat2@{mat2}!mat2$<$ T $>$@{mat2$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{mat2()}{mat2()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::\mbox{\hyperlink{structmat2}{mat2}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$}]{A,  }\item[{\mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$}]{B }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::\mbox{\hyperlink{structmat2}{mat2}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{structvec2}{vec2}}$<$ T $>$ \&}]{B }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \mbox{\hyperlink{structmat2}{mat2(\+A, B)}} -\/$>$ \mbox{[}A.\+x, B.\+x, A.\+y, B.\+y\mbox{]} 
 \begin{DoxyParams}{Parameters}
@@ -138,6 +140,16 @@ float \mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::Determinant (\begin{DoxyPa
 getter for matrix determinant \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\mbox{\Hypertarget{structmat2_aba78ee0c43f742b069bd7c789411117e}\label{structmat2_aba78ee0c43f742b069bd7c789411117e}} 
+\index{mat2$<$ T $>$@{mat2$<$ T $>$}!Inverse@{Inverse}}
+\index{Inverse@{Inverse}!mat2$<$ T $>$@{mat2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Inverse()}{Inverse()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structmat2}{mat2}}$<$T$>$ \mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::Inverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{mat_2TestMat2_8cpp-example}{mat/\+Test\+Mat2.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{structmat2_af01714893e2ef949e68b8fb915d35e0b}\label{structmat2_af01714893e2ef949e68b8fb915d35e0b}} 
 \index{mat2$<$ T $>$@{mat2$<$ T $>$}!IsSymmetric@{IsSymmetric}}
 \index{IsSymmetric@{IsSymmetric}!mat2$<$ T $>$@{mat2$<$ T $>$}}
@@ -226,12 +238,12 @@ matrix-\/scalar division
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structmat2_a8a0fb5665048ebd03d6410ba9dd4a04a}\label{structmat2_a8a0fb5665048ebd03d6410ba9dd4a04a}} 
+\mbox{\Hypertarget{structmat2_a50710f16b685f4e3b301ee0bd7b2aff1}\label{structmat2_a50710f16b685f4e3b301ee0bd7b2aff1}} 
 \index{mat2$<$ T $>$@{mat2$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!mat2$<$ T $>$@{mat2$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-T$\ast$ \mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+T$\ast$ \mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 element access 
 \begin{DoxyParams}{Parameters}
@@ -241,12 +253,12 @@ element access
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structmat2_a28dac3665dbece4453e3f799b286e8e1}\label{structmat2_a28dac3665dbece4453e3f799b286e8e1}} 
+\mbox{\Hypertarget{structmat2_a5a2734e83aa94b9a08a896f826c78fa1}\label{structmat2_a5a2734e83aa94b9a08a896f826c78fa1}} 
 \index{mat2$<$ T $>$@{mat2$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!mat2$<$ T $>$@{mat2$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-const T$\ast$ \mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+const T$\ast$ \mbox{\hyperlink{structmat2}{mat2}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int \&}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 element access 
 \begin{DoxyParams}{Parameters}
