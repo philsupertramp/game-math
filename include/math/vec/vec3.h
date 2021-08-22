@@ -70,7 +70,7 @@ public:
      * vec4 to vec3 cast
      * @param a
      */
-    vec3(const vec4<T>& a) {
+    explicit vec3(const vec4<T>& a) {
         this->x = a.x;
         this->y = a.y;
         this->z = a.z;
@@ -91,10 +91,11 @@ public:
      * single value constructor
      * @param _v
      */
-    vec3(const T& _v) {
-        this->x = _v;
-        this->y = _v;
-        this->z = _v;
+    template<typename U>
+    explicit vec3(const U& _v) {
+        this->x = static_cast<T>(_v);
+        this->y = static_cast<T>(_v);
+        this->z = static_cast<T>(_v);
     }
     /**
      * copy-constructor
@@ -104,6 +105,11 @@ public:
         x = v.x;
         y = v.y;
         z = v.z;
+    }
+    explicit vec3(const T* v) {
+        x = *(v++);
+        y = *(v++);
+        z = *(v++);
     }
 
 

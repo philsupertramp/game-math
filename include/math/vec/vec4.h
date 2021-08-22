@@ -78,7 +78,7 @@ public:
      * data array constructor
      * @param v
      */
-    explicit vec4(T* v) {
+    explicit vec4(const T* v) {
         x = v[0];
         y = v[1];
         z = v[2];

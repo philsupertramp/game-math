@@ -24,7 +24,7 @@ namespace Math::Utils {
      * @return
      */
     template<class V>
-    float distance(V a, V b) {
+    float distance(const V& a, const V& b) {
         return (a - b).length();
     }
 
@@ -35,7 +35,7 @@ namespace Math::Utils {
      * @return
      */
     template<class T>
-    vec2<T> normalize(vec2<T> a) {
+    vec2<T> normalize(const vec2<T>& a) {
         return a.normalize();
     }
 
@@ -46,7 +46,7 @@ namespace Math::Utils {
      * @return
      */
     template<class T>
-    vec3<T> normalize(vec3<T> a) {
+    vec3<T> normalize(const vec3<T>& a) {
         return a.normalize();
     }
 
@@ -57,7 +57,7 @@ namespace Math::Utils {
      * @return
      */
     template<class T>
-    vec4<T> normalize(vec4<T> a) {
+    vec4<T> normalize(const vec4<T>& a) {
         return a.normalize();
     }
 
@@ -69,7 +69,7 @@ namespace Math::Utils {
      * @return
      */
     template<class T>
-    mat4<T> translate(mat4<T> M, vec3<T> V) {
+    mat4<T> translate(const mat4<T>& M, const vec3<T>& V) {
         mat4<T> translation = M;
         vec3<T> res         = vec3<T>(M[0]) * V.x + vec3<T>(M[1]) * V.y + vec3<T>(M[2]) * V.z + vec3<T>(M[3]);
         translation[3][0]   = res.x;
@@ -87,7 +87,7 @@ namespace Math::Utils {
      * @return
      */
     template<class T>
-    mat4<T> lookAt(vec3<T> eye, vec3<T> center, vec3<T> up) {
+    mat4<T> lookAt(const vec3<T>& eye, const vec3<T>& center, const vec3<T>& up) {
         vec3<T> const f(normalize(center - eye));
         vec3<T> const s(normalize(f.cross(up)));
         vec3<T> const u(s.cross(f));
@@ -183,11 +183,11 @@ namespace Math::Utils {
      * @return
      */
     template<class T>
-    mat4<T> scale(mat4<T> mat, const float& factor) {
+    mat4<T> scale(const mat4<T>& mat, const float& factor) {
         return (mat4<T>::Unit() * factor) * mat;
     }
     template<class T>
-    mat4<T> scale(mat4<T> mat, const vec3<T>& factor) {
+    mat4<T> scale(const mat4<T>& mat, const vec3<T>& factor) {
         mat4<T> out;
         out[0][0] = mat[0][0] * factor[0];
         out[0][1] = mat[0][1] * factor[0];
@@ -243,7 +243,7 @@ namespace Math::Utils {
      * @return
      */
     template<class T>
-    mat4<T> rotate(mat4<T> m, const float& angle, vec3<T> u) {
+    mat4<T> rotate(const mat4<T>& m, const float& angle, vec3<T> u) {
         T const cosAngle = cosf(angle);
         T const sinAngle = sinf(angle);
 
@@ -263,11 +263,11 @@ namespace Math::Utils {
         rot[2][1] = temp[2] * axis[1] - sinAngle * axis[0];
         rot[2][2] = cosAngle + temp[2] * axis[2];
 
-        vec4<T> out0 = vec4(m[0]) * rot[0][0] + vec4(m[1]) * rot[0][1] + vec4(m[2]) * rot[0][2];
-        vec4<T> out1 = vec4(m[0]) * rot[1][0] + vec4(m[1]) * rot[1][1] + vec4(m[2]) * rot[1][2];
-        vec4<T> out2 = vec4(m[0]) * rot[2][0] + vec4(m[1]) * rot[2][1] + vec4(m[2]) * rot[2][2];
-
-        return mat4<T>(out0, out1, out2, vec4(m[3]));
+        const vec4<T> out0 = vec4(m[0]) * rot[0][0] + vec4(m[1]) * rot[0][1] + vec4(m[2]) * rot[0][2];
+        const vec4<T> out1 = vec4(m[0]) * rot[1][0] + vec4(m[1]) * rot[1][1] + vec4(m[2]) * rot[1][2];
+        const vec4<T> out2 = vec4(m[0]) * rot[2][0] + vec4(m[1]) * rot[2][1] + vec4(m[2]) * rot[2][2];
+        const vec4<T> out3 = vec4(m[3]);
+        return mat4<T>(out0, out1, out2, out3);
     }
 
     /**
@@ -278,7 +278,7 @@ namespace Math::Utils {
      * @return
      */
     template<class T>
-    vec3<T> max(vec3<T> a, vec3<T> b) {
+    vec3<T> max(const vec3<T>& a, const vec3<T>& b) {
         return a.length() > b.length() ? a : b;
     }
 
@@ -291,7 +291,7 @@ namespace Math::Utils {
      * @return
      */
     template<class T>
-    vec3<T> lerp(vec3<T> p1, vec3<T> p2, const float& v) {
+    vec3<T> lerp(const vec3<T>& p1, const vec3<T>& p2, const float& v) {
         T ax = p1[0];
         T ay = p1[1];
         T az = p1[2];
@@ -307,7 +307,7 @@ namespace Math::Utils {
      * @return
      */
     template<class T>
-    vec4<T> lerp(vec4<T> p1, vec4<T> p2, const float& v) {
+    vec4<T> lerp(const vec4<T>& p1, const vec4<T>& p2, const float& v) {
         T ax = p1[0];
         T ay = p1[1];
         T az = p1[2];
