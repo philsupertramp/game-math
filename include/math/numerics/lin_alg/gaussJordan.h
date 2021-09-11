@@ -45,7 +45,6 @@ for i in range(n):
         a[i][j] = a[i][j]/divisor
      */
     auto B = HorizontalConcat(A, eye(A.rows(), A.columns()));
-    std::cout << B << std::endl;
     for(size_t i = 0; i < A.rows(); ++i){
         if(A(i, i) == 0.0f){
             // error
@@ -59,14 +58,12 @@ for i in range(n):
             }
         }
     }
-    std::cout << B << std::endl;
     for(size_t i = 0; i < B.rows(); ++i) {
         auto factor = B(i, i);
         for(size_t j = 0; j < B.columns(); ++j) {
             B(i, j) = B(i, j) / factor;
         }
     }
-    std::cout << B << std::endl;
     return B.GetSlice(0, B.rows()-1, A.columns(), B.columns()-1);
 }
 

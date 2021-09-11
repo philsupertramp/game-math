@@ -32,7 +32,6 @@ Matrix<double> gaussSeidel(const Matrix<double>& A, const Matrix<double>& b) {
     for(size_t i = 0; i < b.rows(); i++) { bCopy.SetRow(i, b(LR.second[i])); }
 
     auto c = forwardSub(LR.first, bCopy);
-    std::cout << c << std::endl;
     return backwardSub(LR.first, c);
 }
 
