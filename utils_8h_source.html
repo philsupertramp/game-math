@@ -217,7 +217,7 @@ $(function() {
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        tmp.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> = tmp.<a class="code" href="structvec4.html#a794403b7afd3d540f2574f891c1363f4">y</a> * <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(2) - <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1);</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <a class="code" href="structvec4.html">vec4&lt;T&gt;</a> obj = Inverse * tmp;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        obj *= 1.0f/obj.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a>;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        obj /= obj.<a class="code" href="structvec4.html#a36a56fd42283fa83e57a0a07212174de">w</a>;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structvec3.html">vec3&lt;T&gt;</a>(obj);</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    }</div>
