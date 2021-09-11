@@ -168,59 +168,55 @@ public:
      */
     inline mat4 Inverse(){
 
-        T Coef00 = values[2][2] * values[3][3] - values[3][2] * values[2][3];
-        T Coef02 = values[1][2] * values[3][3] - values[3][2] * values[1][3];
-        T Coef03 = values[1][2] * values[2][3] - values[2][2] * values[1][3];
+        T SubFactor00 = values[2][2] * values[3][3] - values[3][2] * values[2][3];
+        T SubFactor01 = values[2][1] * values[3][3] - values[3][1] * values[2][3];
+        T SubFactor02 = values[2][1] * values[3][2] - values[3][1] * values[2][2];
+        T SubFactor03 = values[2][0] * values[3][3] - values[3][0] * values[2][3];
+        T SubFactor04 = values[2][0] * values[3][2] - values[3][0] * values[2][2];
+        T SubFactor05 = values[2][0] * values[3][1] - values[3][0] * values[2][1];
+        T SubFactor06 = values[1][2] * values[3][3] - values[3][2] * values[1][3];
+        T SubFactor07 = values[1][1] * values[3][3] - values[3][1] * values[1][3];
+        T SubFactor08 = values[1][1] * values[3][2] - values[3][1] * values[1][2];
+        T SubFactor09 = values[1][0] * values[3][3] - values[3][0] * values[1][3];
+        T SubFactor10 = values[1][0] * values[3][2] - values[3][0] * values[1][2];
+        T SubFactor11 = values[1][0] * values[3][1] - values[3][0] * values[1][1];
+        T SubFactor12 = values[1][2] * values[2][3] - values[2][2] * values[1][3];
+        T SubFactor13 = values[1][1] * values[2][3] - values[2][1] * values[1][3];
+        T SubFactor14 = values[1][1] * values[2][2] - values[2][1] * values[1][2];
+        T SubFactor15 = values[1][0] * values[2][3] - values[2][0] * values[1][3];
+        T SubFactor16 = values[1][0] * values[2][2] - values[2][0] * values[1][2];
+        T SubFactor17 = values[1][0] * values[2][1] - values[2][0] * values[1][1];
 
-        T Coef04 = values[2][1] * values[3][3] - values[3][1] * values[2][3];
-        T Coef06 = values[1][1] * values[3][3] - values[3][1] * values[1][3];
-        T Coef07 = values[1][1] * values[2][3] - values[2][1] * values[1][3];
+        mat4<T> Inverse;
+        Inverse[0][0] = + (values[1][1] * SubFactor00 - values[1][2] * SubFactor01 + values[1][3] * SubFactor02);
+        Inverse[0][1] = - (values[1][0] * SubFactor00 - values[1][2] * SubFactor03 + values[1][3] * SubFactor04);
+        Inverse[0][2] = + (values[1][0] * SubFactor01 - values[1][1] * SubFactor03 + values[1][3] * SubFactor05);
+        Inverse[0][3] = - (values[1][0] * SubFactor02 - values[1][1] * SubFactor04 + values[1][2] * SubFactor05);
 
-        T Coef08 = values[2][1] * values[3][2] - values[3][1] * values[2][2];
-        T Coef10 = values[1][1] * values[3][2] - values[3][1] * values[1][2];
-        T Coef11 = values[1][1] * values[2][2] - values[2][1] * values[1][2];
+        Inverse[1][0] = - (values[0][1] * SubFactor00 - values[0][2] * SubFactor01 + values[0][3] * SubFactor02);
+        Inverse[1][1] = + (values[0][0] * SubFactor00 - values[0][2] * SubFactor03 + values[0][3] * SubFactor04);
+        Inverse[1][2] = - (values[0][0] * SubFactor01 - values[0][1] * SubFactor03 + values[0][3] * SubFactor05);
+        Inverse[1][3] = + (values[0][0] * SubFactor02 - values[0][1] * SubFactor04 + values[0][2] * SubFactor05);
 
-        T Coef12 = values[2][0] * values[3][3] - values[3][0] * values[2][3];
-        T Coef14 = values[1][0] * values[3][3] - values[3][0] * values[1][3];
-        T Coef15 = values[1][0] * values[2][3] - values[2][0] * values[1][3];
+        Inverse[2][0] = + (values[0][1] * SubFactor06 - values[0][2] * SubFactor07 + values[0][3] * SubFactor08);
+        Inverse[2][1] = - (values[0][0] * SubFactor06 - values[0][2] * SubFactor09 + values[0][3] * SubFactor10);
+        Inverse[2][2] = + (values[0][0] * SubFactor07 - values[0][1] * SubFactor09 + values[0][3] * SubFactor11);
+        Inverse[2][3] = - (values[0][0] * SubFactor08 - values[0][1] * SubFactor10 + values[0][2] * SubFactor11);
 
-        T Coef16 = values[2][0] * values[3][2] - values[3][0] * values[2][2];
-        T Coef18 = values[1][0] * values[3][2] - values[3][0] * values[1][2];
-        T Coef19 = values[1][0] * values[2][2] - values[2][0] * values[1][2];
+        Inverse[3][0] = - (values[0][1] * SubFactor12 - values[0][2] * SubFactor13 + values[0][3] * SubFactor14);
+        Inverse[3][1] = + (values[0][0] * SubFactor12 - values[0][2] * SubFactor15 + values[0][3] * SubFactor16);
+        Inverse[3][2] = - (values[0][0] * SubFactor13 - values[0][1] * SubFactor15 + values[0][3] * SubFactor17);
+        Inverse[3][3] = + (values[0][0] * SubFactor14 - values[0][1] * SubFactor16 + values[0][2] * SubFactor17);
 
-        T Coef20 = values[2][0] * values[3][1] - values[3][0] * values[2][1];
-        T Coef22 = values[1][0] * values[3][1] - values[3][0] * values[1][1];
-        T Coef23 = values[1][0] * values[2][1] - values[2][0] * values[1][1];
+        T Determinant =
+        + values[0][0] * Inverse[0][0]
+        + values[0][1] * Inverse[0][1]
+        + values[0][2] * Inverse[0][2]
+        + values[0][3] * Inverse[0][3];
 
-        vec4<T> Fac0(Coef00, Coef00, Coef02, Coef03);
-        vec4<T> Fac1(Coef04, Coef04, Coef06, Coef07);
-        vec4<T> Fac2(Coef08, Coef08, Coef10, Coef11);
-        vec4<T> Fac3(Coef12, Coef12, Coef14, Coef15);
-        vec4<T> Fac4(Coef16, Coef16, Coef18, Coef19);
-        vec4<T> Fac5(Coef20, Coef20, Coef22, Coef23);
+        Inverse /= Determinant;
 
-        vec4<T> Vec0(values[1][0], values[0][0], values[0][0], values[0][0]);
-        vec4<T> Vec1(values[1][1], values[0][1], values[0][1], values[0][1]);
-        vec4<T> Vec2(values[1][2], values[0][2], values[0][2], values[0][2]);
-        vec4<T> Vec3(values[1][3], values[0][3], values[0][3], values[0][3]);
-
-        vec4<T> Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
-        vec4<T> Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
-        vec4<T> Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
-        vec4<T> Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
-
-        vec4<T> SignA(+1, -1, +1, -1);
-        vec4<T> SignB(-1, +1, -1, +1);
-        mat4<T> Inverse(Inv0 * SignA, Inv1 * SignB, Inv2 * SignA, Inv3 * SignB);
-
-        vec4<T> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
-
-        vec4<T> Dot0(vec4<T>(values[0]) * Row0);
-        T Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
-
-        T OneOverDeterminant = static_cast<T>(1) / Dot1;
-
-        return Inverse * OneOverDeterminant;
+        return Inverse;
     }
 
     /**

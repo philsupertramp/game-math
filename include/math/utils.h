@@ -229,7 +229,7 @@ namespace Math::Utils {
         tmp.y = tmp.y * static_cast<T>(2) - static_cast<T>(1);
 
         vec4<T> obj = Inverse * tmp;
-        obj *= 1.0f/obj.w;
+        obj /= obj.w;
 
         return vec3<T>(obj);
     }

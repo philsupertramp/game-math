@@ -348,7 +348,7 @@ public:
         TestInitialization();
         TestUtils();
         TestMath();
-//        TestInverse();
+        TestInverse();
     }
 };
 
