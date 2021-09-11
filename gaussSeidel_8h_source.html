@@ -91,10 +91,9 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; b.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>(); i++) { bCopy.<a class="code" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">SetRow</a>(i, b(LR.second[i])); }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">auto</span> c = <a class="code" href="forwardSub_8h.html#aa12a13e10a88436c3a0c8f02991b6096">forwardSub</a>(LR.first, bCopy);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::cout &lt;&lt; c &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="backwardSub_8h.html#a41cdbff6147ed194eb02c9e53ae98d22">backwardSub</a>(LR.first, c);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="backwardSub_8h.html#a41cdbff6147ed194eb02c9e53ae98d22">backwardSub</a>(LR.first, c);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="ttc" id="aLU_8h_html"><div class="ttname"><a href="LU_8h.html">LU.h</a></div></div>
 <div class="ttc" id="aLU_8h_html_a5752113e8a55d6c775026f0f9386cea9"><div class="ttname"><a href="LU_8h.html#a5752113e8a55d6c775026f0f9386cea9">LU</a></div><div class="ttdeci">std::pair&lt; Matrix&lt; double &gt;, std::vector&lt; unsigned int &gt; &gt; LU(const Matrix&lt; double &gt; &amp;A)</div><div class="ttdef"><b>Definition:</b> LU.h:46</div></div>
 <div class="ttc" id="abackwardSub_8h_html"><div class="ttname"><a href="backwardSub_8h.html">backwardSub.h</a></div></div>

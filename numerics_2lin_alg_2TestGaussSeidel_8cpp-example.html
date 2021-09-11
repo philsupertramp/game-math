@@ -103,9 +103,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestGaussSeidelInverse(){</div>
 <div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> A = <a name="a2"></a><a class="code" href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a>(2);</div>
-<div class="line">        std::cout &lt;&lt; A &lt;&lt; std::endl;</div>
 <div class="line">        <span class="keyword">auto</span> out = <a name="a3"></a><a class="code" href="gaussJordan_8h.html#a0d15e5b46633b36b4b48fc5665c822d9">gaussJordan</a>(A);</div>
-<div class="line">        std::cout &lt;&lt; out &lt;&lt; std::endl;</div>
 <div class="line"> </div>
 <div class="line">        A = {</div>
 <div class="line">            {1, 1, 1, -1},</div>
@@ -113,14 +111,12 @@ $(function() {
 <div class="line">            {1, -1, 1, 1},</div>
 <div class="line">            {-1, 1, 1, 1},</div>
 <div class="line">        };</div>
-<div class="line">        std::cout &lt;&lt; <a class="code" href="gaussJordan_8h.html#a0d15e5b46633b36b4b48fc5665c822d9">gaussJordan</a>(A) &lt;&lt; std::endl;</div>
 <div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> B = {</div>
 <div class="line">            {1./4,1./4,1./4,-1./4},</div>
 <div class="line">            {1./4,1./4,-1./4,1./4},</div>
 <div class="line">            {1./4,-1./4,1./4,1./4},</div>
 <div class="line">            {-1./4,1./4,1./4,1./4},</div>
 <div class="line">        };</div>
-<div class="line">        std::cout &lt;&lt; B &lt;&lt; std::endl;</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
