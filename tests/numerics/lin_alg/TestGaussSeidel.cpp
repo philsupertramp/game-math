@@ -28,9 +28,13 @@ class GaussSeidelTestCase : public Test
 
     bool TestGaussSeidelInverse() {
         Matrix<double> A = eye(2);
-        std::cout << A << std::endl;
         auto out = gaussJordan(A);
-        std::cout << out << std::endl;
+        Matrix<double> B = {
+            {1, 0},
+            {0, 1}
+        };
+
+        AssertEqual(out, B);
 
         A = {
             {-1, 1, 1, 1},
@@ -38,14 +42,15 @@ class GaussSeidelTestCase : public Test
             {1, 1, -1, 1},
             {1, 1, 1, -1},
         };
-        std::cout << gaussJordan(A) << std::endl;
-        Matrix<double> B = {
+        B = {
             {-1./4,1./4,1./4,1./4},
             {1./4,-1./4,1./4,1./4},
             {1./4,1./4,-1./4,1./4},
             {1./4,1./4,1./4,-1./4},
         };
-        std::cout << B << std::endl;
+        out = gaussJordan(A);
+        std::cout << out << std::endl;
+        AssertEqual(out, B);
         return true;
     }
 

@@ -32,14 +32,12 @@ Matrix<double> gaussJordan(const Matrix<double>& A) {
      * - generate identity matrix of dimensions of A
      * - potentially check out https://github.com/hbtalha/Matrix-Library, https://www.cplusplus.com/forum/beginner/267832/
      */
-    auto res = LU(A);
-    auto B = res.first;
-    std::cout << B << std::endl;
+//    auto res = LU(A);
+    auto B = A;
     for(size_t i = 0; i < B.rows(); ++i){
         if(B(i, i) == 0.0f){
             // error
             std::cerr << "DIVISION BY 0!!! for " << i << "=" << B(i, i) << std::endl;
-            std::cerr << B << std::endl;
         }
         for(size_t j = 0; j < B.columns(); ++j){
             if(i != j) {
