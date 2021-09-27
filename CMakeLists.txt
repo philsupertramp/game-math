@@ -126,6 +126,7 @@ endif()
 
 if(MATH_TESTS)
     include(CTest)
+    set(MATH_COVERAGE 1)
     add_subdirectory(tests)
 endif()
 

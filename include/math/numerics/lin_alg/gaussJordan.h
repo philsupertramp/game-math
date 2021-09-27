@@ -46,11 +46,12 @@ Matrix<double> gaussJordan(const Matrix<double>& A) {
             }
         }
     }
+
     for(size_t i = 0; i < B.rows(); ++i) {
         auto factor = B(i, i);
         for(size_t j = 0; j < B.columns(); ++j) { B(i, j) = B(i, j) / factor; }
     }
-    return B.GetSlice(0, B.rows() - 1, A.columns(), B.columns() - 1);
+    return B;
 }
 
 /**
