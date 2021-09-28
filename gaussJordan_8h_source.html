@@ -106,13 +106,13 @@ $(function() {
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">        a[i][j] = a[i][j]/divisor</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">auto</span> B = <a class="code" href="Matrix_8h.html#a9c0fb96647d1de47099f074cf20edf34">HorizontalConcat</a>(A, <a class="code" href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a>(A.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>(), A.<a class="code" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>()));</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; A.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>(); ++i){</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span>(A(i, i) == 0.0f){</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; A.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>(); ++i) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span>(A(i, i) == 0.0f) {</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="comment">// error</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;DIVISION BY 0!!! for &quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;=&quot;</span> &lt;&lt; A(i, i) &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            std::cerr &lt;&lt; A &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; A.<a class="code" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>(); ++j){</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; A.<a class="code" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>(); ++j) {</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">if</span>(i != j) {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">auto</span> ratio = A(j, i) / A(i, i);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = j; k &lt; B.columns(); ++k) { B(j, k) = B(j, k) - ratio * B(i, k); }</div>
@@ -121,13 +121,11 @@ $(function() {
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; B.rows(); ++i) {</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">auto</span> factor = B(i, i);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; B.columns(); ++j) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            B(i, j) = B(i, j) / factor;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> B.GetSlice(0, B.rows()-1, A.<a class="code" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>(), B.columns()-1);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; B.columns(); ++j) { B(i, j) = B(i, j) / factor; }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> B.GetSlice(0, B.rows() - 1, A.<a class="code" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>(), B.columns() - 1);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="ttc" id="aLU_8h_html"><div class="ttname"><a href="LU_8h.html">LU.h</a></div></div>
 <div class="ttc" id="aMatrix_8h_html_a9c0fb96647d1de47099f074cf20edf34"><div class="ttname"><a href="Matrix_8h.html#a9c0fb96647d1de47099f074cf20edf34">HorizontalConcat</a></div><div class="ttdeci">Matrix&lt; T &gt; HorizontalConcat(const Matrix&lt; T &gt; &amp;lhs, const Matrix&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> Matrix.h:799</div></div>
 <div class="ttc" id="abackwardSub_8h_html"><div class="ttname"><a href="backwardSub_8h.html">backwardSub.h</a></div></div>

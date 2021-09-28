@@ -31,22 +31,23 @@ This is an example on how to use gauss\+Seidel.
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestGaussSeidelInverse()\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestGaussSeidelInverse() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A = \mbox{\hyperlink{utils_8cpp_a02435943b506858e6dd5d86fc85991c0}{eye}}(2);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} out = \mbox{\hyperlink{gaussJordan_8h_a0d15e5b46633b36b4b48fc5665c822d9}{gaussJordan}}(A);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} out         = \mbox{\hyperlink{gaussJordan_8h_a0d15e5b46633b36b4b48fc5665c822d9}{gaussJordan}}(A);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        A = \{}
-\DoxyCodeLine{            \{1, 1, 1, -\/1\},}
-\DoxyCodeLine{            \{1, 1, -\/1, 1\},}
-\DoxyCodeLine{            \{1, -\/1, 1, 1\},}
-\DoxyCodeLine{            \{-\/1, 1, 1, 1\},}
+\DoxyCodeLine{            \{ 1, 1, 1, -\/1 \},}
+\DoxyCodeLine{            \{ 1, 1, -\/1, 1 \},}
+\DoxyCodeLine{            \{ 1, -\/1, 1, 1 \},}
+\DoxyCodeLine{            \{ -\/1, 1, 1, 1 \},}
 \DoxyCodeLine{        \};}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} B = \{}
-\DoxyCodeLine{            \{1./4,1./4,1./4,-\/1./4\},}
-\DoxyCodeLine{            \{1./4,1./4,-\/1./4,1./4\},}
-\DoxyCodeLine{            \{1./4,-\/1./4,1./4,1./4\},}
-\DoxyCodeLine{            \{-\/1./4,1./4,1./4,1./4\},}
+\DoxyCodeLine{            \{ 1. / 4, 1. / 4, 1. / 4, -\/1. / 4 \},}
+\DoxyCodeLine{            \{ 1. / 4, 1. / 4, -\/1. / 4, 1. / 4 \},}
+\DoxyCodeLine{            \{ 1. / 4, -\/1. / 4, 1. / 4, 1. / 4 \},}
+\DoxyCodeLine{            \{ -\/1. / 4, 1. / 4, 1. / 4, 1. / 4 \},}
 \DoxyCodeLine{        \};}
+\DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
@@ -55,7 +56,6 @@ This is an example on how to use gauss\+Seidel.
 \DoxyCodeLine{        TestGaussSeidel();}
 \DoxyCodeLine{        TestGaussSeidel2();}
 \DoxyCodeLine{        TestGaussSeidelInverse();}
-\DoxyCodeLine{}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}

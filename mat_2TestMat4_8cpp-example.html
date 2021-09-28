@@ -406,12 +406,12 @@ $(function() {
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> TestInverse(){</div>
+<div class="line">    <span class="keywordtype">bool</span> TestInverse() {</div>
 <div class="line">        <a class="code" href="structmat4.html">mat4&lt;T&gt;</a> A = <a class="code" href="structmat4.html#a8992a591df412176cd5365e20af13490">mat4&lt;T&gt;::Unit</a>();</div>
 <div class="line"> </div>
 <div class="line">        AssertEqual(A.<a name="a9"></a><a class="code" href="structmat4.html#a6111cf770a3769b25e2dd4bd13fa5868">Inverse</a>(), A);</div>
-<div class="line">        <span class="keywordflow">if</span>(extended){</div>
-<div class="line">            A = <a class="code" href="structmat4.html">mat4&lt;T&gt;</a>(1, 1, 1, -1, 1, 1, -1, 1, 1, -1, 1, 1, -1, 1, 1, 1);</div>
+<div class="line">        <span class="keywordflow">if</span>(extended) {</div>
+<div class="line">            A      = <a class="code" href="structmat4.html">mat4&lt;T&gt;</a>(1, 1, 1, -1, 1, 1, -1, 1, 1, -1, 1, 1, -1, 1, 1, 1);</div>
 <div class="line">            <span class="keyword">auto</span> B = A * <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.25);</div>
 <div class="line">            AssertEqual(A.<a class="code" href="structmat4.html#a6111cf770a3769b25e2dd4bd13fa5868">Inverse</a>(), B);</div>
 <div class="line">        }</div>
