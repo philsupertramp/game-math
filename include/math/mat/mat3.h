@@ -61,7 +61,7 @@ public:
      * Constructor from pointer of values
      * @param vals array of arrays of values
      */
-    explicit mat3(T* vals){
+    explicit mat3(T* vals) {
         values[0][0] = vals[0][0];
         values[0][2] = vals[0][1];
         values[0][1] = vals[0][2];
@@ -105,8 +105,8 @@ public:
      * Potentially calculates the inverse matrix
      * @return inverse (A -> A^-1)
      */
-    inline mat3<T> Inverse(){
-        auto invDet = 1.0f/Determinant();
+    inline mat3<T> Inverse() {
+        auto invDet = 1.0f / Determinant();
         return invDet * Transpose();
     }
 

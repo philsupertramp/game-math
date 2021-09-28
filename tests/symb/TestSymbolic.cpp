@@ -68,7 +68,7 @@ class SymbolicTestCase : public Test
         return true;
     }
 
-    bool TestPower(){
+    bool TestPower() {
         Equation eq("2 + x^2");
 
         AssertEqual(eq(2), 6);

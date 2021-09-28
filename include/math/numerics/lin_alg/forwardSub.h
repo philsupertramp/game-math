@@ -25,9 +25,9 @@
  * @return c
  */
 Matrix<double> forwardSub(const Matrix<double>& L, const Matrix<double>& b) {
-    size_t m = L.rows();
-    size_t n = L.columns();
-    size_t v = b.rows();
+    size_t m  = L.rows();
+    size_t n  = L.columns();
+    size_t v  = b.rows();
     size_t nv = b.columns();
     if(v != m || (nv != 1 && nv != n)) {
         // Error, cannot compute

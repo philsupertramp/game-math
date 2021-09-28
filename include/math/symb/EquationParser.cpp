@@ -41,7 +41,7 @@ std::vector<std::string>& operatorStack,
 std::vector<std::shared_ptr<MathNode>>& operandStack) {
     // early exit
     if(operatorStack.empty()) return;
-    auto stackTop       = GetOperator(operatorStack[operatorStack.size() - 1]);
+    auto stackTop = GetOperator(operatorStack[operatorStack.size() - 1]);
     while(stackTop != nullptr && stackTop->priority >= currentOp->priority && stackTop->value[0] != '(') {
         operatorStack.pop_back();
         if(stackTop->connectionType == NodeConnectionType::ConnectionType_None) {

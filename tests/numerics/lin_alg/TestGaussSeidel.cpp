@@ -26,22 +26,23 @@ class GaussSeidelTestCase : public Test
         return true;
     }
 
-    bool TestGaussSeidelInverse(){
+    bool TestGaussSeidelInverse() {
         Matrix<double> A = eye(2);
-        auto out = gaussJordan(A);
+        auto out         = gaussJordan(A);
 
         A = {
-            {1, 1, 1, -1},
-            {1, 1, -1, 1},
-            {1, -1, 1, 1},
-            {-1, 1, 1, 1},
+            { 1, 1, 1, -1 },
+            { 1, 1, -1, 1 },
+            { 1, -1, 1, 1 },
+            { -1, 1, 1, 1 },
         };
         Matrix<double> B = {
-            {1./4,1./4,1./4,-1./4},
-            {1./4,1./4,-1./4,1./4},
-            {1./4,-1./4,1./4,1./4},
-            {-1./4,1./4,1./4,1./4},
+            { 1. / 4, 1. / 4, 1. / 4, -1. / 4 },
+            { 1. / 4, 1. / 4, -1. / 4, 1. / 4 },
+            { 1. / 4, -1. / 4, 1. / 4, 1. / 4 },
+            { -1. / 4, 1. / 4, 1. / 4, 1. / 4 },
         };
+
         return true;
     }
 
@@ -50,7 +51,6 @@ public:
         TestGaussSeidel();
         TestGaussSeidel2();
         TestGaussSeidelInverse();
-
     }
 };
 

@@ -132,7 +132,7 @@ class Mat2TestCase : public Test
         return true;
     }
 
-    bool TestInverse(){
+    bool TestInverse() {
         mat2<T> A = mat2<T>(1, 0, 0, 1);
         AssertEqual(A, A.Inverse());
         if(extended) {

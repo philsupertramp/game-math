@@ -45,13 +45,13 @@ for i in range(n):
         a[i][j] = a[i][j]/divisor
      */
     auto B = HorizontalConcat(A, eye(A.rows(), A.columns()));
-    for(size_t i = 0; i < A.rows(); ++i){
-        if(A(i, i) == 0.0f){
+    for(size_t i = 0; i < A.rows(); ++i) {
+        if(A(i, i) == 0.0f) {
             // error
             std::cerr << "DIVISION BY 0!!! for " << i << "=" << A(i, i) << std::endl;
             std::cerr << A << std::endl;
         }
-        for(size_t j = 0; j < A.columns(); ++j){
+        for(size_t j = 0; j < A.columns(); ++j) {
             if(i != j) {
                 auto ratio = A(j, i) / A(i, i);
                 for(size_t k = j; k < B.columns(); ++k) { B(j, k) = B(j, k) - ratio * B(i, k); }
@@ -60,11 +60,9 @@ for i in range(n):
     }
     for(size_t i = 0; i < B.rows(); ++i) {
         auto factor = B(i, i);
-        for(size_t j = 0; j < B.columns(); ++j) {
-            B(i, j) = B(i, j) / factor;
-        }
+        for(size_t j = 0; j < B.columns(); ++j) { B(i, j) = B(i, j) / factor; }
     }
-    return B.GetSlice(0, B.rows()-1, A.columns(), B.columns()-1);
+    return B.GetSlice(0, B.rows() - 1, A.columns(), B.columns() - 1);
 }
 
 /**

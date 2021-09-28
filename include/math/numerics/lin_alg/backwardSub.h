@@ -25,9 +25,9 @@
  * @return z
  */
 Matrix<double> backwardSub(const Matrix<double>& R, const Matrix<double>& b) {
-    size_t m = R.rows();
-    size_t n = R.columns();
-    size_t v = b.rows();
+    size_t m  = R.rows();
+    size_t n  = R.columns();
+    size_t v  = b.rows();
     size_t nv = b.columns();
     if(v != m) {
         // Error, cannot compute
@@ -42,7 +42,7 @@ Matrix<double> backwardSub(const Matrix<double>& R, const Matrix<double>& b) {
 
     auto x = zeros(v, nv);
 
-    if(R(m - 1, n - 1) != 0) { x.SetRow(v - 1, b(v - 1) *  (1 / R(m - 1, n - 1))); }
+    if(R(m - 1, n - 1) != 0) { x.SetRow(v - 1, b(v - 1) * (1 / R(m - 1, n - 1))); }
 
     for(int j = (int)m - 2; j >= 0; j--) {
         double s_k = 0.0f;

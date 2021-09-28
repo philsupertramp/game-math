@@ -67,7 +67,7 @@ public:
         w = _w;
     }
 
-    explicit vec4(const T& v){
+    explicit vec4(const T& v) {
         x = v;
         y = v;
         z = v;
@@ -117,7 +117,7 @@ public:
      */
     inline vec4<T> normalize() const { return *this / length(); }
 
-    inline T sum() const { return x+y+z+w; }
+    inline T sum() const { return x + y + z + w; }
 
     /* Arithmetic operators */
     /**

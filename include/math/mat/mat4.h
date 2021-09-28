@@ -152,10 +152,10 @@ public:
      * @param j column to exclude
      * @return values without row i and column j
      */
-    inline mat3<T> getMinor(const size_t& i , const size_t& j){
+    inline mat3<T> getMinor(const size_t& i, const size_t& j) {
         mat3<T> out;
-        for(size_t row = 0; row < 4; ++row){
-            for(size_t col = 0; col < 4; ++col){
+        for(size_t row = 0; row < 4; ++row) {
+            for(size_t col = 0; col < 4; ++col) {
                 if(row != i && col != j) out[row][col];
             }
         }
@@ -166,8 +166,7 @@ public:
      * Calculate inverse matrix
      * @return A -> A^-1
      */
-    inline mat4 Inverse(){
-
+    inline mat4 Inverse() {
         T SubFactor00 = values[2][2] * values[3][3] - values[3][2] * values[2][3];
         T SubFactor01 = values[2][1] * values[3][3] - values[3][1] * values[2][3];
         T SubFactor02 = values[2][1] * values[3][2] - values[3][1] * values[2][2];
@@ -188,31 +187,28 @@ public:
         T SubFactor17 = values[1][0] * values[2][1] - values[2][0] * values[1][1];
 
         mat4<T> Inverse;
-        Inverse[0][0] = + (values[1][1] * SubFactor00 - values[1][2] * SubFactor01 + values[1][3] * SubFactor02);
-        Inverse[0][1] = - (values[1][0] * SubFactor00 - values[1][2] * SubFactor03 + values[1][3] * SubFactor04);
-        Inverse[0][2] = + (values[1][0] * SubFactor01 - values[1][1] * SubFactor03 + values[1][3] * SubFactor05);
-        Inverse[0][3] = - (values[1][0] * SubFactor02 - values[1][1] * SubFactor04 + values[1][2] * SubFactor05);
+        Inverse[0][0] = +(values[1][1] * SubFactor00 - values[1][2] * SubFactor01 + values[1][3] * SubFactor02);
+        Inverse[0][1] = -(values[1][0] * SubFactor00 - values[1][2] * SubFactor03 + values[1][3] * SubFactor04);
+        Inverse[0][2] = +(values[1][0] * SubFactor01 - values[1][1] * SubFactor03 + values[1][3] * SubFactor05);
+        Inverse[0][3] = -(values[1][0] * SubFactor02 - values[1][1] * SubFactor04 + values[1][2] * SubFactor05);
 
-        Inverse[1][0] = - (values[0][1] * SubFactor00 - values[0][2] * SubFactor01 + values[0][3] * SubFactor02);
-        Inverse[1][1] = + (values[0][0] * SubFactor00 - values[0][2] * SubFactor03 + values[0][3] * SubFactor04);
-        Inverse[1][2] = - (values[0][0] * SubFactor01 - values[0][1] * SubFactor03 + values[0][3] * SubFactor05);
-        Inverse[1][3] = + (values[0][0] * SubFactor02 - values[0][1] * SubFactor04 + values[0][2] * SubFactor05);
+        Inverse[1][0] = -(values[0][1] * SubFactor00 - values[0][2] * SubFactor01 + values[0][3] * SubFactor02);
+        Inverse[1][1] = +(values[0][0] * SubFactor00 - values[0][2] * SubFactor03 + values[0][3] * SubFactor04);
+        Inverse[1][2] = -(values[0][0] * SubFactor01 - values[0][1] * SubFactor03 + values[0][3] * SubFactor05);
+        Inverse[1][3] = +(values[0][0] * SubFactor02 - values[0][1] * SubFactor04 + values[0][2] * SubFactor05);
 
-        Inverse[2][0] = + (values[0][1] * SubFactor06 - values[0][2] * SubFactor07 + values[0][3] * SubFactor08);
-        Inverse[2][1] = - (values[0][0] * SubFactor06 - values[0][2] * SubFactor09 + values[0][3] * SubFactor10);
-        Inverse[2][2] = + (values[0][0] * SubFactor07 - values[0][1] * SubFactor09 + values[0][3] * SubFactor11);
-        Inverse[2][3] = - (values[0][0] * SubFactor08 - values[0][1] * SubFactor10 + values[0][2] * SubFactor11);
+        Inverse[2][0] = +(values[0][1] * SubFactor06 - values[0][2] * SubFactor07 + values[0][3] * SubFactor08);
+        Inverse[2][1] = -(values[0][0] * SubFactor06 - values[0][2] * SubFactor09 + values[0][3] * SubFactor10);
+        Inverse[2][2] = +(values[0][0] * SubFactor07 - values[0][1] * SubFactor09 + values[0][3] * SubFactor11);
+        Inverse[2][3] = -(values[0][0] * SubFactor08 - values[0][1] * SubFactor10 + values[0][2] * SubFactor11);
 
-        Inverse[3][0] = - (values[0][1] * SubFactor12 - values[0][2] * SubFactor13 + values[0][3] * SubFactor14);
-        Inverse[3][1] = + (values[0][0] * SubFactor12 - values[0][2] * SubFactor15 + values[0][3] * SubFactor16);
-        Inverse[3][2] = - (values[0][0] * SubFactor13 - values[0][1] * SubFactor15 + values[0][3] * SubFactor17);
-        Inverse[3][3] = + (values[0][0] * SubFactor14 - values[0][1] * SubFactor16 + values[0][2] * SubFactor17);
+        Inverse[3][0] = -(values[0][1] * SubFactor12 - values[0][2] * SubFactor13 + values[0][3] * SubFactor14);
+        Inverse[3][1] = +(values[0][0] * SubFactor12 - values[0][2] * SubFactor15 + values[0][3] * SubFactor16);
+        Inverse[3][2] = -(values[0][0] * SubFactor13 - values[0][1] * SubFactor15 + values[0][3] * SubFactor17);
+        Inverse[3][3] = +(values[0][0] * SubFactor14 - values[0][1] * SubFactor16 + values[0][2] * SubFactor17);
 
-        T Determinant =
-        + values[0][0] * Inverse[0][0]
-        + values[0][1] * Inverse[0][1]
-        + values[0][2] * Inverse[0][2]
-        + values[0][3] * Inverse[0][3];
+        T Determinant = +values[0][0] * Inverse[0][0] + values[0][1] * Inverse[0][1] + values[0][2] * Inverse[0][2]
+                        + values[0][3] * Inverse[0][3];
 
         Inverse /= Determinant;
 

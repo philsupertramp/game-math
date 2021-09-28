@@ -219,7 +219,7 @@ namespace Math::Utils {
      * @return
      */
     template<typename T, typename U>
-    vec3<T> unProject(vec3<T> const& win, mat4<T> const& model, mat4<T> const& proj, vec4<U> const& viewport){
+    vec3<T> unProject(vec3<T> const& win, mat4<T> const& model, mat4<T> const& proj, vec4<U> const& viewport) {
         mat4<T> Inverse = (proj * model).Inverse();
 
         vec4<T> tmp(win, T(1));
