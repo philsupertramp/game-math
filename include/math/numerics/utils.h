@@ -37,9 +37,10 @@ Matrix<double> linspace(double start, double end, unsigned long num_elements);
  * Generates a matrix with each element = 0 for given size
  * @param rows number rows for resulting matrix
  * @param columns number columns for resulting matrix
+ * @param elements number of elements per cell
  * @return rows x columns-Matrix with 0 as each value
  */
-Matrix<double> zeros(size_t rows, size_t columns);
+Matrix<double> zeros(size_t rows, size_t columns, size_t elements = 1);
 
 /**
  * Generates a matrix with each element = 0 for given size
@@ -52,9 +53,10 @@ Matrix<double> zerosV(size_t rows);
  * Generates a matrix with each element = 1 for given size
  * @param rows number rows for resulting matrix
  * @param columns number columns for resulting matrix
+ * @param elements number of elements per cell
  * @return rows x columns-Matrix with 1 as each value
  */
-Matrix<double> ones(size_t rows, size_t columns = 1);
+Matrix<double> ones(size_t rows, size_t columns = 1, size_t elements = 1);
 
 /**
  * creates unit matrix of dimension rows, columns

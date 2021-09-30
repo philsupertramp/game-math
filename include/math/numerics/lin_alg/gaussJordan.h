@@ -24,34 +24,35 @@
  * @return $$A^{-1}$$
  */
 Matrix<double> gaussJordan(const Matrix<double>& A) {
-    // This is rubbish
-    // We need row major pivot in here
-    /**
-     * Idea is simple,
-     * - keep A as is, create copy
-     * - generate identity matrix of dimensions of A
-     * - potentially check out https://github.com/hbtalha/Matrix-Library, https://www.cplusplus.com/forum/beginner/267832/
-     */
-//    auto res = LU(A);
-    auto B = A;
-    for(size_t i = 0; i < B.rows(); ++i){
-        if(B(i, i) == 0.0f){
-            // error
-            std::cerr << "DIVISION BY 0!!! for " << i << "=" << B(i, i) << std::endl;
-        }
-        for(size_t j = 0; j < B.columns(); ++j){
-            if(i != j) {
-                auto ratio = B(j, i) / B(i, i);
-                for(size_t k = j; k < B.columns(); ++k) { B(j, k) = B(j, k) - ratio * B(i, k); }
+    size_t i, j, k;
+    size_t n = A.columns();
+    double d;
+    Matrix<double> mat = HorizontalConcat(A, eye(A.rows(), n));
+
+    // Partial pivoting
+    for(i = n; i > 1; --i) {
+        if(mat(i - 1, 1) < mat(i, 1)) {
+            for(j = 0; j < 2 * n; ++j) {
+                d             = mat(i, j);
+                mat(i, j)     = mat(i - 1, j);
+                mat(i - 1, j) = d;
             }
         }
     }
 
-    for(size_t i = 0; i < B.rows(); ++i) {
-        auto factor = B(i, i);
-        for(size_t j = 0; j < B.columns(); ++j) { B(i, j) = B(i, j) / factor; }
+    // Reducing To Diagonal Matrix
+    for(i = 0; i < n; ++i) {
+        for(j = 0; j < n; ++j) {
+            if(j != i) {
+                d = mat(j, i) / mat(i, i);
+                for(k = 0; k < n * 2; ++k) { mat(j, k) -= mat(i, k) * d; }
+            }
+        }
+        d = mat(i, i);
+        for(j = 0; j < 2 * n; ++j) { mat(i, j) = mat(i, j) / d; }
     }
-    return B;
+
+    return mat.GetSlice(0, mat.rows() - 1, n, mat.columns() - 1);
 }
 
 /**

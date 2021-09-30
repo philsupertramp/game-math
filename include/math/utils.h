@@ -71,13 +71,11 @@ namespace Math::Utils {
     template<class T>
     mat4<T> translate(const mat4<T>& M, const vec3<T>& V) {
         mat4<T> translation = M;
-        vec3<T> res         = vec3<T>(M[0][0], M[0][1], M[0][2]) * V.x
-                      + vec3<T>(M[1][0], M[1][1], M[1][2]) * V.y
-                      + vec3<T>(M[2][0], M[2][1], M[2][2]) * V.z
-                      + vec3<T>(M[3][0], M[3][1], M[3][2]);
-        translation[3][0]   = res.x;
-        translation[3][1]   = res.y;
-        translation[3][2]   = res.z;
+        vec3<T> res         = vec3<T>(M[0][0], M[0][1], M[0][2]) * V.x + vec3<T>(M[1][0], M[1][1], M[1][2]) * V.y
+                      + vec3<T>(M[2][0], M[2][1], M[2][2]) * V.z + vec3<T>(M[3][0], M[3][1], M[3][2]);
+        translation[3][0] = res.x;
+        translation[3][1] = res.y;
+        translation[3][2] = res.z;
         return translation;
     }
 

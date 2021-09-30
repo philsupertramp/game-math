@@ -27,55 +27,86 @@ class GaussSeidelTestCase : public Test
     }
 
     bool TestGaussSeidelInverse() {
-        Matrix<double> A = eye(2);
+        Matrix<double> A = eye(10);
         Matrix<double> B;
 
-        // trivial example
+        // trivial examples
         auto out = gaussJordan(A);
         AssertEqual(out, A);
 
 
         // more advanced example
         A = {
-            {-1, 1, 1,},
-            {1, -1, 1,},
-            {1, 1, -1,},
+            {
+            -1,
+            1,
+            1,
+            },
+            {
+            1,
+            -1,
+            1,
+            },
+            {
+            1,
+            1,
+            -1,
+            },
         };
 
         B = {
-            {0,1./2,1./2,},
-            {1./2,0,1./2,},
-            {1./2,1./2,0,},
+            {
+            0,
+            1. / 2,
+            1. / 2,
+            },
+            {
+            1. / 2,
+            0,
+            1. / 2,
+            },
+            {
+            1. / 2,
+            1. / 2,
+            0,
+            },
         };
 
         out = gaussJordan(A);
+        std::cout << out;
         AssertEqual(out, B);
 
         A = {
-            {-1, 1, 1, 1},
-            {1, -1, 1, 1},
-            {1, 1, -1, 1},
-            {1, 1, 1, -1},
+            { -1, 1, 1, 1 },
+            { 1, -1, 1, 1 },
+            { 1, 1, -1, 1 },
+            { 1, 1, 1, -1 },
         };
         B = {
-            {-1./4,1./4,1./4,1./4},
-            {1./4,-1./4,1./4,1./4},
-            {1./4,1./4,-1./4,1./4},
-            {1./4,1./4,1./4,-1./4},
+            { -1. / 4, 1. / 4, 1. / 4, 1. / 4 },
+            { 1. / 4, -1. / 4, 1. / 4, 1. / 4 },
+            { 1. / 4, 1. / 4, -1. / 4, 1. / 4 },
+            { 1. / 4, 1. / 4, 1. / 4, -1. / 4 },
         };
         out = gaussJordan(A);
         AssertEqual(out, B);
 
         // Not working example, inverse not available, det(A) = 0!
         A = {
-            {-1, 1,},
-            {1, -1,},
+            {
+            -1,
+            1,
+            },
+            {
+            1,
+            -1,
+            },
         };
-        B = {
-        };
+        B = { { INFINITY, NAN }, { INFINITY, 0 } };
 
         out = gaussJordan(A);
         AssertEqual(out, B);
+
         return true;
     }
 
