@@ -444,6 +444,17 @@ const void* value_ptr(mat4<T> const& mat) {
 }
 
 /**
+ * Calculates sign(d)
+ *
+ * @param d value to test
+ * @return -1 if d < 0 else 1
+ */
+double sign(const double& d) {
+    if(d == 0.f) return 1;
+    return d < 0 ? -1 : 1;
+}
+
+/**
  * \example TestUtils.cpp
  * This is an example on how to use the utils.h file.
  */

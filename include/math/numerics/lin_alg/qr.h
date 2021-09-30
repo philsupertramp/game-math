@@ -1,7 +1,14 @@
 #pragma once
 #include "../../Matrix.h"
+#include "../../utils.h"
 
-double sign(double& d);
+
+/**
+ * Calculates QR decomposition of given matrix
+ * so in = Q * R
+ * @param in matrix to calculate with
+ * @return { Q, R } decomposition
+ */
 std::pair<Matrix<double>, Matrix<double>> qr(const Matrix<double>& in){
     auto R = zeros(in.rows(), in.rows());
     auto Q = eye(in.rows(), in.rows());
@@ -25,8 +32,4 @@ std::pair<Matrix<double>, Matrix<double>> qr(const Matrix<double>& in){
         A = A.GetSlice(1, A.rows() - 1, 1, A.columns() -1);
     }
     return {Q, R};
-}
-double sign(double& d) {
-    if(d == 0.f) return 1;
-    return d < 0 ? -1 : 1;
 }
