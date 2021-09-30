@@ -27,7 +27,7 @@ class GaussSeidelTestCase : public Test
     }
 
     bool TestGaussSeidelInverse() {
-        Matrix<double> A = eye(10);
+        Matrix<double> A = eye(50);
         Matrix<double> B;
 
         // trivial examples

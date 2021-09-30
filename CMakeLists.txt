@@ -53,7 +53,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/analysis/SupportValues.h
             include/math/numerics/analysis/Spline.h
             include/math/numerics/analysis/Differentiation.h
-            include/math/numerics/Fractals.h include/math/numerics/lin_alg/gaussJordan.h include/math/numerics/lin_alg/qr.h)
+            include/math/numerics/Fractals.h include/math/numerics/lin_alg/gaussJordan.h include/math/numerics/lin_alg/qr.h include/math/numerics/lin_alg/svd.h)
 endif()
 if(MATH_EXTENSIONS MATCHES "(symb)")
     set(LIB_SOURCES
