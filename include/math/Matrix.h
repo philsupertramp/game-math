@@ -582,16 +582,19 @@ public:
         return out;
     }
 
-    void SetSlice(const size_t& row_start, const size_t& row_end, const size_t& col_start, const size_t& col_end, const Matrix<T>& slice){
+    void SetSlice(
+    const size_t& row_start,
+    const size_t& row_end,
+    const size_t& col_start,
+    const size_t& col_end,
+    const Matrix<T>& slice) {
         size_t numRows = (row_end - row_start) + 1;
         size_t numCols = (col_end - col_start) + 1;
         assert(numRows == slice.rows());
         assert(numCols == slice.columns());
 
-        for(size_t i = 0; i < numRows; ++i){
-            for(size_t j = 0; j < numCols; ++j){
-                _data[GetIndex(row_start + i, col_start + j)] = slice(i, j);
-            }
+        for(size_t i = 0; i < numRows; ++i) {
+            for(size_t j = 0; j < numCols; ++j) { _data[GetIndex(row_start + i, col_start + j)] = slice(i, j); }
         }
     }
 
