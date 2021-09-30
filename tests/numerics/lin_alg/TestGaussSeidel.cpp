@@ -102,7 +102,7 @@ class GaussSeidelTestCase : public Test
             -1,
             },
         };
-        B = { { INFINITY, NAN }, { INFINITY, 0 } };
+        B = { { INFINITY, INFINITY }, { INFINITY, INFINITY } };
 
         out = gaussJordan(A);
         AssertEqual(out, B);

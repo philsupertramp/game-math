@@ -30,9 +30,9 @@ Matrix<double> gaussJordan(const Matrix<double>& A) {
     Matrix<double> mat = HorizontalConcat(A, eye(A.rows(), n));
 
     // Partial pivoting
-    for(i = n; i > 1; --i) {
+    for(i = n - 1; i > 1; i--) {
         if(mat(i - 1, 1) < mat(i, 1)) {
-            for(j = 0; j < 2 * n; ++j) {
+            for(j = 0; j < (2 * n); ++j) {
                 d             = mat(i, j);
                 mat(i, j)     = mat(i - 1, j);
                 mat(i - 1, j) = d;
@@ -41,15 +41,15 @@ Matrix<double> gaussJordan(const Matrix<double>& A) {
     }
 
     // Reducing To Diagonal Matrix
-    for(i = 0; i < n; ++i) {
-        for(j = 0; j < n; ++j) {
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
             if(j != i) {
                 d = mat(j, i) / mat(i, i);
                 for(k = 0; k < n * 2; ++k) { mat(j, k) -= mat(i, k) * d; }
             }
         }
         d = mat(i, i);
-        for(j = 0; j < 2 * n; ++j) { mat(i, j) = mat(i, j) / d; }
+        for(j = 0; j < (2 * n); j++) { mat(i, j) = mat(i, j) / d; }
     }
 
     return mat.GetSlice(0, mat.rows() - 1, n, mat.columns() - 1);
