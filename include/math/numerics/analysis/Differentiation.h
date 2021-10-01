@@ -35,6 +35,9 @@
  */
 #pragma once
 
+#include "../../Matrix.h"
+#include "../utils.h"
+
 /**
  * Computes forward difference quotient
  * $$
