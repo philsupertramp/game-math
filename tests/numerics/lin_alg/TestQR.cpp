@@ -3,7 +3,7 @@
 #include <math/numerics/utils.h>
 
 
-class QRTestCase : public Test
+class SVDTestCase : public Test
 {
     bool TestQR() {
         Matrix<double> A = { { 2, 2, 8 }, { 5, 6, 6 }, { 4, 4, 8 } };
@@ -33,6 +33,6 @@ public:
 };
 
 int main() {
-    QRTestCase().run();
+    SVDTestCase().run();
     return 0;
 }

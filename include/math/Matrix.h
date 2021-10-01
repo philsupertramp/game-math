@@ -1075,7 +1075,7 @@ T elemMean(const Matrix<T>& mat, const size_t& elemIndex) {
  * @return vector of diagonal elements
  */
 template<typename T>
-Matrix<T> diag(const Matrix<T>& in) {
+Matrix<T> diag_elements(const Matrix<T>& in) {
     Matrix<T> out(0, in.rows(), 1, in.elements());
     for(size_t i = 0; i < in.rows(); ++i) {
         for(size_t elem = 0; elem < in.elements(); ++elem) { out(i, 0, elem) = in(i, i, elem); }

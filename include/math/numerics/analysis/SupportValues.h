@@ -278,7 +278,7 @@ public:
         for(size_t j = 1; j < m; ++j) {
             for(size_t i = j; i < m; ++i) { F(i, j) = (F(i, j - 1) - F(i - 1, j - 1)) / (x(i, 0) - x(i - j, 0)); }
         }
-        b = diag(F);
+        b = diag_elements(F);
     }
     /**
      * String representation in newton base
