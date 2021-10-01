@@ -168,6 +168,14 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestSign() \{}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a5fd6493a977e51bebf1a2a2649faeac8}{sign}}(-\/1.), -\/1);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a5fd6493a977e51bebf1a2a2649faeac8}{sign}}(1.), 1);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a5fd6493a977e51bebf1a2a2649faeac8}{sign}}(0.), 1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}
 \DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{}
 \DoxyCodeLine{        TestDistance();}
@@ -181,6 +189,7 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{        TestScale();}
 \DoxyCodeLine{        TestRotate();}
 \DoxyCodeLine{        TestMax();}
+\DoxyCodeLine{        TestSign();}
 \DoxyCodeLine{        TestValuePtr();}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\};}

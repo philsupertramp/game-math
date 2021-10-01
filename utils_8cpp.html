@@ -85,10 +85,10 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:a3496a7aecd2c42b9bacd5bc9dc85dd88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a> (double start, double end, unsigned long num_elements)</td></tr>
 <tr class="separator:a3496a7aecd2c42b9bacd5bc9dc85dd88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3aad6934b9b0b392e582eda4dbfd8070"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a> (size_t rows, size_t columns)</td></tr>
-<tr class="separator:a3aad6934b9b0b392e582eda4dbfd8070"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afae8c7a061ee86e6e7315625ae4e53e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#afae8c7a061ee86e6e7315625ae4e53e6">ones</a> (size_t rows, size_t columns)</td></tr>
-<tr class="separator:afae8c7a061ee86e6e7315625ae4e53e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdaa618dcf212d08a6e4b3b517183702"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#afdaa618dcf212d08a6e4b3b517183702">zeros</a> (size_t rows, size_t columns, size_t elements)</td></tr>
+<tr class="separator:afdaa618dcf212d08a6e4b3b517183702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e4ec428c88fb8b9b781a02342580ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#a09e4ec428c88fb8b9b781a02342580ab">ones</a> (size_t rows, size_t columns, size_t elements)</td></tr>
+<tr class="separator:a09e4ec428c88fb8b9b781a02342580ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02435943b506858e6dd5d86fc85991c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a> (size_t rows, size_t columns)</td></tr>
 <tr class="separator:a02435943b506858e6dd5d86fc85991c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66baea24796e61db0c4b123af2e1f20d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#a66baea24796e61db0c4b123af2e1f20d">tridiag</a> (size_t rows, size_t cols, double lower, double center, double upper)</td></tr>
@@ -254,8 +254,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afae8c7a061ee86e6e7315625ae4e53e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afae8c7a061ee86e6e7315625ae4e53e6">&#9670;&nbsp;</a></span>ones()</h2>
+<a id="a09e4ec428c88fb8b9b781a02342580ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09e4ec428c88fb8b9b781a02342580ab">&#9670;&nbsp;</a></span>ones()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,7 +270,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>columns</em> = <code>1</code>&#160;</td>
+          <td class="paramname"><em>columns</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>elements</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -283,6 +289,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">rows</td><td>number rows for resulting matrix </td></tr>
     <tr><td class="paramname">columns</td><td>number columns for resulting matrix </td></tr>
+    <tr><td class="paramname">elements</td><td>number of elements per cell </td></tr>
   </table>
   </dd>
 </dl>
@@ -349,8 +356,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3aad6934b9b0b392e582eda4dbfd8070"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3aad6934b9b0b392e582eda4dbfd8070">&#9670;&nbsp;</a></span>zeros()</h2>
+<a id="afdaa618dcf212d08a6e4b3b517183702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdaa618dcf212d08a6e4b3b517183702">&#9670;&nbsp;</a></span>zeros()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -365,7 +372,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>columns</em>&#160;</td>
+          <td class="paramname"><em>columns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>elements</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -378,6 +391,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">rows</td><td>number rows for resulting matrix </td></tr>
     <tr><td class="paramname">columns</td><td>number columns for resulting matrix </td></tr>
+    <tr><td class="paramname">elements</td><td>number of elements per cell </td></tr>
   </table>
   </dd>
 </dl>

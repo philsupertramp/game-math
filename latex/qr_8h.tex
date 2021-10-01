@@ -1,0 +1,29 @@
+\hypertarget{qr_8h}{}\doxysection{include/math/numerics/lin\+\_\+alg/qr.h File Reference}
+\label{qr_8h}\index{include/math/numerics/lin\_alg/qr.h@{include/math/numerics/lin\_alg/qr.h}}
+{\ttfamily \#include \char`\"{}../../\+Matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../utils.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ $>$ \mbox{\hyperlink{qr_8h_a79e610770bb2849b63f140cd24bee65d}{qr}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{qr_8h_a79e610770bb2849b63f140cd24bee65d}\label{qr_8h_a79e610770bb2849b63f140cd24bee65d}} 
+\index{qr.h@{qr.h}!qr@{qr}}
+\index{qr@{qr}!qr.h@{qr.h}}
+\doxysubsubsection{\texorpdfstring{qr()}{qr()}}
+{\footnotesize\ttfamily std\+::pair$<$\mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ $>$ qr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{in }\end{DoxyParamCaption})}
+
+Calculates QR decomposition of given matrix so in = Q $\ast$ R 
+\begin{DoxyParams}{Parameters}
+{\em in} & matrix to calculate with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ Q, R \} decomposition 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2lin_alg_2TestQR_8cpp-example}{numerics/lin\+\_\+alg/\+Test\+QR.\+cpp}}.\end{Desc}

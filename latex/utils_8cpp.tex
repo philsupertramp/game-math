@@ -7,9 +7,9 @@
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{utils_8cpp_a3496a7aecd2c42b9bacd5bc9dc85dd88}{linspace}} (double start, double end, unsigned long num\+\_\+elements)
 \item 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{utils_8cpp_a3aad6934b9b0b392e582eda4dbfd8070}{zeros}} (size\+\_\+t rows, size\+\_\+t columns)
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{utils_8cpp_afdaa618dcf212d08a6e4b3b517183702}{zeros}} (size\+\_\+t rows, size\+\_\+t columns, size\+\_\+t elements)
 \item 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{utils_8cpp_afae8c7a061ee86e6e7315625ae4e53e6}{ones}} (size\+\_\+t rows, size\+\_\+t columns)
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{utils_8cpp_a09e4ec428c88fb8b9b781a02342580ab}{ones}} (size\+\_\+t rows, size\+\_\+t columns, size\+\_\+t elements)
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{utils_8cpp_a02435943b506858e6dd5d86fc85991c0}{eye}} (size\+\_\+t rows, size\+\_\+t columns)
 \item 
@@ -107,17 +107,19 @@ In 2D this is equal to the pythagorean theorem.
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{numerics_2TestUtils_8cpp-example}{numerics/\+Test\+Utils.\+cpp}}, and \mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
-\mbox{\Hypertarget{utils_8cpp_afae8c7a061ee86e6e7315625ae4e53e6}\label{utils_8cpp_afae8c7a061ee86e6e7315625ae4e53e6}} 
+\mbox{\Hypertarget{utils_8cpp_a09e4ec428c88fb8b9b781a02342580ab}\label{utils_8cpp_a09e4ec428c88fb8b9b781a02342580ab}} 
 \index{utils.cpp@{utils.cpp}!ones@{ones}}
 \index{ones@{ones}!utils.cpp@{utils.cpp}}
 \doxysubsubsection{\texorpdfstring{ones()}{ones()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ ones (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns = {\ttfamily 1} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ ones (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns = {\ttfamily 1},  }\item[{size\+\_\+t}]{elements = {\ttfamily 1} }\end{DoxyParamCaption})}
 
 Generates a matrix with each element = 1 for given size 
 \begin{DoxyParams}{Parameters}
 {\em rows} & number rows for resulting matrix \\
 \hline
 {\em columns} & number columns for resulting matrix \\
+\hline
+{\em elements} & number of elements per cell \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -148,17 +150,19 @@ creates tri-\/diagonal-\/matrix with given values and dimensions
 \begin{DoxyReturn}{Returns}
 tri-\/diagonal-\/matrix 
 \end{DoxyReturn}
-\mbox{\Hypertarget{utils_8cpp_a3aad6934b9b0b392e582eda4dbfd8070}\label{utils_8cpp_a3aad6934b9b0b392e582eda4dbfd8070}} 
+\mbox{\Hypertarget{utils_8cpp_afdaa618dcf212d08a6e4b3b517183702}\label{utils_8cpp_afdaa618dcf212d08a6e4b3b517183702}} 
 \index{utils.cpp@{utils.cpp}!zeros@{zeros}}
 \index{zeros@{zeros}!utils.cpp@{utils.cpp}}
 \doxysubsubsection{\texorpdfstring{zeros()}{zeros()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ zeros (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ zeros (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns,  }\item[{size\+\_\+t}]{elements = {\ttfamily 1} }\end{DoxyParamCaption})}
 
 Generates a matrix with each element = 0 for given size 
 \begin{DoxyParams}{Parameters}
 {\em rows} & number rows for resulting matrix \\
 \hline
 {\em columns} & number columns for resulting matrix \\
+\hline
+{\em elements} & number of elements per cell \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['x_501',['X',['../classNewtonBase.html#a06ff10676feb2bfddd21d01b883cb539',1,'NewtonBase']]],
-  ['x_502',['x',['../classLagrangeBase.html#aa2ab424392d5406ff753233818e20fc6',1,'LagrangeBase::x()'],['../structvec2.html#acbedc70458fbe177e24770b64267f07d',1,'vec2::x()'],['../structvec3.html#a3f1f0c60e13b8bf67f64b1afc9cd6d1a',1,'vec3::x()'],['../structvec4.html#ac71a642a8279ea6d303006e81e4abf2a',1,'vec4::x()']]],
-  ['xaxis_503',['xAxis',['../structPlotAttributes.html#a80a3dec051e0195255ff3471fa7ea9ea',1,'PlotAttributes::xAxis()'],['../classPlot.html#a71b26c829f6b3f4cf64957a3e323517f',1,'Plot::xAxis()']]],
-  ['xi_504',['XI',['../classSpline.html#aec3e4ba42a25a84af7b30e9a93a34548',1,'Spline']]],
-  ['xmax_505',['xMax',['../classNewtonFractal.html#ac710ac326aa58002987217f7fd6198c4',1,'NewtonFractal']]],
-  ['xmin_506',['xMin',['../classNewtonFractal.html#ab61b91764458edf714b5fbf636ee8800',1,'NewtonFractal']]]
+  ['w_501',['w',['../structvec4.html#a36a56fd42283fa83e57a0a07212174de',1,'vec4']]],
+  ['w_5finitialized_502',['w_initialized',['../classClassifier.html#a5c3236f91e4f14965715caaca167dec8',1,'Classifier']]],
+  ['weight_5fupdate_503',['weight_update',['../classSGD.html#a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3',1,'SGD']]],
+  ['weights_504',['weights',['../classClassifier.html#a5d4d61496164c06deab141329b6c878f',1,'Classifier']]],
+  ['where_505',['where',['../Matrix_8h.html#a03aa8ab53460bc8174166baea67463c3',1,'Matrix.h']]],
+  ['writeattributes_506',['writeAttributes',['../classPlot.html#a9bfd80c27c96636efaaec19b2d2b4b13',1,'Plot']]]
 ];

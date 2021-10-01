@@ -79,6 +79,8 @@ int \mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{Get\+Index}}
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}{Get\+Slice}} (size\+\_\+t row\+Start, size\+\_\+t row\+End, size\+\_\+t col\+Start, size\+\_\+t col\+End) const
 \item 
+void \mbox{\hyperlink{classMatrix_a15c969e68b5492a3e9918a001ba8beb2}{Set\+Slice}} (const size\+\_\+t \&row\+\_\+start, const size\+\_\+t \&row\+\_\+end, const size\+\_\+t \&col\+\_\+start, const size\+\_\+t \&col\+\_\+end, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&slice)
+\item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{classMatrix_afe8019630662f76ab9b199e9a0b3e5d1}{Get\+Components}} (const size\+\_\+t \&index) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
@@ -673,6 +675,13 @@ Row setter
 {\em other} & holds new row elements \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classMatrix_a15c969e68b5492a3e9918a001ba8beb2}\label{classMatrix_a15c969e68b5492a3e9918a001ba8beb2}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!SetSlice@{SetSlice}}
+\index{SetSlice@{SetSlice}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetSlice()}{SetSlice()}}
+{\footnotesize\ttfamily template$<$typename T  = double$>$ \\
+void \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::Set\+Slice (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{row\+\_\+start,  }\item[{const size\+\_\+t \&}]{row\+\_\+end,  }\item[{const size\+\_\+t \&}]{col\+\_\+start,  }\item[{const size\+\_\+t \&}]{col\+\_\+end,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{slice }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \mbox{\Hypertarget{classMatrix_aef471f0c0ecfb23415e67032ca8bce67}\label{classMatrix_aef471f0c0ecfb23415e67032ca8bce67}} 
 \index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!sumElements@{sumElements}}
 \index{sumElements@{sumElements}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}

@@ -119,7 +119,7 @@ $(function() {
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestSurfacePlot() {</div>
 <div class="line">        <a name="_a14"></a><a class="code" href="classSurfacePlot.html">SurfacePlot</a> plot(<span class="stringliteral">&quot;Test&quot;</span>);</div>
-<div class="line">        <span class="keyword">auto</span> dat = <a name="a15"></a><a class="code" href="utils_8cpp.html#afae8c7a061ee86e6e7315625ae4e53e6">ones</a>(100, 3);</div>
+<div class="line">        <span class="keyword">auto</span> dat = <a name="a15"></a><a class="code" href="utils_8cpp.html#a09e4ec428c88fb8b9b781a02342580ab">ones</a>(100, 3);</div>
 <div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(dat, <span class="stringliteral">&quot;some data&quot;</span>, <a name="a16"></a><a class="code" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">DataTypes::LINE</a>, 3);</div>
 <div class="line">        plot();</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -127,7 +127,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestImagePlot() {</div>
 <div class="line">        <a name="_a17"></a><a class="code" href="classImagePlot.html">ImagePlot</a> plot(<span class="stringliteral">&quot;Test&quot;</span>);</div>
-<div class="line">        <span class="keyword">auto</span> in = <a name="a18"></a><a class="code" href="utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a>(10, 10);</div>
+<div class="line">        <span class="keyword">auto</span> in = <a name="a18"></a><a class="code" href="utils_8cpp.html#afdaa618dcf212d08a6e4b3b517183702">zeros</a>(10, 10);</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 10; ++i) {</div>
 <div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; 10; ++j) {</div>
 <div class="line">                <span class="keywordflow">if</span>((i &lt;= 5 &amp;&amp; j &lt;= 5) || (i &gt; 5 &amp;&amp; j &gt; 5)) { in(i, j) = 1.0; }</div>
@@ -150,7 +150,7 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() { PlotTestCase().run(); }</div>
-<div class="ttc" id="aMatrix_8h_html_a9c0fb96647d1de47099f074cf20edf34"><div class="ttname"><a href="Matrix_8h.html#a9c0fb96647d1de47099f074cf20edf34">HorizontalConcat</a></div><div class="ttdeci">Matrix&lt; T &gt; HorizontalConcat(const Matrix&lt; T &gt; &amp;lhs, const Matrix&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> Matrix.h:799</div></div>
+<div class="ttc" id="aMatrix_8h_html_a9c0fb96647d1de47099f074cf20edf34"><div class="ttname"><a href="Matrix_8h.html#a9c0fb96647d1de47099f074cf20edf34">HorizontalConcat</a></div><div class="ttdeci">Matrix&lt; T &gt; HorizontalConcat(const Matrix&lt; T &gt; &amp;lhs, const Matrix&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> Matrix.h:815</div></div>
 <div class="ttc" id="aPlot_8h_html"><div class="ttname"><a href="Plot_8h.html">Plot.h</a></div></div>
 <div class="ttc" id="aPlot_8h_html_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c"><div class="ttname"><a href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a></div><div class="ttdeci">@ LINE</div><div class="ttdoc">Creates line data.</div><div class="ttdef"><b>Definition:</b> Plot.h:12</div></div>
 <div class="ttc" id="aSupportValues_8h_html"><div class="ttname"><a href="SupportValues_8h.html">SupportValues.h</a></div></div>
@@ -169,9 +169,9 @@ $(function() {
 <div class="ttc" id="aclassPlot_html_ad08d9746d9372ce9c14c042e12cb0a45"><div class="ttname"><a href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">Plot::AddData</a></div><div class="ttdeci">void AddData(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y, const std::string &amp;name, DataTypes dataType=DataTypes::NONE)</div><div class="ttdef"><b>Definition:</b> Plot.h:175</div></div>
 <div class="ttc" id="aclassScatterPlot_html"><div class="ttname"><a href="classScatterPlot.html">ScatterPlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:333</div></div>
 <div class="ttc" id="aclassSurfacePlot_html"><div class="ttname"><a href="classSurfacePlot.html">SurfacePlot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:383</div></div>
+<div class="ttc" id="autils_8cpp_html_a09e4ec428c88fb8b9b781a02342580ab"><div class="ttname"><a href="utils_8cpp.html#a09e4ec428c88fb8b9b781a02342580ab">ones</a></div><div class="ttdeci">Matrix&lt; double &gt; ones(size_t rows, size_t columns, size_t elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:14</div></div>
 <div class="ttc" id="autils_8cpp_html_a3496a7aecd2c42b9bacd5bc9dc85dd88"><div class="ttname"><a href="utils_8cpp.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a></div><div class="ttdeci">Matrix&lt; double &gt; linspace(double start, double end, unsigned long num_elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:4</div></div>
-<div class="ttc" id="autils_8cpp_html_a3aad6934b9b0b392e582eda4dbfd8070"><div class="ttname"><a href="utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a></div><div class="ttdeci">Matrix&lt; double &gt; zeros(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:11</div></div>
-<div class="ttc" id="autils_8cpp_html_afae8c7a061ee86e6e7315625ae4e53e6"><div class="ttname"><a href="utils_8cpp.html#afae8c7a061ee86e6e7315625ae4e53e6">ones</a></div><div class="ttdeci">Matrix&lt; double &gt; ones(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:12</div></div>
+<div class="ttc" id="autils_8cpp_html_afdaa618dcf212d08a6e4b3b517183702"><div class="ttname"><a href="utils_8cpp.html#afdaa618dcf212d08a6e4b3b517183702">zeros</a></div><div class="ttdeci">Matrix&lt; double &gt; zeros(size_t rows, size_t columns, size_t elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:11</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -12,11 +12,11 @@
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_a3496a7aecd2c42b9bacd5bc9dc85dd88}{linspace}} (double start, double end, unsigned long num\+\_\+elements)
 \item 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_a3aad6934b9b0b392e582eda4dbfd8070}{zeros}} (size\+\_\+t rows, size\+\_\+t columns)
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_a1aac892bef02cf6053e9c87f1086eea3}{zeros}} (size\+\_\+t rows, size\+\_\+t columns, size\+\_\+t elements=1)
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_a39df225669a531266ed2c16531359108}{zerosV}} (size\+\_\+t rows)
 \item 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_a6c64c3880ee3e78a28478b382e7593b9}{ones}} (size\+\_\+t rows, size\+\_\+t columns=1)
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_a5eca6f111638e81d414ae1292eb88b7e}{ones}} (size\+\_\+t rows, size\+\_\+t columns=1, size\+\_\+t elements=1)
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_af2b3071fc3f2b2a1e903ceea3a9afa76}{eye}} (size\+\_\+t rows, size\+\_\+t columns=0)
 \item 
@@ -25,6 +25,8 @@
 double \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in)
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{numerics_2utils_8h_a6ab3b9258536337630027b3da3ca49a4}{nonzero}} (const std\+::function$<$ bool(const double \&)$>$ \&validation, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{numerics_2utils_8h_a1f1cb7d36cc68c70008f8a96f6aa2cc4}{diag}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&in)
 \end{DoxyCompactItemize}
 
 
@@ -54,6 +56,13 @@ accuracy of calculated results
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{numerics_2utils_8h_a1f1cb7d36cc68c70008f8a96f6aa2cc4}\label{numerics_2utils_8h_a1f1cb7d36cc68c70008f8a96f6aa2cc4}} 
+\index{utils.h@{utils.h}!diag@{diag}}
+\index{diag@{diag}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{diag()}{diag()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$ diag (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{in }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{numerics_2utils_8h_af2b3071fc3f2b2a1e903ceea3a9afa76}\label{numerics_2utils_8h_af2b3071fc3f2b2a1e903ceea3a9afa76}} 
 \index{utils.h@{utils.h}!eye@{eye}}
 \index{eye@{eye}!utils.h@{utils.h}}
@@ -128,17 +137,19 @@ In 2D this is equal to the pythagorean theorem.
 \begin{DoxyReturn}{Returns}
 2-\/norm of given matrix 
 \end{DoxyReturn}
-\mbox{\Hypertarget{numerics_2utils_8h_a6c64c3880ee3e78a28478b382e7593b9}\label{numerics_2utils_8h_a6c64c3880ee3e78a28478b382e7593b9}} 
+\mbox{\Hypertarget{numerics_2utils_8h_a5eca6f111638e81d414ae1292eb88b7e}\label{numerics_2utils_8h_a5eca6f111638e81d414ae1292eb88b7e}} 
 \index{utils.h@{utils.h}!ones@{ones}}
 \index{ones@{ones}!utils.h@{utils.h}}
 \doxysubsubsection{\texorpdfstring{ones()}{ones()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ ones (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns = {\ttfamily 1} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ ones (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns = {\ttfamily 1},  }\item[{size\+\_\+t}]{elements = {\ttfamily 1} }\end{DoxyParamCaption})}
 
 Generates a matrix with each element = 1 for given size 
 \begin{DoxyParams}{Parameters}
 {\em rows} & number rows for resulting matrix \\
 \hline
 {\em columns} & number columns for resulting matrix \\
+\hline
+{\em elements} & number of elements per cell \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -166,17 +177,19 @@ creates tri-\/diagonal-\/matrix with given values and dimensions
 \begin{DoxyReturn}{Returns}
 tri-\/diagonal-\/matrix 
 \end{DoxyReturn}
-\mbox{\Hypertarget{numerics_2utils_8h_a3aad6934b9b0b392e582eda4dbfd8070}\label{numerics_2utils_8h_a3aad6934b9b0b392e582eda4dbfd8070}} 
+\mbox{\Hypertarget{numerics_2utils_8h_a1aac892bef02cf6053e9c87f1086eea3}\label{numerics_2utils_8h_a1aac892bef02cf6053e9c87f1086eea3}} 
 \index{utils.h@{utils.h}!zeros@{zeros}}
 \index{zeros@{zeros}!utils.h@{utils.h}}
 \doxysubsubsection{\texorpdfstring{zeros()}{zeros()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ zeros (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ zeros (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns,  }\item[{size\+\_\+t}]{elements = {\ttfamily 1} }\end{DoxyParamCaption})}
 
 Generates a matrix with each element = 0 for given size 
 \begin{DoxyParams}{Parameters}
 {\em rows} & number rows for resulting matrix \\
 \hline
 {\em columns} & number columns for resulting matrix \\
+\hline
+{\em elements} & number of elements per cell \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

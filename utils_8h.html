@@ -181,11 +181,41 @@ Functions</h2></td></tr>
 <tr class="memitem:af1dc9a864b5d7810f000a9558a08912c"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:af1dc9a864b5d7810f000a9558a08912c"><td class="memTemplItemLeft" align="right" valign="top">const void *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="utils_8h.html#af1dc9a864b5d7810f000a9558a08912c">value_ptr</a> (<a class="el" href="structmat4.html">mat4</a>&lt; T &gt; const &amp;mat)</td></tr>
 <tr class="separator:af1dc9a864b5d7810f000a9558a08912c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd6493a977e51bebf1a2a2649faeac8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a5fd6493a977e51bebf1a2a2649faeac8">sign</a> (const double &amp;d)</td></tr>
+<tr class="separator:a5fd6493a977e51bebf1a2a2649faeac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utility functions for 2,3,4-D vectors/matrices.</p>
 <p>This header file holds all sorts of helper functions used in computer-graphics to manipulate 2,3,4-D objects. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a5fd6493a977e51bebf1a2a2649faeac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd6493a977e51bebf1a2a2649faeac8">&#9670;&nbsp;</a></span>sign()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double sign </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calculates sign(d)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>value to test </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 if d &lt; 0 else 1 </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="TestUtils_8cpp-example.html#a20">TestUtils.cpp</a>.</dd>
+</dl>
+
+</div>
+</div>
 <a id="a0ae5a586ff6d9a35ec27854a106b6cf9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ae5a586ff6d9a35ec27854a106b6cf9">&#9670;&nbsp;</a></span>value_ptr() <span class="overload">[1/12]</span></h2>
 

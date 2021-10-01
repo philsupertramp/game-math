@@ -93,7 +93,7 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestZeros() {</div>
-<div class="line">        <span class="keyword">auto</span> A = <a name="a1"></a><a class="code" href="utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a>(2, 3);</div>
+<div class="line">        <span class="keyword">auto</span> A = <a name="a1"></a><a class="code" href="utils_8cpp.html#afdaa618dcf212d08a6e4b3b517183702">zeros</a>(2, 3);</div>
 <div class="line"> </div>
 <div class="line">        AssertEqual(A.rows(), 2);</div>
 <div class="line">        AssertEqual(A.columns(), 3);</div>
@@ -104,7 +104,7 @@ $(function() {
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestOnes() {</div>
-<div class="line">        <span class="keyword">auto</span> A = <a name="a2"></a><a class="code" href="utils_8cpp.html#afae8c7a061ee86e6e7315625ae4e53e6">ones</a>(2, 3);</div>
+<div class="line">        <span class="keyword">auto</span> A = <a name="a2"></a><a class="code" href="utils_8cpp.html#a09e4ec428c88fb8b9b781a02342580ab">ones</a>(2, 3);</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; A.rows(); i++) {</div>
 <div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; A.columns(); ++j) { AssertEqual(A(i, j), 1.0); }</div>
 <div class="line">        }</div>
@@ -178,12 +178,12 @@ $(function() {
 <div class="line">}</div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
 <div class="ttc" id="anumerics_2utils_8h_html"><div class="ttname"><a href="numerics_2utils_8h.html">utils.h</a></div></div>
-<div class="ttc" id="autils_8cpp_html_a02435943b506858e6dd5d86fc85991c0"><div class="ttname"><a href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:14</div></div>
+<div class="ttc" id="autils_8cpp_html_a02435943b506858e6dd5d86fc85991c0"><div class="ttname"><a href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:16</div></div>
+<div class="ttc" id="autils_8cpp_html_a09e4ec428c88fb8b9b781a02342580ab"><div class="ttname"><a href="utils_8cpp.html#a09e4ec428c88fb8b9b781a02342580ab">ones</a></div><div class="ttdeci">Matrix&lt; double &gt; ones(size_t rows, size_t columns, size_t elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:14</div></div>
 <div class="ttc" id="autils_8cpp_html_a3496a7aecd2c42b9bacd5bc9dc85dd88"><div class="ttname"><a href="utils_8cpp.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a></div><div class="ttdeci">Matrix&lt; double &gt; linspace(double start, double end, unsigned long num_elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:4</div></div>
-<div class="ttc" id="autils_8cpp_html_a39df225669a531266ed2c16531359108"><div class="ttname"><a href="utils_8cpp.html#a39df225669a531266ed2c16531359108">zerosV</a></div><div class="ttdeci">Matrix&lt; double &gt; zerosV(size_t rows)</div><div class="ttdef"><b>Definition:</b> utils.cpp:39</div></div>
-<div class="ttc" id="autils_8cpp_html_a3aad6934b9b0b392e582eda4dbfd8070"><div class="ttname"><a href="utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a></div><div class="ttdeci">Matrix&lt; double &gt; zeros(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:11</div></div>
-<div class="ttc" id="autils_8cpp_html_aa1a08a76ee49f8a9717e4aa127984987"><div class="ttname"><a href="utils_8cpp.html#aa1a08a76ee49f8a9717e4aa127984987">norm</a></div><div class="ttdeci">double norm(const Matrix&lt; double &gt; &amp;in)</div><div class="ttdef"><b>Definition:</b> utils.cpp:32</div></div>
-<div class="ttc" id="autils_8cpp_html_afae8c7a061ee86e6e7315625ae4e53e6"><div class="ttname"><a href="utils_8cpp.html#afae8c7a061ee86e6e7315625ae4e53e6">ones</a></div><div class="ttdeci">Matrix&lt; double &gt; ones(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:12</div></div>
+<div class="ttc" id="autils_8cpp_html_a39df225669a531266ed2c16531359108"><div class="ttname"><a href="utils_8cpp.html#a39df225669a531266ed2c16531359108">zerosV</a></div><div class="ttdeci">Matrix&lt; double &gt; zerosV(size_t rows)</div><div class="ttdef"><b>Definition:</b> utils.cpp:41</div></div>
+<div class="ttc" id="autils_8cpp_html_aa1a08a76ee49f8a9717e4aa127984987"><div class="ttname"><a href="utils_8cpp.html#aa1a08a76ee49f8a9717e4aa127984987">norm</a></div><div class="ttdeci">double norm(const Matrix&lt; double &gt; &amp;in)</div><div class="ttdef"><b>Definition:</b> utils.cpp:34</div></div>
+<div class="ttc" id="autils_8cpp_html_afdaa618dcf212d08a6e4b3b517183702"><div class="ttname"><a href="utils_8cpp.html#afdaa618dcf212d08a6e4b3b517183702">zeros</a></div><div class="ttdeci">Matrix&lt; double &gt; zeros(size_t rows, size_t columns, size_t elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:11</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

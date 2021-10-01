@@ -71,6 +71,8 @@
 {\footnotesize template$<$class T $>$ }\\const void $\ast$ \mbox{\hyperlink{utils_8h_afec65242a7cee267d63857ad331e9ab9}{value\+\_\+ptr}} (\mbox{\hyperlink{structmat3}{mat3}}$<$ T $>$ const \&mat)
 \item 
 {\footnotesize template$<$class T $>$ }\\const void $\ast$ \mbox{\hyperlink{utils_8h_af1dc9a864b5d7810f000a9558a08912c}{value\+\_\+ptr}} (\mbox{\hyperlink{structmat4}{mat4}}$<$ T $>$ const \&mat)
+\item 
+double \mbox{\hyperlink{utils_8h_a5fd6493a977e51bebf1a2a2649faeac8}{sign}} (const double \&d)
 \end{DoxyCompactItemize}
 
 
@@ -80,6 +82,25 @@ Utility functions for 2,3,4-\/D vectors/matrices.
 This header file holds all sorts of helper functions used in computer-\/graphics to manipulate 2,3,4-\/D objects. 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utils_8h_a5fd6493a977e51bebf1a2a2649faeac8}\label{utils_8h_a5fd6493a977e51bebf1a2a2649faeac8}} 
+\index{utils.h@{utils.h}!sign@{sign}}
+\index{sign@{sign}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{sign()}{sign()}}
+{\footnotesize\ttfamily double sign (\begin{DoxyParamCaption}\item[{const double \&}]{d }\end{DoxyParamCaption})}
+
+Calculates sign(d)
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & value to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if d $<$ 0 else 1 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestUtils_8cpp-example}{Test\+Utils.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{utils_8h_a0ae5a586ff6d9a35ec27854a106b6cf9}\label{utils_8h_a0ae5a586ff6d9a35ec27854a106b6cf9}} 
 \index{utils.h@{utils.h}!value\_ptr@{value\_ptr}}
 \index{value\_ptr@{value\_ptr}!utils.h@{utils.h}}

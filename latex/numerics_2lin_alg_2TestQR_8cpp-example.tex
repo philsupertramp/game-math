@@ -1,0 +1,46 @@
+\hypertarget{numerics_2lin_alg_2TestQR_8cpp-example}{}\doxysection{numerics/lin\+\_\+alg/\+Test\+QR.\+cpp}
+This is an example on how to use the qr decomposition.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../../Test.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{qr_8h}{math/numerics/lin\_alg/qr.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{numerics_2utils_8h}{math/numerics/utils.h}}>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class }SVDTestCase : \textcolor{keyword}{public} Test}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestQR() \{}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A = \{ \{ 2, 2, 8 \}, \{ 5, 6, 6 \}, \{ 4, 4, 8 \} \};}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} R = \{ \{ -\/6.708203932499369e+00, -\/7.453559924999299e+00, -\/1.162755348299891e+01 \},}
+\DoxyCodeLine{                             \{ 0, -\/6.666666666666672e-\/01, 4.000000000000002e+00 \},}
+\DoxyCodeLine{                             \{ 0, 0, 3.577708763999661e+00 \} \};}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} Q = \{}
+\DoxyCodeLine{            \{ -\/2.981423969999721e-\/01, 3.333333333333336e-\/01, 8.944271909999157e-\/01 \},}
+\DoxyCodeLine{            \{ -\/7.453559924999299e-\/01, -\/6.666666666666666e-\/01, 2.220446049250313e-\/16 \},}
+\DoxyCodeLine{            \{ -\/5.962847939999439e-\/01, 6.666666666666666e-\/01, -\/4.472135954999583e-\/01 \},}
+\DoxyCodeLine{        \};}
+\DoxyCodeLine{        \textcolor{comment}{//}}
+\DoxyCodeLine{        \textcolor{comment}{//        R *= -\/1.0;}}
+\DoxyCodeLine{        \textcolor{comment}{//        Q *= -\/1.0;}}
+\DoxyCodeLine{        \textcolor{keyword}{auto} result = \mbox{\hyperlink{qr_8h_a79e610770bb2849b63f140cd24bee65d}{qr}}(A);}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}R:\(\backslash\)n"{}} << R << \textcolor{stringliteral}{"{}\(\backslash\)nQ:\(\backslash\)n"{}} << Q << std::endl;}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}vs\(\backslash\)nR:\(\backslash\)n"{}} << result.second << \textcolor{stringliteral}{"{}\(\backslash\)nQ:\(\backslash\)n"{}} << result.first << std::endl;}
+\DoxyCodeLine{        \textcolor{comment}{// A stays A}}
+\DoxyCodeLine{        AssertEqual(Q, result.first);}
+\DoxyCodeLine{        AssertEqual(R, result.second);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{ TestQR(); \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
+\DoxyCodeLine{    SVDTestCase().run();}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

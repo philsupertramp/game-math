@@ -102,21 +102,85 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestGaussSeidelInverse() {</div>
-<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> A = <a name="a2"></a><a class="code" href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a>(2);</div>
-<div class="line">        <span class="keyword">auto</span> out         = <a name="a3"></a><a class="code" href="gaussJordan_8h.html#a0d15e5b46633b36b4b48fc5665c822d9">gaussJordan</a>(A);</div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> A = <a name="a2"></a><a class="code" href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a>(50);</div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> B;</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// trivial examples</span></div>
+<div class="line">        <span class="keyword">auto</span> out = <a name="a3"></a><a class="code" href="gaussJordan_8h.html#a0d15e5b46633b36b4b48fc5665c822d9">gaussJordan</a>(A);</div>
+<div class="line">        AssertEqual(out, A);</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// more advanced example</span></div>
+<div class="line">        A = {</div>
+<div class="line">            {</div>
+<div class="line">            -1,</div>
+<div class="line">            1,</div>
+<div class="line">            1,</div>
+<div class="line">            },</div>
+<div class="line">            {</div>
+<div class="line">            1,</div>
+<div class="line">            -1,</div>
+<div class="line">            1,</div>
+<div class="line">            },</div>
+<div class="line">            {</div>
+<div class="line">            1,</div>
+<div class="line">            1,</div>
+<div class="line">            -1,</div>
+<div class="line">            },</div>
+<div class="line">        };</div>
+<div class="line"> </div>
+<div class="line">        B = {</div>
+<div class="line">            {</div>
+<div class="line">            0,</div>
+<div class="line">            1. / 2,</div>
+<div class="line">            1. / 2,</div>
+<div class="line">            },</div>
+<div class="line">            {</div>
+<div class="line">            1. / 2,</div>
+<div class="line">            0,</div>
+<div class="line">            1. / 2,</div>
+<div class="line">            },</div>
+<div class="line">            {</div>
+<div class="line">            1. / 2,</div>
+<div class="line">            1. / 2,</div>
+<div class="line">            0,</div>
+<div class="line">            },</div>
+<div class="line">        };</div>
+<div class="line"> </div>
+<div class="line">        out = <a class="code" href="gaussJordan_8h.html#a0d15e5b46633b36b4b48fc5665c822d9">gaussJordan</a>(A);</div>
+<div class="line">        std::cout &lt;&lt; out;</div>
+<div class="line">        AssertEqual(out, B);</div>
 <div class="line"> </div>
 <div class="line">        A = {</div>
-<div class="line">            { 1, 1, 1, -1 },</div>
-<div class="line">            { 1, 1, -1, 1 },</div>
-<div class="line">            { 1, -1, 1, 1 },</div>
 <div class="line">            { -1, 1, 1, 1 },</div>
+<div class="line">            { 1, -1, 1, 1 },</div>
+<div class="line">            { 1, 1, -1, 1 },</div>
+<div class="line">            { 1, 1, 1, -1 },</div>
 <div class="line">        };</div>
-<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> B = {</div>
-<div class="line">            { 1. / 4, 1. / 4, 1. / 4, -1. / 4 },</div>
-<div class="line">            { 1. / 4, 1. / 4, -1. / 4, 1. / 4 },</div>
-<div class="line">            { 1. / 4, -1. / 4, 1. / 4, 1. / 4 },</div>
+<div class="line">        B = {</div>
 <div class="line">            { -1. / 4, 1. / 4, 1. / 4, 1. / 4 },</div>
+<div class="line">            { 1. / 4, -1. / 4, 1. / 4, 1. / 4 },</div>
+<div class="line">            { 1. / 4, 1. / 4, -1. / 4, 1. / 4 },</div>
+<div class="line">            { 1. / 4, 1. / 4, 1. / 4, -1. / 4 },</div>
 <div class="line">        };</div>
+<div class="line">        out = <a class="code" href="gaussJordan_8h.html#a0d15e5b46633b36b4b48fc5665c822d9">gaussJordan</a>(A);</div>
+<div class="line">        AssertEqual(out, B);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Not working example, inverse not available, det(A) = 0!</span></div>
+<div class="line">        A = {</div>
+<div class="line">            {</div>
+<div class="line">            -1,</div>
+<div class="line">            1,</div>
+<div class="line">            },</div>
+<div class="line">            {</div>
+<div class="line">            1,</div>
+<div class="line">            -1,</div>
+<div class="line">            },</div>
+<div class="line">        };</div>
+<div class="line">        B = { { INFINITY, INFINITY }, { INFINITY, INFINITY } };</div>
+<div class="line"> </div>
+<div class="line">        out = <a class="code" href="gaussJordan_8h.html#a0d15e5b46633b36b4b48fc5665c822d9">gaussJordan</a>(A);</div>
+<div class="line">        AssertEqual(out, B);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
@@ -138,7 +202,7 @@ $(function() {
 <div class="ttc" id="agaussJordan_8h_html_a0d15e5b46633b36b4b48fc5665c822d9"><div class="ttname"><a href="gaussJordan_8h.html#a0d15e5b46633b36b4b48fc5665c822d9">gaussJordan</a></div><div class="ttdeci">Matrix&lt; double &gt; gaussJordan(const Matrix&lt; double &gt; &amp;A)</div><div class="ttdef"><b>Definition:</b> gaussJordan.h:26</div></div>
 <div class="ttc" id="agaussSeidel_8h_html"><div class="ttname"><a href="gaussSeidel_8h.html">gaussSeidel.h</a></div></div>
 <div class="ttc" id="agaussSeidel_8h_html_ae8be91b27330eabce92d034d3f7bd8b8"><div class="ttname"><a href="gaussSeidel_8h.html#ae8be91b27330eabce92d034d3f7bd8b8">gaussSeidel</a></div><div class="ttdeci">Matrix&lt; double &gt; gaussSeidel(const Matrix&lt; double &gt; &amp;A, const Matrix&lt; double &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> gaussSeidel.h:28</div></div>
-<div class="ttc" id="autils_8cpp_html_a02435943b506858e6dd5d86fc85991c0"><div class="ttname"><a href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:14</div></div>
+<div class="ttc" id="autils_8cpp_html_a02435943b506858e6dd5d86fc85991c0"><div class="ttname"><a href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:16</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

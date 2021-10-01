@@ -238,6 +238,14 @@ $(function() {
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> TestSign() {</div>
+<div class="line">        AssertEqual(<a name="a20"></a><a class="code" href="utils_8h.html#a5fd6493a977e51bebf1a2a2649faeac8">sign</a>(-1.), -1);</div>
+<div class="line">        AssertEqual(<a class="code" href="utils_8h.html#a5fd6493a977e51bebf1a2a2649faeac8">sign</a>(1.), 1);</div>
+<div class="line">        AssertEqual(<a class="code" href="utils_8h.html#a5fd6493a977e51bebf1a2a2649faeac8">sign</a>(0.), 1);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
 <div class="line">        TestDistance();</div>
@@ -251,6 +259,7 @@ $(function() {
 <div class="line">        TestScale();</div>
 <div class="line">        TestRotate();</div>
 <div class="line">        TestMax();</div>
+<div class="line">        TestSign();</div>
 <div class="line">        TestValuePtr();</div>
 <div class="line">    }</div>
 <div class="line">};</div>
@@ -262,13 +271,13 @@ $(function() {
 <div class="ttc" id="aMatrix_8h_html"><div class="ttname"><a href="Matrix_8h.html">Matrix.h</a></div></div>
 <div class="ttc" id="amath_8h_html"><div class="ttname"><a href="math_8h.html">math.h</a></div></div>
 <div class="ttc" id="anamespaceMath_1_1Utils_html_a0648d54048d8ebffd974f0bb280b10b4"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a0648d54048d8ebffd974f0bb280b10b4">Math::Utils::distance</a></div><div class="ttdeci">float distance(const V &amp;a, const V &amp;b)</div><div class="ttdef"><b>Definition:</b> utils.h:27</div></div>
-<div class="ttc" id="anamespaceMath_1_1Utils_html_a205a093a4a68cf86c1e345809fdc1cf0"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a205a093a4a68cf86c1e345809fdc1cf0">Math::Utils::scale</a></div><div class="ttdeci">mat4&lt; T &gt; scale(const mat4&lt; T &gt; &amp;mat, const float &amp;factor)</div><div class="ttdef"><b>Definition:</b> utils.h:186</div></div>
-<div class="ttc" id="anamespaceMath_1_1Utils_html_a2e185229c6515722cb0830f37fb56080"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a2e185229c6515722cb0830f37fb56080">Math::Utils::lookAt</a></div><div class="ttdeci">mat4&lt; T &gt; lookAt(const vec3&lt; T &gt; &amp;eye, const vec3&lt; T &gt; &amp;center, const vec3&lt; T &gt; &amp;up)</div><div class="ttdef"><b>Definition:</b> utils.h:90</div></div>
-<div class="ttc" id="anamespaceMath_1_1Utils_html_a60954e293d82f14f331a1305090353d6"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a60954e293d82f14f331a1305090353d6">Math::Utils::max</a></div><div class="ttdeci">vec3&lt; T &gt; max(const vec3&lt; T &gt; &amp;a, const vec3&lt; T &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> utils.h:281</div></div>
-<div class="ttc" id="anamespaceMath_1_1Utils_html_a68305043852a6bf7aeffd0c8495d1776"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a68305043852a6bf7aeffd0c8495d1776">Math::Utils::angleAxis</a></div><div class="ttdeci">mat4&lt; T &gt; angleAxis([[maybe_unused]] const float &amp;angle, [[maybe_unused]] const vec3&lt; T &gt; &amp;axis)</div><div class="ttdef"><b>Definition:</b> utils.h:173</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a205a093a4a68cf86c1e345809fdc1cf0"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a205a093a4a68cf86c1e345809fdc1cf0">Math::Utils::scale</a></div><div class="ttdeci">mat4&lt; T &gt; scale(const mat4&lt; T &gt; &amp;mat, const float &amp;factor)</div><div class="ttdef"><b>Definition:</b> utils.h:187</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a2e185229c6515722cb0830f37fb56080"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a2e185229c6515722cb0830f37fb56080">Math::Utils::lookAt</a></div><div class="ttdeci">mat4&lt; T &gt; lookAt(const vec3&lt; T &gt; &amp;eye, const vec3&lt; T &gt; &amp;center, const vec3&lt; T &gt; &amp;up)</div><div class="ttdef"><b>Definition:</b> utils.h:91</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a60954e293d82f14f331a1305090353d6"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a60954e293d82f14f331a1305090353d6">Math::Utils::max</a></div><div class="ttdeci">vec3&lt; T &gt; max(const vec3&lt; T &gt; &amp;a, const vec3&lt; T &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> utils.h:282</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a68305043852a6bf7aeffd0c8495d1776"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a68305043852a6bf7aeffd0c8495d1776">Math::Utils::angleAxis</a></div><div class="ttdeci">mat4&lt; T &gt; angleAxis([[maybe_unused]] const float &amp;angle, [[maybe_unused]] const vec3&lt; T &gt; &amp;axis)</div><div class="ttdef"><b>Definition:</b> utils.h:174</div></div>
 <div class="ttc" id="anamespaceMath_1_1Utils_html_a7d243bc2f83e5a417bf1c8aa8eb06087"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a7d243bc2f83e5a417bf1c8aa8eb06087">Math::Utils::translate</a></div><div class="ttdeci">mat4&lt; T &gt; translate(const mat4&lt; T &gt; &amp;M, const vec3&lt; T &gt; &amp;V)</div><div class="ttdef"><b>Definition:</b> utils.h:72</div></div>
-<div class="ttc" id="anamespaceMath_1_1Utils_html_a953378c41ac1083d94c390da087d4bce"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a953378c41ac1083d94c390da087d4bce">Math::Utils::rotate</a></div><div class="ttdeci">mat4&lt; T &gt; rotate(const mat4&lt; T &gt; &amp;m, const float &amp;angle, vec3&lt; T &gt; u)</div><div class="ttdef"><b>Definition:</b> utils.h:246</div></div>
-<div class="ttc" id="anamespaceMath_1_1Utils_html_af6a61b9f20b00ba43c89cb3c48fd0c42"><div class="ttname"><a href="namespaceMath_1_1Utils.html#af6a61b9f20b00ba43c89cb3c48fd0c42">Math::Utils::lerp</a></div><div class="ttdeci">vec3&lt; T &gt; lerp(const vec3&lt; T &gt; &amp;p1, const vec3&lt; T &gt; &amp;p2, const float &amp;v)</div><div class="ttdef"><b>Definition:</b> utils.h:294</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_a953378c41ac1083d94c390da087d4bce"><div class="ttname"><a href="namespaceMath_1_1Utils.html#a953378c41ac1083d94c390da087d4bce">Math::Utils::rotate</a></div><div class="ttdeci">mat4&lt; T &gt; rotate(const mat4&lt; T &gt; &amp;m, const float &amp;angle, vec3&lt; T &gt; u)</div><div class="ttdef"><b>Definition:</b> utils.h:247</div></div>
+<div class="ttc" id="anamespaceMath_1_1Utils_html_af6a61b9f20b00ba43c89cb3c48fd0c42"><div class="ttname"><a href="namespaceMath_1_1Utils.html#af6a61b9f20b00ba43c89cb3c48fd0c42">Math::Utils::lerp</a></div><div class="ttdeci">vec3&lt; T &gt; lerp(const vec3&lt; T &gt; &amp;p1, const vec3&lt; T &gt; &amp;p2, const float &amp;v)</div><div class="ttdef"><b>Definition:</b> utils.h:295</div></div>
 <div class="ttc" id="anamespaceMath_1_1Utils_html_af821c19a75a7f060a2772944cdbe4379"><div class="ttname"><a href="namespaceMath_1_1Utils.html#af821c19a75a7f060a2772944cdbe4379">Math::Utils::normalize</a></div><div class="ttdeci">vec2&lt; T &gt; normalize(const vec2&lt; T &gt; &amp;a)</div><div class="ttdef"><b>Definition:</b> utils.h:38</div></div>
 <div class="ttc" id="astructmat2_html"><div class="ttname"><a href="structmat2.html">mat2</a></div><div class="ttdef"><b>Definition:</b> mat2.h:10</div></div>
 <div class="ttc" id="astructmat3_html"><div class="ttname"><a href="structmat3.html">mat3</a></div><div class="ttdef"><b>Definition:</b> mat3.h:10</div></div>
@@ -279,8 +288,9 @@ $(function() {
 <div class="ttc" id="astructvec3_html_a78346761e14409bf1360d7b8827c751b"><div class="ttname"><a href="structvec3.html#a78346761e14409bf1360d7b8827c751b">vec3::normalize</a></div><div class="ttdeci">vec3&lt; T &gt; normalize() const</div><div class="ttdef"><b>Definition:</b> vec3.h:139</div></div>
 <div class="ttc" id="astructvec4_html"><div class="ttname"><a href="structvec4.html">vec4</a></div><div class="ttdef"><b>Definition:</b> vec4.h:11</div></div>
 <div class="ttc" id="astructvec4_html_a64fd4d39d8943f0085c945765e5c6eb2"><div class="ttname"><a href="structvec4.html#a64fd4d39d8943f0085c945765e5c6eb2">vec4::normalize</a></div><div class="ttdeci">vec4&lt; T &gt; normalize() const</div><div class="ttdef"><b>Definition:</b> vec4.h:118</div></div>
-<div class="ttc" id="autils_8cpp_html_a02435943b506858e6dd5d86fc85991c0"><div class="ttname"><a href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:14</div></div>
-<div class="ttc" id="autils_8h_html_a749790974bbc88bb6bf6283952da1606"><div class="ttname"><a href="utils_8h.html#a749790974bbc88bb6bf6283952da1606">value_ptr</a></div><div class="ttdeci">void * value_ptr(vec2&lt; T &gt; &amp;vec)</div><div class="ttdef"><b>Definition:</b> utils.h:326</div></div>
+<div class="ttc" id="autils_8cpp_html_a02435943b506858e6dd5d86fc85991c0"><div class="ttname"><a href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:16</div></div>
+<div class="ttc" id="autils_8h_html_a5fd6493a977e51bebf1a2a2649faeac8"><div class="ttname"><a href="utils_8h.html#a5fd6493a977e51bebf1a2a2649faeac8">sign</a></div><div class="ttdeci">double sign(const double &amp;d)</div><div class="ttdef"><b>Definition:</b> utils.h:452</div></div>
+<div class="ttc" id="autils_8h_html_a749790974bbc88bb6bf6283952da1606"><div class="ttname"><a href="utils_8h.html#a749790974bbc88bb6bf6283952da1606">value_ptr</a></div><div class="ttdeci">void * value_ptr(vec2&lt; T &gt; &amp;vec)</div><div class="ttdef"><b>Definition:</b> utils.h:327</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

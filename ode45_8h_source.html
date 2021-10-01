@@ -92,7 +92,7 @@ $(function() {
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> t(0, result_dim, 1, 1);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">size_t</span> n         = result_dim;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> y = <a class="code" href="utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a>(n, elem_size);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> y = <a class="code" href="utils_8cpp.html#afdaa618dcf212d08a6e4b3b517183702">zeros</a>(n, elem_size);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> a({ { 0, 0, 0, 0, 0, 0, 0 },</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                       { 1.0 / 5.0, 0, 0, 0, 0, 0, 0 },</div>
@@ -113,7 +113,7 @@ $(function() {
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    t(0, 0) = tInterval[0];</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> l = 0; l &lt; n - 1; l++) {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        t(l + 1, 0) = t(l, 0) + h;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">auto</span> k      = <a class="code" href="utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a>(6, elem_size);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">auto</span> k      = <a class="code" href="utils_8cpp.html#afdaa618dcf212d08a6e4b3b517183702">zeros</a>(6, elem_size);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i_k = 0; i_k &lt; 6; i_k++) {</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> y_k = y(l);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
@@ -134,7 +134,7 @@ $(function() {
 <div class="ttc" id="aode_2ode_8h_html"><div class="ttname"><a href="ode_2ode_8h.html">ode.h</a></div></div>
 <div class="ttc" id="aode_2ode_8h_html_ad676feada87db8725ebe89248f5f3379"><div class="ttname"><a href="ode_2ode_8h.html#ad676feada87db8725ebe89248f5f3379">ODE</a></div><div class="ttdeci">std::function&lt; Matrix&lt; double &gt;(double, Matrix&lt; double &gt;)&gt; ODE</div><div class="ttdoc">alias for ODE</div><div class="ttdef"><b>Definition:</b> ode.h:17</div></div>
 <div class="ttc" id="astructODEResult_html"><div class="ttname"><a href="structODEResult.html">ODEResult</a></div><div class="ttdef"><b>Definition:</b> ode.h:25</div></div>
-<div class="ttc" id="autils_8cpp_html_a3aad6934b9b0b392e582eda4dbfd8070"><div class="ttname"><a href="utils_8cpp.html#a3aad6934b9b0b392e582eda4dbfd8070">zeros</a></div><div class="ttdeci">Matrix&lt; double &gt; zeros(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:11</div></div>
+<div class="ttc" id="autils_8cpp_html_afdaa618dcf212d08a6e4b3b517183702"><div class="ttname"><a href="utils_8cpp.html#afdaa618dcf212d08a6e4b3b517183702">zeros</a></div><div class="ttdeci">Matrix&lt; double &gt; zeros(size_t rows, size_t columns, size_t elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
