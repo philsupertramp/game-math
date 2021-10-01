@@ -71,10 +71,11 @@ namespace Math::Utils {
     template<class T>
     mat4<T> translate(const mat4<T>& M, const vec3<T>& V) {
         mat4<T> translation = M;
-        vec3<T> res         = vec3<T>(M[0]) * V.x + vec3<T>(M[1]) * V.y + vec3<T>(M[2]) * V.z + vec3<T>(M[3]);
-        translation[3][0]   = res.x;
-        translation[3][1]   = res.y;
-        translation[3][2]   = res.z;
+        vec3<T> res         = vec3<T>(M[0][0], M[0][1], M[0][2]) * V.x + vec3<T>(M[1][0], M[1][1], M[1][2]) * V.y
+                      + vec3<T>(M[2][0], M[2][1], M[2][2]) * V.z + vec3<T>(M[3][0], M[3][1], M[3][2]);
+        translation[3][0] = res.x;
+        translation[3][1] = res.y;
+        translation[3][2] = res.z;
         return translation;
     }
 
@@ -440,6 +441,17 @@ const void* value_ptr(mat3<T> const& mat) {
 template<class T>
 const void* value_ptr(mat4<T> const& mat) {
     return &(mat[0][0]);
+}
+
+/**
+ * Calculates sign(d)
+ *
+ * @param d value to test
+ * @return -1 if d < 0 else 1
+ */
+double sign(const double& d) {
+    if(d == 0.f) return 1;
+    return d < 0 ? -1 : 1;
 }
 
 /**

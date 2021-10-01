@@ -163,6 +163,14 @@ class UtilsTestCase : public Test
         return true;
     }
 
+    bool TestSign() {
+        AssertEqual(sign(-1.), -1);
+        AssertEqual(sign(1.), 1);
+        AssertEqual(sign(0.), 1);
+
+        return true;
+    }
+
 public:
     void run() override {
         TestDistance();
@@ -176,6 +184,7 @@ public:
         TestScale();
         TestRotate();
         TestMax();
+        TestSign();
         TestValuePtr();
     }
 };

@@ -57,6 +57,8 @@ if (MATH_EXTENSIONS MATCHES "(numerics)")
     add_test_source(numerics/lin_alg/TestGaussSeidel.cpp)
     add_test_source(numerics/lin_alg/TestNewton.cpp)
     add_test_source(numerics/lin_alg/TestLU.cpp)
+    add_test_source(numerics/lin_alg/TestQR.cpp)
+    add_test_source(numerics/lin_alg/TestSVD.cpp)
 
     add_test_source(numerics/analysis/TestSupportValues.cpp)
     add_test_source(numerics/analysis/TestNaturalSpline.cpp)

@@ -104,9 +104,7 @@ double getExponent(double x) {
     return exponent;
 }
 double likelihood(const Matrix<double>& vec) {
-    for(int i = 0; i < vec.rows(); ++i) {
-        //vec->_e[i];
-    }
+    // TODO: implement
     return 0.0;
 }
 

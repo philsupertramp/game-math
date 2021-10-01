@@ -5,7 +5,7 @@
 #include <math/math.h>
 #include <math/numerics/utils.h>
 
-#define TESTING_EPS 1e-10
+#define TESTING_EPS 1e-8
 class Test
 {
 public:
@@ -17,6 +17,7 @@ public:
     typename T,
     typename = std::enable_if_t<(std::is_arithmetic<T>::value) && (std::is_arithmetic<U>::value)>>
     void AssertEqual(const U& a, const T& b) {
+        if((std::isnan(a) && std::isnan(b)) || (std::isinf(a) && std::isinf(b))) { return; }
         assert(std::abs(double(a) - double(b)) <= TESTING_EPS);
     }
     void AssertEqual(const std::string& a, const std::string& b) { assert(a.compare(b) == 0); }

@@ -582,6 +582,22 @@ public:
         return out;
     }
 
+    void SetSlice(
+    const size_t& row_start,
+    const size_t& row_end,
+    const size_t& col_start,
+    const size_t& col_end,
+    const Matrix<T>& slice) {
+        size_t numRows = (row_end - row_start) + 1;
+        size_t numCols = (col_end - col_start) + 1;
+        assert(numRows == slice.rows());
+        assert(numCols == slice.columns());
+
+        for(size_t i = 0; i < numRows; ++i) {
+            for(size_t j = 0; j < numCols; ++j) { _data[GetIndex(row_start + i, col_start + j)] = slice(i, j); }
+        }
+    }
+
     /**
      * returns 1D-Matrix from given index
      * @param index of elements
@@ -1059,7 +1075,7 @@ T elemMean(const Matrix<T>& mat, const size_t& elemIndex) {
  * @return vector of diagonal elements
  */
 template<typename T>
-Matrix<T> diag(const Matrix<T>& in) {
+Matrix<T> diag_elements(const Matrix<T>& in) {
     Matrix<T> out(0, in.rows(), 1, in.elements());
     for(size_t i = 0; i < in.rows(); ++i) {
         for(size_t elem = 0; elem < in.elements(); ++elem) { out(i, 0, elem) = in(i, i, elem); }

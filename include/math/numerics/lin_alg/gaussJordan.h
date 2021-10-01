@@ -24,45 +24,35 @@
  * @return $$A^{-1}$$
  */
 Matrix<double> gaussJordan(const Matrix<double>& A) {
-    /*
-     *
-# Applying Guass Jordan Elimination
-for i in range(n):
-    if a[i][i] == 0.0:
-        sys.exit('Divide by zero detected!')
+    size_t i, j, k;
+    size_t n = A.columns();
+    double d;
+    Matrix<double> mat = HorizontalConcat(A, eye(A.rows(), n));
 
-    for j in range(n):
-        if i != j:
-            ratio = a[j][i]/a[i][i]
-
-            for k in range(2*n):
-                a[j][k] = a[j][k] - ratio * a[i][k]
-
-# Row operation to make principal diagonal element to 1
-for i in range(n):
-    divisor = a[i][i]
-    for j in range(2*n):
-        a[i][j] = a[i][j]/divisor
-     */
-    auto B = HorizontalConcat(A, eye(A.rows(), A.columns()));
-    for(size_t i = 0; i < A.rows(); ++i) {
-        if(A(i, i) == 0.0f) {
-            // error
-            std::cerr << "DIVISION BY 0!!! for " << i << "=" << A(i, i) << std::endl;
-            std::cerr << A << std::endl;
-        }
-        for(size_t j = 0; j < A.columns(); ++j) {
-            if(i != j) {
-                auto ratio = A(j, i) / A(i, i);
-                for(size_t k = j; k < B.columns(); ++k) { B(j, k) = B(j, k) - ratio * B(i, k); }
+    // Partial pivoting
+    for(i = n - 1; i > 1; i--) {
+        if(mat(i - 1, 1) < mat(i, 1)) {
+            for(j = 0; j < (2 * n); ++j) {
+                d             = mat(i, j);
+                mat(i, j)     = mat(i - 1, j);
+                mat(i - 1, j) = d;
             }
         }
     }
-    for(size_t i = 0; i < B.rows(); ++i) {
-        auto factor = B(i, i);
-        for(size_t j = 0; j < B.columns(); ++j) { B(i, j) = B(i, j) / factor; }
+
+    // Reducing To Diagonal Matrix
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            if(j != i) {
+                d = mat(j, i) / mat(i, i);
+                for(k = 0; k < n * 2; ++k) { mat(j, k) -= mat(i, k) * d; }
+            }
+        }
+        d = mat(i, i);
+        for(j = 0; j < (2 * n); j++) { mat(i, j) = mat(i, j) / d; }
     }
-    return B.GetSlice(0, B.rows() - 1, A.columns(), B.columns() - 1);
+
+    return mat.GetSlice(0, mat.rows() - 1, n, mat.columns() - 1);
 }
 
 /**

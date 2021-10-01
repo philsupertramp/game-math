@@ -34,6 +34,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_SOURCES
             ${LIB_SOURCES}
             include/math/Matrix.h
+            include/math/Matrix.cpp
             include/math/numerics/utils.h
             include/math/numerics/utils.cpp
             include/math/numerics/lin_alg/newton.h
@@ -52,7 +53,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/analysis/SupportValues.h
             include/math/numerics/analysis/Spline.h
             include/math/numerics/analysis/Differentiation.h
-            include/math/numerics/Fractals.h include/math/numerics/lin_alg/gaussJordan.h)
+            include/math/numerics/Fractals.h include/math/numerics/lin_alg/gaussJordan.h include/math/numerics/lin_alg/qr.h include/math/numerics/lin_alg/svd.h)
 endif()
 if(MATH_EXTENSIONS MATCHES "(symb)")
     set(LIB_SOURCES
@@ -113,7 +114,8 @@ if (MATH_EXTENSIONS MATCHES "(stat)")
             include/math/statistics/Insurance.h
             include/math/statistics/Insurance.cpp
             include/math/statistics/Finance.h
-            include/math/statistics/Finance.cpp)
+            include/math/statistics/Finance.cpp
+            )
 endif ()
 
 add_library(math-lib SHARED ${LIB_SOURCES})
@@ -126,6 +128,7 @@ endif()
 
 if(MATH_TESTS)
     include(CTest)
+    set(MATH_COVERAGE 1)
     add_subdirectory(tests)
 endif()
 
