@@ -63,3 +63,8 @@ std::vector<Matrix<double>> svd(const Matrix<double>& A, const size_t& k, const 
 
     return { left_vecs, singular_values, right_vecs };
 }
+
+/**
+ * \example numerics/lin_alg/TestSVD.cpp
+ * This is an example on how to use the svd method.
+ */
