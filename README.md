@@ -16,7 +16,10 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
     - Explicit 5 step Runge-Kutta-Method (ode45.h)
     - Trapezoid rule for odes (odeTrapez.h)
     - Backward differential formula (odeBDF2.h)
-  - Solver for systems of linear equations gaussSeidel.h
+  - Solver for systems of linear equations (gaussSeidel.h)
+  - Gauss-Jordan method to calculate inverse matrices (gaussJordan.h)
+  - QR-Decomposition of matrices (qr.h)
+  - Singular Value Decomposition (SVD) (svd.h)
   - Fractals using numerical approximations (Fractals.h)
     - NewtonFractal
     - Mandelbrot
@@ -32,6 +35,7 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
     - 2D/3D Interpolation
       - see Spline
   - Differential calculus (Differentiation.h)
+  - Numerical Integration (Integration.h)
 - (classic) Statistics:
   - Probability.h
   - Insurance.h
@@ -55,11 +59,6 @@ mat3<double>:
 finished computation with 9 elements and 5000000 * operations. elapsed time: 6.5e-08s
 finished computation with 9 elements and 5000000 + operations. elapsed time: 5.2e-08s
 ```
-
-# Upcoming features
-- Data Science:
-  - multi layer NNs
-  - Image classifier
 
 #### Build requirements
 `gcc, cmake, clang`
@@ -107,35 +106,21 @@ for implementation details.
 a specific data science and numerics implementation.  
 Capable of Matrix-Vector and Matrix-Multiplication, it also contains
 data science specific algorithms and statistical methods.
-### Available extensions:
-#### `numerics`: Numerical methods for linear algebra and odes
-```c++
-#include <math/numerics/lin_alg.h>
-#include <math/numerics/ode.h>
-```
-#### `ds`: Methods out of the field of data science
-```c++
-#include <math/ds.h>
-```
-#### TOC
-Module | Usage |
---- | --- |
-`numerics/lin_alg` | Concepts of linear algebra solved using numerical methods |
-`numerics/ode` | Solver for ordinary differential equations |
-`ds` | Concepts of Data Science |
 
-### Add extensions to library
-Some extensions are optional, to activate them use
-`MATH_EXTENSIONS` compile argument.
+# Extensions
+The library is split into multiple content seperated module.
+Each module is nested in the root directory [`math/`](/include/math).  
+Each sub-directory contains a README file with instructions how to use the module
+and if it has dependencies.
+
+### Adding extensions to library
+To activate modules use the `MATH_EXTENSIONS` compile argument.
 
 Example build command adding `numerics` module and building test suite:
 ```
 mkdir -p build
 cmake -DMATH_EXTENSIONS=numerics --build math/build -- -j 3 .
 ```
-
-### Note, some extensions or parts of them require specific dependencies.
-Look into module `README.md` files.
 
 # Development
 Feel free to contribute to the project!
