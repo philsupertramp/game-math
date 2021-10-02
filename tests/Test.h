@@ -34,6 +34,11 @@ public:
         assert(Math::Utils::distance(a, b) <= TESTING_EPS);
     }
     template<typename T>
+    void AssertEqual(const std::vector<T>& a, const std::vector<T>& b) {
+        assert(a.size() == b.size());
+        for(size_t i = 0; i < a.size(); i++) { assert(fabs(b[i] - a[i]) <= TESTING_EPS); }
+    }
+    template<typename T>
     void AssertEqual(const mat2<T>& a, const mat2<T>& b) {
         for(size_t i = 0; i < 2; i++) {
             for(size_t j = 0; j < 2; ++j) { AssertEqual(a[i][j], b[i][j]); }
