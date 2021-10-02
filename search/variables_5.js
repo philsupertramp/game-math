@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['elemdim_920',['elemDim',['../structMatrixDimension.html#a1f5be55c8a60262ddb045e4d3f4310e1',1,'MatrixDimension']]],
-  ['endx_921',['endX',['../classMandelbrot.html#afdd6e8a3720164279b7b999011ad41d5',1,'Mandelbrot']]],
-  ['endy_922',['endY',['../classMandelbrot.html#a8722229646bd702577b94eb03fd9dcd2',1,'Mandelbrot']]],
-  ['eta_923',['eta',['../classClassifier.html#ada5781f6955d4584bb9e8a24216ce654',1,'Classifier::eta()'],['../classDataSet.html#a5e96a7989e932a765382ec05df96f02e',1,'DataSet::eta()'],['../classSGD.html#ad45df4b7453474d02c8d7888dddcdcdf',1,'SGD::eta()']]],
-  ['evaluationvalue_924',['evaluationValue',['../classSymbolic.html#a9c806e242426832e2901f47fbeb4ff62',1,'Symbolic']]]
+  ['elemdim_934',['elemDim',['../structMatrixDimension.html#a1f5be55c8a60262ddb045e4d3f4310e1',1,'MatrixDimension']]],
+  ['endx_935',['endX',['../classMandelbrot.html#afdd6e8a3720164279b7b999011ad41d5',1,'Mandelbrot']]],
+  ['endy_936',['endY',['../classMandelbrot.html#a8722229646bd702577b94eb03fd9dcd2',1,'Mandelbrot']]],
+  ['eta_937',['eta',['../classClassifier.html#ada5781f6955d4584bb9e8a24216ce654',1,'Classifier::eta()'],['../classDataSet.html#a5e96a7989e932a765382ec05df96f02e',1,'DataSet::eta()'],['../classSGD.html#ad45df4b7453474d02c8d7888dddcdcdf',1,'SGD::eta()']]],
+  ['evaluationvalue_938',['evaluationValue',['../classSymbolic.html#a9c806e242426832e2901f47fbeb4ff62',1,'Symbolic']]]
 ];

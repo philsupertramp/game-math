@@ -1,0 +1,50 @@
+\hypertarget{Integration_8h}{}\doxysection{include/math/numerics/analysis/\+Integration.h File Reference}
+\label{Integration_8h}\index{include/math/numerics/analysis/Integration.h@{include/math/numerics/analysis/Integration.h}}
+{\ttfamily \#include \char`\"{}../../\+Matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../sorting.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../utils.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceintegration}{integration}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ double, std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{namespaceintegration_aaa7ae9518a30a6fc2736078a0d51a8d2}{integration\+::quad\+\_\+adaptive\+\_\+rec}} (const std\+::function$<$ double(double)$>$ \&fun, const double \&a, const double \&b, const double \&tol, const double \&h\+Min, std\+::vector$<$ double $>$ \&nodes, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&values)
+\item 
+std\+::pair$<$ double, std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{Integration_8h_a7cd185424deb99a36d30f3697650f7e0}{quadrature}} (const std\+::function$<$ double(double)$>$ \&fun, const double \&lower, const double \&upper, const double \&tol, const double \&h\+Min)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Integration_8h_a7cd185424deb99a36d30f3697650f7e0}\label{Integration_8h_a7cd185424deb99a36d30f3697650f7e0}} 
+\index{Integration.h@{Integration.h}!quadrature@{quadrature}}
+\index{quadrature@{quadrature}!Integration.h@{Integration.h}}
+\doxysubsubsection{\texorpdfstring{quadrature()}{quadrature()}}
+{\footnotesize\ttfamily std\+::pair$<$double, std\+::vector$<$double$>$ $>$ quadrature (\begin{DoxyParamCaption}\item[{const std\+::function$<$ double(double)$>$ \&}]{fun,  }\item[{const double \&}]{lower,  }\item[{const double \&}]{upper,  }\item[{const double \&}]{tol,  }\item[{const double \&}]{h\+Min }\end{DoxyParamCaption})}
+
+Calculates the given exact integral
+
+\textbackslash{}begin\{equation\} \textbackslash{}int \textbackslash{}limits\+\_\+\{l\}$^\wedge$\{u\} f(x) dx \textbackslash{}end\{equation\} where \$l\$ \+:= lower boundary, and \$u\$ \+:= upper boundary
+
+
+\begin{DoxyParams}{Parameters}
+{\em fun} & \mbox{\hyperlink{classFunction}{Function}} to calculate exact integral of \\
+\hline
+{\em lower} & lower boundary of integral \\
+\hline
+{\em upper} & upper boundary of integral \\
+\hline
+{\em tol} & tolerance of result to exact solution \\
+\hline
+{\em h\+Min} & minimal distance between approximation points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+approximated exact integral of fun 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2analysis_2TestIntegration_8cpp-example}{numerics/analysis/\+Test\+Integration.\+cpp}}.\end{Desc}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['function_925',['Function',['../classFunctionPlot.html#a16148c2b8c06689ceaabfb48a302cb44',1,'FunctionPlot']]]
+  ['function_939',['Function',['../classFunctionPlot.html#a16148c2b8c06689ceaabfb48a302cb44',1,'FunctionPlot']]]
 ];

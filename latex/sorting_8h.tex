@@ -1,0 +1,60 @@
+\hypertarget{sorting_8h}{}\doxysection{include/math/sorting.h File Reference}
+\label{sorting_8h}\index{include/math/sorting.h@{include/math/sorting.h}}
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$\+T$>$\+::value, T$>$\+::type$>$ }\\void \mbox{\hyperlink{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}{insertion\+\_\+sort}} (const T \&elem, std\+::vector$<$ T $>$ \&vec, const int \&current\+\_\+index)
+\item 
+{\footnotesize template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$\+T$>$\+::value, T$>$\+::type$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{sorting_8h_a2f560a121ec3565e73e0d9c2ca4dcc30}{sort}} (const std\+::vector$<$ T $>$ \&in)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}\label{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}} 
+\index{sorting.h@{sorting.h}!insertion\_sort@{insertion\_sort}}
+\index{insertion\_sort@{insertion\_sort}!sorting.h@{sorting.h}}
+\doxysubsubsection{\texorpdfstring{insertion\_sort()}{insertion\_sort()}}
+{\footnotesize\ttfamily template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$\+T$>$\+::value, T$>$\+::type$>$ \\
+void insertion\+\_\+sort (\begin{DoxyParamCaption}\item[{const T \&}]{elem,  }\item[{std\+::vector$<$ T $>$ \&}]{vec,  }\item[{const int \&}]{current\+\_\+index }\end{DoxyParamCaption})}
+
+Insertion sort for numerical vectors of type T 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & input value type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & element to insert into given vector \\
+\hline
+{\em vec} & given vector to add the element to \\
+\hline
+{\em current\+\_\+index} & vector index of last element \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sorting_8h_a2f560a121ec3565e73e0d9c2ca4dcc30}\label{sorting_8h_a2f560a121ec3565e73e0d9c2ca4dcc30}} 
+\index{sorting.h@{sorting.h}!sort@{sort}}
+\index{sort@{sort}!sorting.h@{sorting.h}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$\+T$>$\+::value, T$>$\+::type$>$ \\
+std\+::vector$<$T$>$ sort (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{in }\end{DoxyParamCaption})}
+
+Sort given vector of elements of numerical type T
+
+currently using insertion sort, might change at some point 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em in} & input vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sorted vector with ascending values 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{TestSorting_8cpp-example}{Test\+Sorting.\+cpp}}.\end{Desc}

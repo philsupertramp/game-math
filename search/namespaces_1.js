@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['std_581',['std',['../namespacestd.html',1,'']]]
+  ['math_587',['Math',['../namespaceMath.html',1,'']]],
+  ['utils_588',['Utils',['../namespaceMath_1_1Utils.html',1,'Math']]]
 ];
