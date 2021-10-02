@@ -28,7 +28,7 @@ set(LIB_SOURCES
         include/math/Random.h
         include/math/format.h
         include/math/format.cpp
-)
+        include/math/sorting.h)
 
 if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_SOURCES
