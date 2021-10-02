@@ -1,8 +1,8 @@
 #pragma once
-#include <functional>
 #include "../../Matrix.h"
-#include "../utils.h"
 #include "../../sorting.h"
+#include "../utils.h"
+#include <functional>
 
 namespace integration {
     /**
@@ -96,7 +96,7 @@ namespace integration {
 
         return { resLeft.first + resRight.first, nodes };
     }
-}
+} // namespace integration
 
 /**
  * Calculates the given exact integral
@@ -114,12 +114,17 @@ namespace integration {
  * @param hMin minimal distance between approximation points
  * @return approximated exact integral of fun
  */
-std::pair<double, std::vector<double>> quadrature(const std::function<double(double)>& fun, const double& lower, const double& upper, const double& tol, const double& hMin){
-  std::vector<double> nodes = {lower, upper};
-  Matrix<double> q;
-  auto res = integration::quad_adaptive_rec(fun, lower, upper, tol, hMin, nodes, q);
-  res.second = sort(res.second);
-  return res;
+std::pair<double, std::vector<double>> quadrature(
+const std::function<double(double)>& fun,
+const double& lower,
+const double& upper,
+const double& tol,
+const double& hMin) {
+    std::vector<double> nodes = { lower, upper };
+    Matrix<double> q;
+    auto res   = integration::quad_adaptive_rec(fun, lower, upper, tol, hMin, nodes, q);
+    res.second = sort(res.second);
+    return res;
 }
 /**
  * \example numerics/analysis/TestIntegration.cpp
