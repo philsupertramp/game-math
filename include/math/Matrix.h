@@ -151,6 +151,34 @@ public:
     }
 
     /**
+     * Generates normal distributed squared matrix
+     *
+     * @param rows
+     * @param columns
+     * @return data set of normal distributed data
+     */
+    static Matrix
+    Normal(size_t rows, size_t columns, double mu, double sigma){
+        assert(columns % 2 == 0);
+
+        constexpr double two_pi = 2.0 * M_PI;
+        Matrix out;
+        out.Resize(rows, columns);
+        for(size_t i = 0; i < rows; ++i){
+            for(size_t k = 0; k < columns; k+=2){
+                auto u1 = Random::Get();
+                auto u2 = Random::Get();
+
+                auto mag  = sigma * sqrt(-2.0 * log(u1));
+                out(i, k) = mag * cos(two_pi * u2) + mu;
+                out(i, k+1) = mag * sin(two_pi * u2) + mu;
+            }
+        }
+
+        return out;
+    }
+
+    /**
      * row getter
      * @return
      */
