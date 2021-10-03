@@ -23,8 +23,8 @@ enum DataTypes {
  */
 const char* GetDataTypeName(DataTypes type) {
     switch(type) {
-        case LINE: return "lines";  // linetype 1 linewidth 2";
-        case DOTS: return "points"; // pointtype 5 pointsize 1.5";
+        case LINE: return "lines ls 1";
+        case DOTS: return "points ls 2"; // pointtype 5 pointsize 1.5";
         case NONE:
         default: return "none";
     }
@@ -114,7 +114,10 @@ public:
         attributes.title         = new char[title.size() + 1];
         std::copy(title.begin(), title.end(), attributes.title);
         attributes.title[title.size()] = '\0';
+        clear_file();
+    }
 
+    void clear_file(){
         // create file and empty it
         storageFile = fopen(dataFileName, "w");
         fprintf(storageFile, "\0");
@@ -319,6 +322,7 @@ protected:
             if(attributes.isStatPlot) { fprintf(gnuplot, "%s", titleExtension); }
             fprintf(gnuplot, "'\n");
         }
+        fprintf(gnuplot, "set style line 1 lt 2 lc rgb \"red\" lw 3;\nset style line 1 lt 2 lc rgb \"orange\" lw 3;\n");
         if(attributes.xAxis) { fprintf(gnuplot, "set xlabel '%s'\n", attributes.xAxis); }
         if(attributes.yAxis) { fprintf(gnuplot, "set ylabel '%s'\n", attributes.yAxis); }
         if(attributes.is3D) { fprintf(gnuplot, "set hidden3d\nset dgrid3d 30,30 qnorm 1\n"); }
@@ -340,6 +344,7 @@ public:
         : Plot(name) {
         dataFileName = "point_plot_data.txt";
         plotTypeName = "points";
+        clear_file();
     }
 };
 
