@@ -87,6 +87,8 @@ void \mbox{\hyperlink{classMatrix_a15c969e68b5492a3e9918a001ba8beb2}{Set\+Slice}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_ab72c15d620fbe70b88578543b65e70ff}{Random}} (size\+\_\+t \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, size\+\_\+t \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}, size\+\_\+t element\+\_\+size=1, double min\+Value=0.\+0, double max\+Value=1.\+0)
+\item 
+static \mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_a3cfd5ae3fd2d7f13203f520c2b844849}{Normal}} (size\+\_\+t \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, size\+\_\+t \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}, double mu, double sigma)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -407,6 +409,28 @@ A form of matrix multiplication For explicit reference please consult \href{http
 \begin{DoxyReturn}{Returns}
 resulting matrix with same dimension 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classMatrix_a3cfd5ae3fd2d7f13203f520c2b844849}\label{classMatrix_a3cfd5ae3fd2d7f13203f520c2b844849}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Normal@{Normal}}
+\index{Normal@{Normal}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Normal()}{Normal()}}
+{\footnotesize\ttfamily template$<$typename T  = double$>$ \\
+static \mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::Normal (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns,  }\item[{double}]{mu,  }\item[{double}]{sigma }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Generates normal distributed squared matrix
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & \\
+\hline
+{\em columns} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data set of normal distributed data 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2lin_alg_2TestSVD_8cpp-example}{numerics/lin\+\_\+alg/\+Test\+SVD.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classMatrix_a4e9e6ddfb0734fed644f384a20c279a1}\label{classMatrix_a4e9e6ddfb0734fed644f384a20c279a1}} 
 \index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
@@ -702,6 +726,9 @@ constexpr \mbox{\hyperlink{classMatrix}{Matrix}}$<$T$>$ \mbox{\hyperlink{classMa
 Creates transposed matrix of {\ttfamily this} \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{numerics_2lin_alg_2TestSVD_8cpp-example}{numerics/lin\+\_\+alg/\+Test\+SVD.\+cpp}}.\end{Desc}
 
 
 \doxysubsection{Friends And Related Function Documentation}

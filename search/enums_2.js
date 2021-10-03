@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nodeconnectiontype_1060',['NodeConnectionType',['../MathNode_8h.html#ac3957c9768ee90555a77588a75a747ab',1,'MathNode.h']]],
-  ['normalizermethod_1061',['NormalizerMethod',['../DataSet_8h.html#a8436cce5c4911a0849d9e3e6f6ac2d95',1,'DataSet.h']]]
+  ['nodeconnectiontype_1064',['NodeConnectionType',['../MathNode_8h.html#ac3957c9768ee90555a77588a75a747ab',1,'MathNode.h']]],
+  ['normalizermethod_1065',['NormalizerMethod',['../DataSet_8h.html#a8436cce5c4911a0849d9e3e6f6ac2d95',1,'DataSet.h']]]
 ];

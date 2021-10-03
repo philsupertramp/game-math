@@ -6,6 +6,7 @@ This is an example on how to use the svd method.
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../../Test.h"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{svd_8h}{math/numerics/lin\_alg/svd.h}}>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{numerics_2utils_8h}{math/numerics/utils.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{Plot_8h}{math/visualization/Plot.h}}>}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{class }QRTestCase : \textcolor{keyword}{public} Test}
@@ -24,8 +25,110 @@ This is an example on how to use the svd method.
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestPCANormalDistribution()\{}
+\DoxyCodeLine{        \textcolor{comment}{// Create in (2, 1) centered normal distributed data.}}
+\DoxyCodeLine{        \textcolor{keywordtype}{size\_t} n\_points = 1000;}
+\DoxyCodeLine{        \textcolor{keyword}{auto} random\_data = \mbox{\hyperlink{classMatrix_a3cfd5ae3fd2d7f13203f520c2b844849}{Matrix<double>::Normal}}(n\_points, 2, 0, 0.1).\mbox{\hyperlink{classMatrix_a953e5e97f987f47e261dd830cac64087}{Transpose}}();}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} xC = \{\{2\}, \{1\}\}; \textcolor{comment}{// center (mean)}}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} sig = \{\{2\}, \{0.5\}\}; \textcolor{comment}{// principal axes}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// Rotate data}}
+\DoxyCodeLine{        \textcolor{keyword}{auto} theta = M\_PI / 3.0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// Transformation matrix for rotation}}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} R = \{}
+\DoxyCodeLine{            \{cos(theta), -\/sin(theta)\},}
+\DoxyCodeLine{            \{sin(theta), cos(theta)\}}
+\DoxyCodeLine{        \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// Transform normal distributed data}}
+\DoxyCodeLine{        \textcolor{keyword}{auto} X = (R * \mbox{\hyperlink{numerics_2utils_8h_a1f1cb7d36cc68c70008f8a96f6aa2cc4}{diag}}(sig) * random\_data + \mbox{\hyperlink{numerics_2utils_8h_a1f1cb7d36cc68c70008f8a96f6aa2cc4}{diag}}(xC) * \mbox{\hyperlink{utils_8cpp_a09e4ec428c88fb8b9b781a02342580ab}{ones}}(2, n\_points));}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// 1. compute mean row}}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} row\_mean(0.0, 1, X.rows());}
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < X.rows(); ++i)\{}
+\DoxyCodeLine{            row\_mean(0, i) = \mbox{\hyperlink{Matrix_8h_a438e42415f91a5cb3ff198e78e613e33}{mean}}(X.GetSlice(i, i, 0, X.columns() -\/ 1));}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} X\_bar = (\mbox{\hyperlink{classMatrix}{Matrix<double>}}(1.0, X.columns(), 1) * row\_mean).Transpose();}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// 2. B = X -\/ X'}}
+\DoxyCodeLine{        \textcolor{keyword}{auto} B = X -\/ X\_bar;}
+\DoxyCodeLine{        B = 1.0/(double)sqrt(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(n\_points)) * B;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// find principal components}}
+\DoxyCodeLine{        \textcolor{keyword}{auto} SVD = \mbox{\hyperlink{svd_8h_a05dff33e127eb59737b0a3da9062dd11}{svd}}(B, 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keyword}{auto} U = SVD[0].Transpose();}
+\DoxyCodeLine{        \textcolor{keyword}{auto} S = SVD[1];}
+\DoxyCodeLine{        \textcolor{keyword}{auto} VT = SVD[2];}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} Theta = 2.0 * M\_PI * \mbox{\hyperlink{utils_8cpp_a3496a7aecd2c42b9bacd5bc9dc85dd88}{linspace}}(0, 1, 100).\mbox{\hyperlink{classMatrix_a953e5e97f987f47e261dd830cac64087}{Transpose}}();}
+\DoxyCodeLine{        \textcolor{keyword}{auto} newTheta = \mbox{\hyperlink{Matrix_8h_a9c0fb96647d1de47099f074cf20edf34}{HorizontalConcat}}(Theta.\mbox{\hyperlink{classMatrix_aab08352f6e89b3dfb616c10998db4570}{Apply}}([](\textcolor{keywordtype}{double} val)\{ return cos(val); \}), Theta.\mbox{\hyperlink{classMatrix_aab08352f6e89b3dfb616c10998db4570}{Apply}}([](\textcolor{keywordtype}{double} val)\{ return sin(val);\})).Transpose();}
+\DoxyCodeLine{        \textcolor{keyword}{auto} xStd = U * \mbox{\hyperlink{numerics_2utils_8h_a1f1cb7d36cc68c70008f8a96f6aa2cc4}{diag}}(S) * newTheta;}
+\DoxyCodeLine{        \mbox{\hyperlink{classPlot}{Plot}} plot1(\textcolor{stringliteral}{"{}PCA Example"{}});}
+\DoxyCodeLine{        plot1.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(random\_data.Transpose(), \textcolor{stringliteral}{"{}Data"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}});}
+\DoxyCodeLine{        plot1();}
+\DoxyCodeLine{        plot1.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(X.Transpose(), \textcolor{stringliteral}{"{}Data"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}});}
+\DoxyCodeLine{        plot1();}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \mbox{\hyperlink{classPlot}{Plot}} plot(\textcolor{stringliteral}{"{}PCA Example"{}});}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(X.Transpose(), \textcolor{stringliteral}{"{}Data"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keyword}{auto} mean1 = row\_mean(0, 0);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} mean2 = row\_mean(0, 1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{comment}{// 1-\/a confidence interval}}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(}
+\DoxyCodeLine{            xStd.GetSlice(0, 0, 0, xStd.columns() -\/ 1).Apply([mean1](\textcolor{keywordtype}{double} v)\{return mean1 + v;\}).Transpose(),}
+\DoxyCodeLine{            xStd.GetSlice(1, 1, 0, xStd.columns() -\/ 1).Apply([mean2](\textcolor{keywordtype}{double} v)\{return mean2 + v;\}).Transpose(),}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}conf 1"{}},}
+\DoxyCodeLine{            \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}}}
+\DoxyCodeLine{        );}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(}
+\DoxyCodeLine{            xStd.GetSlice(0, 0, 0, xStd.columns() -\/ 1).Apply([mean1](\textcolor{keywordtype}{double} v)\{return mean1 + 2.0 * v;\}).Transpose(),}
+\DoxyCodeLine{            xStd.GetSlice(1, 1, 0, xStd.columns() -\/ 1).Apply([mean2](\textcolor{keywordtype}{double} v)\{return mean2 + 2.0 * v;\}).Transpose(),}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}conf 2"{}},}
+\DoxyCodeLine{            \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}}}
+\DoxyCodeLine{        );}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(}
+\DoxyCodeLine{            xStd.GetSlice(0, 0, 0, xStd.columns() -\/ 1).Apply([mean1](\textcolor{keywordtype}{double} v)\{return mean1 + 3.0 * v;\}).Transpose(),}
+\DoxyCodeLine{            xStd.GetSlice(1, 1, 0, xStd.columns() -\/ 1).Apply([mean2](\textcolor{keywordtype}{double} v)\{return mean2 + 3.0 * v;\}).Transpose(),}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}conf 3"{}},}
+\DoxyCodeLine{            \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}}}
+\DoxyCodeLine{        );}
+\DoxyCodeLine{}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}S:\(\backslash\)n"{}} << S << std::endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} pc1 = \{}
+\DoxyCodeLine{            \{mean1, mean2\},}
+\DoxyCodeLine{            \{mean1 + U(0, 0) * S(0, 0), mean2 + U(1, 0) * S(0, 0)\},}
+\DoxyCodeLine{        \};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}PC1:\(\backslash\)n"{}} << pc1 << std::endl;}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(}
+\DoxyCodeLine{            pc1,}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}pc 1"{}},}
+\DoxyCodeLine{            \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}}}
+\DoxyCodeLine{        );}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} pc2 = \{}
+\DoxyCodeLine{            \{mean1, mean2\},}
+\DoxyCodeLine{            \{mean1 + U(0, 1) * S(0, 1), mean2 + U(1, 1) * S(0, 1)\}}
+\DoxyCodeLine{        \};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}PC2:\(\backslash\)n"{}} << pc2 << std::endl;}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(}
+\DoxyCodeLine{            pc2,}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}pc 2"{}},}
+\DoxyCodeLine{            \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}}}
+\DoxyCodeLine{        );}
+\DoxyCodeLine{        plot();}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}
-\DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{ TestSVD(); \}}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{        TestSVD();}
+\DoxyCodeLine{        TestPCANormalDistribution();}
+\DoxyCodeLine{    \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}

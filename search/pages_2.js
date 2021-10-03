@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['game_2dmath_1120',['game-math',['../index.html',1,'']]]
+  ['game_2dmath_1124',['game-math',['../index.html',1,'']]]
 ];

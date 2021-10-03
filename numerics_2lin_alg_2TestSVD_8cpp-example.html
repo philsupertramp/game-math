@@ -76,6 +76,7 @@ $(function() {
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;../../Test.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="svd_8h.html">math/numerics/lin_alg/svd.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="numerics_2utils_8h.html">math/numerics/utils.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Plot_8h.html">math/visualization/Plot.h</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span>QRTestCase : <span class="keyword">public</span> Test</div>
@@ -94,19 +95,134 @@ $(function() {
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> TestPCANormalDistribution(){</div>
+<div class="line">        <span class="comment">// Create in (2, 1) centered normal distributed data.</span></div>
+<div class="line">        <span class="keywordtype">size_t</span> n_points = 1000;</div>
+<div class="line">        <span class="keyword">auto</span> random_data = <a name="a3"></a><a class="code" href="classMatrix.html#a3cfd5ae3fd2d7f13203f520c2b844849">Matrix&lt;double&gt;::Normal</a>(n_points, 2, 0, 0.1).<a name="a4"></a><a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>();</div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> xC = {{2}, {1}}; <span class="comment">// center (mean)</span></div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> sig = {{2}, {0.5}}; <span class="comment">// principal axes</span></div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Rotate data</span></div>
+<div class="line">        <span class="keyword">auto</span> theta = M_PI / 3.0;</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Transformation matrix for rotation</span></div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> R = {</div>
+<div class="line">            {cos(theta), -sin(theta)},</div>
+<div class="line">            {sin(theta), cos(theta)}</div>
+<div class="line">        };</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Transform normal distributed data</span></div>
+<div class="line">        <span class="keyword">auto</span> X = (R * <a name="a5"></a><a class="code" href="numerics_2utils_8h.html#a1f1cb7d36cc68c70008f8a96f6aa2cc4">diag</a>(sig) * random_data + <a class="code" href="numerics_2utils_8h.html#a1f1cb7d36cc68c70008f8a96f6aa2cc4">diag</a>(xC) * <a name="a6"></a><a class="code" href="utils_8cpp.html#a09e4ec428c88fb8b9b781a02342580ab">ones</a>(2, n_points));</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// 1. compute mean row</span></div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> row_mean(0.0, 1, X.rows());</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; X.rows(); ++i){</div>
+<div class="line">            row_mean(0, i) = <a name="a7"></a><a class="code" href="Matrix_8h.html#a438e42415f91a5cb3ff198e78e613e33">mean</a>(X.GetSlice(i, i, 0, X.columns() - 1));</div>
+<div class="line">        }</div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> X_bar = (<a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a>(1.0, X.columns(), 1) * row_mean).Transpose();</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// 2. B = X - X&#39;</span></div>
+<div class="line">        <span class="keyword">auto</span> B = X - X_bar;</div>
+<div class="line">        B = 1.0/(double)sqrt(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(n_points)) * B;</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// find principal components</span></div>
+<div class="line">        <span class="keyword">auto</span> SVD = <a class="code" href="svd_8h.html#a05dff33e127eb59737b0a3da9062dd11">svd</a>(B, 0);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">auto</span> U = SVD[0].Transpose();</div>
+<div class="line">        <span class="keyword">auto</span> S = SVD[1];</div>
+<div class="line">        <span class="keyword">auto</span> VT = SVD[2];</div>
+<div class="line"> </div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> Theta = 2.0 * M_PI * <a name="a8"></a><a class="code" href="utils_8cpp.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a>(0, 1, 100).<a name="a9"></a><a class="code" href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Transpose</a>();</div>
+<div class="line">        <span class="keyword">auto</span> newTheta = <a name="a10"></a><a class="code" href="Matrix_8h.html#a9c0fb96647d1de47099f074cf20edf34">HorizontalConcat</a>(Theta.<a name="a11"></a><a class="code" href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Apply</a>([](<span class="keywordtype">double</span> val){ return cos(val); }), Theta.<a class="code" href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Apply</a>([](<span class="keywordtype">double</span> val){ return sin(val);})).Transpose();</div>
+<div class="line">        <span class="keyword">auto</span> xStd = U * <a class="code" href="numerics_2utils_8h.html#a1f1cb7d36cc68c70008f8a96f6aa2cc4">diag</a>(S) * newTheta;</div>
+<div class="line">        <a name="_a12"></a><a class="code" href="classPlot.html">Plot</a> plot1(<span class="stringliteral">&quot;PCA Example&quot;</span>);</div>
+<div class="line">        plot1.<a name="a13"></a><a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(random_data.Transpose(), <span class="stringliteral">&quot;Data&quot;</span>, <a name="a14"></a><a class="code" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a>);</div>
+<div class="line">        plot1();</div>
+<div class="line">        plot1.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(X.Transpose(), <span class="stringliteral">&quot;Data&quot;</span>, <a class="code" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a>);</div>
+<div class="line">        plot1();</div>
+<div class="line"> </div>
+<div class="line">        <a class="code" href="classPlot.html">Plot</a> plot(<span class="stringliteral">&quot;PCA Example&quot;</span>);</div>
+<div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(X.Transpose(), <span class="stringliteral">&quot;Data&quot;</span>, <a class="code" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a>);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">auto</span> mean1 = row_mean(0, 0);</div>
+<div class="line">        <span class="keyword">auto</span> mean2 = row_mean(0, 1);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// 1-a confidence interval</span></div>
+<div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(</div>
+<div class="line">            xStd.GetSlice(0, 0, 0, xStd.columns() - 1).Apply([mean1](<span class="keywordtype">double</span> v){return mean1 + v;}).Transpose(),</div>
+<div class="line">            xStd.GetSlice(1, 1, 0, xStd.columns() - 1).Apply([mean2](<span class="keywordtype">double</span> v){return mean2 + v;}).Transpose(),</div>
+<div class="line">            <span class="stringliteral">&quot;conf 1&quot;</span>,</div>
+<div class="line">            <a name="a15"></a><a class="code" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a></div>
+<div class="line">        );</div>
+<div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(</div>
+<div class="line">            xStd.GetSlice(0, 0, 0, xStd.columns() - 1).Apply([mean1](<span class="keywordtype">double</span> v){return mean1 + 2.0 * v;}).Transpose(),</div>
+<div class="line">            xStd.GetSlice(1, 1, 0, xStd.columns() - 1).Apply([mean2](<span class="keywordtype">double</span> v){return mean2 + 2.0 * v;}).Transpose(),</div>
+<div class="line">            <span class="stringliteral">&quot;conf 2&quot;</span>,</div>
+<div class="line">            <a class="code" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a></div>
+<div class="line">        );</div>
+<div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(</div>
+<div class="line">            xStd.GetSlice(0, 0, 0, xStd.columns() - 1).Apply([mean1](<span class="keywordtype">double</span> v){return mean1 + 3.0 * v;}).Transpose(),</div>
+<div class="line">            xStd.GetSlice(1, 1, 0, xStd.columns() - 1).Apply([mean2](<span class="keywordtype">double</span> v){return mean2 + 3.0 * v;}).Transpose(),</div>
+<div class="line">            <span class="stringliteral">&quot;conf 3&quot;</span>,</div>
+<div class="line">            <a class="code" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a></div>
+<div class="line">        );</div>
+<div class="line"> </div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;S:\n&quot;</span> &lt;&lt; S &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> pc1 = {</div>
+<div class="line">            {mean1, mean2},</div>
+<div class="line">            {mean1 + U(0, 0) * S(0, 0), mean2 + U(1, 0) * S(0, 0)},</div>
+<div class="line">        };</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;PC1:\n&quot;</span> &lt;&lt; pc1 &lt;&lt; std::endl;</div>
+<div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(</div>
+<div class="line">            pc1,</div>
+<div class="line">            <span class="stringliteral">&quot;pc 1&quot;</span>,</div>
+<div class="line">            <a class="code" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a></div>
+<div class="line">        );</div>
+<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> pc2 = {</div>
+<div class="line">            {mean1, mean2},</div>
+<div class="line">            {mean1 + U(0, 1) * S(0, 1), mean2 + U(1, 1) * S(0, 1)}</div>
+<div class="line">        };</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;PC2:\n&quot;</span> &lt;&lt; pc2 &lt;&lt; std::endl;</div>
+<div class="line">        plot.<a class="code" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(</div>
+<div class="line">            pc2,</div>
+<div class="line">            <span class="stringliteral">&quot;pc 2&quot;</span>,</div>
+<div class="line">            <a class="code" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a></div>
+<div class="line">        );</div>
+<div class="line">        plot();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{ TestSVD(); }</div>
+<div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
+<div class="line">        TestSVD();</div>
+<div class="line">        TestPCANormalDistribution();</div>
+<div class="line">    }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
 <div class="line">    QRTestCase().run();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
+<div class="ttc" id="aMatrix_8h_html_a438e42415f91a5cb3ff198e78e613e33"><div class="ttname"><a href="Matrix_8h.html#a438e42415f91a5cb3ff198e78e613e33">mean</a></div><div class="ttdeci">T mean(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:1066</div></div>
+<div class="ttc" id="aMatrix_8h_html_a9c0fb96647d1de47099f074cf20edf34"><div class="ttname"><a href="Matrix_8h.html#a9c0fb96647d1de47099f074cf20edf34">HorizontalConcat</a></div><div class="ttdeci">Matrix&lt; T &gt; HorizontalConcat(const Matrix&lt; T &gt; &amp;lhs, const Matrix&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> Matrix.h:843</div></div>
+<div class="ttc" id="aPlot_8h_html"><div class="ttname"><a href="Plot_8h.html">Plot.h</a></div></div>
+<div class="ttc" id="aPlot_8h_html_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49"><div class="ttname"><a href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a></div><div class="ttdeci">@ DOTS</div><div class="ttdoc">Creates dot data.</div><div class="ttdef"><b>Definition:</b> Plot.h:14</div></div>
+<div class="ttc" id="aPlot_8h_html_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c"><div class="ttname"><a href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a></div><div class="ttdeci">@ LINE</div><div class="ttdoc">Creates line data.</div><div class="ttdef"><b>Definition:</b> Plot.h:12</div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassMatrix_html_a3cfd5ae3fd2d7f13203f520c2b844849"><div class="ttname"><a href="classMatrix.html#a3cfd5ae3fd2d7f13203f520c2b844849">Matrix::Normal</a></div><div class="ttdeci">static Matrix Normal(size_t rows, size_t columns, double mu, double sigma)</div><div class="ttdef"><b>Definition:</b> Matrix.h:161</div></div>
+<div class="ttc" id="aclassMatrix_html_a953e5e97f987f47e261dd830cac64087"><div class="ttname"><a href="classMatrix.html#a953e5e97f987f47e261dd830cac64087">Matrix::Transpose</a></div><div class="ttdeci">constexpr Matrix&lt; T &gt; Transpose() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:242</div></div>
+<div class="ttc" id="aclassMatrix_html_aab08352f6e89b3dfb616c10998db4570"><div class="ttname"><a href="classMatrix.html#aab08352f6e89b3dfb616c10998db4570">Matrix::Apply</a></div><div class="ttdeci">Matrix&lt; T &gt; Apply(const std::function&lt; T(T)&gt; &amp;fun) const</div><div class="ttdef"><b>Definition:</b> Matrix.h:351</div></div>
+<div class="ttc" id="aclassPlot_html"><div class="ttname"><a href="classPlot.html">Plot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:100</div></div>
+<div class="ttc" id="aclassPlot_html_ad08d9746d9372ce9c14c042e12cb0a45"><div class="ttname"><a href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">Plot::AddData</a></div><div class="ttdeci">void AddData(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y, const std::string &amp;name, DataTypes dataType=DataTypes::NONE)</div><div class="ttdef"><b>Definition:</b> Plot.h:178</div></div>
 <div class="ttc" id="anumerics_2utils_8h_html"><div class="ttname"><a href="numerics_2utils_8h.html">utils.h</a></div></div>
+<div class="ttc" id="anumerics_2utils_8h_html_a1f1cb7d36cc68c70008f8a96f6aa2cc4"><div class="ttname"><a href="numerics_2utils_8h.html#a1f1cb7d36cc68c70008f8a96f6aa2cc4">diag</a></div><div class="ttdeci">Matrix&lt; T &gt; diag(const Matrix&lt; T &gt; &amp;in)</div><div class="ttdef"><b>Definition:</b> utils.h:109</div></div>
 <div class="ttc" id="asvd_8h_html"><div class="ttname"><a href="svd_8h.html">svd.h</a></div></div>
 <div class="ttc" id="asvd_8h_html_a05dff33e127eb59737b0a3da9062dd11"><div class="ttname"><a href="svd_8h.html#a05dff33e127eb59737b0a3da9062dd11">svd</a></div><div class="ttdeci">std::vector&lt; Matrix&lt; double &gt; &gt; svd(const Matrix&lt; double &gt; &amp;A, const size_t &amp;k, const double epsilon=0.1e-4)</div><div class="ttdef"><b>Definition:</b> svd.h:14</div></div>
 <div class="ttc" id="autils_8cpp_html_a02435943b506858e6dd5d86fc85991c0"><div class="ttname"><a href="utils_8cpp.html#a02435943b506858e6dd5d86fc85991c0">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:16</div></div>
+<div class="ttc" id="autils_8cpp_html_a09e4ec428c88fb8b9b781a02342580ab"><div class="ttname"><a href="utils_8cpp.html#a09e4ec428c88fb8b9b781a02342580ab">ones</a></div><div class="ttdeci">Matrix&lt; double &gt; ones(size_t rows, size_t columns, size_t elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:14</div></div>
+<div class="ttc" id="autils_8cpp_html_a3496a7aecd2c42b9bacd5bc9dc85dd88"><div class="ttname"><a href="utils_8cpp.html#a3496a7aecd2c42b9bacd5bc9dc85dd88">linspace</a></div><div class="ttdeci">Matrix&lt; double &gt; linspace(double start, double end, unsigned long num_elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:4</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
