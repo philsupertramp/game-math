@@ -78,27 +78,21 @@ $(function() {
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="numerics_2utils_8h.html">math/numerics/utils.h</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>SVDTestCase : <span class="keyword">public</span> Test</div>
+<div class="line"><span class="keyword">class </span>QRTestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">bool</span> TestQR() {</div>
 <div class="line">        <a name="_a0"></a><a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> A = { { 2, 2, 8 }, { 5, 6, 6 }, { 4, 4, 8 } };</div>
-<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> R = { { -6.708203932499369e+00, -7.453559924999299e+00, -1.162755348299891e+01 },</div>
-<div class="line">                             { 0, -6.666666666666672e-01, 4.000000000000002e+00 },</div>
-<div class="line">                             { 0, 0, 3.577708763999661e+00 } };</div>
-<div class="line">        <a class="code" href="classMatrix.html">Matrix&lt;double&gt;</a> Q = {</div>
-<div class="line">            { -2.981423969999721e-01, 3.333333333333336e-01, 8.944271909999157e-01 },</div>
-<div class="line">            { -7.453559924999299e-01, -6.666666666666666e-01, 2.220446049250313e-16 },</div>
-<div class="line">            { -5.962847939999439e-01, 6.666666666666666e-01, -4.472135954999583e-01 },</div>
-<div class="line">        };</div>
 <div class="line">        <span class="comment">//</span></div>
 <div class="line">        <span class="comment">//        R *= -1.0;</span></div>
 <div class="line">        <span class="comment">//        Q *= -1.0;</span></div>
-<div class="line">        <span class="keyword">auto</span> result = <a name="a1"></a><a class="code" href="qr_8h.html#a79e610770bb2849b63f140cd24bee65d">qr</a>(A);</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;R:\n&quot;</span> &lt;&lt; R &lt;&lt; <span class="stringliteral">&quot;\nQ:\n&quot;</span> &lt;&lt; Q &lt;&lt; std::endl;</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;vs\nR:\n&quot;</span> &lt;&lt; result.second &lt;&lt; <span class="stringliteral">&quot;\nQ:\n&quot;</span> &lt;&lt; result.first &lt;&lt; std::endl;</div>
-<div class="line">        <span class="comment">// A stays A</span></div>
-<div class="line">        AssertEqual(Q, result.first);</div>
-<div class="line">        AssertEqual(R, result.second);</div>
+<div class="line">        <span class="keyword">auto</span> result = <a name="a1"></a><a class="code" href="qr_8h.html#aab95a5d95159861205dcc81563a60a19">qr</a>(A);</div>
+<div class="line">        AssertEqual(A, result.first * result.second);</div>
+<div class="line"> </div>
+<div class="line">        A = {{2, 3}, {3, 2}};</div>
+<div class="line"> </div>
+<div class="line">        result = <a class="code" href="qr_8h.html#aab95a5d95159861205dcc81563a60a19">qr</a>(A);</div>
+<div class="line"> </div>
+<div class="line">        AssertEqual(A, result.first * result.second);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
@@ -108,13 +102,13 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    SVDTestCase().run();</div>
+<div class="line">    QRTestCase().run();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix&lt; double &gt;</a></div></div>
 <div class="ttc" id="anumerics_2utils_8h_html"><div class="ttname"><a href="numerics_2utils_8h.html">utils.h</a></div></div>
 <div class="ttc" id="aqr_8h_html"><div class="ttname"><a href="qr_8h.html">qr.h</a></div></div>
-<div class="ttc" id="aqr_8h_html_a79e610770bb2849b63f140cd24bee65d"><div class="ttname"><a href="qr_8h.html#a79e610770bb2849b63f140cd24bee65d">qr</a></div><div class="ttdeci">std::pair&lt; Matrix&lt; double &gt;, Matrix&lt; double &gt; &gt; qr(const Matrix&lt; double &gt; &amp;in)</div><div class="ttdef"><b>Definition:</b> qr.h:12</div></div>
+<div class="ttc" id="aqr_8h_html_aab95a5d95159861205dcc81563a60a19"><div class="ttname"><a href="qr_8h.html#aab95a5d95159861205dcc81563a60a19">qr</a></div><div class="ttdeci">std::pair&lt; Matrix&lt; double &gt;, Matrix&lt; double &gt; &gt; qr(const Matrix&lt; double &gt; &amp;A)</div><div class="ttdef"><b>Definition:</b> qr.h:12</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -340,12 +340,12 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestApply()\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestApply() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A = \mbox{\hyperlink{utils_8cpp_a02435943b506858e6dd5d86fc85991c0}{eye}}(2, 2);}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} B = \mbox{\hyperlink{utils_8cpp_a02435943b506858e6dd5d86fc85991c0}{eye}}(2, 2);}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} D = 2 * \mbox{\hyperlink{utils_8cpp_a02435943b506858e6dd5d86fc85991c0}{eye}}(2, 2);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} C = A.\mbox{\hyperlink{classMatrix_aab08352f6e89b3dfb616c10998db4570}{Apply}}([](\textcolor{keywordtype}{double} val)\{\textcolor{keywordflow}{return} val * 2;\});}
+\DoxyCodeLine{        \textcolor{keyword}{auto} C = A.\mbox{\hyperlink{classMatrix_aab08352f6e89b3dfb616c10998db4570}{Apply}}([](\textcolor{keywordtype}{double} val) \{ \textcolor{keywordflow}{return} val * 2; \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(A, B);}
 \DoxyCodeLine{        AssertEqual(C, D);}
