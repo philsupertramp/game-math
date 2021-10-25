@@ -9,29 +9,26 @@
  * @param in matrix to calculate with
  * @return { Q, R } decomposition
  */
-std::pair<Matrix<double>, Matrix<double>> qr(const Matrix<double>& in) {
-    auto R = zeros(in.rows(), in.rows());
-    auto Q = eye(in.rows(), in.rows());
-    auto A = in;
-    for(size_t i = 0; i < (in.rows() < in.columns() ? in.rows() : in.columns()); i++) {
-        // perform givens rotation
-        auto v      = A.GetSlice(0, A.rows() - 1, 0, 0);
-        auto s      = sign(v(0, 0));
-        v(0, 0)     = v(0, 0) + s * norm(v);
-        auto qSlice = Q.GetSlice(0, Q.rows() - 1, i, Q.columns() - 1).Transpose();
-        auto vTv    = (v.Transpose() * v)(0, 0);
-        auto b      = (2.0f) / (vTv)*v;
-        auto slice  = (qSlice - (b * (v.Transpose() * qSlice))).Transpose();
-        Q.SetSlice(0, Q.rows() - 1, i, Q.columns() - 1, slice);
+std::pair<Matrix<double>, Matrix<double>> qr(const Matrix<double>& A) {
+    size_t num_rows = A.rows();
+    size_t num_cols = A.columns();
 
-        // calculate Q, R
-        A = A - b * (v.Transpose() * A);
-        R.SetSlice(i, i, i, R.columns() - 1, A.GetSlice(0, 0, 0, A.columns() - 1));
+    auto Q = zeros(num_rows, num_rows) ;
+    size_t col = 0;
 
-        // remove calculated bits and reduce dimension
-        A = A.GetSlice(1, A.rows() - 1, 1, A.columns() - 1);
+    for(size_t i_a = 0; i_a < num_cols; i_a++) {
+        auto a = A.GetSlice(0, num_rows - 1, i_a, i_a);
+        auto u = a;
+        for(size_t i = 0; i < col; i++) {
+            auto q = Q.GetSlice(0, num_rows - 1, i, i);
+            auto proj = (q.Transpose() * a)(0, 0) * q;
+            u -= proj;
+        }
+        auto e = 1.0/norm(u) * u;
+        Q.SetSlice(0, e.rows() - 1, col, col, e);
+        col += 1;
     }
-    return { Q, R };
+    return std::make_pair(Q, Q.Transpose() * A);
 }
 
 /**

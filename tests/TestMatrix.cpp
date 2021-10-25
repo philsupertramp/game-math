@@ -340,12 +340,12 @@ class MatrixTestCase : public Test
         return true;
     }
 
-    bool TestApply(){
+    bool TestApply() {
         Matrix<double> A = eye(2, 2);
         Matrix<double> B = eye(2, 2);
         Matrix<double> D = 2 * eye(2, 2);
 
-        auto C = A.Apply([](double val){return val * 2;});
+        auto C = A.Apply([](double val) { return val * 2; });
 
         AssertEqual(A, B);
         AssertEqual(C, D);

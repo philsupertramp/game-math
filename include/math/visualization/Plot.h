@@ -117,7 +117,7 @@ public:
         clear_file();
     }
 
-    void clear_file(){
+    void clear_file() {
         // create file and empty it
         storageFile = fopen(dataFileName, "w");
         fprintf(storageFile, "\0");
