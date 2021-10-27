@@ -38,7 +38,12 @@ This is an example on how to use the different Fractal classes.
 \DoxyCodeLine{        \{ 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 \},}
 \DoxyCodeLine{        \});}
 \DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(M, expected);}
+\DoxyCodeLine{        \textcolor{comment}{//        AssertEqual(M, expected);}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        fractal = \mbox{\hyperlink{classNewtonFractal}{NewtonFractal}}(400);}
+\DoxyCodeLine{        \mbox{\hyperlink{classImagePlot}{ImagePlot}} plot(\textcolor{stringliteral}{"{}Newton-\/Fractals"{}});}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classImagePlot_abcc293f8ea2f73b54d184baeb742b820}{AddData}}(fractal(), \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{        plot(\textcolor{stringliteral}{"{}inferno.pal"{}});}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}

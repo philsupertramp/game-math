@@ -85,18 +85,18 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">size_t</span> num_rows = A.<a class="code" href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">rows</a>();</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">size_t</span> num_cols = A.<a class="code" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">auto</span> Q = <a class="code" href="utils_8cpp.html#afdaa618dcf212d08a6e4b3b517183702">zeros</a>(num_rows, num_rows) ;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">auto</span> Q     = <a class="code" href="utils_8cpp.html#afdaa618dcf212d08a6e4b3b517183702">zeros</a>(num_rows, num_rows);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">size_t</span> col = 0;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i_a = 0; i_a &lt; num_cols; i_a++) {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">auto</span> a = A.<a class="code" href="classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b">GetSlice</a>(0, num_rows - 1, i_a, i_a);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">auto</span> u = a;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; col; i++) {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keyword">auto</span> q = Q.<a class="code" href="classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b">GetSlice</a>(0, num_rows - 1, i, i);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keyword">auto</span> q    = Q.<a class="code" href="classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b">GetSlice</a>(0, num_rows - 1, i, i);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keyword">auto</span> proj = (q.Transpose() * a)(0, 0) * q;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            u -= proj;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">auto</span> e = 1.0/<a class="code" href="utils_8cpp.html#aa1a08a76ee49f8a9717e4aa127984987">norm</a>(u) * u;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">auto</span> e = 1.0 / <a class="code" href="utils_8cpp.html#aa1a08a76ee49f8a9717e4aa127984987">norm</a>(u) * u;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        Q.SetSlice(0, e.rows() - 1, col, col, e);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        col += 1;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
