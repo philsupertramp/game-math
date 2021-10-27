@@ -13,7 +13,7 @@ class QRTestCase : public Test
         auto result = qr(A);
         AssertEqual(A, result.first * result.second);
 
-        A = {{2, 3}, {3, 2}};
+        A = { { 2, 3 }, { 3, 2 } };
 
         result = qr(A);
 

@@ -33,7 +33,12 @@ class FractalsTestCase : public Test
         { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 },
         });
 
-        AssertEqual(M, expected);
+        //        AssertEqual(M, expected);
+
+        fractal = NewtonFractal(400);
+        ImagePlot plot("Newton-Fractals");
+        plot.AddData(fractal(), "");
+        plot("inferno.pal");
         return true;
     }
 

@@ -6,7 +6,13 @@ Contains newton-algorithm and Gauss-Seidel-Algorithm to solve systems of linear 
 Also contains LU-substitution.
 
 Newton-Fractals:  
+![newton-fractal](https://user-images.githubusercontent.com/9550040/139021410-708a7676-c06f-418c-8edb-58a50f667607.png)
+
+Mandelbrot set:
 ![mandelbrot](https://user-images.githubusercontent.com/9550040/120936014-eecb5900-c705-11eb-918a-607088ce6d87.png)
+
+To learn more about these beautiful fractals check out 3b1b video  
+https://www.youtube.com/watch?v=-RdOwhmqP5s
 
 ## /ode/  
 ODESolver.h contains several solvers for ordinary differential equations.    

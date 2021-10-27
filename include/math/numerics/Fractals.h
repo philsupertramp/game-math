@@ -94,6 +94,9 @@
  * \endcode
  *
  * or as plot using ImagePlot
+ *
+ * \image html newton-fractal.svg width=50%
+ *
  * \code
  * Mandelbrot fractal;
  * fractal.detail   = 1250;
