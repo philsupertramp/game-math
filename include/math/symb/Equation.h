@@ -80,9 +80,9 @@ public:
     /**
      * Prints equation into std::cout
      */
-    void Print(std::ostream& ostr = std::cout) {
-        ostr << baseNode;
-        ostr << std::endl;
+    void Print(std::ostream& ostream = std::cout) {
+        ostream << baseNode;
+        ostream << std::endl;
     }
 
     /**
@@ -147,41 +147,56 @@ public:
      * Helper method to display ASTree.
      */
     void PrintTree() const {
-        size_t row   = 0;
-        size_t elems = GetDepth(baseNode, row) + 1;
-        std::vector<std::vector<std::string>> levels(elems, std::vector<std::string>(elems));
-        row        = 0;
-        size_t col = 0;
-        PrintNode(baseNode, levels, row, col);
-        std::vector<std::vector<std::string>> realLevels(elems, std::vector<std::string>(elems * 2));
-        /**
-         * Add padding to levels, count empty elements on right side, then append them on the left side
-         */
-        bool eol = false;
-        std::vector<size_t> padding(elems);
-        size_t index = 0;
-        for(const auto& line : levels) {
-            for(const auto& elem : line) {
-                if(elem == "  " || elem.empty()) {
-                    if(eol) { padding[index]++; }
-                    eol = true;
-                } else {
-                    padding[index] = 0;
-                }
-            }
-            index++;
+        // count depth
+        size_t depth_counter = 0;
+        size_t depth_value = GetDepth(baseNode, depth_counter);
+
+        // calculate widths
+        size_t right = 0;
+        auto newBase = baseNode;
+        while(newBase->right){
+            right++;
+            newBase = newBase->right;
+        }
+        newBase = baseNode;
+        size_t left = 0;
+        while(newBase->left){
+            left++;
+            newBase = newBase->left;
         }
 
-        for(size_t paddIndex = 0; paddIndex < elems; ++paddIndex) {
-            for(index = 0; index < elems + padding[paddIndex]; ++index) {
-                if(index < padding[paddIndex]) {
-                    std::cout << "  ";
-                } else {
-                    std::cout << levels[paddIndex][index - padding[paddIndex]];
-                }
+        size_t width_value = (left + right + 1) * 2;
+        //
+        std::string out(depth_value * width_value, ' ');
+
+        // fill the output string with empty values
+        size_t row, col;
+        for(row=0; row < depth_value; ++row){
+            for(col=0; col < width_value; ++col){
             }
-            std::cout << std::endl;
+            out[row*width_value+col-1] = '\n';
         }
+        auto center = (left + 1) * 2;
+        out.replace(center, baseNode->valSize, baseNode->value);
+        auto leftnode = baseNode->left;
+        int current_row = 1;
+        while(leftnode->left){
+            auto pos = (current_row++) * width_value + (left--) * 2;
+            out.replace(pos, leftnode->valSize, leftnode->value);
+            leftnode = leftnode->left;
+        }
+        std::cout << "The tree:\n" << out << std::endl;
+    }
+
+    std::string PrintNode(const std::shared_ptr<MathNode>& node, size_t tabAnchor) const {
+        size_t i;
+        std::string out;
+        for(i=0; i < tabAnchor; ++i){
+            out += "\t";
+        }
+        out += node->value;
+
+        return out;
     }
 
     /**
@@ -264,14 +279,30 @@ public:
      * @param current_depth counter for current depth level
      * @return current depth if last node in branch, else max of left depth and right depth
      */
-    size_t GetDepth(const std::shared_ptr<MathNode>& node, size_t& current_depth) const {
-        current_depth++;
+    size_t GetDepth(const std::shared_ptr<MathNode>& node, size_t current_depth) const {
         auto leftDep  = std::numeric_limits<size_t>::min();
         auto rightDep = std::numeric_limits<size_t>::min();
-        if(node->left) { leftDep = GetDepth(node->left, current_depth); }
-        if(node->right) { rightDep = GetDepth(node->right, current_depth); }
+        if(node->left) { leftDep = GetDepth(node->left, current_depth+1); }
+        if(node->right) { rightDep = GetDepth(node->right, current_depth+1); }
 
         return std::max(std::max(leftDep, current_depth), rightDep);
+    }
+
+    static size_t GetWidth(const std::shared_ptr<MathNode>& node) {
+        auto newBase = node;
+        size_t right = 0;
+        while(newBase->right){
+            right++;
+            newBase = newBase->right;
+        }
+        newBase = node;
+        size_t left = 0;
+        while(newBase->left){
+            left++;
+            newBase = newBase->left;
+        }
+        // +1 for base node
+        return right + left + 1;
     }
 
     /**
@@ -396,6 +427,7 @@ private:
      *
      *   - Operators:
      *      Numeric values can be combined.
+     *
      *
      * @param node operator node (-tree) to simplify
      * @return simplified tree with [num_nodes_in >= num_nodes_out]

@@ -7,8 +7,9 @@ class SymbolicTestCase : public Test
     friend Equation;
 
     bool TestParser() {
-        Equation eq("x+2-((3*5)-x)-2");
-
+//        Equation eq("x+2-((3*5)-x)-2");
+        Equation eq("4*x+2*3-5+6");
+        eq.PrintTree();
         return true;
     }
 

@@ -4,3 +4,6 @@
 - parsing formulae
 - evaluating formulae using `Equation::operator()`
 - equation chaining using `Equation::Chain`
+
+
+## Current State:
