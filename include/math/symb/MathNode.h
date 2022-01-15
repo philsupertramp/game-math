@@ -56,7 +56,6 @@ public:
     //! char representation of value
     char* value{};
 
-protected:
     //! helper to store size of value
     size_t valSize = 0;
 
