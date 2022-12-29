@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['terminperiods_882',['termInPeriods',['../Insurance_8cpp.html#a4ae4e06a95a0a206bc002aea79ba1db8',1,'termInPeriods(Interest Z):&#160;Insurance.cpp'],['../Insurance_8h.html#ab3a10a3059c77a0707926c42d8d72650',1,'termInPeriods(Interest I):&#160;Insurance.cpp']]],
-  ['title_883',['title',['../classPlot.html#afa4a5f262e9b00bfa393c54fccb3449a',1,'Plot']]],
-  ['transformation_884',['Transformation',['../structmat4.html#ac3c1a286cc5bae5284799fe7462d0bc2',1,'mat4']]],
-  ['translate_885',['translate',['../namespaceMath_1_1Utils.html#a7d243bc2f83e5a417bf1c8aa8eb06087',1,'Math::Utils']]],
-  ['transpose_886',['Transpose',['../classMatrix.html#a953e5e97f987f47e261dd830cac64087',1,'Matrix::Transpose()'],['../structmat2.html#a583178c3bdc6bca0c4d03bccbffa7388',1,'mat2::Transpose()'],['../structmat3.html#a202512a8816d26220a97dc78dd138731',1,'mat3::Transpose()'],['../structmat4.html#aa6a61e9f0b4ddc318c80cc8bb894e1e7',1,'mat4::Transpose()']]],
-  ['tridiag_887',['tridiag',['../utils_8cpp.html#a66baea24796e61db0c4b123af2e1f20d',1,'tridiag(size_t rows, size_t cols, double lower, double center, double upper):&#160;utils.cpp'],['../numerics_2utils_8h.html#afce6285df9228a95fe0273a3705dc18a',1,'tridiag(size_t rows, size_t columns, double left, double center, double right):&#160;utils.cpp']]]
+  ['terminperiods_0',['termInPeriods',['../Insurance_8cpp.html#a4ae4e06a95a0a206bc002aea79ba1db8',1,'termInPeriods(Interest Z):&#160;Insurance.cpp'],['../Insurance_8h.html#ab3a10a3059c77a0707926c42d8d72650',1,'termInPeriods(Interest I):&#160;Insurance.cpp']]],
+  ['title_1',['title',['../classPlot.html#afa4a5f262e9b00bfa393c54fccb3449a',1,'Plot']]],
+  ['transformation_2',['Transformation',['../structmat4.html#a3cf26eb9cda24dce5de797af40777b8b',1,'mat4']]],
+  ['translate_3',['translate',['../namespaceMath_1_1Utils.html#a8f5cda4bbd83dc5d111b0ec4d6bd96e6',1,'Math::Utils']]],
+  ['transpose_4',['Transpose',['../classMatrix.html#a054a03bcae4eb86d6f4ef84dc87840ef',1,'Matrix::Transpose()'],['../structmat2.html#ae91f368a5103180c117e5789b8fc246f',1,'mat2::Transpose()'],['../structmat3.html#a9bfdc408a07f4b3f616bfcba71f9ad8a',1,'mat3::Transpose()'],['../structmat4.html#aa761e3ba19ba240f43357d6651d0d364',1,'mat4::Transpose()']]],
+  ['tridiag_5',['tridiag',['../utils_8cpp.html#a7cfa8f58d53e2d2d20acbf500218eb5d',1,'tridiag(size_t rows, size_t cols, double lower, double center, double upper):&#160;utils.cpp'],['../numerics_2utils_8h.html#aa7eb7984fa32d548f6a24b4d440c919a',1,'tridiag(size_t rows, size_t columns, double left, double center, double right):&#160;utils.cpp']]]
 ];

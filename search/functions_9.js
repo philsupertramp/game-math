@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jac_758',['jac',['../classNewtonFractal.html#a297f6a51f9f2f9e193a755b157a4fec1',1,'NewtonFractal']]]
+  ['jac_0',['jac',['../classNewtonFractal.html#a60e62d9f1cc691d006ef6ea3436f4b33',1,'NewtonFractal']]]
 ];

@@ -1,0 +1,196 @@
+\hypertarget{SupportValues_8h_source}{}\doxysection{Support\+Values.\+h}
+\label{SupportValues_8h_source}\index{include/math/numerics/analysis/SupportValues.h@{include/math/numerics/analysis/SupportValues.h}}
+\mbox{\hyperlink{SupportValues_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../../Matrix.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}../lin\_alg/gaussSeidel.h"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classPolynomialBase}{PolynomialBase}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{classPolynomialBase_a35c1b1f74053833dcd865908c93e8f24}{PolynomialBase}}([[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, [[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& Y) \{ \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPolynomialBase_a7bbf28d9cc1bd42019c07c8af297563b}{Evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{48     \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{classPolynomialBase_a7c5cff1055e525bd01ab24cf39bf9ed5}{Function}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{56     \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{classPolynomialBase_a0a3e6ca070c8235939977431fd120f5b}{operator<<}}(std::ostream\& ostr, \textcolor{keyword}{const} \mbox{\hyperlink{classPolynomialBase}{PolynomialBase}}\& base) \{}
+\DoxyCodeLine{57         ostr << base.\mbox{\hyperlink{classPolynomialBase_a7c5cff1055e525bd01ab24cf39bf9ed5}{Function}}() << std::flush;}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} ostr;}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{68 \textcolor{keyword}{class }\mbox{\hyperlink{classMonomBase}{MonomBase}} : \textcolor{keyword}{public} \mbox{\hyperlink{classPolynomialBase}{PolynomialBase}}}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70 \textcolor{keyword}{public}:}
+\DoxyCodeLine{72     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{79     \mbox{\hyperlink{classMonomBase_a47e7386045d2d95bf51b08e45dc316a1}{MonomBase}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& Y)}
+\DoxyCodeLine{80         : \mbox{\hyperlink{classPolynomialBase}{PolynomialBase}}(X, Y) \{}
+\DoxyCodeLine{81         \textcolor{keyword}{auto} x = X;}
+\DoxyCodeLine{82         \textcolor{comment}{// ensure required orientation}}
+\DoxyCodeLine{83         \textcolor{keywordflow}{if}(x.columns() > x.rows()) \{ x = x.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}(); \}}
+\DoxyCodeLine{84         \mbox{\hyperlink{classMatrix}{Matrix<double>}} out(0, x.rows(), x.rows());}
+\DoxyCodeLine{85         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < out.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
+\DoxyCodeLine{86             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < out.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++j) \{ out(i, j) = \mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(x(i, 0), j); \}}
+\DoxyCodeLine{87         \}}
+\DoxyCodeLine{93         \textcolor{keywordflow}{if}(out.\mbox{\hyperlink{classMatrix_a5f91e3755bfb6eb7b8aa5d49d8fbadb2}{Determinant}}() == 0.0) \{}
+\DoxyCodeLine{94             std::cerr << \textcolor{stringliteral}{"{}Error computing Vandermonde-\/Matrix! Most likely passed equal support values"{}} << std::endl;}
+\DoxyCodeLine{95             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{96         \}}
+\DoxyCodeLine{97         \mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}} = \mbox{\hyperlink{gaussSeidel_8h_a7bb1e3f545d858ee2a450500c711f471}{gaussSeidel}}(out, Y);}
+\DoxyCodeLine{98     \}}
+\DoxyCodeLine{104     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classMonomBase_ac8795cc57f64d4e834aefc6074388632}{Evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{105         \mbox{\hyperlink{classMatrix}{Matrix<double>}} Y(\mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}}(0, 0), X.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1);}
+\DoxyCodeLine{106         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
+\DoxyCodeLine{107             Y += \mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}}(i, 0) * X.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([i](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(in, i); \});}
+\DoxyCodeLine{108         \}}
+\DoxyCodeLine{109         \textcolor{keywordflow}{return} Y;}
+\DoxyCodeLine{110     \};}
+\DoxyCodeLine{115     \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{classMonomBase_a4e86d536f746f544318c18c08c12b99f}{Function}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{116         std::string out;}
+\DoxyCodeLine{117         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} row = 0; row < \mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++row) \{}
+\DoxyCodeLine{118             \textcolor{keywordflow}{if}(row != 0) \{ out += \textcolor{stringliteral}{"{} + "{}}; \}}
+\DoxyCodeLine{119             out += \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{stringliteral}{"{}\%d"{}}, \textcolor{keywordtype}{int}(\mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}}(row, 0)));}
+\DoxyCodeLine{120             \textcolor{keywordflow}{if}(row > 0) \{ out += \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{stringliteral}{"{}x\string^\%d"{}}, row); \}}
+\DoxyCodeLine{121         \}}
+\DoxyCodeLine{122         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{123     \}}
+\DoxyCodeLine{124 \};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{132 \textcolor{keyword}{class }\mbox{\hyperlink{classLagrangeBase}{LagrangeBase}} : \textcolor{keyword}{public} \mbox{\hyperlink{classPolynomialBase}{PolynomialBase}}}
+\DoxyCodeLine{133 \{}
+\DoxyCodeLine{135     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}};}
+\DoxyCodeLine{137     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classLagrangeBase_aabccb7239c0da02245eb9a9f5e4ce243}{y}};}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{keyword}{public}:}
+\DoxyCodeLine{145     \mbox{\hyperlink{classLagrangeBase_adb915a64f04cdb3326d82830a041abde}{LagrangeBase}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& Y)}
+\DoxyCodeLine{146         : \mbox{\hyperlink{classPolynomialBase}{PolynomialBase}}(X, Y)}
+\DoxyCodeLine{147         , \mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(X)}
+\DoxyCodeLine{148         , \mbox{\hyperlink{classLagrangeBase_aabccb7239c0da02245eb9a9f5e4ce243}{y}}(Y) \{ \}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{158     [[nodiscard]] \textcolor{keywordtype}{double} \mbox{\hyperlink{classLagrangeBase_a4a8130da124cbc7cde51567d2c109f26}{GetCoefficient}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& xk, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{159         \textcolor{keywordtype}{double} out = 1.0;}
+\DoxyCodeLine{160         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++j) \{}
+\DoxyCodeLine{161             \textcolor{keywordflow}{if}(i == j) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163             out *= (xk -\/ \mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(j, 0)) / (\mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(i, 0) -\/ \mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(j, 0));}
+\DoxyCodeLine{164         \}}
+\DoxyCodeLine{165         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{166     \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{173     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classLagrangeBase_ace572df22ab5e6cda086aec10cd3fbe4}{Evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{174         \mbox{\hyperlink{classMatrix}{Matrix<double>}} out(0, in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1);}
+\DoxyCodeLine{175         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} k = 0; k < in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++k) \{}
+\DoxyCodeLine{176             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classLagrangeBase_aabccb7239c0da02245eb9a9f5e4ce243}{y}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{ out(k, 0) += \mbox{\hyperlink{classLagrangeBase_aabccb7239c0da02245eb9a9f5e4ce243}{y}}(i, 0) * \mbox{\hyperlink{classLagrangeBase_a4a8130da124cbc7cde51567d2c109f26}{GetCoefficient}}(in(k, 0), i); \}}
+\DoxyCodeLine{177         \}}
+\DoxyCodeLine{178         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{179     \}}
+\DoxyCodeLine{185     [[nodiscard]] std::string \mbox{\hyperlink{classLagrangeBase_acb4a6981c7e2b32a38b0922af4051314}{buildLx}}(\textcolor{keywordtype}{size\_t} i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{186         std::string Lx;}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188         \textcolor{keywordtype}{bool} needsOperator = \textcolor{keyword}{false};}
+\DoxyCodeLine{189         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++j) \{}
+\DoxyCodeLine{190             \textcolor{keywordflow}{if}(i == j) \{}
+\DoxyCodeLine{191                 needsOperator = \textcolor{keyword}{false};}
+\DoxyCodeLine{192                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{193             \}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195             \textcolor{comment}{// we need to exit, if one element of the product is 0}}
+\DoxyCodeLine{196             \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(i, 0) -\/ \mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(j, 0) == 0) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198             \textcolor{keywordflow}{if}(needsOperator) \{ Lx += \textcolor{stringliteral}{"{} * "{}}; \}}
+\DoxyCodeLine{199             \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(i, 0) -\/ \mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(j, 0) < 0) \{ Lx += \textcolor{stringliteral}{"{}-\/"{}}; \}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201             \textcolor{comment}{// Dividend}}
+\DoxyCodeLine{202             \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(j, 0) != 0) \{}
+\DoxyCodeLine{203                 \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(j, 0) < 0) \{}
+\DoxyCodeLine{204                     Lx += \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{stringliteral}{"{}(x + \%.3f)"{}}, std::abs(\mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(j, 0)));}
+\DoxyCodeLine{205                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{206                     Lx += \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{stringliteral}{"{}(x -\/ \%.3f)"{}}, \mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(j, 0));}
+\DoxyCodeLine{207                 \}}
+\DoxyCodeLine{208             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{209                 Lx += \textcolor{stringliteral}{"{}x"{}};}
+\DoxyCodeLine{210             \}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212             \textcolor{comment}{// Divisor}}
+\DoxyCodeLine{213             Lx += \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{stringliteral}{"{}/\%.3f"{}}, std::abs(\mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(i, 0) -\/ \mbox{\hyperlink{classLagrangeBase_aa2ab424392d5406ff753233818e20fc6}{x}}(j, 0)));}
+\DoxyCodeLine{214             needsOperator = \textcolor{keyword}{true};}
+\DoxyCodeLine{215         \}}
+\DoxyCodeLine{216         \textcolor{keywordflow}{return} Lx;}
+\DoxyCodeLine{217     \}}
+\DoxyCodeLine{222     \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{classLagrangeBase_a56f2ac80cd5872fc9438283ae5460ed2}{Function}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{223         std::string out;}
+\DoxyCodeLine{224         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classLagrangeBase_aabccb7239c0da02245eb9a9f5e4ce243}{y}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
+\DoxyCodeLine{225             \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLagrangeBase_aabccb7239c0da02245eb9a9f5e4ce243}{y}}(i, 0) == 0) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227             \textcolor{keywordflow}{if}(i > 0) \{ out += \textcolor{stringliteral}{"{} + "{}}; \}}
+\DoxyCodeLine{228             out += \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{stringliteral}{"{}\%d * ("{}}, \textcolor{keywordtype}{int}(\mbox{\hyperlink{classLagrangeBase_aabccb7239c0da02245eb9a9f5e4ce243}{y}}(i, 0)));}
+\DoxyCodeLine{229             out += \mbox{\hyperlink{classLagrangeBase_acb4a6981c7e2b32a38b0922af4051314}{buildLx}}(i);}
+\DoxyCodeLine{230             out += \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{231         \}}
+\DoxyCodeLine{232         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{233     \}}
+\DoxyCodeLine{234 \};}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{258 \textcolor{keyword}{class }\mbox{\hyperlink{classNewtonBase}{NewtonBase}} : \textcolor{keyword}{public} \mbox{\hyperlink{classPolynomialBase}{PolynomialBase}}}
+\DoxyCodeLine{259 \{}
+\DoxyCodeLine{261     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classNewtonBase_a06ff10676feb2bfddd21d01b883cb539}{X}};}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 \textcolor{keyword}{public}:}
+\DoxyCodeLine{265     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}};}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{272     \mbox{\hyperlink{classNewtonBase_a789b7658f5c76f974e7425976b62f796}{NewtonBase}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y)}
+\DoxyCodeLine{273         : \mbox{\hyperlink{classPolynomialBase}{PolynomialBase}}(x, y)}
+\DoxyCodeLine{274         , \mbox{\hyperlink{classNewtonBase_a06ff10676feb2bfddd21d01b883cb539}{X}}(x) \{}
+\DoxyCodeLine{275         \textcolor{keyword}{auto} m = x.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{276         \mbox{\hyperlink{classMatrix}{Matrix<double>}} F(0, m, m);}
+\DoxyCodeLine{277         F.\mbox{\hyperlink{classMatrix_a2897f60a87af004b928da9e8d76eafaf}{SetColumn}}(0, y);}
+\DoxyCodeLine{278         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 1; j < m; ++j) \{}
+\DoxyCodeLine{279             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = j; i < m; ++i) \{ F(i, j) = (F(i, j -\/ 1) -\/ F(i -\/ 1, j -\/ 1)) / (x(i, 0) -\/ x(i -\/ j, 0)); \}}
+\DoxyCodeLine{280         \}}
+\DoxyCodeLine{281         \mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}} = \mbox{\hyperlink{Matrix_8h_a2e19f18bb0d422da0e75d5d0f6753331}{diag\_elements}}(F);}
+\DoxyCodeLine{282     \}}
+\DoxyCodeLine{287     \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{classNewtonBase_af59cf5892ed772c87c830ceb701160dd}{Function}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{288         std::string out;}
+\DoxyCodeLine{289         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
+\DoxyCodeLine{290             \textcolor{keywordflow}{if}(i > 0) \{ out += \textcolor{stringliteral}{"{} + "{}}; \}}
+\DoxyCodeLine{291             out += \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{stringliteral}{"{}\%.3f"{}}, \mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}}(i, 0));}
+\DoxyCodeLine{292             \textcolor{keywordflow}{if}(i > 0) \{}
+\DoxyCodeLine{293                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < i; ++j) \{}
+\DoxyCodeLine{294                     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classNewtonBase_a06ff10676feb2bfddd21d01b883cb539}{X}}(j, 0) != 0) \{}
+\DoxyCodeLine{295                         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classNewtonBase_a06ff10676feb2bfddd21d01b883cb539}{X}}(j, 0) > 0) out += \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{stringliteral}{"{}* (x -\/ \%.3f)"{}}, \mbox{\hyperlink{classNewtonBase_a06ff10676feb2bfddd21d01b883cb539}{X}}(j, 0));}
+\DoxyCodeLine{296                         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{297                             out += \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{stringliteral}{"{}* (x + \%.3f)"{}}, std::abs(\mbox{\hyperlink{classNewtonBase_a06ff10676feb2bfddd21d01b883cb539}{X}}(j, 0)));}
+\DoxyCodeLine{298                     \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{299                         out += \textcolor{stringliteral}{"{}* x"{}};}
+\DoxyCodeLine{300                 \}}
+\DoxyCodeLine{301             \}}
+\DoxyCodeLine{302         \}}
+\DoxyCodeLine{303         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{304     \}}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{312     \textcolor{keywordtype}{double} \mbox{\hyperlink{classNewtonBase_a6c1dab8ac618446f83aec81320c67c4e}{GetCoefficient}}(\textcolor{keywordtype}{size\_t} index, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{313         \textcolor{keywordtype}{double} out = 1;}
+\DoxyCodeLine{314         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < index -\/ 1; ++i) \{ out *= (x -\/ \mbox{\hyperlink{classNewtonBase_a06ff10676feb2bfddd21d01b883cb539}{X}}(i, 0)); \}}
+\DoxyCodeLine{315         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{316     \}}
+\DoxyCodeLine{322     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classNewtonBase_adc0ff93bb2460cac720680102a6ac83f}{Evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& xIn)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{323         \mbox{\hyperlink{classMatrix}{Matrix<double>}} y(\mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}}(\mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1, 0), xIn.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1);}
+\DoxyCodeLine{324         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = \mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 2; j >= 0; -\/-\/j) \{}
+\DoxyCodeLine{325             \textcolor{keyword}{auto} bAct = \mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}}(j, 0);}
+\DoxyCodeLine{326             \textcolor{keyword}{auto} xAct = \mbox{\hyperlink{classNewtonBase_a06ff10676feb2bfddd21d01b883cb539}{X}}(j, 0);}
+\DoxyCodeLine{327             y         = xIn}
+\DoxyCodeLine{328                 .\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([xAct](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} in -\/ xAct; \})  \textcolor{comment}{// (xIn -\/ X[j])}}
+\DoxyCodeLine{329                 .\mbox{\hyperlink{Matrix_8h_a282bda10013c783a69e9d11a89a68df9}{HadamardMulti}}(y)                                       \textcolor{comment}{// (xIn -\/ X[j]) * y}}
+\DoxyCodeLine{330                 .Apply([bAct](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} bAct + in; \}); \textcolor{comment}{// y = b[j] + (xIn -\/ X[j]) * y}}
+\DoxyCodeLine{331         \}}
+\DoxyCodeLine{332         \textcolor{keywordflow}{return} y;}
+\DoxyCodeLine{333     \}}
+\DoxyCodeLine{334 \};}
+
+\end{DoxyCode}

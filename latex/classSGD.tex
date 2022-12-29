@@ -15,12 +15,12 @@ void \mbox{\hyperlink{classSGD_a45c2d880b888167941d996ddf1b39b0b}{partial\+\_\+f
 \item 
 double \mbox{\hyperlink{classSGD_a1d63550696ce2020c915db4a87412fde}{update\+\_\+weights}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&xi, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&target, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&weights) const
 \item 
-std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ $>$ \mbox{\hyperlink{classSGD_acbb20ecf594860dea201ca3d54da6217}{shuffle\+Data}} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, \mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
+std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ $>$ \mbox{\hyperlink{classSGD_a62f02503e631b14ed152d226be446c00}{shuffle\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSGD_aaf708c2bb43ec3f0d56ba6ba5b64264e}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&weights)
+static \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classSGD_a6e9a27e08c7e4e442b29ad8ca0729bcc}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&weights)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -38,7 +38,7 @@ bool \mbox{\hyperlink{classSGD_a3150c7954c208f5f57f7744196ec1fcc}{shuffle}} = fa
 \begin{DoxyCompactList}\small\item\em shuffle during training \end{DoxyCompactList}\item 
 std\+::function$<$ double(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \mbox{\hyperlink{classSGD_a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3}{weight\+\_\+update}} = nullptr
 \begin{DoxyCompactList}\small\item\em represents weight update function \end{DoxyCompactList}\item 
-std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \mbox{\hyperlink{classSGD_abe4eb0710a8fc95e44ce409903a53fbb}{net\+\_\+input\+\_\+fun}} = nullptr
+std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \mbox{\hyperlink{classSGD_a2de1cfda27c58fb5c9f3ef08b123ac97}{net\+\_\+input\+\_\+fun}} = nullptr
 \begin{DoxyCompactList}\small\item\em represents net input function \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -83,11 +83,11 @@ fits given weights according to used weight update/net input function based on g
 {\em weights} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSGD_aaf708c2bb43ec3f0d56ba6ba5b64264e}\label{classSGD_aaf708c2bb43ec3f0d56ba6ba5b64264e}} 
+\mbox{\Hypertarget{classSGD_a6e9a27e08c7e4e442b29ad8ca0729bcc}\label{classSGD_a6e9a27e08c7e4e442b29ad8ca0729bcc}} 
 \index{SGD@{SGD}!netInput@{netInput}}
 \index{netInput@{netInput}!SGD@{SGD}}
 \doxysubsubsection{\texorpdfstring{netInput()}{netInput()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ SGD\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{weights }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ SGD\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{weights }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 computes the net-\/input for given values 
 \begin{DoxyParams}{Parameters}
@@ -114,11 +114,11 @@ Performs partial fit of given weights to input values
 {\em weights} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSGD_acbb20ecf594860dea201ca3d54da6217}\label{classSGD_acbb20ecf594860dea201ca3d54da6217}} 
+\mbox{\Hypertarget{classSGD_a62f02503e631b14ed152d226be446c00}\label{classSGD_a62f02503e631b14ed152d226be446c00}} 
 \index{SGD@{SGD}!shuffleData@{shuffleData}}
 \index{shuffleData@{shuffleData}!SGD@{SGD}}
 \doxysubsubsection{\texorpdfstring{shuffleData()}{shuffleData()}}
-{\footnotesize\ttfamily std\+::pair$<$\mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ $>$ SGD\+::shuffle\+Data (\begin{DoxyParamCaption}\item[{\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]} \mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]} \mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ $>$ SGD\+::shuffle\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 shuffles given data 
 \begin{DoxyParams}{Parameters}
@@ -181,11 +181,11 @@ cost factor
 
 number iterations (epochs) during fit 
 
-\mbox{\Hypertarget{classSGD_abe4eb0710a8fc95e44ce409903a53fbb}\label{classSGD_abe4eb0710a8fc95e44ce409903a53fbb}} 
+\mbox{\Hypertarget{classSGD_a2de1cfda27c58fb5c9f3ef08b123ac97}\label{classSGD_a2de1cfda27c58fb5c9f3ef08b123ac97}} 
 \index{SGD@{SGD}!net\_input\_fun@{net\_input\_fun}}
 \index{net\_input\_fun@{net\_input\_fun}!SGD@{SGD}}
 \doxysubsubsection{\texorpdfstring{net\_input\_fun}{net\_input\_fun}}
-{\footnotesize\ttfamily std\+::function$<$\mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$const \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$\&)$>$ SGD\+::net\+\_\+input\+\_\+fun = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::function$<$\mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$\&)$>$ SGD\+::net\+\_\+input\+\_\+fun = nullptr\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

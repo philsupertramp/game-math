@@ -1,0 +1,294 @@
+\hypertarget{Plot_8h_source}{}\doxysection{Plot.\+h}
+\label{Plot_8h_source}\index{include/math/visualization/Plot.h@{include/math/visualization/Plot.h}}
+\mbox{\hyperlink{Plot_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{10 \textcolor{keyword}{enum} \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{DataTypes}} \{}
+\DoxyCodeLine{12     \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}} = 1,}
+\DoxyCodeLine{14     \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}} = 2,}
+\DoxyCodeLine{16     \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}} = -\/1,}
+\DoxyCodeLine{17 \};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{24 \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{Plot_8h_aea789f408f2126b0baeb13b895ff4449}{GetDataTypeName}}(\mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{DataTypes}} type) \{}
+\DoxyCodeLine{25     \textcolor{keywordflow}{switch}(type) \{}
+\DoxyCodeLine{26         \textcolor{keywordflow}{case} \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}}: \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}lines ls 1"{}};}
+\DoxyCodeLine{27         \textcolor{keywordflow}{case} \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}}: \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}points ls 2"{}}; \textcolor{comment}{// pointtype 5 pointsize 1.5"{};}}
+\DoxyCodeLine{28         \textcolor{keywordflow}{case} \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}:}
+\DoxyCodeLine{29         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}none"{}};}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{36 \textcolor{keyword}{struct }\mbox{\hyperlink{structPlotBoundary}{PlotBoundary}} \{}
+\DoxyCodeLine{38     \textcolor{keywordtype}{double} \mbox{\hyperlink{structPlotBoundary_a3a9ad8401fcf0035091fdc94c3f09c36}{min}};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{double} \mbox{\hyperlink{structPlotBoundary_a7383471ba4ac63f8bd967831dc140a37}{max}};}
+\DoxyCodeLine{41 \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{46 \textcolor{keyword}{struct }\mbox{\hyperlink{structPlotIndex}{PlotIndex}} \{}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} \mbox{\hyperlink{structPlotIndex_adf5d747c854473c22634f06718f8d1c2}{start}} = -\/1;}
+\DoxyCodeLine{50     \textcolor{keywordtype}{int} \mbox{\hyperlink{structPlotIndex_a0ea32d0e0e56a4a5eb07705676fb1b1e}{stop}} = -\/1;}
+\DoxyCodeLine{51 \};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{56 \textcolor{keyword}{struct }\mbox{\hyperlink{structPlotAttributes}{PlotAttributes}} \{}
+\DoxyCodeLine{58     \textcolor{keywordtype}{char}* \mbox{\hyperlink{structPlotAttributes_afc67539c9ac0c8af95f00aa5c6e30978}{title}};}
+\DoxyCodeLine{60     \textcolor{keywordtype}{char}* \mbox{\hyperlink{structPlotAttributes_a80a3dec051e0195255ff3471fa7ea9ea}{xAxis}};}
+\DoxyCodeLine{62     \textcolor{keywordtype}{char}* \mbox{\hyperlink{structPlotAttributes_a59b064dd22efe8ac933dec0665533c95}{yAxis}};}
+\DoxyCodeLine{64     \textcolor{keywordtype}{int} \mbox{\hyperlink{structPlotAttributes_a84595caf0d1f946b36c8c4b5280830eb}{pointStrength}};}
+\DoxyCodeLine{66     \textcolor{keywordtype}{int} \mbox{\hyperlink{structPlotAttributes_a9c108066e425622ee8ee97a85cf31523}{lineStrength}};}
+\DoxyCodeLine{68     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structPlotAttributes_a653cff4fb1567e4547763924cad62178}{is3D}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{70     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structPlotAttributes_a6617bc812d985c05ae7f30dbf189bdc2}{is2D}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{72     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{structPlotAttributes_ac6910d9ebfe2403059d206fe29fc4dc2}{isStatPlot}};}
+\DoxyCodeLine{74     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{structPlotAttributes_ad1aad84439cf5fbc865d07694e523f27}{color}};}
+\DoxyCodeLine{76     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{structPlotAttributes_a8738b4d86a5db807f0128370bc167043}{colorPalette}};}
+\DoxyCodeLine{78     std::vector<const char*> \mbox{\hyperlink{structPlotAttributes_af1fbc2faf45c17722017f841f3e92639}{plotNames}};}
+\DoxyCodeLine{80     std::vector<const char*> \mbox{\hyperlink{structPlotAttributes_a366b5a4078cb55cc358dc956bf3fef88}{plotTypes}};}
+\DoxyCodeLine{82     std::vector<PlotIndex> \mbox{\hyperlink{structPlotAttributes_ab52812aea2de2730dbccf423d5f4797e}{plotIndices}};}
+\DoxyCodeLine{83 \};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{99 \textcolor{keyword}{class }\mbox{\hyperlink{classPlot}{Plot}}}
+\DoxyCodeLine{100 \{}
+\DoxyCodeLine{101 \textcolor{keyword}{public}:}
+\DoxyCodeLine{107     \textcolor{keyword}{explicit} \mbox{\hyperlink{classPlot_ad5c4ae2e4201841f833c2d6968681c0a}{Plot}}(\textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}} = \textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{108         \mbox{\hyperlink{classPlot_ac5c21369cb37d1e74741766bf26123ec}{dataFileName}}             = \textcolor{stringliteral}{"{}line\_plot\_data.txt"{}};}
+\DoxyCodeLine{109         \mbox{\hyperlink{classPlot_a84d0108c396f7665f228340fce807992}{plotTypeName}}             = \textcolor{stringliteral}{"{}lines"{}};}
+\DoxyCodeLine{110         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a84595caf0d1f946b36c8c4b5280830eb}{pointStrength}} = 0;}
+\DoxyCodeLine{111         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a9c108066e425622ee8ee97a85cf31523}{lineStrength}}  = 10;}
+\DoxyCodeLine{112         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_ac6910d9ebfe2403059d206fe29fc4dc2}{isStatPlot}}    = 0;}
+\DoxyCodeLine{113         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_ad1aad84439cf5fbc865d07694e523f27}{color}}         = \textcolor{stringliteral}{"{}\#008080"{}};}
+\DoxyCodeLine{114         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_afc67539c9ac0c8af95f00aa5c6e30978}{title}}         = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[\mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}.size() + 1];}
+\DoxyCodeLine{115         std::copy(\mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}.begin(), \mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}.end(), \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_afc67539c9ac0c8af95f00aa5c6e30978}{title}});}
+\DoxyCodeLine{116         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_afc67539c9ac0c8af95f00aa5c6e30978}{title}}[\mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}.size()] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{117         \mbox{\hyperlink{classPlot_abb8ae168887076ca5dc5205b34d1fa95}{clear\_file}}();}
+\DoxyCodeLine{118     \}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlot_abb8ae168887076ca5dc5205b34d1fa95}{clear\_file}}() \{}
+\DoxyCodeLine{121         \textcolor{comment}{// create file and empty it}}
+\DoxyCodeLine{122         \mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}} = fopen(\mbox{\hyperlink{classPlot_ac5c21369cb37d1e74741766bf26123ec}{dataFileName}}, \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{123         fprintf(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}}, \textcolor{stringliteral}{"{}\(\backslash\)0"{}});}
+\DoxyCodeLine{124         fclose(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}});}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{131     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}(\textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}) \{}
+\DoxyCodeLine{132         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_afc67539c9ac0c8af95f00aa5c6e30978}{title}} = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[\mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}.size() + 1];}
+\DoxyCodeLine{133         std::copy(\mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}.begin(), \mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}.end(), \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_afc67539c9ac0c8af95f00aa5c6e30978}{title}});}
+\DoxyCodeLine{134         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_afc67539c9ac0c8af95f00aa5c6e30978}{title}}[\mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}.size()] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{135     \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{141     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlot_a71b26c829f6b3f4cf64957a3e323517f}{xAxis}}(\textcolor{keyword}{const} std::string\& name) \{}
+\DoxyCodeLine{142         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a80a3dec051e0195255ff3471fa7ea9ea}{xAxis}} = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[name.size() + 1];}
+\DoxyCodeLine{143         std::copy(name.begin(), name.end(), \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a80a3dec051e0195255ff3471fa7ea9ea}{xAxis}});}
+\DoxyCodeLine{144         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a80a3dec051e0195255ff3471fa7ea9ea}{xAxis}}[name.size()] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{151     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlot_a56e462e8d1c707986dc1e4335a633b24}{yAxis}}(\textcolor{keyword}{const} std::string\& name) \{}
+\DoxyCodeLine{152         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a59b064dd22efe8ac933dec0665533c95}{yAxis}} = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[name.size() + 1];}
+\DoxyCodeLine{153         std::copy(name.begin(), name.end(), \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a59b064dd22efe8ac933dec0665533c95}{yAxis}});}
+\DoxyCodeLine{154         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a59b064dd22efe8ac933dec0665533c95}{yAxis}}[name.size()] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{155     \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{161     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlot_ab1ca4b31fc51ed85c65f1c8fcf786134}{pointSize}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& size) \{ \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a84595caf0d1f946b36c8c4b5280830eb}{pointStrength}} = size; \}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{167     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlot_a6030621e36e58f3119a7c81e4a9fbd31}{lineWidth}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& size) \{ \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a9c108066e425622ee8ee97a85cf31523}{lineStrength}} = size; \}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{178     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(}
+\DoxyCodeLine{179     \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \textcolor{keyword}{const} std::string\& name, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{DataTypes}} dataType = DataTypes::NONE) \{}
+\DoxyCodeLine{180         x.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(y);}
+\DoxyCodeLine{181         \mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(\mbox{\hyperlink{Matrix_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(x, y), name, dataType);}
+\DoxyCodeLine{182     \}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{191     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlot_a44d1cd30b39263da1e8aa2d7db625bbd}{AddData}}(}
+\DoxyCodeLine{192     \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& mat, \textcolor{keyword}{const} std::string\& name, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{DataTypes}} dataTypeName = DataTypes::NONE, \textcolor{keywordtype}{int} dimensions = 2) \{}
+\DoxyCodeLine{193         \textcolor{keywordflow}{if}(dimensions <= 3) \{}
+\DoxyCodeLine{194             \textcolor{comment}{// calculate boundaries}}
+\DoxyCodeLine{195             \textcolor{keyword}{auto} new\_bX = \mbox{\hyperlink{classPlot_abdbf7c37362b8b8b739b62ceb00a9b70}{getBoundaries}}(mat.\mbox{\hyperlink{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}{GetSlice}}(0, mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1, 0, 0));}
+\DoxyCodeLine{196             \textcolor{keyword}{auto} new\_bY = \mbox{\hyperlink{classPlot_abdbf7c37362b8b8b739b62ceb00a9b70}{getBoundaries}}(mat.\mbox{\hyperlink{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}{GetSlice}}(0, mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1, 1, 1));}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198             \mbox{\hyperlink{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}{bX}}.\mbox{\hyperlink{structPlotBoundary_a3a9ad8401fcf0035091fdc94c3f09c36}{min}} = \mbox{\hyperlink{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}{bX}}.\mbox{\hyperlink{structPlotBoundary_a3a9ad8401fcf0035091fdc94c3f09c36}{min}} > new\_bX.min ? new\_bX.min : \mbox{\hyperlink{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}{bX}}.\mbox{\hyperlink{structPlotBoundary_a3a9ad8401fcf0035091fdc94c3f09c36}{min}};}
+\DoxyCodeLine{199             \mbox{\hyperlink{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}{bX}}.\mbox{\hyperlink{structPlotBoundary_a7383471ba4ac63f8bd967831dc140a37}{max}} = \mbox{\hyperlink{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}{bX}}.\mbox{\hyperlink{structPlotBoundary_a7383471ba4ac63f8bd967831dc140a37}{max}} < new\_bX.max ? new\_bX.max : \mbox{\hyperlink{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}{bX}}.\mbox{\hyperlink{structPlotBoundary_a7383471ba4ac63f8bd967831dc140a37}{max}};}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201             \mbox{\hyperlink{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}{bY}}.\mbox{\hyperlink{structPlotBoundary_a3a9ad8401fcf0035091fdc94c3f09c36}{min}} = \mbox{\hyperlink{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}{bY}}.\mbox{\hyperlink{structPlotBoundary_a3a9ad8401fcf0035091fdc94c3f09c36}{min}} > new\_bY.min ? new\_bY.min : \mbox{\hyperlink{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}{bY}}.\mbox{\hyperlink{structPlotBoundary_a3a9ad8401fcf0035091fdc94c3f09c36}{min}};}
+\DoxyCodeLine{202             \mbox{\hyperlink{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}{bY}}.\mbox{\hyperlink{structPlotBoundary_a7383471ba4ac63f8bd967831dc140a37}{max}} = \mbox{\hyperlink{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}{bY}}.\mbox{\hyperlink{structPlotBoundary_a7383471ba4ac63f8bd967831dc140a37}{max}} < new\_bY.max ? new\_bY.max : \mbox{\hyperlink{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}{bY}}.\mbox{\hyperlink{structPlotBoundary_a7383471ba4ac63f8bd967831dc140a37}{max}};}
+\DoxyCodeLine{203         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{204             \mbox{\hyperlink{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}{bX}}.\mbox{\hyperlink{structPlotBoundary_a3a9ad8401fcf0035091fdc94c3f09c36}{min}} = 0;}
+\DoxyCodeLine{205             \mbox{\hyperlink{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}{bY}}.\mbox{\hyperlink{structPlotBoundary_a3a9ad8401fcf0035091fdc94c3f09c36}{min}} = 0;}
+\DoxyCodeLine{206             \mbox{\hyperlink{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}{bX}}.\mbox{\hyperlink{structPlotBoundary_a7383471ba4ac63f8bd967831dc140a37}{max}} = mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
+\DoxyCodeLine{207             \mbox{\hyperlink{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}{bY}}.\mbox{\hyperlink{structPlotBoundary_a7383471ba4ac63f8bd967831dc140a37}{max}} = mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
+\DoxyCodeLine{208         \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210         \textcolor{comment}{// append storage file}}
+\DoxyCodeLine{211         \mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}} = fopen(\mbox{\hyperlink{classPlot_ac5c21369cb37d1e74741766bf26123ec}{dataFileName}}, \textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{212         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}} == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{213             \textcolor{comment}{// error}}
+\DoxyCodeLine{214             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{215         \}}
+\DoxyCodeLine{216         fprintf(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}}, \textcolor{stringliteral}{"{}\# "{}});}
+\DoxyCodeLine{217         fprintf(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}}, \textcolor{stringliteral}{"{}\%s"{}}, \mbox{\hyperlink{classPlot_ac5c21369cb37d1e74741766bf26123ec}{dataFileName}});}
+\DoxyCodeLine{218         fprintf(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}}, \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); i += dimensions) \{}
+\DoxyCodeLine{221             fprintf(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}}, \textcolor{stringliteral}{"{}\# X Y Z\(\backslash\)n"{}});}
+\DoxyCodeLine{222             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++j) \{}
+\DoxyCodeLine{223                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} k = 0; k < dimensions; ++k) \{ fprintf(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}}, \textcolor{stringliteral}{"{}\%g "{}}, mat(j, i + k)); \}}
+\DoxyCodeLine{224                 fprintf(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}}, \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{225             \}}
+\DoxyCodeLine{226             fprintf(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}}, \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{227         \}}
+\DoxyCodeLine{228         fclose(\mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}});}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230         \textcolor{keywordtype}{char}* newName;}
+\DoxyCodeLine{231         newName = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[name.size() + 1];}
+\DoxyCodeLine{232         std::copy(name.begin(), name.end(), newName);}
+\DoxyCodeLine{233         newName[name.size()] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{234         \mbox{\hyperlink{structPlotIndex}{PlotIndex}} index      = \{ 0, -\/1 \};}
+\DoxyCodeLine{235         \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_ab52812aea2de2730dbccf423d5f4797e}{plotIndices}}.empty()) \{}
+\DoxyCodeLine{236             index = \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_ab52812aea2de2730dbccf423d5f4797e}{plotIndices}}[\mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_ab52812aea2de2730dbccf423d5f4797e}{plotIndices}}.size() -\/ 1];}
+\DoxyCodeLine{237             index.\mbox{\hyperlink{structPlotIndex_adf5d747c854473c22634f06718f8d1c2}{start}}++;}
+\DoxyCodeLine{238         \}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_ab52812aea2de2730dbccf423d5f4797e}{plotIndices}}.push\_back(index);}
+\DoxyCodeLine{241         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_af1fbc2faf45c17722017f841f3e92639}{plotNames}}.push\_back(newName);}
+\DoxyCodeLine{242         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a366b5a4078cb55cc358dc956bf3fef88}{plotTypes}}.push\_back(dataTypeName == DataTypes::NONE ? \mbox{\hyperlink{classPlot_a84d0108c396f7665f228340fce807992}{plotTypeName}} : \mbox{\hyperlink{Plot_8h_aea789f408f2126b0baeb13b895ff4449}{GetDataTypeName}}(dataTypeName));}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244         \mbox{\hyperlink{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}{numElements}}++;}
+\DoxyCodeLine{245     \}}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{252     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlot_afa0e8f10d7a0d4bd2b90037ec4ca3029}{operator()}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{253         FILE* gnuplot = popen(\textcolor{stringliteral}{"{}gnuplot -\/-\/persist"{}}, \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{254         \mbox{\hyperlink{classPlot_a9bfd80c27c96636efaaec19b2d2b4b13}{writeAttributes}}(gnuplot);}
+\DoxyCodeLine{255         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}{numElements}}; ++i) \{}
+\DoxyCodeLine{256             fprintf(gnuplot, i == 0 ? \mbox{\hyperlink{classPlot_a77875f7b918ccd9a43f72b189b2e102d}{plotType}} : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{257             fprintf(gnuplot, \textcolor{stringliteral}{"{}'\%s'"{}}, \mbox{\hyperlink{classPlot_ac5c21369cb37d1e74741766bf26123ec}{dataFileName}});}
+\DoxyCodeLine{258             \textcolor{keyword}{auto} index = \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_ab52812aea2de2730dbccf423d5f4797e}{plotIndices}}[i];}
+\DoxyCodeLine{259             \textcolor{keywordflow}{if}(index.stop != -\/1) \{}
+\DoxyCodeLine{260                 fprintf(gnuplot, \textcolor{stringliteral}{"{} index \%d:\%d with "{}}, index.start, index.stop);}
+\DoxyCodeLine{261             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{262                 fprintf(gnuplot, \textcolor{stringliteral}{"{} index \%d with "{}}, index.start);}
+\DoxyCodeLine{263             \}}
+\DoxyCodeLine{264             fprintf(gnuplot, \textcolor{stringliteral}{"{}\%s"{}}, \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a366b5a4078cb55cc358dc956bf3fef88}{plotTypes}}[i]);}
+\DoxyCodeLine{265             fprintf(gnuplot, \textcolor{stringliteral}{"{} title '\%s'"{}}, \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_af1fbc2faf45c17722017f841f3e92639}{plotNames}}[i]);}
+\DoxyCodeLine{266             fprintf(gnuplot, i == (\mbox{\hyperlink{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}{numElements}} -\/ 1) ? \textcolor{stringliteral}{"{}\(\backslash\)n"{}} : \textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{267         \}}
+\DoxyCodeLine{268         fprintf(gnuplot, \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{269         fclose(gnuplot);}
+\DoxyCodeLine{270     \}}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{keyword}{private}:}
+\DoxyCodeLine{278     [[nodiscard]] \textcolor{keyword}{inline} \mbox{\hyperlink{structPlotBoundary}{PlotBoundary}} \mbox{\hyperlink{classPlot_abdbf7c37362b8b8b739b62ceb00a9b70}{getBoundaries}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{279         \textcolor{comment}{/*}}
+\DoxyCodeLine{280 \textcolor{comment}{         * determines the boundaries of a array}}
+\DoxyCodeLine{281 \textcolor{comment}{         * returns: boundary(min, max)}}
+\DoxyCodeLine{282 \textcolor{comment}{         */}}
+\DoxyCodeLine{283         \textcolor{keywordtype}{double} startX = \mbox{\hyperlink{Matrix_8h_a4bb73e4029612f323f406f1ecfc2ed57}{min}}(x);}
+\DoxyCodeLine{284         \textcolor{comment}{//startX = startX -\/ pow\_(10, getExponent(startX) -\/ 1);}}
+\DoxyCodeLine{285         \textcolor{keywordtype}{double} endX = \mbox{\hyperlink{Matrix_8h_a8dd66fbac5097923b2ecf481b0ae77e5}{max}}(x);}
+\DoxyCodeLine{286         \textcolor{comment}{//endX = endX -\/ pow\_(10, getExponent(endX) -\/ 1);}}
+\DoxyCodeLine{287         \mbox{\hyperlink{structPlotBoundary}{PlotBoundary}} bond = \{ startX, endX \};}
+\DoxyCodeLine{288         \textcolor{keywordflow}{return} bond;}
+\DoxyCodeLine{289     \}}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{294     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{classPlot_ac5c21369cb37d1e74741766bf26123ec}{dataFileName}};}
+\DoxyCodeLine{296     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{classPlot_a84d0108c396f7665f228340fce807992}{plotTypeName}};}
+\DoxyCodeLine{298     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{classPlot_a77875f7b918ccd9a43f72b189b2e102d}{plotType}} = \textcolor{stringliteral}{"{}plot"{}};}
+\DoxyCodeLine{300     FILE* \mbox{\hyperlink{classPlot_a80885621943f0e082328be034f1478f3}{storageFile}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{302     \mbox{\hyperlink{structPlotAttributes}{PlotAttributes}} \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}} = \{\};}
+\DoxyCodeLine{304     \textcolor{keywordtype}{int} \mbox{\hyperlink{classPlot_a1617d33546bbcfe4458899bc00eeb0ef}{numElements}} = 0;}
+\DoxyCodeLine{306     \mbox{\hyperlink{structPlotBoundary}{PlotBoundary}} \mbox{\hyperlink{classPlot_aa8a4a800b93ba4d22b4e4c01eacc583a}{bY}}\{\};}
+\DoxyCodeLine{308     \mbox{\hyperlink{structPlotBoundary}{PlotBoundary}} \mbox{\hyperlink{classPlot_a954fcb23b76680d6d0148f3f7af02f4c}{bX}}\{\};}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{314     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlot_a9bfd80c27c96636efaaec19b2d2b4b13}{writeAttributes}}(FILE* gnuplot)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{315         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_afc67539c9ac0c8af95f00aa5c6e30978}{title}}) \{}
+\DoxyCodeLine{316             \textcolor{keywordtype}{char} titleExtension[105];}
+\DoxyCodeLine{317             \textcolor{keywordflow}{if}(\mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a80a3dec051e0195255ff3471fa7ea9ea}{xAxis}} \&\& \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a59b064dd22efe8ac933dec0665533c95}{yAxis}} \&\& \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_ac6910d9ebfe2403059d206fe29fc4dc2}{isStatPlot}}) \{}
+\DoxyCodeLine{318                 strcpy(titleExtension, \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a80a3dec051e0195255ff3471fa7ea9ea}{xAxis}});}
+\DoxyCodeLine{319                 strcat(strcat(titleExtension, \textcolor{stringliteral}{"{} vs. "{}}), \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a59b064dd22efe8ac933dec0665533c95}{yAxis}});}
+\DoxyCodeLine{320             \}}
+\DoxyCodeLine{321             fprintf(gnuplot, \textcolor{stringliteral}{"{}set title '\%s"{}}, \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_afc67539c9ac0c8af95f00aa5c6e30978}{title}});}
+\DoxyCodeLine{322             \textcolor{keywordflow}{if}(\mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_ac6910d9ebfe2403059d206fe29fc4dc2}{isStatPlot}}) \{ fprintf(gnuplot, \textcolor{stringliteral}{"{}\%s"{}}, titleExtension); \}}
+\DoxyCodeLine{323             fprintf(gnuplot, \textcolor{stringliteral}{"{}'\(\backslash\)n"{}});}
+\DoxyCodeLine{324         \}}
+\DoxyCodeLine{325         fprintf(gnuplot, \textcolor{stringliteral}{"{}set style line 1 lt 2 lc rgb \(\backslash\)"{}red\(\backslash\)"{} lw 3;\(\backslash\)nset style line 1 lt 2 lc rgb \(\backslash\)"{}orange\(\backslash\)"{} lw 3;\(\backslash\)n"{}});}
+\DoxyCodeLine{326         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a80a3dec051e0195255ff3471fa7ea9ea}{xAxis}}) \{ fprintf(gnuplot, \textcolor{stringliteral}{"{}set xlabel '\%s'\(\backslash\)n"{}}, \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a80a3dec051e0195255ff3471fa7ea9ea}{xAxis}}); \}}
+\DoxyCodeLine{327         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a59b064dd22efe8ac933dec0665533c95}{yAxis}}) \{ fprintf(gnuplot, \textcolor{stringliteral}{"{}set ylabel '\%s'\(\backslash\)n"{}}, \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a59b064dd22efe8ac933dec0665533c95}{yAxis}}); \}}
+\DoxyCodeLine{328         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a653cff4fb1567e4547763924cad62178}{is3D}}) \{ fprintf(gnuplot, \textcolor{stringliteral}{"{}set hidden3d\(\backslash\)nset dgrid3d 30,30 qnorm 1\(\backslash\)n"{}}); \}}
+\DoxyCodeLine{329         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a8738b4d86a5db807f0128370bc167043}{colorPalette}}) \{ fprintf(gnuplot, \textcolor{stringliteral}{"{}load '\%s'\(\backslash\)n"{}}, \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a8738b4d86a5db807f0128370bc167043}{colorPalette}}); \}}
+\DoxyCodeLine{330     \}}
+\DoxyCodeLine{331 \};}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{336 \textcolor{keyword}{class }\mbox{\hyperlink{classScatterPlot}{ScatterPlot}} : \textcolor{keyword}{public} \mbox{\hyperlink{classPlot}{Plot}}}
+\DoxyCodeLine{337 \{}
+\DoxyCodeLine{338 \textcolor{keyword}{public}:}
+\DoxyCodeLine{343     \textcolor{keyword}{explicit} \mbox{\hyperlink{classScatterPlot_a4a9e0b7bea99f5007e33b0ad65189e43}{ScatterPlot}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* name = \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{344         : \mbox{\hyperlink{classPlot}{Plot}}(name) \{}
+\DoxyCodeLine{345         \mbox{\hyperlink{classPlot_ac5c21369cb37d1e74741766bf26123ec}{dataFileName}} = \textcolor{stringliteral}{"{}point\_plot\_data.txt"{}};}
+\DoxyCodeLine{346         \mbox{\hyperlink{classPlot_a84d0108c396f7665f228340fce807992}{plotTypeName}} = \textcolor{stringliteral}{"{}points"{}};}
+\DoxyCodeLine{347         \mbox{\hyperlink{classPlot_abb8ae168887076ca5dc5205b34d1fa95}{clear\_file}}();}
+\DoxyCodeLine{348     \}}
+\DoxyCodeLine{349 \};}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{354 \textcolor{keyword}{class }\mbox{\hyperlink{classFunctionPlot}{FunctionPlot}} : \textcolor{keyword}{public} \mbox{\hyperlink{classPlot}{Plot}}}
+\DoxyCodeLine{355 \{}
+\DoxyCodeLine{357     std::function<double(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\&)> \mbox{\hyperlink{classFunctionPlot_a16148c2b8c06689ceaabfb48a302cb44}{Function}};}
+\DoxyCodeLine{358 }
+\DoxyCodeLine{359 \textcolor{keyword}{public}:}
+\DoxyCodeLine{365     \textcolor{keyword}{explicit} \mbox{\hyperlink{classFunctionPlot_acf609f64cac77f3e556747b73e70fbc1}{FunctionPlot}}(std::function<\textcolor{keywordtype}{double}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\&)> fun, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* name = \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{366         : \mbox{\hyperlink{classPlot}{Plot}}(name)}
+\DoxyCodeLine{367         , \mbox{\hyperlink{classFunction}{Function}}(\mbox{\hyperlink{namespacestd}{std}}::move(fun)) \{ \}}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{376     \textcolor{keywordtype}{void} \mbox{\hyperlink{classFunctionPlot_a6bea42610ef9f96447b91d622e918bc3}{AddData}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& start, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& end, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& stepSize, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* name) \{}
+\DoxyCodeLine{377         \textcolor{keywordtype}{int} size         = (int)((end -\/ start) / stepSize) + 2;}
+\DoxyCodeLine{378         \mbox{\hyperlink{classMatrix}{Matrix<double>}} X = \mbox{\hyperlink{utils_8cpp_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(start, end, size);}
+\DoxyCodeLine{379         \textcolor{keyword}{auto} Y           = X.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}(\mbox{\hyperlink{classFunction}{Function}});}
+\DoxyCodeLine{380         \mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{Plot::AddData}}(X, Y, name);}
+\DoxyCodeLine{381     \}}
+\DoxyCodeLine{382 \};}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{387 \textcolor{keyword}{class }\mbox{\hyperlink{classSurfacePlot}{SurfacePlot}} : \textcolor{keyword}{public} \mbox{\hyperlink{classPlot}{Plot}}}
+\DoxyCodeLine{388 \{}
+\DoxyCodeLine{389 \textcolor{keyword}{public}:}
+\DoxyCodeLine{394     \mbox{\hyperlink{classSurfacePlot_a7b88520f3e3935c0d32dba727bbd73b2}{SurfacePlot}}(\textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}} = \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{395         : \mbox{\hyperlink{classPlot}{Plot}}(\mbox{\hyperlink{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}{title}}) \{}
+\DoxyCodeLine{396         \mbox{\hyperlink{classPlot_a77875f7b918ccd9a43f72b189b2e102d}{plotType}}        = \textcolor{stringliteral}{"{}splot"{}};}
+\DoxyCodeLine{397         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a653cff4fb1567e4547763924cad62178}{is3D}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{398     \}}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{405     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSurfacePlot_aa040cc2c1301dc37cb942a80647cde95}{operator()}}()\textcolor{keyword}{ const override }\{}
+\DoxyCodeLine{406         FILE* gnuplot = popen(\textcolor{stringliteral}{"{}gnuplot -\/-\/persist"{}}, \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{407         \mbox{\hyperlink{classPlot_a9bfd80c27c96636efaaec19b2d2b4b13}{writeAttributes}}(gnuplot);}
+\DoxyCodeLine{408         fprintf(gnuplot, \textcolor{stringliteral}{"{}\%s"{}}, \mbox{\hyperlink{classPlot_a77875f7b918ccd9a43f72b189b2e102d}{plotType}});}
+\DoxyCodeLine{409         fprintf(gnuplot, \textcolor{stringliteral}{"{} '\%s' with lines"{}}, \mbox{\hyperlink{classPlot_ac5c21369cb37d1e74741766bf26123ec}{dataFileName}});}
+\DoxyCodeLine{410         fprintf(gnuplot, \textcolor{stringliteral}{"{} title '\%s'"{}}, \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_af1fbc2faf45c17722017f841f3e92639}{plotNames}}[0]);}
+\DoxyCodeLine{411         fprintf(gnuplot, \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{412         fclose(gnuplot);}
+\DoxyCodeLine{413     \}}
+\DoxyCodeLine{414 \};}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{420 \textcolor{keyword}{class }\mbox{\hyperlink{classImagePlot}{ImagePlot}} : \textcolor{keyword}{public} \mbox{\hyperlink{classPlot}{Plot}}}
+\DoxyCodeLine{421 \{}
+\DoxyCodeLine{422 \textcolor{keyword}{public}:}
+\DoxyCodeLine{428     \textcolor{keyword}{explicit} \mbox{\hyperlink{classImagePlot_ac58ba6ab6c1ad8223934403858497b03}{ImagePlot}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* name)}
+\DoxyCodeLine{429         : \mbox{\hyperlink{classPlot}{Plot}}(name) \{}
+\DoxyCodeLine{430         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a6617bc812d985c05ae7f30dbf189bdc2}{is2D}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{431     \}}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{438     \textcolor{keywordtype}{void} \mbox{\hyperlink{classImagePlot_abcc293f8ea2f73b54d184baeb742b820}{AddData}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& mat, \textcolor{keyword}{const} std::string\& name) \{}
+\DoxyCodeLine{439         \mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{Plot::AddData}}(mat, name, DataTypes::NONE, mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{440     \}}
+\DoxyCodeLine{441 }
+\DoxyCodeLine{447     \textcolor{keywordtype}{void} \mbox{\hyperlink{classImagePlot_a0cb62df79fa5639015ad55a539e0bf6e}{operator()}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* colorPalette = \textcolor{stringliteral}{"{}magma.pal"{}}) \{}
+\DoxyCodeLine{448         FILE* gnuplot           = popen(\textcolor{stringliteral}{"{}gnuplot -\/-\/persist"{}}, \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{449         \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_a8738b4d86a5db807f0128370bc167043}{colorPalette}} = colorPalette;}
+\DoxyCodeLine{450         \mbox{\hyperlink{classPlot_a9bfd80c27c96636efaaec19b2d2b4b13}{writeAttributes}}(gnuplot);}
+\DoxyCodeLine{451         fprintf(gnuplot, \textcolor{stringliteral}{"{}plot '\%s' matrix with image"{}}, \mbox{\hyperlink{classPlot_ac5c21369cb37d1e74741766bf26123ec}{dataFileName}});}
+\DoxyCodeLine{452         fprintf(gnuplot, \textcolor{stringliteral}{"{} title '\%s'"{}}, \mbox{\hyperlink{classPlot_adccf50e0f1dde033486c08da47fb8c3e}{attributes}}.\mbox{\hyperlink{structPlotAttributes_af1fbc2faf45c17722017f841f3e92639}{plotNames}}[0]);}
+\DoxyCodeLine{453         fprintf(gnuplot, \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{454         fclose(gnuplot);}
+\DoxyCodeLine{455     \}}
+\DoxyCodeLine{456 \};}
+
+\end{DoxyCode}

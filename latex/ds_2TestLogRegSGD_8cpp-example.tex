@@ -26,7 +26,7 @@ This is an example on how to use the \mbox{\hyperlink{classLogRegSGD}{Log\+Reg\+
 \DoxyCodeLine{        \});}
 \DoxyCodeLine{        \textcolor{comment}{//        std::cout << A;}}
 \DoxyCodeLine{        std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= 0.0); \};}
-\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} B                      = \mbox{\hyperlink{Matrix_8h_a03aa8ab53460bc8174166baea67463c3}{where}}(condition, A, \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} B                      = \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, A, \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
 \DoxyCodeLine{        \textcolor{keyword}{auto} maxVal                           = \mbox{\hyperlink{Matrix_8h_a8dd66fbac5097923b2ecf481b0ae77e5}{max}}(A);}
 \DoxyCodeLine{        \textcolor{keyword}{auto} minVal                           = \mbox{\hyperlink{Matrix_8h_a4bb73e4029612f323f406f1ecfc2ed57}{min}}(A);}
 \DoxyCodeLine{        A = A.Apply([minVal, maxVal](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} (in -\/ minVal) / (maxVal -\/ minVal); \});}

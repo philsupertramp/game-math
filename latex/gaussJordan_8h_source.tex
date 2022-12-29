@@ -1,0 +1,46 @@
+\hypertarget{gaussJordan_8h_source}{}\doxysection{gauss\+Jordan.\+h}
+\label{gaussJordan_8h_source}\index{include/math/numerics/lin\_alg/gaussJordan.h@{include/math/numerics/lin\_alg/gaussJordan.h}}
+\mbox{\hyperlink{gaussJordan_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../../Matrix.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{LU_8h}{LU.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{backwardSub_8h}{backwardSub.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{forwardSub_8h}{forwardSub.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{26 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{gaussJordan_8h_a087b5645f23895d3500c37baa113cb9d}{gaussJordan}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& A) \{}
+\DoxyCodeLine{27     \textcolor{keywordtype}{size\_t} i, j, k;}
+\DoxyCodeLine{28     \textcolor{keywordtype}{size\_t} n = A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
+\DoxyCodeLine{29     \textcolor{keywordtype}{double} d;}
+\DoxyCodeLine{30     \mbox{\hyperlink{classMatrix}{Matrix<double>}} mat = \mbox{\hyperlink{Matrix_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(A, \mbox{\hyperlink{utils_8cpp_ab7da25ca0263921573b11a2425ce061c}{eye}}(A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), n));}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{comment}{// Partial pivoting}}
+\DoxyCodeLine{33     \textcolor{keywordflow}{for}(i = n -\/ 1; i > 1; i-\/-\/) \{}
+\DoxyCodeLine{34         \textcolor{keywordflow}{if}(mat(i -\/ 1, 1) < mat(i, 1)) \{}
+\DoxyCodeLine{35             \textcolor{keywordflow}{for}(j = 0; j < (2 * n); ++j) \{}
+\DoxyCodeLine{36                 d             = mat(i, j);}
+\DoxyCodeLine{37                 mat(i, j)     = mat(i -\/ 1, j);}
+\DoxyCodeLine{38                 mat(i -\/ 1, j) = d;}
+\DoxyCodeLine{39             \}}
+\DoxyCodeLine{40         \}}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{// Reducing To Diagonal Matrix}}
+\DoxyCodeLine{44     \textcolor{keywordflow}{for}(i = 0; i < n; i++) \{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{for}(j = 0; j < n; j++) \{}
+\DoxyCodeLine{46             \textcolor{keywordflow}{if}(j != i) \{}
+\DoxyCodeLine{47                 d = mat(j, i) / mat(i, i);}
+\DoxyCodeLine{48                 \textcolor{keywordflow}{for}(k = 0; k < n * 2; ++k) \{ mat(j, k) -\/= mat(i, k) * d; \}}
+\DoxyCodeLine{49             \}}
+\DoxyCodeLine{50         \}}
+\DoxyCodeLine{51         d = mat(i, i);}
+\DoxyCodeLine{52         \textcolor{keywordflow}{for}(j = 0; j < (2 * n); j++) \{ mat(i, j) = mat(i, j) / d; \}}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} mat.\mbox{\hyperlink{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}{GetSlice}}(0, mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1, n, mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() -\/ 1);}
+\DoxyCodeLine{56 \}}
+\DoxyCodeLine{57 }
+
+\end{DoxyCode}

@@ -19,7 +19,7 @@ This is an example on how to use the \mbox{\hyperlink{mat2_8h}{mat2.\+h}} file.
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestUtils() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat2}{mat2<T>}} foo = \mbox{\hyperlink{structmat2_a77284ffa9e21eb9242ec441a8af5f081}{mat2<T>::Unit}}();}
+\DoxyCodeLine{        \mbox{\hyperlink{structmat2}{mat2<T>}} foo = \mbox{\hyperlink{structmat2_a2b6a01401604e528dbcaf318510688cf}{mat2<T>::Unit}}();}
 \DoxyCodeLine{        assert(foo[0][0] == (T)1);}
 \DoxyCodeLine{        assert(foo[0][1] == (T)0);}
 \DoxyCodeLine{        assert(foo[1][0] == (T)0);}
@@ -39,14 +39,14 @@ This is an example on how to use the \mbox{\hyperlink{mat2_8h}{mat2.\+h}} file.
 \DoxyCodeLine{        assert(fooCopy[1][0] == foo[1][0]);}
 \DoxyCodeLine{        assert(fooCopy[1][1] == foo[1][1]);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        fooCopy = fooCopy.\mbox{\hyperlink{structmat2_a583178c3bdc6bca0c4d03bccbffa7388}{Transpose}}();}
+\DoxyCodeLine{        fooCopy = fooCopy.\mbox{\hyperlink{structmat2_ae91f368a5103180c117e5789b8fc246f}{Transpose}}();}
 \DoxyCodeLine{        \textcolor{comment}{// nothing happened matrix is symmetric}}
 \DoxyCodeLine{        assert(fooCopy[0][0] == foo[0][0]);}
 \DoxyCodeLine{        assert(fooCopy[0][1] == foo[0][1]);}
 \DoxyCodeLine{        assert(fooCopy[1][0] == foo[1][0]);}
 \DoxyCodeLine{        assert(fooCopy[1][1] == foo[1][1]);}
 \DoxyCodeLine{        fooCopy = \mbox{\hyperlink{structmat2}{mat2<T>}}((T)0, (T)-\/1, (T)1, (T)0);}
-\DoxyCodeLine{        fooCopy = fooCopy.\mbox{\hyperlink{structmat2_a583178c3bdc6bca0c4d03bccbffa7388}{Transpose}}();}
+\DoxyCodeLine{        fooCopy = fooCopy.\mbox{\hyperlink{structmat2_ae91f368a5103180c117e5789b8fc246f}{Transpose}}();}
 \DoxyCodeLine{        assert(fooCopy[0][0] == (T)0);}
 \DoxyCodeLine{        assert(fooCopy[0][1] == (T)1);}
 \DoxyCodeLine{        assert(fooCopy[1][0] == (T)-\/1);}
@@ -139,10 +139,10 @@ This is an example on how to use the \mbox{\hyperlink{mat2_8h}{mat2.\+h}} file.
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestInverse() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{structmat2}{mat2<T>}} A = \mbox{\hyperlink{structmat2}{mat2<T>}}(1, 0, 0, 1);}
-\DoxyCodeLine{        AssertEqual(A, A.\mbox{\hyperlink{structmat2_aba78ee0c43f742b069bd7c789411117e}{Inverse}}());}
+\DoxyCodeLine{        AssertEqual(A, A.\mbox{\hyperlink{structmat2_a6a835eb97149c50c0d1e044380a16761}{Inverse}}());}
 \DoxyCodeLine{        \textcolor{keywordflow}{if}(extended) \{}
 \DoxyCodeLine{            A = \mbox{\hyperlink{structmat2}{mat2<T>}}(4, 7, 2, 6);}
-\DoxyCodeLine{            AssertEqual(A.\mbox{\hyperlink{structmat2_aba78ee0c43f742b069bd7c789411117e}{Inverse}}(), \mbox{\hyperlink{structmat2}{mat2<T>}}(0.6, -\/0.7, -\/0.2, 0.4));}
+\DoxyCodeLine{            AssertEqual(A.\mbox{\hyperlink{structmat2_a6a835eb97149c50c0d1e044380a16761}{Inverse}}(), \mbox{\hyperlink{structmat2}{mat2<T>}}(0.6, -\/0.7, -\/0.2, 0.4));}
 \DoxyCodeLine{        \}}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}

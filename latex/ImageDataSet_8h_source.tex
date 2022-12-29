@@ -1,0 +1,120 @@
+\hypertarget{ImageDataSet_8h_source}{}\doxysection{Image\+Data\+Set.\+h}
+\label{ImageDataSet_8h_source}\index{include/math/ds/ImageDataSet.h@{include/math/ds/ImageDataSet.h}}
+\mbox{\hyperlink{ImageDataSet_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{DataSet_8h}{DataSet.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#if MATH\_IMAGE\_PROCESSING}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{    \#include <Magick++.h>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{    \#include <Magick++/Image.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <filesystem>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classImageDataSet}{ImageDataSet}} : \textcolor{keyword}{public} \mbox{\hyperlink{classDataSet}{DataSet}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{classImageDataSet_a6cb4942bbb5ce16e1ab67ccd550dc9e3}{ImageDataSet}}(\textcolor{keywordtype}{size\_t} inputCount, \textcolor{keywordtype}{size\_t} outputCount)}
+\DoxyCodeLine{25         : \mbox{\hyperlink{classDataSet}{DataSet}}(inputCount, outputCount) \{ \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classImageDataSet_a9bbabe8ae4b48f1238be7828d6fe7233}{PrepareDirectory}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* filePath) \{}
+\DoxyCodeLine{34         std::cout << \textcolor{stringliteral}{"{}Moving files..."{}} << std::flush;}
+\DoxyCodeLine{35         std::filesystem::remove\_all(\mbox{\hyperlink{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}{trainDirectory}});}
+\DoxyCodeLine{36         std::filesystem::copy(}
+\DoxyCodeLine{37         filePath,}
+\DoxyCodeLine{38         \mbox{\hyperlink{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}{trainDirectory}},}
+\DoxyCodeLine{39         std::filesystem::copy\_options::update\_existing | std::filesystem::copy\_options::recursive);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         \mbox{\hyperlink{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}{totalCount}}        = 0;}
+\DoxyCodeLine{42         \textcolor{keywordtype}{size\_t} classCount = 0;}
+\DoxyCodeLine{43         \mbox{\hyperlink{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}{classNames}}.clear();}
+\DoxyCodeLine{44         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& entry : std::filesystem::directory\_iterator(\mbox{\hyperlink{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}{trainDirectory}})) \{}
+\DoxyCodeLine{45             \textcolor{keywordflow}{if}(entry.is\_directory()) \{}
+\DoxyCodeLine{46                 \mbox{\hyperlink{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}{classNames}}.push\_back(entry.path().filename());}
+\DoxyCodeLine{47                 \textcolor{keyword}{auto} dirIter = std::filesystem::directory\_iterator(entry);}
+\DoxyCodeLine{48                 \mbox{\hyperlink{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}{totalCount}} +=}
+\DoxyCodeLine{49                 std::count\_if(begin(dirIter), end(dirIter), [](\textcolor{keyword}{auto}\& elem) \{ \textcolor{keywordflow}{return} elem.is\_regular\_file(); \});}
+\DoxyCodeLine{50                 classCount += 1;}
+\DoxyCodeLine{51             \}}
+\DoxyCodeLine{52         \}}
+\DoxyCodeLine{53         \mbox{\hyperlink{classImageDataSet_a323ec5719d39c362c77960656b65f571}{trainingCount}}     = (int)(\mbox{\hyperlink{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}{totalCount}} * 0.8);}
+\DoxyCodeLine{54         \mbox{\hyperlink{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}{validationCount}}   = (int)(\mbox{\hyperlink{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}{totalCount}} -\/ \mbox{\hyperlink{classImageDataSet_a323ec5719d39c362c77960656b65f571}{trainingCount}});}
+\DoxyCodeLine{55         \mbox{\hyperlink{classDataSet_ab2e28670df1d61a926990a8d00627fdf}{Training}}.\mbox{\hyperlink{structSet_a05d1a42371080cffdd7851cf9c00f81b}{Input}}    = MatrixDS<double>(0, \mbox{\hyperlink{classImageDataSet_a323ec5719d39c362c77960656b65f571}{trainingCount}}, \mbox{\hyperlink{classDataSet_a9cc77d557deb5f130c5ca93267a88b69}{InputCount}});}
+\DoxyCodeLine{56         \mbox{\hyperlink{classDataSet_ab2e28670df1d61a926990a8d00627fdf}{Training}}.\mbox{\hyperlink{structSet_abeb4570e7f558220e76e3fcb03551813}{Output}}   = MatrixDS<double>(0, \mbox{\hyperlink{classImageDataSet_a323ec5719d39c362c77960656b65f571}{trainingCount}}, \mbox{\hyperlink{classDataSet_a80e15af63fd1574afb65efa990187203}{OutputCount}});}
+\DoxyCodeLine{57         \mbox{\hyperlink{classDataSet_a83ba4064a6be64f1b1535de18005e270}{Validation}}.\mbox{\hyperlink{structSet_a05d1a42371080cffdd7851cf9c00f81b}{Input}}  = MatrixDS<double>(0, \mbox{\hyperlink{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}{validationCount}}, \mbox{\hyperlink{classDataSet_a9cc77d557deb5f130c5ca93267a88b69}{InputCount}});}
+\DoxyCodeLine{58         \mbox{\hyperlink{classDataSet_a83ba4064a6be64f1b1535de18005e270}{Validation}}.\mbox{\hyperlink{structSet_abeb4570e7f558220e76e3fcb03551813}{Output}} = MatrixDS<double>(0, \mbox{\hyperlink{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}{validationCount}}, \mbox{\hyperlink{classDataSet_a80e15af63fd1574afb65efa990187203}{OutputCount}});}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{keywordtype}{size\_t} index = 0;}
+\DoxyCodeLine{61         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& entry : std::filesystem::directory\_iterator(\mbox{\hyperlink{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}{trainDirectory}})) \{}
+\DoxyCodeLine{62             \textcolor{keywordflow}{if}(entry.is\_directory()) \{}
+\DoxyCodeLine{63                 MatrixDS<bool> elem(\textcolor{keyword}{false}, 1, classCount);}
+\DoxyCodeLine{64                 elem(0, index) = \textcolor{keyword}{true};}
+\DoxyCodeLine{65                 \mbox{\hyperlink{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}{classes}}.push\_back(elem);}
+\DoxyCodeLine{66                 index += 1;}
+\DoxyCodeLine{67             \}}
+\DoxyCodeLine{68         \}}
+\DoxyCodeLine{69         std::cout << \textcolor{stringliteral}{"{}done!\(\backslash\)nDirectory \(\backslash\)"{}"{}} << \mbox{\hyperlink{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}{trainDirectory}} << \textcolor{stringliteral}{"{}\(\backslash\)"{} ready."{}} << std::endl;}
+\DoxyCodeLine{70         std::cout << \textcolor{stringliteral}{"{}Found "{}} << \mbox{\hyperlink{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}{totalCount}} << \textcolor{stringliteral}{"{} files belonging to "{}} << classCount << \textcolor{stringliteral}{"{} classes.\(\backslash\)nUsing "{}}}
+\DoxyCodeLine{71                   << \mbox{\hyperlink{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}{validationCount}} << \textcolor{stringliteral}{"{} files for validation\(\backslash\)n"{}}}
+\DoxyCodeLine{72                   << std::flush;}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} \mbox{\hyperlink{classImageDataSet_abe20e5992ddda25f736dfb0789d764a3}{Cache}}() \{}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#if MATH\_IMAGE\_PROCESSING}}
+\DoxyCodeLine{88         std::cout << \textcolor{stringliteral}{"{}Resizing files and saving into memory..."{}} << std::flush;}
+\DoxyCodeLine{89         \textcolor{keywordtype}{size\_t} count = 0, i = 0, classCount = 0;}
+\DoxyCodeLine{90         \textcolor{keywordtype}{size\_t} trainingIter = 0, validationIter = 0;}
+\DoxyCodeLine{91         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& classDirectory : std::filesystem::directory\_iterator(\mbox{\hyperlink{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}{trainDirectory}})) \{}
+\DoxyCodeLine{92             \textcolor{keywordtype}{bool} hadEntry = \textcolor{keyword}{false};}
+\DoxyCodeLine{93             \textcolor{keywordflow}{if}(!classDirectory.is\_directory() || classCount >= \mbox{\hyperlink{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}{classes}}.size()) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{94             \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& entry : std::filesystem::directory\_iterator(classDirectory)) \{}
+\DoxyCodeLine{95                 \textcolor{keywordflow}{if}(!entry.is\_regular\_file()) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97                 hadEntry = \textcolor{keyword}{true};}
+\DoxyCodeLine{98                 Magick::Image image;}
+\DoxyCodeLine{99                 image.verbose(\mbox{\hyperlink{classDataSet_af05bcbf6eba3ef7dbb89e0d396d45596}{verbose}});}
+\DoxyCodeLine{100                 image.magick(\textcolor{stringliteral}{"{}JPG"{}});}
+\DoxyCodeLine{101                 image.read(std::string(entry.path()));}
+\DoxyCodeLine{102                 \textcolor{comment}{// PZ: we don't scale but resample, to enforce dimension width * height and ignore loss in content}}
+\DoxyCodeLine{103                 image.resample(Magick::Point(\mbox{\hyperlink{classImageDataSet_a9ba02bb2e1b60de7f6835ace293809f9}{imageWidth}}, \mbox{\hyperlink{classImageDataSet_ab83106b8cff6d5cc8359aa490d85d07e}{imageHeight}}));}
+\DoxyCodeLine{104                 \mbox{\hyperlink{structSet}{Set}}* target;}
+\DoxyCodeLine{105                 \textcolor{keywordtype}{bool} is\_validation =}
+\DoxyCodeLine{106                 (trainingIter >= \mbox{\hyperlink{classImageDataSet_a323ec5719d39c362c77960656b65f571}{trainingCount}} || ((count \% (int)\mbox{\hyperlink{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}{totalCount}} * (\mbox{\hyperlink{classImageDataSet_a08ea2bd23adb1f8d45d888e820fe3e4d}{validationShare}})) == 0 \&\& count != 0 \&\& validationIter < \mbox{\hyperlink{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}{validationCount}}));}
+\DoxyCodeLine{107                 target = is\_validation ? \&\mbox{\hyperlink{classDataSet_a83ba4064a6be64f1b1535de18005e270}{Validation}} : \&\mbox{\hyperlink{classDataSet_ab2e28670df1d61a926990a8d00627fdf}{Training}};}
+\DoxyCodeLine{108                 Magick::PixelData pixelBlob(image, \textcolor{stringliteral}{"{}RGBA"{}}, Magick::FloatPixel);}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110                 \textcolor{keyword}{auto}* in = (\textcolor{keywordtype}{float}*)pixelBlob.data();}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112                 \textcolor{keywordflow}{for}(i = 0; i < \mbox{\hyperlink{classDataSet_a9cc77d557deb5f130c5ca93267a88b69}{InputCount}}; i++) \{}
+\DoxyCodeLine{113                     (*target).Input[is\_validation ? validationIter : trainingIter][i] = in[i];}
+\DoxyCodeLine{114                 \}}
+\DoxyCodeLine{115                 \textcolor{keywordflow}{for}(i = 0; i < \mbox{\hyperlink{classDataSet_a80e15af63fd1574afb65efa990187203}{OutputCount}}; i++) \{}
+\DoxyCodeLine{116                     (*target).Output[is\_validation ? validationIter : trainingIter][i] = \mbox{\hyperlink{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}{classes}}[classCount][0][i];}
+\DoxyCodeLine{117                 \}}
+\DoxyCodeLine{118                 \textcolor{keywordflow}{if}(is\_validation) \{}
+\DoxyCodeLine{119                     validationIter += 1;}
+\DoxyCodeLine{120                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{121                     trainingIter += 1;}
+\DoxyCodeLine{122                 \}}
+\DoxyCodeLine{123                 count += 1;}
+\DoxyCodeLine{124             \}}
+\DoxyCodeLine{125             classCount += hadEntry;}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{128     \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{keyword}{public}:}
+\DoxyCodeLine{132     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classImageDataSet_ab83106b8cff6d5cc8359aa490d85d07e}{imageHeight}} = 180;}
+\DoxyCodeLine{134     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classImageDataSet_a9ba02bb2e1b60de7f6835ace293809f9}{imageWidth}} = 180;}
+\DoxyCodeLine{136     \textcolor{keywordtype}{double} \mbox{\hyperlink{classImageDataSet_a08ea2bd23adb1f8d45d888e820fe3e4d}{validationShare}} = 0.2;}
+\DoxyCodeLine{138     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{classImageDataSet_ae16e22c23b4185379e5f3d60143092b8}{trainDirectory}} = \textcolor{stringliteral}{"{}../../resources/image\_classification/training/"{}};}
+\DoxyCodeLine{140     std::vector<MatrixDS<bool>> \mbox{\hyperlink{classImageDataSet_a588cd839a8dcf3f9bbd487610347825e}{classes}};}
+\DoxyCodeLine{142     std::vector<std::string> \mbox{\hyperlink{classImageDataSet_a948b82a4dc6b7594c6c8029909aa6b72}{classNames}};}
+\DoxyCodeLine{144     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classImageDataSet_a9a266deb825dec0a9bdaa6f7105c4da7}{totalCount}} = 0;}
+\DoxyCodeLine{146     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classImageDataSet_a323ec5719d39c362c77960656b65f571}{trainingCount}} = 0;}
+\DoxyCodeLine{148     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classImageDataSet_a30efac5c5eb0ec2eb29ba294ddbc2648}{validationCount}} = 0;}
+\DoxyCodeLine{149 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,108 @@
+\hypertarget{MathNode_8h_source}{}\doxysection{Math\+Node.\+h}
+\label{MathNode_8h_source}\index{include/math/symb/MathNode.h@{include/math/symb/MathNode.h}}
+\mbox{\hyperlink{MathNode_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}../format.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <regex>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{12 \textcolor{keyword}{enum} \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefe}{MathNodeType}} \{}
+\DoxyCodeLine{13     \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefea1c144f8bf59ab742c4408ec393602d02}{NodeType\_Operator}}                = 0,}
+\DoxyCodeLine{14     \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefea1e2b34bb3fd76d1773c0e739ab757f0b}{NodeType\_Symbolic}}                = 1,}
+\DoxyCodeLine{15     \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefead04e2797598b259ea0d4a18142932f96}{NodeType\_Numeric}}                 = 2,}
+\DoxyCodeLine{16     \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefeabb22938ecb03779ebe89024bb122529a}{NodeType\_Parentheses}}             = 3,}
+\DoxyCodeLine{17     \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefea521488c28905dded8d5866bbb41852df}{NodeType\_Functional}}              = 4,}
+\DoxyCodeLine{18     \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefea7a7d2ae2bbe12c843e2f13bf17233afe}{NodeType\_DefaultSymbol}}           = 5,}
+\DoxyCodeLine{19     \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefea33343182081eb115cca4d5655d15fe4d}{NodeType\_Any}}                     = 6,}
+\DoxyCodeLine{20     \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefeaa395cc2e4df7237a8e4cf83b2c175a59}{NodeType\_Operator\_or\_Parentheses}} = 7,}
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{enum} \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747ab}{NodeConnectionType}} \{}
+\DoxyCodeLine{24     \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747aba7e556deecd3a56edd17baf888f865259}{ConnectionType\_Dual}}    = 0,}
+\DoxyCodeLine{25     \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747abae8682481e267e0dcf54a590bb9b93f46}{ConnectionType\_Left}}    = 2,}
+\DoxyCodeLine{26     \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747aba39f57f9939ce7c3fe38fff24e2ac81d7}{ConnectionType\_Right}}   = 3,}
+\DoxyCodeLine{27     \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747aba9eeffc9e32035844d6c1ceb772b7a69c}{ConnectionType\_None}}    = 4,}
+\DoxyCodeLine{28     \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747abaca47e3381d314ac9ecf94b7bf69f580f}{ConnectionType\_Unknown}} = 5,}
+\DoxyCodeLine{29 \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{36 std::regex \mbox{\hyperlink{MathNode_8h_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(\mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefe}{MathNodeType}} type);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42 \textcolor{keyword}{class }\mbox{\hyperlink{classMathNode}{MathNode}}}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44 \textcolor{keyword}{public}:}
+\DoxyCodeLine{46     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{48     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{hasParentheses}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{50     \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefe}{MathNodeType}} \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}};}
+\DoxyCodeLine{52     \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747ab}{NodeConnectionType}} \mbox{\hyperlink{classMathNode_af971f001f9f6b2478dd28d9fa752c5e9}{connectionType}} = NodeConnectionType::ConnectionType\_Dual;}
+\DoxyCodeLine{54     std::shared\_ptr<MathNode> \mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{56     std::shared\_ptr<MathNode> \mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{58     \textcolor{keywordtype}{char}* \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}\{\};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{62     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}{valSize}} = 0;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keyword}{public}:}
+\DoxyCodeLine{69     \textcolor{keyword}{explicit} \mbox{\hyperlink{classMathNode_a3072bd11e770363889906d16578954cb}{MathNode}}(\textcolor{keyword}{const} std::string\& val) \{}
+\DoxyCodeLine{70         \textcolor{keyword}{auto} realValue = \mbox{\hyperlink{format_8cpp_a5f3e23cac814c84a5494842243316a4b}{strip}}(val); \textcolor{comment}{// strip to allow comparison}}
+\DoxyCodeLine{71         \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}}     = realValue.find(\textcolor{charliteral}{'-\/'}) != std::string::npos \&\& realValue.size() > 1;}
+\DoxyCodeLine{72         \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}          = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[realValue.size() + 1];}
+\DoxyCodeLine{73         std::copy(realValue.begin(), realValue.end(), \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}});}
+\DoxyCodeLine{74         \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}[realValue.size()] = \textcolor{charliteral}{'\(\backslash\)0'}; \textcolor{comment}{// don't forget the terminating 0}}
+\DoxyCodeLine{75         \mbox{\hyperlink{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}{valSize}}                 = realValue.size() + 1;}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{82     \mbox{\hyperlink{classMathNode_a18ab20a5b9156a02d4e4eec2a4c9528e}{MathNode}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMathNode}{MathNode}}\& other) \{}
+\DoxyCodeLine{83         \mbox{\hyperlink{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}{valSize}}        = other.\mbox{\hyperlink{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}{valSize}};}
+\DoxyCodeLine{84         \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}}     = other.\mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}};}
+\DoxyCodeLine{85         \mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{hasParentheses}} = other.\mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{hasParentheses}};}
+\DoxyCodeLine{86         \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}          = (\textcolor{keywordtype}{char}*)malloc(other.\mbox{\hyperlink{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}{valSize}});}
+\DoxyCodeLine{87         strcpy(\mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}, other.\mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}});}
+\DoxyCodeLine{88         \mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}}  = other.\mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}};}
+\DoxyCodeLine{89         \mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}} = other.\mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}};}
+\DoxyCodeLine{90         \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}}  = other.\mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}};}
+\DoxyCodeLine{91     \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{98     [[nodiscard]] \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{classMathNode_ac6689c4cc69071efbd524e0f2a7fe0f6}{Evaluate}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{104     [[nodiscard]] std::string \mbox{\hyperlink{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}{GetString}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{105         std::stringstream out;}
+\DoxyCodeLine{106         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}} != \textcolor{keyword}{nullptr}) out << \mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}};}
+\DoxyCodeLine{107         out << \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}};}
+\DoxyCodeLine{108         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}} != \textcolor{keyword}{nullptr}) out << \mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}};}
+\DoxyCodeLine{109         \textcolor{keywordflow}{return} out.str();}
+\DoxyCodeLine{110     \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMathNode_a4c18ebd160a10ba1e053417d553e0c6c}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMathNode}{MathNode}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMathNode}{MathNode}}\& rhs) \{}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} strcmp(lhs.\mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}, rhs.\mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}) == 0 \&\& lhs.\mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}} == rhs.\mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}};}
+\DoxyCodeLine{114     \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMathNode_a81c411ca0bd88075c3b1ba8b64bc6a47}{operator==}}(\mbox{\hyperlink{classMathNode}{MathNode}}* rhs) \{ \textcolor{keywordflow}{return} strcmp(\mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}, rhs-\/>\mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}) == 0 \&\& \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}} == rhs-\/>\mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}}; \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{124     \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{classMathNode_a22054d62d8dace4455a089011b929b44}{operator<<}}(std::ostream\& ostr, \textcolor{keyword}{const} \mbox{\hyperlink{classMathNode}{MathNode}}\& other) \{}
+\DoxyCodeLine{125         \textcolor{keywordflow}{if}(other.\mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{hasParentheses}}) ostr << \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{126         \textcolor{keywordflow}{if}(other.\mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}} != \textcolor{keyword}{nullptr}) ostr << other.\mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}};}
+\DoxyCodeLine{127         ostr << (other.\mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}} ? \textcolor{stringliteral}{"{}-\/"{}} : \textcolor{stringliteral}{"{}"{}}) << other.\mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}};}
+\DoxyCodeLine{128         \textcolor{keywordflow}{if}(other.\mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}} != \textcolor{keyword}{nullptr}) ostr << other.\mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}};}
+\DoxyCodeLine{129         \textcolor{keywordflow}{if}(other.\mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{hasParentheses}}) ostr << \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{130         \textcolor{keywordflow}{return} ostr;}
+\DoxyCodeLine{131     \}}
+\DoxyCodeLine{138     \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{classMathNode_a37319293459d04481ade02877b46fdf8}{operator<<}}(std::ostream\& ostr, \mbox{\hyperlink{classMathNode}{MathNode}}* other) \{}
+\DoxyCodeLine{139         \textcolor{comment}{// early exit}}
+\DoxyCodeLine{140         \textcolor{keywordflow}{if}(other == \textcolor{keyword}{nullptr}) \textcolor{keywordflow}{return} ostr;}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142         \textcolor{keywordflow}{if}(other-\/>\mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{hasParentheses}}) ostr << \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{143         \textcolor{keywordflow}{if}(other-\/>\mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}} != \textcolor{keyword}{nullptr}) ostr << other-\/>\mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}};}
+\DoxyCodeLine{144         ostr << (other-\/>\mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}} ? \textcolor{stringliteral}{"{}-\/"{}} : \textcolor{stringliteral}{"{}"{}}) << other-\/>\mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}};}
+\DoxyCodeLine{145         \textcolor{keywordflow}{if}(other-\/>\mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}} != \textcolor{keyword}{nullptr}) ostr << other-\/>\mbox{\hyperlink{classMathNode_af81f7d62cd9008544aa999c6a1c55934}{right}};}
+\DoxyCodeLine{146         \textcolor{keywordflow}{if}(other-\/>\mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{hasParentheses}}) ostr << \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{147         \textcolor{keywordflow}{return} ostr;}
+\DoxyCodeLine{148     \}}
+\DoxyCodeLine{149 \};}
+\DoxyCodeLine{150 }
+
+\end{DoxyCode}

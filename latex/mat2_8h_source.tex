@@ -1,0 +1,118 @@
+\hypertarget{mat2_8h_source}{}\doxysection{mat2.\+h}
+\label{mat2_8h_source}\index{include/math/mat/mat2.h@{include/math/mat/mat2.h}}
+\mbox{\hyperlink{mat2_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../vec/vec2.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{9 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{10 \textcolor{keyword}{struct }\mbox{\hyperlink{structmat2}{mat2}} \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     T \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[2][2];}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{18     \mbox{\hyperlink{structmat2_a4866cefe04818775be00cdb2bd360a18}{mat2}}() \{}
+\DoxyCodeLine{19         \textcolor{comment}{// clang-\/format off}}
+\DoxyCodeLine{20         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0] = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0); \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1] = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0);}
+\DoxyCodeLine{21         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0] = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0); \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1] = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0); \textcolor{comment}{// clang-\/format on}}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{31     \mbox{\hyperlink{structmat2_af49673be653a8225b397c223eb38e053}{mat2}}(\textcolor{keyword}{const} T\& \_a, \textcolor{keyword}{const} T\& \_b, \textcolor{keyword}{const} T\& \_c, \textcolor{keyword}{const} T\& \_d) \{}
+\DoxyCodeLine{32         \textcolor{comment}{// clang-\/format off}}
+\DoxyCodeLine{33         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0] = \_a; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1] = \_b;}
+\DoxyCodeLine{34         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0] = \_c; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1] = \_d; \textcolor{comment}{// clang-\/format on}}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{42     \mbox{\hyperlink{structmat2_ac20f7185913b71703ea48853e2f65461}{mat2}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& A, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& B) \{}
+\DoxyCodeLine{43         \textcolor{comment}{// clang-\/format off}}
+\DoxyCodeLine{44         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0] = A.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}}; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1] = B.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
+\DoxyCodeLine{45         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0] = A.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}}; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1] = B.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}}; \textcolor{comment}{// clang-\/format on}}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{51     \mbox{\hyperlink{structmat2_a221acc89f9f55571a6c4614ad055e5c6}{\string~mat2}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{57     \textcolor{keyword}{static} \textcolor{keyword}{inline} \mbox{\hyperlink{structmat2}{mat2<T>}} \mbox{\hyperlink{structmat2_a2b6a01401604e528dbcaf318510688cf}{Unit}}() \{}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} \mbox{\hyperlink{structmat2}{mat2<T>}}(\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1), \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0), \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0), \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1));}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{65     \textcolor{keyword}{inline} \mbox{\hyperlink{structmat2}{mat2<T>}} \mbox{\hyperlink{structmat2_ae91f368a5103180c117e5789b8fc246f}{Transpose}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structmat2}{mat2<T>}}(\mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0], \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0], \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1], \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1]); \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{71     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structmat2_af01714893e2ef949e68b8fb915d35e0b}{IsSymmetric}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0] == \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1]; \}}
+\DoxyCodeLine{76     \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{structmat2_a2392950377c4cbb451ea9d528632b9f9}{Determinant}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0] * \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1] -\/ \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1] * \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0]; \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keyword}{inline} \mbox{\hyperlink{structmat2}{mat2<T>}} \mbox{\hyperlink{structmat2_a6a835eb97149c50c0d1e044380a16761}{Inverse}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} \mbox{\hyperlink{structmat2}{mat2<T>}}(\mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1], -\/\mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1], -\/\mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0], \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0])}
+\DoxyCodeLine{80                * \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1 / (\mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0] * \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1] -\/ \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1] * \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0]));}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{89     \textcolor{keyword}{friend} \mbox{\hyperlink{structmat2}{mat2<T>}} \mbox{\hyperlink{structmat2_a788d4121a1a3d367cfac601c0b846c13}{operator+}}(\mbox{\hyperlink{structmat2}{mat2<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structmat2}{mat2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs += rhs; \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{97     \textcolor{keyword}{friend} \mbox{\hyperlink{structmat2}{mat2<T>}} \mbox{\hyperlink{structmat2_a654925224c7f7dd4e3f95380c1d3197a}{operator-\/}}(\mbox{\hyperlink{structmat2}{mat2<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structmat2}{mat2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs -\/= rhs; \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{105     \textcolor{keyword}{friend} \mbox{\hyperlink{structmat2}{mat2<T>}} \mbox{\hyperlink{structmat2_a969682c2f7fc601a260cde9015b066e2}{operator*}}(\mbox{\hyperlink{structmat2}{mat2<T>}} lhs, \textcolor{keyword}{const} T\& rhs) \{ \textcolor{keywordflow}{return} lhs *= rhs; \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{113     \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structmat2_a75340f28c50d4fc3e559fc0dc4732128}{operator*}}(\mbox{\hyperlink{structmat2}{mat2<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{}
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2}{vec2<T>}}(lhs[0][0] * rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} + lhs[0][1] * rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}}, lhs[1][0] * rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} + lhs[1][1] * rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}});}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{123     \textcolor{keyword}{friend} \mbox{\hyperlink{structmat2}{mat2<T>}} \mbox{\hyperlink{structmat2_af5a09044a692ef62b172130fe87497e7}{operator*}}(\mbox{\hyperlink{structmat2}{mat2<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structmat2}{mat2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs *= rhs; \}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{131     \textcolor{keyword}{friend} \mbox{\hyperlink{structmat2}{mat2<T>}} \mbox{\hyperlink{structmat2_a55615d3b1564b9a354f46ee549a031f5}{operator/}}(\mbox{\hyperlink{structmat2}{mat2<T>}} lhs, \textcolor{keyword}{const} T\& rhs) \{ \textcolor{keywordflow}{return} lhs /= rhs; \}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{comment}{/* compound assignment */}}
+\DoxyCodeLine{139     \mbox{\hyperlink{structmat2}{mat2<T>}}\& \mbox{\hyperlink{structmat2_a48aa14cdd21b0ad795a94ff7cd548037}{operator+=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structmat2}{mat2<T>}}\& rhs) \{}
+\DoxyCodeLine{140         \textcolor{comment}{// clang-\/format off}}
+\DoxyCodeLine{141         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0] += rhs[0][0]; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1] += rhs[0][1];}
+\DoxyCodeLine{142         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0] += rhs[1][0]; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1] += rhs[1][1]; \textcolor{comment}{// clang-\/format on}}
+\DoxyCodeLine{143         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{144     \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{151     \mbox{\hyperlink{structmat2}{mat2<T>}}\& \mbox{\hyperlink{structmat2_ad36b214b6b1ea9a89ccf4b1b2f842c3e}{operator-\/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structmat2}{mat2<T>}}\& rhs) \{}
+\DoxyCodeLine{152         \textcolor{comment}{// clang-\/format off}}
+\DoxyCodeLine{153         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0] -\/= rhs[0][0]; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1] -\/= rhs[0][1];}
+\DoxyCodeLine{154         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0] -\/= rhs[1][0]; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1] -\/= rhs[1][1]; \textcolor{comment}{// clang-\/format on}}
+\DoxyCodeLine{155         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{163     \mbox{\hyperlink{structmat2}{mat2<T>}}\& \mbox{\hyperlink{structmat2_a463f0e5f41cd12dd837c235a95c9a8ea}{operator*=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structmat2}{mat2<T>}}\& rhs) \{}
+\DoxyCodeLine{164         \textcolor{comment}{// clang-\/format off}}
+\DoxyCodeLine{165         T \_a = \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0], \_b = \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1],}
+\DoxyCodeLine{166           \_c = \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0], \_d = \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1];}
+\DoxyCodeLine{167         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0] = \_a * rhs[0][0] + \_b * rhs[1][0]; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1] = \_a * rhs[0][1] + \_b * rhs[1][1];}
+\DoxyCodeLine{168         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0] = \_c * rhs[0][0] + \_d * rhs[1][0]; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1] = \_c * rhs[0][1] + \_d * rhs[1][1]; \textcolor{comment}{// clang-\/format on}}
+\DoxyCodeLine{169         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{170     \}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{177     \mbox{\hyperlink{structmat2}{mat2<T>}}\& \mbox{\hyperlink{structmat2_a52ecd315a35859f1b92be31b22859963}{operator*=}}(\textcolor{keyword}{const} T\& rhs) \{}
+\DoxyCodeLine{178         \textcolor{comment}{// clang-\/format off}}
+\DoxyCodeLine{179         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0] *= rhs; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1] *= rhs;}
+\DoxyCodeLine{180         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0] *= rhs; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1] *= rhs; \textcolor{comment}{// clang-\/format on}}
+\DoxyCodeLine{181         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{182     \}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{189     \mbox{\hyperlink{structmat2}{mat2<T>}}\& \mbox{\hyperlink{structmat2_a4fb2cf3a8603482a734d0544b5215671}{operator/=}}(\textcolor{keyword}{const} T\& rhs) \{}
+\DoxyCodeLine{190         \textcolor{comment}{// clang-\/format off}}
+\DoxyCodeLine{191         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][0] /= rhs; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[0][1] /= rhs;}
+\DoxyCodeLine{192         \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][0] /= rhs; \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[1][1] /= rhs; \textcolor{comment}{// clang-\/format on}}
+\DoxyCodeLine{193         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{194     \}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196     \textcolor{comment}{/* Member access */}}
+\DoxyCodeLine{202     T* \mbox{\hyperlink{structmat2_a374293474669a1a561c03762a820cd39}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& index) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[index]; \}}
+\DoxyCodeLine{208     \textcolor{keyword}{const} T* \mbox{\hyperlink{structmat2_a1683772440c6783360f5197b56363c47}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& index)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structmat2_a10724abc4f4a7a7a1893764ad1aab03d}{values}}[index]; \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \textcolor{comment}{/* stream operators */}}
+\DoxyCodeLine{216     \textcolor{keyword}{template}<\textcolor{keyword}{class} U>}
+\DoxyCodeLine{217     \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{structmat2_ac23b44a1ed7b41243cb3e54a3ea76baa}{operator<<}}(std::ostream\&, \textcolor{keyword}{const} \mbox{\hyperlink{structmat2}{mat2<U>}}\&);}
+\DoxyCodeLine{218 \};}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220 \textcolor{keyword}{template}<\textcolor{keyword}{class} U>}
+\DoxyCodeLine{221 std::ostream\& \mbox{\hyperlink{mat2_8h_ae79c9abeffd1d9e5a404cfc2d047c4d0}{operator<<}}(std::ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{structmat2}{mat2<U>}}\& mat) \{}
+\DoxyCodeLine{222     out.precision(17);}
+\DoxyCodeLine{223     out << \textcolor{stringliteral}{"{}[\(\backslash\)n\(\backslash\)t"{}} << mat[0][0] << \textcolor{stringliteral}{"{}, "{}} << mat[0][1] << \textcolor{stringliteral}{"{};\(\backslash\)n\(\backslash\)t"{}} << mat[1][0] << \textcolor{stringliteral}{"{}, "{}} << mat[1][1] << \textcolor{stringliteral}{"{}\(\backslash\)n]\(\backslash\)n"{}};}
+\DoxyCodeLine{224     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{225 \}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 }
+
+\end{DoxyCode}

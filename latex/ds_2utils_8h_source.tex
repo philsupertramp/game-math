@@ -1,0 +1,17 @@
+\hypertarget{ds_2utils_8h_source}{}\doxysection{utils.\+h}
+\label{ds_2utils_8h_source}\index{include/math/ds/utils.h@{include/math/ds/utils.h}}
+\mbox{\hyperlink{ds_2utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keywordtype}{double} \mbox{\hyperlink{ds_2utils_8h_a911f8108af3ac874d00214c27ead7e11}{relu}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} std::max(0.0, in); \}}
+\DoxyCodeLine{6 \textcolor{keywordtype}{double} \mbox{\hyperlink{ds_2utils_8h_ac728d7b1176ff4bebf1d5c88167dc392}{sigmoid}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} 1.0 / (1.0 + exp(-\/in)); \}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{ds_2utils_8h_ac662603ed4244e6d87f968e911f020f9}{Sigmoid}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in) \{}
+\DoxyCodeLine{9     \textcolor{comment}{// real sigmoid in lambda}}
+\DoxyCodeLine{10     \textcolor{keywordflow}{return} in.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& a) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{ds_2utils_8h_ac728d7b1176ff4bebf1d5c88167dc392}{sigmoid}}(a); \});}
+\DoxyCodeLine{11 \}}
+
+\end{DoxyCode}

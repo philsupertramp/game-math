@@ -1,0 +1,35 @@
+\hypertarget{ode_2ode_8h_source}{}\doxysection{ode.\+h}
+\label{ode_2ode_8h_source}\index{include/math/numerics/ode/ode.h@{include/math/numerics/ode/ode.h}}
+\mbox{\hyperlink{ode_2ode_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{17 \textcolor{keyword}{using }\mbox{\hyperlink{ode_2ode_8h_ad676feada87db8725ebe89248f5f3379}{ODE}} = std::function<Matrix<double>(\textcolor{keywordtype}{double}, \mbox{\hyperlink{classMatrix}{Matrix<double>}})>;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{20 \textcolor{keyword}{using }\mbox{\hyperlink{ode_2ode_8h_aaf3a41db4e8837085cf81e769e20cc89}{ODEJac}} = std::function<Matrix<double>(\textcolor{keywordtype}{double}, \mbox{\hyperlink{classMatrix}{Matrix<double>}})>;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{25 \textcolor{keyword}{struct }\mbox{\hyperlink{structODEResult}{ODEResult}} \{}
+\DoxyCodeLine{27     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{structODEResult_aaef028566259040421ab1b73443c6f3b}{Y}};}
+\DoxyCodeLine{29     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{structODEResult_ac40ab376951caf83d2688d284efeb7db}{T}};}
+\DoxyCodeLine{31     \mbox{\hyperlink{classMatrix}{Matrix<int>}} \mbox{\hyperlink{structODEResult_a2c6a9c94926cc37485e885eed6c3fddc}{Iterations}};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{38     \mbox{\hyperlink{structODEResult_a72f05e781d0ed06badfc17672d1bbeb4}{ODEResult}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& t)}
+\DoxyCodeLine{39         : \mbox{\hyperlink{structODEResult_aaef028566259040421ab1b73443c6f3b}{Y}}(y)}
+\DoxyCodeLine{40         , \mbox{\hyperlink{structODEResult_ac40ab376951caf83d2688d284efeb7db}{T}}(t) \{ \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{48     \mbox{\hyperlink{structODEResult_adbcb8f8febde8078041bdc293bb3c708}{ODEResult}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& t, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<int>}}\& iter)}
+\DoxyCodeLine{49         : \mbox{\hyperlink{structODEResult_aaef028566259040421ab1b73443c6f3b}{Y}}(y)}
+\DoxyCodeLine{50         , \mbox{\hyperlink{structODEResult_ac40ab376951caf83d2688d284efeb7db}{T}}(t)}
+\DoxyCodeLine{51         , \mbox{\hyperlink{structODEResult_a2c6a9c94926cc37485e885eed6c3fddc}{Iterations}}(iter) \{ \}}
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{56 \textcolor{keyword}{struct }\mbox{\hyperlink{structODEOption}{ODEOption}} \{}
+\DoxyCodeLine{58     \textcolor{keywordtype}{double} \mbox{\hyperlink{structODEOption_a4d1ab902dfbb3f19b3ef2fa219a76303}{h}} = 0;}
+\DoxyCodeLine{60     \textcolor{keywordtype}{double} \mbox{\hyperlink{structODEOption_a33c4d75068cc55a3fcc6b15c79523483}{TOL}} = 1e-\/7;}
+\DoxyCodeLine{62     \textcolor{keywordtype}{int} \mbox{\hyperlink{structODEOption_a45abb7aa0806c54ed678f2a7d9cad631}{maxIter}} = 50;}
+\DoxyCodeLine{64     \mbox{\hyperlink{ode_2ode_8h_aaf3a41db4e8837085cf81e769e20cc89}{ODEJac}} \mbox{\hyperlink{structODEOption_a99dbd698766a95bb8a9cf0f2e28d7816}{Jac}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{65 \};}
+
+\end{DoxyCode}

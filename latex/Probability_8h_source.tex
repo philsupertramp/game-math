@@ -1,0 +1,40 @@
+\hypertarget{Probability_8h_source}{}\doxysection{Probability.\+h}
+\label{Probability_8h_source}\index{include/math/statistics/Probability.h@{include/math/statistics/Probability.h}}
+\mbox{\hyperlink{Probability_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{13 \textcolor{keyword}{struct }\mbox{\hyperlink{structLinearModel}{LinearModel}} \{}
+\DoxyCodeLine{15     \textcolor{keywordtype}{double} \mbox{\hyperlink{structLinearModel_a832c911ddcbe62705f3b64895e5da04c}{beta\_0}};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{double} \mbox{\hyperlink{structLinearModel_ab0455e1b1547e449b9043044680d7773}{beta\_1}};}
+\DoxyCodeLine{19     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{structLinearModel_a1335876476367801bf8eb1814dd83967}{y\_estimate}};}
+\DoxyCodeLine{21     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{structLinearModel_a8501968c7d6871dd6f3c6aa00e7b1f4d}{residuals}};}
+\DoxyCodeLine{22 \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27 \textcolor{keyword}{enum} \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0}{P\_NORM}} \{}
+\DoxyCodeLine{29     \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784}{Inf}},}
+\DoxyCodeLine{31     \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ad4e07130bf8ac301c327f0e64bc2d292}{One}},}
+\DoxyCodeLine{33     \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0ae5732ead6288358557f404848f9da09c}{Eukl}}}
+\DoxyCodeLine{34 \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{42 \textcolor{keywordtype}{double} \mbox{\hyperlink{Probability_8h_a6edda0f97cfab68707335fd17ca80462}{getExponent}}(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{49 \textcolor{keywordtype}{double} \mbox{\hyperlink{Probability_8h_aa3e12acd040b791cdf25cbb4d3d41bb5}{round}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{int} precision);}
+\DoxyCodeLine{55 \textcolor{keywordtype}{double} \mbox{\hyperlink{Probability_8h_a87477d0585e56d94b550e186c12bfcc1}{abs}}(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{62 \textcolor{keywordtype}{double} \mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{int} exponent);}
+\DoxyCodeLine{69 \textcolor{keywordtype}{double} \mbox{\hyperlink{Probability_8h_aa20a9063eabaa291a04992e8f1d826c8}{norm}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& vec, \mbox{\hyperlink{Probability_8h_a8c8648160cfcb34a69de946e4ad505b0}{P\_NORM}} pNorm);}
+\DoxyCodeLine{77 \textcolor{keywordtype}{double} \mbox{\hyperlink{Probability_8h_aca7f07a568ee49e5d34982dfd6d811db}{cov}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y);}
+\DoxyCodeLine{84 \textcolor{keywordtype}{double} \mbox{\hyperlink{Probability_8h_a32c95d9cf965a5546fc02d8045b42314}{var}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 }
+\DoxyCodeLine{99 \mbox{\hyperlink{structLinearModel}{LinearModel}} \mbox{\hyperlink{Probability_8h_a3974006c8e6b9526b925be95ff4913ae}{lm}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y);}
+\DoxyCodeLine{106 \textcolor{keywordtype}{double} \mbox{\hyperlink{Probability_8h_a7edb177daf3663ea72006b9565610a7e}{coefficientOfDetermination}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& yHat);}
+\DoxyCodeLine{111 \textcolor{keywordtype}{double} \mbox{\hyperlink{Probability_8h_abe0754a080e477ad4e56f4dc869f7fa2}{likelihood}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{119 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{Probability_8h_a1e40e3f240b594a1c8ff3eb010e09ed4}{Regression}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& A);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 }
+
+\end{DoxyCode}

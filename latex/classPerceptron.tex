@@ -17,11 +17,11 @@ Inheritance diagram for Perceptron\+:\begin{figure}[H]
 \item 
 void \mbox{\hyperlink{classPerceptron_a430fcf4782a3020add0094f986a1c54e}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y) override
 \item 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_a0e28fa248c0e7270a65af9418298204f}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_adba6029ff33690c1973fa24222f862b8}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_ad937e4c3931bc06027c39908663752e8}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_a6eed548c264c9d91ca944b527c3df606}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_a5fb0ca58328958f6b6d6d929fc07b30a}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
 \item 
 virtual double \mbox{\hyperlink{classPerceptron_a832773d19fa85440d301b4159cee76f6}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
 \end{DoxyCompactItemize}
@@ -61,11 +61,11 @@ default constructor
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classPerceptron_ad937e4c3931bc06027c39908663752e8}\label{classPerceptron_ad937e4c3931bc06027c39908663752e8}} 
+\mbox{\Hypertarget{classPerceptron_a6eed548c264c9d91ca944b527c3df606}\label{classPerceptron_a6eed548c264c9d91ca944b527c3df606}} 
 \index{Perceptron@{Perceptron}!activation@{activation}}
 \index{activation@{activation}!Perceptron@{Perceptron}}
 \doxysubsubsection{\texorpdfstring{activation()}{activation()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Perceptron\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Perceptron\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 activate given input 
 \begin{DoxyParams}{Parameters}
@@ -77,7 +77,7 @@ activate given input
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a5be8488df3ee4e0e0903877bb19069a8}{Classifier}}.
+Implements \mbox{\hyperlink{classClassifier_a360e549818a6c6532c0d83695fec8eea}{Classifier}}.
 
 \mbox{\Hypertarget{classPerceptron_a832773d19fa85440d301b4159cee76f6}\label{classPerceptron_a832773d19fa85440d301b4159cee76f6}} 
 \index{Perceptron@{Perceptron}!costFunction@{costFunction}}
@@ -117,13 +117,15 @@ this
 
 Implements \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{Classifier}}.
 
-\mbox{\Hypertarget{classPerceptron_a0e28fa248c0e7270a65af9418298204f}\label{classPerceptron_a0e28fa248c0e7270a65af9418298204f}} 
+\mbox{\Hypertarget{classPerceptron_adba6029ff33690c1973fa24222f862b8}\label{classPerceptron_adba6029ff33690c1973fa24222f862b8}} 
 \index{Perceptron@{Perceptron}!netInput@{netInput}}
 \index{netInput@{netInput}!Perceptron@{Perceptron}}
 \doxysubsubsection{\texorpdfstring{netInput()}{netInput()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Perceptron\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Perceptron\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-calculates net input \[ X * weights + b \] 
+calculates net input  \[
+     X * weights + b
+\] 
 \begin{DoxyParams}{Parameters}
 {\em X} & \\
 \hline
@@ -133,13 +135,13 @@ calculates net input \[ X * weights + b \]
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a0110e1eedbfae3c9a66f376868cbaffb}{Classifier}}.
+Implements \mbox{\hyperlink{classClassifier_a5f9a5f0ad65397e560b8bb2714c31901}{Classifier}}.
 
-\mbox{\Hypertarget{classPerceptron_a5fb0ca58328958f6b6d6d929fc07b30a}\label{classPerceptron_a5fb0ca58328958f6b6d6d929fc07b30a}} 
+\mbox{\Hypertarget{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}\label{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}} 
 \index{Perceptron@{Perceptron}!predict@{predict}}
 \index{predict@{predict}!Perceptron@{Perceptron}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Perceptron\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Perceptron\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 predict class of given input 
 \begin{DoxyParams}{Parameters}
@@ -151,7 +153,7 @@ predict class of given input
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a0d47e1cccc5be1cdff3b202f48625afe}{Classifier}}.
+Implements \mbox{\hyperlink{classClassifier_a878bf4c825a27bee85a2466b2725e406}{Classifier}}.
 
 
 

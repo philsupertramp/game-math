@@ -17,11 +17,11 @@ Inheritance diagram for Adaline\+GD\+:\begin{figure}[H]
 \item 
 void \mbox{\hyperlink{classAdalineGD_a16791c4ac85a0e7117105f8835a19f69}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y) override
 \item 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_a565a93a551bc3e851f682d8d7cbe923c}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_a5df5dc2023227443ae83c7243bf9a7d6}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_ae01463b2da0a762dfa09753bca84c0a1}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_a063dc8e39db4152bd4285c3666d4eb3f}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_abbc2a9e4b5a9998a2aadcc11b49cc82d}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
 \item 
 double \mbox{\hyperlink{classAdalineGD_aa581a2f4df867d998f642c29c411b872}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
 \end{DoxyCompactItemize}
@@ -51,11 +51,11 @@ default constructor
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classAdalineGD_a5df5dc2023227443ae83c7243bf9a7d6}\label{classAdalineGD_a5df5dc2023227443ae83c7243bf9a7d6}} 
+\mbox{\Hypertarget{classAdalineGD_ae01463b2da0a762dfa09753bca84c0a1}\label{classAdalineGD_ae01463b2da0a762dfa09753bca84c0a1}} 
 \index{AdalineGD@{AdalineGD}!activation@{activation}}
 \index{activation@{activation}!AdalineGD@{AdalineGD}}
 \doxysubsubsection{\texorpdfstring{activation()}{activation()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+GD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Adaline\+GD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 activates given input 
 \begin{DoxyParams}{Parameters}
@@ -67,7 +67,7 @@ activated input
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a5be8488df3ee4e0e0903877bb19069a8}{Classifier}}.
+Implements \mbox{\hyperlink{classClassifier_a360e549818a6c6532c0d83695fec8eea}{Classifier}}.
 
 \mbox{\Hypertarget{classAdalineGD_aa581a2f4df867d998f642c29c411b872}\label{classAdalineGD_aa581a2f4df867d998f642c29c411b872}} 
 \index{AdalineGD@{AdalineGD}!costFunction@{costFunction}}
@@ -106,11 +106,11 @@ fit method to train the classifier using gradient decent method
 
 Implements \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{Classifier}}.
 
-\mbox{\Hypertarget{classAdalineGD_a565a93a551bc3e851f682d8d7cbe923c}\label{classAdalineGD_a565a93a551bc3e851f682d8d7cbe923c}} 
+\mbox{\Hypertarget{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}\label{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}} 
 \index{AdalineGD@{AdalineGD}!netInput@{netInput}}
 \index{netInput@{netInput}!AdalineGD@{AdalineGD}}
 \doxysubsubsection{\texorpdfstring{netInput()}{netInput()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+GD\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Adaline\+GD\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 calculates \$\$ X \textbackslash{}cdot w + b 
 \begin{DoxyParams}{Parameters}
@@ -122,13 +122,13 @@ calculates \$\$ X \textbackslash{}cdot w + b
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a0110e1eedbfae3c9a66f376868cbaffb}{Classifier}}.
+Implements \mbox{\hyperlink{classClassifier_a5f9a5f0ad65397e560b8bb2714c31901}{Classifier}}.
 
-\mbox{\Hypertarget{classAdalineGD_a063dc8e39db4152bd4285c3666d4eb3f}\label{classAdalineGD_a063dc8e39db4152bd4285c3666d4eb3f}} 
+\mbox{\Hypertarget{classAdalineGD_abbc2a9e4b5a9998a2aadcc11b49cc82d}\label{classAdalineGD_abbc2a9e4b5a9998a2aadcc11b49cc82d}} 
 \index{AdalineGD@{AdalineGD}!predict@{predict}}
 \index{predict@{predict}!AdalineGD@{AdalineGD}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+GD\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Adaline\+GD\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 predicts class of given input 
 \begin{DoxyParams}{Parameters}
@@ -140,7 +140,7 @@ prediction
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a0d47e1cccc5be1cdff3b202f48625afe}{Classifier}}.
+Implements \mbox{\hyperlink{classClassifier_a878bf4c825a27bee85a2466b2725e406}{Classifier}}.
 
 
 

@@ -32,7 +32,7 @@ bool \mbox{\hyperlink{classMathNode_a9cff117d073cd15538cf3f1d385d3207}{has\+Pare
 \begin{DoxyCompactList}\small\item\em helper to determine if node is within parentheses \end{DoxyCompactList}\item 
 \mbox{\hyperlink{MathNode_8h_af66185625ec6e66044e64693a29dfefe}{Math\+Node\+Type}} \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}}
 \begin{DoxyCompactList}\small\item\em node type representation \end{DoxyCompactList}\item 
-\mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747ab}{Node\+Connection\+Type}} \mbox{\hyperlink{classMathNode_af971f001f9f6b2478dd28d9fa752c5e9}{connection\+Type}} = \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747aba7e556deecd3a56edd17baf888f865259}{Node\+Connection\+Type\+::\+Connection\+Type\+\_\+\+Dual}}
+\mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747ab}{Node\+Connection\+Type}} \mbox{\hyperlink{classMathNode_af971f001f9f6b2478dd28d9fa752c5e9}{connection\+Type}} = Node\+Connection\+Type\+::\+Connection\+Type\+\_\+\+Dual
 \begin{DoxyCompactList}\small\item\em type of connection allowed for this node \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classMathNode_a7246ecf47bdb68471202f2c725cb41e4}{left}} = nullptr
 \begin{DoxyCompactList}\small\item\em next node on left side \end{DoxyCompactList}\item 
@@ -50,9 +50,9 @@ size\+\_\+t \mbox{\hyperlink{classMathNode_a316c8023f8a4129fb93974e3ce12b65d}{va
 \item 
 bool \mbox{\hyperlink{classMathNode_a4c18ebd160a10ba1e053417d553e0c6c}{operator==}} (const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&lhs, const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&rhs)
 \item 
-std\+::ostream \& \mbox{\hyperlink{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}{operator$<$$<$}} (std\+::ostream \&ostr, const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&other)
+std\+::ostream \& \mbox{\hyperlink{classMathNode_a22054d62d8dace4455a089011b929b44}{operator$<$$<$}} (std\+::ostream \&ostr, const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&other)
 \item 
-std\+::ostream \& \mbox{\hyperlink{classMathNode_ad56aa5e3b9cd26a34e6aa91e866bb743}{operator$<$$<$}} (std\+::ostream \&ostr, \mbox{\hyperlink{classMathNode}{Math\+Node}} $\ast$other)
+std\+::ostream \& \mbox{\hyperlink{classMathNode_a37319293459d04481ade02877b46fdf8}{operator$<$$<$}} (std\+::ostream \&ostr, \mbox{\hyperlink{classMathNode}{Math\+Node}} $\ast$other)
 \end{DoxyCompactItemize}
 
 
@@ -96,7 +96,7 @@ Interface function for evaluation of node, needs to be implemented to add new ty
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classFunction_a519eb048f3d3431d14fee138fcae67a6}{Function}}, \mbox{\hyperlink{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}{Operator}}, \mbox{\hyperlink{classNumber_a907df4526da3ccb91b8faead20e6fb66}{Number}}, and \mbox{\hyperlink{classSymbolic_a10604f97ee4fb6bc798987ba4d5daa1d}{Symbolic}}.
+Implemented in \mbox{\hyperlink{classSymbolic_a10604f97ee4fb6bc798987ba4d5daa1d}{Symbolic}}, \mbox{\hyperlink{classNumber_a907df4526da3ccb91b8faead20e6fb66}{Number}}, \mbox{\hyperlink{classOperator_ab60d42c50454ab1e8b21aabc03bd04e3}{Operator}}, and \mbox{\hyperlink{classFunction_a519eb048f3d3431d14fee138fcae67a6}{Function}}.
 
 \mbox{\Hypertarget{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}\label{classMathNode_abb5b146cee0a672f8fac4f2fd64c2c5e}} 
 \index{MathNode@{MathNode}!GetString@{GetString}}
@@ -116,11 +116,11 @@ Getter for string representation of node \begin{DoxyReturn}{Returns}
 
 
 \doxysubsection{Friends And Related Function Documentation}
-\mbox{\Hypertarget{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}\label{classMathNode_a6172a6f35f4bac4d9aa2f6f218eea353}} 
+\mbox{\Hypertarget{classMathNode_a22054d62d8dace4455a089011b929b44}\label{classMathNode_a22054d62d8dace4455a089011b929b44}} 
 \index{MathNode@{MathNode}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!MathNode@{MathNode}}
 \doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostr,  }\item[{const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostr,  }\item[{const \mbox{\hyperlink{classMathNode}{Math\+Node}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
 
 beautified output operator 
 \begin{DoxyParams}{Parameters}
@@ -132,11 +132,11 @@ beautified output operator
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classMathNode_ad56aa5e3b9cd26a34e6aa91e866bb743}\label{classMathNode_ad56aa5e3b9cd26a34e6aa91e866bb743}} 
+\mbox{\Hypertarget{classMathNode_a37319293459d04481ade02877b46fdf8}\label{classMathNode_a37319293459d04481ade02877b46fdf8}} 
 \index{MathNode@{MathNode}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!MathNode@{MathNode}}
 \doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostr,  }\item[{\mbox{\hyperlink{classMathNode}{Math\+Node}} $\ast$}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostr,  }\item[{\mbox{\hyperlink{classMathNode}{Math\+Node}} $\ast$}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
 
 beautified output operator 
 \begin{DoxyParams}{Parameters}
@@ -161,7 +161,7 @@ beautified output operator
 \index{MathNode@{MathNode}!connectionType@{connectionType}}
 \index{connectionType@{connectionType}!MathNode@{MathNode}}
 \doxysubsubsection{\texorpdfstring{connectionType}{connectionType}}
-{\footnotesize\ttfamily \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747ab}{Node\+Connection\+Type}} Math\+Node\+::connection\+Type = \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747aba7e556deecd3a56edd17baf888f865259}{Node\+Connection\+Type\+::\+Connection\+Type\+\_\+\+Dual}}}
+{\footnotesize\ttfamily \mbox{\hyperlink{MathNode_8h_ac3957c9768ee90555a77588a75a747ab}{Node\+Connection\+Type}} Math\+Node\+::connection\+Type = Node\+Connection\+Type\+::\+Connection\+Type\+\_\+\+Dual}
 
 
 

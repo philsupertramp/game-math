@@ -1,0 +1,56 @@
+\hypertarget{LU_8h_source}{}\doxysection{LU.\+h}
+\label{LU_8h_source}\index{include/math/numerics/lin\_alg/LU.h@{include/math/numerics/lin\_alg/LU.h}}
+\mbox{\hyperlink{LU_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include "{}../../Matrix.h"{}}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{46 std::pair<Matrix<double>, std::vector<unsigned int>> \mbox{\hyperlink{LU_8h_a038dcb2cb21184a74721f04644287d16}{LU}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& A) \{}
+\DoxyCodeLine{47     \textcolor{keyword}{auto} m           = A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{48     \textcolor{keyword}{auto} n           = A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
+\DoxyCodeLine{49     \mbox{\hyperlink{classMatrix}{Matrix<double>}} B = A;}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordflow}{if}(m != n) \{}
+\DoxyCodeLine{52         \textcolor{comment}{// Error}}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{// init pivot vector}}
+\DoxyCodeLine{56     std::vector<unsigned int> p(m, 0);}
+\DoxyCodeLine{57     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < m; i++) \{ p[i] = i; \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} col = 0; col < n -\/ 1; col++) \{}
+\DoxyCodeLine{60         \textcolor{keyword}{auto} maxVal = std::abs(B(col, col));}
+\DoxyCodeLine{61         \textcolor{keyword}{auto} index  = col;}
+\DoxyCodeLine{62         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} q = col; q < n; q++) \{}
+\DoxyCodeLine{63             \textcolor{keywordflow}{if}(std::abs(B(q, col)) > maxVal) \{}
+\DoxyCodeLine{64                 maxVal = std::abs(B(q, col));}
+\DoxyCodeLine{65                 index  = q;}
+\DoxyCodeLine{66             \}}
+\DoxyCodeLine{67         \}}
+\DoxyCodeLine{68         \textcolor{keyword}{auto} safe = p[index];}
+\DoxyCodeLine{69         p[index]  = p[col];}
+\DoxyCodeLine{70         p[col]    = safe;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         \textcolor{keywordflow}{if}(index != col) \{}
+\DoxyCodeLine{73             \textcolor{keyword}{auto} matrixSafe = B(col);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75             B.\mbox{\hyperlink{classMatrix_a323be6fd46556adf05dbbd2d4e54a4c4}{SetRow}}(col, B(index));}
+\DoxyCodeLine{76             B.\mbox{\hyperlink{classMatrix_a323be6fd46556adf05dbbd2d4e54a4c4}{SetRow}}(index, matrixSafe);}
+\DoxyCodeLine{77         \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} row = col + 1; row < n; row++) \{ B(row, col) /= B(col, col); \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = col + 1; i < m; i++) \{}
+\DoxyCodeLine{82             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = col + 1; j < n; j++) \{ B(i, j) -\/= (B(i, col) * B(col, j)); \}}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordflow}{return} \{ B, p \};}
+\DoxyCodeLine{87 \}}
+\DoxyCodeLine{88 }
+
+\end{DoxyCode}

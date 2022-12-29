@@ -19,13 +19,13 @@ void \mbox{\hyperlink{classAdalineSGD_a8b97d260bc04aa8cd6d02436fb5f3c76}{fit}} (
 \item 
 void \mbox{\hyperlink{classAdalineSGD_a1e6915753b8004c988d4241af8c30fd8}{partial\+\_\+fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
 \item 
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_aa3e618b64d23abd52560b1b0f4f7fca6}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_a74a5c439e3594a88812d565708e9adfe}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-double \mbox{\hyperlink{classAdalineSGD_a83b11a7b467744c0018d8852224275be}{cost\+Function}} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
+double \mbox{\hyperlink{classAdalineSGD_a7a65df1059ac4b19e8c69c166f76caef}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_a5c09ebf872254bbeb8c3448255e13571}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_a2df3e665c5393a671f179aa2a43ef6a5}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_a3a91134bd8e28d271bb06f91b2fa1803}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineSGD_a2bd43abddbec075bb67ea0223f125b1d}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -75,11 +75,11 @@ default constructor
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classAdalineSGD_a5c09ebf872254bbeb8c3448255e13571}\label{classAdalineSGD_a5c09ebf872254bbeb8c3448255e13571}} 
+\mbox{\Hypertarget{classAdalineSGD_a2df3e665c5393a671f179aa2a43ef6a5}\label{classAdalineSGD_a2df3e665c5393a671f179aa2a43ef6a5}} 
 \index{AdalineSGD@{AdalineSGD}!activation@{activation}}
 \index{activation@{activation}!AdalineSGD@{AdalineSGD}}
 \doxysubsubsection{\texorpdfstring{activation()}{activation()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+SGD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Adaline\+SGD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 activates given input 
 \begin{DoxyParams}{Parameters}
@@ -91,13 +91,13 @@ activated input values
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a5be8488df3ee4e0e0903877bb19069a8}{Classifier}}.
+Implements \mbox{\hyperlink{classClassifier_a360e549818a6c6532c0d83695fec8eea}{Classifier}}.
 
-\mbox{\Hypertarget{classAdalineSGD_a83b11a7b467744c0018d8852224275be}\label{classAdalineSGD_a83b11a7b467744c0018d8852224275be}} 
+\mbox{\Hypertarget{classAdalineSGD_a7a65df1059ac4b19e8c69c166f76caef}\label{classAdalineSGD_a7a65df1059ac4b19e8c69c166f76caef}} 
 \index{AdalineSGD@{AdalineSGD}!costFunction@{costFunction}}
 \index{costFunction@{costFunction}!AdalineSGD@{AdalineSGD}}
 \doxysubsubsection{\texorpdfstring{costFunction()}{costFunction()}}
-{\footnotesize\ttfamily double Adaline\+SGD\+::cost\+Function (\begin{DoxyParamCaption}\item[{\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]} \mbox{]} const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+{\footnotesize\ttfamily double Adaline\+SGD\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Do not use 
 \begin{DoxyParams}{Parameters}
@@ -107,6 +107,10 @@ Do not use
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}{Classifier}}.
+
 \mbox{\Hypertarget{classAdalineSGD_a8b97d260bc04aa8cd6d02436fb5f3c76}\label{classAdalineSGD_a8b97d260bc04aa8cd6d02436fb5f3c76}} 
 \index{AdalineSGD@{AdalineSGD}!fit@{fit}}
 \index{fit@{fit}!AdalineSGD@{AdalineSGD}}
@@ -127,11 +131,11 @@ this
 
 Implements \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{Classifier}}.
 
-\mbox{\Hypertarget{classAdalineSGD_aa3e618b64d23abd52560b1b0f4f7fca6}\label{classAdalineSGD_aa3e618b64d23abd52560b1b0f4f7fca6}} 
+\mbox{\Hypertarget{classAdalineSGD_a74a5c439e3594a88812d565708e9adfe}\label{classAdalineSGD_a74a5c439e3594a88812d565708e9adfe}} 
 \index{AdalineSGD@{AdalineSGD}!netInput@{netInput}}
 \index{netInput@{netInput}!AdalineSGD@{AdalineSGD}}
 \doxysubsubsection{\texorpdfstring{netInput()}{netInput()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+SGD\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Adaline\+SGD\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 alias for sdg.\+net\+Input 
 \begin{DoxyParams}{Parameters}
@@ -143,7 +147,7 @@ alias for sdg.\+net\+Input
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a0110e1eedbfae3c9a66f376868cbaffb}{Classifier}}.
+Implements \mbox{\hyperlink{classClassifier_a5f9a5f0ad65397e560b8bb2714c31901}{Classifier}}.
 
 \mbox{\Hypertarget{classAdalineSGD_a1e6915753b8004c988d4241af8c30fd8}\label{classAdalineSGD_a1e6915753b8004c988d4241af8c30fd8}} 
 \index{AdalineSGD@{AdalineSGD}!partial\_fit@{partial\_fit}}
@@ -158,11 +162,11 @@ partially fits the model
 {\em y} & target output values \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classAdalineSGD_a3a91134bd8e28d271bb06f91b2fa1803}\label{classAdalineSGD_a3a91134bd8e28d271bb06f91b2fa1803}} 
+\mbox{\Hypertarget{classAdalineSGD_a2bd43abddbec075bb67ea0223f125b1d}\label{classAdalineSGD_a2bd43abddbec075bb67ea0223f125b1d}} 
 \index{AdalineSGD@{AdalineSGD}!predict@{predict}}
 \index{predict@{predict}!AdalineSGD@{AdalineSGD}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Adaline\+SGD\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Adaline\+SGD\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 predict output class of given input 
 \begin{DoxyParams}{Parameters}
@@ -174,7 +178,7 @@ predicted output
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a0d47e1cccc5be1cdff3b202f48625afe}{Classifier}}.
+Implements \mbox{\hyperlink{classClassifier_a878bf4c825a27bee85a2466b2725e406}{Classifier}}.
 
 
 

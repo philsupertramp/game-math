@@ -23,7 +23,7 @@ double \mbox{\hyperlink{classEquation_a0e0b17082557327b17bdda0a485d0394}{operato
 \item 
 {\footnotesize template$<$typename... VArgs$>$ }\\void \mbox{\hyperlink{classEquation_a2091c8458c47786a28c02798bdac34da}{Set\+Symbols}} (const int \&index, double val, VArgs... args)
 \item 
-void \mbox{\hyperlink{classEquation_a8f7b01592a044ca4716e07b399753e41}{Set\+Symbols}} (\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]}\mbox{]} const int \&index)
+void \mbox{\hyperlink{classEquation_a5ab52d2a87a6f7c8999d34b0564e00db}{Set\+Symbols}} (const int \&index)
 \item 
 void \mbox{\hyperlink{classEquation_a60a4e1509750aff0f41c334dfdad385e}{Set\+Symbols}} (const std\+::vector$<$ double $>$ \&values)
 \item 
@@ -31,7 +31,7 @@ std\+::string \mbox{\hyperlink{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}{
 \item 
 void \mbox{\hyperlink{classEquation_ab9daa6dd4f1c918d325ae90390503269}{Print\+Tree}} () const
 \item 
-void \mbox{\hyperlink{classEquation_add99fb5023cf49dd2961a905e55feb1c}{Print\+Node}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&node, std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ \&levels, const size\+\_\+t \&row, const size\+\_\+t \&column) const
+void \mbox{\hyperlink{classEquation_aec6826e707dd31368f03c66a3e0746f6}{Print\+Node}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&node, std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \&levels, const size\+\_\+t \&row, const size\+\_\+t \&column) const
 \item 
 size\+\_\+t \mbox{\hyperlink{classEquation_af24aea49f8fddde7c8ac1157bc99c636}{Get\+Depth}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&node, size\+\_\+t \&current\+\_\+depth) const
 \item 
@@ -56,13 +56,13 @@ int \mbox{\hyperlink{classEquation_aa481dd44906c7a8682b043b82d8cc562}{degree}} =
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classEquation_a885c27d3a6d6d5c185a3c0701b06aafa}{Simplify\+Tree}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&node) const
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classEquation_a276161ffaa1e7610cc0a849fa1704af3}{Simplify\+Tree}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&node) const
 \item 
 void \mbox{\hyperlink{classEquation_a97a7ed33a1b30e31257b1663610f303b}{resolve\+OP}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&out, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \&op) const
 \item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classEquation_a1c66e1ebaa13b815f1534c58288e6694}{simplify\+OP}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&node) const
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classEquation_a6c8ce3066345c865668b9133985db652}{simplify\+OP}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&node) const
 \item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classEquation_aa6bea10829435b0ce9d3899bd9423254}{Apply\+Operator}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&node, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \&op, const double \&val, bool is\+Left) const
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox{\hyperlink{classEquation_ae78ab4977e573e352f444a52142d4800}{Apply\+Operator}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&node, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \&op, const double \&val, bool is\+Left) const
 \end{DoxyCompactItemize}
 
 
@@ -104,11 +104,11 @@ default constructor for string representation
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classEquation_aa6bea10829435b0ce9d3899bd9423254}\label{classEquation_aa6bea10829435b0ce9d3899bd9423254}} 
+\mbox{\Hypertarget{classEquation_ae78ab4977e573e352f444a52142d4800}\label{classEquation_ae78ab4977e573e352f444a52142d4800}} 
 \index{Equation@{Equation}!ApplyOperator@{ApplyOperator}}
 \index{ApplyOperator@{ApplyOperator}!Equation@{Equation}}
 \doxysubsubsection{\texorpdfstring{ApplyOperator()}{ApplyOperator()}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classMathNode}{Math\+Node}}$>$ Equation\+::\+Apply\+Operator (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&}]{node,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \&}]{op,  }\item[{const double \&}]{val,  }\item[{bool}]{is\+Left }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ Equation\+::\+Apply\+Operator (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&}]{node,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \&}]{op,  }\item[{const double \&}]{val,  }\item[{bool}]{is\+Left }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 Applies numeric operation op like if is\+Left\+: node (op) val else\+: val (op) node
 
@@ -220,11 +220,11 @@ Evaluation of equation
 Prints equation into std\+::cout \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{symb_2TestSymbolic_8cpp-example}{symb/\+Test\+Symbolic.\+cpp}}.\end{Desc}
-\mbox{\Hypertarget{classEquation_add99fb5023cf49dd2961a905e55feb1c}\label{classEquation_add99fb5023cf49dd2961a905e55feb1c}} 
+\mbox{\Hypertarget{classEquation_aec6826e707dd31368f03c66a3e0746f6}\label{classEquation_aec6826e707dd31368f03c66a3e0746f6}} 
 \index{Equation@{Equation}!PrintNode@{PrintNode}}
 \index{PrintNode@{PrintNode}!Equation@{Equation}}
 \doxysubsubsection{\texorpdfstring{PrintNode()}{PrintNode()}}
-{\footnotesize\ttfamily void Equation\+::\+Print\+Node (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&}]{node,  }\item[{std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ \&}]{levels,  }\item[{const size\+\_\+t \&}]{row,  }\item[{const size\+\_\+t \&}]{column }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Equation\+::\+Print\+Node (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&}]{node,  }\item[{std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \&}]{levels,  }\item[{const size\+\_\+t \&}]{row,  }\item[{const size\+\_\+t \&}]{column }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 Generates left aligned string representation of node in tree leave form according to their connection types 
 \begin{DoxyParams}{Parameters}
@@ -265,11 +265,11 @@ resolves operator scope as far as possible
 {\em op} & operator scope to resolve \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classEquation_a8f7b01592a044ca4716e07b399753e41}\label{classEquation_a8f7b01592a044ca4716e07b399753e41}} 
+\mbox{\Hypertarget{classEquation_a5ab52d2a87a6f7c8999d34b0564e00db}\label{classEquation_a5ab52d2a87a6f7c8999d34b0564e00db}} 
 \index{Equation@{Equation}!SetSymbols@{SetSymbols}}
 \index{SetSymbols@{SetSymbols}!Equation@{Equation}}
 \doxysubsubsection{\texorpdfstring{SetSymbols()}{SetSymbols()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily void Equation\+::\+Set\+Symbols (\begin{DoxyParamCaption}\item[{\mbox{[}\mbox{[}maybe\+\_\+unused\mbox{]} \mbox{]} const int \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Equation\+::\+Set\+Symbols (\begin{DoxyParamCaption}\item[{const int \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 empty method to stop va arg recursion 
 \begin{DoxyParams}{Parameters}
@@ -319,11 +319,11 @@ Helper shortcut to check for existence of symbolic within equation setter for ev
 Simplifies an equation in place according to mathematical rules. \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{symb_2TestSymbolic_8cpp-example}{symb/\+Test\+Symbolic.\+cpp}}.\end{Desc}
-\mbox{\Hypertarget{classEquation_a1c66e1ebaa13b815f1534c58288e6694}\label{classEquation_a1c66e1ebaa13b815f1534c58288e6694}} 
+\mbox{\Hypertarget{classEquation_a6c8ce3066345c865668b9133985db652}\label{classEquation_a6c8ce3066345c865668b9133985db652}} 
 \index{Equation@{Equation}!simplifyOP@{simplifyOP}}
 \index{simplifyOP@{simplifyOP}!Equation@{Equation}}
 \doxysubsubsection{\texorpdfstring{simplifyOP()}{simplifyOP()}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classMathNode}{Math\+Node}}$>$ Equation\+::simplify\+OP (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&}]{node }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ Equation\+::simplify\+OP (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&}]{node }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 Simplifies operator scope
 
@@ -341,13 +341,13 @@ Within a scope the following rules are applied\+:
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-simplified tree with \mbox{[}num\+\_\+nodes\+\_\+in $>$= num\+\_\+nodes\+\_\+out\mbox{]} 
+simplified tree with \mbox{[}num\+\_\+nodes\+\_\+in \texorpdfstring{$>$}{>}= num\+\_\+nodes\+\_\+out\mbox{]} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classEquation_a885c27d3a6d6d5c185a3c0701b06aafa}\label{classEquation_a885c27d3a6d6d5c185a3c0701b06aafa}} 
+\mbox{\Hypertarget{classEquation_a276161ffaa1e7610cc0a849fa1704af3}\label{classEquation_a276161ffaa1e7610cc0a849fa1704af3}} 
 \index{Equation@{Equation}!SimplifyTree@{SimplifyTree}}
 \index{SimplifyTree@{SimplifyTree}!Equation@{Equation}}
 \doxysubsubsection{\texorpdfstring{SimplifyTree()}{SimplifyTree()}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classMathNode}{Math\+Node}}$>$ Equation\+::\+Simplify\+Tree (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&}]{node }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ Equation\+::\+Simplify\+Tree (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \&}]{node }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 Simplify equation tree given by node 
 \begin{DoxyParams}{Parameters}

@@ -1,0 +1,74 @@
+\hypertarget{Operand_8h_source}{}\doxysection{Operand.\+h}
+\label{Operand_8h_source}\index{include/math/symb/Operand.h@{include/math/symb/Operand.h}}
+\mbox{\hyperlink{Operand_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{MathNode_8h}{MathNode.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <unordered\_set>}}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classOperand}{Operand}} : \textcolor{keyword}{public} \mbox{\hyperlink{classMathNode}{MathNode}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \textcolor{keyword}{explicit} \mbox{\hyperlink{classOperand_a172a86345b5a1041f5565e1c6b457bc8}{Operand}}(\textcolor{keyword}{const} std::string\& name)}
+\DoxyCodeLine{23         : \mbox{\hyperlink{classMathNode}{MathNode}}(name) \{}
+\DoxyCodeLine{24         \mbox{\hyperlink{classMathNode_af971f001f9f6b2478dd28d9fa752c5e9}{connectionType}} = NodeConnectionType::ConnectionType\_None;}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classSymbolic}{Symbolic}} : \textcolor{keyword}{public} \mbox{\hyperlink{classOperand}{Operand}}}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37     \textcolor{keywordtype}{double} \mbox{\hyperlink{classSymbolic_a9c806e242426832e2901f47fbeb4ff62}{evaluationValue}} = 1.0;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{43     \textcolor{keyword}{explicit} \mbox{\hyperlink{classSymbolic_a7bbc271a1dfde04948ad542e0d406ed3}{Symbolic}}(\textcolor{keyword}{const} std::string\& name, \textcolor{keywordtype}{double} defaultValue = 0.0)}
+\DoxyCodeLine{44         : \mbox{\hyperlink{classOperand}{Operand}}(name)}
+\DoxyCodeLine{45         , \mbox{\hyperlink{classSymbolic_a9c806e242426832e2901f47fbeb4ff62}{evaluationValue}}(defaultValue) \{}
+\DoxyCodeLine{46         \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}} = MathNodeType::NodeType\_Symbolic;}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53     \mbox{\hyperlink{classSymbolic_a4d4dfbdc0bde87aa5a07ab3cf4f2ee85}{Symbolic}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSymbolic}{Symbolic}}\& other)}
+\DoxyCodeLine{54         : \mbox{\hyperlink{classOperand}{Operand}}(other) \{}
+\DoxyCodeLine{55         \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}}            = other.\mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}};}
+\DoxyCodeLine{56         \mbox{\hyperlink{classSymbolic_a9c806e242426832e2901f47fbeb4ff62}{evaluationValue}} = other.\mbox{\hyperlink{classSymbolic_a9c806e242426832e2901f47fbeb4ff62}{evaluationValue}};}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{63     [[nodiscard]] \textcolor{keywordtype}{double} \mbox{\hyperlink{classSymbolic_a10604f97ee4fb6bc798987ba4d5daa1d}{Evaluate}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}} ? \mbox{\hyperlink{classSymbolic_a9c806e242426832e2901f47fbeb4ff62}{evaluationValue}} * (-\/1.0) : \mbox{\hyperlink{classSymbolic_a9c806e242426832e2901f47fbeb4ff62}{evaluationValue}}; \}}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{static} std::map<std::string, std::shared\_ptr<Symbolic>> \mbox{\hyperlink{Operand_8h_aa4aad1c453d503a883b6a3a05252e5c2}{DefaultSymbols}} = \{}
+\DoxyCodeLine{67     \{ \textcolor{stringliteral}{"{}pi"{}},}
+\DoxyCodeLine{68       std::make\_shared<Symbolic>(\textcolor{stringliteral}{"{}pi"{}}, 3.1415926535897932384626433832795028841971693993751058209749445923078164) \},}
+\DoxyCodeLine{69     \{ \textcolor{stringliteral}{"{}e"{}}, std::make\_shared<Symbolic>(\textcolor{stringliteral}{"{}e"{}}, 2.71828182845904523536028747135266249775724709369995957496696762772407663) \},}
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keywordtype}{bool} \mbox{\hyperlink{Operand_8h_ae9c1d0ee9dd7d56df829ae0e10aceb37}{isConstant}}(\textcolor{keyword}{const} std::string\& in);}
+\DoxyCodeLine{73 \textcolor{keywordtype}{bool} \mbox{\hyperlink{Operand_8h_afdd5c2fe6fafbe3afc7413b3c0162704}{hasSymbol}}(\textcolor{keyword}{const} std::vector<std::shared\_ptr<Symbolic>>\& container, \textcolor{keyword}{const} std::shared\_ptr<Symbolic>\& sym);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{78 \textcolor{keyword}{class }\mbox{\hyperlink{classNumber}{Number}} : \textcolor{keyword}{public} \mbox{\hyperlink{classOperand}{Operand}}}
+\DoxyCodeLine{79 \{}
+\DoxyCodeLine{81     \textcolor{keywordtype}{double} \mbox{\hyperlink{classNumber_afbf6aa15724b701028af2647ae9dd337}{numericValue}};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{keyword}{public}:}
+\DoxyCodeLine{88     \textcolor{keyword}{explicit} \mbox{\hyperlink{classNumber_a7fba0ebcb2cd5e9ee9625ddd244e3274}{Number}}(\textcolor{keyword}{const} std::string\& val)}
+\DoxyCodeLine{89         : \mbox{\hyperlink{classOperand}{Operand}}(val) \{}
+\DoxyCodeLine{90         \mbox{\hyperlink{classMathNode_ab70eeffac4cad37de01dc063eeb93d8c}{type}}                  = MathNodeType::NodeType\_Numeric;}
+\DoxyCodeLine{91         \mbox{\hyperlink{classNumber_afbf6aa15724b701028af2647ae9dd337}{numericValue}}          = strtod(\mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{92         \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}}            = (\mbox{\hyperlink{classNumber_afbf6aa15724b701028af2647ae9dd337}{numericValue}} > 0) ? \textcolor{keyword}{false} : ((\mbox{\hyperlink{classNumber_afbf6aa15724b701028af2647ae9dd337}{numericValue}} < 0) ? true : \textcolor{keyword}{false});}
+\DoxyCodeLine{93         \mbox{\hyperlink{classNumber_afbf6aa15724b701028af2647ae9dd337}{numericValue}}          = fabs(\mbox{\hyperlink{classNumber_afbf6aa15724b701028af2647ae9dd337}{numericValue}});}
+\DoxyCodeLine{94         std::string realValue = std::to\_string(\mbox{\hyperlink{classNumber_afbf6aa15724b701028af2647ae9dd337}{numericValue}});}
+\DoxyCodeLine{95         \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}                 = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[realValue.size() + 1];}
+\DoxyCodeLine{96         std::copy(realValue.begin(), realValue.end(), \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}});}
+\DoxyCodeLine{97         \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}[realValue.size()] = \textcolor{charliteral}{'\(\backslash\)0'}; \textcolor{comment}{// don't forget the terminating 0}}
+\DoxyCodeLine{98     \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{104     [[nodiscard]] \textcolor{keywordtype}{double} \mbox{\hyperlink{classNumber_a907df4526da3ccb91b8faead20e6fb66}{Evaluate}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}} ? \mbox{\hyperlink{classNumber_afbf6aa15724b701028af2647ae9dd337}{numericValue}} * (-\/1.0) : \mbox{\hyperlink{classNumber_afbf6aa15724b701028af2647ae9dd337}{numericValue}}; \}}
+\DoxyCodeLine{105 \};}
+\DoxyCodeLine{106 }
+
+\end{DoxyCode}

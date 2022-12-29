@@ -1,0 +1,52 @@
+\hypertarget{Random_8h_source}{}\doxysection{Random.\+h}
+\label{Random_8h_source}\index{include/math/Random.h@{include/math/Random.h}}
+\mbox{\hyperlink{Random_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vec2_8h}{vec/vec2.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vec3_8h}{vec/vec3.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vec4_8h}{vec/vec4.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{Random_8h_ab42db4aac140e420fc17228b0da5ec77}{TimeInitialized}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{10 \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{Random_8h_a682a5d05601724697eb6d443f4f6f8c0}{RandomSeed}}       = 2;}
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{classRandom}{Random}}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{20     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRandom_a1ded95446bdeffc95358e33de5d7de3b}{InitTime}}(\textcolor{keywordtype}{bool} useSeed = \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{21         std::srand(useSeed ? \mbox{\hyperlink{Random_8h_a682a5d05601724697eb6d443f4f6f8c0}{RandomSeed}} : (\textcolor{keywordtype}{int})time(0));}
+\DoxyCodeLine{22         \mbox{\hyperlink{Random_8h_ab42db4aac140e420fc17228b0da5ec77}{TimeInitialized}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRandom_aa2d76b6a87c5642871c11e781f8f34b0}{SetSeed}}(\textcolor{keywordtype}{int} seed) \{}
+\DoxyCodeLine{31         \mbox{\hyperlink{Random_8h_a682a5d05601724697eb6d443f4f6f8c0}{RandomSeed}}      = seed;}
+\DoxyCodeLine{32         \mbox{\hyperlink{Random_8h_ab42db4aac140e420fc17228b0da5ec77}{TimeInitialized}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}}(\textcolor{keywordtype}{double} l = 0.0, \textcolor{keywordtype}{double} r = 1.0) \{}
+\DoxyCodeLine{41         \textcolor{keywordflow}{if}(!\mbox{\hyperlink{Random_8h_ab42db4aac140e420fc17228b0da5ec77}{TimeInitialized}}) \mbox{\hyperlink{classRandom_a1ded95446bdeffc95358e33de5d7de3b}{InitTime}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         std::random\_device rd;                       \textcolor{comment}{// create object for seeding}}
+\DoxyCodeLine{44         std::mt19937 gen\{ rd() \};                    \textcolor{comment}{// create engine and seed it}}
+\DoxyCodeLine{45         std::uniform\_real\_distribution<> dist(l, r); \textcolor{comment}{// create distribution for integers with [1; 9] range}}
+\DoxyCodeLine{46         \textcolor{keywordflow}{return} dist(gen);}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{55     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{56     \textcolor{keyword}{static} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{classRandom_a74047109cd7df2e273c36340fa069159}{Get}}(\textcolor{keywordtype}{double} l = 0.0, \textcolor{keywordtype}{double} r = 1.0) \{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{if}(!\mbox{\hyperlink{Random_8h_ab42db4aac140e420fc17228b0da5ec77}{TimeInitialized}}) \mbox{\hyperlink{classRandom_a1ded95446bdeffc95358e33de5d7de3b}{InitTime}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2}{vec2<T>}}(\mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}}(), \mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}}());}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{67     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{68     \textcolor{keyword}{static} \mbox{\hyperlink{structvec3}{vec3<T>}} \mbox{\hyperlink{classRandom_aadea88ffdc5ca9814d803aa28254405e}{Get}}(\textcolor{keywordtype}{double} l = 0.0, \textcolor{keywordtype}{double} r = 1.0) \{}
+\DoxyCodeLine{69         \textcolor{keywordflow}{if}(!\mbox{\hyperlink{Random_8h_ab42db4aac140e420fc17228b0da5ec77}{TimeInitialized}}) \mbox{\hyperlink{classRandom_a1ded95446bdeffc95358e33de5d7de3b}{InitTime}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{70         \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec3}{vec3<T>}}(\mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}}(), \mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}}(), \mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}}());}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{79     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{80     \textcolor{keyword}{static} \mbox{\hyperlink{structvec4}{vec4<T>}} \mbox{\hyperlink{classRandom_a53930d8a328fdcf8c1a9c774dc387808}{Get}}(\textcolor{keywordtype}{double} l = 0.0, \textcolor{keywordtype}{double} r = 1.0) \{}
+\DoxyCodeLine{81         \textcolor{keywordflow}{if}(!\mbox{\hyperlink{Random_8h_ab42db4aac140e420fc17228b0da5ec77}{TimeInitialized}}) \mbox{\hyperlink{classRandom_a1ded95446bdeffc95358e33de5d7de3b}{InitTime}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{82         \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec4}{vec4<T>}}(\mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}}(), \mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}}(), \mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}}(), \mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Get}}());}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84 \};}
+
+\end{DoxyCode}

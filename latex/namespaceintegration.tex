@@ -3,16 +3,16 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::pair$<$ double, std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{namespaceintegration_aaa7ae9518a30a6fc2736078a0d51a8d2}{quad\+\_\+adaptive\+\_\+rec}} (const std\+::function$<$ double(double)$>$ \&fun, const double \&a, const double \&b, const double \&tol, const double \&h\+Min, std\+::vector$<$ double $>$ \&nodes, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&values)
+std\+::pair$<$ double, std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{quad\+\_\+adaptive\+\_\+rec}} (const std\+::function$<$ double(double)$>$ \&fun, const double \&a, const double \&b, const double \&tol, const double \&h\+Min, std\+::vector$<$ double $>$ \&nodes, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&values)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespaceintegration_aaa7ae9518a30a6fc2736078a0d51a8d2}\label{namespaceintegration_aaa7ae9518a30a6fc2736078a0d51a8d2}} 
+\mbox{\Hypertarget{namespaceintegration_a443a7013503d92fa671399f39f970a19}\label{namespaceintegration_a443a7013503d92fa671399f39f970a19}} 
 \index{integration@{integration}!quad\_adaptive\_rec@{quad\_adaptive\_rec}}
 \index{quad\_adaptive\_rec@{quad\_adaptive\_rec}!integration@{integration}}
 \doxysubsubsection{\texorpdfstring{quad\_adaptive\_rec()}{quad\_adaptive\_rec()}}
-{\footnotesize\ttfamily std\+::pair$<$double, std\+::vector$<$double$>$ $>$ integration\+::quad\+\_\+adaptive\+\_\+rec (\begin{DoxyParamCaption}\item[{const std\+::function$<$ double(double)$>$ \&}]{fun,  }\item[{const double \&}]{a,  }\item[{const double \&}]{b,  }\item[{const double \&}]{tol,  }\item[{const double \&}]{h\+Min,  }\item[{std\+::vector$<$ double $>$ \&}]{nodes,  }\item[{\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{values }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::pair$<$ double, std\+::vector$<$ double $>$ $>$ integration\+::quad\+\_\+adaptive\+\_\+rec (\begin{DoxyParamCaption}\item[{const std\+::function$<$ double(double)$>$ \&}]{fun,  }\item[{const double \&}]{a,  }\item[{const double \&}]{b,  }\item[{const double \&}]{tol,  }\item[{const double \&}]{h\+Min,  }\item[{std\+::vector$<$ double $>$ \&}]{nodes,  }\item[{\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{values }\end{DoxyParamCaption})}
 
 Recursive implementation of numerical quadrature to approximate a given exact integral uses Simspon\textquotesingle{}s -\/ and Trapezoid Rule for approximation.
 
@@ -25,7 +25,7 @@ The Trapezoid Rule is given as
 
 For approximation a tolerance is given, which is used to compare against the local error of approximation. The error is calculated as \$\$ $\vert$ S -\/ T $\vert$ \$\$ Whenever the error reaches the threshold of tol, the method has succeeded and the result of Simpson\textquotesingle{}s rule is returned.
 
-{\bfseries{Note}} if (b-\/a) $<$ h\+Min we reached the minimal step with and haven\textquotesingle{}t found an satisfying result, therefore the algorithm exits with error code 1
+{\bfseries{Note}} if (b-\/a) \texorpdfstring{$<$}{<} h\+Min we reached the minimal step with and haven\textquotesingle{}t found an satisfying result, therefore the algorithm exits with error code 1
 
 
 \begin{DoxyParams}{Parameters}

@@ -1,0 +1,50 @@
+\hypertarget{format_8h_source}{}\doxysection{format.\+h}
+\label{format_8h_source}\index{include/math/format.h@{include/math/format.h}}
+\mbox{\hyperlink{format_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <cstdarg>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <regex>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{22 \textcolor{keyword}{inline} std::string \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt, ...) \{}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} size     = 512;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{char}* buffer = 0;}
+\DoxyCodeLine{25     buffer       = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[size];}
+\DoxyCodeLine{26     va\_list vl;}
+\DoxyCodeLine{27     va\_start(vl, fmt);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} nsize = vsnprintf(buffer, size, fmt, vl);}
+\DoxyCodeLine{29     std::string ret(buffer);}
+\DoxyCodeLine{30     \textcolor{keywordflow}{if}(size <= nsize) \{ \textcolor{comment}{//fail delete buffer and try again}}
+\DoxyCodeLine{31         \textcolor{keyword}{delete}[] buffer;}
+\DoxyCodeLine{32         buffer = 0;}
+\DoxyCodeLine{33         buffer = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[nsize -\/ size + 2]; \textcolor{comment}{//+1 for /0}}
+\DoxyCodeLine{34         nsize  = vsnprintf(buffer, (nsize -\/ size) + 2, \&fmt[size], vl);}
+\DoxyCodeLine{35         ret += buffer;}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37     va\_end(vl);}
+\DoxyCodeLine{38     \textcolor{keyword}{delete}[] buffer;}
+\DoxyCodeLine{39     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{40 \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{47 std::string \mbox{\hyperlink{format_8h_a5f3e23cac814c84a5494842243316a4b}{strip}}(\textcolor{keyword}{const} std::string\& in);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{60 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Out>}
+\DoxyCodeLine{61 \textcolor{keywordtype}{void} \mbox{\hyperlink{format_8h_a03529396588a5d4dac36c432989fdfaa}{split}}(\textcolor{keyword}{const} std::string\& s, \textcolor{keywordtype}{char} delim, Out result);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{70 std::vector<std::string> \mbox{\hyperlink{format_8h_a03529396588a5d4dac36c432989fdfaa}{split}}(\textcolor{keyword}{const} std::string\& s, \textcolor{keywordtype}{char} delim);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{78 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Out>}
+\DoxyCodeLine{79 \textcolor{keywordtype}{void} \mbox{\hyperlink{format_8h_a03529396588a5d4dac36c432989fdfaa}{split}}(\textcolor{keyword}{const} std::string\& s, Out result);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 }
+\DoxyCodeLine{87 std::vector<std::string> \mbox{\hyperlink{format_8h_a03529396588a5d4dac36c432989fdfaa}{split}}(\textcolor{keyword}{const} std::string\& s);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 std::vector<std::string> \mbox{\hyperlink{format_8h_a46f6d1654169d0a28cb76133309eeb86}{split\_by\_regex}}(\textcolor{keyword}{const} std::string\& s, \textcolor{keyword}{const} std::regex\& regex);}
+\DoxyCodeLine{90 }
+
+\end{DoxyCode}

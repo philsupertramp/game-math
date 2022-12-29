@@ -10,7 +10,7 @@ This is an example on how to use the quadrature method.
 \DoxyCodeLine{\textcolor{keyword}{class }IntegrationTestCase : \textcolor{keyword}{public} Test}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestQuadAdaptive() \{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{Integration_8h_a7cd185424deb99a36d30f3697650f7e0}{quadrature}}(sin, 0, M\_PI, .1, 1.e-\/50);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{Integration_8h_aff5aad1dc9f2dd42ce7461331f4b7083}{quadrature}}(sin, 0, M\_PI, .1, 1.e-\/50);}
 \DoxyCodeLine{        AssertLessThenEqual(fabs(res.first -\/ 2.0), 9.32e-\/5);}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}

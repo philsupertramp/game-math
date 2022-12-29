@@ -14,7 +14,7 @@ This is an example on how to use gauss\+Seidel.
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A(\{ \{ 4, 2, 3 \}, \{ 2, 2, 1 \}, \{ 2, 2, 2 \} \});}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} b(\{ \{ 2 \}, \{ 1 \}, \{ 2 \} \});}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} result = \mbox{\hyperlink{gaussSeidel_8h_ae8be91b27330eabce92d034d3f7bd8b8}{gaussSeidel}}(A, b);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} result = \mbox{\hyperlink{gaussSeidel_8h_a7bb1e3f545d858ee2a450500c711f471}{gaussSeidel}}(A, b);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        std::vector<double> expectedX = \{ -\/0.5f, 0.5f, 1.0f \};}
 \DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < expectedX.size(); i++) \{ AssertEqual(result(i, 0), expectedX[i]); \}}
@@ -24,7 +24,7 @@ This is an example on how to use gauss\+Seidel.
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A(\{ \{ 2, -\/1 \}, \{ 1, 3 \} \});}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} b(\{ \{ 4 \}, \{ -\/5 \} \});}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} result = \mbox{\hyperlink{gaussSeidel_8h_ae8be91b27330eabce92d034d3f7bd8b8}{gaussSeidel}}(A, b);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} result = \mbox{\hyperlink{gaussSeidel_8h_a7bb1e3f545d858ee2a450500c711f471}{gaussSeidel}}(A, b);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        std::vector<double> expectedX = \{ 1.0f, -\/2.0f \};}
 \DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < expectedX.size(); i++) \{ AssertEqual(result(i, 0), expectedX[i]); \}}
@@ -32,11 +32,11 @@ This is an example on how to use gauss\+Seidel.
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestGaussSeidelInverse() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A = \mbox{\hyperlink{utils_8cpp_a02435943b506858e6dd5d86fc85991c0}{eye}}(50);}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A = \mbox{\hyperlink{utils_8cpp_ab7da25ca0263921573b11a2425ce061c}{eye}}(50);}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} B;}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{comment}{// trivial examples}}
-\DoxyCodeLine{        \textcolor{keyword}{auto} out = \mbox{\hyperlink{gaussJordan_8h_a0d15e5b46633b36b4b48fc5665c822d9}{gaussJordan}}(A);}
+\DoxyCodeLine{        \textcolor{keyword}{auto} out = \mbox{\hyperlink{gaussJordan_8h_a087b5645f23895d3500c37baa113cb9d}{gaussJordan}}(A);}
 \DoxyCodeLine{        AssertEqual(out, A);}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
@@ -77,7 +77,7 @@ This is an example on how to use gauss\+Seidel.
 \DoxyCodeLine{            \},}
 \DoxyCodeLine{        \};}
 \DoxyCodeLine{}
-\DoxyCodeLine{        out = \mbox{\hyperlink{gaussJordan_8h_a0d15e5b46633b36b4b48fc5665c822d9}{gaussJordan}}(A);}
+\DoxyCodeLine{        out = \mbox{\hyperlink{gaussJordan_8h_a087b5645f23895d3500c37baa113cb9d}{gaussJordan}}(A);}
 \DoxyCodeLine{        std::cout << out;}
 \DoxyCodeLine{        AssertEqual(out, B);}
 \DoxyCodeLine{}
@@ -93,7 +93,7 @@ This is an example on how to use gauss\+Seidel.
 \DoxyCodeLine{            \{ 1. / 4, 1. / 4, -\/1. / 4, 1. / 4 \},}
 \DoxyCodeLine{            \{ 1. / 4, 1. / 4, 1. / 4, -\/1. / 4 \},}
 \DoxyCodeLine{        \};}
-\DoxyCodeLine{        out = \mbox{\hyperlink{gaussJordan_8h_a0d15e5b46633b36b4b48fc5665c822d9}{gaussJordan}}(A);}
+\DoxyCodeLine{        out = \mbox{\hyperlink{gaussJordan_8h_a087b5645f23895d3500c37baa113cb9d}{gaussJordan}}(A);}
 \DoxyCodeLine{        AssertEqual(out, B);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{comment}{// Not working example, inverse not available, det(A) = 0!}}
@@ -109,7 +109,7 @@ This is an example on how to use gauss\+Seidel.
 \DoxyCodeLine{        \};}
 \DoxyCodeLine{        B = \{ \{ INFINITY, INFINITY \}, \{ INFINITY, INFINITY \} \};}
 \DoxyCodeLine{}
-\DoxyCodeLine{        out = \mbox{\hyperlink{gaussJordan_8h_a0d15e5b46633b36b4b48fc5665c822d9}{gaussJordan}}(A);}
+\DoxyCodeLine{        out = \mbox{\hyperlink{gaussJordan_8h_a087b5645f23895d3500c37baa113cb9d}{gaussJordan}}(A);}
 \DoxyCodeLine{        AssertEqual(out, B);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}

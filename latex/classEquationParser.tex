@@ -14,9 +14,9 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ \mbox
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ $>$ \mbox{\hyperlink{classEquationParser_a13c36e9f2c6ae6cbcafabc323bb3b6b7}{build\+Symbol\+Super\+Set}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$$>$ \&a, const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$$>$ \&b)
+static std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ $>$ \mbox{\hyperlink{classEquationParser_aaba95e2a39823d660e3b533d07843971}{build\+Symbol\+Super\+Set}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ $>$ \&a, const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ $>$ \&b)
 \item 
-static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \mbox{\hyperlink{classEquationParser_a685d49c1b1cafc2b09f1301b50edab44}{Get\+Operator}} (const std\+::string \&val\+String)
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \mbox{\hyperlink{classEquationParser_a97f64a66f0f748f419bc432d1ca94f52}{Get\+Operator}} (const std\+::string \&val\+String)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -28,7 +28,7 @@ std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbo
 \item 
 bool \mbox{\hyperlink{classEquationParser_ad72d227db1eff3ff488cb8e9696550b6}{parse\+Sequence}} (const std\+::string \&c)
 \item 
-std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classEquationParser_a05b9ab44026e2514b1143d1f90c62009}{split\+Functions\+Or\+Elementwise}} (const std\+::string \&in)
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classEquationParser_a51096e7d8fede411d2ae09b841868c77}{split\+Functions\+Or\+Elementwise}} (const std\+::string \&in)
 \item 
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classEquationParser_a4c16356572c6ad78227979449c964dc2}{split\+Equation}} (const std\+::string \&eq\+String)
 \item 
@@ -37,7 +37,7 @@ std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classEquationParser_a636f9ad
 \doxysubsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFunction}{Function}} $>$ \mbox{\hyperlink{classEquationParser_aa57d470e1d62e6a2d78db1fc4ded8367}{Get\+Function}} (const std\+::string \&val\+String)
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFunction}{Function}} $>$ \mbox{\hyperlink{classEquationParser_ae1f2ae2f7cd50063606036832a0286a2}{Get\+Function}} (const std\+::string \&val\+String)
 \item 
 static bool \mbox{\hyperlink{classEquationParser_a9159d2088717e7c723d5ea49c8bf496c}{is\+Number}} (const std\+::string \&in)
 \item 
@@ -51,9 +51,9 @@ static bool \mbox{\hyperlink{classEquationParser_abe13770a8f541f71a89e7178303303
 \item 
 static bool \mbox{\hyperlink{classEquationParser_a33719a6d3e21799c57b1b2fb7d76f684}{is\+Parentheses\+Close}} (const std\+::string \&in)
 \item 
-static void \mbox{\hyperlink{classEquationParser_a18213b179f03da37de952c3815d8edc9}{process\+Current\+OP}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \&current\+Op, std\+::vector$<$ std\+::string $>$ \&\mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operator\+Stack}}, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$$>$ \&\mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operand\+Stack}})
+static void \mbox{\hyperlink{classEquationParser_a1ba935d119c8d5d27542379ce6b1a725}{process\+Current\+OP}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \&current\+Op, std\+::vector$<$ std\+::string $>$ \&\mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operator\+Stack}}, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ $>$ \&\mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operand\+Stack}})
 \item 
-static void \mbox{\hyperlink{classEquationParser_ab6f9a3e3bb94fb16f5ba973952f8bb58}{rearrange\+Stack}} (std\+::vector$<$ std\+::string $>$ \&\mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operator\+Stack}}, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$$>$ \&\mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operand\+Stack}})
+static void \mbox{\hyperlink{classEquationParser_a129b40bf5e8b4ba7382142a9b37671d9}{rearrange\+Stack}} (std\+::vector$<$ std\+::string $>$ \&\mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operator\+Stack}}, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ $>$ \&\mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operand\+Stack}})
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -83,11 +83,11 @@ Parses a given string representation of an equation generates an AST using \mbox
 Default constructor 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classEquationParser_a13c36e9f2c6ae6cbcafabc323bb3b6b7}\label{classEquationParser_a13c36e9f2c6ae6cbcafabc323bb3b6b7}} 
+\mbox{\Hypertarget{classEquationParser_aaba95e2a39823d660e3b533d07843971}\label{classEquationParser_aaba95e2a39823d660e3b533d07843971}} 
 \index{EquationParser@{EquationParser}!buildSymbolSuperSet@{buildSymbolSuperSet}}
 \index{buildSymbolSuperSet@{buildSymbolSuperSet}!EquationParser@{EquationParser}}
 \doxysubsubsection{\texorpdfstring{buildSymbolSuperSet()}{buildSymbolSuperSet()}}
-{\footnotesize\ttfamily static std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classSymbolic}{Symbolic}}$>$ $>$ Equation\+Parser\+::build\+Symbol\+Super\+Set (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$$>$ \&}]{a,  }\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$$>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ $>$ Equation\+Parser\+::build\+Symbol\+Super\+Set (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ $>$ \&}]{a,  }\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSymbolic}{Symbolic}} $>$ $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 helper method to generate superset of given vectors 
 \begin{DoxyParams}{Parameters}
@@ -131,11 +131,11 @@ extracts given objects from given equation string
 \begin{DoxyReturn}{Returns}
 extracted objects 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classEquationParser_aa57d470e1d62e6a2d78db1fc4ded8367}\label{classEquationParser_aa57d470e1d62e6a2d78db1fc4ded8367}} 
+\mbox{\Hypertarget{classEquationParser_ae1f2ae2f7cd50063606036832a0286a2}\label{classEquationParser_ae1f2ae2f7cd50063606036832a0286a2}} 
 \index{EquationParser@{EquationParser}!GetFunction@{GetFunction}}
 \index{GetFunction@{GetFunction}!EquationParser@{EquationParser}}
 \doxysubsubsection{\texorpdfstring{GetFunction()}{GetFunction()}}
-{\footnotesize\ttfamily static std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classFunction}{Function}}$>$ Equation\+Parser\+::\+Get\+Function (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{val\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFunction}{Function}} $>$ Equation\+Parser\+::\+Get\+Function (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{val\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
 
 Lexer function to detect a \mbox{\hyperlink{classFunction}{Function}} node. 
 \begin{DoxyParams}{Parameters}
@@ -145,11 +145,11 @@ Lexer function to detect a \mbox{\hyperlink{classFunction}{Function}} node.
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classEquationParser_a685d49c1b1cafc2b09f1301b50edab44}\label{classEquationParser_a685d49c1b1cafc2b09f1301b50edab44}} 
+\mbox{\Hypertarget{classEquationParser_a97f64a66f0f748f419bc432d1ca94f52}\label{classEquationParser_a97f64a66f0f748f419bc432d1ca94f52}} 
 \index{EquationParser@{EquationParser}!GetOperator@{GetOperator}}
 \index{GetOperator@{GetOperator}!EquationParser@{EquationParser}}
 \doxysubsubsection{\texorpdfstring{GetOperator()}{GetOperator()}}
-{\footnotesize\ttfamily static std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classOperator}{Operator}}$>$ Equation\+Parser\+::\+Get\+Operator (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{val\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ Equation\+Parser\+::\+Get\+Operator (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{val\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 Lexer function to determine first connecting operator 
 \begin{DoxyParams}{Parameters}
@@ -257,11 +257,11 @@ parses a sequence, can be a \mbox{\hyperlink{classFunction}{Function}}, \mbox{\h
 \begin{DoxyReturn}{Returns}
 success 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classEquationParser_a18213b179f03da37de952c3815d8edc9}\label{classEquationParser_a18213b179f03da37de952c3815d8edc9}} 
+\mbox{\Hypertarget{classEquationParser_a1ba935d119c8d5d27542379ce6b1a725}\label{classEquationParser_a1ba935d119c8d5d27542379ce6b1a725}} 
 \index{EquationParser@{EquationParser}!processCurrentOP@{processCurrentOP}}
 \index{processCurrentOP@{processCurrentOP}!EquationParser@{EquationParser}}
 \doxysubsubsection{\texorpdfstring{processCurrentOP()}{processCurrentOP()}}
-{\footnotesize\ttfamily void Equation\+Parser\+::process\+Current\+OP (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \&}]{current\+Op,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{operator\+Stack,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$$>$ \&}]{operand\+Stack }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily void Equation\+Parser\+::process\+Current\+OP (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classOperator}{Operator}} $>$ \&}]{current\+Op,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{operator\+Stack,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ $>$ \&}]{operand\+Stack }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 process current operator until end of equation, next operator with higher priority or closing parentheses 
 \begin{DoxyParams}{Parameters}
@@ -272,11 +272,11 @@ process current operator until end of equation, next operator with higher priori
 {\em current\+Op} & the operator to process \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classEquationParser_ab6f9a3e3bb94fb16f5ba973952f8bb58}\label{classEquationParser_ab6f9a3e3bb94fb16f5ba973952f8bb58}} 
+\mbox{\Hypertarget{classEquationParser_a129b40bf5e8b4ba7382142a9b37671d9}\label{classEquationParser_a129b40bf5e8b4ba7382142a9b37671d9}} 
 \index{EquationParser@{EquationParser}!rearrangeStack@{rearrangeStack}}
 \index{rearrangeStack@{rearrangeStack}!EquationParser@{EquationParser}}
 \doxysubsubsection{\texorpdfstring{rearrangeStack()}{rearrangeStack()}}
-{\footnotesize\ttfamily void Equation\+Parser\+::rearrange\+Stack (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{operator\+Stack,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$$>$ \&}]{operand\+Stack }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily void Equation\+Parser\+::rearrange\+Stack (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{operator\+Stack,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMathNode}{Math\+Node}} $>$ $>$ \&}]{operand\+Stack }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 rearranges stack until end of equation of opening parentheses 
 \begin{DoxyParams}{Parameters}
@@ -301,11 +301,11 @@ Splits an equation string into a vector of strings
 \begin{DoxyReturn}{Returns}
 vector with equation elements 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classEquationParser_a05b9ab44026e2514b1143d1f90c62009}\label{classEquationParser_a05b9ab44026e2514b1143d1f90c62009}} 
+\mbox{\Hypertarget{classEquationParser_a51096e7d8fede411d2ae09b841868c77}\label{classEquationParser_a51096e7d8fede411d2ae09b841868c77}} 
 \index{EquationParser@{EquationParser}!splitFunctionsOrElementwise@{splitFunctionsOrElementwise}}
 \index{splitFunctionsOrElementwise@{splitFunctionsOrElementwise}!EquationParser@{EquationParser}}
 \doxysubsubsection{\texorpdfstring{splitFunctionsOrElementwise()}{splitFunctionsOrElementwise()}}
-{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Equation\+Parser\+::split\+Functions\+Or\+Elementwise (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Equation\+Parser\+::split\+Functions\+Or\+Elementwise (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 Recursively split of input string into function/symbol/operator/numerical substrings. 
 \begin{DoxyParams}{Parameters}

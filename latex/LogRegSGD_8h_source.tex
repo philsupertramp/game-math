@@ -1,0 +1,94 @@
+\hypertarget{LogRegSGD_8h_source}{}\doxysection{Log\+Reg\+SGD.\+h}
+\label{LogRegSGD_8h_source}\index{include/math/ds/LogRegSGD.h@{include/math/ds/LogRegSGD.h}}
+\mbox{\hyperlink{LogRegSGD_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Classifier_8h}{Classifier.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{SGD_8h}{SGD.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils_8h}{utils.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classLogRegSGD}{LogRegSGD}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClassifier}{Classifier}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLogRegSGD_a3bfe916ce0635c0b00c77731bf3ad77e}{shuffle}};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} \mbox{\hyperlink{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}{randomState}};}
+\DoxyCodeLine{19     \mbox{\hyperlink{classSGD}{SGD}}* \mbox{\hyperlink{classLogRegSGD_af80d2b982ab742580caeda9bd2f48d97}{sgd}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLogRegSGD_a5f875d85e17bcd4b5c094214e4ef0c23}{initialize\_weights}}(\textcolor{keywordtype}{size\_t} m) \{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}{randomState}}) \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}} = \mbox{\hyperlink{classMatrix_ab72c15d620fbe70b88578543b65e70ff}{Matrix<double>::Random}}(m, 1);}
+\DoxyCodeLine{28         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{29             \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}} = \mbox{\hyperlink{classMatrix}{Matrix<double>}}(0, m, 1);}
+\DoxyCodeLine{30         \mbox{\hyperlink{classClassifier_a5c3236f91e4f14965715caaca167dec8}{w\_initialized}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{double} \mbox{\hyperlink{classLogRegSGD_ae0fa063b1608fd8695d5bb4d30fe76da}{update\_weights}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& xi, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& target) \{}
+\DoxyCodeLine{41         \textcolor{keyword}{auto} output      = \mbox{\hyperlink{classLogRegSGD_a4f0b244b494e4fb6bab9932f93ad7bc2}{netInput}}(xi);}
+\DoxyCodeLine{42         \textcolor{keyword}{auto} error       = target -\/ output;}
+\DoxyCodeLine{43         \textcolor{keyword}{auto} class1\_cost = (target * -\/1.0) * \mbox{\hyperlink{classLogRegSGD_a0f21b159d024258fadfa34c2d30672d4}{Log}}(output);}
+\DoxyCodeLine{44         \textcolor{keyword}{auto} class2\_cost = (\mbox{\hyperlink{classMatrix}{Matrix<double>}}(1, output.rows(), output.columns()) -\/ target)}
+\DoxyCodeLine{45                            * \mbox{\hyperlink{classLogRegSGD_a0f21b159d024258fadfa34c2d30672d4}{Log}}(\mbox{\hyperlink{classMatrix}{Matrix<double>}}(1, output.rows(), output.columns()) -\/ output);}
+\DoxyCodeLine{46         \textcolor{keyword}{auto} cost = class1\_cost -\/ class2\_cost;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \textcolor{keyword}{auto} gradient = (xi.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() * error) * \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}};}
+\DoxyCodeLine{49         gradient      = gradient * (1.0 / xi.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         this-\/>\mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}} = this-\/>weights -\/ gradient;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \textcolor{keywordflow}{return} cost.\mbox{\hyperlink{classMatrix_aef471f0c0ecfb23415e67032ca8bce67}{sumElements}}() / xi.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{62     \textcolor{keyword}{static} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classLogRegSGD_a0f21b159d024258fadfa34c2d30672d4}{Log}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in) \{}
+\DoxyCodeLine{63         \textcolor{keyword}{auto} out = in;}
+\DoxyCodeLine{64         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < out.rows(); i++) \{}
+\DoxyCodeLine{65             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < out.columns(); j++) \{ out(i, j) = log(out(i, j)); \}}
+\DoxyCodeLine{66         \}}
+\DoxyCodeLine{67         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{public}:}
+\DoxyCodeLine{78     \textcolor{keyword}{explicit} \mbox{\hyperlink{classLogRegSGD_afd641912a68b8c0b2981585fb2cfc068}{LogRegSGD}}(\textcolor{keywordtype}{double} \_eta = 0.01, \textcolor{keywordtype}{int} iter = 10, \textcolor{keywordtype}{bool} \_shuffle = \textcolor{keyword}{false}, \textcolor{keywordtype}{int} \_randomState = 0)}
+\DoxyCodeLine{79         : \mbox{\hyperlink{classClassifier}{Classifier}}(\_eta, iter)}
+\DoxyCodeLine{80         , \mbox{\hyperlink{classLogRegSGD_a3bfe916ce0635c0b00c77731bf3ad77e}{shuffle}}(\_shuffle)}
+\DoxyCodeLine{81         , \mbox{\hyperlink{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}{randomState}}(\_randomState) \{}
+\DoxyCodeLine{82         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}{randomState}} != 0) \mbox{\hyperlink{classRandom_aa2d76b6a87c5642871c11e781f8f34b0}{Random::SetSeed}}(\mbox{\hyperlink{classLogRegSGD_a654e74118d5644bc8e18ca5e5bcca997}{randomState}});}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLogRegSGD_aef4c82d4582b263409e37a1b6d461cbd}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{92         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLogRegSGD_af80d2b982ab742580caeda9bd2f48d97}{sgd}} == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{93             \mbox{\hyperlink{classLogRegSGD_af80d2b982ab742580caeda9bd2f48d97}{sgd}} = \textcolor{keyword}{new} \mbox{\hyperlink{classSGD}{SGD}}(}
+\DoxyCodeLine{94             \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}},}
+\DoxyCodeLine{95             \mbox{\hyperlink{classClassifier_a262d07b1324365425b12bb08a859984a}{n\_iter}},}
+\DoxyCodeLine{96             \mbox{\hyperlink{classLogRegSGD_a3bfe916ce0635c0b00c77731bf3ad77e}{shuffle}},}
+\DoxyCodeLine{97             [\textcolor{keyword}{this}](\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y) \{ \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classLogRegSGD_ae0fa063b1608fd8695d5bb4d30fe76da}{update\_weights}}(x, y); \},}
+\DoxyCodeLine{98             [\textcolor{keyword}{this}](\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x) \{ \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classLogRegSGD_a4f0b244b494e4fb6bab9932f93ad7bc2}{netInput}}(x); \});}
+\DoxyCodeLine{99         \}}
+\DoxyCodeLine{100         \mbox{\hyperlink{classLogRegSGD_a5f875d85e17bcd4b5c094214e4ef0c23}{initialize\_weights}}(X.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{101         \mbox{\hyperlink{classLogRegSGD_af80d2b982ab742580caeda9bd2f48d97}{sgd}}-\/>\mbox{\hyperlink{classSGD_ac1c260b0af030ec1016eb21c18a32952}{fit}}(X, y, \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}});}
+\DoxyCodeLine{102     \}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 }
+\DoxyCodeLine{110     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLogRegSGD_a7e21cee4236b4f144cf507396849110f}{partial\_fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y) \{}
+\DoxyCodeLine{111         \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classClassifier_a5c3236f91e4f14965715caaca167dec8}{w\_initialized}}) \{ \mbox{\hyperlink{classLogRegSGD_a5f875d85e17bcd4b5c094214e4ef0c23}{initialize\_weights}}(X.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}()); \}}
+\DoxyCodeLine{112         \mbox{\hyperlink{classLogRegSGD_af80d2b982ab742580caeda9bd2f48d97}{sgd}}-\/>\mbox{\hyperlink{classSGD_a45c2d880b888167941d996ddf1b39b0b}{partial\_fit}}(X, y, \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}});}
+\DoxyCodeLine{113     \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{120     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classLogRegSGD_a4f0b244b494e4fb6bab9932f93ad7bc2}{netInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{ds_2utils_8h_ac662603ed4244e6d87f968e911f020f9}{Sigmoid}}(X * \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}); \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{128     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classLogRegSGD_ace312230b45f4c6eb9bf42c1f1fc2e87}{activation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classLogRegSGD_a4f0b244b494e4fb6bab9932f93ad7bc2}{netInput}}(X); \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{135     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classLogRegSGD_a55ac458f1e5b06f8b9542d1133d50e67}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{136         std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= \mbox{\hyperlink{numerics_2utils_8h_a6ebf6899d6c1c8b7b9d09be872c05aae}{EPS}}); \};}
+\DoxyCodeLine{137         \textcolor{keywordflow}{return} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classLogRegSGD_ace312230b45f4c6eb9bf42c1f1fc2e87}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
+\DoxyCodeLine{138         \textcolor{comment}{//        return activation(X);}}
+\DoxyCodeLine{139     \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{146     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{classLogRegSGD_aa66da6584236e3253e19d8738248f182}{costFunction}}([[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& mat) \{ \textcolor{keywordflow}{return} 0; \}}
+\DoxyCodeLine{147 \};}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 }
+
+\end{DoxyCode}

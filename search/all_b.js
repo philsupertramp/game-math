@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['jac_193',['jac',['../classNewtonFractal.html#a297f6a51f9f2f9e193a755b157a4fec1',1,'NewtonFractal']]],
-  ['jac_194',['Jac',['../structODEOption.html#a99dbd698766a95bb8a9cf0f2e28d7816',1,'ODEOption']]],
-  ['jacobian_195',['Jacobian',['../newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb',1,'newton.h']]]
+  ['jac_0',['jac',['../classNewtonFractal.html#a60e62d9f1cc691d006ef6ea3436f4b33',1,'NewtonFractal']]],
+  ['jac_1',['Jac',['../structODEOption.html#a99dbd698766a95bb8a9cf0f2e28d7816',1,'ODEOption']]],
+  ['jacobian_2',['Jacobian',['../newton_8h.html#aa3d3f9218597552f3ff4726daa5d68eb',1,'newton.h']]]
 ];
