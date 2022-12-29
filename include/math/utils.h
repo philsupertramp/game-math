@@ -449,10 +449,26 @@ const void* value_ptr(mat4<T> const& mat) {
  * @param d value to test
  * @return -1 if d < 0 else 1
  */
-double sign(const double& d) {
+template<class T>
+T sign(const T& d) {
     if(d == 0.f) return 1;
     return d < 0 ? -1 : 1;
 }
+
+/**
+ * Absolute value of given value.
+ * $f(x) = |x|$
+ *
+ * @tparam T datatype of input value
+ * @param d input value
+ * @return |d|
+ */
+template<class T>
+T abs(const T& d) {
+    if(d < 0.f) return static_cast<T>(-1) * d;
+    return d;
+}
+
 
 /**
  * \example TestUtils.cpp

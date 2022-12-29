@@ -2,6 +2,7 @@
 #include "../format.h"
 #include <cstdlib>
 #include <memory>
+#include <cstring>
 #include <regex>
 #include <string>
 

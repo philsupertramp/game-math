@@ -168,7 +168,25 @@ class UtilsTestCase : public Test
         AssertEqual(sign(1.), 1);
         AssertEqual(sign(0.), 1);
 
+        AssertEqual(sign<int>(-1.2), -1);
+        AssertEqual(sign<float>(1.), 1.);
+        AssertEqual(sign<int>(0), 1);
+
+
         return true;
+    }
+
+    bool TestAbs(){
+      AssertEqual(abs(-1), 1);
+      AssertEqual(abs(1.), 1.);
+      AssertEqual(abs(0.), 0.);
+
+
+      AssertEqual(abs<int>(-1.2), 1);
+      AssertEqual(abs<float>(1.), 1.);
+      AssertEqual(abs<int>(0), 0);
+
+      return true;
     }
 
 public:
