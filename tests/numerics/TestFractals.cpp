@@ -35,7 +35,7 @@ class FractalsTestCase : public Test
 
         //        AssertEqual(M, expected);
 
-        fractal = NewtonFractal(400);
+        fractal = NewtonFractal(100);
         ImagePlot plot("Newton-Fractals");
         plot.AddData(fractal(), "");
         plot("inferno.pal");
@@ -60,7 +60,7 @@ class FractalsTestCase : public Test
 
         AssertEqual(M, expected);
 
-        fractal.detail   = 1250;
+        fractal.detail   = 250;
         fractal.maxIters = 99;
         ImagePlot plot("Mandelbrot");
         plot.AddData(fractal(), "");
