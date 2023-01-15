@@ -202,10 +202,10 @@ namespace Math::Utils {
         out[2][1] = mat[2][1] * factor[2];
         out[2][2] = mat[2][2] * factor[2];
         out[2][3] = mat[2][3] * factor[2];
-        out[3][0] = static_cast<T>(1.0);
-        out[3][1] = static_cast<T>(1.0);
-        out[3][2] = static_cast<T>(1.0);
-        out[3][3] = static_cast<T>(1.0);
+        out[3][0] = mat[3][0] * static_cast<T>(1.0);
+        out[3][1] = mat[3][1] * static_cast<T>(1.0);
+        out[3][2] = mat[3][2] * static_cast<T>(1.0);
+        out[3][3] = mat[3][3] * static_cast<T>(1.0);
         return out;
     }
 
