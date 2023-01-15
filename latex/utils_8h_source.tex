@@ -126,10 +126,10 @@
 \DoxyCodeLine{202         out[2][1] = mat[2][1] * factor[2];}
 \DoxyCodeLine{203         out[2][2] = mat[2][2] * factor[2];}
 \DoxyCodeLine{204         out[2][3] = mat[2][3] * factor[2];}
-\DoxyCodeLine{205         out[3][0] = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0);}
-\DoxyCodeLine{206         out[3][1] = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0);}
-\DoxyCodeLine{207         out[3][2] = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0);}
-\DoxyCodeLine{208         out[3][3] = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0);}
+\DoxyCodeLine{205         out[3][0] = mat[3][0] * \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0);}
+\DoxyCodeLine{206         out[3][1] = mat[3][1] * \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0);}
+\DoxyCodeLine{207         out[3][2] = mat[3][2] * \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0);}
+\DoxyCodeLine{208         out[3][3] = mat[3][3] * \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0);}
 \DoxyCodeLine{209         \textcolor{keywordflow}{return} out;}
 \DoxyCodeLine{210     \}}
 \DoxyCodeLine{211 }

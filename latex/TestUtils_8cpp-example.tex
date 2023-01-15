@@ -92,6 +92,11 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(res, expected);}
 \DoxyCodeLine{}
+\DoxyCodeLine{        res = \mbox{\hyperlink{namespaceMath_1_1Utils_aa8428729c539b4820be1f284b6f2603b}{Math::Utils::scale}}(model, (\mbox{\hyperlink{structvec3}{vec3f}})\{2, 2, 2\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{        expected[3][3] = 1.0f;}
+\DoxyCodeLine{        AssertEqual(res, expected);}
+\DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestRotate() \{}
