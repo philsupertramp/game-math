@@ -87,6 +87,11 @@ class UtilsTestCase : public Test
 
         AssertEqual(res, expected);
 
+        res = Math::Utils::scale(model, (vec3f){2, 2, 2});
+
+        expected[3][3] = 1.0f;
+        AssertEqual(res, expected);
+
         return true;
     }
     bool TestRotate() {
