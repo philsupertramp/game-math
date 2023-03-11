@@ -46,17 +46,10 @@ public:
                 auto xi     = elem.first;
                 auto target = elem.second;
 
-                auto update = (target - predict(xi));
-                auto delta  = (update * xi).Transpose() * eta;
-
-                for(size_t i = 0; i < weights.rows(); i++) {
-                    for(size_t j = 0; j < weights.columns(); j++) {
-                        if(i == 0) weights(i, j) += update(i, j);
-                        else
-                            weights(i, j) += delta(i - 1, j);
-                    }
-                }
-                _errors += costFunction(update);
+                auto output = predict(xi);
+                auto delta_w = (target - output);
+                update_weights(delta_w, (delta_w * xi).Transpose() * eta);
+                _errors += costFunction(delta_w);
             }
             costs(iter, 0) = _errors;
         }

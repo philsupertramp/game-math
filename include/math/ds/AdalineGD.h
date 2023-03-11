@@ -29,14 +29,12 @@ public:
             auto output = netInput(X);
             auto errors = y - output;
 
-            auto delta = (X.Transpose() * errors) * eta;
-            for(size_t i = 0; i < weights.rows(); i++) {
-                for(size_t j = 0; j < weights.columns(); j++) {
-                    if(i == 0) weights(i, j) += eta * errors.sumElements();
-                    else
-                        weights(i, j) += delta(i - 1, j);
-                }
-            }
+            auto delta_w = (X.Transpose() * errors) * eta;
+
+            update_weights(
+              Matrix<double>(eta * errors.sumElements(), weights.rows(), weights.columns()),
+              delta_w
+            );
             auto cost      = costFunction(errors);
             costs(iter, 0) = cost;
         }
