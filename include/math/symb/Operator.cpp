@@ -24,6 +24,7 @@ std::shared_ptr<Operator> GenerateOperator(OperatorType type) {
                 []([[maybe_unused]] double a, [[maybe_unused]] double b) { return 0.0; },
                 OperatorPriority::OPClassParentheses);
                 op->connectionType = NodeConnectionType::ConnectionType_None;
+                op->hasParentheses = true;
                 return op;
             }
         case TYPE_PARENTHESES_CLOSE:
@@ -33,6 +34,7 @@ std::shared_ptr<Operator> GenerateOperator(OperatorType type) {
                 []([[maybe_unused]] double a, [[maybe_unused]] double b) { return 0.0; },
                 OperatorPriority::OPClassParentheses);
                 op->connectionType = NodeConnectionType::ConnectionType_None;
+                op->hasParentheses = true;
                 return op;
             }
     }

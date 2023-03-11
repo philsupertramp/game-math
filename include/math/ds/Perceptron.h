@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Classifier.h"
-#include "math/Matrix.h"
+#include "../Matrix.h"
 
 /**
  * Represents Perceptron definition by Frank Rosenblatt

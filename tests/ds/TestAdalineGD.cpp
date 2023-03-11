@@ -34,7 +34,7 @@ class AdalineGDTestCase : public Test
 
         adalineGd.fit(A, B);
         AssertEqual(adalineGd.predict({ { 5.4, 0.2 } })(0, 0), -1); // == -1
-        AssertEqual(adalineGd.predict({ { 5.7, 4.2 } })(0, 0), 1);  // == -1
+        AssertEqual(adalineGd.predict({ { 5.7, 4.2 } })(0, 0), 1);  // == 1
         return true;
     }
 

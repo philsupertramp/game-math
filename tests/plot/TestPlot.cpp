@@ -26,8 +26,9 @@ class PlotTestCase : public Test
     bool TestScatterPlot() {
         Matrix<double> X = linspace(-5, 5, 5).Transpose();
         Matrix<double> Y = X.Apply([](const double& in) { return in * in; });
-        ScatterPlot plot2("Data visualization");
+        ScatterPlot plot2("Test Scatter Plot: 2 Support Values");
         plot2.AddData(X, Y, "support values");
+        plot2.pointSize(5);
         plot2.xAxis("X");
         plot2.yAxis("Y");
         plot2();
@@ -35,7 +36,7 @@ class PlotTestCase : public Test
         return true;
     }
     bool TestFunctionPlot() {
-        FunctionPlot plot3([](const double& in) { return in * in; }, "x^2");
+        FunctionPlot plot3([](const double& in) { return in * in; }, "Function Plot: x^2");
         plot3.AddData(-5, 5, 0.1, "support values");
         plot3.xAxis("X");
         plot3.yAxis("Y");
@@ -43,7 +44,7 @@ class PlotTestCase : public Test
         return true;
     }
     bool TestSurfacePlot() {
-        SurfacePlot plot("Test");
+        SurfacePlot plot("Surface Plot Test");
         auto dat = ones(100, 3);
         plot.AddData(dat, "some data", DataTypes::LINE, 3);
         plot();
@@ -51,11 +52,12 @@ class PlotTestCase : public Test
     }
 
     bool TestImagePlot() {
-        ImagePlot plot("Test");
+        ImagePlot plot("Image Plot: Test");
         auto in = zeros(10, 10);
         for(size_t i = 0; i < 10; ++i) {
             for(size_t j = 0; j < 10; ++j) {
-                if((i <= 5 && j <= 5) || (i > 5 && j > 5)) { in(i, j) = 1.0; }
+                if(i <= 5 && j <= 5) { in(i, j) = 0.5; }
+                if(i > 5 && j > 5) { in(i, j) = 1.0; }
             }
         }
         plot.AddData(in, "some data");

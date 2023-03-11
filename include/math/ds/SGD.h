@@ -1,5 +1,9 @@
 #pragma once
 
+#include "../Matrix.h"
+#include <functional>
+
+
 /**
  * Implements statistic gradient decent method to fit a model
  */

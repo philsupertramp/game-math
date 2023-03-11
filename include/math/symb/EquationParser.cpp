@@ -98,7 +98,7 @@ std::vector<std::string> EquationParser::splitEquation(const std::string& eqStri
 
     auto numberRegex   = GetRegex(MathNodeType::NodeType_Numeric);
     auto symbolRegex   = GetRegex(MathNodeType::NodeType_Symbolic);
-    auto operatorRegex = GetRegex(MathNodeType::NodeType_Operator);
+    auto operatorRegex = GetRegex(MathNodeType::NodeType_Operator_or_Parentheses);
 
     auto splitEq = split(eqString, ' ');
 

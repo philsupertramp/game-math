@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Matrix.h"
+#include "../numerics/utils.h"
 #include <utility>
 
 
@@ -21,7 +22,7 @@ enum DataTypes {
  * @param type type to get string representation of
  * @return string representation of type
  */
-const char* GetDataTypeName(DataTypes type) {
+const char* GetPlotDataTypeName(DataTypes type) {
     switch(type) {
         case LINE: return "lines ls 1";
         case DOTS: return "points ls 2"; // pointtype 5 pointsize 1.5";
@@ -239,7 +240,7 @@ public:
 
         attributes.plotIndices.push_back(index);
         attributes.plotNames.push_back(newName);
-        attributes.plotTypes.push_back(dataTypeName == DataTypes::NONE ? plotTypeName : GetDataTypeName(dataTypeName));
+        attributes.plotTypes.push_back(dataTypeName == DataTypes::NONE ? plotTypeName : GetPlotDataTypeName(dataTypeName));
 
         numElements++;
     }
@@ -253,7 +254,9 @@ public:
         FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
         for(int i = 0; i < numElements; ++i) {
-            fprintf(gnuplot, i == 0 ? plotType : "");
+            if(i == 0){
+              fprintf(gnuplot, "%s", plotType);
+            }
             fprintf(gnuplot, "'%s'", dataFileName);
             auto index = attributes.plotIndices[i];
             if(index.stop != -1) {

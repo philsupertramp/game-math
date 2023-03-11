@@ -265,6 +265,26 @@ class SymbolicTestCase : public Test
         return true;
     }
 
+    bool TestGetString() {
+      Equation eq("x");
+      std::cout << eq.GetString() << std::endl;
+      AssertEqual(eq.GetString(), "x");
+
+      eq = Equation("x^2");
+      std::cout << eq.GetString() << std::endl;
+      AssertEqual(eq.GetString(), "x^2.000000");
+
+      eq = Equation("x+1");
+      std::cout << eq.GetString() << std::endl;
+      AssertEqual(eq.GetString(), "x+1.000000");
+
+      eq = Equation("x*(y-1)^2");
+      // TODO: this is a false notation.
+      AssertEqual(eq.GetString(), "x*y+-1.000000^2.000000");
+
+      return true;
+    }
+
     bool TestSimplify() {
         // x-11
         Equation eq("1*3 + x - 5 * 3 - 2 + 3");
@@ -300,6 +320,7 @@ public:
         TestSimplify();
         TestParser();
         TestDegree();
+        TestGetString();
     }
 };
 

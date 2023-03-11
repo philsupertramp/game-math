@@ -2,7 +2,7 @@
 
 #include "Classifier.h"
 #include "SGD.h"
-#include "math/Matrix.h"
+#include "../Matrix.h"
 
 /**
  * Adaline linear neuron implementation using statistic gradient decent

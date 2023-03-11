@@ -103,9 +103,11 @@ public:
      */
     [[nodiscard]] std::string GetString() const {
         std::stringstream out;
+        if(type == NodeType_Parentheses || hasParentheses) out << "(";
         if(left != nullptr) out << left;
         out << value;
         if(right != nullptr) out << right;
+        if(type == NodeType_Parentheses || hasParentheses) out << ")";
         return out.str();
     }
 
