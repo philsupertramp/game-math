@@ -419,7 +419,7 @@ public:
      * @param rhs
      * @return
      */
-    Matrix<T>& operator*=(const T& rhs) {
+    Matrix<T>& operator*=(T rhs) {
         (*this) = *this * rhs;
         return *this;
     }
@@ -452,7 +452,7 @@ public:
      * @param elem element index
      * @return value at given address
      */
-    T& operator()(const size_t& row, const size_t& column, const size_t& elem = 0) {
+    T& operator()(size_t row, size_t column, size_t elem = 0) {
         return _data[GetIndex(row, column, elem)];
     }
     /**
@@ -462,7 +462,7 @@ public:
      * @param elem element index
      * @return const value at given address
      */
-    T& operator()(const size_t& row, const size_t& column, const size_t& elem = 0) const {
+    T& operator()(size_t row, size_t column, size_t elem = 0) const {
         return _data[GetIndex(row, column, elem)];
     }
 
@@ -474,13 +474,13 @@ public:
      * @param row index of row to get
      * @return row elements
      */
-    Matrix<T> operator()(const size_t& row) { return GetSlice(row, row, 0, _columns - 1); }
+    Matrix<T> operator()(size_t row) { return GetSlice(row, row, 0, _columns - 1); }
     /**
      * const row-getter
      * @param row index of row
      * @return row values
      */
-    Matrix<T> operator()(const size_t& row) const { return GetSlice(row, row, 0, _columns - 1); }
+    Matrix<T> operator()(size_t row) const { return GetSlice(row, row, 0, _columns - 1); }
 
     /**
      * pointer operator
@@ -498,7 +498,7 @@ public:
      * @param index column index to set
      * @param other new values
      */
-    void SetColumn(const size_t& index, const Matrix<T>& other) {
+    void SetColumn(size_t index, const Matrix<T>& other) {
         bool isInColumns = other.columns() > other.rows();
         auto rowCount    = isInColumns ? other.columns() : other.rows();
         assert(rowCount == _rows);
@@ -515,7 +515,7 @@ public:
      * @param index row index to set
      * @param other holds new row elements
      */
-    void SetRow(const size_t& index, const Matrix<T>& other) {
+    void SetRow(size_t index, const Matrix<T>& other) {
         bool isInColumns = other.columns() > other.rows();
         auto colCount    = isInColumns ? other.columns() : other.rows();
         assert(colCount == _columns);
@@ -559,7 +559,7 @@ public:
      * @param cols target number of columns
      * @param elementSize target number of elements per cell
      */
-    void Resize(const size_t& rows, const size_t& cols, const size_t& elementSize = 1) {
+    void Resize(size_t rows, size_t cols, size_t elementSize = 1) {
         _rows         = rows;
         _columns      = cols;
         _element_size = elementSize;
@@ -579,11 +579,13 @@ public:
      * @param elem \f[\in [0, elements() - 1]\f]
      * @return elem + col * elements() + row * columns() * elements()
      */
-    [[nodiscard]] inline int GetIndex(const size_t& row, const size_t& col, const size_t& elem = 0) const {
+    [[nodiscard]] inline int GetIndex(size_t row, size_t col, size_t elem = 0) const {
         //        assert(row < _rows && col < _columns && elem < _element_size);
         return elem + col * _element_size + row * _columns * _element_size;
     }
-
+    [[nodiscard]] inline Matrix GetSlice(size_t rowStart, size_t rowEnd) const {
+        return GetSlice(rowStart, rowEnd, 0, _columns - 1);
+    }
     /**
      * Returns a slice of given dimension from the matrix
      *

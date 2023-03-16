@@ -79,6 +79,8 @@ struct PlotAttributes {
     std::vector<const char*> plotNames;
     //! vector representing data series types
     std::vector<const char*> plotTypes;
+    //! vector representing characters to use to display points per data series
+    std::vector<const char*> characters;
     //! vector containing dataset indices in the storage file
     std::vector<PlotIndex> plotIndices;
 };
@@ -177,9 +179,10 @@ public:
      * @param dataType plot data type
      */
     void AddData(
-    const Matrix<double>& x, const Matrix<double>& y, const std::string& name, DataTypes dataType = DataTypes::NONE) {
+    const Matrix<double>& x, const Matrix<double>& y, const std::string& name, DataTypes dataType = DataTypes::NONE,
+    const char* character = nullptr) {
         x.assertSize(y);
-        AddData(HorizontalConcat(x, y), name, dataType);
+        AddData(HorizontalConcat(x, y), name, dataType, character);
     }
 
     /**
@@ -190,7 +193,11 @@ public:
      * @param dimensions indicator for dimension of dataset
      */
     void AddData(
-    const Matrix<double>& mat, const std::string& name, DataTypes dataTypeName = DataTypes::NONE, int dimensions = 2) {
+    const Matrix<double>& mat,
+    const std::string& name,
+    DataTypes dataTypeName = DataTypes::NONE,
+    const char* pointChar = nullptr,
+    int dimensions = 2) {
         if(dimensions <= 3) {
             // calculate boundaries
             auto new_bX = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 0, 0));
@@ -241,7 +248,7 @@ public:
         attributes.plotIndices.push_back(index);
         attributes.plotNames.push_back(newName);
         attributes.plotTypes.push_back(dataTypeName == DataTypes::NONE ? plotTypeName : GetPlotDataTypeName(dataTypeName));
-
+        attributes.characters.push_back(pointChar);
         numElements++;
     }
 
@@ -265,6 +272,9 @@ public:
                 fprintf(gnuplot, " index %d with ", index.start);
             }
             fprintf(gnuplot, "%s", attributes.plotTypes[i]);
+            if(attributes.characters[i] != nullptr){
+                fprintf(gnuplot, "pt '%s'", attributes.characters[i]);
+            }
             fprintf(gnuplot, " title '%s'", attributes.plotNames[i]);
             fprintf(gnuplot, i == (numElements - 1) ? "\n" : ",");
         }
@@ -439,7 +449,7 @@ public:
      * @param name name of dataset
      */
     void AddData(const Matrix<double>& mat, const std::string& name) {
-        Plot::AddData(mat, name, DataTypes::NONE, mat.columns());
+        Plot::AddData(mat, name, DataTypes::NONE, nullptr, mat.columns());
     }
 
     /**
