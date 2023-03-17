@@ -371,7 +371,7 @@ class NaturalSplineTestCase : public Test
         auto out = spline(x);
 
         SurfacePlot plot("3D Test");
-        plot.AddData(out, "Test output", DataTypes::LINE, 3);
+        plot.AddData(out, "Test output", DataTypes::LINE, nullptr, 3);
         plot();
 
         //        // Spiral example

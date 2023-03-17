@@ -46,7 +46,7 @@ class PlotTestCase : public Test
     bool TestSurfacePlot() {
         SurfacePlot plot("Surface Plot Test");
         auto dat = ones(100, 3);
-        plot.AddData(dat, "some data", DataTypes::LINE, 3);
+        plot.AddData(dat, "some data", DataTypes::LINE, nullptr, 3);
         plot();
         return true;
     }
