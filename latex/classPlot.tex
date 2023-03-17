@@ -27,9 +27,9 @@ void \mbox{\hyperlink{classPlot_ab1ca4b31fc51ed85c65f1c8fcf786134}{point\+Size}}
 \item 
 void \mbox{\hyperlink{classPlot_a6030621e36e58f3119a7c81e4a9fbd31}{line\+Width}} (const int \&size)
 \item 
-void \mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const std\+::string \&name, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}} data\+Type=Data\+Types\+::\+NONE)
+void \mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const std\+::string \&name, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}} data\+Type=Data\+Types\+::\+NONE, const char $\ast$character=nullptr)
 \item 
-void \mbox{\hyperlink{classPlot_a44d1cd30b39263da1e8aa2d7db625bbd}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat, const std\+::string \&name, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}} data\+Type\+Name=Data\+Types\+::\+NONE, int dimensions=2)
+void \mbox{\hyperlink{classPlot_a5c575449a118081b0ea67f0f14bc65ba}{Add\+Data}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat, const std\+::string \&name, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}} data\+Type\+Name=Data\+Types\+::\+NONE, const char $\ast$point\+Char=nullptr, int dimensions=2)
 \item 
 virtual void \mbox{\hyperlink{classPlot_afa0e8f10d7a0d4bd2b90037ec4ca3029}{operator()}} () const
 \end{DoxyCompactItemize}
@@ -97,11 +97,11 @@ default constructor. Prepares context for adding data.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classPlot_a44d1cd30b39263da1e8aa2d7db625bbd}\label{classPlot_a44d1cd30b39263da1e8aa2d7db625bbd}} 
+\mbox{\Hypertarget{classPlot_a5c575449a118081b0ea67f0f14bc65ba}\label{classPlot_a5c575449a118081b0ea67f0f14bc65ba}} 
 \index{Plot@{Plot}!AddData@{AddData}}
 \index{AddData@{AddData}!Plot@{Plot}}
 \doxysubsubsection{\texorpdfstring{AddData()}{AddData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mat,  }\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}}}]{data\+Type\+Name = {\ttfamily DataTypes\+:\+:NONE},  }\item[{int}]{dimensions = {\ttfamily 2} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mat,  }\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}}}]{data\+Type\+Name = {\ttfamily DataTypes\+:\+:NONE},  }\item[{const char $\ast$}]{point\+Char = {\ttfamily nullptr},  }\item[{int}]{dimensions = {\ttfamily 2} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Appends data to the storage file 
 \begin{DoxyParams}{Parameters}
@@ -114,11 +114,11 @@ Appends data to the storage file
 {\em dimensions} & indicator for dimension of dataset \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}\label{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}} 
+\mbox{\Hypertarget{classPlot_a3f3bea871eaf966d7d458c641873d278}\label{classPlot_a3f3bea871eaf966d7d458c641873d278}} 
 \index{Plot@{Plot}!AddData@{AddData}}
 \index{AddData@{AddData}!Plot@{Plot}}
 \doxysubsubsection{\texorpdfstring{AddData()}{AddData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}}}]{data\+Type = {\ttfamily DataTypes\+:\+:NONE} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Plot\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22}{Data\+Types}}}]{data\+Type = {\ttfamily DataTypes\+:\+:NONE},  }\item[{const char $\ast$}]{character = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Helper to add pair-\/wise elements to plot context
 
@@ -190,6 +190,9 @@ setter for point size of plot data
 {\em size} & desired point size \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{plot_2TestPlot_8cpp-example}{plot/\+Test\+Plot.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}\label{classPlot_afa4a5f262e9b00bfa393c54fccb3449a}} 
 \index{Plot@{Plot}!title@{title}}
 \index{title@{title}!Plot@{Plot}}

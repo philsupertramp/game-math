@@ -11,7 +11,7 @@ var searchData=
   ['regression_8',['Regression',['../Probability_8h.html#a1e40e3f240b594a1c8ff3eb010e09ed4',1,'Regression(const Matrix&lt; double &gt; &amp;A):&#160;Probability.cpp'],['../Probability_8cpp.html#adf4f6012aa082bf9b413c600aa1b15af',1,'Regression(const Matrix&lt; double &gt; &amp;a):&#160;Probability.cpp']]],
   ['relu_9',['relu',['../ds_2utils_8h.html#a911f8108af3ac874d00214c27ead7e11',1,'utils.h']]],
   ['residuals_10',['residuals',['../structLinearModel.html#a8501968c7d6871dd6f3c6aa00e7b1f4d',1,'LinearModel']]],
-  ['resize_11',['Resize',['../classMatrix.html#ab5931e4a60d936c1294c187a6fa162e8',1,'Matrix']]],
+  ['resize_11',['Resize',['../classMatrix.html#a9483215681a238c3da0e385c3a31fe16',1,'Matrix']]],
   ['resolveop_12',['resolveOP',['../classEquation.html#a97a7ed33a1b30e31257b1663610f303b',1,'Equation']]],
   ['right_13',['right',['../classMathNode.html#af81f7d62cd9008544aa999c6a1c55934',1,'MathNode']]],
   ['rotate_14',['rotate',['../namespaceMath_1_1Utils.html#a8c50269d1197ea65df150ef859a81846',1,'Math::Utils']]],

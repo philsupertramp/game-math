@@ -20,8 +20,8 @@ This is an example on how to use the \mbox{\hyperlink{classPlot}{Plot}}, \mbox{\
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{classPlot}{Plot}} plot(\textcolor{stringliteral}{"{}Comparison of approximation with true value"{}});}
 \DoxyCodeLine{}
-\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(\mbox{\hyperlink{Matrix_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(X, Y), \textcolor{stringliteral}{"{}support values"{}});}
-\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(\mbox{\hyperlink{Matrix_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(xi, res), \textcolor{stringliteral}{"{}approximation"{}});}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(\mbox{\hyperlink{Matrix_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(X, Y), \textcolor{stringliteral}{"{}support values"{}});}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(\mbox{\hyperlink{Matrix_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(xi, res), \textcolor{stringliteral}{"{}approximation"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        plot();}
 \DoxyCodeLine{}
@@ -31,8 +31,9 @@ This is an example on how to use the \mbox{\hyperlink{classPlot}{Plot}}, \mbox{\
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestScatterPlot() \{}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} X = \mbox{\hyperlink{utils_8cpp_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(-\/5, 5, 5).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} Y = X.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} in * in; \});}
-\DoxyCodeLine{        \mbox{\hyperlink{classScatterPlot}{ScatterPlot}} plot2(\textcolor{stringliteral}{"{}Data visualization"{}});}
-\DoxyCodeLine{        plot2.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(X, Y, \textcolor{stringliteral}{"{}support values"{}});}
+\DoxyCodeLine{        \mbox{\hyperlink{classScatterPlot}{ScatterPlot}} plot2(\textcolor{stringliteral}{"{}Test Scatter Plot: 2 Support Values"{}});}
+\DoxyCodeLine{        plot2.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(X, Y, \textcolor{stringliteral}{"{}support values"{}});}
+\DoxyCodeLine{        plot2.\mbox{\hyperlink{classPlot_ab1ca4b31fc51ed85c65f1c8fcf786134}{pointSize}}(5);}
 \DoxyCodeLine{        plot2.\mbox{\hyperlink{classPlot_a71b26c829f6b3f4cf64957a3e323517f}{xAxis}}(\textcolor{stringliteral}{"{}X"{}});}
 \DoxyCodeLine{        plot2.\mbox{\hyperlink{classPlot_a56e462e8d1c707986dc1e4335a633b24}{yAxis}}(\textcolor{stringliteral}{"{}Y"{}});}
 \DoxyCodeLine{        plot2();}
@@ -40,7 +41,7 @@ This is an example on how to use the \mbox{\hyperlink{classPlot}{Plot}}, \mbox{\
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestFunctionPlot() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{classFunctionPlot}{FunctionPlot}} plot3([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} in * in; \}, \textcolor{stringliteral}{"{}x\string^2"{}});}
+\DoxyCodeLine{        \mbox{\hyperlink{classFunctionPlot}{FunctionPlot}} plot3([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} in * in; \}, \textcolor{stringliteral}{"{}Function Plot: x\string^2"{}});}
 \DoxyCodeLine{        plot3.\mbox{\hyperlink{classFunctionPlot_a6bea42610ef9f96447b91d622e918bc3}{AddData}}(-\/5, 5, 0.1, \textcolor{stringliteral}{"{}support values"{}});}
 \DoxyCodeLine{        plot3.xAxis(\textcolor{stringliteral}{"{}X"{}});}
 \DoxyCodeLine{        plot3.yAxis(\textcolor{stringliteral}{"{}Y"{}});}
@@ -48,19 +49,20 @@ This is an example on how to use the \mbox{\hyperlink{classPlot}{Plot}}, \mbox{\
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestSurfacePlot() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{classSurfacePlot}{SurfacePlot}} plot(\textcolor{stringliteral}{"{}Test"{}});}
+\DoxyCodeLine{        \mbox{\hyperlink{classSurfacePlot}{SurfacePlot}} plot(\textcolor{stringliteral}{"{}Surface Plot Test"{}});}
 \DoxyCodeLine{        \textcolor{keyword}{auto} dat = \mbox{\hyperlink{utils_8cpp_a4777e8a26177a16a129f6f968b3ac12e}{ones}}(100, 3);}
-\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(dat, \textcolor{stringliteral}{"{}some data"{}}, DataTypes::LINE, 3);}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(dat, \textcolor{stringliteral}{"{}some data"{}}, DataTypes::LINE, 3);}
 \DoxyCodeLine{        plot();}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestImagePlot() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{classImagePlot}{ImagePlot}} plot(\textcolor{stringliteral}{"{}Test"{}});}
+\DoxyCodeLine{        \mbox{\hyperlink{classImagePlot}{ImagePlot}} plot(\textcolor{stringliteral}{"{}Image Plot: Test"{}});}
 \DoxyCodeLine{        \textcolor{keyword}{auto} in = \mbox{\hyperlink{utils_8cpp_a4af1fa738f95edd689ad5c984dc5fe7a}{zeros}}(10, 10);}
 \DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 10; ++i) \{}
 \DoxyCodeLine{            \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < 10; ++j) \{}
-\DoxyCodeLine{                \textcolor{keywordflow}{if}((i <= 5 \&\& j <= 5) || (i > 5 \&\& j > 5)) \{ in(i, j) = 1.0; \}}
+\DoxyCodeLine{                \textcolor{keywordflow}{if}(i <= 5 \&\& j <= 5) \{ in(i, j) = 0.5; \}}
+\DoxyCodeLine{                \textcolor{keywordflow}{if}(i > 5 \&\& j > 5) \{ in(i, j) = 1.0; \}}
 \DoxyCodeLine{            \}}
 \DoxyCodeLine{        \}}
 \DoxyCodeLine{        plot.\mbox{\hyperlink{classImagePlot_abcc293f8ea2f73b54d184baeb742b820}{AddData}}(in, \textcolor{stringliteral}{"{}some data"{}});}

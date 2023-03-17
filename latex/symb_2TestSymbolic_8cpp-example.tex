@@ -270,6 +270,26 @@ This is an example on how to use the symb module.
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestGetString() \{}
+\DoxyCodeLine{        \mbox{\hyperlink{classEquation}{Equation}} eq(\textcolor{stringliteral}{"{}x"{}});}
+\DoxyCodeLine{        std::cout << eq.\mbox{\hyperlink{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}{GetString}}() << std::endl;}
+\DoxyCodeLine{        AssertEqual(eq.\mbox{\hyperlink{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}{GetString}}(), \textcolor{stringliteral}{"{}x"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{        eq = \mbox{\hyperlink{classEquation}{Equation}}(\textcolor{stringliteral}{"{}x\string^2"{}});}
+\DoxyCodeLine{        std::cout << eq.\mbox{\hyperlink{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}{GetString}}() << std::endl;}
+\DoxyCodeLine{        AssertEqual(eq.\mbox{\hyperlink{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}{GetString}}(), \textcolor{stringliteral}{"{}x\string^2.000000"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{        eq = \mbox{\hyperlink{classEquation}{Equation}}(\textcolor{stringliteral}{"{}x+1"{}});}
+\DoxyCodeLine{        std::cout << eq.\mbox{\hyperlink{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}{GetString}}() << std::endl;}
+\DoxyCodeLine{        AssertEqual(eq.\mbox{\hyperlink{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}{GetString}}(), \textcolor{stringliteral}{"{}x+1.000000"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{        eq = \mbox{\hyperlink{classEquation}{Equation}}(\textcolor{stringliteral}{"{}x*(y-\/1)\string^2"{}});}
+\DoxyCodeLine{        \textcolor{comment}{// TODO: this is a false notation.}}
+\DoxyCodeLine{        AssertEqual(eq.\mbox{\hyperlink{classEquation_a5e5434dd97f523734bd6dc41db0ea79a}{GetString}}(), \textcolor{stringliteral}{"{}x*y+-\/1.000000\string^2.000000"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestSimplify() \{}
 \DoxyCodeLine{        \textcolor{comment}{// x-\/11}}
 \DoxyCodeLine{        \mbox{\hyperlink{classEquation}{Equation}} eq(\textcolor{stringliteral}{"{}1*3 + x -\/ 5 * 3 -\/ 2 + 3"{}});}
@@ -305,6 +325,7 @@ This is an example on how to use the symb module.
 \DoxyCodeLine{        TestSimplify();}
 \DoxyCodeLine{        TestParser();}
 \DoxyCodeLine{        TestDegree();}
+\DoxyCodeLine{        TestGetString();}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}

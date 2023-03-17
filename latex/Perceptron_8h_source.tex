@@ -4,8 +4,8 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Classifier_8h}{Classifier.h}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Matrix_8h}{math/Matrix.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Classifier_8h}{Classifier.h}}"{}}}
 \DoxyCodeLine{5 }
 \DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{classPerceptron}{Perceptron}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClassifier}{Classifier}}}
 \DoxyCodeLine{23 \{}
@@ -23,47 +23,40 @@
 \DoxyCodeLine{46                 \textcolor{keyword}{auto} xi     = elem.first;}
 \DoxyCodeLine{47                 \textcolor{keyword}{auto} target = elem.second;}
 \DoxyCodeLine{48 }
-\DoxyCodeLine{49                 \textcolor{keyword}{auto} update = (target -\/ \mbox{\hyperlink{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}{predict}}(xi));}
-\DoxyCodeLine{50                 \textcolor{keyword}{auto} delta  = (update * xi).Transpose() * \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}};}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{53                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{54                         \textcolor{keywordflow}{if}(i == 0) \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j) += update(i, j);}
-\DoxyCodeLine{55                         \textcolor{keywordflow}{else}}
-\DoxyCodeLine{56                             \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j) += delta(i -\/ 1, j);}
-\DoxyCodeLine{57                     \}}
-\DoxyCodeLine{58                 \}}
-\DoxyCodeLine{59                 \_errors += \mbox{\hyperlink{classPerceptron_a832773d19fa85440d301b4159cee76f6}{costFunction}}(update);}
-\DoxyCodeLine{60             \}}
-\DoxyCodeLine{61             \mbox{\hyperlink{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}{costs}}(iter, 0) = \_errors;}
-\DoxyCodeLine{62         \}}
-\DoxyCodeLine{63     \}}
-\DoxyCodeLine{64 }
-\DoxyCodeLine{73     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPerceptron_adba6029ff33690c1973fa24222f862b8}{netInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{}
-\DoxyCodeLine{74         \mbox{\hyperlink{classMatrix}{Matrix<double>}} A, B;}
-\DoxyCodeLine{75         A.\mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(\mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1, \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
-\DoxyCodeLine{76         B.\mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(1, \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
-\DoxyCodeLine{77         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{78             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{79                 \textcolor{keywordflow}{if}(i == 0) \{}
-\DoxyCodeLine{80                     B(i, j) = \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j);}
-\DoxyCodeLine{81                 \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{82                     A(i -\/ 1, j) = \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j);}
-\DoxyCodeLine{83                 \}}
-\DoxyCodeLine{84             \}}
-\DoxyCodeLine{85         \}}
-\DoxyCodeLine{86         \textcolor{keywordflow}{return} (X * A) + B;}
-\DoxyCodeLine{87     \}}
+\DoxyCodeLine{49                 \textcolor{keyword}{auto} output  = \mbox{\hyperlink{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}{predict}}(xi);}
+\DoxyCodeLine{50                 \textcolor{keyword}{auto} delta\_w = (target -\/ output);}
+\DoxyCodeLine{51                 \mbox{\hyperlink{classClassifier_aa9257aed615a41cac4030fcfc7dc08ca}{update\_weights}}(delta\_w, (delta\_w * xi).Transpose() * \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}});}
+\DoxyCodeLine{52                 \_errors += \mbox{\hyperlink{classPerceptron_a832773d19fa85440d301b4159cee76f6}{costFunction}}(delta\_w);}
+\DoxyCodeLine{53             \}}
+\DoxyCodeLine{54             \mbox{\hyperlink{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}{costs}}(iter, 0) = \_errors;}
+\DoxyCodeLine{55         \}}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{66     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPerceptron_adba6029ff33690c1973fa24222f862b8}{netInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{67         \mbox{\hyperlink{classMatrix}{Matrix<double>}} A, B;}
+\DoxyCodeLine{68         A.\mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(\mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1, \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{69         B.\mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(1, \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{70         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{71             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{72                 \textcolor{keywordflow}{if}(i == 0) \{}
+\DoxyCodeLine{73                     B(i, j) = \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j);}
+\DoxyCodeLine{74                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{75                     A(i -\/ 1, j) = \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j);}
+\DoxyCodeLine{76                 \}}
+\DoxyCodeLine{77             \}}
+\DoxyCodeLine{78         \}}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} (X * A) + B;}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{87     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPerceptron_a6eed548c264c9d91ca944b527c3df606}{activation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classPerceptron_adba6029ff33690c1973fa24222f862b8}{netInput}}(X); \}}
 \DoxyCodeLine{88 }
-\DoxyCodeLine{94     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPerceptron_a6eed548c264c9d91ca944b527c3df606}{activation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classPerceptron_adba6029ff33690c1973fa24222f862b8}{netInput}}(X); \}}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{101     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{}
-\DoxyCodeLine{102         std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= 0.0); \};}
-\DoxyCodeLine{103         \textcolor{keywordflow}{return} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classPerceptron_a6eed548c264c9d91ca944b527c3df606}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
-\DoxyCodeLine{104     \}}
-\DoxyCodeLine{105 }
-\DoxyCodeLine{111     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{classPerceptron_a832773d19fa85440d301b4159cee76f6}{costFunction}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{ \textcolor{keywordflow}{return} (\textcolor{keywordtype}{double})(X(0, 0) != 0.0); \}}
-\DoxyCodeLine{112 \};}
-\DoxyCodeLine{113 }
+\DoxyCodeLine{94     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{}
+\DoxyCodeLine{95         std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= 0.0); \};}
+\DoxyCodeLine{96         \textcolor{keywordflow}{return} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classPerceptron_a6eed548c264c9d91ca944b527c3df606}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
+\DoxyCodeLine{97     \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{104     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{classPerceptron_a832773d19fa85440d301b4159cee76f6}{costFunction}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{ \textcolor{keywordflow}{return} (\textcolor{keywordtype}{double})(X(0, 0) != 0.0); \}}
+\DoxyCodeLine{105 \};}
+\DoxyCodeLine{106 }
 
 \end{DoxyCode}

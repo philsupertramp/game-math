@@ -19,11 +19,11 @@ void \mbox{\hyperlink{classAdalineGD_a16791c4ac85a0e7117105f8835a19f69}{fit}} (c
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_ae01463b2da0a762dfa09753bca84c0a1}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_a04a7e391e198bd1b007cfe08633ec671}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_abbc2a9e4b5a9998a2aadcc11b49cc82d}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classAdalineGD_abb958a344b78f560ea059f16c920210d}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-double \mbox{\hyperlink{classAdalineGD_aa581a2f4df867d998f642c29c411b872}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+double \mbox{\hyperlink{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -51,11 +51,11 @@ default constructor
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classAdalineGD_ae01463b2da0a762dfa09753bca84c0a1}\label{classAdalineGD_ae01463b2da0a762dfa09753bca84c0a1}} 
+\mbox{\Hypertarget{classAdalineGD_a04a7e391e198bd1b007cfe08633ec671}\label{classAdalineGD_a04a7e391e198bd1b007cfe08633ec671}} 
 \index{AdalineGD@{AdalineGD}!activation@{activation}}
 \index{activation@{activation}!AdalineGD@{AdalineGD}}
 \doxysubsubsection{\texorpdfstring{activation()}{activation()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Adaline\+GD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Adaline\+GD\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 activates given input 
 \begin{DoxyParams}{Parameters}
@@ -69,11 +69,11 @@ activated input
 
 Implements \mbox{\hyperlink{classClassifier_a360e549818a6c6532c0d83695fec8eea}{Classifier}}.
 
-\mbox{\Hypertarget{classAdalineGD_aa581a2f4df867d998f642c29c411b872}\label{classAdalineGD_aa581a2f4df867d998f642c29c411b872}} 
+\mbox{\Hypertarget{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}\label{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}} 
 \index{AdalineGD@{AdalineGD}!costFunction@{costFunction}}
 \index{costFunction@{costFunction}!AdalineGD@{AdalineGD}}
 \doxysubsubsection{\texorpdfstring{costFunction()}{costFunction()}}
-{\footnotesize\ttfamily double Adaline\+GD\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily double Adaline\+GD\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 calculates cost
 
@@ -124,11 +124,11 @@ calculates \$\$ X \textbackslash{}cdot w + b
 
 Implements \mbox{\hyperlink{classClassifier_a5f9a5f0ad65397e560b8bb2714c31901}{Classifier}}.
 
-\mbox{\Hypertarget{classAdalineGD_abbc2a9e4b5a9998a2aadcc11b49cc82d}\label{classAdalineGD_abbc2a9e4b5a9998a2aadcc11b49cc82d}} 
+\mbox{\Hypertarget{classAdalineGD_abb958a344b78f560ea059f16c920210d}\label{classAdalineGD_abb958a344b78f560ea059f16c920210d}} 
 \index{AdalineGD@{AdalineGD}!predict@{predict}}
 \index{predict@{predict}!AdalineGD@{AdalineGD}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Adaline\+GD\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Adaline\+GD\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 predicts class of given input 
 \begin{DoxyParams}{Parameters}

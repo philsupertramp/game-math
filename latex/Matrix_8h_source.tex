@@ -26,17 +26,17 @@
 \DoxyCodeLine{40 \{}
 \DoxyCodeLine{41 \textcolor{keyword}{public}:}
 \DoxyCodeLine{49     \textcolor{keyword}{explicit} \mbox{\hyperlink{classMatrix_a58effd9020c6d066d0475d97ed78501d}{Matrix}}(T val, \textcolor{keywordtype}{size\_t} rowCount, \textcolor{keywordtype}{size\_t} colCount, \textcolor{keywordtype}{size\_t} elementDimension = 1) \{}
-\DoxyCodeLine{50         \mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(rowCount, colCount, elementDimension);}
+\DoxyCodeLine{50         \mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(rowCount, colCount, elementDimension);}
 \DoxyCodeLine{51         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}; ++i) \{}
 \DoxyCodeLine{52             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}; ++j) \{}
-\DoxyCodeLine{53                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} c = 0; c < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++c) \{ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j, c)] = val; \}}
+\DoxyCodeLine{53                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} c = 0; c < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++c) \{ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j, c)] = val; \}}
 \DoxyCodeLine{54             \}}
 \DoxyCodeLine{55         \}}
 \DoxyCodeLine{56     \}}
 \DoxyCodeLine{57 }
 \DoxyCodeLine{63     \textcolor{keyword}{explicit} \mbox{\hyperlink{classMatrix_aca45cef918d756b5860a5506c86c36ff}{Matrix}}(T* val, \textcolor{keywordtype}{size\_t} colCount) \{}
-\DoxyCodeLine{64         \mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(1, colCount);}
-\DoxyCodeLine{65         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}; j++) \{ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(0, j)] = val[j]; \}}
+\DoxyCodeLine{64         \mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(1, colCount);}
+\DoxyCodeLine{65         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}; j++) \{ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(0, j)] = val[j]; \}}
 \DoxyCodeLine{66     \}}
 \DoxyCodeLine{67 }
 \DoxyCodeLine{71     \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{Matrix}}() \{ \}}
@@ -45,10 +45,10 @@
 \DoxyCodeLine{78         \textcolor{keywordtype}{int} i = 0, j = 0;}
 \DoxyCodeLine{79         \textcolor{keyword}{auto} \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}} = lst.size();}
 \DoxyCodeLine{80         \textcolor{keyword}{auto} cols = lst.begin()-\/>size();}
-\DoxyCodeLine{81         \mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, cols);}
+\DoxyCodeLine{81         \mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, cols);}
 \DoxyCodeLine{82         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& l : lst) \{}
 \DoxyCodeLine{83             \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& v : l) \{}
-\DoxyCodeLine{84                 \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j)] = v;}
+\DoxyCodeLine{84                 \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j)] = v;}
 \DoxyCodeLine{85                 ++j;}
 \DoxyCodeLine{86             \}}
 \DoxyCodeLine{87             j = 0;}
@@ -61,11 +61,11 @@
 \DoxyCodeLine{98         \textcolor{keyword}{auto} \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}  = lst.size();}
 \DoxyCodeLine{99         \textcolor{keyword}{auto} cols  = lst.begin()-\/>size();}
 \DoxyCodeLine{100         \textcolor{keyword}{auto} elems = lst.begin()-\/>begin()-\/>size();}
-\DoxyCodeLine{101         \mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, cols, elems);}
+\DoxyCodeLine{101         \mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, cols, elems);}
 \DoxyCodeLine{102         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& l : lst) \{}
 \DoxyCodeLine{103             \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& v : l) \{}
 \DoxyCodeLine{104                 \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto} k : v) \{}
-\DoxyCodeLine{105                     \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j, c)] = k;}
+\DoxyCodeLine{105                     \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j, c)] = k;}
 \DoxyCodeLine{106                     ++c;}
 \DoxyCodeLine{107                 \}}
 \DoxyCodeLine{108                 c = 0;}
@@ -77,7 +77,7 @@
 \DoxyCodeLine{114     \}}
 \DoxyCodeLine{115 }
 \DoxyCodeLine{120     \mbox{\hyperlink{classMatrix_a047d34e82ca298684f2b3064a2c347c7}{Matrix}}(\mbox{\hyperlink{classMatrix}{Matrix}} \textcolor{keyword}{const}\& other) \{}
-\DoxyCodeLine{121         \mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(other.\mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}, other.\mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}, other.\mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}});}
+\DoxyCodeLine{121         \mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(other.\mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}, other.\mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}, other.\mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}});}
 \DoxyCodeLine{122         std::memcpy(this-\/>\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}, other.\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}, other.\mbox{\hyperlink{classMatrix_abfda24d2db48d6823153c4c4885a3921}{\_dataSize}} * \textcolor{keyword}{sizeof}(T));}
 \DoxyCodeLine{123         this-\/>\mbox{\hyperlink{classMatrix_a89669a80df8ca29a0d9c32ab5d73bd53}{needsFree}} = \textcolor{keyword}{true};}
 \DoxyCodeLine{124     \};}
@@ -102,7 +102,7 @@
 \DoxyCodeLine{162 }
 \DoxyCodeLine{163         \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} two\_pi = 2.0 * M\_PI;}
 \DoxyCodeLine{164         \mbox{\hyperlink{classMatrix}{Matrix}} out;}
-\DoxyCodeLine{165         out.\mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}});}
+\DoxyCodeLine{165         out.\mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}});}
 \DoxyCodeLine{166         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}; ++i) \{}
 \DoxyCodeLine{167             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} k = 0; k < \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}; k += 2) \{}
 \DoxyCodeLine{168                 \textcolor{keyword}{auto} u1 = \mbox{\hyperlink{classRandom_a5e7703d9e1a4de62e6483748afe35243}{Random::Get}}();}
@@ -127,15 +127,15 @@
 \DoxyCodeLine{203 }
 \DoxyCodeLine{204         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}} == 3 \&\& \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} == 3) \{}
 \DoxyCodeLine{205             \textcolor{keywordflow}{return} (}
-\DoxyCodeLine{206             \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(0, 0)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(1, 1)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(2, 2)]}
-\DoxyCodeLine{207             + \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(0, 1)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(1, 2)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(2, 0)]}
-\DoxyCodeLine{208             + \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(0, 2)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(1, 0)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(2, 1)]}
-\DoxyCodeLine{209             -\/ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(0, 2)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(1, 1)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(2, 0)]}
-\DoxyCodeLine{210             -\/ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(0, 1)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(1, 0)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(2, 2)]}
-\DoxyCodeLine{211             -\/ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(0, 0)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(1, 2)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(2, 1)]);}
+\DoxyCodeLine{206             \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(0, 0)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(1, 1)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(2, 2)]}
+\DoxyCodeLine{207             + \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(0, 1)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(1, 2)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(2, 0)]}
+\DoxyCodeLine{208             + \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(0, 2)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(1, 0)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(2, 1)]}
+\DoxyCodeLine{209             -\/ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(0, 2)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(1, 1)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(2, 0)]}
+\DoxyCodeLine{210             -\/ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(0, 1)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(1, 0)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(2, 2)]}
+\DoxyCodeLine{211             -\/ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(0, 0)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(1, 2)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(2, 1)]);}
 \DoxyCodeLine{212         \}}
 \DoxyCodeLine{213         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}} == 2 \&\& \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} == 2) \{}
-\DoxyCodeLine{214             \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(0, 0)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(1, 1)] -\/ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(0, 1)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(1, 0)];}
+\DoxyCodeLine{214             \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(0, 0)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(1, 1)] -\/ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(0, 1)] * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(1, 0)];}
 \DoxyCodeLine{215         \}}
 \DoxyCodeLine{216 }
 \DoxyCodeLine{217         \mbox{\hyperlink{classMatrix}{Matrix<T>}} submat(0.0, \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}} -\/ 1, \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} -\/ 1);}
@@ -147,12 +147,12 @@
 \DoxyCodeLine{223                     \textcolor{keywordtype}{size\_t} subj = 0;}
 \DoxyCodeLine{224                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}; j++) \{}
 \DoxyCodeLine{225                         \textcolor{keywordflow}{if}(j == c) \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{226                         submat.\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[submat.\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(subi, subj)] = \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j)];}
+\DoxyCodeLine{226                         submat.\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[submat.\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(subi, subj)] = \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j)];}
 \DoxyCodeLine{227                         subj++;}
 \DoxyCodeLine{228                     \}}
 \DoxyCodeLine{229                     subi++;}
 \DoxyCodeLine{230                 \}}
-\DoxyCodeLine{231                 d = d + (std::pow(-\/1, c) * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(0, c)] * submat.\mbox{\hyperlink{classMatrix_a5f91e3755bfb6eb7b8aa5d49d8fbadb2}{Determinant}}());}
+\DoxyCodeLine{231                 d = d + (std::pow(-\/1, c) * \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(0, c)] * submat.\mbox{\hyperlink{classMatrix_a5f91e3755bfb6eb7b8aa5d49d8fbadb2}{Determinant}}());}
 \DoxyCodeLine{232             \}}
 \DoxyCodeLine{233         \}}
 \DoxyCodeLine{234         \textcolor{keywordflow}{return} d;}
@@ -163,7 +163,7 @@
 \DoxyCodeLine{243         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}; ++i) \{}
 \DoxyCodeLine{244             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}; ++j) \{}
 \DoxyCodeLine{245                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{}
-\DoxyCodeLine{246                     res.\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[res.\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j, elem)] = \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(j, i, elem)];}
+\DoxyCodeLine{246                     res.\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[res.\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j, elem)] = \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(j, i, elem)];}
 \DoxyCodeLine{247                 \}}
 \DoxyCodeLine{248             \}}
 \DoxyCodeLine{249         \}}
@@ -176,7 +176,7 @@
 \DoxyCodeLine{261         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
 \DoxyCodeLine{262             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() + other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); ++j) \{}
 \DoxyCodeLine{263                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{}
-\DoxyCodeLine{264                     (*result)(i, j, elem) = j < \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() ? \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j, elem)] : other(i, j -\/ \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), elem);}
+\DoxyCodeLine{264                     (*result)(i, j, elem) = j < \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() ? \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j, elem)] : other(i, j -\/ \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), elem);}
 \DoxyCodeLine{265                 \}}
 \DoxyCodeLine{266             \}}
 \DoxyCodeLine{267         \}}
@@ -204,7 +204,7 @@
 \DoxyCodeLine{310         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
 \DoxyCodeLine{311             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
 \DoxyCodeLine{312                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{}
-\DoxyCodeLine{313                     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j, elem)] != rhs(i, j, elem)) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{313                     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j, elem)] != rhs(i, j, elem)) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
 \DoxyCodeLine{314                 \}}
 \DoxyCodeLine{315             \}}
 \DoxyCodeLine{316         \}}
@@ -216,12 +216,12 @@
 \DoxyCodeLine{329 \textcolor{comment}{}    \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{classMatrix_a8d1a6d2863b582f254a075a9bcc75516}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& other) \{}
 \DoxyCodeLine{330         \textcolor{keywordflow}{if}(\textcolor{keyword}{this} != \&other) \{}
 \DoxyCodeLine{331             \textcolor{keywordflow}{if}((\textcolor{keyword}{this} == NULL) || (\mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}} != other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() || \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} != other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}())) \{}
-\DoxyCodeLine{332                 \mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), other.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{332                 \mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), other.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
 \DoxyCodeLine{333             \}}
 \DoxyCodeLine{334             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}; i++) \{}
 \DoxyCodeLine{335                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}; j++) \{}
 \DoxyCodeLine{336                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{}
-\DoxyCodeLine{337                         \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j, elem)] = other(i, j, elem);}
+\DoxyCodeLine{337                         \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j, elem)] = other(i, j, elem);}
 \DoxyCodeLine{338                     \}}
 \DoxyCodeLine{339                 \}}
 \DoxyCodeLine{340             \}}
@@ -234,7 +234,7 @@
 \DoxyCodeLine{352         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < out.rows(); i++) \{}
 \DoxyCodeLine{353             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < out.columns(); j++) \{}
 \DoxyCodeLine{354                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < out.elements(); ++elem) \{}
-\DoxyCodeLine{355                     out(i, j, elem) = fun(\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j, elem)]);}
+\DoxyCodeLine{355                     out(i, j, elem) = fun(\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j, elem)]);}
 \DoxyCodeLine{356                 \}}
 \DoxyCodeLine{357             \}}
 \DoxyCodeLine{358         \}}
@@ -246,7 +246,7 @@
 \DoxyCodeLine{370     \mbox{\hyperlink{classMatrix}{Matrix}}\& \mbox{\hyperlink{classMatrix_a2d4d0c8533f97dff09e24f25a2c0d233}{HadamardMulti}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix}}\& other) \{}
 \DoxyCodeLine{371         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
 \DoxyCodeLine{372             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{373                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j, elem)] *= other(i, j, elem); \}}
+\DoxyCodeLine{373                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j, elem)] *= other(i, j, elem); \}}
 \DoxyCodeLine{374             \}}
 \DoxyCodeLine{375         \}}
 \DoxyCodeLine{376         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
@@ -261,7 +261,7 @@
 \DoxyCodeLine{391                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} q = 0; q < other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); q++) \{}
 \DoxyCodeLine{392                         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{}
 \DoxyCodeLine{393                             (*result)(m * other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() + p, n * other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() + q, elem) =}
-\DoxyCodeLine{394                             \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(m, n, elem)] * other(p, q, elem);}
+\DoxyCodeLine{394                             \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(m, n, elem)] * other(p, q, elem);}
 \DoxyCodeLine{395                         \}}
 \DoxyCodeLine{396                     \}}
 \DoxyCodeLine{397                 \}}
@@ -274,13 +274,13 @@
 \DoxyCodeLine{408         T result = T(0.0);}
 \DoxyCodeLine{409         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
 \DoxyCodeLine{410             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{411                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{ result += \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j, elem)]; \}}
+\DoxyCodeLine{411                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{ result += \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j, elem)]; \}}
 \DoxyCodeLine{412             \}}
 \DoxyCodeLine{413         \}}
 \DoxyCodeLine{414         \textcolor{keywordflow}{return} result;}
 \DoxyCodeLine{415     \}}
 \DoxyCodeLine{416 }
-\DoxyCodeLine{422     \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{classMatrix_a05dea08c3bbc78aa913f100c6a393540}{operator*=}}(\textcolor{keyword}{const} T\& rhs) \{}
+\DoxyCodeLine{422     \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{classMatrix_a27d40af10033c7463fb752452061873a}{operator*=}}(T rhs) \{}
 \DoxyCodeLine{423         (*this) = *\textcolor{keyword}{this} * rhs;}
 \DoxyCodeLine{424         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
 \DoxyCodeLine{425     \}}
@@ -296,428 +296,426 @@
 \DoxyCodeLine{445 }
 \DoxyCodeLine{446     \textcolor{comment}{// Access}}
 \DoxyCodeLine{447 }
-\DoxyCodeLine{455     T\& \mbox{\hyperlink{classMatrix_a5e9d0729b7f05eb77b471549ba5a9226}{operator()}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& row, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& column, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& elem = 0) \{}
-\DoxyCodeLine{456         \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(row, column, elem)];}
-\DoxyCodeLine{457     \}}
-\DoxyCodeLine{465     T\& \mbox{\hyperlink{classMatrix_ac811dd8b6cb9171bfc8b52a931789733}{operator()}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& row, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& column, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& elem = 0)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{466         \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(row, column, elem)];}
-\DoxyCodeLine{467     \}}
-\DoxyCodeLine{468 }
-\DoxyCodeLine{477     \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{classMatrix_ae20d7de2470dbd0b1de48d81158e4390}{operator()}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& row) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}{GetSlice}}(row, row, 0, \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} -\/ 1); \}}
-\DoxyCodeLine{483     \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{classMatrix_a1594332e5a4f0ed9d15c4c44e99ad65e}{operator()}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& row)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}{GetSlice}}(row, row, 0, \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} -\/ 1); \}}
-\DoxyCodeLine{484 }
-\DoxyCodeLine{489     T\& \mbox{\hyperlink{classMatrix_a2fe937b4ef9ab768ecc0528f2ce19eee}{operator*}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[0]; \}}
-\DoxyCodeLine{494     T\& \mbox{\hyperlink{classMatrix_accc5412e6d8487c6304443a3bc4bee67}{operator*}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[0]; \}}
-\DoxyCodeLine{495 }
-\DoxyCodeLine{501     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMatrix_a2897f60a87af004b928da9e8d76eafaf}{SetColumn}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& index, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& other) \{}
-\DoxyCodeLine{502         \textcolor{keywordtype}{bool} isInColumns = other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() > other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
-\DoxyCodeLine{503         \textcolor{keyword}{auto} rowCount    = isInColumns ? other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() : other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
-\DoxyCodeLine{504         assert(rowCount == \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}});}
-\DoxyCodeLine{505         assert(\mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} == other.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{506         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < rowCount; ++i) \{}
-\DoxyCodeLine{507             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
-\DoxyCodeLine{508                 \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, index, elem)] = other(isInColumns ? 0 : i, isInColumns ? i : 0, elem);}
-\DoxyCodeLine{509             \}}
-\DoxyCodeLine{510         \}}
-\DoxyCodeLine{511     \}}
-\DoxyCodeLine{512 }
-\DoxyCodeLine{518     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMatrix_a323be6fd46556adf05dbbd2d4e54a4c4}{SetRow}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& index, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& other) \{}
-\DoxyCodeLine{519         \textcolor{keywordtype}{bool} isInColumns = other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() > other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
-\DoxyCodeLine{520         \textcolor{keyword}{auto} colCount    = isInColumns ? other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() : other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
-\DoxyCodeLine{521         assert(colCount == \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}});}
-\DoxyCodeLine{522         assert(\mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} == other.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{523         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < colCount; ++i) \{}
-\DoxyCodeLine{524             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
-\DoxyCodeLine{525                 \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(index, i, elem)] = other(isInColumns ? 0 : i, isInColumns ? i : 0, elem);}
-\DoxyCodeLine{526             \}}
-\DoxyCodeLine{527         \}}
-\DoxyCodeLine{528     \}}
-\DoxyCodeLine{529 }
-\DoxyCodeLine{536     \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{classMatrix_aba72c5cef598dca1e0fa22026920d02b}{operator<<}}(std::ostream\& ostr, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix}}\& m) \{}
-\DoxyCodeLine{537         ostr.precision(17);}
-\DoxyCodeLine{538         ostr << \textcolor{stringliteral}{"{}[\(\backslash\)n"{}};}
-\DoxyCodeLine{539         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} row = 0; row < m.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); row++) \{}
-\DoxyCodeLine{540             ostr << \textcolor{charliteral}{'\(\backslash\)t'};}
-\DoxyCodeLine{541             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} col = 0; col < m.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); col++) \{}
-\DoxyCodeLine{542                 \textcolor{keywordflow}{if}(m.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() > 1) \{ ostr << \textcolor{stringliteral}{"{}( "{}}; \}}
-\DoxyCodeLine{543                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < m.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{}
-\DoxyCodeLine{544                     ostr << m.\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[m.\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(row, col, elem)];}
-\DoxyCodeLine{545                     \textcolor{keywordflow}{if}(elem < m.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() -\/ 1) ostr << \textcolor{stringliteral}{"{}, "{}};}
-\DoxyCodeLine{546                 \}}
-\DoxyCodeLine{547                 \textcolor{keywordflow}{if}(m.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() > 1) \{ ostr << \textcolor{stringliteral}{"{} )"{}}; \}}
-\DoxyCodeLine{548                 \textcolor{keywordflow}{if}(col < m.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() -\/ 1) ostr << \textcolor{stringliteral}{"{}, "{}};}
-\DoxyCodeLine{549             \}}
-\DoxyCodeLine{550             ostr << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{551         \}}
-\DoxyCodeLine{552         ostr << \textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
-\DoxyCodeLine{553         \textcolor{keywordflow}{return} ostr;}
-\DoxyCodeLine{554     \}}
-\DoxyCodeLine{555 }
-\DoxyCodeLine{562     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& cols, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& elementSize = 1) \{}
-\DoxyCodeLine{563         \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}         = \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}};}
-\DoxyCodeLine{564         \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}      = cols;}
-\DoxyCodeLine{565         \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} = elementSize;}
-\DoxyCodeLine{566         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}} != \textcolor{keyword}{nullptr}) \{}
-\DoxyCodeLine{567             \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}} = (T*)realloc(\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}, \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}} * cols * elementSize * \textcolor{keyword}{sizeof}(T));}
-\DoxyCodeLine{568         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{569             \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}} = (T*)malloc(\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}} * cols * elementSize * \textcolor{keyword}{sizeof}(T));}
-\DoxyCodeLine{570         \}}
-\DoxyCodeLine{571         \mbox{\hyperlink{classMatrix_abfda24d2db48d6823153c4c4885a3921}{\_dataSize}} = \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}} * cols * elementSize;}
-\DoxyCodeLine{572         \mbox{\hyperlink{classMatrix_a89669a80df8ca29a0d9c32ab5d73bd53}{needsFree}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{573     \}}
-\DoxyCodeLine{574 }
-\DoxyCodeLine{582     [[nodiscard]] \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& row, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& col, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& elem = 0)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{583         \textcolor{comment}{//        assert(row < \_rows \&\& col < \_columns \&\& elem < \_element\_size);}}
-\DoxyCodeLine{584         \textcolor{keywordflow}{return} elem + col * \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} + row * \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} * \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}};}
-\DoxyCodeLine{585     \}}
-\DoxyCodeLine{586 }
-\DoxyCodeLine{596     [[nodiscard]] \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}{GetSlice}}(\textcolor{keywordtype}{size\_t} rowStart, \textcolor{keywordtype}{size\_t} rowEnd, \textcolor{keywordtype}{size\_t} colStart, \textcolor{keywordtype}{size\_t} colEnd)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{597         \textcolor{keywordtype}{size\_t} numRows = (rowEnd -\/ rowStart) + 1;}
-\DoxyCodeLine{598         \textcolor{keywordtype}{size\_t} numCols = (colEnd -\/ colStart) + 1;}
+\DoxyCodeLine{455     T\& \mbox{\hyperlink{classMatrix_a89d798f888ad91c4b07c3b54590e805d}{operator()}}(\textcolor{keywordtype}{size\_t} row, \textcolor{keywordtype}{size\_t} column, \textcolor{keywordtype}{size\_t} elem = 0) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(row, column, elem)]; \}}
+\DoxyCodeLine{463     T\& \mbox{\hyperlink{classMatrix_a81b64033bac88653f10b09495c62e16b}{operator()}}(\textcolor{keywordtype}{size\_t} row, \textcolor{keywordtype}{size\_t} column, \textcolor{keywordtype}{size\_t} elem = 0)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(row, column, elem)]; \}}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{473     \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{classMatrix_a70f083416a383fb8ef15bd6f35dc4ad3}{operator()}}(\textcolor{keywordtype}{size\_t} row) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_a263c7a2f670ed338a4cc4050f248fcc5}{GetSlice}}(row, row, 0, \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} -\/ 1); \}}
+\DoxyCodeLine{479     \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{classMatrix_ab4dda1b79888e1cc8edb4da3334e619e}{operator()}}(\textcolor{keywordtype}{size\_t} row)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_a263c7a2f670ed338a4cc4050f248fcc5}{GetSlice}}(row, row, 0, \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} -\/ 1); \}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{485     T\& \mbox{\hyperlink{classMatrix_a2fe937b4ef9ab768ecc0528f2ce19eee}{operator*}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[0]; \}}
+\DoxyCodeLine{490     T\& \mbox{\hyperlink{classMatrix_accc5412e6d8487c6304443a3bc4bee67}{operator*}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[0]; \}}
+\DoxyCodeLine{491 }
+\DoxyCodeLine{497     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMatrix_ae47984085ae774f8872824f990629c9a}{SetColumn}}(\textcolor{keywordtype}{size\_t} index, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& other) \{}
+\DoxyCodeLine{498         \textcolor{keywordtype}{bool} isInColumns = other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() > other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{499         \textcolor{keyword}{auto} rowCount    = isInColumns ? other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() : other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{500         assert(rowCount == \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}});}
+\DoxyCodeLine{501         assert(\mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} == other.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{502         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < rowCount; ++i) \{}
+\DoxyCodeLine{503             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
+\DoxyCodeLine{504                 \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, index, elem)] = other(isInColumns ? 0 : i, isInColumns ? i : 0, elem);}
+\DoxyCodeLine{505             \}}
+\DoxyCodeLine{506         \}}
+\DoxyCodeLine{507     \}}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{514     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMatrix_a097ed201a1768090a524f621ee2d80a1}{SetRow}}(\textcolor{keywordtype}{size\_t} index, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& other) \{}
+\DoxyCodeLine{515         \textcolor{keywordtype}{bool} isInColumns = other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() > other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{516         \textcolor{keyword}{auto} colCount    = isInColumns ? other.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() : other.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{517         assert(colCount == \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}});}
+\DoxyCodeLine{518         assert(\mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} == other.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{519         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < colCount; ++i) \{}
+\DoxyCodeLine{520             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
+\DoxyCodeLine{521                 \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(index, i, elem)] = other(isInColumns ? 0 : i, isInColumns ? i : 0, elem);}
+\DoxyCodeLine{522             \}}
+\DoxyCodeLine{523         \}}
+\DoxyCodeLine{524     \}}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{532     \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{classMatrix_aba72c5cef598dca1e0fa22026920d02b}{operator<<}}(std::ostream\& ostr, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix}}\& m) \{}
+\DoxyCodeLine{533         ostr.precision(17);}
+\DoxyCodeLine{534         ostr << \textcolor{stringliteral}{"{}[\(\backslash\)n"{}};}
+\DoxyCodeLine{535         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} row = 0; row < m.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); row++) \{}
+\DoxyCodeLine{536             ostr << \textcolor{charliteral}{'\(\backslash\)t'};}
+\DoxyCodeLine{537             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} col = 0; col < m.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); col++) \{}
+\DoxyCodeLine{538                 \textcolor{keywordflow}{if}(m.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() > 1) \{ ostr << \textcolor{stringliteral}{"{}( "{}}; \}}
+\DoxyCodeLine{539                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < m.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{}
+\DoxyCodeLine{540                     ostr << m.\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[m.\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(row, col, elem)];}
+\DoxyCodeLine{541                     \textcolor{keywordflow}{if}(elem < m.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() -\/ 1) ostr << \textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{542                 \}}
+\DoxyCodeLine{543                 \textcolor{keywordflow}{if}(m.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() > 1) \{ ostr << \textcolor{stringliteral}{"{} )"{}}; \}}
+\DoxyCodeLine{544                 \textcolor{keywordflow}{if}(col < m.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() -\/ 1) ostr << \textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{545             \}}
+\DoxyCodeLine{546             ostr << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{547         \}}
+\DoxyCodeLine{548         ostr << \textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{549         \textcolor{keywordflow}{return} ostr;}
+\DoxyCodeLine{550     \}}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{558     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(\textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}, \textcolor{keywordtype}{size\_t} cols, \textcolor{keywordtype}{size\_t} elementSize = 1) \{}
+\DoxyCodeLine{559         \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}         = \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}};}
+\DoxyCodeLine{560         \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}      = cols;}
+\DoxyCodeLine{561         \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} = elementSize;}
+\DoxyCodeLine{562         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}} != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{563             \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}} = (T*)realloc(\mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}, \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}} * cols * elementSize * \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{564         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{565             \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}} = (T*)malloc(\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}} * cols * elementSize * \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{566         \}}
+\DoxyCodeLine{567         \mbox{\hyperlink{classMatrix_abfda24d2db48d6823153c4c4885a3921}{\_dataSize}} = \mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}} * cols * elementSize;}
+\DoxyCodeLine{568         \mbox{\hyperlink{classMatrix_a89669a80df8ca29a0d9c32ab5d73bd53}{needsFree}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{569     \}}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{578     [[nodiscard]] \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(\textcolor{keywordtype}{size\_t} row, \textcolor{keywordtype}{size\_t} col, \textcolor{keywordtype}{size\_t} elem = 0)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{579         \textcolor{comment}{//        assert(row < \_rows \&\& col < \_columns \&\& elem < \_element\_size);}}
+\DoxyCodeLine{580         \textcolor{keywordflow}{return} elem + col * \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} + row * \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} * \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}};}
+\DoxyCodeLine{581     \}}
+\DoxyCodeLine{582     [[nodiscard]] \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_a263c7a2f670ed338a4cc4050f248fcc5}{GetSlice}}(\textcolor{keywordtype}{size\_t} rowStart, \textcolor{keywordtype}{size\_t} rowEnd)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{583         \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_a263c7a2f670ed338a4cc4050f248fcc5}{GetSlice}}(rowStart, rowEnd, 0, \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} -\/ 1);}
+\DoxyCodeLine{584     \}}
+\DoxyCodeLine{594     [[nodiscard]] \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}{GetSlice}}(\textcolor{keywordtype}{size\_t} rowStart, \textcolor{keywordtype}{size\_t} rowEnd, \textcolor{keywordtype}{size\_t} colStart, \textcolor{keywordtype}{size\_t} colEnd)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{595         \textcolor{keywordtype}{size\_t} numRows = (rowEnd -\/ rowStart) + 1;}
+\DoxyCodeLine{596         \textcolor{keywordtype}{size\_t} numCols = (colEnd -\/ colStart) + 1;}
+\DoxyCodeLine{597 }
+\DoxyCodeLine{598         \mbox{\hyperlink{classMatrix}{Matrix}} out(0, numRows, numCols, \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}});}
 \DoxyCodeLine{599 }
-\DoxyCodeLine{600         \mbox{\hyperlink{classMatrix}{Matrix}} out(0, numRows, numCols, \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}});}
-\DoxyCodeLine{601 }
-\DoxyCodeLine{602         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < numRows; ++i) \{}
-\DoxyCodeLine{603             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < numCols; ++j) \{}
-\DoxyCodeLine{604                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{}
-\DoxyCodeLine{605                     out(i, j, elem) = \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(rowStart + i, colStart + j, elem)];}
-\DoxyCodeLine{606                 \}}
-\DoxyCodeLine{607             \}}
-\DoxyCodeLine{608         \}}
-\DoxyCodeLine{609         \textcolor{keywordflow}{return} out;}
-\DoxyCodeLine{610     \}}
-\DoxyCodeLine{611 }
-\DoxyCodeLine{612     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMatrix_a15c969e68b5492a3e9918a001ba8beb2}{SetSlice}}(}
-\DoxyCodeLine{613     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& row\_start,}
-\DoxyCodeLine{614     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& row\_end,}
-\DoxyCodeLine{615     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& col\_start,}
-\DoxyCodeLine{616     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& col\_end,}
-\DoxyCodeLine{617     \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& slice) \{}
-\DoxyCodeLine{618         \textcolor{keywordtype}{size\_t} numRows = (row\_end -\/ row\_start) + 1;}
-\DoxyCodeLine{619         \textcolor{keywordtype}{size\_t} numCols = (col\_end -\/ col\_start) + 1;}
-\DoxyCodeLine{620         assert(numRows == slice.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
-\DoxyCodeLine{621         assert(numCols == slice.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
-\DoxyCodeLine{622 }
-\DoxyCodeLine{623         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < numRows; ++i) \{}
-\DoxyCodeLine{624             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < numCols; ++j) \{ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(row\_start + i, col\_start + j)] = slice(i, j); \}}
-\DoxyCodeLine{625         \}}
-\DoxyCodeLine{626     \}}
-\DoxyCodeLine{627 }
-\DoxyCodeLine{633     \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{classMatrix_ab300149624881a42fddbfbe9a463bd64}{GetComponents}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& index)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{634         assert(index < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}});}
-\DoxyCodeLine{635         \mbox{\hyperlink{classMatrix}{Matrix<T>}} out(0, \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}, \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}, 1);}
-\DoxyCodeLine{636         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}; ++i) \{}
-\DoxyCodeLine{637             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}; ++j) \{ out(i, j, 0) = \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad0c643ba4f2849b377eb867d3d13722f}{GetIndex}}(i, j, index)]; \}}
-\DoxyCodeLine{638         \}}
-\DoxyCodeLine{639         \textcolor{keywordflow}{return} out;}
-\DoxyCodeLine{640     \}}
-\DoxyCodeLine{641 }
-\DoxyCodeLine{642 \textcolor{keyword}{private}:}
-\DoxyCodeLine{647     [[nodiscard]] \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMatrix_a25f848c1725de46544bb6a9c2c974ea1}{HasDet}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} > 1 \&\& \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}} > 1 \&\& \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} == 1; \}}
-\DoxyCodeLine{648 }
-\DoxyCodeLine{649 }
-\DoxyCodeLine{651     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}} = 0;}
-\DoxyCodeLine{653     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} = 0;}
-\DoxyCodeLine{655     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} = 0;}
-\DoxyCodeLine{656 }
-\DoxyCodeLine{658     T* \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}} = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{660     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMatrix_abfda24d2db48d6823153c4c4885a3921}{\_dataSize}} = 0;}
-\DoxyCodeLine{662     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMatrix_a89669a80df8ca29a0d9c32ab5d73bd53}{needsFree}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{663 \};}
-\DoxyCodeLine{664 }
-\DoxyCodeLine{675 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{676 \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_a84058ad6ed1b5574638cebc72be07ae0}{operator+}}(\mbox{\hyperlink{classMatrix}{Matrix<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
-\DoxyCodeLine{677     lhs.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(rhs);}
-\DoxyCodeLine{678     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{679     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{680         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{ (*result)(i, j) = lhs(i, j) + rhs(i, j); \}}
-\DoxyCodeLine{681     \}}
-\DoxyCodeLine{682     \textcolor{keywordflow}{return} *result;}
-\DoxyCodeLine{683 \}}
-\DoxyCodeLine{691 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{692 \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_a004530c47458fe01d36e9b88317e2221}{operator-\/}}(\mbox{\hyperlink{classMatrix}{Matrix<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
-\DoxyCodeLine{693     lhs.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(rhs);}
-\DoxyCodeLine{694     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{695     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{696         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{697             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
-\DoxyCodeLine{698                 (*result)(i, j, elem) = lhs(i, j, elem) -\/ rhs(i, j, elem);}
-\DoxyCodeLine{699             \}}
-\DoxyCodeLine{700         \}}
-\DoxyCodeLine{701     \}}
-\DoxyCodeLine{702     \textcolor{keywordflow}{return} *result;}
-\DoxyCodeLine{703 \}}
-\DoxyCodeLine{704 }
-\DoxyCodeLine{711 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} U>}
-\DoxyCodeLine{712 \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_ad2c60d3c641fbe3fabc711d476120b41}{operator*}}(\mbox{\hyperlink{classMatrix}{Matrix<T>}} lhs, \textcolor{keyword}{const} U\& rhs) \{}
-\DoxyCodeLine{713     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0.0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{714     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{715         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{716             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{ (*result)(i, j, elem) = lhs(i, j, elem) * rhs; \}}
-\DoxyCodeLine{717         \}}
-\DoxyCodeLine{718     \}}
-\DoxyCodeLine{719     \textcolor{keywordflow}{return} *result;}
-\DoxyCodeLine{720 \}}
-\DoxyCodeLine{727 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} U>}
-\DoxyCodeLine{728 \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_ad2c60d3c641fbe3fabc711d476120b41}{operator*}}(U lambda, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& A) \{}
-\DoxyCodeLine{729     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0.0, A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), A.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{730     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{731         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{732             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < A.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{ (*result)(i, j, elem) = A(i, j, elem) * lambda; \}}
-\DoxyCodeLine{733         \}}
-\DoxyCodeLine{734     \}}
-\DoxyCodeLine{735     \textcolor{keywordflow}{return} *result;}
-\DoxyCodeLine{736 \}}
-\DoxyCodeLine{737 }
-\DoxyCodeLine{745 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{746 \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{Matrix_8h_ad2c60d3c641fbe3fabc711d476120b41}{operator*}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
-\DoxyCodeLine{747     assert(lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() == rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
-\DoxyCodeLine{748     assert(lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() == rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{749     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0.0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{750     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{751         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{752             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} k = 0; k < rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); k++) \{}
-\DoxyCodeLine{753                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{}
-\DoxyCodeLine{754                     (*result)(i, j, elem) += (T)(lhs(i, k, elem) * rhs(k, j, elem));}
-\DoxyCodeLine{755                 \}}
-\DoxyCodeLine{756             \}}
-\DoxyCodeLine{757         \}}
-\DoxyCodeLine{758     \}}
-\DoxyCodeLine{759     \textcolor{keywordflow}{return} *result;}
-\DoxyCodeLine{760 \}}
-\DoxyCodeLine{761 }
-\DoxyCodeLine{773 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{774 \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{Matrix_8h_a282bda10013c783a69e9d11a89a68df9}{HadamardMulti}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
-\DoxyCodeLine{775     lhs.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(rhs);}
-\DoxyCodeLine{776     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{777     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < result-\/>rows(); i++) \{}
-\DoxyCodeLine{778         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < result-\/>columns(); j++) \{}
-\DoxyCodeLine{779             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < result-\/>elements(); elem++) \{}
-\DoxyCodeLine{780                 (*result)(i, j, elem) = lhs(i, j, elem) * rhs(i, j, elem);}
-\DoxyCodeLine{781             \}}
-\DoxyCodeLine{782         \}}
-\DoxyCodeLine{783     \}}
-\DoxyCodeLine{784     \textcolor{keywordflow}{return} *result;}
-\DoxyCodeLine{785 \}}
-\DoxyCodeLine{786 }
-\DoxyCodeLine{794 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{795 \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{Matrix_8h_a42163c4039e35bb283311ba7d7782bff}{HadamardDiv}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
-\DoxyCodeLine{796     lhs.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(rhs);}
-\DoxyCodeLine{797     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{798     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < result-\/>rows(); i++) \{}
-\DoxyCodeLine{799         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < result-\/>columns(); j++) \{}
-\DoxyCodeLine{800             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < result-\/>elements(); elem++) \{}
-\DoxyCodeLine{801                 (*result)(i, j, elem) = lhs(i, j, elem) / rhs(i, j, elem);}
-\DoxyCodeLine{802             \}}
-\DoxyCodeLine{803         \}}
-\DoxyCodeLine{804     \}}
-\DoxyCodeLine{805     \textcolor{keywordflow}{return} *result;}
-\DoxyCodeLine{806 \}}
-\DoxyCodeLine{807 }
-\DoxyCodeLine{816 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{817 \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{Matrix_8h_a9d36c699bc2f1682b03e6b44329452ed}{KroneckerMulti}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
-\DoxyCodeLine{818     assert(lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() == rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{819     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() * rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() * rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{820     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} m = 0; m < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); m++) \{}
-\DoxyCodeLine{821         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} n = 0; n < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); n++) \{}
-\DoxyCodeLine{822             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} p = 0; p < rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); p++) \{}
-\DoxyCodeLine{823                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} q = 0; q < rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); q++) \{}
-\DoxyCodeLine{824                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{}
-\DoxyCodeLine{825                         (*result)(m * rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() + p, n * rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() + q, elem) = lhs(m, n, elem) * rhs(p, q, elem);}
-\DoxyCodeLine{826                     \}}
-\DoxyCodeLine{827                 \}}
-\DoxyCodeLine{828             \}}
-\DoxyCodeLine{829         \}}
-\DoxyCodeLine{830     \}}
-\DoxyCodeLine{831     \textcolor{keywordflow}{return} *result;}
-\DoxyCodeLine{832 \}}
-\DoxyCodeLine{833 }
-\DoxyCodeLine{841 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{842 \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
-\DoxyCodeLine{843     assert(lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() == rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
-\DoxyCodeLine{844     assert(lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() == rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{845     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0.0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() + rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{846     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
-\DoxyCodeLine{847         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() + rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); ++j) \{}
-\DoxyCodeLine{848             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
-\DoxyCodeLine{849                 (*result)(i, j, elem) = j < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() ? lhs(i, j, elem) : rhs(i, j -\/ lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), elem);}
-\DoxyCodeLine{850             \}}
-\DoxyCodeLine{851         \}}
-\DoxyCodeLine{852     \}}
-\DoxyCodeLine{853     \textcolor{keywordflow}{return} *result;}
-\DoxyCodeLine{854 \}}
-\DoxyCodeLine{855 }
-\DoxyCodeLine{863 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{864 \textcolor{keywordtype}{size\_t}\& \mbox{\hyperlink{Matrix_8h_a259c0ae39f1718b043aafc8ad161358f}{Corr}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& A, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& B) \{}
-\DoxyCodeLine{865     A.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(B);}
-\DoxyCodeLine{866     \textcolor{keyword}{auto} count = \textcolor{keyword}{new} size\_t(0);}
-\DoxyCodeLine{867     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{868         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{869             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < A.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{ (*count) += (A(i, j, elem) == B(i, j, elem)); \}}
-\DoxyCodeLine{870         \}}
-\DoxyCodeLine{871     \}}
-\DoxyCodeLine{872     \textcolor{keywordflow}{return} *count;}
-\DoxyCodeLine{873 \}}
-\DoxyCodeLine{874 }
-\DoxyCodeLine{882 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{883 \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{Matrix_8h_a4a4217346a45e5af5d523742b942b1e9}{from\_vptr}}(\textcolor{keyword}{const} T* value, \mbox{\hyperlink{structMatrixDimension}{MatrixDimension}} size) \{}
-\DoxyCodeLine{884     \textcolor{keyword}{auto} out = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, size.\mbox{\hyperlink{structMatrixDimension_a93df531cf74c1c3a6d6c0519cb2789ef}{rows}}, size.\mbox{\hyperlink{structMatrixDimension_aef50c3f8f188346f84c30f0dae35436d}{columns}});}
-\DoxyCodeLine{885     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < size.\mbox{\hyperlink{structMatrixDimension_a93df531cf74c1c3a6d6c0519cb2789ef}{rows}}; i++) \{}
-\DoxyCodeLine{886         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < size.\mbox{\hyperlink{structMatrixDimension_aef50c3f8f188346f84c30f0dae35436d}{columns}}; ++j) \{}
-\DoxyCodeLine{887             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < size.\mbox{\hyperlink{structMatrixDimension_a1f5be55c8a60262ddb045e4d3f4310e1}{elemDim}}; ++elem) \{}
-\DoxyCodeLine{888                 (*out)(i, j, elem) = value[elem + j * size.\mbox{\hyperlink{structMatrixDimension_a1f5be55c8a60262ddb045e4d3f4310e1}{elemDim}} + i * size.\mbox{\hyperlink{structMatrixDimension_aef50c3f8f188346f84c30f0dae35436d}{columns}} * size.\mbox{\hyperlink{structMatrixDimension_a1f5be55c8a60262ddb045e4d3f4310e1}{elemDim}}];}
-\DoxyCodeLine{889             \}}
-\DoxyCodeLine{890         \}}
-\DoxyCodeLine{891     \}}
-\DoxyCodeLine{892     \textcolor{keywordflow}{return} *out;}
-\DoxyCodeLine{893 \}}
-\DoxyCodeLine{894 }
-\DoxyCodeLine{903 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{904 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{Matrix_8h_a2a01e8ac881ea58d279cd73ec1803444}{argmax}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat) \{}
-\DoxyCodeLine{905     T maxVal        = std::numeric\_limits<T>::min();}
-\DoxyCodeLine{906     \textcolor{keywordtype}{size\_t} maxIndex = -\/1;}
-\DoxyCodeLine{907     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{908         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{909             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
-\DoxyCodeLine{910                 \textcolor{keywordflow}{if}(mat(i, j, elem) > maxVal) \{}
-\DoxyCodeLine{911                     maxVal   = mat(i, j, elem);}
-\DoxyCodeLine{912                     maxIndex = elem + j * mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() + i * mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() * mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}();}
-\DoxyCodeLine{913                 \}}
-\DoxyCodeLine{914             \}}
-\DoxyCodeLine{915         \}}
-\DoxyCodeLine{916     \}}
-\DoxyCodeLine{917     \textcolor{keywordflow}{return} maxIndex;}
-\DoxyCodeLine{918 \}}
-\DoxyCodeLine{919 }
-\DoxyCodeLine{927 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{928 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{Matrix_8h_a14c028e4d81577bbda70dd22db04afe8}{argmin}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat) \{}
-\DoxyCodeLine{929     T maxVal        = std::numeric\_limits<T>::max();}
-\DoxyCodeLine{930     \textcolor{keywordtype}{size\_t} maxIndex = -\/1;}
-\DoxyCodeLine{931     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{932         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{933             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
-\DoxyCodeLine{934                 \textcolor{keywordflow}{if}(mat(i, j, elem) < maxVal) \{}
-\DoxyCodeLine{935                     maxVal   = mat(i, j, elem);}
-\DoxyCodeLine{936                     maxIndex = elem + j * mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() + i * mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() * mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}();}
-\DoxyCodeLine{937                 \}}
-\DoxyCodeLine{938             \}}
-\DoxyCodeLine{939         \}}
-\DoxyCodeLine{940     \}}
-\DoxyCodeLine{941     \textcolor{keywordflow}{return} maxIndex;}
-\DoxyCodeLine{942 \}}
-\DoxyCodeLine{943 }
-\DoxyCodeLine{944 }
-\DoxyCodeLine{954 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{955 \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(}
-\DoxyCodeLine{956 \textcolor{keyword}{const} std::function<\textcolor{keywordtype}{bool}(T)>\& condition, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& in, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& valIfTrue, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& valIfFalse) \{}
-\DoxyCodeLine{957     assert(valIfTrue.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() == valIfFalse.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() \&\& valIfTrue.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() == valIfFalse.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
-\DoxyCodeLine{958     \textcolor{keywordtype}{bool} refVector = \textcolor{keyword}{true};}
-\DoxyCodeLine{959     \textcolor{keywordflow}{if}((valIfTrue.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() == valIfTrue.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}()) == 1) \{ refVector = \textcolor{keyword}{false}; \}}
-\DoxyCodeLine{960     \textcolor{keyword}{auto} out = refVector ? valIfTrue : \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), in.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), in.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{961 }
-\DoxyCodeLine{962     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{963         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < in.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{964             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < in.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{}
-\DoxyCodeLine{965                 \textcolor{keywordflow}{if}(refVector) \{}
-\DoxyCodeLine{966                     \textcolor{keywordflow}{if}(!condition(in(i, j, elem))) out(i, j, elem) = valIfFalse(i, j);}
-\DoxyCodeLine{967                     \textcolor{keywordflow}{else}}
-\DoxyCodeLine{968                         out(i, j, elem) = in(i, j, elem);}
-\DoxyCodeLine{969                 \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{970                     out(i, j, elem) = condition(in(i, j, elem)) ? valIfTrue(0, 0) : valIfFalse(0, 0);}
-\DoxyCodeLine{971                 \}}
-\DoxyCodeLine{972             \}}
-\DoxyCodeLine{973         \}}
-\DoxyCodeLine{974     \}}
-\DoxyCodeLine{975     \textcolor{keywordflow}{return} out;}
-\DoxyCodeLine{976 \}}
-\DoxyCodeLine{977 }
-\DoxyCodeLine{986 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{987 std::vector<std::pair<Matrix<T>, \mbox{\hyperlink{classMatrix}{Matrix<T>}}>> \mbox{\hyperlink{Matrix_8h_a98433477e0327bd2ee165374375275e1}{zip}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& a, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& b) \{}
-\DoxyCodeLine{988     std::vector<std::pair<Matrix<T>, \mbox{\hyperlink{classMatrix}{Matrix<T>}}>> out(a.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
-\DoxyCodeLine{989     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < a.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{990         \mbox{\hyperlink{classMatrix}{Matrix<T>}} subA, subB;}
-\DoxyCodeLine{991         subA.\mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(1, a.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
-\DoxyCodeLine{992         subB.\mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(1, b.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
-\DoxyCodeLine{993         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < a.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{ subA(0, j) = a(i, j); \}}
-\DoxyCodeLine{994         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < b.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{ subB(0, j) = b(i, j); \}}
-\DoxyCodeLine{995 }
-\DoxyCodeLine{996         out[i] = \{ subA, subB \};}
-\DoxyCodeLine{997     \}}
-\DoxyCodeLine{998     \textcolor{keywordflow}{return} out;}
-\DoxyCodeLine{999 \}}
-\DoxyCodeLine{1000 }
-\DoxyCodeLine{1007 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{1008 T \mbox{\hyperlink{Matrix_8h_a8dd66fbac5097923b2ecf481b0ae77e5}{max}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat) \{}
-\DoxyCodeLine{1009     T maxVal = std::numeric\_limits<T>::min();}
-\DoxyCodeLine{1010     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{1011         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{1012             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} k = 0; k < mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++k) \{}
-\DoxyCodeLine{1013                 \textcolor{keywordflow}{if}(mat(i, j, k) > maxVal) \{ maxVal = mat(i, j, k); \}}
-\DoxyCodeLine{1014             \}}
-\DoxyCodeLine{1015         \}}
-\DoxyCodeLine{1016     \}}
-\DoxyCodeLine{1017     \textcolor{keywordflow}{return} maxVal;}
-\DoxyCodeLine{1018 \}}
-\DoxyCodeLine{1025 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{1026 T \mbox{\hyperlink{Matrix_8h_a4bb73e4029612f323f406f1ecfc2ed57}{min}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat) \{}
-\DoxyCodeLine{1027     T minVal = std::numeric\_limits<T>::max();}
-\DoxyCodeLine{1028     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{1029         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{1030             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} k = 0; k < mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++k) \{}
-\DoxyCodeLine{1031                 \textcolor{keywordflow}{if}(mat(i, j, k) < minVal) \{ minVal = mat(i, j, k); \}}
-\DoxyCodeLine{1032             \}}
-\DoxyCodeLine{1033         \}}
-\DoxyCodeLine{1034     \}}
-\DoxyCodeLine{1035     \textcolor{keywordflow}{return} minVal;}
-\DoxyCodeLine{1036 \}}
-\DoxyCodeLine{1037 }
-\DoxyCodeLine{1045 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{1046 T \mbox{\hyperlink{Matrix_8h_adf917f83162312bfe4a7a861c6f0cbcb}{elemMax}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& elemIndex) \{}
-\DoxyCodeLine{1047     assert(mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() -\/ 1 >= elemIndex);}
-\DoxyCodeLine{1048     T maxVal     = std::numeric\_limits<T>::min();}
-\DoxyCodeLine{1049     \textcolor{keywordtype}{size\_t} index = 0;}
-\DoxyCodeLine{1050     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{1051         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{1052             \textcolor{keywordflow}{if}(mat(i, j, elemIndex) > maxVal) \{ maxVal = mat(i, j, elemIndex); \}}
-\DoxyCodeLine{1053             index++;}
-\DoxyCodeLine{1054         \}}
-\DoxyCodeLine{1055     \}}
-\DoxyCodeLine{1056     \textcolor{keywordflow}{return} maxVal;}
-\DoxyCodeLine{1057 \}}
-\DoxyCodeLine{1064 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{1065 T \mbox{\hyperlink{Matrix_8h_a438e42415f91a5cb3ff198e78e613e33}{mean}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat) \{}
-\DoxyCodeLine{1066     T sum(0);}
-\DoxyCodeLine{1067     \textcolor{keywordtype}{size\_t} index = 0;}
-\DoxyCodeLine{1068     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{1069         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{1070             sum += mat(i, j);}
-\DoxyCodeLine{1071             index++;}
-\DoxyCodeLine{1072         \}}
-\DoxyCodeLine{1073     \}}
-\DoxyCodeLine{1074     \textcolor{keywordflow}{return} sum / index;}
-\DoxyCodeLine{1075 \}}
-\DoxyCodeLine{1076 }
-\DoxyCodeLine{1084 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{1085 T \mbox{\hyperlink{Matrix_8h_aaad7330b0e1e9c27b308a224210a14f9}{elemMean}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& elemIndex) \{}
-\DoxyCodeLine{1086     assert(mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() -\/ 1 >= elemIndex);}
-\DoxyCodeLine{1087     T sum(0);}
-\DoxyCodeLine{1088     \textcolor{keywordtype}{size\_t} index = 0;}
-\DoxyCodeLine{1089     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{1090         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{1091             sum += mat(i, j, elemIndex);}
-\DoxyCodeLine{1092             index++;}
-\DoxyCodeLine{1093         \}}
-\DoxyCodeLine{1094     \}}
-\DoxyCodeLine{1095     \textcolor{keywordflow}{return} sum / index;}
-\DoxyCodeLine{1096 \}}
-\DoxyCodeLine{1097 }
-\DoxyCodeLine{1104 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{1105 \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_a2e19f18bb0d422da0e75d5d0f6753331}{diag\_elements}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& in) \{}
-\DoxyCodeLine{1106     \mbox{\hyperlink{classMatrix}{Matrix<T>}} out(0, in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1, in.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
-\DoxyCodeLine{1107     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
-\DoxyCodeLine{1108         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < in.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{ out(i, 0, elem) = in(i, i, elem); \}}
-\DoxyCodeLine{1109     \}}
-\DoxyCodeLine{1110     \textcolor{keywordflow}{return} out;}
-\DoxyCodeLine{1111 \}}
+\DoxyCodeLine{600         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < numRows; ++i) \{}
+\DoxyCodeLine{601             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < numCols; ++j) \{}
+\DoxyCodeLine{602                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}}; ++elem) \{}
+\DoxyCodeLine{603                     out(i, j, elem) = \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(rowStart + i, colStart + j, elem)];}
+\DoxyCodeLine{604                 \}}
+\DoxyCodeLine{605             \}}
+\DoxyCodeLine{606         \}}
+\DoxyCodeLine{607         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{608     \}}
+\DoxyCodeLine{609 }
+\DoxyCodeLine{610     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMatrix_a15c969e68b5492a3e9918a001ba8beb2}{SetSlice}}(}
+\DoxyCodeLine{611     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& row\_start,}
+\DoxyCodeLine{612     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& row\_end,}
+\DoxyCodeLine{613     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& col\_start,}
+\DoxyCodeLine{614     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& col\_end,}
+\DoxyCodeLine{615     \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& slice) \{}
+\DoxyCodeLine{616         \textcolor{keywordtype}{size\_t} numRows = (row\_end -\/ row\_start) + 1;}
+\DoxyCodeLine{617         \textcolor{keywordtype}{size\_t} numCols = (col\_end -\/ col\_start) + 1;}
+\DoxyCodeLine{618         assert(numRows == slice.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
+\DoxyCodeLine{619         assert(numCols == slice.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{620 }
+\DoxyCodeLine{621         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < numRows; ++i) \{}
+\DoxyCodeLine{622             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < numCols; ++j) \{ \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(row\_start + i, col\_start + j)] = slice(i, j); \}}
+\DoxyCodeLine{623         \}}
+\DoxyCodeLine{624     \}}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{631     \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{classMatrix_ab300149624881a42fddbfbe9a463bd64}{GetComponents}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& index)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{632         assert(index < \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}});}
+\DoxyCodeLine{633         \mbox{\hyperlink{classMatrix}{Matrix<T>}} out(0, \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}, \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}, 1);}
+\DoxyCodeLine{634         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}}; ++i) \{}
+\DoxyCodeLine{635             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}}; ++j) \{ out(i, j, 0) = \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}}[\mbox{\hyperlink{classMatrix_ad5ef1c427af64e5c7b73d0ec9df21b6b}{GetIndex}}(i, j, index)]; \}}
+\DoxyCodeLine{636         \}}
+\DoxyCodeLine{637         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{638     \}}
+\DoxyCodeLine{639 }
+\DoxyCodeLine{640 \textcolor{keyword}{private}:}
+\DoxyCodeLine{645     [[nodiscard]] \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMatrix_a25f848c1725de46544bb6a9c2c974ea1}{HasDet}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} > 1 \&\& \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}} > 1 \&\& \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} == 1; \}}
+\DoxyCodeLine{646 }
+\DoxyCodeLine{647 }
+\DoxyCodeLine{649     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMatrix_ae0adccdb5efc8720a6ff499c670d5361}{\_rows}} = 0;}
+\DoxyCodeLine{651     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMatrix_a917e7aecff2b6032e340de6fc2ba2486}{\_columns}} = 0;}
+\DoxyCodeLine{653     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMatrix_a8f16df385b6c87b59e39a5ca5a2f2c38}{\_element\_size}} = 0;}
+\DoxyCodeLine{654 }
+\DoxyCodeLine{656     T* \mbox{\hyperlink{classMatrix_aaf42bea604b00c6d359febbf68dae696}{\_data}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{658     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMatrix_abfda24d2db48d6823153c4c4885a3921}{\_dataSize}} = 0;}
+\DoxyCodeLine{660     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMatrix_a89669a80df8ca29a0d9c32ab5d73bd53}{needsFree}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{661 \};}
+\DoxyCodeLine{662 }
+\DoxyCodeLine{673 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{674 \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_a84058ad6ed1b5574638cebc72be07ae0}{operator+}}(\mbox{\hyperlink{classMatrix}{Matrix<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
+\DoxyCodeLine{675     lhs.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(rhs);}
+\DoxyCodeLine{676     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{677     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{678         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{ (*result)(i, j) = lhs(i, j) + rhs(i, j); \}}
+\DoxyCodeLine{679     \}}
+\DoxyCodeLine{680     \textcolor{keywordflow}{return} *result;}
+\DoxyCodeLine{681 \}}
+\DoxyCodeLine{689 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{690 \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_a004530c47458fe01d36e9b88317e2221}{operator-\/}}(\mbox{\hyperlink{classMatrix}{Matrix<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
+\DoxyCodeLine{691     lhs.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(rhs);}
+\DoxyCodeLine{692     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{693     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{694         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{695             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
+\DoxyCodeLine{696                 (*result)(i, j, elem) = lhs(i, j, elem) -\/ rhs(i, j, elem);}
+\DoxyCodeLine{697             \}}
+\DoxyCodeLine{698         \}}
+\DoxyCodeLine{699     \}}
+\DoxyCodeLine{700     \textcolor{keywordflow}{return} *result;}
+\DoxyCodeLine{701 \}}
+\DoxyCodeLine{702 }
+\DoxyCodeLine{709 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} U>}
+\DoxyCodeLine{710 \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_ad2c60d3c641fbe3fabc711d476120b41}{operator*}}(\mbox{\hyperlink{classMatrix}{Matrix<T>}} lhs, \textcolor{keyword}{const} U\& rhs) \{}
+\DoxyCodeLine{711     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0.0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{712     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{713         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{714             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{ (*result)(i, j, elem) = lhs(i, j, elem) * rhs; \}}
+\DoxyCodeLine{715         \}}
+\DoxyCodeLine{716     \}}
+\DoxyCodeLine{717     \textcolor{keywordflow}{return} *result;}
+\DoxyCodeLine{718 \}}
+\DoxyCodeLine{725 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} U>}
+\DoxyCodeLine{726 \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_ad2c60d3c641fbe3fabc711d476120b41}{operator*}}(U lambda, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& A) \{}
+\DoxyCodeLine{727     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0.0, A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), A.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{728     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{729         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{730             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < A.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{ (*result)(i, j, elem) = A(i, j, elem) * lambda; \}}
+\DoxyCodeLine{731         \}}
+\DoxyCodeLine{732     \}}
+\DoxyCodeLine{733     \textcolor{keywordflow}{return} *result;}
+\DoxyCodeLine{734 \}}
+\DoxyCodeLine{735 }
+\DoxyCodeLine{743 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{744 \textcolor{keyword}{inline} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{Matrix_8h_ad2c60d3c641fbe3fabc711d476120b41}{operator*}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
+\DoxyCodeLine{745     assert(lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() == rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
+\DoxyCodeLine{746     assert(lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() == rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{747     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0.0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{748     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{749         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{750             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} k = 0; k < rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); k++) \{}
+\DoxyCodeLine{751                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{}
+\DoxyCodeLine{752                     (*result)(i, j, elem) += (T)(lhs(i, k, elem) * rhs(k, j, elem));}
+\DoxyCodeLine{753                 \}}
+\DoxyCodeLine{754             \}}
+\DoxyCodeLine{755         \}}
+\DoxyCodeLine{756     \}}
+\DoxyCodeLine{757     \textcolor{keywordflow}{return} *result;}
+\DoxyCodeLine{758 \}}
+\DoxyCodeLine{759 }
+\DoxyCodeLine{771 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{772 \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{Matrix_8h_a282bda10013c783a69e9d11a89a68df9}{HadamardMulti}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
+\DoxyCodeLine{773     lhs.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(rhs);}
+\DoxyCodeLine{774     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{775     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < result-\/>rows(); i++) \{}
+\DoxyCodeLine{776         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < result-\/>columns(); j++) \{}
+\DoxyCodeLine{777             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < result-\/>elements(); elem++) \{}
+\DoxyCodeLine{778                 (*result)(i, j, elem) = lhs(i, j, elem) * rhs(i, j, elem);}
+\DoxyCodeLine{779             \}}
+\DoxyCodeLine{780         \}}
+\DoxyCodeLine{781     \}}
+\DoxyCodeLine{782     \textcolor{keywordflow}{return} *result;}
+\DoxyCodeLine{783 \}}
+\DoxyCodeLine{784 }
+\DoxyCodeLine{792 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{793 \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{Matrix_8h_a42163c4039e35bb283311ba7d7782bff}{HadamardDiv}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
+\DoxyCodeLine{794     lhs.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(rhs);}
+\DoxyCodeLine{795     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{796     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < result-\/>rows(); i++) \{}
+\DoxyCodeLine{797         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < result-\/>columns(); j++) \{}
+\DoxyCodeLine{798             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < result-\/>elements(); elem++) \{}
+\DoxyCodeLine{799                 (*result)(i, j, elem) = lhs(i, j, elem) / rhs(i, j, elem);}
+\DoxyCodeLine{800             \}}
+\DoxyCodeLine{801         \}}
+\DoxyCodeLine{802     \}}
+\DoxyCodeLine{803     \textcolor{keywordflow}{return} *result;}
+\DoxyCodeLine{804 \}}
+\DoxyCodeLine{805 }
+\DoxyCodeLine{814 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{815 \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{Matrix_8h_a9d36c699bc2f1682b03e6b44329452ed}{KroneckerMulti}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
+\DoxyCodeLine{816     assert(lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() == rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{817     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() * rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() * rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{818     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} m = 0; m < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); m++) \{}
+\DoxyCodeLine{819         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} n = 0; n < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); n++) \{}
+\DoxyCodeLine{820             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} p = 0; p < rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); p++) \{}
+\DoxyCodeLine{821                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} q = 0; q < rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); q++) \{}
+\DoxyCodeLine{822                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{}
+\DoxyCodeLine{823                         (*result)(m * rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() + p, n * rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() + q, elem) = lhs(m, n, elem) * rhs(p, q, elem);}
+\DoxyCodeLine{824                     \}}
+\DoxyCodeLine{825                 \}}
+\DoxyCodeLine{826             \}}
+\DoxyCodeLine{827         \}}
+\DoxyCodeLine{828     \}}
+\DoxyCodeLine{829     \textcolor{keywordflow}{return} *result;}
+\DoxyCodeLine{830 \}}
+\DoxyCodeLine{831 }
+\DoxyCodeLine{839 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{840 \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& rhs) \{}
+\DoxyCodeLine{841     assert(lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() == rhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
+\DoxyCodeLine{842     assert(lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() == rhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{843     \textcolor{keyword}{auto} result = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0.0, lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() + rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{844     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < lhs.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
+\DoxyCodeLine{845         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() + rhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); ++j) \{}
+\DoxyCodeLine{846             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < lhs.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
+\DoxyCodeLine{847                 (*result)(i, j, elem) = j < lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() ? lhs(i, j, elem) : rhs(i, j -\/ lhs.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), elem);}
+\DoxyCodeLine{848             \}}
+\DoxyCodeLine{849         \}}
+\DoxyCodeLine{850     \}}
+\DoxyCodeLine{851     \textcolor{keywordflow}{return} *result;}
+\DoxyCodeLine{852 \}}
+\DoxyCodeLine{853 }
+\DoxyCodeLine{861 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{862 \textcolor{keywordtype}{size\_t}\& \mbox{\hyperlink{Matrix_8h_a259c0ae39f1718b043aafc8ad161358f}{Corr}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& A, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& B) \{}
+\DoxyCodeLine{863     A.\mbox{\hyperlink{classMatrix_a7ff3adb55a7fcd61963647884d97cbd1}{assertSize}}(B);}
+\DoxyCodeLine{864     \textcolor{keyword}{auto} count = \textcolor{keyword}{new} size\_t(0);}
+\DoxyCodeLine{865     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{866         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{867             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < A.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{ (*count) += (A(i, j, elem) == B(i, j, elem)); \}}
+\DoxyCodeLine{868         \}}
+\DoxyCodeLine{869     \}}
+\DoxyCodeLine{870     \textcolor{keywordflow}{return} *count;}
+\DoxyCodeLine{871 \}}
+\DoxyCodeLine{872 }
+\DoxyCodeLine{880 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{881 \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& \mbox{\hyperlink{Matrix_8h_a4a4217346a45e5af5d523742b942b1e9}{from\_vptr}}(\textcolor{keyword}{const} T* value, \mbox{\hyperlink{structMatrixDimension}{MatrixDimension}} size) \{}
+\DoxyCodeLine{882     \textcolor{keyword}{auto} out = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, size.\mbox{\hyperlink{structMatrixDimension_a93df531cf74c1c3a6d6c0519cb2789ef}{rows}}, size.\mbox{\hyperlink{structMatrixDimension_aef50c3f8f188346f84c30f0dae35436d}{columns}});}
+\DoxyCodeLine{883     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < size.\mbox{\hyperlink{structMatrixDimension_a93df531cf74c1c3a6d6c0519cb2789ef}{rows}}; i++) \{}
+\DoxyCodeLine{884         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < size.\mbox{\hyperlink{structMatrixDimension_aef50c3f8f188346f84c30f0dae35436d}{columns}}; ++j) \{}
+\DoxyCodeLine{885             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < size.\mbox{\hyperlink{structMatrixDimension_a1f5be55c8a60262ddb045e4d3f4310e1}{elemDim}}; ++elem) \{}
+\DoxyCodeLine{886                 (*out)(i, j, elem) = value[elem + j * size.\mbox{\hyperlink{structMatrixDimension_a1f5be55c8a60262ddb045e4d3f4310e1}{elemDim}} + i * size.\mbox{\hyperlink{structMatrixDimension_aef50c3f8f188346f84c30f0dae35436d}{columns}} * size.\mbox{\hyperlink{structMatrixDimension_a1f5be55c8a60262ddb045e4d3f4310e1}{elemDim}}];}
+\DoxyCodeLine{887             \}}
+\DoxyCodeLine{888         \}}
+\DoxyCodeLine{889     \}}
+\DoxyCodeLine{890     \textcolor{keywordflow}{return} *out;}
+\DoxyCodeLine{891 \}}
+\DoxyCodeLine{892 }
+\DoxyCodeLine{901 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{902 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{Matrix_8h_a2a01e8ac881ea58d279cd73ec1803444}{argmax}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat) \{}
+\DoxyCodeLine{903     T maxVal        = std::numeric\_limits<T>::min();}
+\DoxyCodeLine{904     \textcolor{keywordtype}{size\_t} maxIndex = -\/1;}
+\DoxyCodeLine{905     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{906         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{907             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
+\DoxyCodeLine{908                 \textcolor{keywordflow}{if}(mat(i, j, elem) > maxVal) \{}
+\DoxyCodeLine{909                     maxVal   = mat(i, j, elem);}
+\DoxyCodeLine{910                     maxIndex = elem + j * mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() + i * mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() * mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}();}
+\DoxyCodeLine{911                 \}}
+\DoxyCodeLine{912             \}}
+\DoxyCodeLine{913         \}}
+\DoxyCodeLine{914     \}}
+\DoxyCodeLine{915     \textcolor{keywordflow}{return} maxIndex;}
+\DoxyCodeLine{916 \}}
+\DoxyCodeLine{917 }
+\DoxyCodeLine{925 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{926 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{Matrix_8h_a14c028e4d81577bbda70dd22db04afe8}{argmin}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat) \{}
+\DoxyCodeLine{927     T maxVal        = std::numeric\_limits<T>::max();}
+\DoxyCodeLine{928     \textcolor{keywordtype}{size\_t} maxIndex = -\/1;}
+\DoxyCodeLine{929     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{930         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{931             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{}
+\DoxyCodeLine{932                 \textcolor{keywordflow}{if}(mat(i, j, elem) < maxVal) \{}
+\DoxyCodeLine{933                     maxVal   = mat(i, j, elem);}
+\DoxyCodeLine{934                     maxIndex = elem + j * mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() + i * mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() * mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}();}
+\DoxyCodeLine{935                 \}}
+\DoxyCodeLine{936             \}}
+\DoxyCodeLine{937         \}}
+\DoxyCodeLine{938     \}}
+\DoxyCodeLine{939     \textcolor{keywordflow}{return} maxIndex;}
+\DoxyCodeLine{940 \}}
+\DoxyCodeLine{941 }
+\DoxyCodeLine{942 }
+\DoxyCodeLine{952 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{953 \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(}
+\DoxyCodeLine{954 \textcolor{keyword}{const} std::function<\textcolor{keywordtype}{bool}(T)>\& condition, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& in, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& valIfTrue, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& valIfFalse) \{}
+\DoxyCodeLine{955     assert(valIfTrue.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() == valIfFalse.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() \&\& valIfTrue.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() == valIfFalse.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
+\DoxyCodeLine{956     \textcolor{keywordtype}{bool} refVector = \textcolor{keyword}{true};}
+\DoxyCodeLine{957     \textcolor{keywordflow}{if}((valIfTrue.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() == valIfTrue.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}()) == 1) \{ refVector = \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{958     \textcolor{keyword}{auto} out = refVector ? valIfTrue : \mbox{\hyperlink{classMatrix}{Matrix<T>}}(0, in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), in.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(), in.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{959 }
+\DoxyCodeLine{960     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{961         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < in.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{962             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < in.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); elem++) \{}
+\DoxyCodeLine{963                 \textcolor{keywordflow}{if}(refVector) \{}
+\DoxyCodeLine{964                     \textcolor{keywordflow}{if}(!condition(in(i, j, elem))) out(i, j, elem) = valIfFalse(i, j);}
+\DoxyCodeLine{965                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{966                         out(i, j, elem) = in(i, j, elem);}
+\DoxyCodeLine{967                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{968                     out(i, j, elem) = condition(in(i, j, elem)) ? valIfTrue(0, 0) : valIfFalse(0, 0);}
+\DoxyCodeLine{969                 \}}
+\DoxyCodeLine{970             \}}
+\DoxyCodeLine{971         \}}
+\DoxyCodeLine{972     \}}
+\DoxyCodeLine{973     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{974 \}}
+\DoxyCodeLine{975 }
+\DoxyCodeLine{984 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{985 std::vector<std::pair<Matrix<T>, \mbox{\hyperlink{classMatrix}{Matrix<T>}}>> \mbox{\hyperlink{Matrix_8h_a98433477e0327bd2ee165374375275e1}{zip}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& a, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& b) \{}
+\DoxyCodeLine{986     std::vector<std::pair<Matrix<T>, \mbox{\hyperlink{classMatrix}{Matrix<T>}}>> out(a.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
+\DoxyCodeLine{987     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < a.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{988         \mbox{\hyperlink{classMatrix}{Matrix<T>}} subA, subB;}
+\DoxyCodeLine{989         subA.\mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(1, a.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{990         subB.\mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(1, b.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{991         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < a.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{ subA(0, j) = a(i, j); \}}
+\DoxyCodeLine{992         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < b.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{ subB(0, j) = b(i, j); \}}
+\DoxyCodeLine{993 }
+\DoxyCodeLine{994         out[i] = \{ subA, subB \};}
+\DoxyCodeLine{995     \}}
+\DoxyCodeLine{996     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{997 \}}
+\DoxyCodeLine{998 }
+\DoxyCodeLine{1005 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1006 T \mbox{\hyperlink{Matrix_8h_a8dd66fbac5097923b2ecf481b0ae77e5}{max}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat) \{}
+\DoxyCodeLine{1007     T maxVal = std::numeric\_limits<T>::min();}
+\DoxyCodeLine{1008     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{1009         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{1010             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} k = 0; k < mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++k) \{}
+\DoxyCodeLine{1011                 \textcolor{keywordflow}{if}(mat(i, j, k) > maxVal) \{ maxVal = mat(i, j, k); \}}
+\DoxyCodeLine{1012             \}}
+\DoxyCodeLine{1013         \}}
+\DoxyCodeLine{1014     \}}
+\DoxyCodeLine{1015     \textcolor{keywordflow}{return} maxVal;}
+\DoxyCodeLine{1016 \}}
+\DoxyCodeLine{1023 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1024 T \mbox{\hyperlink{Matrix_8h_a4bb73e4029612f323f406f1ecfc2ed57}{min}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat) \{}
+\DoxyCodeLine{1025     T minVal = std::numeric\_limits<T>::max();}
+\DoxyCodeLine{1026     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{1027         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{1028             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} k = 0; k < mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++k) \{}
+\DoxyCodeLine{1029                 \textcolor{keywordflow}{if}(mat(i, j, k) < minVal) \{ minVal = mat(i, j, k); \}}
+\DoxyCodeLine{1030             \}}
+\DoxyCodeLine{1031         \}}
+\DoxyCodeLine{1032     \}}
+\DoxyCodeLine{1033     \textcolor{keywordflow}{return} minVal;}
+\DoxyCodeLine{1034 \}}
+\DoxyCodeLine{1035 }
+\DoxyCodeLine{1043 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1044 T \mbox{\hyperlink{Matrix_8h_adf917f83162312bfe4a7a861c6f0cbcb}{elemMax}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& elemIndex) \{}
+\DoxyCodeLine{1045     assert(mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() -\/ 1 >= elemIndex);}
+\DoxyCodeLine{1046     T maxVal     = std::numeric\_limits<T>::min();}
+\DoxyCodeLine{1047     \textcolor{keywordtype}{size\_t} index = 0;}
+\DoxyCodeLine{1048     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{1049         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{1050             \textcolor{keywordflow}{if}(mat(i, j, elemIndex) > maxVal) \{ maxVal = mat(i, j, elemIndex); \}}
+\DoxyCodeLine{1051             index++;}
+\DoxyCodeLine{1052         \}}
+\DoxyCodeLine{1053     \}}
+\DoxyCodeLine{1054     \textcolor{keywordflow}{return} maxVal;}
+\DoxyCodeLine{1055 \}}
+\DoxyCodeLine{1062 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1063 T \mbox{\hyperlink{Matrix_8h_a438e42415f91a5cb3ff198e78e613e33}{mean}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat) \{}
+\DoxyCodeLine{1064     T sum(0);}
+\DoxyCodeLine{1065     \textcolor{keywordtype}{size\_t} index = 0;}
+\DoxyCodeLine{1066     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{1067         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{1068             sum += mat(i, j);}
+\DoxyCodeLine{1069             index++;}
+\DoxyCodeLine{1070         \}}
+\DoxyCodeLine{1071     \}}
+\DoxyCodeLine{1072     \textcolor{keywordflow}{return} sum / index;}
+\DoxyCodeLine{1073 \}}
+\DoxyCodeLine{1074 }
+\DoxyCodeLine{1082 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1083 T \mbox{\hyperlink{Matrix_8h_aaad7330b0e1e9c27b308a224210a14f9}{elemMean}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& mat, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& elemIndex) \{}
+\DoxyCodeLine{1084     assert(mat.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}() -\/ 1 >= elemIndex);}
+\DoxyCodeLine{1085     T sum(0);}
+\DoxyCodeLine{1086     \textcolor{keywordtype}{size\_t} index = 0;}
+\DoxyCodeLine{1087     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < mat.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{1088         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < mat.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{1089             sum += mat(i, j, elemIndex);}
+\DoxyCodeLine{1090             index++;}
+\DoxyCodeLine{1091         \}}
+\DoxyCodeLine{1092     \}}
+\DoxyCodeLine{1093     \textcolor{keywordflow}{return} sum / index;}
+\DoxyCodeLine{1094 \}}
+\DoxyCodeLine{1095 }
+\DoxyCodeLine{1102 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{1103 \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{Matrix_8h_a2e19f18bb0d422da0e75d5d0f6753331}{diag\_elements}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& in) \{}
+\DoxyCodeLine{1104     \mbox{\hyperlink{classMatrix}{Matrix<T>}} out(0, in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1, in.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}());}
+\DoxyCodeLine{1105     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
+\DoxyCodeLine{1106         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} elem = 0; elem < in.\mbox{\hyperlink{classMatrix_ac9d3a0fe5ce995cf6f997209f72199cc}{elements}}(); ++elem) \{ out(i, 0, elem) = in(i, i, elem); \}}
+\DoxyCodeLine{1107     \}}
+\DoxyCodeLine{1108     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{1109 \}}
 
 \end{DoxyCode}

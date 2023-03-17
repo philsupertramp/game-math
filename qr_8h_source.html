@@ -96,10 +96,10 @@ $(function() {
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">size_t</span> col = 0;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i_a = 0; i_a &lt; num_cols; i_a++) {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">auto</span> a = A.<a class="code hl_function" href="classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b">GetSlice</a>(0, num_rows - 1, i_a, i_a);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">auto</span> a = A.<a class="code hl_function" href="classMatrix.html#a263c7a2f670ed338a4cc4050f248fcc5">GetSlice</a>(0, num_rows - 1, i_a, i_a);</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">auto</span> u = a;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; col; i++) {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keyword">auto</span> q    = Q.<a class="code hl_function" href="classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b">GetSlice</a>(0, num_rows - 1, i, i);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keyword">auto</span> q    = Q.<a class="code hl_function" href="classMatrix.html#a263c7a2f670ed338a4cc4050f248fcc5">GetSlice</a>(0, num_rows - 1, i, i);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keyword">auto</span> proj = (q.Transpose() * a)(0, 0) * q;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            u -= proj;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        }</div>
@@ -111,7 +111,7 @@ $(function() {
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:40</div></div>
-<div class="ttc" id="aclassMatrix_html_a48d5726de651f2cadce0255bd23b6b9b"><div class="ttname"><a href="classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b">Matrix::GetSlice</a></div><div class="ttdeci">Matrix GetSlice(size_t rowStart, size_t rowEnd, size_t colStart, size_t colEnd) const</div><div class="ttdef"><b>Definition:</b> Matrix.h:596</div></div>
+<div class="ttc" id="aclassMatrix_html_a263c7a2f670ed338a4cc4050f248fcc5"><div class="ttname"><a href="classMatrix.html#a263c7a2f670ed338a4cc4050f248fcc5">Matrix::GetSlice</a></div><div class="ttdeci">Matrix GetSlice(size_t rowStart, size_t rowEnd) const</div><div class="ttdef"><b>Definition:</b> Matrix.h:582</div></div>
 <div class="ttc" id="aclassMatrix_html_a5330adf02b284293259eb9f7c9acaa99"><div class="ttname"><a href="classMatrix.html#a5330adf02b284293259eb9f7c9acaa99">Matrix::rows</a></div><div class="ttdeci">size_t rows() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:184</div></div>
 <div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:189</div></div>
 <div class="ttc" id="aqr_8h_html_a1a1666b745736ba8fd4b2061a31399d2"><div class="ttname"><a href="qr_8h.html#a1a1666b745736ba8fd4b2061a31399d2">qr</a></div><div class="ttdeci">std::pair&lt; Matrix&lt; double &gt;, Matrix&lt; double &gt; &gt; qr(const Matrix&lt; double &gt; &amp;A)</div><div class="ttdef"><b>Definition:</b> qr.h:12</div></div>

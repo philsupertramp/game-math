@@ -141,29 +141,29 @@ $(function() {
 <div class="line">                        .Transpose();</div>
 <div class="line">        <span class="keyword">auto</span> xStd = U * <a class="code hl_function" href="numerics_2utils_8h.html#a32df81a2d10f9099cacedbbd378873bb">diag</a>(S) * newTheta;</div>
 <div class="line">        <a id="_a12" name="_a12"></a><a class="code hl_class" href="classPlot.html">Plot</a> plot1(<span class="stringliteral">&quot;PCA Example&quot;</span>);</div>
-<div class="line">        plot1.<a id="a13" name="a13"></a><a class="code hl_function" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(random_data.Transpose(), <span class="stringliteral">&quot;Data&quot;</span>, <a id="a14" name="a14"></a><a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a>);</div>
+<div class="line">        plot1.<a id="a13" name="a13"></a><a class="code hl_function" href="classPlot.html#a3f3bea871eaf966d7d458c641873d278">AddData</a>(random_data.Transpose(), <span class="stringliteral">&quot;Data&quot;</span>, <a id="a14" name="a14"></a><a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a>);</div>
 <div class="line">        plot1();</div>
-<div class="line">        plot1.<a class="code hl_function" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(X.Transpose(), <span class="stringliteral">&quot;Data&quot;</span>, <a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a>);</div>
+<div class="line">        plot1.<a class="code hl_function" href="classPlot.html#a3f3bea871eaf966d7d458c641873d278">AddData</a>(X.Transpose(), <span class="stringliteral">&quot;Data&quot;</span>, <a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a>);</div>
 <div class="line">        plot1();</div>
 <div class="line"> </div>
 <div class="line">        <a class="code hl_class" href="classPlot.html">Plot</a> plot(<span class="stringliteral">&quot;PCA Example&quot;</span>);</div>
-<div class="line">        plot.<a class="code hl_function" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(X.Transpose(), <span class="stringliteral">&quot;Data&quot;</span>, <a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a>);</div>
+<div class="line">        plot.<a class="code hl_function" href="classPlot.html#a3f3bea871eaf966d7d458c641873d278">AddData</a>(X.Transpose(), <span class="stringliteral">&quot;Data&quot;</span>, <a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a>);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keyword">auto</span> mean1 = row_mean(0, 0);</div>
 <div class="line">        <span class="keyword">auto</span> mean2 = row_mean(0, 1);</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// 1-a confidence interval</span></div>
-<div class="line">        plot.<a class="code hl_function" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(</div>
+<div class="line">        plot.<a class="code hl_function" href="classPlot.html#a3f3bea871eaf966d7d458c641873d278">AddData</a>(</div>
 <div class="line">        xStd.GetSlice(0, 0, 0, xStd.columns() - 1).Apply([mean1](<span class="keywordtype">double</span> v) { return mean1 + v; }).Transpose(),</div>
 <div class="line">        xStd.GetSlice(1, 1, 0, xStd.columns() - 1).Apply([mean2](<span class="keywordtype">double</span> v) { return mean2 + v; }).Transpose(),</div>
 <div class="line">        <span class="stringliteral">&quot;conf 1&quot;</span>,</div>
 <div class="line">        <a id="a15" name="a15"></a><a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a>);</div>
-<div class="line">        plot.<a class="code hl_function" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(</div>
+<div class="line">        plot.<a class="code hl_function" href="classPlot.html#a3f3bea871eaf966d7d458c641873d278">AddData</a>(</div>
 <div class="line">        xStd.GetSlice(0, 0, 0, xStd.columns() - 1).Apply([mean1](<span class="keywordtype">double</span> v) { return mean1 + 2.0 * v; }).Transpose(),</div>
 <div class="line">        xStd.GetSlice(1, 1, 0, xStd.columns() - 1).Apply([mean2](<span class="keywordtype">double</span> v) { return mean2 + 2.0 * v; }).Transpose(),</div>
 <div class="line">        <span class="stringliteral">&quot;conf 2&quot;</span>,</div>
 <div class="line">        <a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a>);</div>
-<div class="line">        plot.<a class="code hl_function" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(</div>
+<div class="line">        plot.<a class="code hl_function" href="classPlot.html#a3f3bea871eaf966d7d458c641873d278">AddData</a>(</div>
 <div class="line">        xStd.GetSlice(0, 0, 0, xStd.columns() - 1).Apply([mean1](<span class="keywordtype">double</span> v) { return mean1 + 3.0 * v; }).Transpose(),</div>
 <div class="line">        xStd.GetSlice(1, 1, 0, xStd.columns() - 1).Apply([mean2](<span class="keywordtype">double</span> v) { return mean2 + 3.0 * v; }).Transpose(),</div>
 <div class="line">        <span class="stringliteral">&quot;conf 3&quot;</span>,</div>
@@ -176,10 +176,10 @@ $(function() {
 <div class="line">            { mean1 + U(0, 0) * S(0, 0), mean2 + U(1, 0) * S(0, 0) },</div>
 <div class="line">        };</div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;PC1:\n&quot;</span> &lt;&lt; pc1 &lt;&lt; std::endl;</div>
-<div class="line">        plot.<a class="code hl_function" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(pc1, <span class="stringliteral">&quot;pc 1&quot;</span>, <a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a>);</div>
+<div class="line">        plot.<a class="code hl_function" href="classPlot.html#a3f3bea871eaf966d7d458c641873d278">AddData</a>(pc1, <span class="stringliteral">&quot;pc 1&quot;</span>, <a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a>);</div>
 <div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> pc2 = { { mean1, mean2 }, { mean1 + U(0, 1) * S(0, 1), mean2 + U(1, 1) * S(0, 1) } };</div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;PC2:\n&quot;</span> &lt;&lt; pc2 &lt;&lt; std::endl;</div>
-<div class="line">        plot.<a class="code hl_function" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a>(pc2, <span class="stringliteral">&quot;pc 2&quot;</span>, <a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a>);</div>
+<div class="line">        plot.<a class="code hl_function" href="classPlot.html#a3f3bea871eaf966d7d458c641873d278">AddData</a>(pc2, <span class="stringliteral">&quot;pc 2&quot;</span>, <a class="code hl_enumvalue" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a>);</div>
 <div class="line">        plot();</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -196,17 +196,17 @@ $(function() {
 <div class="line">    QRTestCase().run();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aMatrix_8h_html_a1f9177b021b6f3a2ec3a4f0b26797b8e"><div class="ttname"><a href="Matrix_8h.html#a1f9177b021b6f3a2ec3a4f0b26797b8e">HorizontalConcat</a></div><div class="ttdeci">Matrix&lt; T &gt; HorizontalConcat(const Matrix&lt; T &gt; &amp;lhs, const Matrix&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> Matrix.h:842</div></div>
-<div class="ttc" id="aMatrix_8h_html_a438e42415f91a5cb3ff198e78e613e33"><div class="ttname"><a href="Matrix_8h.html#a438e42415f91a5cb3ff198e78e613e33">mean</a></div><div class="ttdeci">T mean(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:1065</div></div>
+<div class="ttc" id="aMatrix_8h_html_a1f9177b021b6f3a2ec3a4f0b26797b8e"><div class="ttname"><a href="Matrix_8h.html#a1f9177b021b6f3a2ec3a4f0b26797b8e">HorizontalConcat</a></div><div class="ttdeci">Matrix&lt; T &gt; HorizontalConcat(const Matrix&lt; T &gt; &amp;lhs, const Matrix&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> Matrix.h:840</div></div>
+<div class="ttc" id="aMatrix_8h_html_a438e42415f91a5cb3ff198e78e613e33"><div class="ttname"><a href="Matrix_8h.html#a438e42415f91a5cb3ff198e78e613e33">mean</a></div><div class="ttdeci">T mean(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:1063</div></div>
 <div class="ttc" id="aPlot_8h_html"><div class="ttname"><a href="Plot_8h.html">Plot.h</a></div></div>
-<div class="ttc" id="aPlot_8h_html_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49"><div class="ttname"><a href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a></div><div class="ttdeci">@ DOTS</div><div class="ttdoc">Creates dot data.</div><div class="ttdef"><b>Definition:</b> Plot.h:14</div></div>
-<div class="ttc" id="aPlot_8h_html_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c"><div class="ttname"><a href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a></div><div class="ttdeci">@ LINE</div><div class="ttdoc">Creates line data.</div><div class="ttdef"><b>Definition:</b> Plot.h:12</div></div>
+<div class="ttc" id="aPlot_8h_html_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49"><div class="ttname"><a href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49">DOTS</a></div><div class="ttdeci">@ DOTS</div><div class="ttdoc">Creates dot data.</div><div class="ttdef"><b>Definition:</b> Plot.h:15</div></div>
+<div class="ttc" id="aPlot_8h_html_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c"><div class="ttname"><a href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c">LINE</a></div><div class="ttdeci">@ LINE</div><div class="ttdoc">Creates line data.</div><div class="ttdef"><b>Definition:</b> Plot.h:13</div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:40</div></div>
 <div class="ttc" id="aclassMatrix_html_a054a03bcae4eb86d6f4ef84dc87840ef"><div class="ttname"><a href="classMatrix.html#a054a03bcae4eb86d6f4ef84dc87840ef">Matrix::Transpose</a></div><div class="ttdeci">constexpr Matrix&lt; T &gt; Transpose() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:241</div></div>
 <div class="ttc" id="aclassMatrix_html_a3cfd5ae3fd2d7f13203f520c2b844849"><div class="ttname"><a href="classMatrix.html#a3cfd5ae3fd2d7f13203f520c2b844849">Matrix::Normal</a></div><div class="ttdeci">static Matrix Normal(size_t rows, size_t columns, double mu, double sigma)</div><div class="ttdef"><b>Definition:</b> Matrix.h:160</div></div>
 <div class="ttc" id="aclassMatrix_html_ab6114bb3b048f92505d664efe4a10bfb"><div class="ttname"><a href="classMatrix.html#ab6114bb3b048f92505d664efe4a10bfb">Matrix::Apply</a></div><div class="ttdeci">Matrix&lt; T &gt; Apply(const std::function&lt; T(T)&gt; &amp;fun) const</div><div class="ttdef"><b>Definition:</b> Matrix.h:350</div></div>
-<div class="ttc" id="aclassPlot_html"><div class="ttname"><a href="classPlot.html">Plot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:100</div></div>
-<div class="ttc" id="aclassPlot_html_ad08d9746d9372ce9c14c042e12cb0a45"><div class="ttname"><a href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">Plot::AddData</a></div><div class="ttdeci">void AddData(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y, const std::string &amp;name, DataTypes dataType=DataTypes::NONE)</div><div class="ttdef"><b>Definition:</b> Plot.h:178</div></div>
+<div class="ttc" id="aclassPlot_html"><div class="ttname"><a href="classPlot.html">Plot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:103</div></div>
+<div class="ttc" id="aclassPlot_html_a3f3bea871eaf966d7d458c641873d278"><div class="ttname"><a href="classPlot.html#a3f3bea871eaf966d7d458c641873d278">Plot::AddData</a></div><div class="ttdeci">void AddData(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y, const std::string &amp;name, DataTypes dataType=DataTypes::NONE, const char *character=nullptr)</div><div class="ttdef"><b>Definition:</b> Plot.h:181</div></div>
 <div class="ttc" id="anumerics_2utils_8h_html"><div class="ttname"><a href="numerics_2utils_8h.html">utils.h</a></div></div>
 <div class="ttc" id="anumerics_2utils_8h_html_a32df81a2d10f9099cacedbbd378873bb"><div class="ttname"><a href="numerics_2utils_8h.html#a32df81a2d10f9099cacedbbd378873bb">diag</a></div><div class="ttdeci">Matrix&lt; T &gt; diag(const Matrix&lt; T &gt; &amp;in)</div><div class="ttdef"><b>Definition:</b> utils.h:109</div></div>
 <div class="ttc" id="asvd_8h_html"><div class="ttname"><a href="svd_8h.html">svd.h</a></div></div>

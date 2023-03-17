@@ -4,8 +4,8 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Perceptron_8h}{Perceptron.h}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Matrix_8h}{math/Matrix.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Perceptron_8h}{Perceptron.h}}"{}}}
 \DoxyCodeLine{5 }
 \DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classAdalineGD}{AdalineGD}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClassifier}{Classifier}}}
 \DoxyCodeLine{10 \{}
@@ -20,44 +20,39 @@
 \DoxyCodeLine{29             \textcolor{keyword}{auto} output = \mbox{\hyperlink{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}{netInput}}(X);}
 \DoxyCodeLine{30             \textcolor{keyword}{auto} errors = y -\/ output;}
 \DoxyCodeLine{31 }
-\DoxyCodeLine{32             \textcolor{keyword}{auto} delta = (X.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() * errors) * \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}};}
-\DoxyCodeLine{33             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{34                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{35                     \textcolor{keywordflow}{if}(i == 0) \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j) += \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}} * errors.sumElements();}
-\DoxyCodeLine{36                     \textcolor{keywordflow}{else}}
-\DoxyCodeLine{37                         \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j) += delta(i -\/ 1, j);}
-\DoxyCodeLine{38                 \}}
-\DoxyCodeLine{39             \}}
-\DoxyCodeLine{40             \textcolor{keyword}{auto} cost      = \mbox{\hyperlink{classAdalineGD_aa581a2f4df867d998f642c29c411b872}{costFunction}}(errors);}
-\DoxyCodeLine{41             \mbox{\hyperlink{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}{costs}}(iter, 0) = cost;}
-\DoxyCodeLine{42         \}}
-\DoxyCodeLine{43     \}}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{51     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}{netInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{}
-\DoxyCodeLine{52         \mbox{\hyperlink{classMatrix}{Matrix<double>}} A, B;}
-\DoxyCodeLine{53         A.\mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(\mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1, \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
-\DoxyCodeLine{54         B.\mbox{\hyperlink{classMatrix_ab5931e4a60d936c1294c187a6fa162e8}{Resize}}(1, \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
-\DoxyCodeLine{55         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{56             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{57                 \textcolor{keywordflow}{if}(i == 0) \{}
-\DoxyCodeLine{58                     B(i, j) = \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j);}
-\DoxyCodeLine{59                 \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{60                     A(i -\/ 1, j) = \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j);}
-\DoxyCodeLine{61                 \}}
-\DoxyCodeLine{62             \}}
-\DoxyCodeLine{63         \}}
-\DoxyCodeLine{64         B = \mbox{\hyperlink{classMatrix}{Matrix<double>}}(B(0, 0), X.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1);}
-\DoxyCodeLine{65         \textcolor{keywordflow}{return} (X * A) + B;}
-\DoxyCodeLine{66     \}}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{73     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineGD_ae01463b2da0a762dfa09753bca84c0a1}{activation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}{netInput}}(X); \}}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{80     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineGD_abbc2a9e4b5a9998a2aadcc11b49cc82d}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{}
-\DoxyCodeLine{81         std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= 0.0); \};}
-\DoxyCodeLine{82         \textcolor{keywordflow}{return} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classAdalineGD_ae01463b2da0a762dfa09753bca84c0a1}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
-\DoxyCodeLine{83     \}}
-\DoxyCodeLine{84 }
-\DoxyCodeLine{92     \textcolor{keywordtype}{double} \mbox{\hyperlink{classAdalineGD_aa581a2f4df867d998f642c29c411b872}{costFunction}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{ \textcolor{keywordflow}{return} HadamardMulti<double>(X, X).sumElements() / 2.0; \}}
-\DoxyCodeLine{93 \};}
+\DoxyCodeLine{32             \textcolor{keyword}{auto} delta\_w = (X.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() * errors) * \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34             \mbox{\hyperlink{classClassifier_aa9257aed615a41cac4030fcfc7dc08ca}{update\_weights}}(\mbox{\hyperlink{classMatrix}{Matrix<double>}}(\mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}} * errors.sumElements(), \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}()), delta\_w);}
+\DoxyCodeLine{35             \textcolor{keyword}{auto} cost      = \mbox{\hyperlink{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}{costFunction}}(errors);}
+\DoxyCodeLine{36             \mbox{\hyperlink{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}{costs}}(iter, 0) = cost;}
+\DoxyCodeLine{37         \}}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{46     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}{netInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{47         \mbox{\hyperlink{classMatrix}{Matrix<double>}} A, B;}
+\DoxyCodeLine{48         A.\mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(\mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1, \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{49         B.\mbox{\hyperlink{classMatrix_a9483215681a238c3da0e385c3a31fe16}{Resize}}(1, \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{50         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{51             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{52                 \textcolor{keywordflow}{if}(i == 0) \{}
+\DoxyCodeLine{53                     B(i, j) = \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j);}
+\DoxyCodeLine{54                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{55                     A(i -\/ 1, j) = \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j);}
+\DoxyCodeLine{56                 \}}
+\DoxyCodeLine{57             \}}
+\DoxyCodeLine{58         \}}
+\DoxyCodeLine{59         B = \mbox{\hyperlink{classMatrix}{Matrix<double>}}(B(0, 0), X.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1);}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} (X * A) + B;}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{68     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineGD_a04a7e391e198bd1b007cfe08633ec671}{activation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}{netInput}}(X); \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{75     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineGD_abb958a344b78f560ea059f16c920210d}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{76         std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= 0.0); \};}
+\DoxyCodeLine{77         \textcolor{keywordflow}{return} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classAdalineGD_a04a7e391e198bd1b007cfe08633ec671}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{87     \textcolor{keywordtype}{double} \mbox{\hyperlink{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}{costFunction}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} HadamardMulti<double>(X, X).sumElements() / 2.0; \}}
+\DoxyCodeLine{88 \};}
 
 \end{DoxyCode}

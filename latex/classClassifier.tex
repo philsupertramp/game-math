@@ -17,6 +17,8 @@ Inheritance diagram for Classifier\+:\begin{figure}[H]
 \item 
 void \mbox{\hyperlink{classClassifier_a82afce4aff01a4d7292eb43fb38329b8}{initialize\+\_\+weights}} (size\+\_\+t num\+Rows, size\+\_\+t num\+Columns=1)
 \item 
+void \mbox{\hyperlink{classClassifier_aa9257aed615a41cac4030fcfc7dc08ca}{update\+\_\+weights}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&update, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&delta)
+\item 
 virtual void \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)=0
 \item 
 virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classClassifier_a878bf4c825a27bee85a2466b2725e406}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)=0
@@ -93,7 +95,7 @@ Activates a given input \begin{DoxyReturn}{Returns}
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classAdalineGD_ae01463b2da0a762dfa09753bca84c0a1}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_a2df3e665c5393a671f179aa2a43ef6a5}{Adaline\+SGD}}, \mbox{\hyperlink{classPerceptron_a6eed548c264c9d91ca944b527c3df606}{Perceptron}}, and \mbox{\hyperlink{classLogRegSGD_ace312230b45f4c6eb9bf42c1f1fc2e87}{Log\+Reg\+SGD}}.
+Implemented in \mbox{\hyperlink{classPerceptron_a6eed548c264c9d91ca944b527c3df606}{Perceptron}}, \mbox{\hyperlink{classAdalineGD_a04a7e391e198bd1b007cfe08633ec671}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_abea138dacd3498bc02ace2924eacf5f6}{Adaline\+SGD}}, and \mbox{\hyperlink{classLogRegSGD_ace312230b45f4c6eb9bf42c1f1fc2e87}{Log\+Reg\+SGD}}.
 
 \mbox{\Hypertarget{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}\label{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}} 
 \index{Classifier@{Classifier}!costFunction@{costFunction}}
@@ -103,7 +105,7 @@ Implemented in \mbox{\hyperlink{classAdalineGD_ae01463b2da0a762dfa09753bca84c0a1
 
 calculates the current cost if unused override returning 0 
 
-Implemented in \mbox{\hyperlink{classLogRegSGD_aa66da6584236e3253e19d8738248f182}{Log\+Reg\+SGD}}, \mbox{\hyperlink{classAdalineGD_aa581a2f4df867d998f642c29c411b872}{Adaline\+GD}}, \mbox{\hyperlink{classPerceptron_a832773d19fa85440d301b4159cee76f6}{Perceptron}}, and \mbox{\hyperlink{classAdalineSGD_a7a65df1059ac4b19e8c69c166f76caef}{Adaline\+SGD}}.
+Implemented in \mbox{\hyperlink{classLogRegSGD_aa66da6584236e3253e19d8738248f182}{Log\+Reg\+SGD}}, \mbox{\hyperlink{classPerceptron_a832773d19fa85440d301b4159cee76f6}{Perceptron}}, \mbox{\hyperlink{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}{Adaline\+GD}}, and \mbox{\hyperlink{classAdalineSGD_a7a65df1059ac4b19e8c69c166f76caef}{Adaline\+SGD}}.
 
 \mbox{\Hypertarget{classClassifier_a3fa552228aeeee5abe1108c97f676cad}\label{classClassifier_a3fa552228aeeee5abe1108c97f676cad}} 
 \index{Classifier@{Classifier}!fit@{fit}}
@@ -162,7 +164,13 @@ Makes prediction for given input \begin{DoxyReturn}{Returns}
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classAdalineGD_abbc2a9e4b5a9998a2aadcc11b49cc82d}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_a2bd43abddbec075bb67ea0223f125b1d}{Adaline\+SGD}}, \mbox{\hyperlink{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}{Perceptron}}, and \mbox{\hyperlink{classLogRegSGD_a55ac458f1e5b06f8b9542d1133d50e67}{Log\+Reg\+SGD}}.
+Implemented in \mbox{\hyperlink{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}{Perceptron}}, \mbox{\hyperlink{classAdalineGD_abb958a344b78f560ea059f16c920210d}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_a4e2e8995938c23c32bf1dfca94b07ec8}{Adaline\+SGD}}, and \mbox{\hyperlink{classLogRegSGD_a55ac458f1e5b06f8b9542d1133d50e67}{Log\+Reg\+SGD}}.
+
+\mbox{\Hypertarget{classClassifier_aa9257aed615a41cac4030fcfc7dc08ca}\label{classClassifier_aa9257aed615a41cac4030fcfc7dc08ca}} 
+\index{Classifier@{Classifier}!update\_weights@{update\_weights}}
+\index{update\_weights@{update\_weights}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{update\_weights()}{update\_weights()}}
+{\footnotesize\ttfamily void Classifier\+::update\+\_\+weights (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{update,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 

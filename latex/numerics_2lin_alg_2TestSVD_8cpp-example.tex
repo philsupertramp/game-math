@@ -64,29 +64,29 @@ This is an example on how to use the svd method.
 \DoxyCodeLine{                        .Transpose();}
 \DoxyCodeLine{        \textcolor{keyword}{auto} xStd = U * \mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(S) * newTheta;}
 \DoxyCodeLine{        \mbox{\hyperlink{classPlot}{Plot}} plot1(\textcolor{stringliteral}{"{}PCA Example"{}});}
-\DoxyCodeLine{        plot1.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(random\_data.Transpose(), \textcolor{stringliteral}{"{}Data"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}});}
+\DoxyCodeLine{        plot1.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(random\_data.Transpose(), \textcolor{stringliteral}{"{}Data"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}});}
 \DoxyCodeLine{        plot1();}
-\DoxyCodeLine{        plot1.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(X.Transpose(), \textcolor{stringliteral}{"{}Data"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}});}
+\DoxyCodeLine{        plot1.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(X.Transpose(), \textcolor{stringliteral}{"{}Data"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}});}
 \DoxyCodeLine{        plot1();}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \mbox{\hyperlink{classPlot}{Plot}} plot(\textcolor{stringliteral}{"{}PCA Example"{}});}
-\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(X.Transpose(), \textcolor{stringliteral}{"{}Data"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}});}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(X.Transpose(), \textcolor{stringliteral}{"{}Data"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22a3482666ed13eb44c92df895adbb91e49}{DOTS}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keyword}{auto} mean1 = row\_mean(0, 0);}
 \DoxyCodeLine{        \textcolor{keyword}{auto} mean2 = row\_mean(0, 1);}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{comment}{// 1-\/a confidence interval}}
-\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(}
 \DoxyCodeLine{        xStd.GetSlice(0, 0, 0, xStd.columns() -\/ 1).Apply([mean1](\textcolor{keywordtype}{double} v) \{ return mean1 + v; \}).Transpose(),}
 \DoxyCodeLine{        xStd.GetSlice(1, 1, 0, xStd.columns() -\/ 1).Apply([mean2](\textcolor{keywordtype}{double} v) \{ return mean2 + v; \}).Transpose(),}
 \DoxyCodeLine{        \textcolor{stringliteral}{"{}conf 1"{}},}
 \DoxyCodeLine{        \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}});}
-\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(}
 \DoxyCodeLine{        xStd.GetSlice(0, 0, 0, xStd.columns() -\/ 1).Apply([mean1](\textcolor{keywordtype}{double} v) \{ return mean1 + 2.0 * v; \}).Transpose(),}
 \DoxyCodeLine{        xStd.GetSlice(1, 1, 0, xStd.columns() -\/ 1).Apply([mean2](\textcolor{keywordtype}{double} v) \{ return mean2 + 2.0 * v; \}).Transpose(),}
 \DoxyCodeLine{        \textcolor{stringliteral}{"{}conf 2"{}},}
 \DoxyCodeLine{        \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}});}
-\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(}
 \DoxyCodeLine{        xStd.GetSlice(0, 0, 0, xStd.columns() -\/ 1).Apply([mean1](\textcolor{keywordtype}{double} v) \{ return mean1 + 3.0 * v; \}).Transpose(),}
 \DoxyCodeLine{        xStd.GetSlice(1, 1, 0, xStd.columns() -\/ 1).Apply([mean2](\textcolor{keywordtype}{double} v) \{ return mean2 + 3.0 * v; \}).Transpose(),}
 \DoxyCodeLine{        \textcolor{stringliteral}{"{}conf 3"{}},}
@@ -99,10 +99,10 @@ This is an example on how to use the svd method.
 \DoxyCodeLine{            \{ mean1 + U(0, 0) * S(0, 0), mean2 + U(1, 0) * S(0, 0) \},}
 \DoxyCodeLine{        \};}
 \DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}PC1:\(\backslash\)n"{}} << pc1 << std::endl;}
-\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(pc1, \textcolor{stringliteral}{"{}pc 1"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}});}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(pc1, \textcolor{stringliteral}{"{}pc 1"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}});}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} pc2 = \{ \{ mean1, mean2 \}, \{ mean1 + U(0, 1) * S(0, 1), mean2 + U(1, 1) * S(0, 1) \} \};}
 \DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}PC2:\(\backslash\)n"{}} << pc2 << std::endl;}
-\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_ad08d9746d9372ce9c14c042e12cb0a45}{AddData}}(pc2, \textcolor{stringliteral}{"{}pc 2"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}});}
+\DoxyCodeLine{        plot.\mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{AddData}}(pc2, \textcolor{stringliteral}{"{}pc 2"{}}, \mbox{\hyperlink{Plot_8h_afb6eb4f28419b652027fad41104a6d22ab023460c84f774a219d46ccf4665994c}{LINE}});}
 \DoxyCodeLine{        plot();}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}

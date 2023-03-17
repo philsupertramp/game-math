@@ -4,9 +4,9 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Classifier_8h}{Classifier.h}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{SGD_8h}{SGD.h}}"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Matrix_8h}{math/Matrix.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Classifier_8h}{Classifier.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{SGD_8h}{SGD.h}}"{}}}
 \DoxyCodeLine{6 }
 \DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{classAdalineSGD}{AdalineSGD}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClassifier}{Classifier}}}
 \DoxyCodeLine{21 \{}
@@ -38,11 +38,11 @@
 \DoxyCodeLine{73 }
 \DoxyCodeLine{79     \textcolor{keywordtype}{double} \mbox{\hyperlink{classAdalineSGD_a7a65df1059ac4b19e8c69c166f76caef}{costFunction}}([[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} 0; \}}
 \DoxyCodeLine{80 }
-\DoxyCodeLine{86     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineSGD_a2df3e665c5393a671f179aa2a43ef6a5}{activation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAdalineSGD_a74a5c439e3594a88812d565708e9adfe}{netInput}}(X); \}}
+\DoxyCodeLine{86     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineSGD_abea138dacd3498bc02ace2924eacf5f6}{activation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classAdalineSGD_a74a5c439e3594a88812d565708e9adfe}{netInput}}(X); \}}
 \DoxyCodeLine{87 }
-\DoxyCodeLine{93     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineSGD_a2bd43abddbec075bb67ea0223f125b1d}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X) \{}
+\DoxyCodeLine{93     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineSGD_a4e2e8995938c23c32bf1dfca94b07ec8}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{}
 \DoxyCodeLine{94         std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= 0.0); \};}
-\DoxyCodeLine{95         \textcolor{keywordflow}{return} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classAdalineSGD_a2df3e665c5393a671f179aa2a43ef6a5}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
+\DoxyCodeLine{95         \textcolor{keywordflow}{return} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classAdalineSGD_abea138dacd3498bc02ace2924eacf5f6}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
 \DoxyCodeLine{96     \}}
 \DoxyCodeLine{97 \};}
 \DoxyCodeLine{98 }

@@ -41,9 +41,9 @@
 \DoxyCodeLine{89         \textcolor{keywordflow}{if}(error <= tol) \{ \textcolor{keywordflow}{return} \{ qSimpson, nodes \}; \}}
 \DoxyCodeLine{90 }
 \DoxyCodeLine{91         \textcolor{keyword}{auto} hTol        = tol / 2.0;}
-\DoxyCodeLine{92         \textcolor{keyword}{auto} leftValues  = values.\mbox{\hyperlink{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}{GetSlice}}(0, 1, 0, 0);}
+\DoxyCodeLine{92         \textcolor{keyword}{auto} leftValues  = values.\mbox{\hyperlink{classMatrix_a263c7a2f670ed338a4cc4050f248fcc5}{GetSlice}}(0, 1, 0, 0);}
 \DoxyCodeLine{93         \textcolor{keyword}{auto} resLeft     = \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{quad\_adaptive\_rec}}(fun, a, x(1, 0), hTol, hMin, nodes, leftValues);}
-\DoxyCodeLine{94         \textcolor{keyword}{auto} rightValues = values.\mbox{\hyperlink{classMatrix_a48d5726de651f2cadce0255bd23b6b9b}{GetSlice}}(1, 2, 0, 0);}
+\DoxyCodeLine{94         \textcolor{keyword}{auto} rightValues = values.\mbox{\hyperlink{classMatrix_a263c7a2f670ed338a4cc4050f248fcc5}{GetSlice}}(1, 2, 0, 0);}
 \DoxyCodeLine{95         \textcolor{keyword}{auto} resRight    = \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{quad\_adaptive\_rec}}(fun, x(1, 0), b, hTol, hMin, nodes, rightValues);}
 \DoxyCodeLine{96 }
 \DoxyCodeLine{97         \textcolor{keywordflow}{return} \{ resLeft.first + resRight.first, nodes \};}

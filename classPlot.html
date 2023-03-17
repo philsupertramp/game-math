@@ -116,10 +116,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab1ca4b31fc51ed85c65f1c8fcf786134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6030621e36e58f3119a7c81e4a9fbd31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a6030621e36e58f3119a7c81e4a9fbd31">lineWidth</a> (const int &amp;size)</td></tr>
 <tr class="separator:a6030621e36e58f3119a7c81e4a9fbd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad08d9746d9372ce9c14c042e12cb0a45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#ad08d9746d9372ce9c14c042e12cb0a45">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, const std::string &amp;name, <a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22">DataTypes</a> dataType=DataTypes::NONE)</td></tr>
-<tr class="separator:ad08d9746d9372ce9c14c042e12cb0a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44d1cd30b39263da1e8aa2d7db625bbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a44d1cd30b39263da1e8aa2d7db625bbd">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mat, const std::string &amp;name, <a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22">DataTypes</a> dataTypeName=DataTypes::NONE, int dimensions=2)</td></tr>
-<tr class="separator:a44d1cd30b39263da1e8aa2d7db625bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f3bea871eaf966d7d458c641873d278"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a3f3bea871eaf966d7d458c641873d278">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y, const std::string &amp;name, <a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22">DataTypes</a> dataType=DataTypes::NONE, const char *character=nullptr)</td></tr>
+<tr class="separator:a3f3bea871eaf966d7d458c641873d278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c575449a118081b0ea67f0f14bc65ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#a5c575449a118081b0ea67f0f14bc65ba">AddData</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mat, const std::string &amp;name, <a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22">DataTypes</a> dataTypeName=DataTypes::NONE, const char *pointChar=nullptr, int dimensions=2)</td></tr>
+<tr class="separator:a5c575449a118081b0ea67f0f14bc65ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa0e8f10d7a0d4bd2b90037ec4ca3029"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlot.html#afa0e8f10d7a0d4bd2b90037ec4ca3029">operator()</a> () const</td></tr>
 <tr class="separator:afa0e8f10d7a0d4bd2b90037ec4ca3029"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -167,8 +167,8 @@ Private Member Functions</h2></td></tr>
 <p> Examples: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classPlot.html">Plot</a> plot(<span class="stringliteral">&quot;My plot&quot;</span>);</div>
 <div class="line">plot.AddData({{1, 2}, {2, 3}}, <span class="stringliteral">&quot;Some points&quot;</span>, DataType::POINT);</div>
 <div class="line">plot();</div>
-<div class="ttc" id="aclassPlot_html"><div class="ttname"><a href="classPlot.html">Plot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:100</div></div>
-</div><!-- fragment --> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2analysis_2TestDifferentiation_8cpp-example.html#_a9">numerics/analysis/TestDifferentiation.cpp</a>, <a class="el" href="numerics_2lin_alg_2TestSVD_8cpp-example.html#_a12">numerics/lin_alg/TestSVD.cpp</a>, and <a class="el" href="plot_2TestPlot_8cpp-example.html#_a6">plot/TestPlot.cpp</a>.</dd>
+<div class="ttc" id="aclassPlot_html"><div class="ttname"><a href="classPlot.html">Plot</a></div><div class="ttdef"><b>Definition:</b> Plot.h:103</div></div>
+</div><!-- fragment --> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2analysis_2TestDifferentiation_8cpp-example.html#_a4">numerics/analysis/TestDifferentiation.cpp</a>, <a class="el" href="numerics_2lin_alg_2TestSVD_8cpp-example.html#_a12">numerics/lin_alg/TestSVD.cpp</a>, and <a class="el" href="plot_2TestPlot_8cpp-example.html#_a6">plot/TestPlot.cpp</a>.</dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad5c4ae2e4201841f833c2d6968681c0a" name="ad5c4ae2e4201841f833c2d6968681c0a"></a>
@@ -204,8 +204,8 @@ Private Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a44d1cd30b39263da1e8aa2d7db625bbd" name="a44d1cd30b39263da1e8aa2d7db625bbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44d1cd30b39263da1e8aa2d7db625bbd">&#9670;&#160;</a></span>AddData() <span class="overload">[1/2]</span></h2>
+<a id="a5c575449a118081b0ea67f0f14bc65ba" name="a5c575449a118081b0ea67f0f14bc65ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c575449a118081b0ea67f0f14bc65ba">&#9670;&#160;</a></span>AddData() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,6 +230,12 @@ Private Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype"><a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22">DataTypes</a>&#160;</td>
           <td class="paramname"><em>dataTypeName</em> = <code>DataTypes::NONE</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pointChar</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -261,8 +267,8 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad08d9746d9372ce9c14c042e12cb0a45" name="ad08d9746d9372ce9c14c042e12cb0a45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad08d9746d9372ce9c14c042e12cb0a45">&#9670;&#160;</a></span>AddData() <span class="overload">[2/2]</span></h2>
+<a id="a3f3bea871eaf966d7d458c641873d278" name="a3f3bea871eaf966d7d458c641873d278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f3bea871eaf966d7d458c641873d278">&#9670;&#160;</a></span>AddData() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,7 +298,13 @@ Private Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="Plot_8h.html#afb6eb4f28419b652027fad41104a6d22">DataTypes</a>&#160;</td>
-          <td class="paramname"><em>dataType</em> = <code>DataTypes::NONE</code>&#160;</td>
+          <td class="paramname"><em>dataType</em> = <code>DataTypes::NONE</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>character</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -316,7 +328,7 @@ Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2analysis_2TestDifferentiation_8cpp-example.html#a10">numerics/analysis/TestDifferentiation.cpp</a>, <a class="el" href="numerics_2lin_alg_2TestSVD_8cpp-example.html#a13">numerics/lin_alg/TestSVD.cpp</a>, and <a class="el" href="plot_2TestPlot_8cpp-example.html#a7">plot/TestPlot.cpp</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2analysis_2TestDifferentiation_8cpp-example.html#a5">numerics/analysis/TestDifferentiation.cpp</a>, <a class="el" href="numerics_2lin_alg_2TestSVD_8cpp-example.html#a13">numerics/lin_alg/TestSVD.cpp</a>, and <a class="el" href="plot_2TestPlot_8cpp-example.html#a7">plot/TestPlot.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -469,6 +481,8 @@ Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a10">plot/TestPlot.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -565,7 +579,7 @@ Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a10">plot/TestPlot.cpp</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a11">plot/TestPlot.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -599,7 +613,7 @@ Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a11">plot/TestPlot.cpp</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="plot_2TestPlot_8cpp-example.html#a12">plot/TestPlot.cpp</a>.</dd>
 </dl>
 
 </div>

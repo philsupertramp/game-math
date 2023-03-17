@@ -92,7 +92,7 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(res, expected);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        res = \mbox{\hyperlink{namespaceMath_1_1Utils_aa8428729c539b4820be1f284b6f2603b}{Math::Utils::scale}}(model, (\mbox{\hyperlink{structvec3}{vec3f}})\{2, 2, 2\});}
+\DoxyCodeLine{        res = \mbox{\hyperlink{namespaceMath_1_1Utils_aa8428729c539b4820be1f284b6f2603b}{Math::Utils::scale}}(model, (\mbox{\hyperlink{structvec3}{vec3f}})\{ 2, 2, 2 \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        expected[3][3] = 1.0f;}
 \DoxyCodeLine{        AssertEqual(res, expected);}
@@ -186,17 +186,17 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestAbs()\{}
-\DoxyCodeLine{      AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(-\/1), 1);}
-\DoxyCodeLine{      AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(1.), 1.);}
-\DoxyCodeLine{      AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(0.), 0.);}
+\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestAbs() \{}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(-\/1), 1);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(1.), 1.);}
+\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(0.), 0.);}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
-\DoxyCodeLine{      AssertEqual(abs<int>(-\/1.2), 1);}
-\DoxyCodeLine{      AssertEqual(abs<float>(1.), 1.);}
-\DoxyCodeLine{      AssertEqual(abs<int>(0), 0);}
+\DoxyCodeLine{        AssertEqual(abs<int>(-\/1.2), 1);}
+\DoxyCodeLine{        AssertEqual(abs<float>(1.), 1.);}
+\DoxyCodeLine{        AssertEqual(abs<int>(0), 0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{      \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}

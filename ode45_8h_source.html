@@ -116,7 +116,7 @@ $(function() {
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    { { 5179.0 / 57600.0, 0, 7571.0 / 16695.0, 393.0 / 640.0, -92097.0 / 339200.0, 187.0 / 2100.0, 1.0 / 40.0 } });</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    y.<a class="code hl_function" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">SetRow</a>(0, y0);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    y.<a class="code hl_function" href="classMatrix.html#a097ed201a1768090a524f621ee2d80a1">SetRow</a>(0, y0);</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    t(0, 0) = tInterval[0];</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> l = 0; l &lt; n - 1; l++) {</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        t(l + 1, 0) = t(l, 0) + h;</div>
@@ -130,12 +130,12 @@ $(function() {
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            k.SetRow(i_k, fun(t(l, 0) + c(0, i_k) * h, y_k));</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keyword">auto</span> y_l = y(l) + (b5 * k) * h;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        y.<a class="code hl_function" href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">SetRow</a>(l + 1, y_l);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        y.<a class="code hl_function" href="classMatrix.html#a097ed201a1768090a524f621ee2d80a1">SetRow</a>(l + 1, y_l);</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">return</span> { y, t };</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:40</div></div>
-<div class="ttc" id="aclassMatrix_html_a323be6fd46556adf05dbbd2d4e54a4c4"><div class="ttname"><a href="classMatrix.html#a323be6fd46556adf05dbbd2d4e54a4c4">Matrix::SetRow</a></div><div class="ttdeci">void SetRow(const size_t &amp;index, const Matrix&lt; T &gt; &amp;other)</div><div class="ttdef"><b>Definition:</b> Matrix.h:518</div></div>
+<div class="ttc" id="aclassMatrix_html_a097ed201a1768090a524f621ee2d80a1"><div class="ttname"><a href="classMatrix.html#a097ed201a1768090a524f621ee2d80a1">Matrix::SetRow</a></div><div class="ttdeci">void SetRow(size_t index, const Matrix&lt; T &gt; &amp;other)</div><div class="ttdef"><b>Definition:</b> Matrix.h:514</div></div>
 <div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:189</div></div>
 <div class="ttc" id="aode45_8h_html_a88090203efe19f71864a54a7158c36b4"><div class="ttname"><a href="ode45_8h.html#a88090203efe19f71864a54a7158c36b4">ODE45</a></div><div class="ttdeci">ODEResult ODE45(const ODE &amp;fun, const std::vector&lt; double &gt; &amp;tInterval, const Matrix&lt; double &gt; &amp;y0, double h=0.0)</div><div class="ttdef"><b>Definition:</b> ode45.h:35</div></div>
 <div class="ttc" id="aode_2ode_8h_html"><div class="ttname"><a href="ode_2ode_8h.html">ode.h</a></div></div>
