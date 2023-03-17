@@ -1,10 +1,10 @@
 #pragma once
 
-#include "vec4.h"
 #include "vec2.h"
+#include "vec4.h"
 #include <cmath>
-#include <ostream>
 #include <limits>
+#include <ostream>
 
 /**
  * 3D vector representation

@@ -452,9 +452,7 @@ public:
      * @param elem element index
      * @return value at given address
      */
-    T& operator()(size_t row, size_t column, size_t elem = 0) {
-        return _data[GetIndex(row, column, elem)];
-    }
+    T& operator()(size_t row, size_t column, size_t elem = 0) { return _data[GetIndex(row, column, elem)]; }
     /**
      * const element-access
      * @param row row index
@@ -462,9 +460,7 @@ public:
      * @param elem element index
      * @return const value at given address
      */
-    T& operator()(size_t row, size_t column, size_t elem = 0) const {
-        return _data[GetIndex(row, column, elem)];
-    }
+    T& operator()(size_t row, size_t column, size_t elem = 0) const { return _data[GetIndex(row, column, elem)]; }
 
     /**
      * row getter

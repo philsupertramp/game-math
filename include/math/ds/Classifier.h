@@ -52,14 +52,14 @@ public:
         w_initialized = true;
     }
 
-    void update_weights(const Matrix<double>& update, const Matrix<double>& delta){
-      for(size_t i = 0; i < weights.rows(); i++) {
-          for(size_t j = 0; j < weights.columns(); j++) {
-              if(i == 0) weights(i, j) += update(i, j);
-              else weights(i, j) += delta(i - 1, j);
-          }
-      }
-
+    void update_weights(const Matrix<double>& update, const Matrix<double>& delta) {
+        for(size_t i = 0; i < weights.rows(); i++) {
+            for(size_t j = 0; j < weights.columns(); j++) {
+                if(i == 0) weights(i, j) += update(i, j);
+                else
+                    weights(i, j) += delta(i - 1, j);
+            }
+        }
     }
     /**
      * Implements training algorithm

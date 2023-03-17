@@ -10,15 +10,30 @@ class DifferentiationTestCase : public Test
     double b          = 2 * M_PI;
     Matrix<double> xk = linspace(a, b, m).Transpose();
 
-    Matrix<double> f(const Matrix<double>& in) {
+    static Matrix<double> f(const Matrix<double>& in) {
         return in.Apply([](const double& val) { return cos(val); });
     }
 
-    Matrix<double> df(const Matrix<double>& in) {
+    static Matrix<double> df(const Matrix<double>& in) {
         return in.Apply([](const double& val) { return -sin(val); });
     }
 
     bool TestDiffs() {
+        auto expected = df(xk);
+        auto f_xk     = f(xk);
+
+        Plot plot("diffs");
+        plot.AddData(HorizontalConcat(xk, expected), "Analytical result");
+        plot.AddData(HorizontalConcat(xk, forwardDiff(xk, f(xk))), "forward", DataTypes::DOTS, "x");
+        plot.AddData(HorizontalConcat(xk, backwardDiff(xk, f(xk))), "backward", DataTypes::DOTS, "o");
+        plot.AddData(HorizontalConcat(xk, centralDiff(xk, f(xk))), "centralDiff", DataTypes::DOTS, "+");
+        plot.AddData(HorizontalConcat(xk, backwardDiff2(xk, f(xk))), "backward2", DataTypes::DOTS, "-");
+        plot.AddData(HorizontalConcat(xk, centralDiff4(xk, f(xk))), "centralDiff4", DataTypes::DOTS, "#");
+        plot();
+
+        return true;
+    }
+    bool TestBackwardDiffs() {
         auto expected = df(xk);
         auto f_xk     = f(xk);
         Matrix<double> backward({
@@ -33,6 +48,13 @@ class DifferentiationTestCase : public Test
         { 0.84854514524284785 },
         { 0.33511665007288594 },
         });
+        AssertEqual(backwardDiff(xk, f_xk), backward);
+        return true;
+    }
+
+    bool TestForwardDiffs() {
+        auto expected = df(xk);
+        auto f_xk     = f(xk);
         Matrix<double> forward({
         { -0.33511665007288566 },
         { -0.84854514524284763 },
@@ -45,6 +67,13 @@ class DifferentiationTestCase : public Test
         { 0.33511665007288594 },
         { 0 },
         });
+        AssertEqual(forwardDiff(xk, f_xk), forward);
+
+        return true;
+    }
+    bool TestCentralDiffs() {
+        auto expected = df(xk);
+        auto f_xk     = f(xk);
         Matrix<double> central({
         { 0 },
         { -0.59183089765786667 },
@@ -57,10 +86,17 @@ class DifferentiationTestCase : public Test
         { 0.59183089765786689 },
         { 0 },
         });
+        AssertEqual(centralDiff(xk, f_xk), central);
+        return true;
+    }
+    bool TestBackwardDiffs2() {
+        auto expected = df(xk);
+        auto f_xk     = f(xk);
         Matrix<double> backward2({
         { 0 },
         { 0 },
-        { -1.1052593928278287 }, { -1.0231223320158569 },
+        { -1.1052593928278287 },
+        { -1.0231223320158569 },
         { -0.46225496131552568 },
         { 0.31490664317598388 },
         { 0.94471992952795147 },
@@ -68,37 +104,37 @@ class DifferentiationTestCase : public Test
         { 0.79035274965184488 },
         { 0.078402402487904935 },
         });
-        Matrix<double> central4({
-        { 0 },
-        { 0 },
-        { -0.97744963627075465 }, { -0.85955478451624223 }, { -0.33946469619924124 }, { 0.33946469619924052 }, { 0.8595547845162419 }, { 0.9774496362707551 }, { 0 }, { 0 } });
-
-        std::cout << backwardDiff(xk, f_xk) << std::endl;
-        std::cout << forwardDiff(xk, f_xk) << std::endl;
-        std::cout << centralDiff(xk, f_xk) << std::endl;
-        std::cout << backwardDiff2(xk, f_xk) << std::endl;
-        std::cout << centralDiff4(xk, f_xk) << std::endl;
-
-        AssertEqual(backwardDiff(xk, f_xk), backward);
-        AssertEqual(forwardDiff(xk, f_xk), forward);
-        AssertEqual(centralDiff(xk, f_xk), central);
         AssertEqual(backwardDiff2(xk, f_xk), backward2);
+        return true;
+    }
+
+    bool TestCentralDiffs4() {
+        auto expected = df(xk);
+        auto f_xk     = f(xk);
+        Matrix<double> central4({ { 0 },
+                                  { 0 },
+                                  { -0.97744963627075465 },
+                                  { -0.85955478451624223 },
+                                  { -0.33946469619924124 },
+                                  { 0.33946469619924052 },
+                                  { 0.8595547845162419 },
+                                  { 0.9774496362707551 },
+                                  { 0 },
+                                  { 0 } });
+
         AssertEqual(centralDiff4(xk, f_xk), central4);
-
-        Plot plot("diffs");
-        plot.AddData(HorizontalConcat(xk, expected), "Analytical result");
-        plot.AddData(HorizontalConcat(xk, forwardDiff(xk, f(xk))), "forward", DataTypes::DOTS, "x");
-        plot.AddData(HorizontalConcat(xk, backwardDiff(xk, f(xk))), "backward", DataTypes::DOTS, "o");
-        plot.AddData(HorizontalConcat(xk, centralDiff(xk, f(xk))), "centralDiff", DataTypes::DOTS, "+");
-        plot.AddData(HorizontalConcat(xk, backwardDiff2(xk, f(xk))), "backward2", DataTypes::DOTS, "-");
-        plot.AddData(HorizontalConcat(xk, centralDiff4(xk, f(xk))), "centralDiff4", DataTypes::DOTS, "#");
-        plot();
-
         return true;
     }
 
 public:
-    virtual void run() { TestDiffs(); }
+    virtual void run() {
+        TestDiffs();
+        TestBackwardDiffs();
+        TestBackwardDiffs2();
+        TestForwardDiffs();
+        TestCentralDiffs();
+        TestCentralDiffs4();
+    }
 };
 
 

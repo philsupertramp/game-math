@@ -87,7 +87,7 @@ class UtilsTestCase : public Test
 
         AssertEqual(res, expected);
 
-        res = Math::Utils::scale(model, (vec3f){2, 2, 2});
+        res = Math::Utils::scale(model, (vec3f){ 2, 2, 2 });
 
         expected[3][3] = 1.0f;
         AssertEqual(res, expected);
@@ -181,17 +181,17 @@ class UtilsTestCase : public Test
         return true;
     }
 
-    bool TestAbs(){
-      AssertEqual(abs(-1), 1);
-      AssertEqual(abs(1.), 1.);
-      AssertEqual(abs(0.), 0.);
+    bool TestAbs() {
+        AssertEqual(abs(-1), 1);
+        AssertEqual(abs(1.), 1.);
+        AssertEqual(abs(0.), 0.);
 
 
-      AssertEqual(abs<int>(-1.2), 1);
-      AssertEqual(abs<float>(1.), 1.);
-      AssertEqual(abs<int>(0), 0);
+        AssertEqual(abs<int>(-1.2), 1);
+        AssertEqual(abs<float>(1.), 1.);
+        AssertEqual(abs<int>(0), 0);
 
-      return true;
+        return true;
     }
 
 public:

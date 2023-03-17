@@ -1,8 +1,8 @@
 #pragma once
 
+#include "../Matrix.h"
 #include "Classifier.h"
 #include "SGD.h"
-#include "../Matrix.h"
 
 /**
  * Adaline linear neuron implementation using statistic gradient decent

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Perceptron.h"
 #include "../Matrix.h"
+#include "Perceptron.h"
 
 /**
  * Adaline neuron classifier using gradient decent method
@@ -31,10 +31,7 @@ public:
 
             auto delta_w = (X.Transpose() * errors) * eta;
 
-            update_weights(
-              Matrix<double>(eta * errors.sumElements(), weights.rows(), weights.columns()),
-              delta_w
-            );
+            update_weights(Matrix<double>(eta * errors.sumElements(), weights.rows(), weights.columns()), delta_w);
             auto cost      = costFunction(errors);
             costs(iter, 0) = cost;
         }

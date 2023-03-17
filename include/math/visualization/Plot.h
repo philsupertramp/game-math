@@ -179,7 +179,10 @@ public:
      * @param dataType plot data type
      */
     void AddData(
-    const Matrix<double>& x, const Matrix<double>& y, const std::string& name, DataTypes dataType = DataTypes::NONE,
+    const Matrix<double>& x,
+    const Matrix<double>& y,
+    const std::string& name,
+    DataTypes dataType    = DataTypes::NONE,
     const char* character = nullptr) {
         x.assertSize(y);
         AddData(HorizontalConcat(x, y), name, dataType, character);
@@ -196,8 +199,8 @@ public:
     const Matrix<double>& mat,
     const std::string& name,
     DataTypes dataTypeName = DataTypes::NONE,
-    const char* pointChar = nullptr,
-    int dimensions = 2) {
+    const char* pointChar  = nullptr,
+    int dimensions         = 2) {
         if(dimensions <= 3) {
             // calculate boundaries
             auto new_bX = getBoundaries(mat.GetSlice(0, mat.rows() - 1, 0, 0));
@@ -247,7 +250,8 @@ public:
 
         attributes.plotIndices.push_back(index);
         attributes.plotNames.push_back(newName);
-        attributes.plotTypes.push_back(dataTypeName == DataTypes::NONE ? plotTypeName : GetPlotDataTypeName(dataTypeName));
+        attributes.plotTypes.push_back(
+        dataTypeName == DataTypes::NONE ? plotTypeName : GetPlotDataTypeName(dataTypeName));
         attributes.characters.push_back(pointChar);
         numElements++;
     }
@@ -261,9 +265,7 @@ public:
         FILE* gnuplot = popen("gnuplot --persist", "w");
         writeAttributes(gnuplot);
         for(int i = 0; i < numElements; ++i) {
-            if(i == 0){
-              fprintf(gnuplot, "%s", plotType);
-            }
+            if(i == 0) { fprintf(gnuplot, "%s", plotType); }
             fprintf(gnuplot, "'%s'", dataFileName);
             auto index = attributes.plotIndices[i];
             if(index.stop != -1) {
@@ -272,9 +274,7 @@ public:
                 fprintf(gnuplot, " index %d with ", index.start);
             }
             fprintf(gnuplot, "%s", attributes.plotTypes[i]);
-            if(attributes.characters[i] != nullptr){
-                fprintf(gnuplot, "pt '%s'", attributes.characters[i]);
-            }
+            if(attributes.characters[i] != nullptr) { fprintf(gnuplot, "pt '%s'", attributes.characters[i]); }
             fprintf(gnuplot, " title '%s'", attributes.plotNames[i]);
             fprintf(gnuplot, i == (numElements - 1) ? "\n" : ",");
         }
@@ -290,7 +290,7 @@ private:
      */
     [[nodiscard]] inline PlotBoundary getBoundaries(const Matrix<double>& x) const {
         /*
-         * determines the boundaries of a array
+         * determines the boundaries of an array
          * returns: boundary(min, max)
          */
         double startX = min(x);

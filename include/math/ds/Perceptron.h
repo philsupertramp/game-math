@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Classifier.h"
 #include "../Matrix.h"
+#include "Classifier.h"
 
 /**
  * Represents Perceptron definition by Frank Rosenblatt
@@ -46,7 +46,7 @@ public:
                 auto xi     = elem.first;
                 auto target = elem.second;
 
-                auto output = predict(xi);
+                auto output  = predict(xi);
                 auto delta_w = (target - output);
                 update_weights(delta_w, (delta_w * xi).Transpose() * eta);
                 _errors += costFunction(delta_w);

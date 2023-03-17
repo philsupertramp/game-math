@@ -266,23 +266,23 @@ class SymbolicTestCase : public Test
     }
 
     bool TestGetString() {
-      Equation eq("x");
-      std::cout << eq.GetString() << std::endl;
-      AssertEqual(eq.GetString(), "x");
+        Equation eq("x");
+        std::cout << eq.GetString() << std::endl;
+        AssertEqual(eq.GetString(), "x");
 
-      eq = Equation("x^2");
-      std::cout << eq.GetString() << std::endl;
-      AssertEqual(eq.GetString(), "x^2.000000");
+        eq = Equation("x^2");
+        std::cout << eq.GetString() << std::endl;
+        AssertEqual(eq.GetString(), "x^2.000000");
 
-      eq = Equation("x+1");
-      std::cout << eq.GetString() << std::endl;
-      AssertEqual(eq.GetString(), "x+1.000000");
+        eq = Equation("x+1");
+        std::cout << eq.GetString() << std::endl;
+        AssertEqual(eq.GetString(), "x+1.000000");
 
-      eq = Equation("x*(y-1)^2");
-      // TODO: this is a false notation.
-      AssertEqual(eq.GetString(), "x*y+-1.000000^2.000000");
+        eq = Equation("x*(y-1)^2");
+        // TODO: this is a false notation.
+        AssertEqual(eq.GetString(), "x*y+-1.000000^2.000000");
 
-      return true;
+        return true;
     }
 
     bool TestSimplify() {

@@ -114,7 +114,7 @@ Matrix<double> Regression(const Matrix<double>& a) {
     auto u2              = ones(size, 1);
     Matrix<double> right = { { (a.Transpose() * u1)(0, 0) }, { (a.Transpose() * u2)(0, 0) } };
     Matrix<double> left  = { { (u1.Transpose() * u1)(0, 0), (u1.Transpose() * u2)(0, 0) },
-                            { (u1.Transpose() * u2)(0, 0), (u2.Transpose() * u2)(0, 0) } };
+                             { (u1.Transpose() * u2)(0, 0), (u2.Transpose() * u2)(0, 0) } };
     auto res             = gaussSeidel(left, right);
     return res(1, 0) * ones(size, 1) + u1 * res(0, 0);
 }
