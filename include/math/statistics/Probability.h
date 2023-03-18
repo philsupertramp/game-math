@@ -69,7 +69,12 @@ double pow(double x, int exponent);
 double norm(const Matrix<double>& vec, P_NORM pNorm);
 /**
  * Computes covariance of two given vectors
- * $$\text{cov}(x, y)$$
+ * $$\text{cov}(x, y) = E[(x - E[x])(y - E[y])]$$
+ *
+ * The covariance is a measure of joint variability of two random variables.
+ * - Positive covariance -> variables have same tendencies, i.e. high and low values in both variables at the same time
+ * - Negative covariance -> variables have different tendencies, i.e. high values in variable $x$ correspond to low values in variable $y$ and vice versa 
+ *
  * @param x a vector
  * @param y another vector
  * @return resulting covariance
@@ -77,13 +82,27 @@ double norm(const Matrix<double>& vec, P_NORM pNorm);
 double cov(const Matrix<double>& x, const Matrix<double>& y);
 /**
  * Computes variance of given vector
- * $$\text{var}(x)$$
+ * $$\text{var}(x)=E[(X - \mu)^2] = \text{cov}(X,X)$$
+ *
+ * The variance is the expectation of the square deviation of a random variable from its population mean or sample mean.
+ *
  * @param x a vector
  * @return $$\text{var}(x)$$
  */
 double var(const Matrix<double>& x);
 
-
+/**
+ * Computes standard deviation of given vector
+ * $$
+ * \text{sd}(x) = \sigma(x) = \sqrt{E[(X-\mu)^2]} = \sqrt{E[X^2] - (E[X])^2}
+ * $$
+ *
+ * The standard deviation is a measure of variance or dispersion of a set of values.
+ *
+ * @param x set of values to compute standard deviation from
+ * @returns standard deviation of given x
+ */
+Matrix<double> sd(const Matrix<double>& x);
 /**
  * Computes linear (regression) model for given random sample
  * $$
@@ -98,26 +117,64 @@ double var(const Matrix<double>& x);
  */
 LinearModel lm(const Matrix<double>& x, const Matrix<double>& y);
 /**
- *$$\frac{\text{var}(y)}{\text{var}(\hat{y})}$$
+ * The coefficient of determination ($R^2$) is the proportion of the variation in the dependent variable that is
+ * predictable from independent variables.
+ *
+ *$$R^2 = \frac{\text{var}(y)}{\text{var}(\hat{y})}$$
  * @param y $$y$$
  * @param yHat $$\hat{y}$$
- * @return
+ * @return proportion of the variation
  */
 double coefficientOfDetermination(const Matrix<double>& y, const Matrix<double>& yHat);
 /**
- *
+ * Computes likelihood
  * @return
  */
 double likelihood(const Matrix<double>&);
 
 /**
- * Calculates regression for given values a, mapped onto
- * points $$P(i, a_i)$$
+ * Computes orthogonal-linear regression for given values A, mapped onto
+ * points $$P(i, a_i)$$.
+ *
+ * $$Y_i = \beta_0 + \beta_1 * a_i$$
+ *
  * @param A vector of y-values
- * @return
+ * @return A vector of x-value approximations
  */
 Matrix<double> Regression(const Matrix<double>& A);
 
+/**
+ * Computes correlation matrix of two matrices
+ *
+ * $$
+ * \text{corr}(X, Y) = \frac{\text{cov}(X, Y)}{\sigma_X\sigma_Y}
+ * $$
+ * with $\sigma$ the standard deviations of $X$ and $Y$.
+ *
+ * The correlation matrix contains correlation coefficients $\text{corr}_{x_i, y_i} \in [-1, 1]$.
+ * - negative correlation coefficients: The values negatively influence each other
+ * - positive correlation coefficients: The values positively influence each other
+ * - neutral correlation coefficients: The values don't influence each other
+ * @param A the first matrix of values
+ * @param B second matrix of values in same shape as A
+ * @return The correlation matrix of A and B
+ */
+Matrix<double> corr(const Matrix<double>& A, const Matrix<double>& B);
+
+/**
+ * Computes the expected value of a given vector.
+ *
+ * $$
+ * E[X] = \sum x_i P(x_i)
+ * $$
+ *
+ * The expected value is a generalization of the weighted average.
+ * Given a set of random values, the expected value is the value that is most likely to occur within given distribution of values.
+ *
+ * @param A the matrix to caclulate the expected value(s) of, each row will receive a corresponding expected value
+ * @return The expected value(s) of A
+ */
+Matrix<double> expected_value(const Matrix<double>& A);
 
 /**
  * \example statistics/TestProbability.cpp

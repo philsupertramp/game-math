@@ -69,6 +69,33 @@ class ProbabilityTestCase : public Test
         return true;
     }
 
+    bool Testsd(){
+      Matrix<double> A = { { -1, 0, 3, 7, 4, 6, 10 } };
+      Matrix<double> B = {
+        { -1, 0, 3, 7, 4, 6, 10 },
+        { 12.5, 10., 9.95, 11.5, 12., 10., 8.},
+      };
+      
+      auto res = sd(A.Transpose());
+      auto res2 = sd(B.Transpose());
+
+      AssertEqual(res(0, 0), 3.6027200608339);
+      AssertEqual(res2(0, 0), 3.6027200608339);
+      AssertEqual(res2(1, 0), 1.4279641566416);
+
+
+      return true;
+    }
+
+    bool TestCorr(){
+      Matrix<double> A = {{1,2,3}};
+      Matrix<double> B = {{1,2,3}};
+
+      std::cout << corr(A, B);
+
+      return true;
+    }
+
 public:
     virtual void run() {
         TestRound();
@@ -82,6 +109,8 @@ public:
         TestGetExponent();
         TestLikelihood();
         TestRegression();
+        Testsd();
+        TestCorr();
     }
 };
 
