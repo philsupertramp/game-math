@@ -88,16 +88,6 @@ if [ ${TEST_ONLY} -eq 1 ]
 then
   cd ${DIR_NAME};
   ctest --coverage --extra-verbose
-elif [ ${WITH_BENCHMARKS} -eq 1 ]
-then
-  cd benchmarks
-  mkdir -p ${DIR_NAME}
-  (
-    cd ${DIR_NAME};
-    cmake ${BUILD_OPTIONS} -G "CodeBlocks - Unix Makefiles" ..
-    cmake --build . --target benchmarks -- -j 3;
-    ./benchmarks;
-  )
 else
   if [ ${CLEAR:-0} == 1 ]; then
     rm -rf ${DIR_NAME};
@@ -107,7 +97,11 @@ else
     cd ${DIR_NAME};
     cmake ${BUILD_OPTIONS} -G "CodeBlocks - Unix Makefiles" ..
     cmake --build . ${TARGET} -- -j 3;
-
-    test_command
+    if [ ${WITH_BENCHMARKS} -eq 1 ]
+    then
+      ./benchmarks/benchmarks;
+    else
+      test_command
+    fi
   )
 fi

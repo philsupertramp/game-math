@@ -24,6 +24,7 @@ public:
 
 int main() {
     Timer multi_timer('*');
+    Timer had_multi_timer('#');
     Timer add_timer('+');
     int I = 3;
     int J = 5000000;
@@ -56,9 +57,9 @@ int main() {
     for(size_t j = 0; j < J; ++j) { A + B; }
     multi_timer.stop(A.rows() * A.columns(), J);
 
-    multi_timer.start();
+    had_multi_timer.start();
     for(size_t j = 0; j < J; ++j) { A.HadamardMulti(B); }
-    multi_timer.stop(A.rows() * A.columns(), J);
+    had_multi_timer.stop(A.rows() * A.columns(), J);
 
     add_timer.start();
     for(size_t j = 0; j < J; ++j) { A* B; }
