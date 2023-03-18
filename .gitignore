@@ -1,8 +1,9 @@
 # build directories
-*-build-*/
+*build*/
+*release*/
+*debug*/
 build/*
 out/
-*-release-*/
 DeepLearningPython35/
 
 # IDE files
@@ -12,6 +13,7 @@ massif.out.*
 octave-workspace
 *.RData
 *.Rhistory
+tags
 
 # code coverage
 cov*.info
