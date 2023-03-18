@@ -36,7 +36,7 @@
 \DoxyCodeLine{83         \textcolor{keywordflow}{if}(x.columns() > x.rows()) \{ x = x.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}(); \}}
 \DoxyCodeLine{84         \mbox{\hyperlink{classMatrix}{Matrix<double>}} out(0, x.rows(), x.rows());}
 \DoxyCodeLine{85         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < out.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
-\DoxyCodeLine{86             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < out.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++j) \{ out(i, j) = \mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(x(i, 0), j); \}}
+\DoxyCodeLine{86             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < out.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++j) \{ out(i, j) = \mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}}(x(i, 0), j); \}}
 \DoxyCodeLine{87         \}}
 \DoxyCodeLine{93         \textcolor{keywordflow}{if}(out.\mbox{\hyperlink{classMatrix_a5f91e3755bfb6eb7b8aa5d49d8fbadb2}{Determinant}}() == 0.0) \{}
 \DoxyCodeLine{94             std::cerr << \textcolor{stringliteral}{"{}Error computing Vandermonde-\/Matrix! Most likely passed equal support values"{}} << std::endl;}
@@ -47,7 +47,7 @@
 \DoxyCodeLine{104     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classMonomBase_ac8795cc57f64d4e834aefc6074388632}{Evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ const }\{}
 \DoxyCodeLine{105         \mbox{\hyperlink{classMatrix}{Matrix<double>}} Y(\mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}}(0, 0), X.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1);}
 \DoxyCodeLine{106         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
-\DoxyCodeLine{107             Y += \mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}}(i, 0) * X.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([i](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(in, i); \});}
+\DoxyCodeLine{107             Y += \mbox{\hyperlink{classMonomBase_a7e8455277c9d45cf6d4a108f7421bad0}{A}}(i, 0) * X.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([i](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}}(in, i); \});}
 \DoxyCodeLine{108         \}}
 \DoxyCodeLine{109         \textcolor{keywordflow}{return} Y;}
 \DoxyCodeLine{110     \};}

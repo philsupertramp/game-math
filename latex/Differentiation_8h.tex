@@ -35,7 +35,7 @@ Usage\+:
 \DoxyCodeLine{\textcolor{keyword}{auto} fun = [](\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& input)\{ \textcolor{keywordflow}{return} input.Apply([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& val)\{ \textcolor{keywordflow}{return} val*val; \});\};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{// create support values}}
-\DoxyCodeLine{\textcolor{keyword}{auto} xk = \mbox{\hyperlink{utils_8cpp_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(-\/5, 5, 20).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
+\DoxyCodeLine{\textcolor{keyword}{auto} xk = \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(-\/5, 5, 20).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{// calculate 1st derivative}}
 \DoxyCodeLine{\mbox{\hyperlink{Differentiation_8h_a491c1ed77a5dc36d6e7a2656a0c7a436}{centralDiff}}(xk, fun(xk));}
@@ -50,7 +50,7 @@ Usage\+:
 \index{Differentiation.h@{Differentiation.h}!backwardDiff@{backwardDiff}}
 \index{backwardDiff@{backwardDiff}!Differentiation.h@{Differentiation.h}}
 \doxysubsubsection{\texorpdfstring{backwardDiff()}{backwardDiff()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ backward\+Diff (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ backward\+Diff (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Computes backward difference quotient \$\$ f\textquotesingle{}(x) = \textbackslash{}frac\{f(x)-\/f(x-\/h)\}\{h\} \$\$ {\bfseries{Error}} O(dx) 
 \begin{DoxyParams}{Parameters}
@@ -69,7 +69,7 @@ approximated first differential evaluated on x-\/values
 \index{Differentiation.h@{Differentiation.h}!backwardDiff2@{backwardDiff2}}
 \index{backwardDiff2@{backwardDiff2}!Differentiation.h@{Differentiation.h}}
 \doxysubsubsection{\texorpdfstring{backwardDiff2()}{backwardDiff2()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ backward\+Diff2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ backward\+Diff2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Computes backward difference quotient for 1st differential uses 2nd order polynomial for approximation
 
@@ -90,7 +90,7 @@ approximated second differential evaluated on x-\/values
 \index{Differentiation.h@{Differentiation.h}!centralDiff@{centralDiff}}
 \index{centralDiff@{centralDiff}!Differentiation.h@{Differentiation.h}}
 \doxysubsubsection{\texorpdfstring{centralDiff()}{centralDiff()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ central\+Diff (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ central\+Diff (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Computes central difference quotient \$\$ f\textquotesingle{}(x) = \textbackslash{}frac\{f(x+h)-\/f(x-\/h)\}\{2h\} \$\$ {\bfseries{Error}} O(dx$^\wedge$2) 
 \begin{DoxyParams}{Parameters}
@@ -109,7 +109,7 @@ approximated first differential evaluated on x-\/values
 \index{Differentiation.h@{Differentiation.h}!centralDiff4@{centralDiff4}}
 \index{centralDiff4@{centralDiff4}!Differentiation.h@{Differentiation.h}}
 \doxysubsubsection{\texorpdfstring{centralDiff4()}{centralDiff4()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ central\+Diff4 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ central\+Diff4 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Computes central difference quotient for 1st differential uses 2nd order polynomial for approximation
 
@@ -130,7 +130,7 @@ approximated second differential evaluated on x-\/values
 \index{Differentiation.h@{Differentiation.h}!forwardDiff@{forwardDiff}}
 \index{forwardDiff@{forwardDiff}!Differentiation.h@{Differentiation.h}}
 \doxysubsubsection{\texorpdfstring{forwardDiff()}{forwardDiff()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ forward\+Diff (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ forward\+Diff (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Computes forward difference quotient \$\$ \textbackslash{}frac\{f(x+h)-\/f(x)\}\{h\} \$\$ {\bfseries{Error}} O(dx) 
 \begin{DoxyParams}{Parameters}

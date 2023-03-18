@@ -45,8 +45,8 @@
 \DoxyCodeLine{80     \}}
 \DoxyCodeLine{81 }
 \DoxyCodeLine{90     \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
-\DoxyCodeLine{91     \mbox{\hyperlink{structmat4}{mat4<T>}} \mbox{\hyperlink{namespaceMath_1_1Utils_a8d66ea31a1a3a327fb5d02f8c9ab2740}{lookAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec3}{vec3<T>}}\& \mbox{\hyperlink{utils_8cpp_ab7da25ca0263921573b11a2425ce061c}{eye}}, \textcolor{keyword}{const} \mbox{\hyperlink{structvec3}{vec3<T>}}\& center, \textcolor{keyword}{const} \mbox{\hyperlink{structvec3}{vec3<T>}}\& up) \{}
-\DoxyCodeLine{92         \mbox{\hyperlink{structvec3}{vec3<T>}} \textcolor{keyword}{const} f(\mbox{\hyperlink{namespaceMath_1_1Utils_a3ef4a16b4eaa74c81964ffbe56cd6148}{normalize}}(center -\/ \mbox{\hyperlink{utils_8cpp_ab7da25ca0263921573b11a2425ce061c}{eye}}));}
+\DoxyCodeLine{91     \mbox{\hyperlink{structmat4}{mat4<T>}} \mbox{\hyperlink{namespaceMath_1_1Utils_a8d66ea31a1a3a327fb5d02f8c9ab2740}{lookAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec3}{vec3<T>}}\& \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}, \textcolor{keyword}{const} \mbox{\hyperlink{structvec3}{vec3<T>}}\& center, \textcolor{keyword}{const} \mbox{\hyperlink{structvec3}{vec3<T>}}\& up) \{}
+\DoxyCodeLine{92         \mbox{\hyperlink{structvec3}{vec3<T>}} \textcolor{keyword}{const} f(\mbox{\hyperlink{namespaceMath_1_1Utils_a3ef4a16b4eaa74c81964ffbe56cd6148}{normalize}}(center -\/ \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}));}
 \DoxyCodeLine{93         \mbox{\hyperlink{structvec3}{vec3<T>}} \textcolor{keyword}{const} s(\mbox{\hyperlink{namespaceMath_1_1Utils_a3ef4a16b4eaa74c81964ffbe56cd6148}{normalize}}(f.\mbox{\hyperlink{structvec3_ad310687efba44948a2f567aba77f8ffb}{cross}}(up)));}
 \DoxyCodeLine{94         \mbox{\hyperlink{structvec3}{vec3<T>}} \textcolor{keyword}{const} u(s.\mbox{\hyperlink{structvec3_ad310687efba44948a2f567aba77f8ffb}{cross}}(f));}
 \DoxyCodeLine{95 }
@@ -60,9 +60,9 @@
 \DoxyCodeLine{103         Result[0][2] = -\/f.\mbox{\hyperlink{structvec3_a3f1f0c60e13b8bf67f64b1afc9cd6d1a}{x}};}
 \DoxyCodeLine{104         Result[1][2] = -\/f.\mbox{\hyperlink{structvec3_a77c2f238c0b2b7895304f5ca64b8d770}{y}};}
 \DoxyCodeLine{105         Result[2][2] = -\/f.\mbox{\hyperlink{structvec3_a7879033e3409225479ae0079c92d9afd}{z}};}
-\DoxyCodeLine{106         Result[3][0] = -\/(s * \mbox{\hyperlink{utils_8cpp_ab7da25ca0263921573b11a2425ce061c}{eye}});}
-\DoxyCodeLine{107         Result[3][1] = -\/(u * \mbox{\hyperlink{utils_8cpp_ab7da25ca0263921573b11a2425ce061c}{eye}});}
-\DoxyCodeLine{108         Result[3][2] = (f * \mbox{\hyperlink{utils_8cpp_ab7da25ca0263921573b11a2425ce061c}{eye}});}
+\DoxyCodeLine{106         Result[3][0] = -\/(s * \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}});}
+\DoxyCodeLine{107         Result[3][1] = -\/(u * \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}});}
+\DoxyCodeLine{108         Result[3][2] = (f * \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}});}
 \DoxyCodeLine{109         \textcolor{keywordflow}{return} Result;}
 \DoxyCodeLine{110     \}}
 \DoxyCodeLine{111 }

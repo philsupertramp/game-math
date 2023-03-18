@@ -418,9 +418,9 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestApply() {</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> A = <a id="a21" name="a21"></a><a class="code hl_function" href="utils_8cpp.html#ab7da25ca0263921573b11a2425ce061c">eye</a>(2, 2);</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> B = <a class="code hl_function" href="utils_8cpp.html#ab7da25ca0263921573b11a2425ce061c">eye</a>(2, 2);</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> D = 2 * <a class="code hl_function" href="utils_8cpp.html#ab7da25ca0263921573b11a2425ce061c">eye</a>(2, 2);</div>
+<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> A = <a id="a21" name="a21"></a><a class="code hl_function" href="numerics_2utils_8h.html#a9d6daf45f94f1c1f482d7abfdde9dd01">eye</a>(2, 2);</div>
+<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> B = <a class="code hl_function" href="numerics_2utils_8h.html#a9d6daf45f94f1c1f482d7abfdde9dd01">eye</a>(2, 2);</div>
+<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> D = 2 * <a class="code hl_function" href="numerics_2utils_8h.html#a9d6daf45f94f1c1f482d7abfdde9dd01">eye</a>(2, 2);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keyword">auto</span> C = A.<a id="a22" name="a22"></a><a class="code hl_function" href="classMatrix.html#ab6114bb3b048f92505d664efe4a10bfb">Apply</a>([](<span class="keywordtype">double</span> val) { <span class="keywordflow">return</span> val * 2; });</div>
 <div class="line"> </div>
@@ -478,9 +478,9 @@ $(function() {
 <div class="ttc" id="aclassMatrix_html_ab72c15d620fbe70b88578543b65e70ff"><div class="ttname"><a href="classMatrix.html#ab72c15d620fbe70b88578543b65e70ff">Matrix::Random</a></div><div class="ttdeci">static Matrix Random(size_t rows, size_t columns, size_t element_size=1, double minValue=0.0, double maxValue=1.0)</div><div class="ttdef"><b>Definition:</b> Matrix.h:141</div></div>
 <div class="ttc" id="aclassMatrix_html_ad5ef1c427af64e5c7b73d0ec9df21b6b"><div class="ttname"><a href="classMatrix.html#ad5ef1c427af64e5c7b73d0ec9df21b6b">Matrix::GetIndex</a></div><div class="ttdeci">int GetIndex(size_t row, size_t col, size_t elem=0) const</div><div class="ttdef"><b>Definition:</b> Matrix.h:578</div></div>
 <div class="ttc" id="aclassMatrix_html_afde474f7be84eefe2e7603c3a924bfff"><div class="ttname"><a href="classMatrix.html#afde474f7be84eefe2e7603c3a924bfff">Matrix::HorizontalConcat</a></div><div class="ttdeci">Matrix&lt; T &gt; HorizontalConcat(const Matrix&lt; T &gt; &amp;other)</div><div class="ttdef"><b>Definition:</b> Matrix.h:258</div></div>
+<div class="ttc" id="anumerics_2utils_8h_html_a9d6daf45f94f1c1f482d7abfdde9dd01"><div class="ttname"><a href="numerics_2utils_8h.html#a9d6daf45f94f1c1f482d7abfdde9dd01">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns=0)</div></div>
 <div class="ttc" id="astructmat2_html"><div class="ttname"><a href="structmat2.html">mat2</a></div><div class="ttdef"><b>Definition:</b> mat2.h:10</div></div>
 <div class="ttc" id="astructvec2_html"><div class="ttname"><a href="structvec2.html">vec2</a></div><div class="ttdef"><b>Definition:</b> vec2.h:11</div></div>
-<div class="ttc" id="autils_8cpp_html_ab7da25ca0263921573b11a2425ce061c"><div class="ttname"><a href="utils_8cpp.html#ab7da25ca0263921573b11a2425ce061c">eye</a></div><div class="ttdeci">Matrix&lt; double &gt; eye(size_t rows, size_t columns)</div><div class="ttdef"><b>Definition:</b> utils.cpp:16</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

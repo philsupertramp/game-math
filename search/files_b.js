@@ -5,8 +5,6 @@ var searchData=
   ['odebdf2_2eh_2',['odeBDF2.h',['../odeBDF2_8h.html',1,'']]],
   ['odesolver_2eh_3',['ODESolver.h',['../ODESolver_8h.html',1,'']]],
   ['odetrapez_2eh_4',['odeTrapez.h',['../odeTrapez_8h.html',1,'']]],
-  ['operand_2ecpp_5',['Operand.cpp',['../Operand_8cpp.html',1,'']]],
-  ['operand_2eh_6',['Operand.h',['../Operand_8h.html',1,'']]],
-  ['operator_2ecpp_7',['Operator.cpp',['../Operator_8cpp.html',1,'']]],
-  ['operator_2eh_8',['Operator.h',['../Operator_8h.html',1,'']]]
+  ['operand_2eh_5',['Operand.h',['../Operand_8h.html',1,'']]],
+  ['operator_2eh_6',['Operator.h',['../Operator_8h.html',1,'']]]
 ];

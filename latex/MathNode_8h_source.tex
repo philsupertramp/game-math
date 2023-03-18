@@ -48,7 +48,7 @@
 \DoxyCodeLine{63 }
 \DoxyCodeLine{64 \textcolor{keyword}{public}:}
 \DoxyCodeLine{69     \textcolor{keyword}{explicit} \mbox{\hyperlink{classMathNode_a3072bd11e770363889906d16578954cb}{MathNode}}(\textcolor{keyword}{const} std::string\& val) \{}
-\DoxyCodeLine{70         \textcolor{keyword}{auto} realValue = \mbox{\hyperlink{format_8cpp_a5f3e23cac814c84a5494842243316a4b}{strip}}(val); \textcolor{comment}{// strip to allow comparison}}
+\DoxyCodeLine{70         \textcolor{keyword}{auto} realValue = \mbox{\hyperlink{format_8h_a5f3e23cac814c84a5494842243316a4b}{strip}}(val); \textcolor{comment}{// strip to allow comparison}}
 \DoxyCodeLine{71         \mbox{\hyperlink{classMathNode_a23bb4430c010646f85a41e722f30d7f6}{isNegative}}     = realValue.find(\textcolor{charliteral}{'-\/'}) != std::string::npos \&\& realValue.size() > 1;}
 \DoxyCodeLine{72         \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}}          = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[realValue.size() + 1];}
 \DoxyCodeLine{73         std::copy(realValue.begin(), realValue.end(), \mbox{\hyperlink{classMathNode_a2d7c199d2c5581160db369014654c084}{value}});}

@@ -53,16 +53,16 @@
 \DoxyCodeLine{80     \textcolor{keyword}{static} std::shared\_ptr<Operator> \mbox{\hyperlink{classEquationParser_a97f64a66f0f748f419bc432d1ca94f52}{GetOperator}}(\textcolor{keyword}{const} std::string\& valString) \{}
 \DoxyCodeLine{81         \textcolor{keywordflow}{if}(valString.empty()) \{ \textcolor{keywordflow}{return} \{\}; \}}
 \DoxyCodeLine{82         \textcolor{keywordflow}{if}(valString.size() > 1) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classEquationParser_ae1f2ae2f7cd50063606036832a0286a2}{GetFunction}}(valString); \}}
-\DoxyCodeLine{83         \textcolor{keywordflow}{switch}(\textcolor{keywordtype}{int}(\mbox{\hyperlink{format_8cpp_a5f3e23cac814c84a5494842243316a4b}{strip}}(valString).c\_str()[0])) \{}
-\DoxyCodeLine{84             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_MULTIPLICATION): \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8cpp_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_MULTIPLICATION);}
-\DoxyCodeLine{85             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_DIVISION): \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8cpp_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_DIVISION);}
-\DoxyCodeLine{86             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_ADDITION): \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8cpp_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_ADDITION);}
-\DoxyCodeLine{87             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_SUBTRACTION): \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8cpp_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_SUBTRACTION);}
-\DoxyCodeLine{88             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_POWER): \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8cpp_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_POWER);}
+\DoxyCodeLine{83         \textcolor{keywordflow}{switch}(\textcolor{keywordtype}{int}(\mbox{\hyperlink{format_8h_a5f3e23cac814c84a5494842243316a4b}{strip}}(valString).c\_str()[0])) \{}
+\DoxyCodeLine{84             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_MULTIPLICATION): \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8h_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_MULTIPLICATION);}
+\DoxyCodeLine{85             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_DIVISION): \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8h_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_DIVISION);}
+\DoxyCodeLine{86             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_ADDITION): \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8h_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_ADDITION);}
+\DoxyCodeLine{87             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_SUBTRACTION): \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8h_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_SUBTRACTION);}
+\DoxyCodeLine{88             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_POWER): \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8h_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_POWER);}
 \DoxyCodeLine{89             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_PARENTHESES\_OPEN):}
-\DoxyCodeLine{90                 \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8cpp_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_PARENTHESES\_OPEN);}
+\DoxyCodeLine{90                 \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8h_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_PARENTHESES\_OPEN);}
 \DoxyCodeLine{91             \textcolor{keywordflow}{case} int(OperatorValue::VALUE\_PARENTHESES\_CLOSE):}
-\DoxyCodeLine{92                 \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8cpp_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_PARENTHESES\_CLOSE);}
+\DoxyCodeLine{92                 \textcolor{keywordflow}{return} \mbox{\hyperlink{Operator_8h_a2d90273d7103d93ce6e1e9c40b77aeed}{GenerateOperator}}(OperatorType::TYPE\_PARENTHESES\_CLOSE);}
 \DoxyCodeLine{93         \}}
 \DoxyCodeLine{94         \textcolor{keywordflow}{return} \{\};}
 \DoxyCodeLine{95     \}}
@@ -75,7 +75,7 @@
 \DoxyCodeLine{107             sym-\/>isNegative = \mbox{\hyperlink{classEquationParser_a4bea340c04d2845e4e0c5100c35ef292}{nextIsNegative}};}
 \DoxyCodeLine{108             \mbox{\hyperlink{classEquationParser_a4bea340c04d2845e4e0c5100c35ef292}{nextIsNegative}}  = \textcolor{keyword}{false};}
 \DoxyCodeLine{109             \mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operandStack}}.push\_back(sym);}
-\DoxyCodeLine{110         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{Operand_8cpp_ae9c1d0ee9dd7d56df829ae0e10aceb37}{isConstant}}(copy)) \{}
+\DoxyCodeLine{110         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{Operand_8h_ae9c1d0ee9dd7d56df829ae0e10aceb37}{isConstant}}(copy)) \{}
 \DoxyCodeLine{111             \textcolor{keyword}{auto} sym        = \mbox{\hyperlink{Operand_8h_aa4aad1c453d503a883b6a3a05252e5c2}{DefaultSymbols}}[copy];}
 \DoxyCodeLine{112             sym-\/>isNegative = \mbox{\hyperlink{classEquationParser_a4bea340c04d2845e4e0c5100c35ef292}{nextIsNegative}};}
 \DoxyCodeLine{113             \mbox{\hyperlink{classEquationParser_a4bea340c04d2845e4e0c5100c35ef292}{nextIsNegative}}  = \textcolor{keyword}{false};}
@@ -85,8 +85,8 @@
 \DoxyCodeLine{117             symbol-\/>isNegative = \mbox{\hyperlink{classEquationParser_a4bea340c04d2845e4e0c5100c35ef292}{nextIsNegative}};}
 \DoxyCodeLine{118             \mbox{\hyperlink{classEquationParser_a4bea340c04d2845e4e0c5100c35ef292}{nextIsNegative}}     = \textcolor{keyword}{false};}
 \DoxyCodeLine{119             \mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operandStack}}.push\_back(symbol);}
-\DoxyCodeLine{120             \textcolor{keywordflow}{if}(!\mbox{\hyperlink{Operand_8cpp_afdd5c2fe6fafbe3afc7413b3c0162704}{hasSymbol}}(\mbox{\hyperlink{classEquationParser_a3b3f6b7c14c08795f64e9106e32cf1c3}{symbols}}, symbol)) \mbox{\hyperlink{classEquationParser_a3b3f6b7c14c08795f64e9106e32cf1c3}{symbols}}.push\_back(symbol);}
-\DoxyCodeLine{121         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEquationParser_abe13770a8f541f71a89e717830330303}{isParenthesesOpen}}(copy) || \mbox{\hyperlink{Operator_8cpp_aa26df455b0a2615c65df309cb038167f}{isFunction}}(copy)) \{}
+\DoxyCodeLine{120             \textcolor{keywordflow}{if}(!\mbox{\hyperlink{Operand_8h_afdd5c2fe6fafbe3afc7413b3c0162704}{hasSymbol}}(\mbox{\hyperlink{classEquationParser_a3b3f6b7c14c08795f64e9106e32cf1c3}{symbols}}, symbol)) \mbox{\hyperlink{classEquationParser_a3b3f6b7c14c08795f64e9106e32cf1c3}{symbols}}.push\_back(symbol);}
+\DoxyCodeLine{121         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEquationParser_abe13770a8f541f71a89e717830330303}{isParenthesesOpen}}(copy) || \mbox{\hyperlink{Operator_8h_aa26df455b0a2615c65df309cb038167f}{isFunction}}(copy)) \{}
 \DoxyCodeLine{122             \mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operatorStack}}.push\_back(copy);}
 \DoxyCodeLine{123         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEquationParser_ad809a296bd8d9dbe35769fba618bf203}{isOperator}}(copy)) \{}
 \DoxyCodeLine{124             \textcolor{keyword}{auto} currentOp = \mbox{\hyperlink{classEquationParser_a97f64a66f0f748f419bc432d1ca94f52}{GetOperator}}(copy);}
@@ -98,11 +98,11 @@
 \DoxyCodeLine{130                     copy           = \textcolor{stringliteral}{"{}+"{}};}
 \DoxyCodeLine{131                     \mbox{\hyperlink{classEquationParser_a4bea340c04d2845e4e0c5100c35ef292}{nextIsNegative}} = !\mbox{\hyperlink{classEquationParser_a4bea340c04d2845e4e0c5100c35ef292}{nextIsNegative}};}
 \DoxyCodeLine{132                 \}}
-\DoxyCodeLine{133                 \mbox{\hyperlink{classEquationParser_a1ba935d119c8d5d27542379ce6b1a725}{processCurrentOP}}(currentOp, \mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operatorStack}}, \mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operandStack}});}
+\DoxyCodeLine{133                 \mbox{\hyperlink{classEquationParser_abed5bf391fc572950b3ab7bc28d2ecf7}{processCurrentOP}}(currentOp, \mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operatorStack}}, \mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operandStack}});}
 \DoxyCodeLine{134                 \mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operatorStack}}.push\_back(copy);}
 \DoxyCodeLine{135             \}}
 \DoxyCodeLine{136         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEquationParser_a33719a6d3e21799c57b1b2fb7d76f684}{isParenthesesClose}}(copy)) \{}
-\DoxyCodeLine{137             \mbox{\hyperlink{classEquationParser_a129b40bf5e8b4ba7382142a9b37671d9}{rearrangeStack}}(\mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operatorStack}}, \mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operandStack}});}
+\DoxyCodeLine{137             \mbox{\hyperlink{classEquationParser_aa63d00a49b14ff35fdad5000bceb9ee5}{rearrangeStack}}(\mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operatorStack}}, \mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operandStack}});}
 \DoxyCodeLine{138         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEquationParser_a473bed34cc1a050c1590fc0e8bfc513f}{isAny}}(copy)) \{}
 \DoxyCodeLine{139             \textcolor{comment}{// ignore}}
 \DoxyCodeLine{140         \} \textcolor{keywordflow}{else} \{}
@@ -136,7 +136,7 @@
 \DoxyCodeLine{178         out.insert(out.end(), res.begin(), res.end());}
 \DoxyCodeLine{179 }
 \DoxyCodeLine{180         \textcolor{keywordflow}{if}(!eq.empty()) \{}
-\DoxyCodeLine{181             \textcolor{keyword}{auto} remainingPart = \mbox{\hyperlink{format_8cpp_a46f6d1654169d0a28cb76133309eeb86}{split\_by\_regex}}(eq, \mbox{\hyperlink{MathNode_8cpp_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(MathNodeType::NodeType\_Operator\_or\_Parentheses));}
+\DoxyCodeLine{181             \textcolor{keyword}{auto} remainingPart = \mbox{\hyperlink{format_8h_a46f6d1654169d0a28cb76133309eeb86}{split\_by\_regex}}(eq, \mbox{\hyperlink{MathNode_8h_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(MathNodeType::NodeType\_Operator\_or\_Parentheses));}
 \DoxyCodeLine{182             out.insert(out.end(), remainingPart.begin(), remainingPart.end());}
 \DoxyCodeLine{183         \}}
 \DoxyCodeLine{184         \textcolor{keywordflow}{return} out;}
@@ -145,35 +145,35 @@
 \DoxyCodeLine{193     std::vector<std::string> \mbox{\hyperlink{classEquationParser_a4c16356572c6ad78227979449c964dc2}{splitEquation}}(\textcolor{keyword}{const} std::string\& eqString);}
 \DoxyCodeLine{194 }
 \DoxyCodeLine{200     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEquationParser_a9159d2088717e7c723d5ea49c8bf496c}{isNumber}}(\textcolor{keyword}{const} std::string\& in) \{}
-\DoxyCodeLine{201         \textcolor{keyword}{static} \textcolor{keyword}{auto} numberRegex = \mbox{\hyperlink{MathNode_8cpp_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(MathNodeType::NodeType\_Numeric);}
+\DoxyCodeLine{201         \textcolor{keyword}{static} \textcolor{keyword}{auto} numberRegex = \mbox{\hyperlink{MathNode_8h_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(MathNodeType::NodeType\_Numeric);}
 \DoxyCodeLine{202         std::cmatch m;}
 \DoxyCodeLine{203         \textcolor{keywordflow}{return} std::regex\_match(in.c\_str(), m, numberRegex);}
 \DoxyCodeLine{204     \};}
 \DoxyCodeLine{210     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEquationParser_ae8f7b26a40db7b4bcd3eaa54ac444945}{isSymbol}}(\textcolor{keyword}{const} std::string\& in) \{}
-\DoxyCodeLine{211         \textcolor{keyword}{static} \textcolor{keyword}{auto} symbolRegex = \mbox{\hyperlink{MathNode_8cpp_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(MathNodeType::NodeType\_Symbolic);}
+\DoxyCodeLine{211         \textcolor{keyword}{static} \textcolor{keyword}{auto} symbolRegex = \mbox{\hyperlink{MathNode_8h_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(MathNodeType::NodeType\_Symbolic);}
 \DoxyCodeLine{212         std::cmatch m;}
 \DoxyCodeLine{213         \textcolor{keywordflow}{return} std::regex\_match(in.c\_str(), m, symbolRegex);}
 \DoxyCodeLine{214     \};}
 \DoxyCodeLine{220     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEquationParser_ad809a296bd8d9dbe35769fba618bf203}{isOperator}}(\textcolor{keyword}{const} std::string\& in) \{}
-\DoxyCodeLine{221         \textcolor{keyword}{static} \textcolor{keyword}{auto} operatorRegex = \mbox{\hyperlink{MathNode_8cpp_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(MathNodeType::NodeType\_Operator);}
+\DoxyCodeLine{221         \textcolor{keyword}{static} \textcolor{keyword}{auto} operatorRegex = \mbox{\hyperlink{MathNode_8h_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(MathNodeType::NodeType\_Operator);}
 \DoxyCodeLine{222         std::cmatch m;}
 \DoxyCodeLine{223         \textcolor{keywordflow}{return} std::regex\_match(in.c\_str(), m, operatorRegex);}
 \DoxyCodeLine{224     \};}
 \DoxyCodeLine{230     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEquationParser_a473bed34cc1a050c1590fc0e8bfc513f}{isAny}}(\textcolor{keyword}{const} std::string\& in) \{}
-\DoxyCodeLine{231         \textcolor{keyword}{static} \textcolor{keyword}{auto} anyRegex = \mbox{\hyperlink{MathNode_8cpp_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(MathNodeType::NodeType\_Any);}
+\DoxyCodeLine{231         \textcolor{keyword}{static} \textcolor{keyword}{auto} anyRegex = \mbox{\hyperlink{MathNode_8h_a85bcdf174a2e5f29fc70bab45310509c}{GetRegex}}(MathNodeType::NodeType\_Any);}
 \DoxyCodeLine{232         std::cmatch m;}
 \DoxyCodeLine{233         \textcolor{keywordflow}{return} std::regex\_match(in.c\_str(), m, anyRegex);}
 \DoxyCodeLine{234     \};}
 \DoxyCodeLine{240     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEquationParser_abe13770a8f541f71a89e717830330303}{isParenthesesOpen}}(\textcolor{keyword}{const} std::string\& in) \{ \textcolor{keywordflow}{return} in.find(\textcolor{charliteral}{'('}) != std::string::npos; \};}
 \DoxyCodeLine{246     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEquationParser_a33719a6d3e21799c57b1b2fb7d76f684}{isParenthesesClose}}(\textcolor{keyword}{const} std::string\& in) \{ \textcolor{keywordflow}{return} in.find(\textcolor{charliteral}{')'}) != std::string::npos; \};}
 \DoxyCodeLine{247 }
-\DoxyCodeLine{254     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classEquationParser_a1ba935d119c8d5d27542379ce6b1a725}{processCurrentOP}}(}
+\DoxyCodeLine{254     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classEquationParser_abed5bf391fc572950b3ab7bc28d2ecf7}{processCurrentOP}}(}
 \DoxyCodeLine{255     \textcolor{keyword}{const} std::shared\_ptr<Operator>\& currentOp,}
 \DoxyCodeLine{256     std::vector<std::string>\& \mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operatorStack}},}
 \DoxyCodeLine{257     std::vector<std::shared\_ptr<MathNode>>\& \mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operandStack}});}
 \DoxyCodeLine{258 }
 \DoxyCodeLine{264     \textcolor{keyword}{static} \textcolor{keywordtype}{void}}
-\DoxyCodeLine{265     \mbox{\hyperlink{classEquationParser_a129b40bf5e8b4ba7382142a9b37671d9}{rearrangeStack}}(std::vector<std::string>\& \mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operatorStack}}, std::vector<std::shared\_ptr<MathNode>>\& \mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operandStack}});}
+\DoxyCodeLine{265     \mbox{\hyperlink{classEquationParser_aa63d00a49b14ff35fdad5000bceb9ee5}{rearrangeStack}}(std::vector<std::string>\& \mbox{\hyperlink{classEquationParser_a70ddbb63cbf2d30ac2d3a2a6a0cbbf98}{operatorStack}}, std::vector<std::shared\_ptr<MathNode>>\& \mbox{\hyperlink{classEquationParser_afa73d296245fd785dea152f54576416f}{operandStack}});}
 \DoxyCodeLine{266 }
 \DoxyCodeLine{267 }
 \DoxyCodeLine{274     std::vector<std::string> \mbox{\hyperlink{classEquationParser_a636f9adde9cb56b19054bc4474c798bd}{extractObjects}}(std::string\& eq, \textcolor{keyword}{const} std::vector<std::string>\& container);}

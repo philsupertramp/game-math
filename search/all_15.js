@@ -1,7 +1,7 @@
 var searchData=
 [
   ['t_0',['T',['../structODEResult.html#ac40ab376951caf83d2688d284efeb7db',1,'ODEResult']]],
-  ['terminperiods_1',['termInPeriods',['../Insurance_8h.html#ab3a10a3059c77a0707926c42d8d72650',1,'termInPeriods(Interest I):&#160;Insurance.cpp'],['../Insurance_8cpp.html#a4ae4e06a95a0a206bc002aea79ba1db8',1,'termInPeriods(Interest Z):&#160;Insurance.cpp']]],
+  ['terminperiods_1',['termInPeriods',['../Insurance_8h.html#ab3a10a3059c77a0707926c42d8d72650',1,'Insurance.h']]],
   ['test_2',['Test',['../classDataSet.html#a2d5a67b441bf92f3d9f9ca28e134266b',1,'DataSet']]],
   ['timeinitialized_3',['TimeInitialized',['../Random_8h.html#ab42db4aac140e420fc17228b0da5ec77',1,'Random.h']]],
   ['title_4',['title',['../structPlotAttributes.html#afc67539c9ac0c8af95f00aa5c6e30978',1,'PlotAttributes::title()'],['../classPlot.html#afa4a5f262e9b00bfa393c54fccb3449a',1,'Plot::title()']]],
@@ -14,7 +14,7 @@ var searchData=
   ['transformation_11',['Transformation',['../structmat4.html#a3cf26eb9cda24dce5de797af40777b8b',1,'mat4']]],
   ['translate_12',['translate',['../namespaceMath_1_1Utils.html#a8f5cda4bbd83dc5d111b0ec4d6bd96e6',1,'Math::Utils']]],
   ['transpose_13',['Transpose',['../structmat4.html#aa761e3ba19ba240f43357d6651d0d364',1,'mat4::Transpose()'],['../structmat3.html#a9bfdc408a07f4b3f616bfcba71f9ad8a',1,'mat3::Transpose()'],['../structmat2.html#ae91f368a5103180c117e5789b8fc246f',1,'mat2::Transpose()'],['../classMatrix.html#a054a03bcae4eb86d6f4ef84dc87840ef',1,'Matrix::Transpose()']]],
-  ['tridiag_14',['tridiag',['../numerics_2utils_8h.html#aa7eb7984fa32d548f6a24b4d440c919a',1,'tridiag(size_t rows, size_t columns, double left, double center, double right):&#160;utils.cpp'],['../utils_8cpp.html#a7cfa8f58d53e2d2d20acbf500218eb5d',1,'tridiag(size_t rows, size_t cols, double lower, double center, double upper):&#160;utils.cpp']]],
+  ['tridiag_14',['tridiag',['../numerics_2utils_8h.html#aa7eb7984fa32d548f6a24b4d440c919a',1,'utils.h']]],
   ['tx_15',['Tx',['../classSpline.html#a5e906d09d287cdee484389ca7e08a128',1,'Spline']]],
   ['ty_16',['Ty',['../classSpline.html#aaaab7d2f16a8d4fb98d75576eccd56d0',1,'Spline']]],
   ['type_17',['type',['../classMathNode.html#ab70eeffac4cad37de01dc063eeb93d8c',1,'MathNode']]],

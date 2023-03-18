@@ -15,7 +15,7 @@ This is an example on how to use the svd method.
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} A = \{ \{ 1, 1, 1, 1 \}, \{ 1, 3, 1, 2 \} \};}
 \DoxyCodeLine{        \textcolor{keyword}{auto} result      = \mbox{\hyperlink{svd_8h_a3b139aaaee48ddeff126b386e555cee0}{svd}}(A, 0);}
 \DoxyCodeLine{        \textcolor{keyword}{auto} U           = result[0];}
-\DoxyCodeLine{        \textcolor{keyword}{auto} S           = \mbox{\hyperlink{utils_8cpp_ab7da25ca0263921573b11a2425ce061c}{eye}}(U.rows(), U.columns());}
+\DoxyCodeLine{        \textcolor{keyword}{auto} S           = \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}(U.rows(), U.columns());}
 \DoxyCodeLine{        S(0, 0)          = result[1](0, 0);}
 \DoxyCodeLine{        S(1, 1)          = result[1](0, 1);}
 \DoxyCodeLine{        \textcolor{keyword}{auto} VH          = result[2];}
@@ -39,7 +39,7 @@ This is an example on how to use the svd method.
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} R = \{ \{ cos(theta), -\/sin(theta) \}, \{ sin(theta), cos(theta) \} \};}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{comment}{// Transform normal distributed data}}
-\DoxyCodeLine{        \textcolor{keyword}{auto} X = (R * \mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(sig) * random\_data + \mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(xC) * \mbox{\hyperlink{utils_8cpp_a4777e8a26177a16a129f6f968b3ac12e}{ones}}(2, n\_points));}
+\DoxyCodeLine{        \textcolor{keyword}{auto} X = (R * \mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(sig) * random\_data + \mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(xC) * \mbox{\hyperlink{numerics_2utils_8h_aaf883b485905c5bcd46724b44a12e094}{ones}}(2, n\_points));}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{comment}{// 1. compute mean row}}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} row\_mean(0.0, 1, X.rows());}
@@ -57,7 +57,7 @@ This is an example on how to use the svd method.
 \DoxyCodeLine{        \textcolor{keyword}{auto} S  = SVD[1];}
 \DoxyCodeLine{        \textcolor{keyword}{auto} VT = SVD[2];}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} Theta = 2.0 * M\_PI * \mbox{\hyperlink{utils_8cpp_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(0, 1, 100).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} Theta = 2.0 * M\_PI * \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(0, 1, 100).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
 \DoxyCodeLine{        \textcolor{keyword}{auto} newTheta = \mbox{\hyperlink{Matrix_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(Theta.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keywordtype}{double} val) \{ return cos(val); \}), Theta.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keywordtype}{double} val) \{}
 \DoxyCodeLine{                            return sin(val);}
 \DoxyCodeLine{                        \}))}

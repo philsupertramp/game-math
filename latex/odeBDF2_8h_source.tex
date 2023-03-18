@@ -26,7 +26,7 @@
 \DoxyCodeLine{40     \textcolor{keywordtype}{size\_t} result\_dim = ((tInterval[tDim -\/ 1] -\/ tInterval[0]) / h) + 1;}
 \DoxyCodeLine{41     \mbox{\hyperlink{classMatrix}{Matrix<double>}} t(0, result\_dim, 1, 1);}
 \DoxyCodeLine{42     \textcolor{keywordtype}{size\_t} n = result\_dim;}
-\DoxyCodeLine{43     \textcolor{keyword}{auto} y   = \mbox{\hyperlink{utils_8cpp_a4af1fa738f95edd689ad5c984dc5fe7a}{zeros}}(n, elem\_size);}
+\DoxyCodeLine{43     \textcolor{keyword}{auto} y   = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(n, elem\_size);}
 \DoxyCodeLine{44     \mbox{\hyperlink{classMatrix}{Matrix<int>}} iter(0, n, 1);}
 \DoxyCodeLine{45 }
 \DoxyCodeLine{46     t(0, 0) = tInterval[0];}
@@ -35,14 +35,14 @@
 \DoxyCodeLine{49     \textcolor{keyword}{auto} y1 = \mbox{\hyperlink{odeTrapez_8h_ace7f91e7f2dd579ff2f0e80a193825c5}{ODETrapez}}(fun, \{ t(0, 0), t(1, 0) \}, y0, option).Y;}
 \DoxyCodeLine{50     y.SetRow(0, y1(0));}
 \DoxyCodeLine{51     y.SetRow(1, y1(1));}
-\DoxyCodeLine{52     \textcolor{keyword}{auto} E = \mbox{\hyperlink{utils_8cpp_ab7da25ca0263921573b11a2425ce061c}{eye}}(elem\_size);}
+\DoxyCodeLine{52     \textcolor{keyword}{auto} E = \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}(elem\_size);}
 \DoxyCodeLine{53 }
 \DoxyCodeLine{54     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} l = 1; l < n -\/ 1; l++) \{}
 \DoxyCodeLine{55         \textcolor{keyword}{auto} y\_act = y(l -\/ 1).Transpose();}
 \DoxyCodeLine{56         \textcolor{keyword}{auto} k     = 0;}
-\DoxyCodeLine{57         \textcolor{keyword}{auto} delta = \mbox{\hyperlink{utils_8cpp_a4777e8a26177a16a129f6f968b3ac12e}{ones}}(elem\_size);}
+\DoxyCodeLine{57         \textcolor{keyword}{auto} delta = \mbox{\hyperlink{numerics_2utils_8h_aaf883b485905c5bcd46724b44a12e094}{ones}}(elem\_size);}
 \DoxyCodeLine{58 }
-\DoxyCodeLine{59         \textcolor{keywordflow}{while}(\mbox{\hyperlink{utils_8cpp_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(delta) > TOL \&\& k < maxIter) \{}
+\DoxyCodeLine{59         \textcolor{keywordflow}{while}(\mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(delta) > TOL \&\& k < maxIter) \{}
 \DoxyCodeLine{60             \textcolor{keyword}{auto} current\_fun = fun(t(l, 0) + h, y\_act);}
 \DoxyCodeLine{61             \textcolor{keyword}{auto} F =}
 \DoxyCodeLine{62             -\/1.0 * ((-\/1.0 / 2.0) * y(l -\/ 1).Transpose() + h * current\_fun + 2.0 * y(l).Transpose() -\/ 3.0 / 2.0 * y\_act);}

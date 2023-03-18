@@ -29,10 +29,10 @@
 \DoxyCodeLine{149 }
 \DoxyCodeLine{155     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classNewtonFractal_a6cf1dfbd662be4a8ae272020a8edf82d}{operator()}}()\textcolor{keyword}{ const }\{}
 \DoxyCodeLine{156         \textcolor{keywordtype}{size\_t} n = fabs(\mbox{\hyperlink{classNewtonFractal_ac710ac326aa58002987217f7fd6198c4}{xMax}} -\/ \mbox{\hyperlink{classNewtonFractal_ab61b91764458edf714b5fbf636ee8800}{xMin}}) / (1 / (\mbox{\hyperlink{classNewtonFractal_ac78021b076c2d3a5d3c8b3177ea44bea}{detail}} > 10 ? \mbox{\hyperlink{classNewtonFractal_ac78021b076c2d3a5d3c8b3177ea44bea}{detail}} : 10));}
-\DoxyCodeLine{157         \textcolor{keyword}{auto} x\_i = \mbox{\hyperlink{utils_8cpp_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(\mbox{\hyperlink{classNewtonFractal_ab61b91764458edf714b5fbf636ee8800}{xMin}}, \mbox{\hyperlink{classNewtonFractal_ac710ac326aa58002987217f7fd6198c4}{xMax}}, n).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
-\DoxyCodeLine{158         \textcolor{keyword}{auto} y\_i = \mbox{\hyperlink{utils_8cpp_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(\mbox{\hyperlink{classNewtonFractal_af442f7377e1fa72f5a9431f7536815f7}{yMin}}, \mbox{\hyperlink{classNewtonFractal_a10bdd859b70e53a4e5bebbf947e4f814}{yMax}}, n).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
+\DoxyCodeLine{157         \textcolor{keyword}{auto} x\_i = \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(\mbox{\hyperlink{classNewtonFractal_ab61b91764458edf714b5fbf636ee8800}{xMin}}, \mbox{\hyperlink{classNewtonFractal_ac710ac326aa58002987217f7fd6198c4}{xMax}}, n).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
+\DoxyCodeLine{158         \textcolor{keyword}{auto} y\_i = \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(\mbox{\hyperlink{classNewtonFractal_af442f7377e1fa72f5a9431f7536815f7}{yMin}}, \mbox{\hyperlink{classNewtonFractal_a10bdd859b70e53a4e5bebbf947e4f814}{yMax}}, n).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
 \DoxyCodeLine{159 }
-\DoxyCodeLine{160         \textcolor{keyword}{auto} M = \mbox{\hyperlink{utils_8cpp_a4af1fa738f95edd689ad5c984dc5fe7a}{zeros}}(n, n);}
+\DoxyCodeLine{160         \textcolor{keyword}{auto} M = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(n, n);}
 \DoxyCodeLine{161         std::vector<Matrix<double>> roots;}
 \DoxyCodeLine{162 }
 \DoxyCodeLine{163         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < n; ++i) \{}
@@ -43,7 +43,7 @@
 \DoxyCodeLine{168                 \} \textcolor{keywordflow}{else} \{}
 \DoxyCodeLine{169                     \textcolor{keywordtype}{size\_t} index = 0;}
 \DoxyCodeLine{170                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} k = 0; k < roots.size(); ++k) \{}
-\DoxyCodeLine{171                         \textcolor{keywordflow}{if}(\mbox{\hyperlink{utils_8cpp_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(res.first -\/ roots[k]) <= \mbox{\hyperlink{classNewtonFractal_a6b85a65f2ee58b68f24783615f202263}{tol}}) \{ index = k; \}}
+\DoxyCodeLine{171                         \textcolor{keywordflow}{if}(\mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(res.first -\/ roots[k]) <= \mbox{\hyperlink{classNewtonFractal_a6b85a65f2ee58b68f24783615f202263}{tol}}) \{ index = k; \}}
 \DoxyCodeLine{172                     \}}
 \DoxyCodeLine{173                     \textcolor{keywordflow}{if}(index == 0) \{}
 \DoxyCodeLine{174                         index = roots.size();}
@@ -58,8 +58,8 @@
 \DoxyCodeLine{183 }
 \DoxyCodeLine{184 \textcolor{keyword}{private}:}
 \DoxyCodeLine{197     \textcolor{keyword}{static} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classNewtonFractal_a7b5e57d09efeaebe88ccd017220d3e78}{fun}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x) \{}
-\DoxyCodeLine{198         \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix}{Matrix<double>}}(\{ \{ \mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(x(0, 0), 3) -\/ 3 * x(0, 0) * x(1, 0) * x(1, 0) -\/ 1 \},}
-\DoxyCodeLine{199                                 \{ -\/\mbox{\hyperlink{Probability_8cpp_a580e83323168ca896c7f2b9bc22bb559}{pow}}(x(1, 0), 3) + 3 * x(0, 0) * x(0, 0) * x(1, 0) \} \});}
+\DoxyCodeLine{198         \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix}{Matrix<double>}}(\{ \{ \mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}}(x(0, 0), 3) -\/ 3 * x(0, 0) * x(1, 0) * x(1, 0) -\/ 1 \},}
+\DoxyCodeLine{199                                 \{ -\/\mbox{\hyperlink{Probability_8h_a4f0f49581ae9315695fb32a1e9fc4bdc}{pow}}(x(1, 0), 3) + 3 * x(0, 0) * x(0, 0) * x(1, 0) \} \});}
 \DoxyCodeLine{200     \}}
 \DoxyCodeLine{213     \textcolor{keyword}{static} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classNewtonFractal_a60e62d9f1cc691d006ef6ea3436f4b33}{jac}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x) \{}
 \DoxyCodeLine{214         \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix}{Matrix<double>}}(\{ \{ 3 * (x(0, 0) * x(0, 0) -\/ x(1, 0) * x(1, 0)), -\/6 * x(0, 0) * x(1, 0) \},}
@@ -83,7 +83,7 @@
 \DoxyCodeLine{246         \textcolor{keyword}{auto} stepWidthX = (\mbox{\hyperlink{classMandelbrot_afdd6e8a3720164279b7b999011ad41d5}{endX}} -\/ \mbox{\hyperlink{classMandelbrot_aaa65ca8561039deb5e74acc4cd2f920f}{startX}}) / (\textcolor{keywordtype}{double})\mbox{\hyperlink{classMandelbrot_a09a174794619b9f2a13010b4af19d498}{detail}};}
 \DoxyCodeLine{247         \textcolor{keyword}{auto} stepWidthY = (\mbox{\hyperlink{classMandelbrot_a8722229646bd702577b94eb03fd9dcd2}{endY}} -\/ \mbox{\hyperlink{classMandelbrot_af75cb6f92b971fdc1159248675c03e00}{startY}}) / (\textcolor{keywordtype}{double})\mbox{\hyperlink{classMandelbrot_a09a174794619b9f2a13010b4af19d498}{detail}};}
 \DoxyCodeLine{248 }
-\DoxyCodeLine{249         \mbox{\hyperlink{classMatrix}{Matrix<double>}} M = \mbox{\hyperlink{utils_8cpp_a4af1fa738f95edd689ad5c984dc5fe7a}{zeros}}(\mbox{\hyperlink{classMandelbrot_a09a174794619b9f2a13010b4af19d498}{detail}}, \mbox{\hyperlink{classMandelbrot_a09a174794619b9f2a13010b4af19d498}{detail}});}
+\DoxyCodeLine{249         \mbox{\hyperlink{classMatrix}{Matrix<double>}} M = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(\mbox{\hyperlink{classMandelbrot_a09a174794619b9f2a13010b4af19d498}{detail}}, \mbox{\hyperlink{classMandelbrot_a09a174794619b9f2a13010b4af19d498}{detail}});}
 \DoxyCodeLine{250         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} x = 0; x < \mbox{\hyperlink{classMandelbrot_a09a174794619b9f2a13010b4af19d498}{detail}}; ++x) \{}
 \DoxyCodeLine{251             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} y = 0; y < \mbox{\hyperlink{classMandelbrot_a09a174794619b9f2a13010b4af19d498}{detail}}; ++y) \{}
 \DoxyCodeLine{252                 M(x, y) = (double)\mbox{\hyperlink{classMandelbrot_a6b86afb4db2158631df99a45e9821574}{fun}}((\mbox{\hyperlink{classMandelbrot_aaa65ca8561039deb5e74acc4cd2f920f}{startX}} + stepWidthX * (\textcolor{keywordtype}{double})x), (\mbox{\hyperlink{classMandelbrot_af75cb6f92b971fdc1159248675c03e00}{startY}} + stepWidthY * (double)y));}

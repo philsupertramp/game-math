@@ -72,11 +72,11 @@ This is an example on how to use the \mbox{\hyperlink{classMonomBase}{Monom\+Bas
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordtype}{bool} TestEvaluate() \{}
 \DoxyCodeLine{        \textcolor{keywordtype}{int} m            = 5;}
-\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} X = \mbox{\hyperlink{utils_8cpp_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(-\/5, 5, m).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} X = \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(-\/5, 5, m).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} Y = X.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} in * in; \});}
 \DoxyCodeLine{        \mbox{\hyperlink{classLagrangeBase}{LagrangeBase}} base(X, Y);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} xi       = \mbox{\hyperlink{utils_8cpp_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(-\/3.5, 3.5, 5).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} xi       = \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(-\/3.5, 3.5, 5).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} expected = xi.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} in * in; \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keyword}{auto} res = base.Evaluate(xi);}
@@ -124,7 +124,7 @@ This is an example on how to use the \mbox{\hyperlink{classMonomBase}{Monom\+Bas
 \DoxyCodeLine{}
 \DoxyCodeLine{        AssertEqual(base.b, b);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} xi = \mbox{\hyperlink{utils_8cpp_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(-\/2.5, 2.5, 3).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
+\DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} xi = \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(-\/2.5, 2.5, 3).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
 \DoxyCodeLine{        \mbox{\hyperlink{classMatrix}{Matrix<double>}} expected(\{ \{ 6.25 \}, \{ 0 \}, \{ 6.25 \} \});}
 \DoxyCodeLine{}
 \DoxyCodeLine{        \textcolor{keyword}{auto} res = base.Evaluate(xi);}

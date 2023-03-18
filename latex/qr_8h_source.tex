@@ -4,14 +4,14 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}../../Matrix.h"{}}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../../utils.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../utils.h"{}}}
 \DoxyCodeLine{4 }
 \DoxyCodeLine{5 }
 \DoxyCodeLine{12 std::pair<Matrix<double>, \mbox{\hyperlink{classMatrix}{Matrix<double>}}> \mbox{\hyperlink{qr_8h_a1a1666b745736ba8fd4b2061a31399d2}{qr}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& A) \{}
 \DoxyCodeLine{13     \textcolor{keywordtype}{size\_t} num\_rows = A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
 \DoxyCodeLine{14     \textcolor{keywordtype}{size\_t} num\_cols = A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
 \DoxyCodeLine{15 }
-\DoxyCodeLine{16     \textcolor{keyword}{auto} Q     = \mbox{\hyperlink{utils_8cpp_a4af1fa738f95edd689ad5c984dc5fe7a}{zeros}}(num\_rows, num\_rows);}
+\DoxyCodeLine{16     \textcolor{keyword}{auto} Q     = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(num\_rows, num\_rows);}
 \DoxyCodeLine{17     \textcolor{keywordtype}{size\_t} col = 0;}
 \DoxyCodeLine{18 }
 \DoxyCodeLine{19     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i\_a = 0; i\_a < num\_cols; i\_a++) \{}
@@ -22,7 +22,7 @@
 \DoxyCodeLine{24             \textcolor{keyword}{auto} proj = (q.Transpose() * a)(0, 0) * q;}
 \DoxyCodeLine{25             u -\/= proj;}
 \DoxyCodeLine{26         \}}
-\DoxyCodeLine{27         \textcolor{keyword}{auto} e = 1.0 / \mbox{\hyperlink{utils_8cpp_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(u) * u;}
+\DoxyCodeLine{27         \textcolor{keyword}{auto} e = 1.0 / \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(u) * u;}
 \DoxyCodeLine{28         Q.SetSlice(0, e.rows() -\/ 1, col, col, e);}
 \DoxyCodeLine{29         col += 1;}
 \DoxyCodeLine{30     \}}

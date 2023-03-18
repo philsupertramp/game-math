@@ -86,59 +86,59 @@ $(function() {
 <div class="line"><span class="keyword">class </span>InsuranceTestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">bool</span> TestCompoundingFactor() {</div>
-<div class="line">        AssertEqual(<a id="a0" name="a0"></a><a class="code hl_function" href="Insurance_8cpp.html#a1445808f741ac180ac8352c230f9cc14">compoundingFactor</a>(0.01), 1.01);</div>
-<div class="line">        AssertEqual(<a class="code hl_function" href="Insurance_8cpp.html#a1445808f741ac180ac8352c230f9cc14">compoundingFactor</a>(1.01), 2.01);</div>
+<div class="line">        AssertEqual(<a id="a0" name="a0"></a><a class="code hl_function" href="Insurance_8h.html#a1445808f741ac180ac8352c230f9cc14">compoundingFactor</a>(0.01), 1.01);</div>
+<div class="line">        AssertEqual(<a class="code hl_function" href="Insurance_8h.html#a1445808f741ac180ac8352c230f9cc14">compoundingFactor</a>(1.01), 2.01);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestDiscountFactor() {</div>
-<div class="line">        AssertEqual(<a id="a1" name="a1"></a><a class="code hl_function" href="Insurance_8cpp.html#a7447721e5975127c235fe6daa2ce95f9">discountFactor</a>(1.0), 0.5);</div>
-<div class="line">        AssertEqual(<a class="code hl_function" href="Insurance_8cpp.html#a7447721e5975127c235fe6daa2ce95f9">discountFactor</a>(0.1), 1. / 1.1);</div>
+<div class="line">        AssertEqual(<a id="a1" name="a1"></a><a class="code hl_function" href="Insurance_8h.html#a7447721e5975127c235fe6daa2ce95f9">discountFactor</a>(1.0), 0.5);</div>
+<div class="line">        AssertEqual(<a class="code hl_function" href="Insurance_8h.html#a7447721e5975127c235fe6daa2ce95f9">discountFactor</a>(0.1), 1. / 1.1);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestFundamentalValue() {</div>
 <div class="line">        <a id="_a2" name="_a2"></a><a class="code hl_struct" href="structInterest.html">Interest</a> I = { 0.06, 100, 1, 10, 5 };</div>
 <div class="line">        <span class="comment">// 10 * 1.06^(-100)</span></div>
-<div class="line">        AssertEqual(<a id="a3" name="a3"></a><a class="code hl_function" href="Insurance_8cpp.html#a2e4591777325c288be997cd25344e55f">fundamentalValue</a>(I), 0.029472262287399215);</div>
+<div class="line">        AssertEqual(<a id="a3" name="a3"></a><a class="code hl_function" href="Insurance_8h.html#a4c101853644e44b2a6a4dc2688ecd77d">fundamentalValue</a>(I), 0.029472262287399215);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestEndValue() {</div>
 <div class="line">        <a class="code hl_struct" href="structInterest.html">Interest</a> I = { 0.06, 100, 1, 10, 5 };</div>
 <div class="line">        <span class="comment">// 1 * 1.06^(100)</span></div>
-<div class="line">        AssertEqual(<a id="a4" name="a4"></a><a class="code hl_function" href="Insurance_8cpp.html#aa87aa517c4acc18118de397929368dd2">endValue</a>(I), 339.3020835144872);</div>
+<div class="line">        AssertEqual(<a id="a4" name="a4"></a><a class="code hl_function" href="Insurance_8h.html#af892d3aae9541cb537e1f5df275ef7d9">endValue</a>(I), 339.3020835144872);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestTermInPeriods() {</div>
 <div class="line">        <span class="comment">// (log(10)-log(1))/log(1.05)</span></div>
 <div class="line">        <a class="code hl_struct" href="structInterest.html">Interest</a> I = { 0.06, 100, 1, 10, 5 };</div>
-<div class="line">        AssertEqual(<a id="a5" name="a5"></a><a class="code hl_function" href="Insurance_8cpp.html#a4ae4e06a95a0a206bc002aea79ba1db8">termInPeriods</a>(I), 39.516530635771536208682805631274488204856495225826522986578631731);</div>
+<div class="line">        AssertEqual(<a id="a5" name="a5"></a><a class="code hl_function" href="Insurance_8h.html#ab3a10a3059c77a0707926c42d8d72650">termInPeriods</a>(I), 39.516530635771536208682805631274488204856495225826522986578631731);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestFundamentalValueOfAnnuityInAdvance() {</div>
 <div class="line">        <a class="code hl_struct" href="structInterest.html">Interest</a> I = { 0.06, 100, 1, 10, 5 };</div>
 <div class="line">        <span class="comment">// (1-pow(1/1.06, 100))/(1-1/1.06)</span></div>
 <div class="line">        AssertEqual(</div>
-<div class="line">        <a id="a6" name="a6"></a><a class="code hl_function" href="Insurance_8cpp.html#a4763e7aa594fde3354b7ee4e2f1ebf54">fundamentalValueOfAnnuityInAdvance</a>(I), 17.614599003292261124646315796916331824982312779861072540295575993);</div>
+<div class="line">        <a id="a6" name="a6"></a><a class="code hl_function" href="Insurance_8h.html#a39e7cd069b9d37942e201e0a1992fce5">fundamentalValueOfAnnuityInAdvance</a>(I), 17.614599003292261124646315796916331824982312779861072540295575993);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestEndValueOfAnnuityInAdvance() {</div>
 <div class="line">        <a class="code hl_struct" href="structInterest.html">Interest</a> I = { 0.06, 100, 1, 10, 5 };</div>
 <div class="line">        <span class="comment">// (pow(1.06, 100)-1)/(1-1/1.06)</span></div>
-<div class="line">        AssertEqual(<a id="a7" name="a7"></a><a class="code hl_function" href="Insurance_8cpp.html#abfdf0b90ee9d054adf1ccd59de76f7d6">endValueOfAnnuityInAdvance</a>(I), 5976.6701420892436797668612701763787396284937497058441484295690490);</div>
+<div class="line">        AssertEqual(<a id="a7" name="a7"></a><a class="code hl_function" href="Insurance_8h.html#ac0f07314aa361d844f287efcfbe46ed1">endValueOfAnnuityInAdvance</a>(I), 5976.6701420892436797668612701763787396284937497058441484295690490);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestFundamentalValueOfAnnuityToArrear() {</div>
 <div class="line">        <a class="code hl_struct" href="structInterest.html">Interest</a> I = { 0.06, 100, 1, 10, 5 };</div>
 <div class="line">        <span class="comment">// (1-pow(1/1.06, 100))/(0.06)</span></div>
 <div class="line">        AssertEqual(</div>
-<div class="line">        <a id="a8" name="a8"></a><a class="code hl_function" href="Insurance_8cpp.html#aa27da02ba815ce851c253c1bc2162179">fundamentalValueOfAnnuityInArrear</a>(I),</div>
+<div class="line">        <a id="a8" name="a8"></a><a class="code hl_function" href="Insurance_8h.html#a9425f6005e68c3c2a41871b7edc133d4">fundamentalValueOfAnnuityInArrear</a>(I),</div>
 <div class="line">        16.617546229521001060987090374449369646209729037604785415373184899351288068383264304267210888801306835712115089689784848248668120);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordtype">bool</span> TestEndValueOfAnnuityInArrear() {</div>
 <div class="line">        <a class="code hl_struct" href="structInterest.html">Interest</a> I = { 0.06, 100, 1, 10, 5 };</div>
 <div class="line">        <span class="comment">// (1-pow(1/1.06, 100))/(0.06) * pow(1.06, 100)</span></div>
-<div class="line">        AssertEqual(<a id="a9" name="a9"></a><a class="code hl_function" href="Insurance_8cpp.html#a58abb5561557ee3911d42c22723ae0e6">endValueOfAnnuityInArrear</a>(I), 5638.3680585747581884593030850720554147438620280243812721033670274);</div>
+<div class="line">        AssertEqual(<a id="a9" name="a9"></a><a class="code hl_function" href="Insurance_8h.html#a2de394211d124f7a8f05041cf45547c7">endValueOfAnnuityInArrear</a>(I), 5638.3680585747581884593030850720554147438620280243812721033670274);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -160,16 +160,16 @@ $(function() {
 <div class="line">    InsuranceTestCase().run();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aInsurance_8cpp_html_a1445808f741ac180ac8352c230f9cc14"><div class="ttname"><a href="Insurance_8cpp.html#a1445808f741ac180ac8352c230f9cc14">compoundingFactor</a></div><div class="ttdeci">double compoundingFactor(double i)</div><div class="ttdef"><b>Definition:</b> Insurance.cpp:3</div></div>
-<div class="ttc" id="aInsurance_8cpp_html_a2e4591777325c288be997cd25344e55f"><div class="ttname"><a href="Insurance_8cpp.html#a2e4591777325c288be997cd25344e55f">fundamentalValue</a></div><div class="ttdeci">double fundamentalValue(Interest Z)</div><div class="ttdef"><b>Definition:</b> Insurance.cpp:5</div></div>
-<div class="ttc" id="aInsurance_8cpp_html_a4763e7aa594fde3354b7ee4e2f1ebf54"><div class="ttname"><a href="Insurance_8cpp.html#a4763e7aa594fde3354b7ee4e2f1ebf54">fundamentalValueOfAnnuityInAdvance</a></div><div class="ttdeci">double fundamentalValueOfAnnuityInAdvance(Interest Z)</div><div class="ttdef"><b>Definition:</b> Insurance.cpp:8</div></div>
-<div class="ttc" id="aInsurance_8cpp_html_a4ae4e06a95a0a206bc002aea79ba1db8"><div class="ttname"><a href="Insurance_8cpp.html#a4ae4e06a95a0a206bc002aea79ba1db8">termInPeriods</a></div><div class="ttdeci">double termInPeriods(Interest Z)</div><div class="ttdef"><b>Definition:</b> Insurance.cpp:7</div></div>
-<div class="ttc" id="aInsurance_8cpp_html_a58abb5561557ee3911d42c22723ae0e6"><div class="ttname"><a href="Insurance_8cpp.html#a58abb5561557ee3911d42c22723ae0e6">endValueOfAnnuityInArrear</a></div><div class="ttdeci">double endValueOfAnnuityInArrear(Interest Z)</div><div class="ttdef"><b>Definition:</b> Insurance.cpp:21</div></div>
-<div class="ttc" id="aInsurance_8cpp_html_a7447721e5975127c235fe6daa2ce95f9"><div class="ttname"><a href="Insurance_8cpp.html#a7447721e5975127c235fe6daa2ce95f9">discountFactor</a></div><div class="ttdeci">double discountFactor(double i)</div><div class="ttdef"><b>Definition:</b> Insurance.cpp:4</div></div>
-<div class="ttc" id="aInsurance_8cpp_html_aa27da02ba815ce851c253c1bc2162179"><div class="ttname"><a href="Insurance_8cpp.html#aa27da02ba815ce851c253c1bc2162179">fundamentalValueOfAnnuityInArrear</a></div><div class="ttdeci">double fundamentalValueOfAnnuityInArrear(Interest Z)</div><div class="ttdef"><b>Definition:</b> Insurance.cpp:17</div></div>
-<div class="ttc" id="aInsurance_8cpp_html_aa87aa517c4acc18118de397929368dd2"><div class="ttname"><a href="Insurance_8cpp.html#aa87aa517c4acc18118de397929368dd2">endValue</a></div><div class="ttdeci">double endValue(Interest Z)</div><div class="ttdef"><b>Definition:</b> Insurance.cpp:6</div></div>
-<div class="ttc" id="aInsurance_8cpp_html_abfdf0b90ee9d054adf1ccd59de76f7d6"><div class="ttname"><a href="Insurance_8cpp.html#abfdf0b90ee9d054adf1ccd59de76f7d6">endValueOfAnnuityInAdvance</a></div><div class="ttdeci">double endValueOfAnnuityInAdvance(Interest Z)</div><div class="ttdef"><b>Definition:</b> Insurance.cpp:12</div></div>
 <div class="ttc" id="aInsurance_8h_html"><div class="ttname"><a href="Insurance_8h.html">Insurance.h</a></div></div>
+<div class="ttc" id="aInsurance_8h_html_a1445808f741ac180ac8352c230f9cc14"><div class="ttname"><a href="Insurance_8h.html#a1445808f741ac180ac8352c230f9cc14">compoundingFactor</a></div><div class="ttdeci">double compoundingFactor(double i)</div></div>
+<div class="ttc" id="aInsurance_8h_html_a2de394211d124f7a8f05041cf45547c7"><div class="ttname"><a href="Insurance_8h.html#a2de394211d124f7a8f05041cf45547c7">endValueOfAnnuityInArrear</a></div><div class="ttdeci">double endValueOfAnnuityInArrear(Interest I)</div></div>
+<div class="ttc" id="aInsurance_8h_html_a39e7cd069b9d37942e201e0a1992fce5"><div class="ttname"><a href="Insurance_8h.html#a39e7cd069b9d37942e201e0a1992fce5">fundamentalValueOfAnnuityInAdvance</a></div><div class="ttdeci">double fundamentalValueOfAnnuityInAdvance(Interest I)</div></div>
+<div class="ttc" id="aInsurance_8h_html_a4c101853644e44b2a6a4dc2688ecd77d"><div class="ttname"><a href="Insurance_8h.html#a4c101853644e44b2a6a4dc2688ecd77d">fundamentalValue</a></div><div class="ttdeci">double fundamentalValue(Interest I)</div></div>
+<div class="ttc" id="aInsurance_8h_html_a7447721e5975127c235fe6daa2ce95f9"><div class="ttname"><a href="Insurance_8h.html#a7447721e5975127c235fe6daa2ce95f9">discountFactor</a></div><div class="ttdeci">double discountFactor(double i)</div></div>
+<div class="ttc" id="aInsurance_8h_html_a9425f6005e68c3c2a41871b7edc133d4"><div class="ttname"><a href="Insurance_8h.html#a9425f6005e68c3c2a41871b7edc133d4">fundamentalValueOfAnnuityInArrear</a></div><div class="ttdeci">double fundamentalValueOfAnnuityInArrear(Interest I)</div></div>
+<div class="ttc" id="aInsurance_8h_html_ab3a10a3059c77a0707926c42d8d72650"><div class="ttname"><a href="Insurance_8h.html#ab3a10a3059c77a0707926c42d8d72650">termInPeriods</a></div><div class="ttdeci">double termInPeriods(Interest I)</div></div>
+<div class="ttc" id="aInsurance_8h_html_ac0f07314aa361d844f287efcfbe46ed1"><div class="ttname"><a href="Insurance_8h.html#ac0f07314aa361d844f287efcfbe46ed1">endValueOfAnnuityInAdvance</a></div><div class="ttdeci">double endValueOfAnnuityInAdvance(Interest I)</div></div>
+<div class="ttc" id="aInsurance_8h_html_af892d3aae9541cb537e1f5df275ef7d9"><div class="ttname"><a href="Insurance_8h.html#af892d3aae9541cb537e1f5df275ef7d9">endValue</a></div><div class="ttdeci">double endValue(Interest I)</div></div>
 <div class="ttc" id="astructInterest_html"><div class="ttname"><a href="structInterest.html">Interest</a></div><div class="ttdef"><b>Definition:</b> Insurance.h:13</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->

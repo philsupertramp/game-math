@@ -115,14 +115,14 @@ Functions</h2></td></tr>
 <div class="line"><span class="keyword">auto</span> fun = [](<span class="keyword">const</span> <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a>&amp; input){ <span class="keywordflow">return</span> input.Apply([](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; val){ <span class="keywordflow">return</span> val*val; });};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// create support values</span></div>
-<div class="line"><span class="keyword">auto</span> xk = <a class="code hl_function" href="utils_8cpp.html#af9dcfd52b7832ac134ae73f568a90350">linspace</a>(-5, 5, 20).<a class="code hl_function" href="classMatrix.html#a054a03bcae4eb86d6f4ef84dc87840ef">Transpose</a>();</div>
+<div class="line"><span class="keyword">auto</span> xk = <a class="code hl_function" href="numerics_2utils_8h.html#af9dcfd52b7832ac134ae73f568a90350">linspace</a>(-5, 5, 20).<a class="code hl_function" href="classMatrix.html#a054a03bcae4eb86d6f4ef84dc87840ef">Transpose</a>();</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// calculate 1st derivative</span></div>
 <div class="line"><a class="code hl_function" href="Differentiation_8h.html#a491c1ed77a5dc36d6e7a2656a0c7a436">centralDiff</a>(xk, fun(xk));</div>
-<div class="ttc" id="aDifferentiation_8h_html_a491c1ed77a5dc36d6e7a2656a0c7a436"><div class="ttname"><a href="Differentiation_8h.html#a491c1ed77a5dc36d6e7a2656a0c7a436">centralDiff</a></div><div class="ttdeci">Matrix&lt; double &gt; centralDiff(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y)</div><div class="ttdef"><b>Definition:</b> Differentiation.h:89</div></div>
+<div class="ttc" id="aDifferentiation_8h_html_a491c1ed77a5dc36d6e7a2656a0c7a436"><div class="ttname"><a href="Differentiation_8h.html#a491c1ed77a5dc36d6e7a2656a0c7a436">centralDiff</a></div><div class="ttdeci">Matrix&lt; double &gt; centralDiff(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y)</div><div class="ttdef"><b>Definition:</b> Differentiation.h:90</div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:40</div></div>
 <div class="ttc" id="aclassMatrix_html_a054a03bcae4eb86d6f4ef84dc87840ef"><div class="ttname"><a href="classMatrix.html#a054a03bcae4eb86d6f4ef84dc87840ef">Matrix::Transpose</a></div><div class="ttdeci">constexpr Matrix&lt; T &gt; Transpose() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:241</div></div>
-<div class="ttc" id="autils_8cpp_html_af9dcfd52b7832ac134ae73f568a90350"><div class="ttname"><a href="utils_8cpp.html#af9dcfd52b7832ac134ae73f568a90350">linspace</a></div><div class="ttdeci">Matrix&lt; double &gt; linspace(double start, double end, unsigned long num_elements)</div><div class="ttdef"><b>Definition:</b> utils.cpp:4</div></div>
+<div class="ttc" id="anumerics_2utils_8h_html_af9dcfd52b7832ac134ae73f568a90350"><div class="ttname"><a href="numerics_2utils_8h.html#af9dcfd52b7832ac134ae73f568a90350">linspace</a></div><div class="ttdeci">Matrix&lt; double &gt; linspace(double start, double end, unsigned long num_elements)</div></div>
 </div><!-- fragment --><div class="image">
 <object type="image/svg+xml" data="difference_quotients.svg" width="50%" style="pointer-events: none;"></object>
 </div>
@@ -132,6 +132,9 @@ Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; backwardDiff </td>
@@ -151,6 +154,11 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p >Computes backward difference quotient $$ f'(x) = \frac{f(x)-f(x-h)}{h} $$ <b>Error</b> O(dx) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -170,6 +178,9 @@ Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; backwardDiff2 </td>
@@ -189,6 +200,11 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p >Computes backward difference quotient for 1st differential uses 2nd order polynomial for approximation</p>
 <p ><b>Error</b> O(dx) </p><dl class="params"><dt>Parameters</dt><dd>
@@ -209,6 +225,9 @@ Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; centralDiff </td>
@@ -228,6 +247,11 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p >Computes central difference quotient $$ f'(x) = \frac{f(x+h)-f(x-h)}{2h} $$ <b>Error</b> O(dx^2) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -247,6 +271,9 @@ Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; centralDiff4 </td>
@@ -266,6 +293,11 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p >Computes central difference quotient for 1st differential uses 2nd order polynomial for approximation</p>
 <p ><b>Error</b> O(dx^2) </p><dl class="params"><dt>Parameters</dt><dd>
@@ -286,6 +318,9 @@ Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; forwardDiff </td>
@@ -305,6 +340,11 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p >Computes forward difference quotient $$ \frac{f(x+h)-f(x)}{h} $$ <b>Error</b> O(dx) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

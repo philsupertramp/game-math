@@ -254,7 +254,7 @@
 \DoxyCodeLine{381 }
 \DoxyCodeLine{389     \textcolor{keywordtype}{void} \mbox{\hyperlink{classFunctionPlot_a6bea42610ef9f96447b91d622e918bc3}{AddData}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& start, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& end, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& stepSize, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* name) \{}
 \DoxyCodeLine{390         \textcolor{keywordtype}{int} size         = (int)((end -\/ start) / stepSize) + 2;}
-\DoxyCodeLine{391         \mbox{\hyperlink{classMatrix}{Matrix<double>}} X = \mbox{\hyperlink{utils_8cpp_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(start, end, size);}
+\DoxyCodeLine{391         \mbox{\hyperlink{classMatrix}{Matrix<double>}} X = \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(start, end, size);}
 \DoxyCodeLine{392         \textcolor{keyword}{auto} Y           = X.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}(\mbox{\hyperlink{classFunction}{Function}});}
 \DoxyCodeLine{393         \mbox{\hyperlink{classPlot_a3f3bea871eaf966d7d458c641873d278}{Plot::AddData}}(X, Y, name);}
 \DoxyCodeLine{394     \}}

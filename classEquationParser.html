@@ -137,10 +137,10 @@ Static Private Member Functions</h2></td></tr>
 <tr class="separator:abe13770a8f541f71a89e717830330303"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33719a6d3e21799c57b1b2fb7d76f684"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a33719a6d3e21799c57b1b2fb7d76f684">isParenthesesClose</a> (const std::string &amp;in)</td></tr>
 <tr class="separator:a33719a6d3e21799c57b1b2fb7d76f684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ba935d119c8d5d27542379ce6b1a725"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a1ba935d119c8d5d27542379ce6b1a725">processCurrentOP</a> (const std::shared_ptr&lt; <a class="el" href="classOperator.html">Operator</a> &gt; &amp;currentOp, std::vector&lt; std::string &gt; &amp;<a class="el" href="classEquationParser.html#a70ddbb63cbf2d30ac2d3a2a6a0cbbf98">operatorStack</a>, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classMathNode.html">MathNode</a> &gt; &gt; &amp;<a class="el" href="classEquationParser.html#afa73d296245fd785dea152f54576416f">operandStack</a>)</td></tr>
-<tr class="separator:a1ba935d119c8d5d27542379ce6b1a725"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a129b40bf5e8b4ba7382142a9b37671d9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#a129b40bf5e8b4ba7382142a9b37671d9">rearrangeStack</a> (std::vector&lt; std::string &gt; &amp;<a class="el" href="classEquationParser.html#a70ddbb63cbf2d30ac2d3a2a6a0cbbf98">operatorStack</a>, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classMathNode.html">MathNode</a> &gt; &gt; &amp;<a class="el" href="classEquationParser.html#afa73d296245fd785dea152f54576416f">operandStack</a>)</td></tr>
-<tr class="separator:a129b40bf5e8b4ba7382142a9b37671d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abed5bf391fc572950b3ab7bc28d2ecf7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#abed5bf391fc572950b3ab7bc28d2ecf7">processCurrentOP</a> (const std::shared_ptr&lt; <a class="el" href="classOperator.html">Operator</a> &gt; &amp;currentOp, std::vector&lt; std::string &gt; &amp;<a class="el" href="classEquationParser.html#a70ddbb63cbf2d30ac2d3a2a6a0cbbf98">operatorStack</a>, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classMathNode.html">MathNode</a> &gt; &gt; &amp;<a class="el" href="classEquationParser.html#afa73d296245fd785dea152f54576416f">operandStack</a>)</td></tr>
+<tr class="separator:abed5bf391fc572950b3ab7bc28d2ecf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa63d00a49b14ff35fdad5000bceb9ee5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEquationParser.html#aa63d00a49b14ff35fdad5000bceb9ee5">rearrangeStack</a> (std::vector&lt; std::string &gt; &amp;<a class="el" href="classEquationParser.html#a70ddbb63cbf2d30ac2d3a2a6a0cbbf98">operatorStack</a>, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classMathNode.html">MathNode</a> &gt; &gt; &amp;<a class="el" href="classEquationParser.html#afa73d296245fd785dea152f54576416f">operandStack</a>)</td></tr>
+<tr class="separator:aa63d00a49b14ff35fdad5000bceb9ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -601,8 +601,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1ba935d119c8d5d27542379ce6b1a725" name="a1ba935d119c8d5d27542379ce6b1a725"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ba935d119c8d5d27542379ce6b1a725">&#9670;&#160;</a></span>processCurrentOP()</h2>
+<a id="abed5bf391fc572950b3ab7bc28d2ecf7" name="abed5bf391fc572950b3ab7bc28d2ecf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abed5bf391fc572950b3ab7bc28d2ecf7">&#9670;&#160;</a></span>processCurrentOP()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -611,7 +611,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void EquationParser::processCurrentOP </td>
+          <td class="memname">static void EquationParser::processCurrentOP </td>
           <td>(</td>
           <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classOperator.html">Operator</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>currentOp</em>, </td>
@@ -651,8 +651,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a129b40bf5e8b4ba7382142a9b37671d9" name="a129b40bf5e8b4ba7382142a9b37671d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a129b40bf5e8b4ba7382142a9b37671d9">&#9670;&#160;</a></span>rearrangeStack()</h2>
+<a id="aa63d00a49b14ff35fdad5000bceb9ee5" name="aa63d00a49b14ff35fdad5000bceb9ee5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa63d00a49b14ff35fdad5000bceb9ee5">&#9670;&#160;</a></span>rearrangeStack()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -661,7 +661,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void EquationParser::rearrangeStack </td>
+          <td class="memname">static void EquationParser::rearrangeStack </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
           <td class="paramname"><em>operatorStack</em>, </td>
@@ -898,9 +898,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/math/symb/<a class="el" href="EquationParser_8h_source.html">EquationParser.h</a></li>
-<li>include/math/symb/<a class="el" href="EquationParser_8cpp.html">EquationParser.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -7,11 +7,11 @@ var searchData=
   ['plot_4',['Plot',['../classPlot.html#ad5c4ae2e4201841f833c2d6968681c0a',1,'Plot']]],
   ['pointsize_5',['pointSize',['../classPlot.html#ab1ca4b31fc51ed85c65f1c8fcf786134',1,'Plot']]],
   ['polynomialbase_6',['PolynomialBase',['../classPolynomialBase.html#a35c1b1f74053833dcd865908c93e8f24',1,'PolynomialBase']]],
-  ['pow_7',['pow',['../Probability_8h.html#a4f0f49581ae9315695fb32a1e9fc4bdc',1,'pow(double x, int exponent):&#160;Probability.cpp'],['../Probability_8cpp.html#a580e83323168ca896c7f2b9bc22bb559',1,'pow(double x, int p):&#160;Probability.cpp']]],
-  ['predict_8',['predict',['../classLogRegSGD.html#a55ac458f1e5b06f8b9542d1133d50e67',1,'LogRegSGD::predict()'],['../classPerceptron.html#a5dfe81d65411060c2ca93a6ee1d73bd1',1,'Perceptron::predict()'],['../classClassifier.html#a878bf4c825a27bee85a2466b2725e406',1,'Classifier::predict()'],['../classAdalineSGD.html#a4e2e8995938c23c32bf1dfca94b07ec8',1,'AdalineSGD::predict()'],['../classAdalineGD.html#abb958a344b78f560ea059f16c920210d',1,'AdalineGD::predict()']]],
+  ['pow_7',['pow',['../Probability_8h.html#a4f0f49581ae9315695fb32a1e9fc4bdc',1,'Probability.h']]],
+  ['predict_8',['predict',['../classClassifier.html#a878bf4c825a27bee85a2466b2725e406',1,'Classifier::predict()'],['../classLogRegSGD.html#a55ac458f1e5b06f8b9542d1133d50e67',1,'LogRegSGD::predict()'],['../classPerceptron.html#a5dfe81d65411060c2ca93a6ee1d73bd1',1,'Perceptron::predict()'],['../classAdalineSGD.html#a4e2e8995938c23c32bf1dfca94b07ec8',1,'AdalineSGD::predict()'],['../classAdalineGD.html#abb958a344b78f560ea059f16c920210d',1,'AdalineGD::predict()']]],
   ['preparedirectory_9',['PrepareDirectory',['../classDataSet.html#ab55020328d9b53265bfece0e16696baf',1,'DataSet::PrepareDirectory()'],['../classImageDataSet.html#a9bbabe8ae4b48f1238be7828d6fe7233',1,'ImageDataSet::PrepareDirectory()']]],
   ['print_10',['Print',['../classEquation.html#a97a934b003b26bdf3b5c0c1a8a73cf14',1,'Equation']]],
   ['printnode_11',['PrintNode',['../classEquation.html#aec6826e707dd31368f03c66a3e0746f6',1,'Equation']]],
   ['printtree_12',['PrintTree',['../classEquation.html#ab9daa6dd4f1c918d325ae90390503269',1,'Equation::PrintTree() const'],['../classEquation.html#a96bcd5581bd04a65fea7ba373815e418',1,'Equation::PrintTree(const std::shared_ptr&lt; MathNode &gt; &amp;node, int &amp;level, std::vector&lt; std::string &gt; &amp;tree) const']]],
-  ['processcurrentop_13',['processCurrentOP',['../classEquationParser.html#a1ba935d119c8d5d27542379ce6b1a725',1,'EquationParser']]]
+  ['processcurrentop_13',['processCurrentOP',['../classEquationParser.html#abed5bf391fc572950b3ab7bc28d2ecf7',1,'EquationParser']]]
 ];

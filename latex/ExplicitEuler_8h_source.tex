@@ -19,7 +19,7 @@
 \DoxyCodeLine{32     \textcolor{keyword}{auto} result\_dim = ((tInterval[dim -\/ 1] -\/ tInterval[0]) / h) + 1;}
 \DoxyCodeLine{33     \mbox{\hyperlink{classMatrix}{Matrix<double>}} t(0, result\_dim, 1, 1);}
 \DoxyCodeLine{34     \textcolor{keywordtype}{size\_t} n = result\_dim;}
-\DoxyCodeLine{35     \textcolor{keyword}{auto} y   = \mbox{\hyperlink{utils_8cpp_a4af1fa738f95edd689ad5c984dc5fe7a}{zeros}}(n, elem\_size);}
+\DoxyCodeLine{35     \textcolor{keyword}{auto} y   = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(n, elem\_size);}
 \DoxyCodeLine{36 }
 \DoxyCodeLine{37     t(0, 0) = tInterval[0];}
 \DoxyCodeLine{38     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} i = 0; i < y0.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); ++i) y(0, i) = y0(0, i);}

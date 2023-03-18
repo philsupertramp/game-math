@@ -109,21 +109,21 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestStrip() {</div>
 <div class="line">        std::string in = <span class="stringliteral">&quot;1 + 2 + 3 - 5(x*2 + 3)&quot;</span>;</div>
-<div class="line">        AssertEqual(<a id="a1" name="a1"></a><a class="code hl_function" href="format_8cpp.html#a5f3e23cac814c84a5494842243316a4b">strip</a>(in), <span class="stringliteral">&quot;1+2+3-5(x*2+3)&quot;</span>);</div>
+<div class="line">        AssertEqual(<a id="a1" name="a1"></a><a class="code hl_function" href="format_8h.html#a5f3e23cac814c84a5494842243316a4b">strip</a>(in), <span class="stringliteral">&quot;1+2+3-5(x*2+3)&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> TestSplit() {</div>
 <div class="line">        std::string in = <span class="stringliteral">&quot;Hey there, my friend.&quot;</span>;</div>
-<div class="line">        <span class="keyword">auto</span> out       = <a id="a2" name="a2"></a><a class="code hl_function" href="format_8cpp.html#a03529396588a5d4dac36c432989fdfaa">split</a>(in, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line">        <span class="keyword">auto</span> out       = <a id="a2" name="a2"></a><a class="code hl_function" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(in, <span class="charliteral">&#39; &#39;</span>);</div>
 <div class="line"> </div>
 <div class="line">        std::vector&lt;std::string&gt; ref = { <span class="stringliteral">&quot;Hey&quot;</span>, <span class="stringliteral">&quot;there,&quot;</span>, <span class="stringliteral">&quot;my&quot;</span>, <span class="stringliteral">&quot;friend.&quot;</span> };</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; ref.size(); ++i) { AssertEqual(ref[i], out[i]); }</div>
 <div class="line"> </div>
 <div class="line">        std::string in2               = <span class="stringliteral">&quot;Hey&quot;</span>;</div>
-<div class="line">        <span class="keyword">auto</span> out2                     = <a class="code hl_function" href="format_8cpp.html#a03529396588a5d4dac36c432989fdfaa">split</a>(in2);</div>
+<div class="line">        <span class="keyword">auto</span> out2                     = <a class="code hl_function" href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a>(in2);</div>
 <div class="line">        std::vector&lt;std::string&gt; ref2 = { <span class="stringliteral">&quot;H&quot;</span>, <span class="stringliteral">&quot;e&quot;</span>, <span class="stringliteral">&quot;y&quot;</span> };</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; ref2.size(); ++i) { AssertEqual(ref2[i], out2[i]); }</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -142,10 +142,10 @@ $(function() {
 <div class="line">    FormatTestCase().run();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aformat_8cpp_html_a03529396588a5d4dac36c432989fdfaa"><div class="ttname"><a href="format_8cpp.html#a03529396588a5d4dac36c432989fdfaa">split</a></div><div class="ttdeci">void split(const std::string &amp;s, char delim, Out result)</div><div class="ttdef"><b>Definition:</b> format.cpp:19</div></div>
-<div class="ttc" id="aformat_8cpp_html_a5f3e23cac814c84a5494842243316a4b"><div class="ttname"><a href="format_8cpp.html#a5f3e23cac814c84a5494842243316a4b">strip</a></div><div class="ttdeci">std::string strip(const std::string &amp;in)</div><div class="ttdef"><b>Definition:</b> format.cpp:5</div></div>
 <div class="ttc" id="aformat_8h_html"><div class="ttname"><a href="format_8h.html">format.h</a></div></div>
+<div class="ttc" id="aformat_8h_html_a03529396588a5d4dac36c432989fdfaa"><div class="ttname"><a href="format_8h.html#a03529396588a5d4dac36c432989fdfaa">split</a></div><div class="ttdeci">void split(const std::string &amp;s, char delim, Out result)</div></div>
 <div class="ttc" id="aformat_8h_html_a1921b31564b858b45e94efff9e9d54bf"><div class="ttname"><a href="format_8h.html#a1921b31564b858b45e94efff9e9d54bf">format</a></div><div class="ttdeci">std::string format(const char *fmt,...)</div><div class="ttdef"><b>Definition:</b> format.h:22</div></div>
+<div class="ttc" id="aformat_8h_html_a5f3e23cac814c84a5494842243316a4b"><div class="ttname"><a href="format_8h.html#a5f3e23cac814c84a5494842243316a4b">strip</a></div><div class="ttdeci">std::string strip(const std::string &amp;in)</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
