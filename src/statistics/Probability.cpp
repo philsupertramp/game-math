@@ -115,6 +115,25 @@ Matrix<double> Regression(const Matrix<double>& a) {
     Matrix<double> right = { { (a.Transpose() * u1)(0, 0) }, { (a.Transpose() * u2)(0, 0) } };
     Matrix<double> left  = { { (u1.Transpose() * u1)(0, 0), (u1.Transpose() * u2)(0, 0) },
                              { (u1.Transpose() * u2)(0, 0), (u2.Transpose() * u2)(0, 0) } };
-    auto res             = gaussSeidel(left, right);
-    return res(1, 0) * ones(size, 1) + u1 * res(0, 0);
+    auto beta             = gaussSeidel(left, right);
+    return beta(1, 0) * ones(size, 1) + u1 * beta(0, 0);
 }
+
+Matrix<double> sd(const Matrix<double>& x){
+  Matrix<double> sds = Matrix<double>(0, x.columns(), 1);
+  for(size_t col = 0; col < x.columns(); ++col){
+    double sum = 0;
+    auto current_values = x.GetSlice(0, x.rows() - 1, col, col);
+    double mean_val = mean(current_values);
+    auto diff = current_values.Apply([mean_val](double x){double val = (x - mean_val); return val * val;}).sumElements()/(double)x.rows();
+    std::cout << "DIFF: " << diff << "SQRT "<< sqrt(diff) << std::endl;
+    
+    sds(col, 0) = sqrt(diff);
+  }
+  return sds;
+}
+
+Matrix<double> corr(const Matrix<double>& A, const Matrix<double>& B){
+  return sd(A) * sd(B) * (1.0/cov(A, B));
+}
+

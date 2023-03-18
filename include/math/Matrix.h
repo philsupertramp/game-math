@@ -859,15 +859,15 @@ Matrix<T> HorizontalConcat(const Matrix<T>& lhs, const Matrix<T>& rhs) {
  * @return number of element wise equal elements
  */
 template<typename T>
-size_t& Corr(const Matrix<T>& A, const Matrix<T>& B) {
+size_t Corr(const Matrix<T>& A, const Matrix<T>& B) {
     A.assertSize(B);
-    auto count = new size_t(0);
+    size_t count = 0;
     for(size_t i = 0; i < A.rows(); i++) {
         for(size_t j = 0; j < A.columns(); j++) {
-            for(size_t elem = 0; elem < A.elements(); elem++) { (*count) += (A(i, j, elem) == B(i, j, elem)); }
+            for(size_t elem = 0; elem < A.elements(); elem++) { count += (A(i, j, elem) == B(i, j, elem)); }
         }
     }
-    return *count;
+    return count;
 }
 
 /**
