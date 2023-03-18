@@ -1,4 +1,4 @@
-#include "Insurance.h"
+#include "../../include/math/statistics/Insurance.h"
 
 double compoundingFactor(double i) { return 1 + i; }
 double discountFactor(double i) { return 1. / (1. + i); }

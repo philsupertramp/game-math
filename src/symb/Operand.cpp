@@ -1,4 +1,4 @@
-#include "Operand.h"
+#include "../../include/math/symb/Operand.h"
 
 bool isConstant(const std::string& in) {
     std::unordered_set<std::string> funList;

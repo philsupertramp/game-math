@@ -1,6 +1,6 @@
-#include "Probability.h"
-#include "../numerics/lin_alg/gaussSeidel.h"
-#include "../numerics/utils.h"
+#include "../../include/math/statistics/Probability.h"
+#include "../../include/math/numerics/lin_alg/gaussSeidel.h"
+#include "../../include/math/numerics/utils.h"
 
 
 /** regular helpers **/

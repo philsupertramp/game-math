@@ -7,6 +7,7 @@ DIR_NAME=$1
 
 WITH_COVERAGE=0;
 WITH_TESTS=0;
+WITH_BENCHMARKS=0;
 BUILD_TYPE="Debug";
 BUILD_OPTIONS="";
 TEST_ONLY=0;
@@ -22,6 +23,12 @@ do
       WITH_TESTS=1;
       echo "Purging coverage files..."
       rm -rf $(find ${DIR_NAME} \( -iname '*.gcda' \))
+      shift
+      ;;
+    -b|--benchmarks)
+      WITH_BENCHMARKS=1;
+      echo "Purging current benchmarks"
+      rm -rf benchmarks/${DIR_NAME}/*
       shift
       ;;
     --clear)
@@ -81,6 +88,16 @@ if [ ${TEST_ONLY} -eq 1 ]
 then
   cd ${DIR_NAME};
   ctest --coverage --extra-verbose
+elif [ ${WITH_BENCHMARKS} -eq 1 ]
+then
+  cd benchmarks
+  mkdir -p ${DIR_NAME}
+  (
+    cd ${DIR_NAME};
+    cmake ${BUILD_OPTIONS} -G "CodeBlocks - Unix Makefiles" ..
+    cmake --build . --target benchmarks -- -j 3;
+    ./benchmarks;
+  )
 else
   if [ ${CLEAR:-0} == 1 ]; then
     rm -rf ${DIR_NAME};

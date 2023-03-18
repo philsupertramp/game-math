@@ -27,3 +27,6 @@ minimal:
 
 image-processing:
 	./build.sh cmake-debug-coverage -c -o="MATH_EXTENSIONS=ds,numerics" -o="MATH_IMAGE_PROCESSING=1";
+
+benchmark:
+	./build.sh cmake-debug -b -o="MATH_EXTENSIONS=numerics" --target=benchmarks;

@@ -1,4 +1,4 @@
-#include "Operator.h"
+#include "../../include/math/symb/Operator.h"
 
 std::shared_ptr<Operator> GenerateOperator(OperatorType type) {
     switch(type) {

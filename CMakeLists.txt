@@ -16,7 +16,7 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     add_definitions(-DCOMPILER_VC)
 endif()
 
-set(LIB_SOURCES
+set(LIB_HEADERS
         include/math/math.h
         include/math/vec/vec2.h
         include/math/vec/vec3.h
@@ -27,16 +27,17 @@ set(LIB_SOURCES
         include/math/utils.h
         include/math/Random.h
         include/math/format.h
-        include/math/format.cpp
         include/math/sorting.h)
 
+set(LIB_SOURCES
+
+        src/format.cpp
+)
 if(MATH_EXTENSIONS MATCHES "(numerics)")
-    set(LIB_SOURCES
-            ${LIB_SOURCES}
+    set(LIB_HEADERS
+            ${LIB_HEADERS}
             include/math/Matrix.h
-            include/math/Matrix.cpp
             include/math/numerics/utils.h
-            include/math/numerics/utils.cpp
             include/math/numerics/lin_alg/newton.h
             include/math/numerics/lin_alg/backwardSub.h
             include/math/numerics/lin_alg/forwardSub.h
@@ -54,26 +55,33 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/analysis/Spline.h
             include/math/numerics/analysis/Differentiation.h
             include/math/numerics/Fractals.h include/math/numerics/lin_alg/gaussJordan.h include/math/numerics/lin_alg/qr.h include/math/numerics/lin_alg/svd.h)
+    set(LIB_SOURCES
+            ${LIB_SOURCES}
+            src/Matrix.cpp
+            src/numerics/utils.cpp
+            )
 endif()
 if(MATH_EXTENSIONS MATCHES "(symb)")
-    set(LIB_SOURCES
-        ${LIB_SOURCES}
+    set(LIB_HEADERS
+        ${LIB_HEADERS}
 
         include/math/symb/Equation.h
-        include/math/symb/Equation.cpp
-        include/math/symb/MathNode.h
-        include/math/symb/MathNode.cpp
-        include/math/symb/Operator.cpp
-        include/math/symb/Operator.h
-        include/math/symb/Operand.cpp
-        include/math/symb/Operand.h
-        include/math/symb/EquationParser.cpp
-        include/math/symb/EquationParser.h
+            include/math/symb/MathNode.h
+            include/math/symb/Operator.h
+            include/math/symb/Operand.h
+            include/math/symb/EquationParser.h
+            )
+    set(LIB_SOURCES
+            ${LIB_SOURCES}
+            src/symb/MathNode.cpp
+            src/symb/Operand.cpp
+            src/symb/Operator.cpp
+            src/symb/EquationParser.cpp
             )
 endif()
 if (MATH_EXTENSIONS MATCHES "(ds)")
-    set(LIB_SOURCES
-        ${LIB_SOURCES}
+    set(LIB_HEADERS
+        ${LIB_HEADERS}
             include/math/Matrix.h
             include/math/ds/DataSet.h
             include/math/ds/Classifier.h
@@ -84,7 +92,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/SGD.h
             )
     if(MATH_IMAGE_PROCESSING)
-        set(LIB_SOURCES ${LIB_SOURCES}
+        set(LIB_HEADERS ${LIB_HEADERS}
                 include/math/ds/ImageDataSet.h
         )
         add_definitions( -DMAGICKCORE_QUANTUM_DEPTH=16 )
@@ -95,7 +103,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
 endif ()
 
 if (MATH_EXTENSIONS MATCHES "(vis)")
-    set(LIB_SOURCES ${LIB_SOURCES}
+    set(LIB_HEADERS ${LIB_HEADERS}
             include/math/visualization/Plot.h
         )
 
@@ -108,17 +116,20 @@ if (MATH_EXTENSIONS MATCHES "(vis)")
 
 endif ()
 if (MATH_EXTENSIONS MATCHES "(stat)")
-    set(LIB_SOURCES ${LIB_SOURCES}
+    set(LIB_HEADERS ${LIB_HEADERS}
             include/math/statistics/Probability.h
-            include/math/statistics/Probability.cpp
             include/math/statistics/Insurance.h
-            include/math/statistics/Insurance.cpp
             include/math/statistics/Finance.h
-            include/math/statistics/Finance.cpp
+            )
+    set(LIB_SOURCES
+            ${LIB_SOURCES}
+            src/statistics/Probability.cpp
+            src/statistics/Insurance.cpp
+            src/statistics/Finance.cpp
             )
 endif ()
 
-add_library(math-lib SHARED ${LIB_SOURCES})
+add_library(math-lib SHARED ${LIB_HEADERS} ${LIB_SOURCES})
 set_target_properties(math-lib PROPERTIES LINKER_LANGUAGE CXX)
 
 

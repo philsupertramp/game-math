@@ -1,4 +1,5 @@
-#include "utils.h"
+#include "../../include/math/numerics/utils.h"
+#include "../../include/math/Matrix.h"
 #include <cmath>
 
 Matrix<double> linspace(double start, double end, unsigned long num_elements) {

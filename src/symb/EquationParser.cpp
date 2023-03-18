@@ -1,5 +1,5 @@
-#include "EquationParser.h"
-#include "Operand.h"
+#include "../../include/math/symb/EquationParser.h"
+#include "../../include/math/symb/Operand.h"
 
 
 std::shared_ptr<MathNode> EquationParser::createAST() {

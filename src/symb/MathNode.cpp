@@ -1,4 +1,4 @@
-#include "MathNode.h"
+#include "../../include/math/symb/MathNode.h"
 
 std::regex GetRegex(MathNodeType type) {
     static const std::regex symbol_regex("([A-Za-z_]{1}[A-Za-z0-9_]?)");
