@@ -311,6 +311,13 @@ public:
     }
 
     /**
+     * Helper to determine whether given matrix is a vector.
+     *
+     * @return boolean, true if matrix is vector, else false
+     */
+    [[nodiscard]] bool IsVector() const { return _columns == 1 || _rows == 1; }
+
+    /**
      * Helper to check for equal dimensions
      * @param other
      */
@@ -600,6 +607,9 @@ public:
     [[nodiscard]] inline Matrix GetSlice(size_t rowStart, size_t rowEnd) const {
         return GetSlice(rowStart, rowEnd, 0, _columns - 1);
     }
+    [[nodiscard]] inline Matrix GetSlice(size_t rowStart, size_t rowEnd, size_t colStart) const {
+        return GetSlice(rowStart, rowEnd, colStart, colStart + _columns - 1);
+    }
     /**
      * Returns a slice of given dimension from the matrix
      *
@@ -670,7 +680,6 @@ private:
      */
     [[nodiscard]] bool HasDet() const { return _columns > 1 && _rows > 1 && _element_size == 1; }
 
-
     //! number rows
     size_t _rows = 0;
     //! number columns
@@ -698,6 +707,19 @@ private:
  */
 template<typename T>
 inline Matrix<T> operator+(Matrix<T> lhs, const Matrix<T>& rhs) {
+    if(rhs.IsVector() && !lhs.IsVector()) {
+        auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
+        for(size_t i = 0; i < lhs.rows(); i++) {
+            for(size_t j = 0; j < lhs.columns(); j++) {
+                for(size_t elem = 0; elem < lhs.elements(); ++elem) {
+                    (*result)(i, j, elem) =
+                    lhs(i, j, elem) + rhs(rhs.rows() > rhs.columns() ? i : 0, rhs.rows() > rhs.columns() ? 0 : j, elem);
+                }
+            }
+        }
+        return *result;
+    }
+
     lhs.assertSize(rhs);
     auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
     for(size_t i = 0; i < lhs.rows(); i++) {
@@ -714,6 +736,18 @@ inline Matrix<T> operator+(Matrix<T> lhs, const Matrix<T>& rhs) {
  */
 template<typename T>
 inline Matrix<T> operator-(Matrix<T> lhs, const Matrix<T>& rhs) {
+    if(rhs.IsVector() && !lhs.IsVector()) {
+        auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
+        for(size_t i = 0; i < lhs.rows(); i++) {
+            for(size_t j = 0; j < lhs.columns(); j++) {
+                for(size_t elem = 0; elem < lhs.elements(); ++elem) {
+                    (*result)(i, j, elem) =
+                    lhs(i, j, elem) - rhs(rhs.rows() > rhs.columns() ? i : 0, rhs.rows() > rhs.columns() ? 0 : j, elem);
+                }
+            }
+        }
+        return *result;
+    }
     lhs.assertSize(rhs);
     auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
     for(size_t i = 0; i < lhs.rows(); i++) {

@@ -60,7 +60,7 @@ public:
             k,
             weights.GetSlice(k, k) * (current_counter / double(current_counter + 1))
             + xi * (1. / double(current_counter + 1)));
-            counters(k, 0) = current_counter + 1;
+            counters(k, 0) += 1;
         }
     };
 
@@ -80,14 +80,8 @@ public:
     virtual Matrix<double> predict(const Matrix<double>& x) override {
         auto predictions = zerosV(x.rows());
         for(size_t i = 0; i < x.rows(); ++i) {
-            auto distances = zerosV(weights.rows());
-            auto xi        = x.GetSlice(i, i);
-            for(size_t k = 0; k < weights.rows(); ++k) {
-                // TODO: we're using euclidean distance here, so
-                // we might be able to optimize this by computing squared distances rather than
-                // computing square roots for all distances
-                distances(k, 0) = norm(weights.GetSlice(k, k) - xi);
-            }
+            auto xi           = x.GetSlice(i, i);
+            auto distances    = norm(weights - xi, 0);
             predictions(i, 0) = argmin(distances);
         }
         return predictions;

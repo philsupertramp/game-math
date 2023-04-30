@@ -92,6 +92,9 @@ Matrix<double> tridiag(size_t rows, size_t columns, double left, double center, 
 double norm(const Matrix<double>& in);
 
 
+Matrix<double> norm(const Matrix<double>& in, int axis);
+
+
 /**
  * Index-Getter for validated values
  *

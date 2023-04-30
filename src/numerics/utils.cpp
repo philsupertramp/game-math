@@ -1,6 +1,7 @@
 #include "../../include/math/numerics/utils.h"
 #include "../../include/math/Matrix.h"
 #include <cmath>
+#include <cstddef>
 
 Matrix<double> linspace(double start, double end, unsigned long num_elements) {
     Matrix<double> result(0, 1, num_elements, 1);
@@ -40,6 +41,19 @@ double norm(const Matrix<double>& in) {
     }
     return sqrt(out);
 }
+
+Matrix<double> norm(const Matrix<double>& in, int axis) {
+    Matrix<double> out = zeros(axis == 0 ? in.rows() : 1, axis == 1 || axis == -1 ? in.columns() : 1);
+    for(size_t i = 0; i < (axis == 0 ? in.rows() : in.columns()); ++i) {
+        if(axis == 0) {
+            out(i, 0) = norm(in.GetSlice(i, i));
+        } else {
+            out(0, i) = norm(in.GetSlice(0, 0, i));
+        }
+    }
+    return out;
+}
+
 Matrix<double> zerosV(size_t rows) { return Matrix<double>(0.0f, rows, 1); }
 
 

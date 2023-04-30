@@ -17,7 +17,6 @@ class NCCTestCase : public Test
         auto clf = NCC();
         clf.fit(input_data, labels);
 
-        std::cout << clf.weights << std::endl;
         AssertEqual(clf.weights, expected_weights);
         return true;
     }
