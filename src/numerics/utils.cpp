@@ -57,6 +57,20 @@ Matrix<double> norm(const Matrix<double>& in, int axis) {
 Matrix<double> zerosV(size_t rows) { return Matrix<double>(0.0f, rows, 1); }
 
 
+Matrix<size_t> argsort(const Matrix<double>& in){
+  auto sortedIn = sort(in);
+  Matrix<size_t> out(0, in.rows(), 1);
+  for(size_t i = 0; i < in.rows(); ++i){
+    for(size_t j = 0; j < sortedIn.rows(); ++j){
+      if(sortedIn(j) == in(i)){
+        out(i, 0) = j;
+      }
+    }
+  }
+  return out;
+}
+
+
 Matrix<size_t> nonzero(const std::function<bool(const double&)>& validation, const Matrix<double>& x) {
     // only allowed for vectors!
     assert(x.IsVector());

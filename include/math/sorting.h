@@ -42,22 +42,22 @@ std::vector<T> sort(const std::vector<T>& in) {
 }
 
 template<typename T>
-void insertion_sort(const T& elem, Matrix<T>& out, const int& current_index){
+void insertion_sort(const Matrix<T>& elem, Matrix<T>& out, const int& current_index){
   int i;
   for(i = current_index; i > 1; i--){
-    if(out(i - 1, 0) < elem) { break; }
+    if(out(i - 1, 0) < elem(0, 0)) { break; }
     out(i, 0) = out(i - 1, 0);
   }
-  out(i, 0) = elem;
+  out(i, 0) = elem(0, 0);
 }
 
 template<typename T>
 Matrix<T> sort(const Matrix<T>& in) {
-  Matrix<T> out = zeros(in.rows(), in.columns());
+  Matrix<T> out = Matrix<T>(0, in.rows(), in.columns());
   int n = -1;
   for(size_t i = 0; i < in.rows(); ++i){
     n += 1;
-    insertion_sort(in(i), out, n);
+    insertion_sort(in(i, 0), out, n);
   }
 }
 
