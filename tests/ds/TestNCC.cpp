@@ -23,7 +23,7 @@ class NCCTestCase : public Test
         clf.fit(input_data, labels);
 
         AssertEqual(clf.weights, expected_weights);
-        
+
         return true;
     }
 

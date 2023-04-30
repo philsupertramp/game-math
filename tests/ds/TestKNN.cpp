@@ -23,7 +23,7 @@ class KNNTestCase : public Test
         clf.fit(input_data, labels);
 
         AssertEqual(clf.weights, expected_weights);
-        
+
         return true;
     }
 
@@ -37,7 +37,9 @@ class KNNTestCase : public Test
         auto clf = KNN(2);
         clf.fit(input_data, labels);
 
-        AssertEqual(clf.predict(test_data), expected_labels);
+        auto predictions = clf.predict(test_data);
+        std::cout << "PREDS: " << predictions << std::endl;
+        AssertEqual(predictions, expected_labels);
 
         return true;
     }
@@ -55,4 +57,3 @@ int main() {
     KNNTestCase().run();
     return 0;
 }
-

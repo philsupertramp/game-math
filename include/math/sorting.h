@@ -14,8 +14,8 @@
  */
 template<typename T, typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
 void insertion_sort(const T& elem, std::vector<T>& vec, const int& current_index) {
-    int i;
-    for(i = current_index; i > 1; i--) {
+    int i = current_index;
+    for(; i > 1; i--) {
         if(vec[i - 1] < elem) { break; }
         vec[i] = vec[i - 1];
     }
@@ -42,23 +42,24 @@ std::vector<T> sort(const std::vector<T>& in) {
 }
 
 template<typename T>
-void insertion_sort(const Matrix<T>& elem, Matrix<T>& out, const int& current_index){
-  int i;
-  for(i = current_index; i > 1; i--){
-    if(out(i - 1, 0) < elem(0, 0)) { break; }
-    out(i, 0) = out(i - 1, 0);
-  }
-  out(i, 0) = elem(0, 0);
+void insertion_sort(const T& elem, Matrix<T>& out, const int& current_index) {
+    int i = current_index;
+    if(current_index > 0) {
+        for(; i >= 1; --i) {
+            if(out(i - 1, 0) < elem) { break; }
+            out(i, 0) = out(i - 1, 0);
+        }
+    }
+    out(i, 0) = elem;
 }
 
 template<typename T>
 Matrix<T> sort(const Matrix<T>& in) {
-  Matrix<T> out = Matrix<T>(0, in.rows(), in.columns());
-  int n = -1;
-  for(size_t i = 0; i < in.rows(); ++i){
-    n += 1;
-    insertion_sort(in(i, 0), out, n);
-  }
+    bool requires_transposition = in.rows() < in.columns();
+    auto _in                    = requires_transposition ? in.Transpose() : in;
+    Matrix<T> out               = Matrix<T>(std::numeric_limits<T>::min(), _in.rows(), 1);
+    for(int i = 0; i < _in.rows(); ++i) { insertion_sort(_in(i, 0), out, i); }
+    return requires_transposition ? out.Transpose() : out;
 }
 
 /**

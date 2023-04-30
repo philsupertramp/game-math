@@ -2,6 +2,7 @@
 #include "../../include/math/Matrix.h"
 #include <cmath>
 #include <cstddef>
+#include <limits>
 
 Matrix<double> linspace(double start, double end, unsigned long num_elements) {
     Matrix<double> result(0, 1, num_elements, 1);
@@ -57,17 +58,20 @@ Matrix<double> norm(const Matrix<double>& in, int axis) {
 Matrix<double> zerosV(size_t rows) { return Matrix<double>(0.0f, rows, 1); }
 
 
-Matrix<size_t> argsort(const Matrix<double>& in){
-  auto sortedIn = sort(in);
-  Matrix<size_t> out(0, in.rows(), 1);
-  for(size_t i = 0; i < in.rows(); ++i){
-    for(size_t j = 0; j < sortedIn.rows(); ++j){
-      if(sortedIn(j) == in(i)){
-        out(i, 0) = j;
-      }
+Matrix<size_t> argsort(const Matrix<double>& in) {
+    auto sortedIn = sort(in);
+    Matrix<size_t> out(0, in.rows(), 1);
+    for(size_t i = 0; i < in.rows(); ++i) {
+        size_t j = 0;
+        for(; j < sortedIn.rows(); ++j) {
+            if(sortedIn(j, 0) == in(i, 0)) {
+                out(i, 0)      = j;
+                sortedIn(j, 0) = std::numeric_limits<double>::min();
+                break;
+            }
+        }
     }
-  }
-  return out;
+    return out;
 }
 
 
