@@ -12,6 +12,7 @@ Matrix<double> linspace(double start, double end, unsigned long num_elements) {
 Matrix<double> zeros(size_t rows, size_t columns, size_t elements) {
     return Matrix<double>(0, rows, columns, elements);
 }
+
 Matrix<double> ones(size_t rows, size_t columns, size_t elements) { return Matrix<double>(1, rows, columns, elements); }
 
 Matrix<double> eye(size_t rows, size_t columns) {

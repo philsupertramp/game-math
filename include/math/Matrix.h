@@ -123,6 +123,24 @@ public:
         this->needsFree = true;
     };
 
+    template<typename V>
+    Matrix(const Matrix<V>& other) {
+        Resize(other._rows, other._columns, other._element_size);
+        for(size_t col = 0; col < other._columns; ++col) {
+            for(size_t row = 0; row < other._rows; ++row) {
+                for(size_t elem = 0; elem < other._element_size; ++elem) {
+                    this(col, row, elem) = static_cast<T>(other(col, row, elem));
+                }
+            }
+        }
+
+        this->needsFree = true;
+    }
+
+    template<typename V>
+    operator Matrix<V>() {
+        return Matrix<T>(*this);
+    }
     /**
      * Default destructor, doesn't do anything
      */
@@ -623,6 +641,14 @@ public:
         }
     }
 
+
+    /**
+     * Helper method to automatically resolve dimensions through slice
+     */
+    void SetSlice(const size_t& row_start, const Matrix<T>& slice) {
+        return SetSlice(row_start, row_start + slice.rows() - 1, 0, slice.columns() - 1, slice);
+    }
+
     /**
      * returns 1D-Matrix from given index
      * @param index of elements
@@ -1106,6 +1132,31 @@ Matrix<T> diag_elements(const Matrix<T>& in) {
         for(size_t elem = 0; elem < in.elements(); ++elem) { out(i, 0, elem) = in(i, i, elem); }
     }
     return out;
+}
+
+/**
+ *  Returns unique values of given matrix.
+ *  @tparam T given datatype
+ *  @param in input matrix
+ *  @return matrix of unique values
+ */
+template<typename T>
+Matrix<T> unique(const Matrix<T>& in, int axis = 0) {
+    Matrix<T> out     = Matrix<T>(0, in.rows(), in.columns());
+    size_t found_vals = 0;
+    for(size_t i = 0; i < in.rows(); ++i) {
+        bool found = false;
+        auto xi    = in.GetSlice(i, i);
+        for(size_t j = 0; j < found_vals; ++j) {
+            found = xi == out.GetSlice(j, j);
+            if(found) { break; }
+        }
+        if(!found) {
+            out.SetSlice(found_vals, xi);
+            found_vals++;
+        }
+    }
+    return out.GetSlice(0, found_vals - 1);
 }
 /**
  * \example TestMatrix.cpp

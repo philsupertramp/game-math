@@ -19,7 +19,7 @@
  *
  * Mainly implemented for academic use
  */
-class Perceptron : public Classifier
+class Perceptron : public ANNClassifier
 {
 public:
     /**
@@ -28,7 +28,7 @@ public:
      * @param iter
      */
     explicit Perceptron(double _eta = 0.01, int iter = 10)
-        : Classifier(_eta, iter) { }
+        : ANNClassifier(_eta, iter) { }
 
     /**
      *
@@ -84,14 +84,14 @@ public:
      * @param X
      * @return
      */
-    virtual Matrix<double> activation(const Matrix<double>& X) { return netInput(X); }
+    virtual Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
     /**
      * predict class of given input
      * @param X
      * @return
      */
-    virtual Matrix<double> predict(const Matrix<double>& X) {
+    virtual Matrix<double> predict(const Matrix<double>& X) override {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }
@@ -101,7 +101,7 @@ public:
      * @param X
      * @return
      */
-    virtual double costFunction(const Matrix<double>& X) { return (double)(X(0, 0) != 0.0); }
+    virtual double costFunction(const Matrix<double>& X) override { return (double)(X(0, 0) != 0.0); }
 };
 
 /**

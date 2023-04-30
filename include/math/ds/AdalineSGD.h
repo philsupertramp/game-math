@@ -17,7 +17,7 @@
  *
  *       - [1] http://rasbt.github.io/mlxtend/user_guide/classifier/Adaline/
  */
-class AdalineSGD : public Classifier
+class AdalineSGD : public ANNClassifier
 {
 public:
     //! signalizes whether given dataset should be shuffled while fitting
@@ -36,7 +36,7 @@ public:
      * @param _randomState seed of random state
      */
     explicit AdalineSGD(double _eta = 0.01, int iter = 10, bool _shuffle = false, int _randomState = 0)
-        : Classifier(_eta, iter)
+        : ANNClassifier(_eta, iter)
         , shuffle(_shuffle)
         , randomState(_randomState) {
         if(randomState != 0) Random::SetSeed(randomState);

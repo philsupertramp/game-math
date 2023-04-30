@@ -20,10 +20,6 @@
 class Classifier
 {
 protected:
-    //! Learning rate
-    double eta;
-    //! number epochs
-    int n_iter;
     //! flag to initialize weights only once
     bool w_initialized = false;
 
@@ -38,9 +34,7 @@ public:
      * @param _eta learning rate
      * @param _n_iter number learning iterations
      */
-    Classifier(double _eta, int _n_iter)
-        : eta(_eta)
-        , n_iter(_n_iter) { }
+    Classifier() { }
 
     /**
      * Initialization method for weights hold by the classifier
@@ -74,6 +68,28 @@ public:
      * @return
      */
     virtual Matrix<double> predict(const Matrix<double>&) = 0;
+};
+
+
+/**
+ * Artificial Neural Network Classifier interface.
+ *
+ * Adds interface for activation, cost and net-input functions.
+ * As well as learning rate and constant for number of training epochs.
+ */
+class ANNClassifier : public Classifier
+{
+protected:
+    //! Learning rate
+    double eta;
+    //! number epochs
+    int n_iter;
+
+public:
+    ANNClassifier(double _eta, int _n_iter)
+        : eta(_eta)
+        , n_iter(_n_iter)
+        , Classifier() { }
 
     /**
      * Activates a given input

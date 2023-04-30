@@ -353,6 +353,21 @@ class MatrixTestCase : public Test
         return true;
     }
 
+    bool TestUnique() {
+        Matrix<int> A = Matrix({ { 0, 1 }, { 0, 2 }, { 1, 1 }, { 1, 0 }, { 0, 1 } });
+        Matrix<int> B = Matrix({ { 0, 1 }, { 0, 2 }, { 1, 1 }, { 1, 0 } });
+        Matrix<int> C = Matrix({ { 0, 1, 2, 3, 4, 1, 2, 3, 4, 5 } }).Transpose();
+        Matrix<int> D = Matrix({ { 0, 1, 2, 3, 4, 5 } }).Transpose();
+
+
+        std::cout << A << std::endl << unique(A) << std::endl;
+        AssertEqual(unique(A), B);
+        AssertEqual(unique(C), D);
+
+
+        return true;
+    }
+
 public:
     void run() override {
         TestMatrixInit();
@@ -373,6 +388,7 @@ public:
         TestVectorAccess();
         TestGetSlice();
         TestApply();
+        TestUnique();
     }
 };
 

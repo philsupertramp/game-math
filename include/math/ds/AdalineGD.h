@@ -6,7 +6,7 @@
 /**
  * Adaline neuron classifier using gradient decent method
  */
-class AdalineGD : public Classifier
+class AdalineGD : public ANNClassifier
 {
 public:
     /**
@@ -15,7 +15,7 @@ public:
      * @param iter max number iterations
      */
     explicit AdalineGD(double _eta = 0.01, int iter = 10)
-        : Classifier(_eta, iter) { }
+        : ANNClassifier(_eta, iter) { }
 
     /**
      * fit method to train the classifier using gradient decent method

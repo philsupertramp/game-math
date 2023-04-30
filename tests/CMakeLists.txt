@@ -87,6 +87,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
     add_test_source(ds/TestAdalineSGD.cpp)
     add_test_source(ds/TestSGD.cpp)
     add_test_source(ds/TestLogRegSGD.cpp)
+    add_test_source(ds/TestNCC.cpp)
 endif()
 
 IF (MATH_COVERAGE)

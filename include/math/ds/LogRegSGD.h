@@ -8,7 +8,7 @@
 /**
  * Logistical regression model using statistic gradient decent method for model fitting.
  */
-class LogRegSGD : public Classifier
+class LogRegSGD : public ANNClassifier
 {
 public:
     //! signalizes whether given dataset should be shuffled while fitting
@@ -76,7 +76,7 @@ public:
      * @param _randomState seed for random state
      */
     explicit LogRegSGD(double _eta = 0.01, int iter = 10, bool _shuffle = false, int _randomState = 0)
-        : Classifier(_eta, iter)
+        : ANNClassifier(_eta, iter)
         , shuffle(_shuffle)
         , randomState(_randomState) {
         if(randomState != 0) Random::SetSeed(randomState);
@@ -143,7 +143,7 @@ public:
      * @param mat
      * @return
      */
-    virtual double costFunction([[maybe_unused]] const Matrix<double>& mat) { return 0; }
+    virtual double costFunction([[maybe_unused]] const Matrix<double>& mat) override { return 0; }
 };
 
 
