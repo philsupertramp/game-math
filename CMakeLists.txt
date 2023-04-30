@@ -90,6 +90,8 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/AdalineSGD.h
             include/math/ds/LogRegSGD.h
             include/math/ds/SGD.h
+            include/math/ds/NCC.h
+            include/math/ds/KNN.h
             )
     if(MATH_IMAGE_PROCESSING)
         set(LIB_HEADERS ${LIB_HEADERS}

@@ -11,6 +11,8 @@
 #include <memory>
 #include <type_traits>
 
+#include <signal.h>
+
 
 /**
  * holds dimensions of a Matrix
@@ -440,6 +442,25 @@ public:
     }
 
     /**
+     * Calculates element wise sum of sub-elements along given axis
+     *
+     * @param axis axis index (0: rows, 1: columns) to calculate sum on
+     * @return vector of element wise sums along given axis
+     */
+    Matrix<T> sum(size_t axis) const {
+      Matrix<T> out(0, axis == 0 ? _rows : 1, axis == 1 ? _columns : 1);
+      for(size_t i = 0; i < (axis == 0 ? _rows : _columns); ++i){
+        out(axis == 0 ? i : 0, axis == 1 ? i : 0) = GetSlice(
+          axis == 0 ? i : 0,
+          axis == 0 ? i : _rows - 1,
+          axis == 1 ? i : 0,
+          axis == 1 ? i : _columns - 1
+        ).sumElements();
+      }
+      return out;
+    }
+
+    /**
      * Matrix-Constant-Multiplication
      * @param rhs
      * @return
@@ -604,6 +625,9 @@ public:
         //        assert(row < _rows && col < _columns && elem < _element_size);
         return elem + col * _element_size + row * _columns * _element_size;
     }
+    [[nodiscard]] inline Matrix GetSlice(size_t rowStart) const {
+        return GetSlice(rowStart, rowStart, 0, _columns - 1);
+    }
     [[nodiscard]] inline Matrix GetSlice(size_t rowStart, size_t rowEnd) const {
         return GetSlice(rowStart, rowEnd, 0, _columns - 1);
     }
@@ -671,6 +695,15 @@ public:
             for(size_t j = 0; j < _columns; ++j) { out(i, j, 0) = _data[GetIndex(i, j, index)]; }
         }
         return out;
+    }
+
+    inline Matrix<T> GetSlicesByIndex(const Matrix<size_t>& indices) const {
+      assert(indices.IsVector());
+      Matrix<T> out(0, indices.rows(), _columns, _element_size);
+      for (size_t i = 0; i < indices.rows(); ++i) {
+        out.SetSlice(i, GetSlice(indices(i, 0)));
+      }
+      return out;
     }
 
 private:
@@ -1031,6 +1064,22 @@ const std::function<bool(T)>& condition, const Matrix<T>& in, const Matrix<T>& v
         }
     }
     return out;
+}
+
+template<typename T>
+Matrix<size_t> where_true(
+  const Matrix<T>& in){
+  assert(in.IsVector());
+  Matrix<size_t> out     = Matrix<size_t>(0, in.rows() > in.columns() ? in.rows() : in.columns(), 1);
+  size_t found_vals = 0;
+  auto row_wise = in.rows() > in.columns();
+  for (size_t i = 0; i < (row_wise ? in.rows() : in.columns()); ++i) {
+    if(in(row_wise ? i : 0, row_wise ? 0 : i)){
+      out(found_vals, 0) = i;
+      found_vals++;
+    }
+  }
+  return out.GetSlice(0, found_vals - 1);
 }
 
 /**

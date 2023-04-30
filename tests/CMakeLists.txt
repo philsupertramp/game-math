@@ -88,6 +88,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
     add_test_source(ds/TestSGD.cpp)
     add_test_source(ds/TestLogRegSGD.cpp)
     add_test_source(ds/TestNCC.cpp)
+    add_test_source(ds/TestKNN.cpp)
 endif()
 
 IF (MATH_COVERAGE)

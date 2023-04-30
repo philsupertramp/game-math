@@ -30,6 +30,8 @@
  *       $\mu_k$: $K$ class centroids
  *
  *     Calculates centroids iteratively, holds $K$ centroids and 1 training sample in memory at-a-time.
+ *
+ *
  */
 
 #include "../numerics/utils.h"
@@ -38,32 +40,90 @@
 #include <cstddef>
 
 
+/**
+ * 
+ *
+ */
 class NCC : public Classifier
 {
+    bool use_iterative = true;
 public:
-    NCC()
-        : Classifier() { }
+    NCC(bool useIterative)
+        : use_iterative(useIterative)
+        , Classifier() { }
 
     /**
      *
      */
     virtual void fit(const Matrix<double>& X, const Matrix<double>& y) override {
-        assert(y.rows() == 1 || y.columns() == 1);
-        auto labels   = unique(y);
-        weights       = zeros(labels.rows(), X.columns());
+      assert(y.rows() == 1 || y.columns() == 1);
+      auto labels   = unique(y);
+      weights       = zeros(labels.rows(), X.columns());
+      if(use_iterative){
+        fit_iterative(X, y, labels);
+      } else {
+        fit_batch(X, y, labels);
+      }
+    };
+
+    /**
+     * Batch-wise implementation of nearest centroid classifier centroid calculation.
+     *
+     * Note: Requires all input data in memory.
+     *
+     * Complexity: O(K * 6N)
+     *
+     * @param X given input data to calculate centroids from
+     * @param y given labels for input data X
+     * @param labels unique labels inside y
+     */
+    void fit_batch(const Matrix<double>& X, const Matrix<double>& y, const Matrix<double>& labels){
+      // TODO: Technically we can omit labels here and only pass the number of unique labels. Or we keep a vector
+      // of unique labels as a class attribute. Both options might make sense.
+      // O(K)
+      for (size_t i = 0; i < labels.rows(); ++i) {
+        std::function<bool(double)> condition = [i](double x) { return bool(x == i); };
+        // O(N)
+        auto yis = where(condition, y, {{1}}, {{0}});
+        // O(N)
+        auto Nk = yis.sumElements();
+        // O(2N)
+        auto Xis = X.GetSlicesByIndex(where_true(yis));
+        // O(N * N * N)
+        weights.SetSlice(i, Xis.sum(1) * (1./Nk));
+      }
+    }
+
+    /**
+     *
+     * Iterative implementation of nearest centroid classifier centroid calculation
+     *
+     * Note: Allows streaming of input data.
+     *
+     * Complexity: O(N * 3D)
+     *
+     * @param X input data to calculate centroids from
+     * @param y given labels for input data X
+     * @param labels unique labels inside y
+     */
+    void fit_iterative(const Matrix<double>& X, const Matrix<double>& y, const Matrix<double>& labels){
         auto counters = Matrix<int>(0, labels.rows(), 1);
+        // O(N)
         for(size_t i = 0; i < X.rows(); ++i) {
             auto k               = y(i, 0);
             auto xi              = X.GetSlice(i, i);
             auto current_counter = counters(k, 0);
+            // O(D)
             weights.SetSlice(
-            k,
-            weights.GetSlice(k, k) * (current_counter / double(current_counter + 1))
-            + xi * (1. / double(current_counter + 1)));
+              k,
+              // O(D)
+              weights.GetSlice(k, k) * (current_counter / double(current_counter + 1))
+              // O(D)
+              + xi * (1. / double(current_counter + 1))
+            );
             counters(k, 0) += 1;
         }
-    };
-
+    }
 
     /**
       Prediction:
@@ -87,3 +147,7 @@ public:
         return predictions;
     };
 };
+/**
+ * \example ds/TestNCC.cpp
+ * This is an example on how to use the NCC class for classification.
+ */

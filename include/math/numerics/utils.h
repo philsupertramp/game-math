@@ -16,6 +16,7 @@
 
 #pragma once
 #include "../Matrix.h"
+#include "../sorting.h"
 #include <vector>
 
 #ifndef EPS
@@ -93,6 +94,9 @@ double norm(const Matrix<double>& in);
 
 
 Matrix<double> norm(const Matrix<double>& in, int axis);
+
+
+Matrix<size_t> argsort(const Matrix<double>& in);
 
 
 /**

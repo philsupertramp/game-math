@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Matrix.h"
 #include <type_traits>
 #include <vector>
 
@@ -38,6 +39,26 @@ std::vector<T> sort(const std::vector<T>& in) {
         insertion_sort(elem, out, n);
     }
     return out;
+}
+
+template<typename T>
+void insertion_sort(const T& elem, Matrix<T>& out, const int& current_index){
+  int i;
+  for(i = current_index; i > 1; i--){
+    if(out(i - 1, 0) < elem) { break; }
+    out(i, 0) = out(i - 1, 0);
+  }
+  out(i, 0) = elem;
+}
+
+template<typename T>
+Matrix<T> sort(const Matrix<T>& in) {
+  Matrix<T> out = zeros(in.rows(), in.columns());
+  int n = -1;
+  for(size_t i = 0; i < in.rows(); ++i){
+    n += 1;
+    insertion_sort(in(i), out, n);
+  }
 }
 
 /**

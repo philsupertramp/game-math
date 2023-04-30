@@ -59,7 +59,7 @@ Matrix<double> zerosV(size_t rows) { return Matrix<double>(0.0f, rows, 1); }
 
 Matrix<size_t> nonzero(const std::function<bool(const double&)>& validation, const Matrix<double>& x) {
     // only allowed for vectors!
-    assert(x.rows() == 1 || x.columns() == 1);
+    assert(x.IsVector());
     auto xi = x;
     if(x.rows() < x.columns()) xi = x.Transpose();
     std::vector<size_t> vals;

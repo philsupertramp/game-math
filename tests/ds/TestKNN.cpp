@@ -1,10 +1,10 @@
 #include "../Test.h"
-#include <math/ds/NCC.h>
+#include <math/ds/KNN.h>
 
-class NCCTestCase : public Test
+class KNNTestCase : public Test
 {
     bool TestConstructor() {
-        auto clf = NCC(true);
+        auto clf = KNN(1);
         return true;
     }
 
@@ -12,14 +12,14 @@ class NCCTestCase : public Test
         Matrix<double> input_data(
         { { 2, 1 }, { 4, 1 }, { 2, 3 }, { 4, 3 }, { 8, 6 }, { 10, 8 }, { 2, 12 }, { 2, 14 }, { 4, 14 } });
         Matrix<double> labels({ { 0 }, { 0 }, { 0 }, { 0 }, { 1 }, { 1 }, { 2 }, { 2 }, { 2 } });
-        Matrix<double> expected_weights({ { 3, 2 }, { 9, 7 }, { 8. / 3, 40. / 3 } });
+        Matrix<double> expected_weights = HorizontalConcat(input_data, labels);
 
-        auto clf = NCC(true);
+        auto clf = KNN(2);
         clf.fit(input_data, labels);
 
         AssertEqual(clf.weights, expected_weights);
 
-        clf = NCC(false);
+        clf = KNN(2);
         clf.fit(input_data, labels);
 
         AssertEqual(clf.weights, expected_weights);
@@ -34,7 +34,7 @@ class NCCTestCase : public Test
         Matrix<double> test_data({ { 1, 0 }, { 8, 8 }, { 0, 1 }, { 3, 16 } });
         Matrix<double> expected_labels({ { 0 }, { 1 }, { 0 }, { 2 } });
 
-        auto clf = NCC(true);
+        auto clf = KNN(2);
         clf.fit(input_data, labels);
 
         AssertEqual(clf.predict(test_data), expected_labels);
@@ -52,6 +52,7 @@ public:
 };
 
 int main() {
-    NCCTestCase().run();
+    KNNTestCase().run();
     return 0;
 }
+
