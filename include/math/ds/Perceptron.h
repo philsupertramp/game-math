@@ -84,14 +84,14 @@ public:
      * @param X
      * @return
      */
-    virtual Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
+    Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
     /**
      * predict class of given input
      * @param X
      * @return
      */
-    virtual Matrix<double> predict(const Matrix<double>& X) override {
+    Matrix<double> predict(const Matrix<double>& X) override {
         std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
         return where(condition, activation(X), { { 1 } }, { { -1 } });
     }
@@ -101,7 +101,7 @@ public:
      * @param X
      * @return
      */
-    virtual double costFunction(const Matrix<double>& X) override { return (double)(X(0, 0) != 0.0); }
+    double costFunction(const Matrix<double>& X) override { return (double)(X(0, 0) != 0.0); }
 };
 
 /**

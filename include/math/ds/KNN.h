@@ -16,7 +16,7 @@ public:
     /**
      *
      */
-    virtual void fit(const Matrix<double>& X, const Matrix<double>& y) override {
+    void fit(const Matrix<double>& X, const Matrix<double>& y) override {
         assert(y.rows() == 1 || y.columns() == 1);
         weights = HorizontalConcat(X, y);
     };
@@ -32,7 +32,7 @@ public:
       *
       *
       */
-    virtual Matrix<double> predict(const Matrix<double>& x) override {
+    Matrix<double> predict(const Matrix<double>& x) override {
         auto predictions = zerosV(x.rows());
         auto trainX      = weights.GetSlice(0, weights.rows() - 1, 0, weights.columns() - 2);
         auto trainY      = weights.GetSlice(0, weights.rows() - 1, weights.columns() - 1, weights.columns() - 1);

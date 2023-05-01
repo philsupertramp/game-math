@@ -56,7 +56,7 @@ public:
     /**
      *
      */
-    virtual void fit(const Matrix<double>& X, const Matrix<double>& y) override {
+    void fit(const Matrix<double>& X, const Matrix<double>& y) override {
         assert(y.rows() == 1 || y.columns() == 1);
         auto labels = unique(y);
         weights     = zeros(labels.rows(), X.columns());
@@ -137,7 +137,7 @@ public:
       *
       *
       */
-    virtual Matrix<double> predict(const Matrix<double>& x) override {
+    Matrix<double> predict(const Matrix<double>& x) override {
         auto predictions = zerosV(x.rows());
         for(size_t i = 0; i < x.rows(); ++i) {
             auto xi           = x.GetSlice(i, i);
