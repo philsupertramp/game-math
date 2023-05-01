@@ -696,27 +696,14 @@ public:
 
     inline Matrix<T> GetSlicesByIndex(const Matrix<size_t>& indices) const {
         assert(indices.IsVector());
-
         auto _indices = indices.rows() > indices.columns() ? indices : indices.Transpose();
-
-        if(IsVector()) {
-            Matrix<T> out(0, _indices.rows(), 1, _element_size);
-            auto vec = _rows > _columns ? *this : Transpose();
-            for(size_t i = 0; i < _indices.rows(); ++i) {
-                auto idx  = _indices(i, 0);
-                out(i, 0) = vec(idx, 0);
-            }
-            return out;
-
-        } else {
-            Matrix<T> out(0, _indices.rows(), _columns, _element_size);
-            for(size_t i = 0; i < _indices.rows(); ++i) {
-                auto idx   = _indices(i, 0);
-                auto slice = GetSlice(idx);
-                out.SetSlice(i, slice);
-            }
-            return out;
+        Matrix<T> out(0, _indices.rows(), _columns, _element_size);
+        for(size_t i = 0; i < _indices.rows(); ++i) {
+            auto idx   = _indices(i, 0);
+            auto slice = GetSlice(idx);
+            out.SetSlice(i, slice);
         }
+        return out;
     }
 
 private:
@@ -1082,16 +1069,17 @@ const std::function<bool(T)>& condition, const Matrix<T>& in, const Matrix<T>& v
 template<typename T>
 Matrix<size_t> where_true(const Matrix<T>& in) {
     assert(in.IsVector());
-    Matrix<size_t> out = Matrix<size_t>(0, in.rows() > in.columns() ? in.rows() : in.columns(), 1);
-    size_t found_vals  = 0;
-    auto row_wise      = in.rows() > in.columns();
-    for(size_t i = 0; i < (row_wise ? in.rows() : in.columns()); ++i) {
-        if(in(row_wise ? i : 0, row_wise ? 0 : i)) {
+    bool requires_transposition = in.rows() < in.columns();
+    Matrix<size_t> out          = Matrix<size_t>(0, !requires_transposition ? in.rows() : in.columns(), 1);
+    size_t found_vals           = 0;
+    auto row_wise               = in.rows() > in.columns();
+    for(size_t i = 0; i < (!requires_transposition ? in.rows() : in.columns()); ++i) {
+        if(in(requires_transposition ? 0 : i, requires_transposition ? i : 0)) {
             out(found_vals, 0) = i;
             found_vals++;
         }
     }
-    return out.GetSlice(0, found_vals - 1);
+    return requires_transposition ? out.GetSlice(0, found_vals - 1).Transpose() : out.GetSlice(0, found_vals - 1);
 }
 
 /**

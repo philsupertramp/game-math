@@ -4,8 +4,20 @@
 #include <math/visualization/Plot.h>
 
 
-class QRTestCase : public Test
+class SVDTestCase : public Test
 {
+    bool TestSVDDimensions() {
+        Matrix<double> A = { { 1, 1, 1, 1 }, { 1, 3, 1, 2 } };
+        auto result      = svd(A.Transpose(), 0);
+        auto U           = result[0];
+        auto S           = eye(U.rows(), U.columns());
+        S(0, 0)          = result[1](0, 0);
+        S(1, 1)          = result[1](0, 1);
+        auto VH          = result[2];
+        // A stays A
+        AssertEqual((U.Transpose() * S) * VH, A);
+        return true;
+    }
     bool TestSVD() {
         Matrix<double> A = { { 1, 1, 1, 1 }, { 1, 3, 1, 2 } };
         auto result      = svd(A, 0);
@@ -62,6 +74,7 @@ class QRTestCase : public Test
                         }))
                         .Transpose();
         auto xStd = U * diag(S) * newTheta;
+#if USE_VIS
         Plot plot1("PCA Example");
         plot1.AddData(random_data.Transpose(), "Data", DOTS);
         plot1();
@@ -103,18 +116,19 @@ class QRTestCase : public Test
         std::cout << "PC2:\n" << pc2 << std::endl;
         plot.AddData(pc2, "pc 2", LINE);
         plot();
-
+#endif
         return true;
     }
 
 public:
     void run() override {
         TestSVD();
+        //TestSVDDimensions();
         TestPCANormalDistribution();
     }
 };
 
 int main() {
-    QRTestCase().run();
+    SVDTestCase().run();
     return 0;
 }

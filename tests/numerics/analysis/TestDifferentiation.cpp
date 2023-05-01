@@ -128,7 +128,9 @@ class DifferentiationTestCase : public Test
 
 public:
     virtual void run() {
+#if USE_VIS
         TestDiffs();
+#endif
         TestBackwardDiffs();
         TestBackwardDiffs2();
         TestForwardDiffs();

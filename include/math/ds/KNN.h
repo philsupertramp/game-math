@@ -43,11 +43,6 @@ public:
             auto k_neares      = trainY.GetSlicesByIndex(argsort(current_dists));
             auto k_nearest     = k_neares.GetSlice(0, nearest_neighbors - 1);
             auto gamma         = zeros(labels.rows(), 1);
-            std::cout << "Based on: " << current_dists << std::endl
-                      << "With order: " << argsort(current_dists) << std::endl
-                      << "From dists: " << current_dists.GetSlicesByIndex(argsort(current_dists))
-                      << "unordered labels: " << trainY << std::endl
-                      << "k nearest: " << k_neares << std::endl;
             for(size_t k = 0; k < labels.rows(); ++k) {
                 std::function<bool(double)> condition = [k](double x) { return bool(x == k); };
                 // O(N)
@@ -55,7 +50,6 @@ public:
                 // O(N)
                 gamma(k, 0) = yis.sumElements();
             }
-            std::cout << "elem: " << i << "\ngamma: " << gamma << std::endl;
             predictions(i, 0) = argmax(gamma);
         }
         return predictions;

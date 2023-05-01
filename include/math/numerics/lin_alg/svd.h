@@ -18,13 +18,14 @@ std::vector<Matrix<double>> svd(const Matrix<double>& A, const size_t& k, const 
     size_t chosen_k = k;
     if(k == 0) { chosen_k = n_orig < m_orig ? n_orig : m_orig; }
     auto A_copy = A;
+    auto A_orig = A;
     size_t n, m;
     if(n_orig > m_orig) {
         A_copy = A_copy.Transpose() * A_copy;
         n      = A_copy.rows();
         m      = A_copy.columns();
     } else if(n_orig < m_orig) {
-        A_copy = A * A.Transpose();
+        A_copy = A_copy * A_copy.Transpose();
         n      = A_copy.rows();
         m      = A_copy.columns();
     } else {
@@ -58,7 +59,7 @@ std::vector<Matrix<double>> svd(const Matrix<double>& A, const size_t& k, const 
         singular_values = singular_values.Apply([](double val) { return val * val; });
     } else {
         right_vecs = Q.Transpose();
-        left_vecs  = A.Transpose() * right_vecs * gaussJordan(diag(singular_values));
+        left_vecs  = A * (right_vecs.Transpose() * gaussJordan(diag(singular_values)));
     }
 
     return { left_vecs, singular_values, right_vecs };

@@ -36,9 +36,11 @@ class FractalsTestCase : public Test
         //        AssertEqual(M, expected);
 
         fractal = NewtonFractal(100);
+#if USE_VIS
         ImagePlot plot("Newton-Fractals");
         plot.AddData(fractal(), "");
         plot("inferno.pal");
+#endif
         return true;
     }
 
@@ -62,9 +64,11 @@ class FractalsTestCase : public Test
 
         fractal.detail   = 250;
         fractal.maxIters = 99;
+#if USE_VIS
         ImagePlot plot("Mandelbrot");
         plot.AddData(fractal(), "");
         plot();
+#endif
 
         return true;
     }

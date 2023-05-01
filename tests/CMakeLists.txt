@@ -72,6 +72,7 @@ if(MATH_EXTENSIONS MATCHES "(symb)")
 endif()
 
 if (MATH_EXTENSIONS MATCHES "(vis)")
+    add_compile_definitions(USE_VIS)
     add_test_source(plot/TestPlot.cpp)
 endif()
 

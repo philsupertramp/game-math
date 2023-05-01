@@ -65,7 +65,7 @@ Matrix<size_t> argsort(const Matrix<double>& in) {
         size_t j = 0;
         for(; j < sortedIn.rows(); ++j) {
             if(sortedIn(j, 0) == in(i, 0)) {
-                out(i, 0)      = j;
+                out(j, 0)      = i;
                 sortedIn(j, 0) = std::numeric_limits<double>::min();
                 break;
             }

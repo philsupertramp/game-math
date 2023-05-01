@@ -369,7 +369,7 @@ class NaturalSplineTestCase : public Test
         auto x     = linspace(min(xi), max(xi), 33).Transpose();
         Spline spline(xi, yi, zi);
         auto out = spline(x);
-
+#if USE_VIS
         SurfacePlot plot("3D Test");
         plot.AddData(out, "Test output", DataTypes::LINE, nullptr, 3);
         plot();
@@ -393,6 +393,7 @@ class NaturalSplineTestCase : public Test
         //        SurfacePlot plot("3D Test");
         //        plot.AddData(out, "Test output", DataTypes::LINE, 3);
         //        plot();
+#endif
         return true;
     }
 

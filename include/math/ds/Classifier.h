@@ -87,9 +87,9 @@ protected:
 
 public:
     ANNClassifier(double _eta, int _n_iter)
-        : eta(_eta)
-        , n_iter(_n_iter)
-        , Classifier() { }
+        : Classifier()
+        , eta(_eta)
+        , n_iter(_n_iter) { }
 
     /**
      * Activates a given input
