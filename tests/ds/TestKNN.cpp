@@ -12,17 +12,16 @@ class KNNTestCase : public Test
         Matrix<double> input_data(
         { { 2, 1 }, { 4, 1 }, { 2, 3 }, { 4, 3 }, { 8, 6 }, { 10, 8 }, { 2, 12 }, { 2, 14 }, { 4, 14 } });
         Matrix<double> labels({ { 0 }, { 0 }, { 0 }, { 0 }, { 1 }, { 1 }, { 2 }, { 2 }, { 2 } });
-        Matrix<double> expected_weights = HorizontalConcat(input_data, labels);
 
         auto clf = KNN(2);
         clf.fit(input_data, labels);
 
-        AssertEqual(clf.weights, expected_weights);
+        AssertEqual(clf.weights, input_data);
 
         clf = KNN(2);
         clf.fit(input_data, labels);
 
-        AssertEqual(clf.weights, expected_weights);
+        AssertEqual(clf.weights, input_data);
 
         return true;
     }
