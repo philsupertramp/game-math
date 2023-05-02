@@ -125,6 +125,12 @@ public:
         this->needsFree = true;
     };
 
+    /**
+     * Conversion constructor to convert Matrix into other type V
+     *
+     * @param other the matrix to use
+     * @return given matrix casted to type V
+     */
     template<typename V>
     Matrix(const Matrix<V>& other) {
         Resize(other._rows, other._columns, other._element_size);
@@ -139,6 +145,9 @@ public:
         this->needsFree = true;
     }
 
+    /**
+     * Conversion operator to convert given Matrix with elements of type T into Matrix with elements of type V
+     */
     template<typename V>
     operator Matrix<V>() {
         return Matrix<T>(*this);
@@ -1066,6 +1075,13 @@ const std::function<bool(T)>& condition, const Matrix<T>& in, const Matrix<T>& v
     return out;
 }
 
+/**
+ * Evaluates elements of a given vector. Responds with indices of
+ * true values.
+ *
+ * @param in vector to evaluate in
+ * @return vector of indices where element has true value
+ */
 template<typename T>
 Matrix<size_t> where_true(const Matrix<T>& in) {
     assert(in.IsVector());
