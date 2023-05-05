@@ -61,11 +61,11 @@ double cov(const Matrix<double>& x, const Matrix<double>& y) {
     for(int i = 0; i < size; i++) {
         sum = sum + x(useRows ? i : 0, useRows ? 0 : i) * y(useRows ? i : 0, useRows ? 0 : i);
     }
-    double mean_val = mean(x) * mean(y);
+    double mean_val = (mean(x) * mean(y))(0, 0);
     return (1. / double(size - 1) * sum) - (double(size) / double(size - 1) * mean_val);
 }
 double var(const Matrix<double>& x) {
-    double x_mean = mean(x);
+    double x_mean = mean(x)(0, 0);
     double sum    = 0.;
     bool useRows  = x.rows() > x.columns();
     size_t size   = useRows ? x.rows() : x.columns();
@@ -80,7 +80,7 @@ LinearModel lm(const Matrix<double>& x, const Matrix<double>& y) {
     double variance = var(x);
 
     double beta_1 = covar / variance;
-    double beta_0 = mean(y) - beta_1 * mean(x);
+    double beta_0 = (mean(y) - beta_1 * mean(x))(0, 0);
     bool useRows  = x.rows() > x.columns();
     size_t size   = useRows ? x.rows() : x.columns();
 

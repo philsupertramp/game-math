@@ -54,7 +54,7 @@ class SVDTestCase : public Test
 
         // 1. compute mean row
         Matrix<double> row_mean(0.0, 1, X.rows());
-        for(size_t i = 0; i < X.rows(); ++i) { row_mean(0, i) = mean(X.GetSlice(i, i, 0, X.columns() - 1)); }
+        for(size_t i = 0; i < X.rows(); ++i) { row_mean(0, i) = mean(X.GetSlice(i, i, 0, X.columns() - 1), -1)(0, 0); }
         Matrix<double> X_bar = (Matrix<double>(1.0, X.columns(), 1) * row_mean).Transpose();
 
         // 2. B = X - X'

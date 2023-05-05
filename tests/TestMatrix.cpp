@@ -366,6 +366,17 @@ class MatrixTestCase : public Test
         return true;
     }
 
+    bool TestMean() {
+      Matrix<double> A = {{0., 1.}, {0., 2.}, {1., 1.}, {1., 0.}, {0., 1.}};
+      Matrix<double> B = {{0.7}};
+      Matrix<double> C = {{0.4, 1.0}};
+      Matrix<double> D  = {{0.5}, {1.0}, {1.0}, {0.5}, {0.5}};
+      
+      AssertEqual(mean(A), B);
+      AssertEqual(mean(A, 0), C);
+      AssertEqual(mean(A, 1), D);
+    }
+
 public:
     void run() override {
         TestMatrixInit();
@@ -387,6 +398,7 @@ public:
         TestGetSlice();
         TestApply();
         TestUnique();
+        TestMean();
     }
 };
 

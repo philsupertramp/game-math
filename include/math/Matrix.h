@@ -1088,7 +1088,6 @@ Matrix<size_t> where_true(const Matrix<T>& in) {
     bool requires_transposition = in.rows() < in.columns();
     Matrix<size_t> out          = Matrix<size_t>(0, !requires_transposition ? in.rows() : in.columns(), 1);
     size_t found_vals           = 0;
-    auto row_wise               = in.rows() > in.columns();
     for(size_t i = 0; i < (!requires_transposition ? in.rows() : in.columns()); ++i) {
         if(in(requires_transposition ? 0 : i, requires_transposition ? i : 0)) {
             out(found_vals, 0) = i;
@@ -1178,23 +1177,40 @@ T elemMax(const Matrix<T>& mat, const size_t& elemIndex) {
     }
     return maxVal;
 }
+
 /**
- * Calculates element-mean
- * @tparam T given datatype
+ *  Calculates mean over given axis
+ *
+ * @tparam T given dataatype
  * @param mat matrix to calculate mean of
- * @return mean of all elements of given matrix
+ * @param axis axis along which to calculate the mean (-1: no axis - over all elements, 0: row wise, 1: column wise)
+ * @return mean of elements inside given matrix along given axis
  */
 template<typename T>
-T mean(const Matrix<T>& mat) {
-    T sum(0);
-    size_t index = 0;
+Matrix<T> mean(const Matrix<T>& mat, int axis = -1){
+  if(axis == -1){
+    Matrix<T> sum = Matrix<T>(0, 1, 1);
+    T index = 0;
     for(size_t i = 0; i < mat.rows(); i++) {
         for(size_t j = 0; j < mat.columns(); j++) {
-            sum += mat(i, j);
+            sum(0, 0) += mat(i, j);
             index++;
         }
     }
-    return sum / index;
+    return (1.0/ index) * sum;
+  }
+  bool row_wise = axis == 0;
+
+  Matrix<T> sum = Matrix<T>(0, row_wise ? 1 : mat.rows(), row_wise ? mat.columns() : 1);
+  for(size_t i = 0; i < (row_wise ? mat.rows() : mat.columns()); ++i){
+    sum += mat.GetSlice(
+      row_wise ? i : 0,
+      row_wise ? i : mat.rows() - 1,
+      row_wise ? 0 : i,
+      row_wise ? mat.columns() - 1 : i
+    );
+  }
+  return (1.0 / (row_wise ? mat.rows() : mat.columns())) * sum;
 }
 
 /**
@@ -1216,6 +1232,13 @@ T elemMean(const Matrix<T>& mat, const size_t& elemIndex) {
         }
     }
     return sum / index;
+}
+
+template<typename T>
+Matrix<T> standard_deviation(const Matrix<T>& in, int axis = -1){
+  if(axis == -1){
+
+  }
 }
 
 /**
