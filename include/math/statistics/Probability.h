@@ -11,26 +11,26 @@
  * Linear Regression Model
  */
 struct LinearModel {
-    //! $$\beta_0$$
-    double beta_0;
-    //! $$\beta_1$$
-    double beta_1;
-    //! $$\hat{y}$$ approximated y value for given samples
-    Matrix<double> y_estimate;
-    //! $$\epsilon_i$$ Residuals of the underlying squared error computations
-    Matrix<double> residuals;
+  //! $$\beta_0$$
+  double beta_0;
+  //! $$\beta_1$$
+  double beta_1;
+  //! $$\hat{y}$$ approximated y value for given samples
+  Matrix<double> y_estimate;
+  //! $$\epsilon_i$$ Residuals of the underlying squared error computations
+  Matrix<double> residuals;
 };
 
 /**
  * enum to chose a norm to compute
  */
 enum P_NORM {
-    //! $$||x||_\infty$$
-    Inf,
-    //! $$||x||_1$$
-    One,
-    //! $$||x||_2$$
-    Eukl
+  //! $$||x||_\infty$$
+  Inf,
+  //! $$||x||_1$$
+  One,
+  //! $$||x||_2$$
+  Eukl
 };
 
 /** regular helpers **/
@@ -73,7 +73,7 @@ double norm(const Matrix<double>& vec, P_NORM pNorm);
  *
  * The covariance is a measure of joint variability of two random variables.
  * - Positive covariance -> variables have same tendencies, i.e. high and low values in both variables at the same time
- * - Negative covariance -> variables have different tendencies, i.e. high values in variable $x$ correspond to low values in variable $y$ and vice versa 
+ * - Negative covariance -> variables have different tendencies, i.e. high values in variable $x$ correspond to low values in variable $y$ and vice versa
  *
  * @param x a vector
  * @param y another vector

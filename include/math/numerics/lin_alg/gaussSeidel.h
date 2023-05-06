@@ -26,13 +26,13 @@
  * @return $$x$$
  */
 Matrix<double> gaussSeidel(const Matrix<double>& A, const Matrix<double>& b) {
-    auto LR = LU(A);
+  auto LR = LU(A);
 
-    auto bCopy = b;
-    for(size_t i = 0; i < b.rows(); i++) { bCopy.SetRow(i, b(LR.second[i])); }
+  auto bCopy = b;
+  for(size_t i = 0; i < b.rows(); i++) { bCopy.SetRow(i, b(LR.second[i])); }
 
-    auto c = forwardSub(LR.first, bCopy);
-    return backwardSub(LR.first, c);
+  auto c = forwardSub(LR.first, bCopy);
+  return backwardSub(LR.first, c);
 }
 
 /**

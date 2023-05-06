@@ -47,13 +47,13 @@ using vec3d = vec3<double>;
  * vec3 comparison for std::map
  */
 struct cmp_vec3i {
-    /**
-     * comparison operator of two vec3i objects
-     * @param a
-     * @param b
-     * @return
-     */
-    bool operator()(const vec3i& a, const vec3i& b) const { return a.x == b.x && a.y == b.y && a.z == b.z; }
+  /**
+   * comparison operator of two vec3i objects
+   * @param a
+   * @param b
+   * @return
+   */
+  bool operator()(const vec3i& a, const vec3i& b) const { return a.x == b.x && a.y == b.y && a.z == b.z; }
 };
 
 /**

@@ -44,46 +44,46 @@
  * @return in-place decomposed matrix L+U
  */
 std::pair<Matrix<double>, std::vector<unsigned int>> LU(const Matrix<double>& A) {
-    auto m           = A.rows();
-    auto n           = A.columns();
-    Matrix<double> B = A;
+  auto m           = A.rows();
+  auto n           = A.columns();
+  Matrix<double> B = A;
 
-    if(m != n) {
-        // Error
+  if(m != n) {
+    // Error
+  }
+
+  // init pivot vector
+  std::vector<unsigned int> p(m, 0);
+  for(size_t i = 0; i < m; i++) { p[i] = i; }
+
+  for(size_t col = 0; col < n - 1; col++) {
+    auto maxVal = std::abs(B(col, col));
+    auto index  = col;
+    for(size_t q = col; q < n; q++) {
+      if(std::abs(B(q, col)) > maxVal) {
+        maxVal = std::abs(B(q, col));
+        index  = q;
+      }
+    }
+    auto safe = p[index];
+    p[index]  = p[col];
+    p[col]    = safe;
+
+    if(index != col) {
+      auto matrixSafe = B(col);
+
+      B.SetRow(col, B(index));
+      B.SetRow(index, matrixSafe);
     }
 
-    // init pivot vector
-    std::vector<unsigned int> p(m, 0);
-    for(size_t i = 0; i < m; i++) { p[i] = i; }
+    for(size_t row = col + 1; row < n; row++) { B(row, col) /= B(col, col); }
 
-    for(size_t col = 0; col < n - 1; col++) {
-        auto maxVal = std::abs(B(col, col));
-        auto index  = col;
-        for(size_t q = col; q < n; q++) {
-            if(std::abs(B(q, col)) > maxVal) {
-                maxVal = std::abs(B(q, col));
-                index  = q;
-            }
-        }
-        auto safe = p[index];
-        p[index]  = p[col];
-        p[col]    = safe;
-
-        if(index != col) {
-            auto matrixSafe = B(col);
-
-            B.SetRow(col, B(index));
-            B.SetRow(index, matrixSafe);
-        }
-
-        for(size_t row = col + 1; row < n; row++) { B(row, col) /= B(col, col); }
-
-        for(size_t i = col + 1; i < m; i++) {
-            for(size_t j = col + 1; j < n; j++) { B(i, j) -= (B(i, col) * B(col, j)); }
-        }
+    for(size_t i = col + 1; i < m; i++) {
+      for(size_t j = col + 1; j < n; j++) { B(i, j) -= (B(i, col) * B(col, j)); }
     }
+  }
 
-    return { B, p };
+  return { B, p };
 }
 
 /**

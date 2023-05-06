@@ -20,8 +20,8 @@
 #include <vector>
 
 #ifndef EPS
-    //! accuracy of calculated results
-    #define EPS 1e-8
+  //! accuracy of calculated results
+  #define EPS 1e-8
 #endif
 
 
@@ -133,11 +133,11 @@ Matrix<size_t> nonzero(const std::function<bool(const double&)>& validation, con
  */
 template<typename T>
 Matrix<T> diag(const Matrix<T>& in) {
-    bool isRows = in.rows() > in.columns();
-    auto k      = isRows ? in.rows() : in.columns();
-    auto result = eye(k);
-    for(size_t i = 0; i < k; ++i) { result(i, i) = in(isRows ? i : 0, isRows ? 0 : i); }
-    return result;
+  bool isRows = in.rows() > in.columns();
+  auto k      = isRows ? in.rows() : in.columns();
+  auto result = eye(k);
+  for(size_t i = 0; i < k; ++i) { result(i, i) = in(isRows ? i : 0, isRows ? 0 : i); }
+  return result;
 }
 
 /**

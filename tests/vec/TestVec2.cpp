@@ -5,161 +5,161 @@
 template<class T>
 class Vec2TestCase : public Test
 {
-    bool testInitialization() {
-        vec2<T> foo;
-        assert(foo.x == (T)0);
-        assert(foo.y == (T)0);
+  bool testInitialization() {
+    vec2<T> foo;
+    assert(foo.x == (T)0);
+    assert(foo.y == (T)0);
 
-        vec2<T> foo2((T)1, (T)2);
-        assert(foo2.x == (T)1);
-        assert(foo2.y == (T)2);
+    vec2<T> foo2((T)1, (T)2);
+    assert(foo2.x == (T)1);
+    assert(foo2.y == (T)2);
 
-        T vals[2]   = { 2, 4 };
-        vec2<T> vec = build_vec2<T>((void*)vals);
-        assert(vec.x == (T)2);
-        assert(vec.y == (T)4);
+    T vals[2]   = { 2, 4 };
+    vec2<T> vec = build_vec2<T>((void*)vals);
+    assert(vec.x == (T)2);
+    assert(vec.y == (T)4);
 
-        return true;
+    return true;
+  }
+  bool testAssignment() {
+    vec2<T> foo;
+
+    foo.x = (T)1;
+    foo.y = (T)2;
+
+    assert(foo.x == (T)1);
+    assert(foo.y == (T)2);
+
+    foo[0] = (T)3;
+    foo[1] = (T)4;
+
+    assert(foo.x == (T)3);
+    assert(foo.y == (T)4);
+    return true;
+  }
+  bool testMemberAccess() {
+    vec2<T> foo;
+
+    foo.x = (T)1;
+    foo.y = (T)2;
+
+    assert(foo[0] == 1);
+    assert(foo[1] == 2);
+    return true;
+  }
+  bool testMisc() {
+    vec2<T> foo(2, 2);
+    vec2<T> bar(2, -2);
+    vec2<T> baz(10, 0);
+
+    assert(foo.length() == 2.82842708f);
+    assert(bar.length() == 2.82842708f);
+    assert(baz.length() == 10.0f);
+
+    if(extended) {
+      vec2<T> normFoo = foo.normalize();
+      vec2<T> normBar = bar.normalize();
+      vec2<T> normBaz = baz.normalize();
+
+      // floating point precision 1e-7
+      assert(normFoo.x - (T)0.70710679328816484f < 1e-7);
+      assert(normFoo.y - (T)0.70710679328816484f < 1e-7);
+      assert(normBar.x - (T)0.70710679328816484f < 1e-7);
+      assert(normBar.y - (T)-0.70710679328816484f < 1e-7);
+      assert(normBaz.x - (T)1.0f < 1e-7);
+      assert(normBaz.y - (T)0.0f < 1e-7);
     }
-    bool testAssignment() {
-        vec2<T> foo;
+    return true;
+  }
+  bool testOperators() {
+    vec2<T> foo(1, 1);
+    vec2<T> bar(1, -1);
+    vec2<T> baz(10, 0);
+    // +
+    vec2<T> fooCopy = foo;
+    fooCopy += bar;
+    assert(fooCopy.x == 2.0f);
+    assert(fooCopy.y == 0.0f);
+    fooCopy = foo + bar;
+    assert(fooCopy.x == 2.0f);
+    assert(fooCopy.y == 0.0f);
+    fooCopy = foo;
 
-        foo.x = (T)1;
-        foo.y = (T)2;
+    // -
+    fooCopy -= bar;
+    assert(fooCopy.x == 0.0f);
+    assert(fooCopy.y == 2.0f);
+    fooCopy = foo - bar;
+    assert(fooCopy.x == 0.0f);
+    assert(fooCopy.y == 2.0f);
+    fooCopy = foo;
 
-        assert(foo.x == (T)1);
-        assert(foo.y == (T)2);
+    // *
+    fooCopy *= 2.0f;
+    assert(fooCopy.x == (T)2.0f);
+    assert(fooCopy.y == (T)2.0f);
+    fooCopy = foo * 2.0f;
+    assert(fooCopy.x == (T)2.0f);
+    assert(fooCopy.y == (T)2.0f);
 
-        foo[0] = (T)3;
-        foo[1] = (T)4;
+    float fooVal = foo * bar;
+    assert(fooVal == (T)0.0f);
+    fooVal = foo * baz;
+    assert(fooVal == (T)10.0f);
+    fooCopy = foo;
 
-        assert(foo.x == (T)3);
-        assert(foo.y == (T)4);
-        return true;
-    }
-    bool testMemberAccess() {
-        vec2<T> foo;
+    // /
+    fooCopy /= 2.0f;
+    assert(fooCopy.x == (T)0.5f);
+    assert(fooCopy.y == (T)0.5f);
+    fooCopy = foo / 2.0f;
+    assert(fooCopy.x == (T)0.5f);
+    assert(fooCopy.y == (T)0.5f);
 
-        foo.x = (T)1;
-        foo.y = (T)2;
+    // ostream<<
+    //        std::cout << "vec2:\n" << foo;
 
-        assert(foo[0] == 1);
-        assert(foo[1] == 2);
-        return true;
-    }
-    bool testMisc() {
-        vec2<T> foo(2, 2);
-        vec2<T> bar(2, -2);
-        vec2<T> baz(10, 0);
+    return true;
+  }
 
-        assert(foo.length() == 2.82842708f);
-        assert(bar.length() == 2.82842708f);
-        assert(baz.length() == 10.0f);
+  bool testComparison() {
+    vec2<T> a(1, 2);
+    vec2<T> b(1, 2);
 
-        if(extended) {
-            vec2<T> normFoo = foo.normalize();
-            vec2<T> normBar = bar.normalize();
-            vec2<T> normBaz = baz.normalize();
+    assert(a == b);
+    return true;
+  }
 
-            // floating point precision 1e-7
-            assert(normFoo.x - (T)0.70710679328816484f < 1e-7);
-            assert(normFoo.y - (T)0.70710679328816484f < 1e-7);
-            assert(normBar.x - (T)0.70710679328816484f < 1e-7);
-            assert(normBar.y - (T)-0.70710679328816484f < 1e-7);
-            assert(normBaz.x - (T)1.0f < 1e-7);
-            assert(normBaz.y - (T)0.0f < 1e-7);
-        }
-        return true;
-    }
-    bool testOperators() {
-        vec2<T> foo(1, 1);
-        vec2<T> bar(1, -1);
-        vec2<T> baz(10, 0);
-        // +
-        vec2<T> fooCopy = foo;
-        fooCopy += bar;
-        assert(fooCopy.x == 2.0f);
-        assert(fooCopy.y == 0.0f);
-        fooCopy = foo + bar;
-        assert(fooCopy.x == 2.0f);
-        assert(fooCopy.y == 0.0f);
-        fooCopy = foo;
+  bool testCast() {
+    vec2<T> a(1, 2);
+    vec2<int> a2(1, 2);
+    auto b = vec2<int>(a);
 
-        // -
-        fooCopy -= bar;
-        assert(fooCopy.x == 0.0f);
-        assert(fooCopy.y == 2.0f);
-        fooCopy = foo - bar;
-        assert(fooCopy.x == 0.0f);
-        assert(fooCopy.y == 2.0f);
-        fooCopy = foo;
-
-        // *
-        fooCopy *= 2.0f;
-        assert(fooCopy.x == (T)2.0f);
-        assert(fooCopy.y == (T)2.0f);
-        fooCopy = foo * 2.0f;
-        assert(fooCopy.x == (T)2.0f);
-        assert(fooCopy.y == (T)2.0f);
-
-        float fooVal = foo * bar;
-        assert(fooVal == (T)0.0f);
-        fooVal = foo * baz;
-        assert(fooVal == (T)10.0f);
-        fooCopy = foo;
-
-        // /
-        fooCopy /= 2.0f;
-        assert(fooCopy.x == (T)0.5f);
-        assert(fooCopy.y == (T)0.5f);
-        fooCopy = foo / 2.0f;
-        assert(fooCopy.x == (T)0.5f);
-        assert(fooCopy.y == (T)0.5f);
-
-        // ostream<<
-        //        std::cout << "vec2:\n" << foo;
-
-        return true;
-    }
-
-    bool testComparison() {
-        vec2<T> a(1, 2);
-        vec2<T> b(1, 2);
-
-        assert(a == b);
-        return true;
-    }
-
-    bool testCast() {
-        vec2<T> a(1, 2);
-        vec2<int> a2(1, 2);
-        auto b = vec2<int>(a);
-
-        assert(a2 == b);
-        return true;
-    }
+    assert(a2 == b);
+    return true;
+  }
 
 public:
-    virtual void run() {
-        testInitialization();
-        testAssignment();
-        testMemberAccess();
-        testMisc();
-        testOperators();
-        testComparison();
-        testCast();
-    }
+  virtual void run() {
+    testInitialization();
+    testAssignment();
+    testMemberAccess();
+    testMisc();
+    testOperators();
+    testComparison();
+    testCast();
+  }
 };
 
 int main() {
-    auto testCase = Vec2TestCase<int>();
-    testCase.run();
-    auto testCase2     = Vec2TestCase<float>();
-    testCase2.extended = true;
-    testCase2.run();
-    auto testCase3     = Vec2TestCase<double>();
-    testCase3.extended = true;
-    testCase3.run();
+  auto testCase = Vec2TestCase<int>();
+  testCase.run();
+  auto testCase2     = Vec2TestCase<float>();
+  testCase2.extended = true;
+  testCase2.run();
+  auto testCase3     = Vec2TestCase<double>();
+  testCase3.extended = true;
+  testCase3.run();
 
-    return 0;
+  return 0;
 }

@@ -2,13 +2,13 @@
 
 class SGDTestCase : public Test
 {
-    bool TestUpdateWeights() { return true; }
+  bool TestUpdateWeights() { return true; }
 
 public:
-    virtual void run() { }
+  virtual void run() { }
 };
 
 int main() {
-    SGDTestCase().run();
-    return 0;
+  SGDTestCase().run();
+  return 0;
 };

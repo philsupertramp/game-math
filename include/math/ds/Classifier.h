@@ -20,54 +20,54 @@
 class Classifier
 {
 protected:
-    //! flag to initialize weights only once
-    bool w_initialized = false;
+  //! flag to initialize weights only once
+  bool w_initialized = false;
 
 public:
-    //! Vector holding weights
-    Matrix<double> weights;
-    //! Vector holding classification error per epoch
-    Matrix<double> costs;
+  //! Vector holding weights
+  Matrix<double> weights;
+  //! Vector holding classification error per epoch
+  Matrix<double> costs;
 
-    /**
-     * default constructor
-     * @param _eta learning rate
-     * @param _n_iter number learning iterations
-     */
-    Classifier() { }
+  /**
+   * default constructor
+   * @param _eta learning rate
+   * @param _n_iter number learning iterations
+   */
+  Classifier() { }
 
-    /**
-     * Initialization method for weights hold by the classifier
-     * @param numRows number rows
-     * @param numColumns number columns
-     */
-    void initialize_weights(size_t numRows, size_t numColumns = 1) {
-        weights       = Matrix<double>(0, numRows + 1, numColumns);
-        w_initialized = true;
+  /**
+   * Initialization method for weights hold by the classifier
+   * @param numRows number rows
+   * @param numColumns number columns
+   */
+  void initialize_weights(size_t numRows, size_t numColumns = 1) {
+    weights       = Matrix<double>(0, numRows + 1, numColumns);
+    w_initialized = true;
+  }
+
+  void update_weights(const Matrix<double>& update, const Matrix<double>& delta) {
+    for(size_t i = 0; i < weights.rows(); i++) {
+      for(size_t j = 0; j < weights.columns(); j++) {
+        if(i == 0) weights(i, j) += update(i, j);
+        else
+          weights(i, j) += delta(i - 1, j);
+      }
     }
+  }
+  /**
+   * Implements training algorithm
+   * @param X: array-like with the shape: [n_samples, n_features]
+   * @param y: array-like with shape: [n_samples, 1]
+   * @return this
+   */
+  virtual void fit(const Matrix<double>& X, const Matrix<double>& y) = 0;
 
-    void update_weights(const Matrix<double>& update, const Matrix<double>& delta) {
-        for(size_t i = 0; i < weights.rows(); i++) {
-            for(size_t j = 0; j < weights.columns(); j++) {
-                if(i == 0) weights(i, j) += update(i, j);
-                else
-                    weights(i, j) += delta(i - 1, j);
-            }
-        }
-    }
-    /**
-     * Implements training algorithm
-     * @param X: array-like with the shape: [n_samples, n_features]
-     * @param y: array-like with shape: [n_samples, 1]
-     * @return this
-     */
-    virtual void fit(const Matrix<double>& X, const Matrix<double>& y) = 0;
-
-    /**
-     * Makes prediction for given input
-     * @return
-     */
-    virtual Matrix<double> predict(const Matrix<double>&) = 0;
+  /**
+   * Makes prediction for given input
+   * @return
+   */
+  virtual Matrix<double> predict(const Matrix<double>&) = 0;
 };
 
 
@@ -80,32 +80,32 @@ public:
 class ANNClassifier : public Classifier
 {
 protected:
-    //! Learning rate
-    double eta;
-    //! number epochs
-    int n_iter;
+  //! Learning rate
+  double eta;
+  //! number epochs
+  int n_iter;
 
 public:
-    ANNClassifier(double _eta, int _n_iter)
-        : Classifier()
-        , eta(_eta)
-        , n_iter(_n_iter) { }
+  ANNClassifier(double _eta, int _n_iter)
+    : Classifier()
+    , eta(_eta)
+    , n_iter(_n_iter) { }
 
-    /**
-     * Activates a given input
-     * @return
-     */
-    virtual Matrix<double> activation(const Matrix<double>&) = 0;
+  /**
+   * Activates a given input
+   * @return
+   */
+  virtual Matrix<double> activation(const Matrix<double>&) = 0;
 
-    /**
-     * calculates the net-input (aka output) this is mostly the derivative of `activation`
-     * @return
-     */
-    virtual Matrix<double> netInput(const Matrix<double>&) = 0;
+  /**
+   * calculates the net-input (aka output) this is mostly the derivative of `activation`
+   * @return
+   */
+  virtual Matrix<double> netInput(const Matrix<double>&) = 0;
 
-    /**
-     * calculates the current cost
-     * if unused override returning 0
-     */
-    virtual double costFunction(const Matrix<double>&) = 0;
+  /**
+   * calculates the current cost
+   * if unused override returning 0
+   */
+  virtual double costFunction(const Matrix<double>&) = 0;
 };

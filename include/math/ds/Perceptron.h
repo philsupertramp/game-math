@@ -22,86 +22,86 @@
 class Perceptron : public ANNClassifier
 {
 public:
-    /**
-     * default constructor
-     * @param _eta
-     * @param iter
-     */
-    explicit Perceptron(double _eta = 0.01, int iter = 10)
-        : ANNClassifier(_eta, iter) { }
+  /**
+   * default constructor
+   * @param _eta
+   * @param iter
+   */
+  explicit Perceptron(double _eta = 0.01, int iter = 10)
+    : ANNClassifier(_eta, iter) { }
 
-    /**
-     *
-     * @param X: array-like with the shape: [n_samples, n_features]
-     * @param y: array-like with shape: [n_samples, 1]
-     * @return this
-     */
-    void fit(const Matrix<double>& X, const Matrix<double>& y) override {
-        initialize_weights(X.columns());
-        costs = Matrix<double>(0, n_iter, 1);
-        for(int iter = 0; iter < n_iter; iter++) {
-            int _errors   = 0;
-            auto iterable = zip(X, y);
-            for(const auto& elem : iterable) {
-                auto xi     = elem.first;
-                auto target = elem.second;
+  /**
+   *
+   * @param X: array-like with the shape: [n_samples, n_features]
+   * @param y: array-like with shape: [n_samples, 1]
+   * @return this
+   */
+  void fit(const Matrix<double>& X, const Matrix<double>& y) override {
+    initialize_weights(X.columns());
+    costs = Matrix<double>(0, n_iter, 1);
+    for(int iter = 0; iter < n_iter; iter++) {
+      int _errors   = 0;
+      auto iterable = zip(X, y);
+      for(const auto& elem : iterable) {
+        auto xi     = elem.first;
+        auto target = elem.second;
 
-                auto output  = predict(xi);
-                auto delta_w = (target - output);
-                update_weights(delta_w, (delta_w * xi).Transpose() * eta);
-                _errors += costFunction(delta_w);
-            }
-            costs(iter, 0) = _errors;
+        auto output  = predict(xi);
+        auto delta_w = (target - output);
+        update_weights(delta_w, (delta_w * xi).Transpose() * eta);
+        _errors += costFunction(delta_w);
+      }
+      costs(iter, 0) = _errors;
+    }
+  }
+
+  /**
+   * calculates net input
+   * \f[
+   *      X * weights + b
+   * \f]
+   * @param X
+   * @return
+   */
+  Matrix<double> netInput(const Matrix<double>& X) override {
+    Matrix<double> A, B;
+    A.Resize(weights.rows() - 1, weights.columns());
+    B.Resize(1, weights.columns());
+    for(size_t i = 0; i < weights.rows(); i++) {
+      for(size_t j = 0; j < weights.columns(); j++) {
+        if(i == 0) {
+          B(i, j) = weights(i, j);
+        } else {
+          A(i - 1, j) = weights(i, j);
         }
+      }
     }
+    return (X * A) + B;
+  }
 
-    /**
-     * calculates net input
-     * \f[
-     *      X * weights + b
-     * \f]
-     * @param X
-     * @return
-     */
-    Matrix<double> netInput(const Matrix<double>& X) override {
-        Matrix<double> A, B;
-        A.Resize(weights.rows() - 1, weights.columns());
-        B.Resize(1, weights.columns());
-        for(size_t i = 0; i < weights.rows(); i++) {
-            for(size_t j = 0; j < weights.columns(); j++) {
-                if(i == 0) {
-                    B(i, j) = weights(i, j);
-                } else {
-                    A(i - 1, j) = weights(i, j);
-                }
-            }
-        }
-        return (X * A) + B;
-    }
+  /**
+   * activate given input
+   * @param X
+   * @return
+   */
+  Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
-    /**
-     * activate given input
-     * @param X
-     * @return
-     */
-    Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
+  /**
+   * predict class of given input
+   * @param X
+   * @return
+   */
+  Matrix<double> predict(const Matrix<double>& X) override {
+    std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
+    return where(condition, activation(X), { { 1 } }, { { -1 } });
+  }
 
-    /**
-     * predict class of given input
-     * @param X
-     * @return
-     */
-    Matrix<double> predict(const Matrix<double>& X) override {
-        std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
-        return where(condition, activation(X), { { 1 } }, { { -1 } });
-    }
-
-    /**
-     * cost function override, don't use!
-     * @param X
-     * @return
-     */
-    double costFunction(const Matrix<double>& X) override { return (double)(X(0, 0) != 0.0); }
+  /**
+   * cost function override, don't use!
+   * @param X
+   * @return
+   */
+  double costFunction(const Matrix<double>& X) override { return (double)(X(0, 0) != 0.0); }
 };
 
 /**
