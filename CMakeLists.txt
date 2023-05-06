@@ -92,6 +92,8 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/SGD.h
             include/math/ds/NCC.h
             include/math/ds/KNN.h
+            
+            include/math/ds/preprocessing/Scaler.h
             )
     if(MATH_IMAGE_PROCESSING)
         set(LIB_HEADERS ${LIB_HEADERS}

@@ -119,16 +119,16 @@ Matrix<double> Regression(const Matrix<double>& a) {
     return beta(1, 0) * ones(size, 1) + u1 * beta(0, 0);
 }
 
-Matrix<double> sd(const Matrix<double>& x){
-  Matrix<double> sds = Matrix<double>(0, x.columns(), 1);
-  for(size_t col = 0; col < x.columns(); ++col){
+Matrix<double> sd(const Matrix<double>& x, int axis){
+  bool row_wise = axis == 0;
+  Matrix<double> sds = Matrix<double>(0, row_wise ? 1 : x.rows(), row_wise ? x.columns() : 1);
+  for(size_t col = 0; col < (row_wise ? x.columns() : x.rows()); ++col){
     double sum = 0;
-    auto current_values = x.GetSlice(0, x.rows() - 1, col, col);
-    double mean_val = mean(current_values);
+    auto current_values = x.GetSlice(row_wise ? 0 : col, row_wise ? x.rows() - 1 : col, row_wise ? col : 0, row_wise ? col : x.columns());
+    double mean_val = mean(current_values)(0, 0);
     auto diff = current_values.Apply([mean_val](double x){double val = (x - mean_val); return val * val;}).sumElements()/(double)x.rows();
-    std::cout << "DIFF: " << diff << "SQRT "<< sqrt(diff) << std::endl;
     
-    sds(col, 0) = sqrt(diff);
+    sds(row_wise ? col : 0, row_wise ? 0 : col) = sqrt(diff);
   }
   return sds;
 }

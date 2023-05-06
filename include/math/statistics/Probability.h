@@ -102,7 +102,7 @@ double var(const Matrix<double>& x);
  * @param x set of values to compute standard deviation from
  * @returns standard deviation of given x
  */
-Matrix<double> sd(const Matrix<double>& x);
+Matrix<double> sd(const Matrix<double>& x, int axis = 0);
 /**
  * Computes linear (regression) model for given random sample
  * $$

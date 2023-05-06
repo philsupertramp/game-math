@@ -802,6 +802,18 @@ inline Matrix<T> operator-(Matrix<T> lhs, const Matrix<T>& rhs) {
     return *result;
 }
 
+template<typename T, typename U>
+inline Matrix<T> operator/(U lhs, const Matrix<T>& rhs) {
+ auto result = new Matrix<T>(0.0, rhs.rows(), rhs.columns(), rhs.elements());
+    for(size_t i = 0; i < rhs.rows(); i++) {
+        for(size_t j = 0; j < rhs.columns(); j++) {
+            for(size_t elem = 0; elem < rhs.elements(); elem++) { (*result)(i, j, elem) = lhs / rhs(i, j, elem); }
+        }
+    }
+    return *result;
+ 
+}
+
 /**
  * Simple Matrix scalar multiplication
  * @param lhs
@@ -1232,13 +1244,6 @@ T elemMean(const Matrix<T>& mat, const size_t& elemIndex) {
         }
     }
     return sum / index;
-}
-
-template<typename T>
-Matrix<T> standard_deviation(const Matrix<T>& in, int axis = -1){
-  if(axis == -1){
-
-  }
 }
 
 /**
