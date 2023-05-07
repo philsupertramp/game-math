@@ -29,5 +29,5 @@ public:
 class Transformer : public Predictor
 {
 public:
-  virtual Matrix<double> predict(const Matrix<double>& in) override { return in; };
+  Matrix<double> predict(const Matrix<double>& in) override { return in; };
 };
