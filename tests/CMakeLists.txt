@@ -20,6 +20,12 @@ IF (MATH_COVERAGE)
     string(APPEND CMAKE_CXX_FLAGS " -fprofile-arcs -ftest-coverage -DHAVE_GCOV")
     string(APPEND CMAKE_EXE_LINKER_FLAGS " -fprofile-arcs -ftest-coverage -lgcov")
 ENDIF()
+IF(DEBUG)
+    string(APPEND CMAKE_C_FLAGS " -fsanitize=address")
+    string(APPEND CMAKE_CXX_FLAGS " -fsanitize=address")
+    string(APPEND CMAKE_EXE_LINKER_FLAGS " -fsanitize=address")
+
+ENDIF()
 
 function(add_test_source SOURCE_NAME)
     string(REPLACE ".cpp" "" NAME ${SOURCE_NAME})

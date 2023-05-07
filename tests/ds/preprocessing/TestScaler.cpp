@@ -94,14 +94,8 @@ class MinMaxScalerTestCase
     Matrix<double> input_data(
     { { 2, 1 }, { 4, 1 }, { 2, 3 }, { 4, 3 }, { 8, 6 }, { 10, 8 }, { 2, 12 }, { 2, 14 }, { 4, 14 } });
     Matrix<double> labels({ { 0 }, { 0 }, { 0 }, { 0 }, { 1 }, { 1 }, { 2 }, { 2 }, { 2 } });
-    Matrix<double> expected_min = { { 2., 1. } };
-    Matrix<double> expected_max = {{ 10., 14. }};
     auto clf = MinMaxScaler();
     clf.fit(input_data, labels);
-
-    AssertEqual(clf.Xmin, expected_min);
-    AssertEqual(clf.Xmax, expected_max);
-    AssertEqual(clf.Xdiff, clf.Xmax - clf.Xmin);
 
     return true;
   }
@@ -123,16 +117,17 @@ class MinMaxScalerTestCase
       {0.25, 1.0000000000000002},
     });
     Matrix<double> expected_test_data = {
-      {-0.125, -0.0769230769230769},
-      {0.75, 0.53846153846154},
-      {-0.25, 0.},
-      {0.125, 1.1538416153846154},
+      {0.125, 0.0},
+      {1.0, 0.5},
+      {0.0, 0.0625},
+      {0.375, 1.0},
     };
     auto clf = MinMaxScaler();
     clf.fit(input_data, labels);
 
     auto transformations = clf.transform(test_data);
-
+  
+    std::cout << transformations << std::endl;
     AssertEqual(transformations, expected_test_data);
     AssertEqual(clf.transform(input_data), expected_input);
 

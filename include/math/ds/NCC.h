@@ -50,8 +50,8 @@ class NCC : public Classifier
 
 public:
   NCC(bool useIterative)
-    : use_iterative(useIterative)
-    , Classifier() { }
+    : Classifier()
+    , use_iterative(useIterative) { }
 
   /**
    *

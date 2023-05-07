@@ -32,21 +32,16 @@
  */
 #include "../../Matrix.h"
 #include "../../numerics/utils.h"
+#include "../Predictor.h"
 
 /**
  * 
  *
  *
  */
-class Scaler
-{
-public:
-  virtual void fit(const Matrix<double>& X, [[maybe_unused]] const Matrix<double>& y) = 0;
-  virtual Matrix<double> transform(const Matrix<double>& in) = 0;
-};
 
 class StandardScaler
-:public Scaler
+: public Transformer
 {
 private:
   bool with_std   = true;
@@ -58,7 +53,7 @@ public:
 
 public:
   StandardScaler(bool withMeans = true, bool withStd = true)
-    : Scaler()
+    : Transformer()
     , with_std(withStd)
     , with_means(withMeans){};
 
@@ -83,40 +78,36 @@ public:
    */
   Matrix<double> transform(const Matrix<double>& in) override {
     auto diff = in - means;
-    return diff / std_deviations; }
+    return diff / std_deviations;
+  }
 
 };
 
 class MinMaxScaler
-: public Scaler
+: public Transformer
 {
 private:
   double min_val;
   double max_val;
 public:
-  Matrix<double> Xmin;
-  Matrix<double> Xmax;
-  Matrix<double> Xdiff;
 
 public:
   MinMaxScaler(double range_min_val=0., double range_max_val=1.0)
-  : Scaler()
+  : Transformer()
   , min_val(range_min_val)
   , max_val(range_max_val)
   {}
 
   void fit(const Matrix<double>& X, [[maybe_unused]] const Matrix<double>& y) override {
-    Xmin = min(X,0);
-    Xmax = max(X,0);
-    Xdiff = Xmax - Xmin;
   }
 
   Matrix<double> transform(const Matrix<double>& in) override {
     auto localDiff = max(in, 0) - min(in, 0);
     auto shiftedIn = in - min(in, 0);
     auto scaledDiff = shiftedIn/localDiff;
-    scaledDiff = scaledDiff * Xdiff;
-    return scaledDiff + Xmin;
+    scaledDiff = scaledDiff * (max_val - min_val);
+    scaledDiff = scaledDiff + Matrix<double>(min_val, scaledDiff.rows(), scaledDiff.columns());
+    return scaledDiff;
   }
 
 };

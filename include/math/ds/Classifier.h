@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Matrix.h"
+#include "Predictor.h"
 
 
 /**
@@ -18,6 +19,7 @@
  * - costFunction: method to calculate the current cost
  */
 class Classifier
+: public Predictor
 {
 protected:
   //! flag to initialize weights only once
@@ -55,19 +57,7 @@ public:
       }
     }
   }
-  /**
-   * Implements training algorithm
-   * @param X: array-like with the shape: [n_samples, n_features]
-   * @param y: array-like with shape: [n_samples, 1]
-   * @return this
-   */
-  virtual void fit(const Matrix<double>& X, const Matrix<double>& y) = 0;
-
-  /**
-   * Makes prediction for given input
-   * @return
-   */
-  virtual Matrix<double> predict(const Matrix<double>&) = 0;
+  Matrix<double> transform(const Matrix<double>& in) override { return in; }
 };
 
 
@@ -108,4 +98,5 @@ public:
    * if unused override returning 0
    */
   virtual double costFunction(const Matrix<double>&) = 0;
+
 };

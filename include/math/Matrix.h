@@ -148,7 +148,11 @@ public:
   /**
    * Default destructor, doesn't do anything
    */
-  ~Matrix() { }
+  ~Matrix() {
+    if(needsFree){
+      free(_data);
+    }
+  }
 
   /**
    * Generates a random matrix
@@ -381,7 +385,7 @@ public:
    * @param other
    * @return
    */
-  Matrix<T>& operator=(const Matrix<T>& other) {
+  Matrix<T> operator=(const Matrix<T>& other) {
     if(this != &other) {
       if((this == NULL) || (_rows != other.rows() || _columns != other.columns())) {
         Resize(other.rows(), other.columns(), other.elements());
@@ -626,7 +630,7 @@ public:
     _rows         = rows;
     _columns      = cols;
     _element_size = elementSize;
-    if(_data != nullptr) {
+    if(_data != nullptr || needsFree) {
       _data = (T*)realloc(_data, rows * cols * elementSize * sizeof(T));
     } else {
       _data = (T*)malloc(rows * cols * elementSize * sizeof(T));
@@ -761,26 +765,32 @@ private:
  * @return
  */
 template<typename T>
-inline Matrix<T> operator+(Matrix<T> lhs, const Matrix<T>& rhs) {
+inline Matrix<T> operator+(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   if(rhs.IsVector() && !lhs.IsVector()) {
-    auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
+    bool row_wise = rhs.rows() > rhs.columns();
+    if(row_wise){
+      assert(rhs.rows() == lhs.rows());
+    } else {
+      assert(rhs.columns() == lhs.columns());
+    }
+    auto result = Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
     for(size_t i = 0; i < lhs.rows(); i++) {
       for(size_t j = 0; j < lhs.columns(); j++) {
-        for(size_t elem = 0; elem < lhs.elements(); ++elem) {
-          (*result)(i, j, elem) =
-          lhs(i, j, elem) + rhs(rhs.rows() > rhs.columns() ? i : 0, rhs.rows() > rhs.columns() ? 0 : j, elem);
+        for(size_t elem = 0; elem < lhs.elements(); elem++) {
+          result(i, j, elem) =
+          lhs(i, j, elem) + rhs(row_wise ? i : 0, row_wise ? 0 : j, elem);
         }
       }
     }
-    return *result;
+    return result;
   }
 
   lhs.assertSize(rhs);
-  auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
+  auto result = Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
   for(size_t i = 0; i < lhs.rows(); i++) {
-    for(size_t j = 0; j < lhs.columns(); j++) { (*result)(i, j) = lhs(i, j) + rhs(i, j); }
+    for(size_t j = 0; j < lhs.columns(); j++) { result(i, j) = lhs(i, j) + rhs(i, j); }
   }
-  return *result;
+  return result;
 }
 /**
  * Matrix-Subtraction
@@ -790,30 +800,30 @@ inline Matrix<T> operator+(Matrix<T> lhs, const Matrix<T>& rhs) {
  * @return
  */
 template<typename T>
-inline Matrix<T> operator-(Matrix<T> lhs, const Matrix<T>& rhs) {
+inline Matrix<T> operator-(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   if(rhs.IsVector() && !lhs.IsVector()) {
     // Matrix-Vector substraction
     // substracts vector row/column wise from given lhs matrix
     // similar to numpy.
-    auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
+    auto result = Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
     for(size_t i = 0; i < lhs.rows(); i++) {
       for(size_t j = 0; j < lhs.columns(); j++) {
-        for(size_t elem = 0; elem < lhs.elements(); ++elem) {
-          (*result)(i, j, elem) =
+        for(size_t elem = 0; elem < lhs.elements(); elem++) {
+          result(i, j, elem) =
           lhs(i, j, elem) - rhs(rhs.rows() > rhs.columns() ? i : 0, rhs.rows() > rhs.columns() ? 0 : j, elem);
         }
       }
     }
-    return *result;
+    return result;
   }
   lhs.assertSize(rhs);
-  auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
+  auto result = Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
   for(size_t i = 0; i < lhs.rows(); i++) {
     for(size_t j = 0; j < lhs.columns(); j++) {
-      for(size_t elem = 0; elem < lhs.elements(); ++elem) { (*result)(i, j, elem) = lhs(i, j, elem) - rhs(i, j, elem); }
+      for(size_t elem = 0; elem < lhs.elements(); elem++) { result(i, j, elem) = lhs(i, j, elem) - rhs(i, j, elem); }
     }
   }
-  return *result;
+  return result;
 }
 /**
  * Scalar Matrix-division
@@ -824,13 +834,13 @@ inline Matrix<T> operator-(Matrix<T> lhs, const Matrix<T>& rhs) {
  */
 template<typename T, typename U>
 inline Matrix<T> operator/(U lhs, const Matrix<T>& rhs) {
-  auto result = new Matrix<T>(0.0, rhs.rows(), rhs.columns(), rhs.elements());
+  auto result = Matrix<T>(0.0, rhs.rows(), rhs.columns(), rhs.elements());
   for(size_t i = 0; i < rhs.rows(); i++) {
     for(size_t j = 0; j < rhs.columns(); j++) {
-      for(size_t elem = 0; elem < rhs.elements(); elem++) { (*result)(i, j, elem) = lhs / rhs(i, j, elem); }
+      for(size_t elem = 0; elem < rhs.elements(); elem++) { result(i, j, elem) = lhs / rhs(i, j, elem); }
     }
   }
-  return *result;
+  return result;
 }
 /**
  * Element wise division of matrix elements with given scalar
@@ -840,14 +850,14 @@ inline Matrix<T> operator/(U lhs, const Matrix<T>& rhs) {
  * @return
  */
 template<typename T, typename U>
-inline Matrix<T> operator/(Matrix<T> lhs, const U& rhs) {
-  auto result = new Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
+inline Matrix<T> operator/(const Matrix<T>& lhs, const U& rhs) {
+  auto result = Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
   for(size_t i = 0; i < lhs.rows(); i++) {
     for(size_t j = 0; j < lhs.columns(); j++) {
-      for(size_t elem = 0; elem < lhs.elements(); elem++) { (*result)(i, j, elem) = lhs(i, j, elem) / rhs; }
+      for(size_t elem = 0; elem < lhs.elements(); elem++) { result(i, j, elem) = lhs(i, j, elem) / rhs; }
     }
   }
-  return *result;
+  return result;
 }
 
 
@@ -872,17 +882,17 @@ inline Matrix<T> operator/(Matrix<T> lhs, const U& rhs) {
  */
 template<typename T>
 inline Matrix<T> operator/(const Matrix<T>& lhs, const Matrix<T>& rhs) {
-  auto result = new Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
+  auto result = Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
   if(rhs.IsVector()){
-    bool row_wise = rhs.columns() > rhs.columns();
+    bool row_wise = rhs.rows() > rhs.columns();
     for(size_t i = 0; i < lhs.rows(); i++) {
       for(size_t j = 0; j < lhs.columns(); j++) {
         for(size_t elem = 0; elem < lhs.elements(); elem++) {
-          (*result)(i, j, elem) = lhs(i, j, elem) / rhs(row_wise ? i : 0, row_wise ? 0 : j, elem);
+          result(i, j, elem) = lhs(i, j, elem) / rhs(row_wise ? i : 0, row_wise ? 0 : j, elem);
         }
       }
     }
-    return *result;
+    return result;
   }
 
   return lhs * (1.0/rhs);
@@ -895,14 +905,14 @@ inline Matrix<T> operator/(const Matrix<T>& lhs, const Matrix<T>& rhs) {
  * @return scaled matrix
  */
 template<typename T, typename U>
-inline Matrix<T> operator*(Matrix<T> lhs, const U& rhs) {
-  auto result = new Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
+inline Matrix<T> operator*(const Matrix<T>& lhs, const U& rhs) {
+  auto result = Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
   for(size_t i = 0; i < lhs.rows(); i++) {
     for(size_t j = 0; j < lhs.columns(); j++) {
-      for(size_t elem = 0; elem < lhs.elements(); elem++) { (*result)(i, j, elem) = lhs(i, j, elem) * rhs; }
+      for(size_t elem = 0; elem < lhs.elements(); elem++) { result(i, j, elem) = lhs(i, j, elem) * rhs; }
     }
   }
-  return *result;
+  return result;
 }
 /**
  * Simple Matrix scalar multiplication
@@ -912,13 +922,13 @@ inline Matrix<T> operator*(Matrix<T> lhs, const U& rhs) {
  */
 template<typename T, typename U>
 inline Matrix<T> operator*(U lambda, const Matrix<T>& A) {
-  auto result = new Matrix<T>(0.0, A.rows(), A.columns(), A.elements());
+  auto result = Matrix<T>(0.0, A.rows(), A.columns(), A.elements());
   for(size_t i = 0; i < A.rows(); i++) {
     for(size_t j = 0; j < A.columns(); j++) {
-      for(size_t elem = 0; elem < A.elements(); elem++) { (*result)(i, j, elem) = A(i, j, elem) * lambda; }
+      for(size_t elem = 0; elem < A.elements(); elem++) { result(i, j, elem) = A(i, j, elem) * lambda; }
     }
   }
-  return *result;
+  return result;
 }
 
 /**
@@ -929,32 +939,32 @@ inline Matrix<T> operator*(U lambda, const Matrix<T>& A) {
  * @return Rows x C result matrix
  */
 template<typename T>
-inline Matrix<T>& operator*(const Matrix<T>& lhs, const Matrix<T>& rhs) {
+inline Matrix<T> operator*(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   if(lhs.columns() == rhs.rows() && lhs.elements() == rhs.elements()){
-    auto result = new Matrix<T>(0.0, lhs.rows(), rhs.columns(), rhs.elements());
+    auto result = Matrix<T>(0.0, lhs.rows(), rhs.columns(), rhs.elements());
     for(size_t i = 0; i < lhs.rows(); i++) {
       for(size_t j = 0; j < rhs.columns(); j++) {
         for(size_t k = 0; k < rhs.rows(); k++) {
           for(size_t elem = 0; elem < rhs.elements(); elem++) {
-            (*result)(i, j, elem) += (T)(lhs(i, k, elem) * rhs(k, j, elem));
+            result(i, j, elem) += (T)(lhs(i, k, elem) * rhs(k, j, elem));
           }
         }
       }
     }
-    return *result;
+    return result;
   }
   assert(rhs.IsVector() && !lhs.IsVector());
 
   auto row_wise = rhs.rows() > rhs.columns();
-  auto result = new Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
-  for(size_t i = 0; i < lhs.rows(); ++i){
-    for(size_t j = 0; j < lhs.rows(); ++j){
-      for(size_t k = 0; k < lhs.elements(); ++k){
-        (*result)(i, j, k) = (T)(lhs(i, j, k) * rhs(row_wise ? i : 0, row_wise ? 0 : j, k));
+  auto result = Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
+  for(size_t i = 0; i < lhs.rows(); i++){
+    for(size_t j = 0; j < lhs.columns(); j++){
+      for(size_t k = 0; k < lhs.elements(); k++){
+        result(i, j, k) = (T)(lhs(i, j, k) * rhs(row_wise ? i : 0, row_wise ? 0 : j, k));
       }
     }
   }
-  return *result;
+  return result;
 }
 
 /**
@@ -969,17 +979,17 @@ inline Matrix<T>& operator*(const Matrix<T>& lhs, const Matrix<T>& rhs) {
  * @return product of element wise multiplication of lhs * rhs with dimension n1, m1
  */
 template<typename T>
-Matrix<T>& HadamardMulti(const Matrix<T>& lhs, const Matrix<T>& rhs) {
+Matrix<T> HadamardMulti(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   lhs.assertSize(rhs);
-  auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
-  for(size_t i = 0; i < result->rows(); i++) {
-    for(size_t j = 0; j < result->columns(); j++) {
-      for(size_t elem = 0; elem < result->elements(); elem++) {
-        (*result)(i, j, elem) = lhs(i, j, elem) * rhs(i, j, elem);
+  auto result = Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
+  for(size_t i = 0; i < result.rows(); i++) {
+    for(size_t j = 0; j < result.columns(); j++) {
+      for(size_t elem = 0; elem < result.elements(); elem++) {
+        result(i, j, elem) = lhs(i, j, elem) * rhs(i, j, elem);
       }
     }
   }
-  return *result;
+  return result;
 }
 
 /**
@@ -990,17 +1000,17 @@ Matrix<T>& HadamardMulti(const Matrix<T>& lhs, const Matrix<T>& rhs) {
  * @return product of element wise multiplication of lhs * rhs with dimension n1, m1
  */
 template<typename T>
-Matrix<T>& HadamardDiv(const Matrix<T>& lhs, const Matrix<T>& rhs) {
+Matrix<T> HadamardDiv(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   lhs.assertSize(rhs);
-  auto result = new Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
-  for(size_t i = 0; i < result->rows(); i++) {
-    for(size_t j = 0; j < result->columns(); j++) {
-      for(size_t elem = 0; elem < result->elements(); elem++) {
-        (*result)(i, j, elem) = lhs(i, j, elem) / rhs(i, j, elem);
+  auto result = Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
+  for(size_t i = 0; i < result.rows(); i++) {
+    for(size_t j = 0; j < result.columns(); j++) {
+      for(size_t elem = 0; elem < result.elements(); elem++) {
+        result(i, j, elem) = lhs(i, j, elem) / rhs(i, j, elem);
       }
     }
   }
-  return *result;
+  return result;
 }
 
 /**
@@ -1012,21 +1022,21 @@ Matrix<T>& HadamardDiv(const Matrix<T>& lhs, const Matrix<T>& rhs) {
  * @return resulting matrix with dimension n1 * n2, m1 * m2
  */
 template<typename T>
-Matrix<T>& KroneckerMulti(const Matrix<T>& lhs, const Matrix<T>& rhs) {
+Matrix<T> KroneckerMulti(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   assert(lhs.elements() == rhs.elements());
-  auto result = new Matrix<T>(0, lhs.rows() * rhs.rows(), lhs.columns() * rhs.columns(), rhs.elements());
+  auto result = Matrix<T>(0, lhs.rows() * rhs.rows(), lhs.columns() * rhs.columns(), rhs.elements());
   for(size_t m = 0; m < lhs.rows(); m++) {
     for(size_t n = 0; n < lhs.columns(); n++) {
       for(size_t p = 0; p < rhs.rows(); p++) {
         for(size_t q = 0; q < rhs.columns(); q++) {
           for(size_t elem = 0; elem < rhs.elements(); elem++) {
-            (*result)(m * rhs.rows() + p, n * rhs.columns() + q, elem) = lhs(m, n, elem) * rhs(p, q, elem);
+            result(m * rhs.rows() + p, n * rhs.columns() + q, elem) = lhs(m, n, elem) * rhs(p, q, elem);
           }
         }
       }
     }
   }
-  return *result;
+  return result;
 }
 
 /**
@@ -1040,15 +1050,15 @@ template<typename T>
 Matrix<T> HorizontalConcat(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   assert(lhs.rows() == rhs.rows());
   assert(lhs.elements() == rhs.elements());
-  auto result = new Matrix<T>(0.0, lhs.rows(), lhs.columns() + rhs.columns(), lhs.elements());
+  auto result = Matrix<T>(0.0, lhs.rows(), lhs.columns() + rhs.columns(), lhs.elements());
   for(size_t i = 0; i < lhs.rows(); ++i) {
     for(size_t j = 0; j < lhs.columns() + rhs.columns(); ++j) {
       for(size_t elem = 0; elem < lhs.elements(); ++elem) {
-        (*result)(i, j, elem) = j < lhs.columns() ? lhs(i, j, elem) : rhs(i, j - lhs.columns(), elem);
+        result(i, j, elem) = j < lhs.columns() ? lhs(i, j, elem) : rhs(i, j - lhs.columns(), elem);
       }
     }
   }
-  return *result;
+  return result;
 }
 
 /**
@@ -1078,16 +1088,16 @@ size_t Corr(const Matrix<T>& A, const Matrix<T>& B) {
  * @return
  */
 template<typename T>
-Matrix<T>& from_vptr(const T* value, MatrixDimension size) {
-  auto out = new Matrix<T>(0, size.rows, size.columns);
+Matrix<T> from_vptr(const T* value, MatrixDimension size) {
+  auto out = Matrix<T>(0, size.rows, size.columns);
   for(size_t i = 0; i < size.rows; i++) {
-    for(size_t j = 0; j < size.columns; ++j) {
-      for(size_t elem = 0; elem < size.elemDim; ++elem) {
-        (*out)(i, j, elem) = value[elem + j * size.elemDim + i * size.columns * size.elemDim];
+    for(size_t j = 0; j < size.columns; j++) {
+      for(size_t elem = 0; elem < size.elemDim; elem++) {
+        out(i, j, elem) = value[elem + j * size.elemDim + i * size.columns * size.elemDim];
       }
     }
   }
-  return *out;
+  return out;
 }
 
 /**
@@ -1104,7 +1114,7 @@ size_t argmax(const Matrix<T>& mat) {
   size_t maxIndex = -1;
   for(size_t i = 0; i < mat.rows(); i++) {
     for(size_t j = 0; j < mat.columns(); j++) {
-      for(size_t elem = 0; elem < mat.elements(); ++elem) {
+      for(size_t elem = 0; elem < mat.elements(); elem++) {
         if(mat(i, j, elem) > maxVal) {
           maxVal   = mat(i, j, elem);
           maxIndex = elem + j * mat.elements() + i * mat.columns() * mat.elements();
@@ -1229,7 +1239,7 @@ T max(const Matrix<T>& mat) {
   T maxVal = std::numeric_limits<T>::min();
   for(size_t i = 0; i < mat.rows(); i++) {
     for(size_t j = 0; j < mat.columns(); j++) {
-      for(size_t k = 0; k < mat.elements(); ++k) {
+      for(size_t k = 0; k < mat.elements(); k++) {
         if(mat(i, j, k) > maxVal) { maxVal = mat(i, j, k); }
       }
     }
@@ -1243,7 +1253,7 @@ Matrix<T> max(const Matrix<T>& mat, int axis) {
   bool row_wise = axis == 0;
   Matrix<T> out = Matrix<T>(0, row_wise ? 1 : mat.rows(), row_wise ? mat.columns() : 1);
 
-  for(size_t i = 0; i < (row_wise ? mat.columns() : mat.rows()); ++i) {
+  for(size_t i = 0; i < (row_wise ? mat.columns() : mat.rows()); i++) {
     out(row_wise ? 0 : i, row_wise ? i : 0) = elemMax(mat.GetSlice(
       row_wise ? 0 : i, row_wise ? mat.rows() - 1 : i,
       row_wise ? i : 0, row_wise ? i : mat.columns() - 1
@@ -1262,7 +1272,7 @@ T min(const Matrix<T>& mat) {
   T minVal = std::numeric_limits<T>::max();
   for(size_t i = 0; i < mat.rows(); i++) {
     for(size_t j = 0; j < mat.columns(); j++) {
-      for(size_t k = 0; k < mat.elements(); ++k) {
+      for(size_t k = 0; k < mat.elements(); k++) {
         if(mat(i, j, k) < minVal) { minVal = mat(i, j, k); }
       }
     }
@@ -1275,7 +1285,7 @@ Matrix<T> min(const Matrix<T>& mat, int axis) {
   bool row_wise = axis == 0;
   Matrix<T> out = Matrix<T>(0, row_wise ? 1 : mat.rows(), row_wise ? mat.columns() : 1);
 
-  for(size_t i = 0; i < (row_wise ? mat.columns() : mat.rows()); ++i) {
+  for(size_t i = 0; i < (row_wise ? mat.columns() : mat.rows()); i++) {
     out(row_wise ? 0 : i, row_wise ? i : 0) = elemMin(mat.GetSlice(
       row_wise ? 0 : i, row_wise ? mat.rows() - 1 : i,
       row_wise ? i : 0, row_wise ? i : mat.columns() - 1
@@ -1351,7 +1361,7 @@ Matrix<T> mean(const Matrix<T>& mat, int axis = -1) {
   bool row_wise = axis == 0;
 
   Matrix<T> sum = Matrix<T>(0, row_wise ? 1 : mat.rows(), row_wise ? mat.columns() : 1);
-  for(size_t i = 0; i < (row_wise ? mat.rows() : mat.columns()); ++i) {
+  for(size_t i = 0; i < (row_wise ? mat.rows() : mat.columns()); i++) {
     sum +=
     mat.GetSlice(row_wise ? i : 0, row_wise ? i : mat.rows() - 1, row_wise ? 0 : i, row_wise ? mat.columns() - 1 : i);
   }
@@ -1388,8 +1398,8 @@ T elemMean(const Matrix<T>& mat, const size_t& elemIndex) {
 template<typename T>
 Matrix<T> diag_elements(const Matrix<T>& in) {
   Matrix<T> out(0, in.rows(), 1, in.elements());
-  for(size_t i = 0; i < in.rows(); ++i) {
-    for(size_t elem = 0; elem < in.elements(); ++elem) { out(i, 0, elem) = in(i, i, elem); }
+  for(size_t i = 0; i < in.rows(); i++) {
+    for(size_t elem = 0; elem < in.elements(); elem++) { out(i, 0, elem) = in(i, i, elem); }
   }
   return out;
 }
@@ -1401,7 +1411,7 @@ Matrix<T> diag_elements(const Matrix<T>& in) {
  *  @return matrix of unique values
  */
 template<typename T>
-Matrix<T> unique(const Matrix<T>& in, int axis = 0) {
+Matrix<T> unique(const Matrix<T>& in, [[maybe_unused]] int axis = 0) {
   Matrix<T> out     = Matrix<T>(0, in.rows(), in.columns());
   size_t found_vals = 0;
   for(size_t i = 0; i < in.rows(); ++i) {
