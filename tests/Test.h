@@ -1,8 +1,8 @@
 #pragma once
 
 #include <cassert>
-#include <iostream>
 #include <cmath>
+#include <iostream>
 #include <math/math.h>
 #include <math/numerics/utils.h>
 

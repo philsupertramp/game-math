@@ -10,6 +10,6 @@ Matrix<double> Sigmoid(const Matrix<double>& in) {
   return in.Apply([](const double& a) { return sigmoid(a); });
 }
 
-double accuracy(const Matrix<double>& predictions, const Matrix<double>& ground_truth){
-  return (double)Corr(predictions, ground_truth)/predictions.rows();
+double accuracy(const Matrix<double>& predictions, const Matrix<double>& ground_truth) {
+  return (double)Corr(predictions, ground_truth) / predictions.rows();
 }

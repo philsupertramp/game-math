@@ -1,6 +1,6 @@
 #include "../Test.h"
-#include <math/ds/KNN.h>
 #include <math/ds/DataSet.h>
+#include <math/ds/KNN.h>
 #include <math/ds/utils.h>
 
 
@@ -46,18 +46,18 @@ class KNNTestCase : public Test
   }
 
   /**
-    * Usage example: Iris flower 3-class classification problem.
-    *
-    * Uses 2/3 train and 1/3 validation data. Data was shuffled prior to be written into
-    * TSV files.
-    */
-  bool TestPredictionOnIrisData(){
-    Set dataset = Set("../../tests/ds/iris_dataset_train.tsv", 4, 1);
+   * Usage example: Iris flower 3-class classification problem.
+   *
+   * Uses 2/3 train and 1/3 validation data. Data was shuffled prior to be written into
+   * TSV files.
+   */
+  bool TestPredictionOnIrisData() {
+    Set dataset  = Set("../../tests/ds/iris_dataset_train.tsv", 4, 1);
     Set test_set = Set("../../tests/ds/iris_dataset_test.tsv", 4, 1);
 
     auto clf = KNN(10);
     clf.fit(dataset.Input, dataset.Output);
-    
+
     auto preds = clf.predict(test_set.Input);
 
     auto acc = accuracy(preds, test_set.Output);

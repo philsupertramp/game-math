@@ -3,7 +3,7 @@
 
 class Predictor
 {
- public:
+public:
   /**
    * Implements training algorithm
    * @param X: array-like with the shape: [n_samples, n_features]
@@ -19,17 +19,15 @@ class Predictor
   virtual Matrix<double> predict(const Matrix<double>&) = 0;
 
   /**
-    *
-    *
-    */
+   *
+   *
+   */
   virtual Matrix<double> transform(const Matrix<double>&) = 0;
 };
 
 
-class Transformer
-: public Predictor
+class Transformer : public Predictor
 {
 public:
   virtual Matrix<double> predict(const Matrix<double>& in) override { return in; };
-
 };

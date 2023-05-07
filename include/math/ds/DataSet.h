@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../format.h"
 #include "../Matrix.h"
+#include "../format.h"
 #include <fstream>
 #include <map>
 #include <sstream>

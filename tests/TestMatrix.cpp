@@ -63,21 +63,21 @@ class MatrixTestCase : public Test
     return true;
   }
 
-  bool TestMatrixDivision(){
-    Matrix<double> A({{2,4,8}});
-    Matrix<double> B({{.5,.25,.125}});
-    Matrix<double> C({{1,2,4}});
-    AssertEqual(1.0/A, B);
-    AssertEqual(A/2, C);
-    AssertEqual(1/A, B);
-    AssertEqual(A/2.0f, C);
+  bool TestMatrixDivision() {
+    Matrix<double> A({ { 2, 4, 8 } });
+    Matrix<double> B({ { .5, .25, .125 } });
+    Matrix<double> C({ { 1, 2, 4 } });
+    AssertEqual(1.0 / A, B);
+    AssertEqual(A / 2, C);
+    AssertEqual(1 / A, B);
+    AssertEqual(A / 2.0f, C);
 
-    auto E = Matrix<double>(2,2,2);
-    auto F = Matrix<double>(1,2,2);
-    AssertEqual(E/F,2*E);
+    auto E = Matrix<double>(2, 2, 2);
+    auto F = Matrix<double>(1, 2, 2);
+    AssertEqual(E / F, 2 * E);
 
-      return true;
-    }
+    return true;
+  }
 
   bool TestMatrixAddition() {
     Matrix<double> A(2.0, 2, 2);
@@ -99,7 +99,7 @@ class MatrixTestCase : public Test
     // Impossible
     //    vec2 + A;
     auto foo = A + vec2;
-    Matrix<double> F(3.0,2,2);
+    Matrix<double> F(3.0, 2, 2);
     AssertEqual(foo, F);
     AssertEqual(A + vec2c, E);
     return true;
@@ -265,9 +265,9 @@ class MatrixTestCase : public Test
       for(size_t j = 0; j < 2; j++) { assert(m6(i, j) == 1.0); }
     }
 
-    Matrix<double> foo = {{1.,2.,3.}};
-    Matrix<float> bar = foo;
-    Matrix<int> baz = bar;
+    Matrix<double> foo = { { 1., 2., 3. } };
+    Matrix<float> bar  = foo;
+    Matrix<int> baz    = bar;
 
     AssertEqual(foo(0, 1), 2.0);
     AssertEqual(bar(0, 1), 2.0f);
@@ -326,12 +326,10 @@ class MatrixTestCase : public Test
     return true;
   }
 
-  bool TestMax(){
-
-    Matrix<int> A({{1,2,3,4,5,6}});
-    AssertEqual(elemMax(A,0), 6);
+  bool TestMax() {
+    Matrix<int> A({ { 1, 2, 3, 4, 5, 6 } });
+    AssertEqual(elemMax(A, 0), 6);
     return true;
-
   }
 
   bool TestCorr() {
@@ -397,13 +395,13 @@ class MatrixTestCase : public Test
     return true;
   }
 
-  bool TestGetComponents(){
-    Matrix<double> A({{1,2,3,4,5,6,7,8,9}});
+  bool TestGetComponents() {
+    Matrix<double> A({ { 1, 2, 3, 4, 5, 6, 7, 8, 9 } });
 
     AssertEqual(A.GetComponents(0), A);
 
     return true;
-    }
+  }
   bool TestApply() {
     Matrix<double> A = eye(2, 2);
     Matrix<double> B = eye(2, 2);
@@ -440,7 +438,7 @@ class MatrixTestCase : public Test
     AssertEqual(mean(A, 0), C);
     AssertEqual(mean(A, 1), D);
 
-    AssertEqual(elemMean(A,0), B(0,0));
+    AssertEqual(elemMean(A, 0), B(0, 0));
 
     return true;
   }

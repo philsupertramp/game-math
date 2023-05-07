@@ -18,8 +18,7 @@
  * - netInput: converts activated output into net output
  * - costFunction: method to calculate the current cost
  */
-class Classifier
-: public Predictor
+class Classifier : public Predictor
 {
 protected:
   //! flag to initialize weights only once
@@ -98,5 +97,4 @@ public:
    * if unused override returning 0
    */
   virtual double costFunction(const Matrix<double>&) = 0;
-
 };
