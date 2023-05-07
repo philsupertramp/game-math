@@ -16,11 +16,12 @@
 
 #pragma once
 #include "../Matrix.h"
+#include "../sorting.h"
 #include <vector>
 
 #ifndef EPS
-    //! accuracy of calculated results
-    #define EPS 1e-8
+  //! accuracy of calculated results
+  #define EPS 1e-8
 #endif
 
 
@@ -91,6 +92,24 @@ Matrix<double> tridiag(size_t rows, size_t columns, double left, double center, 
  */
 double norm(const Matrix<double>& in);
 
+/**
+ * Helper method to calculate 2-Norm on given axis
+ *
+ * @param in input matrix to calculate norm(s) of
+ * @param axis along which to calculate norm on (options: 0 (row-wise), 1 (column-wise))
+ * @returns norm on given axis
+ */
+Matrix<double> norm(const Matrix<double>& in, int axis);
+
+/**
+ * Computes indices of ordered vector.
+ * Orders vector, than builds resulting vector by selecting indices.
+ *
+ * @param in given matrix to sort
+ * @return indices of sorted version of given matrix
+ */
+Matrix<size_t> argsort(const Matrix<double>& in);
+
 
 /**
  * Index-Getter for validated values
@@ -105,13 +124,20 @@ double norm(const Matrix<double>& in);
 Matrix<size_t> nonzero(const std::function<bool(const double&)>& validation, const Matrix<double>& x);
 
 
+/**
+ * Method to extract diagonal elements of given matrix into dedicated vector
+ *
+ *
+ * @param in given matrix to extract diagonal elements from
+ * @return vector of diagonal elements
+ */
 template<typename T>
 Matrix<T> diag(const Matrix<T>& in) {
-    bool isRows = in.rows() > in.columns();
-    auto k      = isRows ? in.rows() : in.columns();
-    auto result = eye(k);
-    for(size_t i = 0; i < k; ++i) { result(i, i) = in(isRows ? i : 0, isRows ? 0 : i); }
-    return result;
+  bool isRows = in.rows() > in.columns();
+  auto k      = isRows ? in.rows() : in.columns();
+  auto result = eye(k);
+  for(size_t i = 0; i < k; ++i) { result(i, i) = in(isRows ? i : 0, isRows ? 0 : i); }
+  return result;
 }
 
 /**

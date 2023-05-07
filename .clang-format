@@ -4,10 +4,10 @@ Language: Cpp
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 
 Standard: c++17
-AccessModifierOffset: -4
-TabWidth: 4
-IndentWidth: 4
-ConstructorInitializerIndentWidth: 4
+AccessModifierOffset: -2
+TabWidth: 2
+IndentWidth: 2
+ConstructorInitializerIndentWidth: 2
 UseTab: Never
 
 # jnl this may be shortened, but this will effect a lot of the formatting

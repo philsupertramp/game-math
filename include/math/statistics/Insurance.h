@@ -11,16 +11,16 @@
  * Interest representation
  */
 struct Interest {
-    //! Interest rate
-    double i;
-    //! Period length
-    double n;
-    //! Starting balance
-    double B_0;
-    //! End balance
-    double B_N;
-    //! annual Pension
-    double R;
+  //! Interest rate
+  double i;
+  //! Period length
+  double n;
+  //! Starting balance
+  double B_0;
+  //! End balance
+  double B_N;
+  //! annual Pension
+  double R;
 };
 
 /**
