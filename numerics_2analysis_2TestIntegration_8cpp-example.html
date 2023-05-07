@@ -86,20 +86,20 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span>IntegrationTestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">bool</span> TestQuadAdaptive() {</div>
-<div class="line">        <span class="keyword">auto</span> res = <a id="a0" name="a0"></a><a class="code hl_function" href="Integration_8h.html#aff5aad1dc9f2dd42ce7461331f4b7083">quadrature</a>(sin, 0, M_PI, .1, 1.e-50);</div>
-<div class="line">        AssertLessThenEqual(fabs(res.first - 2.0), 9.32e-5);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestQuadAdaptive() {</div>
+<div class="line">    <span class="keyword">auto</span> res = <a id="a0" name="a0"></a><a class="code hl_function" href="Integration_8h.html#aff5aad1dc9f2dd42ce7461331f4b7083">quadrature</a>(sin, 0, M_PI, .1, 1.e-50);</div>
+<div class="line">    AssertLessThenEqual(fabs(res.first - 2.0), 9.32e-5);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> run() { TestQuadAdaptive(); }</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> run() { TestQuadAdaptive(); }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    IntegrationTestCase().run();</div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">  IntegrationTestCase().run();</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aIntegration_8h_html"><div class="ttname"><a href="Integration_8h.html">Integration.h</a></div></div>
 <div class="ttc" id="aIntegration_8h_html_aff5aad1dc9f2dd42ce7461331f4b7083"><div class="ttname"><a href="Integration_8h.html#aff5aad1dc9f2dd42ce7461331f4b7083">quadrature</a></div><div class="ttdeci">std::pair&lt; double, std::vector&lt; double &gt; &gt; quadrature(const std::function&lt; double(double)&gt; &amp;fun, const double &amp;lower, const double &amp;upper, const double &amp;tol, const double &amp;hMin)</div><div class="ttdef"><b>Definition:</b> Integration.h:117</div></div>

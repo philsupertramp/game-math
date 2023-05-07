@@ -5,46 +5,55 @@
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 }
 \DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
-\DoxyCodeLine{4 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Predictor_8h}{Predictor.h}}"{}}}
 \DoxyCodeLine{5 }
-\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{classClassifier}{Classifier}}}
-\DoxyCodeLine{21 \{}
-\DoxyCodeLine{22 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{24     \textcolor{keywordtype}{double} \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}};}
-\DoxyCodeLine{26     \textcolor{keywordtype}{int} \mbox{\hyperlink{classClassifier_a262d07b1324365425b12bb08a859984a}{n\_iter}};}
-\DoxyCodeLine{28     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassifier_a5c3236f91e4f14965715caaca167dec8}{w\_initialized}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30 \textcolor{keyword}{public}:}
-\DoxyCodeLine{32     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}};}
-\DoxyCodeLine{34     \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}{costs}};}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{41     \mbox{\hyperlink{classClassifier_adf323be2120dbc43c65e1aed08efd5cb}{Classifier}}(\textcolor{keywordtype}{double} \_eta, \textcolor{keywordtype}{int} \_n\_iter)}
-\DoxyCodeLine{42         : \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}}(\_eta)}
-\DoxyCodeLine{43         , \mbox{\hyperlink{classClassifier_a262d07b1324365425b12bb08a859984a}{n\_iter}}(\_n\_iter) \{ \}}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassifier_a82afce4aff01a4d7292eb43fb38329b8}{initialize\_weights}}(\textcolor{keywordtype}{size\_t} numRows, \textcolor{keywordtype}{size\_t} numColumns = 1) \{}
-\DoxyCodeLine{51         \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}       = \mbox{\hyperlink{classMatrix}{Matrix<double>}}(0, numRows + 1, numColumns);}
-\DoxyCodeLine{52         \mbox{\hyperlink{classClassifier_a5c3236f91e4f14965715caaca167dec8}{w\_initialized}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{53     \}}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassifier_aa9257aed615a41cac4030fcfc7dc08ca}{update\_weights}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& update, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& delta) \{}
-\DoxyCodeLine{56         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{57             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{58                 \textcolor{keywordflow}{if}(i == 0) \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j) += update(i, j);}
-\DoxyCodeLine{59                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{60                     \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j) += delta(i -\/ 1, j);}
-\DoxyCodeLine{61             \}}
-\DoxyCodeLine{62         \}}
-\DoxyCodeLine{63     \}}
-\DoxyCodeLine{70     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y) = 0;}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{76     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classClassifier_a878bf4c825a27bee85a2466b2725e406}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&) = 0;}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{82     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classClassifier_a360e549818a6c6532c0d83695fec8eea}{activation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&) = 0;}
-\DoxyCodeLine{83 }
-\DoxyCodeLine{88     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classClassifier_a5f9a5f0ad65397e560b8bb2714c31901}{netInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&) = 0;}
-\DoxyCodeLine{89 }
-\DoxyCodeLine{94     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}{costFunction}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&) = 0;}
-\DoxyCodeLine{95 \};}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classClassifier}{Classifier}} : \textcolor{keyword}{public} \mbox{\hyperlink{classPredictor}{Predictor}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{25   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassifier_a5c3236f91e4f14965715caaca167dec8}{w\_initialized}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}};}
+\DoxyCodeLine{31   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classClassifier_a8688dfb2318e40a7c2f3747b68c96bae}{costs}};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{38   \mbox{\hyperlink{classClassifier_ae6132b100c96a4f3d8ad3885b5acb28e}{Classifier}}() \{ \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{45   \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassifier_a82afce4aff01a4d7292eb43fb38329b8}{initialize\_weights}}(\textcolor{keywordtype}{size\_t} numRows, \textcolor{keywordtype}{size\_t} numColumns = 1) \{}
+\DoxyCodeLine{46     \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}       = \mbox{\hyperlink{classMatrix}{Matrix<double>}}(0, numRows + 1, numColumns);}
+\DoxyCodeLine{47     \mbox{\hyperlink{classClassifier_a5c3236f91e4f14965715caaca167dec8}{w\_initialized}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{48   \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50   \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassifier_aa9257aed615a41cac4030fcfc7dc08ca}{update\_weights}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& update, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& delta) \{}
+\DoxyCodeLine{51     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{52       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{53         \textcolor{keywordflow}{if}(i == 0) \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j) += update(i, j);}
+\DoxyCodeLine{54         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{55           \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}(i, j) += delta(i -\/ 1, j);}
+\DoxyCodeLine{56       \}}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58   \}}
+\DoxyCodeLine{59   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classClassifier_aa171a8c6668f6ea0c22fa2312c0f0061}{transform}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} in; \}}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{69 \textcolor{keyword}{class }\mbox{\hyperlink{classANNClassifier}{ANNClassifier}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClassifier}{Classifier}}}
+\DoxyCodeLine{70 \{}
+\DoxyCodeLine{71 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{73   \textcolor{keywordtype}{double} \mbox{\hyperlink{classANNClassifier_a2e0e1ac7757c8cb67567c4dd4f42fef8}{eta}};}
+\DoxyCodeLine{75   \textcolor{keywordtype}{int} \mbox{\hyperlink{classANNClassifier_aae9927c5e2e95d69ba5baa9842f36b02}{n\_iter}};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{keyword}{public}:}
+\DoxyCodeLine{78   \mbox{\hyperlink{classANNClassifier_af6e0a151d0d20cfff2abedca49c617ab}{ANNClassifier}}(\textcolor{keywordtype}{double} \_eta, \textcolor{keywordtype}{int} \_n\_iter)}
+\DoxyCodeLine{79     : \mbox{\hyperlink{classClassifier}{Classifier}}()}
+\DoxyCodeLine{80     , \mbox{\hyperlink{classANNClassifier_a2e0e1ac7757c8cb67567c4dd4f42fef8}{eta}}(\_eta)}
+\DoxyCodeLine{81     , \mbox{\hyperlink{classANNClassifier_aae9927c5e2e95d69ba5baa9842f36b02}{n\_iter}}(\_n\_iter) \{ \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{87   \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classANNClassifier_af1d25129fd2594d89a08a025b03dfd62}{activation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&) = 0;}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{93   \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classANNClassifier_a8236348bfd0b4a4907c2ea2ca2b5d71a}{netInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&) = 0;}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{99   \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{classANNClassifier_aa5a6c1d789eed4f0a6a501dc08e420ce}{costFunction}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&) = 0;}
+\DoxyCodeLine{100 \};}
 
 \end{DoxyCode}

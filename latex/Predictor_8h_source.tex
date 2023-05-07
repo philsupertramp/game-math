@@ -1,0 +1,25 @@
+\hypertarget{Predictor_8h_source}{}\doxysection{Predictor.\+h}
+\label{Predictor_8h_source}\index{include/math/ds/Predictor.h@{include/math/ds/Predictor.h}}
+\mbox{\hyperlink{Predictor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{classPredictor}{Predictor}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y) = 0;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{19   \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPredictor_a33fd5ee04d4d1f55e9f3c1557838c6d2}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&) = 0;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{25   \textcolor{keyword}{virtual} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPredictor_a341a4d9fc8af8f53a07089100b213a73}{transform}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&) = 0;}
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classTransformer}{Transformer}} : \textcolor{keyword}{public} \mbox{\hyperlink{classPredictor}{Predictor}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classTransformer_a7f72b0693dc577dc9527daec63e3ee18}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} in; \};}
+\DoxyCodeLine{33 \};}
+
+\end{DoxyCode}

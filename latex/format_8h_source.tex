@@ -11,23 +11,23 @@
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{14 }
 \DoxyCodeLine{22 \textcolor{keyword}{inline} std::string \mbox{\hyperlink{format_8h_a1921b31564b858b45e94efff9e9d54bf}{format}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt, ...) \{}
-\DoxyCodeLine{23     \textcolor{keywordtype}{int} size     = 512;}
-\DoxyCodeLine{24     \textcolor{keywordtype}{char}* buffer = 0;}
-\DoxyCodeLine{25     buffer       = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[size];}
-\DoxyCodeLine{26     va\_list vl;}
-\DoxyCodeLine{27     va\_start(vl, fmt);}
-\DoxyCodeLine{28     \textcolor{keywordtype}{int} nsize = vsnprintf(buffer, size, fmt, vl);}
-\DoxyCodeLine{29     std::string ret(buffer);}
-\DoxyCodeLine{30     \textcolor{keywordflow}{if}(size <= nsize) \{ \textcolor{comment}{//fail delete buffer and try again}}
-\DoxyCodeLine{31         \textcolor{keyword}{delete}[] buffer;}
-\DoxyCodeLine{32         buffer = 0;}
-\DoxyCodeLine{33         buffer = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[nsize -\/ size + 2]; \textcolor{comment}{//+1 for /0}}
-\DoxyCodeLine{34         nsize  = vsnprintf(buffer, (nsize -\/ size) + 2, \&fmt[size], vl);}
-\DoxyCodeLine{35         ret += buffer;}
-\DoxyCodeLine{36     \}}
-\DoxyCodeLine{37     va\_end(vl);}
-\DoxyCodeLine{38     \textcolor{keyword}{delete}[] buffer;}
-\DoxyCodeLine{39     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{23   \textcolor{keywordtype}{int} size     = 512;}
+\DoxyCodeLine{24   \textcolor{keywordtype}{char}* buffer = 0;}
+\DoxyCodeLine{25   buffer       = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[size];}
+\DoxyCodeLine{26   va\_list vl;}
+\DoxyCodeLine{27   va\_start(vl, fmt);}
+\DoxyCodeLine{28   \textcolor{keywordtype}{int} nsize = vsnprintf(buffer, size, fmt, vl);}
+\DoxyCodeLine{29   std::string ret(buffer);}
+\DoxyCodeLine{30   \textcolor{keywordflow}{if}(size <= nsize) \{ \textcolor{comment}{//fail delete buffer and try again}}
+\DoxyCodeLine{31     \textcolor{keyword}{delete}[] buffer;}
+\DoxyCodeLine{32     buffer = 0;}
+\DoxyCodeLine{33     buffer = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[nsize -\/ size + 2]; \textcolor{comment}{//+1 for /0}}
+\DoxyCodeLine{34     nsize  = vsnprintf(buffer, (nsize -\/ size) + 2, \&fmt[size], vl);}
+\DoxyCodeLine{35     ret += buffer;}
+\DoxyCodeLine{36   \}}
+\DoxyCodeLine{37   va\_end(vl);}
+\DoxyCodeLine{38   \textcolor{keyword}{delete}[] buffer;}
+\DoxyCodeLine{39   \textcolor{keywordflow}{return} ret;}
 \DoxyCodeLine{40 \}}
 \DoxyCodeLine{41 }
 \DoxyCodeLine{47 std::string \mbox{\hyperlink{format_8h_a5f3e23cac814c84a5494842243316a4b}{strip}}(\textcolor{keyword}{const} std::string\& in);}

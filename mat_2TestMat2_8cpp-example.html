@@ -86,162 +86,162 @@ $(function() {
 <div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><span class="keyword">class </span>Mat2TestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">bool</span> TestInitialization() {</div>
-<div class="line">        <a id="_a0" name="_a0"></a><a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> foo;</div>
-<div class="line">        assert(foo[0][0] == (T)0);</div>
-<div class="line">        assert(foo[0][1] == (T)0);</div>
-<div class="line">        assert(foo[1][0] == (T)0);</div>
-<div class="line">        assert(foo[1][1] == (T)0);</div>
+<div class="line">  <span class="keywordtype">bool</span> TestInitialization() {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> foo;</div>
+<div class="line">    assert(foo[0][0] == (T)0);</div>
+<div class="line">    assert(foo[0][1] == (T)0);</div>
+<div class="line">    assert(foo[1][0] == (T)0);</div>
+<div class="line">    assert(foo[1][1] == (T)0);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestUtils() {</div>
+<div class="line">    <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> foo = <a id="a1" name="a1"></a><a class="code hl_function" href="structmat2.html#a2b6a01401604e528dbcaf318510688cf">mat2&lt;T&gt;::Unit</a>();</div>
+<div class="line">    assert(foo[0][0] == (T)1);</div>
+<div class="line">    assert(foo[0][1] == (T)0);</div>
+<div class="line">    assert(foo[1][0] == (T)0);</div>
+<div class="line">    assert(foo[1][1] == (T)1);</div>
+<div class="line"> </div>
+<div class="line">    foo = <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a>((T)1, (T)2, (T)2, (T)1);</div>
+<div class="line">    assert(foo[0][0] == (T)1);</div>
+<div class="line">    assert(foo[0][1] == (T)2);</div>
+<div class="line">    assert(foo[1][0] == (T)2);</div>
+<div class="line">    assert(foo[1][1] == (T)1);</div>
+<div class="line"> </div>
+<div class="line">    assert(foo.<a id="a2" name="a2"></a><a class="code hl_function" href="structmat2.html#af01714893e2ef949e68b8fb915d35e0b">IsSymmetric</a>());</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> fooCopy = foo;</div>
+<div class="line">    assert(fooCopy[0][0] == foo[0][0]);</div>
+<div class="line">    assert(fooCopy[0][1] == foo[0][1]);</div>
+<div class="line">    assert(fooCopy[1][0] == foo[1][0]);</div>
+<div class="line">    assert(fooCopy[1][1] == foo[1][1]);</div>
+<div class="line"> </div>
+<div class="line">    fooCopy = fooCopy.<a id="a3" name="a3"></a><a class="code hl_function" href="structmat2.html#ae91f368a5103180c117e5789b8fc246f">Transpose</a>();</div>
+<div class="line">    <span class="comment">// nothing happened matrix is symmetric</span></div>
+<div class="line">    assert(fooCopy[0][0] == foo[0][0]);</div>
+<div class="line">    assert(fooCopy[0][1] == foo[0][1]);</div>
+<div class="line">    assert(fooCopy[1][0] == foo[1][0]);</div>
+<div class="line">    assert(fooCopy[1][1] == foo[1][1]);</div>
+<div class="line">    fooCopy = <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a>((T)0, (T)-1, (T)1, (T)0);</div>
+<div class="line">    fooCopy = fooCopy.<a class="code hl_function" href="structmat2.html#ae91f368a5103180c117e5789b8fc246f">Transpose</a>();</div>
+<div class="line">    assert(fooCopy[0][0] == (T)0);</div>
+<div class="line">    assert(fooCopy[0][1] == (T)1);</div>
+<div class="line">    assert(fooCopy[1][0] == (T)-1);</div>
+<div class="line">    assert(fooCopy[1][1] == (T)0);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//        std::cout &lt;&lt; &quot;mat2\n&quot; &lt;&lt; foo;</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">bool</span> TestMath() {</div>
+<div class="line">    <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> foo(1, 2, 3, 4);</div>
+<div class="line">    <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> bar(5, 6, 7, 8);</div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> vec(1, 2);</div>
+<div class="line">    <span class="keywordtype">float</span> delta = 2.0f;</div>
+<div class="line">    <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> fooBar;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// +</span></div>
+<div class="line">    fooBar = foo + bar;</div>
+<div class="line">    assert(fooBar[0][0] == (T)6.0f);</div>
+<div class="line">    assert(fooBar[0][1] == (T)8.0f);</div>
+<div class="line">    assert(fooBar[1][0] == (T)10.0f);</div>
+<div class="line">    assert(fooBar[1][1] == (T)12.0f);</div>
+<div class="line">    fooBar = foo;</div>
+<div class="line">    fooBar += bar;</div>
+<div class="line">    assert(fooBar[0][0] == (T)6.0f);</div>
+<div class="line">    assert(fooBar[0][1] == (T)8.0f);</div>
+<div class="line">    assert(fooBar[1][0] == (T)10.0f);</div>
+<div class="line">    assert(fooBar[1][1] == (T)12.0f);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// -</span></div>
+<div class="line">    fooBar = foo - bar;</div>
+<div class="line">    assert(fooBar[0][0] == (T)-4.0f);</div>
+<div class="line">    assert(fooBar[0][1] == (T)-4.0f);</div>
+<div class="line">    assert(fooBar[1][0] == (T)-4.0f);</div>
+<div class="line">    assert(fooBar[1][1] == (T)-4.0f);</div>
+<div class="line">    fooBar = foo;</div>
+<div class="line">    fooBar -= bar;</div>
+<div class="line">    assert(fooBar[0][0] == (T)-4.0f);</div>
+<div class="line">    assert(fooBar[0][1] == (T)-4.0f);</div>
+<div class="line">    assert(fooBar[1][0] == (T)-4.0f);</div>
+<div class="line">    assert(fooBar[1][1] == (T)-4.0f);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// /</span></div>
+<div class="line"> </div>
+<div class="line">    fooBar = foo / delta;</div>
+<div class="line">    assert(fooBar[0][0] == (T)0.5f);</div>
+<div class="line">    assert(fooBar[0][1] == (T)1.0f);</div>
+<div class="line">    assert(fooBar[1][0] == (T)1.5f);</div>
+<div class="line">    assert(fooBar[1][1] == (T)2.0f);</div>
+<div class="line">    fooBar = foo;</div>
+<div class="line">    fooBar /= delta;</div>
+<div class="line">    assert(fooBar[0][0] == (T)0.5f);</div>
+<div class="line">    assert(fooBar[0][1] == (T)1.0f);</div>
+<div class="line">    assert(fooBar[1][0] == (T)1.5f);</div>
+<div class="line">    assert(fooBar[1][1] == (T)2.0f);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// *</span></div>
+<div class="line">    fooBar = foo * bar;</div>
+<div class="line">    assert(fooBar[0][0] == (T)19.0f);</div>
+<div class="line">    assert(fooBar[0][1] == (T)22.0f);</div>
+<div class="line">    assert(fooBar[1][0] == (T)43.0f);</div>
+<div class="line">    assert(fooBar[1][1] == (T)50.0f);</div>
+<div class="line"> </div>
+<div class="line">    fooBar = foo;</div>
+<div class="line">    fooBar *= bar;</div>
+<div class="line">    assert(fooBar[0][0] == (T)19.0f);</div>
+<div class="line">    assert(fooBar[0][1] == (T)22.0f);</div>
+<div class="line">    assert(fooBar[1][0] == (T)43.0f);</div>
+<div class="line">    assert(fooBar[1][1] == (T)50.0f);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> fooVec = foo * vec;</div>
+<div class="line">    assert(fooVec.<a id="a5" name="a5"></a><a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)5.0f);</div>
+<div class="line">    assert(fooVec.<a id="a6" name="a6"></a><a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)11.0f);</div>
+<div class="line"> </div>
+<div class="line">    fooBar = foo * delta;</div>
+<div class="line">    assert(fooBar[0][0] == (T)2.0f);</div>
+<div class="line">    assert(fooBar[0][1] == (T)4.0f);</div>
+<div class="line">    assert(fooBar[1][0] == (T)6.0f);</div>
+<div class="line">    assert(fooBar[1][1] == (T)8.0f);</div>
+<div class="line">    fooBar = foo;</div>
+<div class="line">    fooBar *= delta;</div>
+<div class="line">    assert(fooBar[0][0] == (T)2.0f);</div>
+<div class="line">    assert(fooBar[0][1] == (T)4.0f);</div>
+<div class="line">    assert(fooBar[1][0] == (T)6.0f);</div>
+<div class="line">    assert(fooBar[1][1] == (T)8.0f);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">bool</span> TestInverse() {</div>
+<div class="line">    <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> A = <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a>(1, 0, 0, 1);</div>
+<div class="line">    AssertEqual(A, A.<a id="a7" name="a7"></a><a class="code hl_function" href="structmat2.html#a6a835eb97149c50c0d1e044380a16761">Inverse</a>());</div>
+<div class="line">    <span class="keywordflow">if</span>(extended) {</div>
+<div class="line">      A = <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a>(4, 7, 2, 6);</div>
+<div class="line">      AssertEqual(A.<a class="code hl_function" href="structmat2.html#a6a835eb97149c50c0d1e044380a16761">Inverse</a>(), <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a>(0.6, -0.7, -0.2, 0.4));</div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestUtils() {</div>
-<div class="line">        <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> foo = <a id="a1" name="a1"></a><a class="code hl_function" href="structmat2.html#a2b6a01401604e528dbcaf318510688cf">mat2&lt;T&gt;::Unit</a>();</div>
-<div class="line">        assert(foo[0][0] == (T)1);</div>
-<div class="line">        assert(foo[0][1] == (T)0);</div>
-<div class="line">        assert(foo[1][0] == (T)0);</div>
-<div class="line">        assert(foo[1][1] == (T)1);</div>
-<div class="line"> </div>
-<div class="line">        foo = <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a>((T)1, (T)2, (T)2, (T)1);</div>
-<div class="line">        assert(foo[0][0] == (T)1);</div>
-<div class="line">        assert(foo[0][1] == (T)2);</div>
-<div class="line">        assert(foo[1][0] == (T)2);</div>
-<div class="line">        assert(foo[1][1] == (T)1);</div>
-<div class="line"> </div>
-<div class="line">        assert(foo.<a id="a2" name="a2"></a><a class="code hl_function" href="structmat2.html#af01714893e2ef949e68b8fb915d35e0b">IsSymmetric</a>());</div>
-<div class="line"> </div>
-<div class="line">        <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> fooCopy = foo;</div>
-<div class="line">        assert(fooCopy[0][0] == foo[0][0]);</div>
-<div class="line">        assert(fooCopy[0][1] == foo[0][1]);</div>
-<div class="line">        assert(fooCopy[1][0] == foo[1][0]);</div>
-<div class="line">        assert(fooCopy[1][1] == foo[1][1]);</div>
-<div class="line"> </div>
-<div class="line">        fooCopy = fooCopy.<a id="a3" name="a3"></a><a class="code hl_function" href="structmat2.html#ae91f368a5103180c117e5789b8fc246f">Transpose</a>();</div>
-<div class="line">        <span class="comment">// nothing happened matrix is symmetric</span></div>
-<div class="line">        assert(fooCopy[0][0] == foo[0][0]);</div>
-<div class="line">        assert(fooCopy[0][1] == foo[0][1]);</div>
-<div class="line">        assert(fooCopy[1][0] == foo[1][0]);</div>
-<div class="line">        assert(fooCopy[1][1] == foo[1][1]);</div>
-<div class="line">        fooCopy = <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a>((T)0, (T)-1, (T)1, (T)0);</div>
-<div class="line">        fooCopy = fooCopy.<a class="code hl_function" href="structmat2.html#ae91f368a5103180c117e5789b8fc246f">Transpose</a>();</div>
-<div class="line">        assert(fooCopy[0][0] == (T)0);</div>
-<div class="line">        assert(fooCopy[0][1] == (T)1);</div>
-<div class="line">        assert(fooCopy[1][0] == (T)-1);</div>
-<div class="line">        assert(fooCopy[1][1] == (T)0);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">//        std::cout &lt;&lt; &quot;mat2\n&quot; &lt;&lt; foo;</span></div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> TestMath() {</div>
-<div class="line">        <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> foo(1, 2, 3, 4);</div>
-<div class="line">        <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> bar(5, 6, 7, 8);</div>
-<div class="line">        <a id="_a4" name="_a4"></a><a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> vec(1, 2);</div>
-<div class="line">        <span class="keywordtype">float</span> delta = 2.0f;</div>
-<div class="line">        <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> fooBar;</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// +</span></div>
-<div class="line">        fooBar = foo + bar;</div>
-<div class="line">        assert(fooBar[0][0] == (T)6.0f);</div>
-<div class="line">        assert(fooBar[0][1] == (T)8.0f);</div>
-<div class="line">        assert(fooBar[1][0] == (T)10.0f);</div>
-<div class="line">        assert(fooBar[1][1] == (T)12.0f);</div>
-<div class="line">        fooBar = foo;</div>
-<div class="line">        fooBar += bar;</div>
-<div class="line">        assert(fooBar[0][0] == (T)6.0f);</div>
-<div class="line">        assert(fooBar[0][1] == (T)8.0f);</div>
-<div class="line">        assert(fooBar[1][0] == (T)10.0f);</div>
-<div class="line">        assert(fooBar[1][1] == (T)12.0f);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// -</span></div>
-<div class="line">        fooBar = foo - bar;</div>
-<div class="line">        assert(fooBar[0][0] == (T)-4.0f);</div>
-<div class="line">        assert(fooBar[0][1] == (T)-4.0f);</div>
-<div class="line">        assert(fooBar[1][0] == (T)-4.0f);</div>
-<div class="line">        assert(fooBar[1][1] == (T)-4.0f);</div>
-<div class="line">        fooBar = foo;</div>
-<div class="line">        fooBar -= bar;</div>
-<div class="line">        assert(fooBar[0][0] == (T)-4.0f);</div>
-<div class="line">        assert(fooBar[0][1] == (T)-4.0f);</div>
-<div class="line">        assert(fooBar[1][0] == (T)-4.0f);</div>
-<div class="line">        assert(fooBar[1][1] == (T)-4.0f);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// /</span></div>
-<div class="line"> </div>
-<div class="line">        fooBar = foo / delta;</div>
-<div class="line">        assert(fooBar[0][0] == (T)0.5f);</div>
-<div class="line">        assert(fooBar[0][1] == (T)1.0f);</div>
-<div class="line">        assert(fooBar[1][0] == (T)1.5f);</div>
-<div class="line">        assert(fooBar[1][1] == (T)2.0f);</div>
-<div class="line">        fooBar = foo;</div>
-<div class="line">        fooBar /= delta;</div>
-<div class="line">        assert(fooBar[0][0] == (T)0.5f);</div>
-<div class="line">        assert(fooBar[0][1] == (T)1.0f);</div>
-<div class="line">        assert(fooBar[1][0] == (T)1.5f);</div>
-<div class="line">        assert(fooBar[1][1] == (T)2.0f);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// *</span></div>
-<div class="line">        fooBar = foo * bar;</div>
-<div class="line">        assert(fooBar[0][0] == (T)19.0f);</div>
-<div class="line">        assert(fooBar[0][1] == (T)22.0f);</div>
-<div class="line">        assert(fooBar[1][0] == (T)43.0f);</div>
-<div class="line">        assert(fooBar[1][1] == (T)50.0f);</div>
-<div class="line"> </div>
-<div class="line">        fooBar = foo;</div>
-<div class="line">        fooBar *= bar;</div>
-<div class="line">        assert(fooBar[0][0] == (T)19.0f);</div>
-<div class="line">        assert(fooBar[0][1] == (T)22.0f);</div>
-<div class="line">        assert(fooBar[1][0] == (T)43.0f);</div>
-<div class="line">        assert(fooBar[1][1] == (T)50.0f);</div>
-<div class="line"> </div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> fooVec = foo * vec;</div>
-<div class="line">        assert(fooVec.<a id="a5" name="a5"></a><a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)5.0f);</div>
-<div class="line">        assert(fooVec.<a id="a6" name="a6"></a><a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)11.0f);</div>
-<div class="line"> </div>
-<div class="line">        fooBar = foo * delta;</div>
-<div class="line">        assert(fooBar[0][0] == (T)2.0f);</div>
-<div class="line">        assert(fooBar[0][1] == (T)4.0f);</div>
-<div class="line">        assert(fooBar[1][0] == (T)6.0f);</div>
-<div class="line">        assert(fooBar[1][1] == (T)8.0f);</div>
-<div class="line">        fooBar = foo;</div>
-<div class="line">        fooBar *= delta;</div>
-<div class="line">        assert(fooBar[0][0] == (T)2.0f);</div>
-<div class="line">        assert(fooBar[0][1] == (T)4.0f);</div>
-<div class="line">        assert(fooBar[1][0] == (T)6.0f);</div>
-<div class="line">        assert(fooBar[1][1] == (T)8.0f);</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> TestInverse() {</div>
-<div class="line">        <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a> A = <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a>(1, 0, 0, 1);</div>
-<div class="line">        AssertEqual(A, A.<a id="a7" name="a7"></a><a class="code hl_function" href="structmat2.html#a6a835eb97149c50c0d1e044380a16761">Inverse</a>());</div>
-<div class="line">        <span class="keywordflow">if</span>(extended) {</div>
-<div class="line">            A = <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a>(4, 7, 2, 6);</div>
-<div class="line">            AssertEqual(A.<a class="code hl_function" href="structmat2.html#a6a835eb97149c50c0d1e044380a16761">Inverse</a>(), <a class="code hl_struct" href="structmat2.html">mat2&lt;T&gt;</a>(0.6, -0.7, -0.2, 0.4));</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
-<div class="line">        TestInitialization();</div>
-<div class="line">        TestUtils();</div>
-<div class="line">        TestMath();</div>
-<div class="line">        TestInverse();</div>
-<div class="line">    }</div>
+<div class="line">  <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
+<div class="line">    TestInitialization();</div>
+<div class="line">    TestUtils();</div>
+<div class="line">    TestMath();</div>
+<div class="line">    TestInverse();</div>
+<div class="line">  }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    Mat2TestCase&lt;int&gt;().run();</div>
-<div class="line">    <span class="keyword">auto</span> testCase     = Mat2TestCase&lt;float&gt;();</div>
-<div class="line">    testCase.extended = <span class="keyword">true</span>;</div>
-<div class="line">    testCase.run();</div>
-<div class="line">    <span class="keyword">auto</span> testCase2     = Mat2TestCase&lt;double&gt;();</div>
-<div class="line">    testCase2.extended = <span class="keyword">true</span>;</div>
-<div class="line">    testCase2.run();</div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">  Mat2TestCase&lt;int&gt;().run();</div>
+<div class="line">  <span class="keyword">auto</span> testCase     = Mat2TestCase&lt;float&gt;();</div>
+<div class="line">  testCase.extended = <span class="keyword">true</span>;</div>
+<div class="line">  testCase.run();</div>
+<div class="line">  <span class="keyword">auto</span> testCase2     = Mat2TestCase&lt;double&gt;();</div>
+<div class="line">  testCase2.extended = <span class="keyword">true</span>;</div>
+<div class="line">  testCase2.run();</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="amath_8h_html"><div class="ttname"><a href="math_8h.html">math.h</a></div></div>
 <div class="ttc" id="astructmat2_html"><div class="ttname"><a href="structmat2.html">mat2</a></div><div class="ttdef"><b>Definition:</b> mat2.h:10</div></div>

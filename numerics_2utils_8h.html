@@ -87,6 +87,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Matrix_8h_source.html">../Matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="sorting_8h_source.html">../sorting.h</a>&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="numerics_2utils_8h_source.html">Go to the source code of this file.</a></p>
@@ -113,6 +114,10 @@ Functions</h2></td></tr>
 <tr class="separator:aa7eb7984fa32d548f6a24b4d440c919a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1a08a76ee49f8a9717e4aa127984987"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numerics_2utils_8h.html#aa1a08a76ee49f8a9717e4aa127984987">norm</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;in)</td></tr>
 <tr class="separator:aa1a08a76ee49f8a9717e4aa127984987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b90f37912a0050991dfb3098e1f645"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numerics_2utils_8h.html#a62b90f37912a0050991dfb3098e1f645">norm</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;in, int axis)</td></tr>
+<tr class="separator:a62b90f37912a0050991dfb3098e1f645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3941c57711e2df110722731c03ceb7b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numerics_2utils_8h.html#a3941c57711e2df110722731c03ceb7b5">argsort</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;in)</td></tr>
+<tr class="separator:a3941c57711e2df110722731c03ceb7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f1911548355817103d492232e6eaa8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numerics_2utils_8h.html#a7f1911548355817103d492232e6eaa8d">nonzero</a> (const std::function&lt; bool(const double &amp;)&gt; &amp;validation, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;x)</td></tr>
 <tr class="separator:a7f1911548355817103d492232e6eaa8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32df81a2d10f9099cacedbbd378873bb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -142,6 +147,32 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a3941c57711e2df110722731c03ceb7b5" name="a3941c57711e2df110722731c03ceb7b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3941c57711e2df110722731c03ceb7b5">&#9670;&#160;</a></span>argsort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt; size_t &gt; argsort </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Computes indices of ordered vector. Orders vector, than builds resulting vector by selecting indices.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>given matrix to sort </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>indices of sorted version of given matrix </dd></dl>
+
+</div>
+</div>
 <a id="a32df81a2d10f9099cacedbbd378873bb" name="a32df81a2d10f9099cacedbbd378873bb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a32df81a2d10f9099cacedbbd378873bb">&#9670;&#160;</a></span>diag()</h2>
 
@@ -159,6 +190,14 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Method to extract diagonal elements of given matrix into dedicated vector</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>given matrix to extract diagonal elements from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>vector of diagonal elements </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2lin_alg_2TestSVD_8cpp-example.html#a5">numerics/lin_alg/TestSVD.cpp</a>.</dd>
 </dl>
 
@@ -197,7 +236,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="TestMatrix_8cpp-example.html#a21">TestMatrix.cpp</a>, <a class="el" href="TestUtils_8cpp-example.html#a10">TestUtils.cpp</a>, <a class="el" href="numerics_2TestUtils_8cpp-example.html#a5">numerics/TestUtils.cpp</a>, <a class="el" href="numerics_2lin_alg_2TestGaussSeidel_8cpp-example.html#a2">numerics/lin_alg/TestGaussSeidel.cpp</a>, and <a class="el" href="numerics_2lin_alg_2TestSVD_8cpp-example.html#a2">numerics/lin_alg/TestSVD.cpp</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="TestMatrix_8cpp-example.html#a22">TestMatrix.cpp</a>, <a class="el" href="TestUtils_8cpp-example.html#a10">TestUtils.cpp</a>, <a class="el" href="numerics_2TestUtils_8cpp-example.html#a5">numerics/TestUtils.cpp</a>, <a class="el" href="numerics_2lin_alg_2TestGaussSeidel_8cpp-example.html#a2">numerics/lin_alg/TestGaussSeidel.cpp</a>, and <a class="el" href="numerics_2lin_alg_2TestSVD_8cpp-example.html#a3">numerics/lin_alg/TestSVD.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -286,7 +325,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="aa1a08a76ee49f8a9717e4aa127984987" name="aa1a08a76ee49f8a9717e4aa127984987"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1a08a76ee49f8a9717e4aa127984987">&#9670;&#160;</a></span>norm()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1a08a76ee49f8a9717e4aa127984987">&#9670;&#160;</a></span>norm() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -316,6 +355,43 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>2-norm of given matrix </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2TestUtils_8cpp-example.html#a6">numerics/TestUtils.cpp</a>, and <a class="el" href="statistics_2TestProbability_8cpp-example.html#a6">statistics/TestProbability.cpp</a>.</dd>
 </dl>
+
+</div>
+</div>
+<a id="a62b90f37912a0050991dfb3098e1f645" name="a62b90f37912a0050991dfb3098e1f645"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b90f37912a0050991dfb3098e1f645">&#9670;&#160;</a></span>norm() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; norm </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>axis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Helper method to calculate 2-Norm on given axis</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>input matrix to calculate norm(s) of </td></tr>
+    <tr><td class="paramname">axis</td><td>along which to calculate norm on (options: 0 (row-wise), 1 (column-wise)) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>norm on given axis </dd></dl>
 
 </div>
 </div>

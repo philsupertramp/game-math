@@ -7,7 +7,7 @@
 Inheritance diagram for Log\+Reg\+SGD\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classLogRegSGD}
+\includegraphics[height=4.000000cm]{classLogRegSGD}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -25,7 +25,7 @@ void \mbox{\hyperlink{classLogRegSGD_a7e21cee4236b4f144cf507396849110f}{partial\
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classLogRegSGD_a55ac458f1e5b06f8b9542d1133d50e67}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-virtual double \mbox{\hyperlink{classLogRegSGD_aa66da6584236e3253e19d8738248f182}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat)
+double \mbox{\hyperlink{classLogRegSGD_a31bce949b842722348434559d7219586}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&mat) override
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -94,13 +94,13 @@ activated values
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a360e549818a6c6532c0d83695fec8eea}{Classifier}}.
+Implements \mbox{\hyperlink{classANNClassifier_af1d25129fd2594d89a08a025b03dfd62}{ANNClassifier}}.
 
-\mbox{\Hypertarget{classLogRegSGD_aa66da6584236e3253e19d8738248f182}\label{classLogRegSGD_aa66da6584236e3253e19d8738248f182}} 
+\mbox{\Hypertarget{classLogRegSGD_a31bce949b842722348434559d7219586}\label{classLogRegSGD_a31bce949b842722348434559d7219586}} 
 \index{LogRegSGD@{LogRegSGD}!costFunction@{costFunction}}
 \index{costFunction@{costFunction}!LogRegSGD@{LogRegSGD}}
 \doxysubsubsection{\texorpdfstring{costFunction()}{costFunction()}}
-{\footnotesize\ttfamily virtual double Log\+Reg\+SGD\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily double Log\+Reg\+SGD\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 do not use! 
 \begin{DoxyParams}{Parameters}
@@ -112,7 +112,7 @@ do not use!
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}{Classifier}}.
+Implements \mbox{\hyperlink{classANNClassifier_aa5a6c1d789eed4f0a6a501dc08e420ce}{ANNClassifier}}.
 
 \mbox{\Hypertarget{classLogRegSGD_aef4c82d4582b263409e37a1b6d461cbd}\label{classLogRegSGD_aef4c82d4582b263409e37a1b6d461cbd}} 
 \index{LogRegSGD@{LogRegSGD}!fit@{fit}}
@@ -132,7 +132,7 @@ this
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{Classifier}}.
+Implements \mbox{\hyperlink{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}{Predictor}}.
 
 \mbox{\Hypertarget{classLogRegSGD_a5f875d85e17bcd4b5c094214e4ef0c23}\label{classLogRegSGD_a5f875d85e17bcd4b5c094214e4ef0c23}} 
 \index{LogRegSGD@{LogRegSGD}!initialize\_weights@{initialize\_weights}}
@@ -175,7 +175,7 @@ calculate netinput
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a5f9a5f0ad65397e560b8bb2714c31901}{Classifier}}.
+Implements \mbox{\hyperlink{classANNClassifier_a8236348bfd0b4a4907c2ea2ca2b5d71a}{ANNClassifier}}.
 
 \mbox{\Hypertarget{classLogRegSGD_a7e21cee4236b4f144cf507396849110f}\label{classLogRegSGD_a7e21cee4236b4f144cf507396849110f}} 
 \index{LogRegSGD@{LogRegSGD}!partial\_fit@{partial\_fit}}
@@ -206,7 +206,7 @@ predicted output for given input
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a878bf4c825a27bee85a2466b2725e406}{Classifier}}.
+Implements \mbox{\hyperlink{classPredictor_a33fd5ee04d4d1f55e9f3c1557838c6d2}{Predictor}}.
 
 \mbox{\Hypertarget{classLogRegSGD_ae0fa063b1608fd8695d5bb4d30fe76da}\label{classLogRegSGD_ae0fa063b1608fd8695d5bb4d30fe76da}} 
 \index{LogRegSGD@{LogRegSGD}!update\_weights@{update\_weights}}

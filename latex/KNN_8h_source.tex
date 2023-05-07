@@ -1,0 +1,52 @@
+\hypertarget{KNN_8h_source}{}\doxysection{KNN.\+h}
+\label{KNN_8h_source}\index{include/math/ds/KNN.h@{include/math/ds/KNN.h}}
+\mbox{\hyperlink{KNN_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}../numerics/utils.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Classifier_8h}{Classifier.h}}"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classKNN}{KNN}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClassifier}{Classifier}}}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30   \textcolor{keywordtype}{int} \mbox{\hyperlink{classKNN_a4b23e38827e4de329fa9a383f69655d5}{nearest\_neighbors}};}
+\DoxyCodeLine{31   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classKNN_a98edf87cb19959a95cfdbad5c8a02449}{trainLabels}};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34   \mbox{\hyperlink{classKNN_a21c02a5dbd28d9fb9e1a5daefd287a28}{KNN}}(\textcolor{keywordtype}{int} neighbors)}
+\DoxyCodeLine{35     : \mbox{\hyperlink{classClassifier}{Classifier}}()}
+\DoxyCodeLine{36     , \mbox{\hyperlink{classKNN_a4b23e38827e4de329fa9a383f69655d5}{nearest\_neighbors}}(neighbors) \{ \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 }
+\DoxyCodeLine{47   \textcolor{keywordtype}{void} \mbox{\hyperlink{classKNN_ab5c83a7deee14bf6b66ecef806f77b41}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{48     assert(y.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() == 1 || y.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() == 1);}
+\DoxyCodeLine{49     \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}     = X;}
+\DoxyCodeLine{50     \mbox{\hyperlink{classKNN_a98edf87cb19959a95cfdbad5c8a02449}{trainLabels}} = y;}
+\DoxyCodeLine{51   \};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{63   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classKNN_a8e9c1edbc9a7fc4756ef86fbe52bb753}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{64     \textcolor{keyword}{auto} predictions = \mbox{\hyperlink{numerics_2utils_8h_ae4d3442586cdfc0c5468be49ff561bcd}{zerosV}}(x.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
+\DoxyCodeLine{65     \textcolor{keyword}{auto} trainX      = \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}};}
+\DoxyCodeLine{66     \textcolor{keyword}{auto} trainY      = \mbox{\hyperlink{classKNN_a98edf87cb19959a95cfdbad5c8a02449}{trainLabels}};}
+\DoxyCodeLine{67     \textcolor{keyword}{auto} labels      = \mbox{\hyperlink{Matrix_8h_af79386365c3901ef0bec8f116368ded2}{unique}}(trainY);}
+\DoxyCodeLine{68     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < x.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
+\DoxyCodeLine{69       \textcolor{keyword}{auto} xi            = x.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(i);}
+\DoxyCodeLine{70       \textcolor{keyword}{auto} current\_dists = \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(trainX -\/ xi, 0);}
+\DoxyCodeLine{71       \textcolor{keyword}{auto} k\_neares      = trainY.GetSlicesByIndex(\mbox{\hyperlink{numerics_2utils_8h_a3941c57711e2df110722731c03ceb7b5}{argsort}}(current\_dists));}
+\DoxyCodeLine{72       \textcolor{keyword}{auto} k\_nearest     = k\_neares.GetSlice(0, \mbox{\hyperlink{classKNN_a4b23e38827e4de329fa9a383f69655d5}{nearest\_neighbors}} -\/ 1);}
+\DoxyCodeLine{73       \textcolor{keyword}{auto} gamma         = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(labels.rows(), 1);}
+\DoxyCodeLine{74       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} k = 0; k < labels.rows(); ++k) \{}
+\DoxyCodeLine{75         std::function<bool(\textcolor{keywordtype}{double})> condition = [k](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x == k); \};}
+\DoxyCodeLine{76         \textcolor{comment}{// O(N)}}
+\DoxyCodeLine{77         \textcolor{keyword}{auto} yis = \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, k\_nearest, \{ \{ 1 \} \}, \{ \{ 0 \} \});}
+\DoxyCodeLine{78         \textcolor{comment}{// O(N)}}
+\DoxyCodeLine{79         gamma(k, 0) = yis.sumElements();}
+\DoxyCodeLine{80       \}}
+\DoxyCodeLine{81       predictions(i, 0) = \mbox{\hyperlink{Matrix_8h_a2a01e8ac881ea58d279cd73ec1803444}{argmax}}(gamma);}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83     \textcolor{keywordflow}{return} predictions;}
+\DoxyCodeLine{84   \};}
+\DoxyCodeLine{85 \};}
+
+\end{DoxyCode}

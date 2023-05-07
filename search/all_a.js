@@ -11,12 +11,12 @@ var searchData=
   ['inittime_8',['InitTime',['../classRandom.html#a1ded95446bdeffc95358e33de5d7de3b',1,'Random']]],
   ['input_9',['Input',['../structSet.html#a05d1a42371080cffdd7851cf9c00f81b',1,'Set']]],
   ['inputcount_10',['InputCount',['../structSet.html#a2b7d3fdcba4188a6c2cd7808e8b0892a',1,'Set::InputCount()'],['../classDataSet.html#a9cc77d557deb5f130c5ca93267a88b69',1,'DataSet::InputCount()']]],
-  ['insertion_5fsort_11',['insertion_sort',['../sorting_8h.html#a796e0a1fdb1816ce8086aaf73bce409c',1,'sorting.h']]],
+  ['insertion_5fsort_11',['insertion_sort',['../sorting_8h.html#a681ff9816420cb51176ffbdcadaec45e',1,'insertion_sort(const T &amp;elem, Matrix&lt; T &gt; &amp;out, const int &amp;current_index):&#160;sorting.h'],['../sorting_8h.html#a796e0a1fdb1816ce8086aaf73bce409c',1,'insertion_sort(const T &amp;elem, std::vector&lt; T &gt; &amp;vec, const int &amp;current_index):&#160;sorting.h']]],
   ['insurance_2eh_12',['Insurance.h',['../Insurance_8h.html',1,'']]],
   ['integration_13',['integration',['../namespaceintegration.html',1,'']]],
   ['integration_2eh_14',['Integration.h',['../Integration_8h.html',1,'']]],
   ['interest_15',['Interest',['../structInterest.html',1,'']]],
-  ['inverse_16',['Inverse',['../structmat3.html#a221489ef29cc8c912f02c60724a61144',1,'mat3::Inverse()'],['../structmat2.html#a6a835eb97149c50c0d1e044380a16761',1,'mat2::Inverse()'],['../structmat4.html#a6111cf770a3769b25e2dd4bd13fa5868',1,'mat4::Inverse()']]],
+  ['inverse_16',['Inverse',['../structmat4.html#a6111cf770a3769b25e2dd4bd13fa5868',1,'mat4::Inverse()'],['../structmat2.html#a6a835eb97149c50c0d1e044380a16761',1,'mat2::Inverse()'],['../structmat3.html#a221489ef29cc8c912f02c60724a61144',1,'mat3::Inverse()']]],
   ['is2d_17',['is2D',['../structPlotAttributes.html#a6617bc812d985c05ae7f30dbf189bdc2',1,'PlotAttributes']]],
   ['is3d_18',['is3D',['../structPlotAttributes.html#a653cff4fb1567e4547763924cad62178',1,'PlotAttributes']]],
   ['isany_19',['isAny',['../classEquationParser.html#a473bed34cc1a050c1590fc0e8bfc513f',1,'EquationParser']]],
@@ -31,5 +31,6 @@ var searchData=
   ['isstatplot_28',['isStatPlot',['../structPlotAttributes.html#ac6910d9ebfe2403059d206fe29fc4dc2',1,'PlotAttributes']]],
   ['issymbol_29',['isSymbol',['../classEquationParser.html#ae8f7b26a40db7b4bcd3eaa54ac444945',1,'EquationParser']]],
   ['issymmetric_30',['IsSymmetric',['../structmat2.html#af01714893e2ef949e68b8fb915d35e0b',1,'mat2::IsSymmetric()'],['../structmat3.html#ab220413081e249d2895e14f3d287a3bc',1,'mat3::IsSymmetric()'],['../structmat4.html#a5cb4b663a9f710a01b2d9959595431c5',1,'mat4::IsSymmetric()']]],
-  ['iterations_31',['Iterations',['../structODEResult.html#a2c6a9c94926cc37485e885eed6c3fddc',1,'ODEResult']]]
+  ['isvector_31',['IsVector',['../classMatrix.html#afae3fd51682a7d647fc87702252ceff3',1,'Matrix']]],
+  ['iterations_32',['Iterations',['../structODEResult.html#a2c6a9c94926cc37485e885eed6c3fddc',1,'ODEResult']]]
 ];

@@ -1,0 +1,137 @@
+\hypertarget{classNCC}{}\doxysection{NCC Class Reference}
+\label{classNCC}\index{NCC@{NCC}}
+
+
+{\ttfamily \#include $<$NCC.\+h$>$}
+
+Inheritance diagram for NCC\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classNCC}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNCC_a470527d954ba7507ced80f0a4ad6123f}{NCC}} (bool use\+Iterative)
+\item 
+void \mbox{\hyperlink{classNCC_a712fa8bd2912720d0a69fcfdf748e2cb}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y) override
+\item 
+void \mbox{\hyperlink{classNCC_aef1907285e5bcd8e64ea897d9418daae}{fit\+\_\+batch}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&labels)
+\item 
+void \mbox{\hyperlink{classNCC_a33865760c545363e114484de9aa62224}{fit\+\_\+iterative}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&labels)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classNCC_a12bb7ec347a8ac42abc2eca6f881dee5}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classNCC_afc9875457c682131961c4b7205a48055}{use\+\_\+iterative}} = true
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\$\+: \$\+N\$ training sample lables Out\+: \$\textbackslash{}mu\+\_\+k\$\+: \$\+K\$ class centroids
+
+Calculates centroids iteratively, holds \$\+K\$ centroids and 1 training sample in memory at-\/a-\/time. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{ds_2TestNCC_8cpp-example}{ds/\+Test\+NCC.\+cpp}}.\end{Desc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNCC_a470527d954ba7507ced80f0a4ad6123f}\label{classNCC_a470527d954ba7507ced80f0a4ad6123f}} 
+\index{NCC@{NCC}!NCC@{NCC}}
+\index{NCC@{NCC}!NCC@{NCC}}
+\doxysubsubsection{\texorpdfstring{NCC()}{NCC()}}
+{\footnotesize\ttfamily NCC\+::\+NCC (\begin{DoxyParamCaption}\item[{bool}]{use\+Iterative }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNCC_a712fa8bd2912720d0a69fcfdf748e2cb}\label{classNCC_a712fa8bd2912720d0a69fcfdf748e2cb}} 
+\index{NCC@{NCC}!fit@{fit}}
+\index{fit@{fit}!NCC@{NCC}}
+\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
+{\footnotesize\ttfamily void NCC\+::fit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Implements training algorithm 
+\begin{DoxyParams}{Parameters}
+{\em X} & array-\/like with the shape\+: \mbox{[}n\+\_\+samples, n\+\_\+features\mbox{]} \\
+\hline
+{\em y} & array-\/like with shape\+: \mbox{[}n\+\_\+samples, 1\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}{Predictor}}.
+
+\mbox{\Hypertarget{classNCC_aef1907285e5bcd8e64ea897d9418daae}\label{classNCC_aef1907285e5bcd8e64ea897d9418daae}} 
+\index{NCC@{NCC}!fit\_batch@{fit\_batch}}
+\index{fit\_batch@{fit\_batch}!NCC@{NCC}}
+\doxysubsubsection{\texorpdfstring{fit\_batch()}{fit\_batch()}}
+{\footnotesize\ttfamily void NCC\+::fit\+\_\+batch (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{labels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Batch-\/wise implementation of nearest centroid classifier centroid calculation.
+
+Note\+: Requires all input data in memory.
+
+Complexity\+: O(\+K $\ast$ 6\+N)
+
+
+\begin{DoxyParams}{Parameters}
+{\em X} & given input data to calculate centroids from \\
+\hline
+{\em y} & given labels for input data X \\
+\hline
+{\em labels} & unique labels inside y \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNCC_a33865760c545363e114484de9aa62224}\label{classNCC_a33865760c545363e114484de9aa62224}} 
+\index{NCC@{NCC}!fit\_iterative@{fit\_iterative}}
+\index{fit\_iterative@{fit\_iterative}!NCC@{NCC}}
+\doxysubsubsection{\texorpdfstring{fit\_iterative()}{fit\_iterative()}}
+{\footnotesize\ttfamily void NCC\+::fit\+\_\+iterative (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{labels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Iterative implementation of nearest centroid classifier centroid calculation
+
+Note\+: Allows streaming of input data.
+
+Complexity\+: O(\+N $\ast$ 3\+D)
+
+
+\begin{DoxyParams}{Parameters}
+{\em X} & input data to calculate centroids from \\
+\hline
+{\em y} & given labels for input data X \\
+\hline
+{\em labels} & unique labels inside y \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNCC_a12bb7ec347a8ac42abc2eca6f881dee5}\label{classNCC_a12bb7ec347a8ac42abc2eca6f881dee5}} 
+\index{NCC@{NCC}!predict@{predict}}
+\index{predict@{predict}!NCC@{NCC}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ NCC\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prediction\+: In\+: \$x\$\+: Data point to classify \$\textbackslash{}mu\+\_\+k\$\+: \$k\$ class centroids Out\+: \$\$ argmin($\vert$$\vert$\textbackslash{}mu\+\_\+k -\/ x$\vert$$\vert$\+\_\+2) \$\$ 
+
+Implements \mbox{\hyperlink{classPredictor_a33fd5ee04d4d1f55e9f3c1557838c6d2}{Predictor}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classNCC_afc9875457c682131961c4b7205a48055}\label{classNCC_afc9875457c682131961c4b7205a48055}} 
+\index{NCC@{NCC}!use\_iterative@{use\_iterative}}
+\index{use\_iterative@{use\_iterative}!NCC@{NCC}}
+\doxysubsubsection{\texorpdfstring{use\_iterative}{use\_iterative}}
+{\footnotesize\ttfamily bool NCC\+::use\+\_\+iterative = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/ds/\mbox{\hyperlink{NCC_8h}{NCC.\+h}}\end{DoxyCompactItemize}

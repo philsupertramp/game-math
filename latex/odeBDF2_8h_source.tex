@@ -14,49 +14,49 @@
 \DoxyCodeLine{20 }
 \DoxyCodeLine{29 \mbox{\hyperlink{structODEResult}{ODEResult}}}
 \DoxyCodeLine{30 \mbox{\hyperlink{odeBDF2_8h_ab764bfc2dd89c4010e8acba6559b055c}{ODEBDF2}}(\textcolor{keyword}{const} \mbox{\hyperlink{ode_2ode_8h_ad676feada87db8725ebe89248f5f3379}{ODE}}\& fun, \textcolor{keyword}{const} std::vector<double>\& tInterval, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y0, \textcolor{keyword}{const} \mbox{\hyperlink{structODEOption}{ODEOption}}\& option) \{}
-\DoxyCodeLine{31     \textcolor{keywordtype}{size\_t} tDim      = tInterval.size();}
-\DoxyCodeLine{32     \textcolor{keywordtype}{size\_t} elem\_size = y0.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
-\DoxyCodeLine{33     \textcolor{keyword}{auto} h           = option.\mbox{\hyperlink{structODEOption_a4d1ab902dfbb3f19b3ef2fa219a76303}{h}};}
-\DoxyCodeLine{34     \textcolor{keyword}{auto} TOL         = option.\mbox{\hyperlink{structODEOption_a33c4d75068cc55a3fcc6b15c79523483}{TOL}};}
-\DoxyCodeLine{35     \textcolor{keyword}{auto} maxIter     = option.\mbox{\hyperlink{structODEOption_a45abb7aa0806c54ed678f2a7d9cad631}{maxIter}};}
-\DoxyCodeLine{36     \textcolor{keyword}{auto} Jac         = option.\mbox{\hyperlink{structODEOption_a99dbd698766a95bb8a9cf0f2e28d7816}{Jac}};}
-\DoxyCodeLine{37     \textcolor{keywordflow}{if}(h == 0) \{ h = (tInterval[tDim -\/ 1] -\/ tInterval[0]) / 1000.0; \}}
+\DoxyCodeLine{31   \textcolor{keywordtype}{size\_t} tDim      = tInterval.size();}
+\DoxyCodeLine{32   \textcolor{keywordtype}{size\_t} elem\_size = y0.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
+\DoxyCodeLine{33   \textcolor{keyword}{auto} h           = option.\mbox{\hyperlink{structODEOption_a4d1ab902dfbb3f19b3ef2fa219a76303}{h}};}
+\DoxyCodeLine{34   \textcolor{keyword}{auto} TOL         = option.\mbox{\hyperlink{structODEOption_a33c4d75068cc55a3fcc6b15c79523483}{TOL}};}
+\DoxyCodeLine{35   \textcolor{keyword}{auto} maxIter     = option.\mbox{\hyperlink{structODEOption_a45abb7aa0806c54ed678f2a7d9cad631}{maxIter}};}
+\DoxyCodeLine{36   \textcolor{keyword}{auto} Jac         = option.\mbox{\hyperlink{structODEOption_a99dbd698766a95bb8a9cf0f2e28d7816}{Jac}};}
+\DoxyCodeLine{37   \textcolor{keywordflow}{if}(h == 0) \{ h = (tInterval[tDim -\/ 1] -\/ tInterval[0]) / 1000.0; \}}
 \DoxyCodeLine{38 }
-\DoxyCodeLine{39     \textcolor{comment}{//    \% initialize result vectors}}
-\DoxyCodeLine{40     \textcolor{keywordtype}{size\_t} result\_dim = ((tInterval[tDim -\/ 1] -\/ tInterval[0]) / h) + 1;}
-\DoxyCodeLine{41     \mbox{\hyperlink{classMatrix}{Matrix<double>}} t(0, result\_dim, 1, 1);}
-\DoxyCodeLine{42     \textcolor{keywordtype}{size\_t} n = result\_dim;}
-\DoxyCodeLine{43     \textcolor{keyword}{auto} y   = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(n, elem\_size);}
-\DoxyCodeLine{44     \mbox{\hyperlink{classMatrix}{Matrix<int>}} iter(0, n, 1);}
+\DoxyCodeLine{39   \textcolor{comment}{//    \% initialize result vectors}}
+\DoxyCodeLine{40   \textcolor{keywordtype}{size\_t} result\_dim = ((tInterval[tDim -\/ 1] -\/ tInterval[0]) / h) + 1;}
+\DoxyCodeLine{41   \mbox{\hyperlink{classMatrix}{Matrix<double>}} t(0, result\_dim, 1, 1);}
+\DoxyCodeLine{42   \textcolor{keywordtype}{size\_t} n = result\_dim;}
+\DoxyCodeLine{43   \textcolor{keyword}{auto} y   = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(n, elem\_size);}
+\DoxyCodeLine{44   \mbox{\hyperlink{classMatrix}{Matrix<int>}} iter(0, n, 1);}
 \DoxyCodeLine{45 }
-\DoxyCodeLine{46     t(0, 0) = tInterval[0];}
-\DoxyCodeLine{47     t(1, 0) = t(0, 0) + h;}
+\DoxyCodeLine{46   t(0, 0) = tInterval[0];}
+\DoxyCodeLine{47   t(1, 0) = t(0, 0) + h;}
 \DoxyCodeLine{48 }
-\DoxyCodeLine{49     \textcolor{keyword}{auto} y1 = \mbox{\hyperlink{odeTrapez_8h_ace7f91e7f2dd579ff2f0e80a193825c5}{ODETrapez}}(fun, \{ t(0, 0), t(1, 0) \}, y0, option).Y;}
-\DoxyCodeLine{50     y.SetRow(0, y1(0));}
-\DoxyCodeLine{51     y.SetRow(1, y1(1));}
-\DoxyCodeLine{52     \textcolor{keyword}{auto} E = \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}(elem\_size);}
+\DoxyCodeLine{49   \textcolor{keyword}{auto} y1 = \mbox{\hyperlink{odeTrapez_8h_ace7f91e7f2dd579ff2f0e80a193825c5}{ODETrapez}}(fun, \{ t(0, 0), t(1, 0) \}, y0, option).Y;}
+\DoxyCodeLine{50   y.SetRow(0, y1(0));}
+\DoxyCodeLine{51   y.SetRow(1, y1(1));}
+\DoxyCodeLine{52   \textcolor{keyword}{auto} E = \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}(elem\_size);}
 \DoxyCodeLine{53 }
-\DoxyCodeLine{54     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} l = 1; l < n -\/ 1; l++) \{}
-\DoxyCodeLine{55         \textcolor{keyword}{auto} y\_act = y(l -\/ 1).Transpose();}
-\DoxyCodeLine{56         \textcolor{keyword}{auto} k     = 0;}
-\DoxyCodeLine{57         \textcolor{keyword}{auto} delta = \mbox{\hyperlink{numerics_2utils_8h_aaf883b485905c5bcd46724b44a12e094}{ones}}(elem\_size);}
+\DoxyCodeLine{54   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} l = 1; l < n -\/ 1; l++) \{}
+\DoxyCodeLine{55     \textcolor{keyword}{auto} y\_act = y(l -\/ 1).Transpose();}
+\DoxyCodeLine{56     \textcolor{keyword}{auto} k     = 0;}
+\DoxyCodeLine{57     \textcolor{keyword}{auto} delta = \mbox{\hyperlink{numerics_2utils_8h_aaf883b485905c5bcd46724b44a12e094}{ones}}(elem\_size);}
 \DoxyCodeLine{58 }
-\DoxyCodeLine{59         \textcolor{keywordflow}{while}(\mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(delta) > TOL \&\& k < maxIter) \{}
-\DoxyCodeLine{60             \textcolor{keyword}{auto} current\_fun = fun(t(l, 0) + h, y\_act);}
-\DoxyCodeLine{61             \textcolor{keyword}{auto} F =}
-\DoxyCodeLine{62             -\/1.0 * ((-\/1.0 / 2.0) * y(l -\/ 1).Transpose() + h * current\_fun + 2.0 * y(l).Transpose() -\/ 3.0 / 2.0 * y\_act);}
-\DoxyCodeLine{63             \textcolor{keyword}{auto} J = h * Jac(t(l, 0), y\_act) -\/ (3.0 / 2.0) * E;}
-\DoxyCodeLine{64             delta  = \mbox{\hyperlink{gaussSeidel_8h_a7bb1e3f545d858ee2a450500c711f471}{gaussSeidel}}(J, F);}
-\DoxyCodeLine{65             y\_act += delta;}
-\DoxyCodeLine{66             k += 1;}
-\DoxyCodeLine{67         \}}
-\DoxyCodeLine{68         \textcolor{keywordflow}{if}(k >= maxIter) \{ std::cout << \textcolor{stringliteral}{"{}Warning: Max number iterations reached."{}} << std::endl; \}}
-\DoxyCodeLine{69         iter(l, 0)  = k;}
-\DoxyCodeLine{70         t(l + 1, 0) = t(l, 0) + h;}
-\DoxyCodeLine{71         y.\mbox{\hyperlink{classMatrix_a097ed201a1768090a524f621ee2d80a1}{SetRow}}(l + 1, y\_act);}
-\DoxyCodeLine{72     \}}
-\DoxyCodeLine{73     \textcolor{keywordflow}{return} \{ y, t, iter \};}
+\DoxyCodeLine{59     \textcolor{keywordflow}{while}(\mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(delta) > TOL \&\& k < maxIter) \{}
+\DoxyCodeLine{60       \textcolor{keyword}{auto} current\_fun = fun(t(l, 0) + h, y\_act);}
+\DoxyCodeLine{61       \textcolor{keyword}{auto} F =}
+\DoxyCodeLine{62       -\/1.0 * ((-\/1.0 / 2.0) * y(l -\/ 1).Transpose() + h * current\_fun + 2.0 * y(l).Transpose() -\/ 3.0 / 2.0 * y\_act);}
+\DoxyCodeLine{63       \textcolor{keyword}{auto} J = h * Jac(t(l, 0), y\_act) -\/ (3.0 / 2.0) * E;}
+\DoxyCodeLine{64       delta  = \mbox{\hyperlink{gaussSeidel_8h_a7bb1e3f545d858ee2a450500c711f471}{gaussSeidel}}(J, F);}
+\DoxyCodeLine{65       y\_act += delta;}
+\DoxyCodeLine{66       k += 1;}
+\DoxyCodeLine{67     \}}
+\DoxyCodeLine{68     \textcolor{keywordflow}{if}(k >= maxIter) \{ std::cout << \textcolor{stringliteral}{"{}Warning: Max number iterations reached."{}} << std::endl; \}}
+\DoxyCodeLine{69     iter(l, 0)  = k;}
+\DoxyCodeLine{70     t(l + 1, 0) = t(l, 0) + h;}
+\DoxyCodeLine{71     y.\mbox{\hyperlink{classMatrix_a097ed201a1768090a524f621ee2d80a1}{SetRow}}(l + 1, y\_act);}
+\DoxyCodeLine{72   \}}
+\DoxyCodeLine{73   \textcolor{keywordflow}{return} \{ y, t, iter \};}
 \DoxyCodeLine{74 \}}
 \DoxyCodeLine{75 }
 

@@ -1,0 +1,124 @@
+\hypertarget{classKNN}{}\doxysection{KNN Class Reference}
+\label{classKNN}\index{KNN@{KNN}}
+
+
+{\ttfamily \#include $<$KNN.\+h$>$}
+
+Inheritance diagram for KNN\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classKNN}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classKNN_a21c02a5dbd28d9fb9e1a5daefd287a28}{KNN}} (int neighbors)
+\item 
+void \mbox{\hyperlink{classKNN_ab5c83a7deee14bf6b66ecef806f77b41}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y) override
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classKNN_a8e9c1edbc9a7fc4756ef86fbe52bb753}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classKNN_a4b23e38827e4de329fa9a383f69655d5}{nearest\+\_\+neighbors}}
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classKNN_a98edf87cb19959a95cfdbad5c8a02449}{train\+Labels}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+K Nearest Neightbor \mbox{\hyperlink{classClassifier}{Classifier}} (\mbox{\hyperlink{classKNN}{KNN}}) for linear and non-\/linear classification.
+
+Works well on
+\begin{DoxyItemize}
+\item correlated data
+\item uncorrelated data
+\end{DoxyItemize}
+
+Implementation\+:
+
+fit model\+: not required
+
+predicting\+:
+\begin{DoxyEnumerate}
+\item Compute distance between test data X and training data weights\+: \$$\vert$$\vert$weights -\/ X\+\_\+i$\vert$$\vert$\+\_\+2\$
+\item Sort distances, in ascending order, select K shortest distances\+: \$\textbackslash{}text\{argsort\} $\vert$$\vert$weights -\/ X\+\_\+i$\vert$$\vert$\+\_\+2\$
+\item For each class in train\+Labels count the number of members inside the distance set\+: \$\textbackslash{}gamma\+\_\+\{y\+\_\+k\} \textbackslash{}leftarrow \textbackslash{}gamma\+\_\+\{y\+\_\+k\} + 1\$
+\item Select the class with most members inside distance set\+: \$\textbackslash{}text\{argmax\}\+\_\+k(\textbackslash{}gamma) 
+\end{DoxyEnumerate}\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{ds_2TestKNN_8cpp-example}{ds/\+Test\+KNN.\+cpp}}.\end{Desc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classKNN_a21c02a5dbd28d9fb9e1a5daefd287a28}\label{classKNN_a21c02a5dbd28d9fb9e1a5daefd287a28}} 
+\index{KNN@{KNN}!KNN@{KNN}}
+\index{KNN@{KNN}!KNN@{KNN}}
+\doxysubsubsection{\texorpdfstring{KNN()}{KNN()}}
+{\footnotesize\ttfamily KNN\+::\+KNN (\begin{DoxyParamCaption}\item[{int}]{neighbors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classKNN_ab5c83a7deee14bf6b66ecef806f77b41}\label{classKNN_ab5c83a7deee14bf6b66ecef806f77b41}} 
+\index{KNN@{KNN}!fit@{fit}}
+\index{fit@{fit}!KNN@{KNN}}
+\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
+{\footnotesize\ttfamily void KNN\+::fit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Helper method to \textquotesingle{}fit\textquotesingle{} the model.
+
+Stores given X in weights and y in train\+Labels
+
+
+\begin{DoxyParams}{Parameters}
+{\em X} & \mbox{\hyperlink{classMatrix}{Matrix}} of known input data \\
+\hline
+{\em y} & vector of corresponding labels \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}{Predictor}}.
+
+\mbox{\Hypertarget{classKNN_a8e9c1edbc9a7fc4756ef86fbe52bb753}\label{classKNN_a8e9c1edbc9a7fc4756ef86fbe52bb753}} 
+\index{KNN@{KNN}!predict@{predict}}
+\index{predict@{predict}!KNN@{KNN}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ KNN\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+K-\/\+Nearest Neighbor \mbox{\hyperlink{classClassifier}{Classifier}} Prediction
+
+
+\begin{DoxyEnumerate}
+\item Compute distance between test data X and training data weights\+: \$$\vert$$\vert$weights -\/ X\+\_\+i$\vert$$\vert$\+\_\+2\$
+\item Sort distances, in ascending order, select K shortest distances\+: \$\textbackslash{}text\{argsort\} $\vert$$\vert$weights -\/ X\+\_\+i$\vert$$\vert$\+\_\+2\$
+\item For each class in train\+Labels count the number of members inside the distance set\+: \$\textbackslash{}gamma\+\_\+\{y\+\_\+k\} \textbackslash{}leftarrow \textbackslash{}gamma\+\_\+\{y\+\_\+k\} + 1\$
+\item Select the class with most members inside distance set\+: \$\textbackslash{}text\{argmax\}\+\_\+k(\textbackslash{}gamma) 
+\end{DoxyEnumerate}
+
+Implements \mbox{\hyperlink{classPredictor_a33fd5ee04d4d1f55e9f3c1557838c6d2}{Predictor}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classKNN_a4b23e38827e4de329fa9a383f69655d5}\label{classKNN_a4b23e38827e4de329fa9a383f69655d5}} 
+\index{KNN@{KNN}!nearest\_neighbors@{nearest\_neighbors}}
+\index{nearest\_neighbors@{nearest\_neighbors}!KNN@{KNN}}
+\doxysubsubsection{\texorpdfstring{nearest\_neighbors}{nearest\_neighbors}}
+{\footnotesize\ttfamily int KNN\+::nearest\+\_\+neighbors\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classKNN_a98edf87cb19959a95cfdbad5c8a02449}\label{classKNN_a98edf87cb19959a95cfdbad5c8a02449}} 
+\index{KNN@{KNN}!trainLabels@{trainLabels}}
+\index{trainLabels@{trainLabels}!KNN@{KNN}}
+\doxysubsubsection{\texorpdfstring{trainLabels}{trainLabels}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ KNN\+::train\+Labels\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/ds/\mbox{\hyperlink{KNN_8h}{KNN.\+h}}\end{DoxyCompactItemize}

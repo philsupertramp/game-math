@@ -8,25 +8,25 @@
 \DoxyCodeLine{4 }
 \DoxyCodeLine{5 }
 \DoxyCodeLine{12 std::pair<Matrix<double>, \mbox{\hyperlink{classMatrix}{Matrix<double>}}> \mbox{\hyperlink{qr_8h_a1a1666b745736ba8fd4b2061a31399d2}{qr}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& A) \{}
-\DoxyCodeLine{13     \textcolor{keywordtype}{size\_t} num\_rows = A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
-\DoxyCodeLine{14     \textcolor{keywordtype}{size\_t} num\_cols = A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
+\DoxyCodeLine{13   \textcolor{keywordtype}{size\_t} num\_rows = A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{14   \textcolor{keywordtype}{size\_t} num\_cols = A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
 \DoxyCodeLine{15 }
-\DoxyCodeLine{16     \textcolor{keyword}{auto} Q     = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(num\_rows, num\_rows);}
-\DoxyCodeLine{17     \textcolor{keywordtype}{size\_t} col = 0;}
+\DoxyCodeLine{16   \textcolor{keyword}{auto} Q     = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(num\_rows, num\_rows);}
+\DoxyCodeLine{17   \textcolor{keywordtype}{size\_t} col = 0;}
 \DoxyCodeLine{18 }
-\DoxyCodeLine{19     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i\_a = 0; i\_a < num\_cols; i\_a++) \{}
-\DoxyCodeLine{20         \textcolor{keyword}{auto} a = A.\mbox{\hyperlink{classMatrix_a263c7a2f670ed338a4cc4050f248fcc5}{GetSlice}}(0, num\_rows -\/ 1, i\_a, i\_a);}
-\DoxyCodeLine{21         \textcolor{keyword}{auto} u = a;}
-\DoxyCodeLine{22         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < col; i++) \{}
-\DoxyCodeLine{23             \textcolor{keyword}{auto} q    = Q.\mbox{\hyperlink{classMatrix_a263c7a2f670ed338a4cc4050f248fcc5}{GetSlice}}(0, num\_rows -\/ 1, i, i);}
-\DoxyCodeLine{24             \textcolor{keyword}{auto} proj = (q.Transpose() * a)(0, 0) * q;}
-\DoxyCodeLine{25             u -\/= proj;}
-\DoxyCodeLine{26         \}}
-\DoxyCodeLine{27         \textcolor{keyword}{auto} e = 1.0 / \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(u) * u;}
-\DoxyCodeLine{28         Q.SetSlice(0, e.rows() -\/ 1, col, col, e);}
-\DoxyCodeLine{29         col += 1;}
-\DoxyCodeLine{30     \}}
-\DoxyCodeLine{31     \textcolor{keywordflow}{return} std::make\_pair(Q, Q.Transpose() * A);}
+\DoxyCodeLine{19   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i\_a = 0; i\_a < num\_cols; i\_a++) \{}
+\DoxyCodeLine{20     \textcolor{keyword}{auto} a = A.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(0, num\_rows -\/ 1, i\_a, i\_a);}
+\DoxyCodeLine{21     \textcolor{keyword}{auto} u = a;}
+\DoxyCodeLine{22     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < col; i++) \{}
+\DoxyCodeLine{23       \textcolor{keyword}{auto} q    = Q.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(0, num\_rows -\/ 1, i, i);}
+\DoxyCodeLine{24       \textcolor{keyword}{auto} proj = (q.Transpose() * a)(0, 0) * q;}
+\DoxyCodeLine{25       u -\/= proj;}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27     \textcolor{keyword}{auto} e = 1.0 / \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(u) * u;}
+\DoxyCodeLine{28     Q.SetSlice(0, e.rows() -\/ 1, col, col, e);}
+\DoxyCodeLine{29     col += 1;}
+\DoxyCodeLine{30   \}}
+\DoxyCodeLine{31   \textcolor{keywordflow}{return} std::make\_pair(Q, Q.Transpose() * A);}
 \DoxyCodeLine{32 \}}
 \DoxyCodeLine{33 }
 

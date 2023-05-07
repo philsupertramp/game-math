@@ -4,30 +4,52 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <type\_traits>}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{5 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Matrix_8h}{Matrix.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{6 }
-\DoxyCodeLine{14 template<typename T, typename = typename std::enable\_if<std::is\_arithmetic<T>::value, T>::type>}
-\DoxyCodeLine{15 \textcolor{keywordtype}{void} \mbox{\hyperlink{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}{insertion\_sort}}(\textcolor{keyword}{const} T\& elem, std::vector<T>\& vec, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& current\_index) \{}
-\DoxyCodeLine{16     \textcolor{keywordtype}{int} i;}
-\DoxyCodeLine{17     \textcolor{keywordflow}{for}(i = current\_index; i > 1; i-\/-\/) \{}
-\DoxyCodeLine{18         \textcolor{keywordflow}{if}(vec[i -\/ 1] < elem) \{ \textcolor{keywordflow}{break}; \}}
-\DoxyCodeLine{19         vec[i] = vec[i -\/ 1];}
-\DoxyCodeLine{20     \}}
-\DoxyCodeLine{21     vec[i] = elem;}
-\DoxyCodeLine{22 \}}
-\DoxyCodeLine{31 template<typename T, typename = typename std::enable\_if<std::is\_arithmetic<T>::value, T>::type>}
-\DoxyCodeLine{32 std::vector<T> \mbox{\hyperlink{sorting_8h_ad3d28c133882ced8b95545bb5fba55d0}{sort}}(\textcolor{keyword}{const} std::vector<T>\& in) \{}
-\DoxyCodeLine{33     std::vector<T> out(in.size());}
-\DoxyCodeLine{34     \textcolor{keywordtype}{int} n = -\/1;}
-\DoxyCodeLine{35     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} elem : in) \{}
-\DoxyCodeLine{36         \textcolor{comment}{// Insertion sort}}
-\DoxyCodeLine{37         n = n + 1;}
-\DoxyCodeLine{38         \mbox{\hyperlink{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}{insertion\_sort}}(elem, out, n);}
-\DoxyCodeLine{39     \}}
-\DoxyCodeLine{40     \textcolor{keywordflow}{return} out;}
-\DoxyCodeLine{41 \}}
-\DoxyCodeLine{42 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{15 template<typename T, typename = typename std::enable\_if<std::is\_arithmetic<T>::value, T>::type>}
+\DoxyCodeLine{16 \textcolor{keywordtype}{void} \mbox{\hyperlink{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}{insertion\_sort}}(\textcolor{keyword}{const} T\& elem, std::vector<T>\& vec, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& current\_index) \{}
+\DoxyCodeLine{17   \textcolor{keywordtype}{int} i = current\_index;}
+\DoxyCodeLine{18   \textcolor{keywordflow}{for}(; i > 1; i-\/-\/) \{}
+\DoxyCodeLine{19     \textcolor{keywordflow}{if}(vec[i -\/ 1] < elem) \{ \textcolor{keywordflow}{break}; \}}
+\DoxyCodeLine{20     vec[i] = vec[i -\/ 1];}
+\DoxyCodeLine{21   \}}
+\DoxyCodeLine{22   vec[i] = elem;}
+\DoxyCodeLine{23 \}}
+\DoxyCodeLine{32 template<typename T, typename = typename std::enable\_if<std::is\_arithmetic<T>::value, T>::type>}
+\DoxyCodeLine{33 std::vector<T> \mbox{\hyperlink{sorting_8h_ad3d28c133882ced8b95545bb5fba55d0}{sort}}(\textcolor{keyword}{const} std::vector<T>\& in) \{}
+\DoxyCodeLine{34   std::vector<T> out(in.size());}
+\DoxyCodeLine{35   \textcolor{keywordtype}{int} n = -\/1;}
+\DoxyCodeLine{36   \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} elem : in) \{}
+\DoxyCodeLine{37     \textcolor{comment}{// Insertion sort}}
+\DoxyCodeLine{38     n = n + 1;}
+\DoxyCodeLine{39     \mbox{\hyperlink{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}{insertion\_sort}}(elem, out, n);}
+\DoxyCodeLine{40   \}}
+\DoxyCodeLine{41   \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{42 \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{45 \textcolor{keywordtype}{void} \mbox{\hyperlink{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}{insertion\_sort}}(\textcolor{keyword}{const} T\& elem, \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& out, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& current\_index) \{}
+\DoxyCodeLine{46   \textcolor{keywordtype}{int} i = current\_index;}
+\DoxyCodeLine{47   \textcolor{keywordflow}{if}(current\_index > 0) \{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{for}(; i >= 1; -\/-\/i) \{}
+\DoxyCodeLine{49       \textcolor{keywordflow}{if}(out(i -\/ 1, 0) < elem) \{ \textcolor{keywordflow}{break}; \}}
+\DoxyCodeLine{50       out(i, 0) = out(i -\/ 1, 0);}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52   \}}
+\DoxyCodeLine{53   out(i, 0) = elem;}
+\DoxyCodeLine{54 \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{57 \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{sorting_8h_ad3d28c133882ced8b95545bb5fba55d0}{sort}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& in) \{}
+\DoxyCodeLine{58   \textcolor{keywordtype}{bool} requires\_transposition = in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() < in.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
+\DoxyCodeLine{59   \textcolor{keyword}{auto} \_in                    = requires\_transposition ? in.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() : in;}
+\DoxyCodeLine{60   \mbox{\hyperlink{classMatrix}{Matrix<T>}} out               = \mbox{\hyperlink{classMatrix}{Matrix<T>}}(std::numeric\_limits<T>::min(), \_in.rows(), 1);}
+\DoxyCodeLine{61   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \_in.rows(); ++i) \{ \mbox{\hyperlink{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}{insertion\_sort}}(\_in(i, 0), out, i); \}}
+\DoxyCodeLine{62   \textcolor{keywordflow}{return} requires\_transposition ? out.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() : out;}
+\DoxyCodeLine{63 \}}
+\DoxyCodeLine{64 }
 
 \end{DoxyCode}

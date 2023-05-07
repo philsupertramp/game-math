@@ -31,6 +31,8 @@ double \mbox{\hyperlink{Probability_8h_aca7f07a568ee49e5d34982dfd6d811db}{cov}} 
 \item 
 double \mbox{\hyperlink{Probability_8h_a32c95d9cf965a5546fc02d8045b42314}{var}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x)
 \item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{Probability_8h_a99cd3620481f103353fba9bd02011854}{sd}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, int axis=0)
+\item 
 \mbox{\hyperlink{structLinearModel}{Linear\+Model}} \mbox{\hyperlink{Probability_8h_a3974006c8e6b9526b925be95ff4913ae}{lm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)
 \item 
 double \mbox{\hyperlink{Probability_8h_a7edb177daf3663ea72006b9565610a7e}{coefficient\+Of\+Determination}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y\+Hat)
@@ -38,6 +40,10 @@ double \mbox{\hyperlink{Probability_8h_a7edb177daf3663ea72006b9565610a7e}{coeffi
 double \mbox{\hyperlink{Probability_8h_abe0754a080e477ad4e56f4dc869f7fa2}{likelihood}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{Probability_8h_a1e40e3f240b594a1c8ff3eb010e09ed4}{Regression}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&A)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{Probability_8h_af74087de47f5c7871e972ae475185b30}{corr}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&A, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&B)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{Probability_8h_af285d66de27e5f067cfb4d886fe67c5c}{expected\+\_\+value}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&A)
 \end{DoxyCompactItemize}
 
 
@@ -88,7 +94,9 @@ Absolute value \$\$$\vert$x$\vert$\$\$
 \doxysubsubsection{\texorpdfstring{coefficientOfDetermination()}{coefficientOfDetermination()}}
 {\footnotesize\ttfamily double coefficient\+Of\+Determination (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y\+Hat }\end{DoxyParamCaption})}
 
-\$\$\textbackslash{}frac\{\textbackslash{}text\{var\}(y)\}\{\textbackslash{}text\{var\}(\textbackslash{}hat\{y\})\}\$\$ 
+The coefficient of determination (\$R$^\wedge$2\$) is the proportion of the variation in the dependent variable that is predictable from independent variables.
+
+\$\$R$^\wedge$2 = \textbackslash{}frac\{\textbackslash{}text\{var\}(y)\}\{\textbackslash{}text\{var\}(\textbackslash{}hat\{y\})\}\$\$ 
 \begin{DoxyParams}{Parameters}
 {\em y} & \$\$y\$\$ \\
 \hline
@@ -96,15 +104,51 @@ Absolute value \$\$$\vert$x$\vert$\$\$
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+proportion of the variation 
 \end{DoxyReturn}
+\mbox{\Hypertarget{Probability_8h_af74087de47f5c7871e972ae475185b30}\label{Probability_8h_af74087de47f5c7871e972ae475185b30}} 
+\index{Probability.h@{Probability.h}!corr@{corr}}
+\index{corr@{corr}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{corr()}{corr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ corr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{B }\end{DoxyParamCaption})}
+
+Computes correlation matrix of two matrices
+
+\$\$ \textbackslash{}text\{corr\}(X, Y) = \textbackslash{}frac\{\textbackslash{}text\{cov\}(X, Y)\}\{\textbackslash{}sigma\+\_\+X\textbackslash{}sigma\+\_\+Y\} \$\$ with \$\textbackslash{}sigma\$ the standard deviations of \$\+X\$ and \$\+Y\$.
+
+The correlation matrix contains correlation coefficients \$\textbackslash{}text\{corr\}\+\_\+\{x\+\_\+i, y\+\_\+i\} \textbackslash{}in \mbox{[}-\/1, 1\mbox{]}\$.
+\begin{DoxyItemize}
+\item negative correlation coefficients\+: The values negatively influence each other
+\item positive correlation coefficients\+: The values positively influence each other
+\item neutral correlation coefficients\+: The values don\textquotesingle{}t influence each other 
+\begin{DoxyParams}{Parameters}
+{\em A} & the first matrix of values \\
+\hline
+{\em B} & second matrix of values in same shape as A \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The correlation matrix of A and B 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{Probability_8h_aca7f07a568ee49e5d34982dfd6d811db}\label{Probability_8h_aca7f07a568ee49e5d34982dfd6d811db}} 
 \index{Probability.h@{Probability.h}!cov@{cov}}
 \index{cov@{cov}!Probability.h@{Probability.h}}
 \doxysubsubsection{\texorpdfstring{cov()}{cov()}}
 {\footnotesize\ttfamily double cov (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})}
 
-Computes covariance of two given vectors \$\$\textbackslash{}text\{cov\}(x, y)\$\$ 
+Computes covariance of two given vectors \$\$\textbackslash{}text\{cov\}(x, y) = E\mbox{[}(x -\/ E\mbox{[}x\mbox{]})(y -\/ E\mbox{[}y\mbox{]})\mbox{]}\$\$
+
+The covariance is a measure of joint variability of two random variables.
+\begin{DoxyItemize}
+\item Positive covariance -\/\texorpdfstring{$>$}{>} variables have same tendencies, i.\+e. high and low values in both variables at the same time
+\item Negative covariance -\/\texorpdfstring{$>$}{>} variables have different tendencies, i.\+e. high values in variable \$x\$ correspond to low values in variable \$y\$ and vice versa
+\end{DoxyItemize}
+
+
 \begin{DoxyParams}{Parameters}
 {\em x} & a vector \\
 \hline
@@ -113,6 +157,26 @@ Computes covariance of two given vectors \$\$\textbackslash{}text\{cov\}(x, y)\$
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 resulting covariance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Probability_8h_af285d66de27e5f067cfb4d886fe67c5c}\label{Probability_8h_af285d66de27e5f067cfb4d886fe67c5c}} 
+\index{Probability.h@{Probability.h}!expected\_value@{expected\_value}}
+\index{expected\_value@{expected\_value}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{expected\_value()}{expected\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ expected\+\_\+value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{A }\end{DoxyParamCaption})}
+
+Computes the expected value of a given vector.
+
+\$\$ E\mbox{[}X\mbox{]} = \textbackslash{}sum x\+\_\+i P(x\+\_\+i) \$\$
+
+The expected value is a generalization of the weighted average. Given a set of random values, the expected value is the value that is most likely to occur within given distribution of values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & the matrix to caclulate the expected value(s) of, each row will receive a corresponding expected value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The expected value(s) of A 
 \end{DoxyReturn}
 \mbox{\Hypertarget{Probability_8h_a6edda0f97cfab68707335fd17ca80462}\label{Probability_8h_a6edda0f97cfab68707335fd17ca80462}} 
 \index{Probability.h@{Probability.h}!getExponent@{getExponent}}
@@ -134,7 +198,7 @@ exponent
 \doxysubsubsection{\texorpdfstring{likelihood()}{likelihood()}}
 {\footnotesize\ttfamily double likelihood (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})}
 
-\begin{DoxyReturn}{Returns}
+Computes likelihood \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
 \mbox{\Hypertarget{Probability_8h_a3974006c8e6b9526b925be95ff4913ae}\label{Probability_8h_a3974006c8e6b9526b925be95ff4913ae}} 
@@ -197,13 +261,17 @@ calculates \$\$x$^\wedge$\{exponent\}\$\$
 \doxysubsubsection{\texorpdfstring{Regression()}{Regression()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Regression (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{A }\end{DoxyParamCaption})}
 
-Calculates regression for given values a, mapped onto points \$\$\+P(i, a\+\_\+i)\$\$ 
+Computes orthogonal-\/linear regression for given values A, mapped onto points \$\$\+P(i, a\+\_\+i)\$\$.
+
+\$\$\+Y\+\_\+i = \textbackslash{}beta\+\_\+0 + \textbackslash{}beta\+\_\+1 $\ast$ a\+\_\+i\$\$
+
+
 \begin{DoxyParams}{Parameters}
 {\em A} & vector of y-\/values \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+A vector of x-\/value approximations 
 \end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
@@ -227,13 +295,38 @@ rounded value
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{Probability_8h_a99cd3620481f103353fba9bd02011854}\label{Probability_8h_a99cd3620481f103353fba9bd02011854}} 
+\index{Probability.h@{Probability.h}!sd@{sd}}
+\index{sd@{sd}!Probability.h@{Probability.h}}
+\doxysubsubsection{\texorpdfstring{sd()}{sd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ sd (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x,  }\item[{int}]{axis = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Computes standard deviation of given vector \$\$ \textbackslash{}text\{sd\}(x) = \textbackslash{}sigma(x) = \textbackslash{}sqrt\{E\mbox{[}(X-\/\textbackslash{}mu)$^\wedge$2\mbox{]}\} = \textbackslash{}sqrt\{E\mbox{[}X$^\wedge$2\mbox{]} -\/ (E\mbox{[}X\mbox{]})$^\wedge$2\} \$\$
+
+The standard deviation is a measure of variance or dispersion of a set of values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & set of values to compute standard deviation from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+standard deviation of given x 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{Probability_8h_a32c95d9cf965a5546fc02d8045b42314}\label{Probability_8h_a32c95d9cf965a5546fc02d8045b42314}} 
 \index{Probability.h@{Probability.h}!var@{var}}
 \index{var@{var}!Probability.h@{Probability.h}}
 \doxysubsubsection{\texorpdfstring{var()}{var()}}
 {\footnotesize\ttfamily double var (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{x }\end{DoxyParamCaption})}
 
-Computes variance of given vector \$\$\textbackslash{}text\{var\}(x)\$\$ 
+Computes variance of given vector \$\$\textbackslash{}text\{var\}(x)=E\mbox{[}(X -\/ \textbackslash{}mu)$^\wedge$2\mbox{]} = \textbackslash{}text\{cov\}(X,X)\$\$
+
+The variance is the expectation of the square deviation of a random variable from its population mean or sample mean.
+
+
 \begin{DoxyParams}{Parameters}
 {\em x} & a vector \\
 \hline

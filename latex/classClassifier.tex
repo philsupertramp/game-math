@@ -7,27 +7,19 @@
 Inheritance diagram for Classifier\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classClassifier}
+\includegraphics[height=4.000000cm]{classClassifier}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classClassifier_adf323be2120dbc43c65e1aed08efd5cb}{Classifier}} (double \+\_\+eta, int \+\_\+n\+\_\+iter)
+\mbox{\hyperlink{classClassifier_ae6132b100c96a4f3d8ad3885b5acb28e}{Classifier}} ()
 \item 
 void \mbox{\hyperlink{classClassifier_a82afce4aff01a4d7292eb43fb38329b8}{initialize\+\_\+weights}} (size\+\_\+t num\+Rows, size\+\_\+t num\+Columns=1)
 \item 
 void \mbox{\hyperlink{classClassifier_aa9257aed615a41cac4030fcfc7dc08ca}{update\+\_\+weights}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&update, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&delta)
 \item 
-virtual void \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)=0
-\item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classClassifier_a878bf4c825a27bee85a2466b2725e406}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)=0
-\item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classClassifier_a360e549818a6c6532c0d83695fec8eea}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)=0
-\item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classClassifier_a5f9a5f0ad65397e560b8bb2714c31901}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)=0
-\item 
-virtual double \mbox{\hyperlink{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)=0
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classClassifier_aa171a8c6668f6ea0c22fa2312c0f0061}{transform}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in) override
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -39,10 +31,6 @@ virtual double \mbox{\hyperlink{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8ece
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{classClassifier_ada5781f6955d4584bb9e8a24216ce654}{eta}}
-\begin{DoxyCompactList}\small\item\em Learning rate. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classClassifier_a262d07b1324365425b12bb08a859984a}{n\+\_\+iter}}
-\begin{DoxyCompactList}\small\item\em number epochs \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classClassifier_a5c3236f91e4f14965715caaca167dec8}{w\+\_\+initialized}} = false
 \begin{DoxyCompactList}\small\item\em flag to initialize weights only once \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -68,11 +56,11 @@ Inherit and implement\+:
 \end{DoxyItemize}
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classClassifier_adf323be2120dbc43c65e1aed08efd5cb}\label{classClassifier_adf323be2120dbc43c65e1aed08efd5cb}} 
+\mbox{\Hypertarget{classClassifier_ae6132b100c96a4f3d8ad3885b5acb28e}\label{classClassifier_ae6132b100c96a4f3d8ad3885b5acb28e}} 
 \index{Classifier@{Classifier}!Classifier@{Classifier}}
 \index{Classifier@{Classifier}!Classifier@{Classifier}}
 \doxysubsubsection{\texorpdfstring{Classifier()}{Classifier()}}
-{\footnotesize\ttfamily Classifier\+::\+Classifier (\begin{DoxyParamCaption}\item[{double}]{\+\_\+eta,  }\item[{int}]{\+\_\+n\+\_\+iter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Classifier\+::\+Classifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 default constructor 
 \begin{DoxyParams}{Parameters}
@@ -84,49 +72,6 @@ default constructor
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classClassifier_a360e549818a6c6532c0d83695fec8eea}\label{classClassifier_a360e549818a6c6532c0d83695fec8eea}} 
-\index{Classifier@{Classifier}!activation@{activation}}
-\index{activation@{activation}!Classifier@{Classifier}}
-\doxysubsubsection{\texorpdfstring{activation()}{activation()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Classifier\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-Activates a given input \begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-
-
-Implemented in \mbox{\hyperlink{classPerceptron_a6eed548c264c9d91ca944b527c3df606}{Perceptron}}, \mbox{\hyperlink{classAdalineGD_a04a7e391e198bd1b007cfe08633ec671}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_abea138dacd3498bc02ace2924eacf5f6}{Adaline\+SGD}}, and \mbox{\hyperlink{classLogRegSGD_ace312230b45f4c6eb9bf42c1f1fc2e87}{Log\+Reg\+SGD}}.
-
-\mbox{\Hypertarget{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}\label{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}} 
-\index{Classifier@{Classifier}!costFunction@{costFunction}}
-\index{costFunction@{costFunction}!Classifier@{Classifier}}
-\doxysubsubsection{\texorpdfstring{costFunction()}{costFunction()}}
-{\footnotesize\ttfamily virtual double Classifier\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-calculates the current cost if unused override returning 0 
-
-Implemented in \mbox{\hyperlink{classLogRegSGD_aa66da6584236e3253e19d8738248f182}{Log\+Reg\+SGD}}, \mbox{\hyperlink{classPerceptron_a832773d19fa85440d301b4159cee76f6}{Perceptron}}, \mbox{\hyperlink{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}{Adaline\+GD}}, and \mbox{\hyperlink{classAdalineSGD_a7a65df1059ac4b19e8c69c166f76caef}{Adaline\+SGD}}.
-
-\mbox{\Hypertarget{classClassifier_a3fa552228aeeee5abe1108c97f676cad}\label{classClassifier_a3fa552228aeeee5abe1108c97f676cad}} 
-\index{Classifier@{Classifier}!fit@{fit}}
-\index{fit@{fit}!Classifier@{Classifier}}
-\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
-{\footnotesize\ttfamily virtual void Classifier\+::fit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-Implements training algorithm 
-\begin{DoxyParams}{Parameters}
-{\em X} & array-\/like with the shape\+: \mbox{[}n\+\_\+samples, n\+\_\+features\mbox{]} \\
-\hline
-{\em y} & array-\/like with shape\+: \mbox{[}n\+\_\+samples, 1\mbox{]} \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-this 
-\end{DoxyReturn}
-
-
-Implemented in \mbox{\hyperlink{classAdalineGD_a16791c4ac85a0e7117105f8835a19f69}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_a8b97d260bc04aa8cd6d02436fb5f3c76}{Adaline\+SGD}}, \mbox{\hyperlink{classLogRegSGD_aef4c82d4582b263409e37a1b6d461cbd}{Log\+Reg\+SGD}}, and \mbox{\hyperlink{classPerceptron_a430fcf4782a3020add0094f986a1c54e}{Perceptron}}.
-
 \mbox{\Hypertarget{classClassifier_a82afce4aff01a4d7292eb43fb38329b8}\label{classClassifier_a82afce4aff01a4d7292eb43fb38329b8}} 
 \index{Classifier@{Classifier}!initialize\_weights@{initialize\_weights}}
 \index{initialize\_weights@{initialize\_weights}!Classifier@{Classifier}}
@@ -140,31 +85,15 @@ Initialization method for weights hold by the classifier
 {\em num\+Columns} & number columns \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classClassifier_a5f9a5f0ad65397e560b8bb2714c31901}\label{classClassifier_a5f9a5f0ad65397e560b8bb2714c31901}} 
-\index{Classifier@{Classifier}!netInput@{netInput}}
-\index{netInput@{netInput}!Classifier@{Classifier}}
-\doxysubsubsection{\texorpdfstring{netInput()}{netInput()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Classifier\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-calculates the net-\/input (aka output) this is mostly the derivative of {\ttfamily activation} \begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
+\mbox{\Hypertarget{classClassifier_aa171a8c6668f6ea0c22fa2312c0f0061}\label{classClassifier_aa171a8c6668f6ea0c22fa2312c0f0061}} 
+\index{Classifier@{Classifier}!transform@{transform}}
+\index{transform@{transform}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Classifier\+::transform (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
-Implemented in \mbox{\hyperlink{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_a74a5c439e3594a88812d565708e9adfe}{Adaline\+SGD}}, \mbox{\hyperlink{classLogRegSGD_a4f0b244b494e4fb6bab9932f93ad7bc2}{Log\+Reg\+SGD}}, and \mbox{\hyperlink{classPerceptron_adba6029ff33690c1973fa24222f862b8}{Perceptron}}.
 
-\mbox{\Hypertarget{classClassifier_a878bf4c825a27bee85a2466b2725e406}\label{classClassifier_a878bf4c825a27bee85a2466b2725e406}} 
-\index{Classifier@{Classifier}!predict@{predict}}
-\index{predict@{predict}!Classifier@{Classifier}}
-\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Classifier\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-Makes prediction for given input \begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-
-
-Implemented in \mbox{\hyperlink{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}{Perceptron}}, \mbox{\hyperlink{classAdalineGD_abb958a344b78f560ea059f16c920210d}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_a4e2e8995938c23c32bf1dfca94b07ec8}{Adaline\+SGD}}, and \mbox{\hyperlink{classLogRegSGD_a55ac458f1e5b06f8b9542d1133d50e67}{Log\+Reg\+SGD}}.
+Implements \mbox{\hyperlink{classPredictor_a341a4d9fc8af8f53a07089100b213a73}{Predictor}}.
 
 \mbox{\Hypertarget{classClassifier_aa9257aed615a41cac4030fcfc7dc08ca}\label{classClassifier_aa9257aed615a41cac4030fcfc7dc08ca}} 
 \index{Classifier@{Classifier}!update\_weights@{update\_weights}}
@@ -184,26 +113,6 @@ Implemented in \mbox{\hyperlink{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd
 
 
 Vector holding classification error per epoch. 
-
-\mbox{\Hypertarget{classClassifier_ada5781f6955d4584bb9e8a24216ce654}\label{classClassifier_ada5781f6955d4584bb9e8a24216ce654}} 
-\index{Classifier@{Classifier}!eta@{eta}}
-\index{eta@{eta}!Classifier@{Classifier}}
-\doxysubsubsection{\texorpdfstring{eta}{eta}}
-{\footnotesize\ttfamily double Classifier\+::eta\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Learning rate. 
-
-\mbox{\Hypertarget{classClassifier_a262d07b1324365425b12bb08a859984a}\label{classClassifier_a262d07b1324365425b12bb08a859984a}} 
-\index{Classifier@{Classifier}!n\_iter@{n\_iter}}
-\index{n\_iter@{n\_iter}!Classifier@{Classifier}}
-\doxysubsubsection{\texorpdfstring{n\_iter}{n\_iter}}
-{\footnotesize\ttfamily int Classifier\+::n\+\_\+iter\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-number epochs 
 
 \mbox{\Hypertarget{classClassifier_a5c3236f91e4f14965715caaca167dec8}\label{classClassifier_a5c3236f91e4f14965715caaca167dec8}} 
 \index{Classifier@{Classifier}!w\_initialized@{w\_initialized}}

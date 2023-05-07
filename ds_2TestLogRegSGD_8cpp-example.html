@@ -86,61 +86,61 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span>LogRegSGDTestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">bool</span> TestLogReg() {</div>
-<div class="line">        <span class="keyword">auto</span> logRegSgd = <a id="_a0" name="_a0"></a><a class="code hl_class" href="classLogRegSGD.html">LogRegSGD</a>(0.15, 25);</div>
-<div class="line">        <span class="comment">//        Matrix&lt;double&gt; A = Matrix&lt;double&gt;::Random(10, 1, 1, -1, 1);</span></div>
-<div class="line">        <a id="_a1" name="_a1"></a><a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> A({</div>
-<div class="line">        { 0.29651885541310041 },</div>
-<div class="line">        { 0.64581698997155579 },</div>
-<div class="line">        { 0.73420390202980546 },</div>
-<div class="line">        { -0.33842438014317311 },</div>
-<div class="line">        { 0.73079510849631024 },</div>
-<div class="line">        { -0.90637656297433933 },</div>
-<div class="line">        { -0.58136213318226426 },</div>
-<div class="line">        { -0.12520400256483499 },</div>
-<div class="line">        { 0.41344311936636324 },</div>
-<div class="line">        { 0.0089382791988343868 },</div>
-<div class="line">        });</div>
-<div class="line">        <span class="comment">//        std::cout &lt;&lt; A;</span></div>
-<div class="line">        std::function&lt;bool(<span class="keywordtype">double</span>)&gt; condition = [](<span class="keywordtype">double</span> x) { <span class="keywordflow">return</span> bool(x &gt;= 0.0); };</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> B                      = <a id="a2" name="a2"></a><a class="code hl_function" href="Matrix_8h.html#afb3f7de2743f10b710460feb9c0f9009">where</a>(condition, A, { { 1 } }, { { -1 } });</div>
-<div class="line">        <span class="keyword">auto</span> maxVal                           = <a id="a3" name="a3"></a><a class="code hl_function" href="Matrix_8h.html#a8dd66fbac5097923b2ecf481b0ae77e5">max</a>(A);</div>
-<div class="line">        <span class="keyword">auto</span> minVal                           = <a id="a4" name="a4"></a><a class="code hl_function" href="Matrix_8h.html#a4bb73e4029612f323f406f1ecfc2ed57">min</a>(A);</div>
-<div class="line">        A = A.Apply([minVal, maxVal](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; in) { <span class="keywordflow">return</span> (in - minVal) / (maxVal - minVal); });</div>
+<div class="line">  <span class="keywordtype">bool</span> TestLogReg() {</div>
+<div class="line">    <span class="keyword">auto</span> logRegSgd = <a id="_a0" name="_a0"></a><a class="code hl_class" href="classLogRegSGD.html">LogRegSGD</a>(0.15, 25);</div>
+<div class="line">    <span class="comment">//        Matrix&lt;double&gt; A = Matrix&lt;double&gt;::Random(10, 1, 1, -1, 1);</span></div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> A({</div>
+<div class="line">    { 0.29651885541310041 },</div>
+<div class="line">    { 0.64581698997155579 },</div>
+<div class="line">    { 0.73420390202980546 },</div>
+<div class="line">    { -0.33842438014317311 },</div>
+<div class="line">    { 0.73079510849631024 },</div>
+<div class="line">    { -0.90637656297433933 },</div>
+<div class="line">    { -0.58136213318226426 },</div>
+<div class="line">    { -0.12520400256483499 },</div>
+<div class="line">    { 0.41344311936636324 },</div>
+<div class="line">    { 0.0089382791988343868 },</div>
+<div class="line">    });</div>
+<div class="line">    <span class="comment">//        std::cout &lt;&lt; A;</span></div>
+<div class="line">    std::function&lt;bool(<span class="keywordtype">double</span>)&gt; condition = [](<span class="keywordtype">double</span> x) { <span class="keywordflow">return</span> bool(x &gt;= 0.0); };</div>
+<div class="line">    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> B                      = <a id="a2" name="a2"></a><a class="code hl_function" href="Matrix_8h.html#afb3f7de2743f10b710460feb9c0f9009">where</a>(condition, A, { { 1 } }, { { -1 } });</div>
+<div class="line">    <span class="keyword">auto</span> maxVal                           = <a id="a3" name="a3"></a><a class="code hl_function" href="Matrix_8h.html#a8dd66fbac5097923b2ecf481b0ae77e5">max</a>(A);</div>
+<div class="line">    <span class="keyword">auto</span> minVal                           = <a id="a4" name="a4"></a><a class="code hl_function" href="Matrix_8h.html#a4bb73e4029612f323f406f1ecfc2ed57">min</a>(A);</div>
+<div class="line">    A = A.Apply([minVal, maxVal](<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; in) { <span class="keywordflow">return</span> (in - minVal) / (maxVal - minVal); });</div>
 <div class="line"> </div>
-<div class="line">        logRegSgd.fit(A, B);</div>
+<div class="line">    logRegSgd.fit(A, B);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">auto</span> val  = logRegSgd.predict({ { -1.0 } })(0, 0);</div>
-<div class="line">        <span class="keyword">auto</span> val2 = logRegSgd.predict({ { 2.0 } })(0, 0);</div>
+<div class="line">    <span class="keyword">auto</span> val  = logRegSgd.predict({ { -1.0 } })(0, 0);</div>
+<div class="line">    <span class="keyword">auto</span> val2 = logRegSgd.predict({ { 2.0 } })(0, 0);</div>
 <div class="line"> </div>
-<div class="line">        AssertEqual(val, 1);   <span class="comment">// == 1</span></div>
-<div class="line">        AssertEqual(val2, -1); <span class="comment">// == -1</span></div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
+<div class="line">    AssertEqual(val, 1);   <span class="comment">// == 1</span></div>
+<div class="line">    AssertEqual(val2, -1); <span class="comment">// == -1</span></div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> TestNoCost() {</div>
-<div class="line">        <span class="keyword">auto</span> logRegSgd = <a class="code hl_class" href="classLogRegSGD.html">LogRegSGD</a>(0.15, 25);</div>
-<div class="line">        AssertEqual(logRegSgd.costFunction({ { 1 } }), 0.0);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestNoCost() {</div>
+<div class="line">    <span class="keyword">auto</span> logRegSgd = <a class="code hl_class" href="classLogRegSGD.html">LogRegSGD</a>(0.15, 25);</div>
+<div class="line">    AssertEqual(logRegSgd.costFunction({ { 1 } }), 0.0);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
-<div class="line">        TestLogReg();</div>
-<div class="line">        <span class="comment">//        TestNoCost();</span></div>
-<div class="line">    }</div>
+<div class="line">  <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
+<div class="line">    TestLogReg();</div>
+<div class="line">    <span class="comment">//        TestNoCost();</span></div>
+<div class="line">  }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    LogRegSGDTestCase().run();</div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">  LogRegSGDTestCase().run();</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aLogRegSGD_8h_html"><div class="ttname"><a href="LogRegSGD_8h.html">LogRegSGD.h</a></div></div>
-<div class="ttc" id="aMatrix_8h_html_a4bb73e4029612f323f406f1ecfc2ed57"><div class="ttname"><a href="Matrix_8h.html#a4bb73e4029612f323f406f1ecfc2ed57">min</a></div><div class="ttdeci">T min(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:1024</div></div>
-<div class="ttc" id="aMatrix_8h_html_a8dd66fbac5097923b2ecf481b0ae77e5"><div class="ttname"><a href="Matrix_8h.html#a8dd66fbac5097923b2ecf481b0ae77e5">max</a></div><div class="ttdeci">T max(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:1006</div></div>
-<div class="ttc" id="aMatrix_8h_html_afb3f7de2743f10b710460feb9c0f9009"><div class="ttname"><a href="Matrix_8h.html#afb3f7de2743f10b710460feb9c0f9009">where</a></div><div class="ttdeci">Matrix&lt; T &gt; where(const std::function&lt; bool(T)&gt; &amp;condition, const Matrix&lt; T &gt; &amp;in, const Matrix&lt; T &gt; &amp;valIfTrue, const Matrix&lt; T &gt; &amp;valIfFalse)</div><div class="ttdef"><b>Definition:</b> Matrix.h:953</div></div>
+<div class="ttc" id="aMatrix_8h_html_a4bb73e4029612f323f406f1ecfc2ed57"><div class="ttname"><a href="Matrix_8h.html#a4bb73e4029612f323f406f1ecfc2ed57">min</a></div><div class="ttdeci">T min(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:1259</div></div>
+<div class="ttc" id="aMatrix_8h_html_a8dd66fbac5097923b2ecf481b0ae77e5"><div class="ttname"><a href="Matrix_8h.html#a8dd66fbac5097923b2ecf481b0ae77e5">max</a></div><div class="ttdeci">T max(const Matrix&lt; T &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> Matrix.h:1227</div></div>
+<div class="ttc" id="aMatrix_8h_html_afb3f7de2743f10b710460feb9c0f9009"><div class="ttname"><a href="Matrix_8h.html#afb3f7de2743f10b710460feb9c0f9009">where</a></div><div class="ttdeci">Matrix&lt; T &gt; where(const std::function&lt; bool(T)&gt; &amp;condition, const Matrix&lt; T &gt; &amp;in, const Matrix&lt; T &gt; &amp;valIfTrue, const Matrix&lt; T &gt; &amp;valIfFalse)</div><div class="ttdef"><b>Definition:</b> Matrix.h:1152</div></div>
 <div class="ttc" id="aclassLogRegSGD_html"><div class="ttname"><a href="classLogRegSGD.html">LogRegSGD</a></div><div class="ttdef"><b>Definition:</b> LogRegSGD.h:12</div></div>
-<div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:40</div></div>
+<div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:42</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

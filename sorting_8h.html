@@ -85,7 +85,8 @@ $(function() {
   <div class="headertitle"><div class="title">sorting.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="Matrix_8h_source.html">Matrix.h</a>&quot;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="sorting_8h_source.html">Go to the source code of this file.</a></p>
@@ -98,10 +99,52 @@ Functions</h2></td></tr>
 <tr class="memitem:ad3d28c133882ced8b95545bb5fba55d0"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt;std::is_arithmetic&lt;T&gt;::value, T&gt;::type&gt; </td></tr>
 <tr class="memitem:ad3d28c133882ced8b95545bb5fba55d0"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sorting_8h.html#ad3d28c133882ced8b95545bb5fba55d0">sort</a> (const std::vector&lt; T &gt; &amp;in)</td></tr>
 <tr class="separator:ad3d28c133882ced8b95545bb5fba55d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a681ff9816420cb51176ffbdcadaec45e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a681ff9816420cb51176ffbdcadaec45e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sorting_8h.html#a681ff9816420cb51176ffbdcadaec45e">insertion_sort</a> (const T &amp;elem, <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;out, const int &amp;current_index)</td></tr>
+<tr class="separator:a681ff9816420cb51176ffbdcadaec45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1815e9d6318975279185a2f767064d5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad1815e9d6318975279185a2f767064d5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sorting_8h.html#ad1815e9d6318975279185a2f767064d5">sort</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;in)</td></tr>
+<tr class="separator:ad1815e9d6318975279185a2f767064d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a681ff9816420cb51176ffbdcadaec45e" name="a681ff9816420cb51176ffbdcadaec45e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a681ff9816420cb51176ffbdcadaec45e">&#9670;&#160;</a></span>insertion_sort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void insertion_sort </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>elem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>current_index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a796e0a1fdb1816ce8086aaf73bce409c" name="a796e0a1fdb1816ce8086aaf73bce409c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a796e0a1fdb1816ce8086aaf73bce409c">&#9670;&#160;</a></span>insertion_sort()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a796e0a1fdb1816ce8086aaf73bce409c">&#9670;&#160;</a></span>insertion_sort() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,8 +193,28 @@ template&lt;typename T , typename  = typename std::enable_if&lt;std::is_arithmet
 
 </div>
 </div>
+<a id="ad1815e9d6318975279185a2f767064d5" name="ad1815e9d6318975279185a2f767064d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1815e9d6318975279185a2f767064d5">&#9670;&#160;</a></span>sort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; sort </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad3d28c133882ced8b95545bb5fba55d0" name="ad3d28c133882ced8b95545bb5fba55d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3d28c133882ced8b95545bb5fba55d0">&#9670;&#160;</a></span>sort()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3d28c133882ced8b95545bb5fba55d0">&#9670;&#160;</a></span>sort() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

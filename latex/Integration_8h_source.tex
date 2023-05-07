@@ -9,45 +9,45 @@
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <functional>}}
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceintegration}{integration}} \{}
-\DoxyCodeLine{60     std::pair<double, std::vector<double>> \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{quad\_adaptive\_rec}}(}
-\DoxyCodeLine{61     \textcolor{keyword}{const} std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\& fun,}
-\DoxyCodeLine{62     \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& a,}
-\DoxyCodeLine{63     \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& b,}
-\DoxyCodeLine{64     \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& tol,}
-\DoxyCodeLine{65     \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& hMin,}
-\DoxyCodeLine{66     std::vector<double>\& nodes,}
-\DoxyCodeLine{67     \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& values) \{}
-\DoxyCodeLine{68         \textcolor{keywordtype}{double} h = b -\/ a;}
-\DoxyCodeLine{69         \textcolor{keywordflow}{if}(h < hMin) \{}
-\DoxyCodeLine{70             \textcolor{comment}{// error}}
-\DoxyCodeLine{71             std::cerr << \textcolor{stringliteral}{"{}H too small! h = "{}} << h << std::endl;}
-\DoxyCodeLine{72             exit(-\/1);}
-\DoxyCodeLine{73         \}}
+\DoxyCodeLine{60   std::pair<double, std::vector<double>> \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{quad\_adaptive\_rec}}(}
+\DoxyCodeLine{61   \textcolor{keyword}{const} std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\& fun,}
+\DoxyCodeLine{62   \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& a,}
+\DoxyCodeLine{63   \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& b,}
+\DoxyCodeLine{64   \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& tol,}
+\DoxyCodeLine{65   \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& hMin,}
+\DoxyCodeLine{66   std::vector<double>\& nodes,}
+\DoxyCodeLine{67   \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& values) \{}
+\DoxyCodeLine{68     \textcolor{keywordtype}{double} h = b -\/ a;}
+\DoxyCodeLine{69     \textcolor{keywordflow}{if}(h < hMin) \{}
+\DoxyCodeLine{70       \textcolor{comment}{// error}}
+\DoxyCodeLine{71       std::cerr << \textcolor{stringliteral}{"{}H too small! h = "{}} << h << std::endl;}
+\DoxyCodeLine{72       exit(-\/1);}
+\DoxyCodeLine{73     \}}
 \DoxyCodeLine{74 }
-\DoxyCodeLine{75         \mbox{\hyperlink{classMatrix}{Matrix<double>}} x = \{ \{ a \}, \{ a + (h / 2.0) \}, \{ b \} \};}
-\DoxyCodeLine{76         \textcolor{keywordflow}{if}(values.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() == 0) \{}
-\DoxyCodeLine{77             values = x.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}(fun);}
-\DoxyCodeLine{78         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(values.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() < 3) \{}
-\DoxyCodeLine{79             values = \{ \{ values(0, 0) \}, \{ fun(x(1, 0)) \}, \{ values(1, 0) \} \};}
-\DoxyCodeLine{80         \}}
+\DoxyCodeLine{75     \mbox{\hyperlink{classMatrix}{Matrix<double>}} x = \{ \{ a \}, \{ a + (h / 2.0) \}, \{ b \} \};}
+\DoxyCodeLine{76     \textcolor{keywordflow}{if}(values.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() == 0) \{}
+\DoxyCodeLine{77       values = x.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}(fun);}
+\DoxyCodeLine{78     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(values.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() < 3) \{}
+\DoxyCodeLine{79       values = \{ \{ values(0, 0) \}, \{ fun(x(1, 0)) \}, \{ values(1, 0) \} \};}
+\DoxyCodeLine{80     \}}
 \DoxyCodeLine{81 }
-\DoxyCodeLine{82         \textcolor{keyword}{auto} qSimpson = (h / 6.0) * (values(2, 0) + 4.0 * values(1, 0) + values(0, 0));}
-\DoxyCodeLine{83         \textcolor{keyword}{auto} qTrapez  = (h / 2.0) * (values(2, 0) + values(0, 0));}
+\DoxyCodeLine{82     \textcolor{keyword}{auto} qSimpson = (h / 6.0) * (values(2, 0) + 4.0 * values(1, 0) + values(0, 0));}
+\DoxyCodeLine{83     \textcolor{keyword}{auto} qTrapez  = (h / 2.0) * (values(2, 0) + values(0, 0));}
 \DoxyCodeLine{84 }
-\DoxyCodeLine{85         \textcolor{keyword}{auto} error = fabs(qSimpson -\/ qTrapez);}
+\DoxyCodeLine{85     \textcolor{keyword}{auto} error = fabs(qSimpson -\/ qTrapez);}
 \DoxyCodeLine{86 }
-\DoxyCodeLine{87         nodes.push\_back(x(1, 0));}
+\DoxyCodeLine{87     nodes.push\_back(x(1, 0));}
 \DoxyCodeLine{88 }
-\DoxyCodeLine{89         \textcolor{keywordflow}{if}(error <= tol) \{ \textcolor{keywordflow}{return} \{ qSimpson, nodes \}; \}}
+\DoxyCodeLine{89     \textcolor{keywordflow}{if}(error <= tol) \{ \textcolor{keywordflow}{return} \{ qSimpson, nodes \}; \}}
 \DoxyCodeLine{90 }
-\DoxyCodeLine{91         \textcolor{keyword}{auto} hTol        = tol / 2.0;}
-\DoxyCodeLine{92         \textcolor{keyword}{auto} leftValues  = values.\mbox{\hyperlink{classMatrix_a263c7a2f670ed338a4cc4050f248fcc5}{GetSlice}}(0, 1, 0, 0);}
-\DoxyCodeLine{93         \textcolor{keyword}{auto} resLeft     = \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{quad\_adaptive\_rec}}(fun, a, x(1, 0), hTol, hMin, nodes, leftValues);}
-\DoxyCodeLine{94         \textcolor{keyword}{auto} rightValues = values.\mbox{\hyperlink{classMatrix_a263c7a2f670ed338a4cc4050f248fcc5}{GetSlice}}(1, 2, 0, 0);}
-\DoxyCodeLine{95         \textcolor{keyword}{auto} resRight    = \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{quad\_adaptive\_rec}}(fun, x(1, 0), b, hTol, hMin, nodes, rightValues);}
+\DoxyCodeLine{91     \textcolor{keyword}{auto} hTol        = tol / 2.0;}
+\DoxyCodeLine{92     \textcolor{keyword}{auto} leftValues  = values.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(0, 1, 0, 0);}
+\DoxyCodeLine{93     \textcolor{keyword}{auto} resLeft     = \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{quad\_adaptive\_rec}}(fun, a, x(1, 0), hTol, hMin, nodes, leftValues);}
+\DoxyCodeLine{94     \textcolor{keyword}{auto} rightValues = values.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(1, 2, 0, 0);}
+\DoxyCodeLine{95     \textcolor{keyword}{auto} resRight    = \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{quad\_adaptive\_rec}}(fun, x(1, 0), b, hTol, hMin, nodes, rightValues);}
 \DoxyCodeLine{96 }
-\DoxyCodeLine{97         \textcolor{keywordflow}{return} \{ resLeft.first + resRight.first, nodes \};}
-\DoxyCodeLine{98     \}}
+\DoxyCodeLine{97     \textcolor{keywordflow}{return} \{ resLeft.first + resRight.first, nodes \};}
+\DoxyCodeLine{98   \}}
 \DoxyCodeLine{99 \} \textcolor{comment}{// namespace integration}}
 \DoxyCodeLine{100 }
 \DoxyCodeLine{117 std::pair<double, std::vector<double>> \mbox{\hyperlink{Integration_8h_aff5aad1dc9f2dd42ce7461331f4b7083}{quadrature}}(}
@@ -56,11 +56,11 @@
 \DoxyCodeLine{120 \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& upper,}
 \DoxyCodeLine{121 \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& tol,}
 \DoxyCodeLine{122 \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& hMin) \{}
-\DoxyCodeLine{123     std::vector<double> nodes = \{ lower, upper \};}
-\DoxyCodeLine{124     \mbox{\hyperlink{classMatrix}{Matrix<double>}} q;}
-\DoxyCodeLine{125     \textcolor{keyword}{auto} res   = \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{integration::quad\_adaptive\_rec}}(fun, lower, upper, tol, hMin, nodes, q);}
-\DoxyCodeLine{126     res.second = \mbox{\hyperlink{sorting_8h_ad3d28c133882ced8b95545bb5fba55d0}{sort}}(res.second);}
-\DoxyCodeLine{127     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{123   std::vector<double> nodes = \{ lower, upper \};}
+\DoxyCodeLine{124   \mbox{\hyperlink{classMatrix}{Matrix<double>}} q;}
+\DoxyCodeLine{125   \textcolor{keyword}{auto} res   = \mbox{\hyperlink{namespaceintegration_a443a7013503d92fa671399f39f970a19}{integration::quad\_adaptive\_rec}}(fun, lower, upper, tol, hMin, nodes, q);}
+\DoxyCodeLine{126   res.second = \mbox{\hyperlink{sorting_8h_ad3d28c133882ced8b95545bb5fba55d0}{sort}}(res.second);}
+\DoxyCodeLine{127   \textcolor{keywordflow}{return} res;}
 \DoxyCodeLine{128 \}}
 
 \end{DoxyCode}

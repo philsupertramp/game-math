@@ -1,0 +1,72 @@
+\hypertarget{classPredictor}{}\doxysection{Predictor Class Reference}
+\label{classPredictor}\index{Predictor@{Predictor}}
+
+
+{\ttfamily \#include $<$Predictor.\+h$>$}
+
+Inheritance diagram for Predictor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classPredictor}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y)=0
+\item 
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPredictor_a33fd5ee04d4d1f55e9f3c1557838c6d2}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)=0
+\item 
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPredictor_a341a4d9fc8af8f53a07089100b213a73}{transform}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}\label{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}} 
+\index{Predictor@{Predictor}!fit@{fit}}
+\index{fit@{fit}!Predictor@{Predictor}}
+\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
+{\footnotesize\ttfamily virtual void Predictor\+::fit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Implements training algorithm 
+\begin{DoxyParams}{Parameters}
+{\em X} & array-\/like with the shape\+: \mbox{[}n\+\_\+samples, n\+\_\+features\mbox{]} \\
+\hline
+{\em y} & array-\/like with shape\+: \mbox{[}n\+\_\+samples, 1\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classAdalineGD_a16791c4ac85a0e7117105f8835a19f69}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_a8b97d260bc04aa8cd6d02436fb5f3c76}{Adaline\+SGD}}, \mbox{\hyperlink{classKNN_ab5c83a7deee14bf6b66ecef806f77b41}{KNN}}, \mbox{\hyperlink{classLogRegSGD_aef4c82d4582b263409e37a1b6d461cbd}{Log\+Reg\+SGD}}, \mbox{\hyperlink{classNCC_a712fa8bd2912720d0a69fcfdf748e2cb}{NCC}}, and \mbox{\hyperlink{classPerceptron_a430fcf4782a3020add0094f986a1c54e}{Perceptron}}.
+
+\mbox{\Hypertarget{classPredictor_a33fd5ee04d4d1f55e9f3c1557838c6d2}\label{classPredictor_a33fd5ee04d4d1f55e9f3c1557838c6d2}} 
+\index{Predictor@{Predictor}!predict@{predict}}
+\index{predict@{predict}!Predictor@{Predictor}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Predictor\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Makes prediction for given input \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classTransformer_a7f72b0693dc577dc9527daec63e3ee18}{Transformer}}, \mbox{\hyperlink{classAdalineGD_abb958a344b78f560ea059f16c920210d}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_a4e2e8995938c23c32bf1dfca94b07ec8}{Adaline\+SGD}}, \mbox{\hyperlink{classKNN_a8e9c1edbc9a7fc4756ef86fbe52bb753}{KNN}}, \mbox{\hyperlink{classLogRegSGD_a55ac458f1e5b06f8b9542d1133d50e67}{Log\+Reg\+SGD}}, \mbox{\hyperlink{classNCC_a12bb7ec347a8ac42abc2eca6f881dee5}{NCC}}, and \mbox{\hyperlink{classPerceptron_a8ecc2a278aefaf4eea183ae25455d14d}{Perceptron}}.
+
+\mbox{\Hypertarget{classPredictor_a341a4d9fc8af8f53a07089100b213a73}\label{classPredictor_a341a4d9fc8af8f53a07089100b213a73}} 
+\index{Predictor@{Predictor}!transform@{transform}}
+\index{transform@{transform}!Predictor@{Predictor}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Predictor\+::transform (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classClassifier_aa171a8c6668f6ea0c22fa2312c0f0061}{Classifier}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/ds/\mbox{\hyperlink{Predictor_8h}{Predictor.\+h}}\end{DoxyCompactItemize}

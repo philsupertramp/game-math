@@ -10,7 +10,8 @@ var searchData=
   ['traindirectory_7',['trainDirectory',['../classImageDataSet.html#ae16e22c23b4185379e5f3d60143092b8',1,'ImageDataSet']]],
   ['training_8',['Training',['../classDataSet.html#ab2e28670df1d61a926990a8d00627fdf',1,'DataSet']]],
   ['trainingcount_9',['trainingCount',['../classImageDataSet.html#a323ec5719d39c362c77960656b65f571',1,'ImageDataSet']]],
-  ['tx_10',['Tx',['../classSpline.html#a5e906d09d287cdee484389ca7e08a128',1,'Spline']]],
-  ['ty_11',['Ty',['../classSpline.html#aaaab7d2f16a8d4fb98d75576eccd56d0',1,'Spline']]],
-  ['type_12',['type',['../classMathNode.html#ab70eeffac4cad37de01dc063eeb93d8c',1,'MathNode']]]
+  ['trainlabels_10',['trainLabels',['../classKNN.html#a98edf87cb19959a95cfdbad5c8a02449',1,'KNN']]],
+  ['tx_11',['Tx',['../classSpline.html#a5e906d09d287cdee484389ca7e08a128',1,'Spline']]],
+  ['ty_12',['Ty',['../classSpline.html#aaaab7d2f16a8d4fb98d75576eccd56d0',1,'Spline']]],
+  ['type_13',['type',['../classMathNode.html#ab70eeffac4cad37de01dc063eeb93d8c',1,'MathNode']]]
 ];

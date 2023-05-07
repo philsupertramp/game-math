@@ -1,5 +1,6 @@
 \hypertarget{sorting_8h}{}\doxysection{include/math/sorting.h File Reference}
 \label{sorting_8h}\index{include/math/sorting.h@{include/math/sorting.h}}
+{\ttfamily \#include \char`\"{}Matrix.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$type\+\_\+traits$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 \doxysubsection*{Functions}
@@ -8,14 +9,25 @@
 {\footnotesize template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$\+T$>$\+::value, T$>$\+::type$>$ }\\void \mbox{\hyperlink{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}{insertion\+\_\+sort}} (const T \&elem, std\+::vector$<$ T $>$ \&vec, const int \&current\+\_\+index)
 \item 
 {\footnotesize template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$\+T$>$\+::value, T$>$\+::type$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{sorting_8h_ad3d28c133882ced8b95545bb5fba55d0}{sort}} (const std\+::vector$<$ T $>$ \&in)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{sorting_8h_a681ff9816420cb51176ffbdcadaec45e}{insertion\+\_\+sort}} (const T \&elem, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&out, const int \&current\+\_\+index)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{sorting_8h_ad1815e9d6318975279185a2f767064d5}{sort}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&in)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sorting_8h_a681ff9816420cb51176ffbdcadaec45e}\label{sorting_8h_a681ff9816420cb51176ffbdcadaec45e}} 
+\index{sorting.h@{sorting.h}!insertion\_sort@{insertion\_sort}}
+\index{insertion\_sort@{insertion\_sort}!sorting.h@{sorting.h}}
+\doxysubsubsection{\texorpdfstring{insertion\_sort()}{insertion\_sort()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void insertion\+\_\+sort (\begin{DoxyParamCaption}\item[{const T \&}]{elem,  }\item[{\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{out,  }\item[{const int \&}]{current\+\_\+index }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}\label{sorting_8h_a796e0a1fdb1816ce8086aaf73bce409c}} 
 \index{sorting.h@{sorting.h}!insertion\_sort@{insertion\_sort}}
 \index{insertion\_sort@{insertion\_sort}!sorting.h@{sorting.h}}
-\doxysubsubsection{\texorpdfstring{insertion\_sort()}{insertion\_sort()}}
+\doxysubsubsection{\texorpdfstring{insertion\_sort()}{insertion\_sort()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$\+T$>$\+::value, T$>$\+::type$>$ \\
 void insertion\+\_\+sort (\begin{DoxyParamCaption}\item[{const T \&}]{elem,  }\item[{std\+::vector$<$ T $>$ \&}]{vec,  }\item[{const int \&}]{current\+\_\+index }\end{DoxyParamCaption})}
 
@@ -33,10 +45,17 @@ Insertion sort for numerical vectors of type T
 {\em current\+\_\+index} & vector index of last element \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{sorting_8h_ad1815e9d6318975279185a2f767064d5}\label{sorting_8h_ad1815e9d6318975279185a2f767064d5}} 
+\index{sorting.h@{sorting.h}!sort@{sort}}
+\index{sort@{sort}!sorting.h@{sorting.h}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ sort (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{in }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{sorting_8h_ad3d28c133882ced8b95545bb5fba55d0}\label{sorting_8h_ad3d28c133882ced8b95545bb5fba55d0}} 
 \index{sorting.h@{sorting.h}!sort@{sort}}
 \index{sort@{sort}!sorting.h@{sorting.h}}
-\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename T , typename  = typename std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$\+T$>$\+::value, T$>$\+::type$>$ \\
 std\+::vector$<$ T $>$ sort (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{in }\end{DoxyParamCaption})}
 

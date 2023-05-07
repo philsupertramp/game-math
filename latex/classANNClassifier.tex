@@ -1,0 +1,112 @@
+\hypertarget{classANNClassifier}{}\doxysection{ANNClassifier Class Reference}
+\label{classANNClassifier}\index{ANNClassifier@{ANNClassifier}}
+
+
+{\ttfamily \#include $<$Classifier.\+h$>$}
+
+Inheritance diagram for ANNClassifier\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classANNClassifier}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classANNClassifier_af6e0a151d0d20cfff2abedca49c617ab}{ANNClassifier}} (double \+\_\+eta, int \+\_\+n\+\_\+iter)
+\item 
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classANNClassifier_af1d25129fd2594d89a08a025b03dfd62}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)=0
+\item 
+virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classANNClassifier_a8236348bfd0b4a4907c2ea2ca2b5d71a}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)=0
+\item 
+virtual double \mbox{\hyperlink{classANNClassifier_aa5a6c1d789eed4f0a6a501dc08e420ce}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classANNClassifier_a2e0e1ac7757c8cb67567c4dd4f42fef8}{eta}}
+\begin{DoxyCompactList}\small\item\em Learning rate. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classANNClassifier_aae9927c5e2e95d69ba5baa9842f36b02}{n\+\_\+iter}}
+\begin{DoxyCompactList}\small\item\em number epochs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Artificial Neural Network \mbox{\hyperlink{classClassifier}{Classifier}} interface.
+
+Adds interface for activation, cost and net-\/input functions. As well as learning rate and constant for number of training epochs. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classANNClassifier_af6e0a151d0d20cfff2abedca49c617ab}\label{classANNClassifier_af6e0a151d0d20cfff2abedca49c617ab}} 
+\index{ANNClassifier@{ANNClassifier}!ANNClassifier@{ANNClassifier}}
+\index{ANNClassifier@{ANNClassifier}!ANNClassifier@{ANNClassifier}}
+\doxysubsubsection{\texorpdfstring{ANNClassifier()}{ANNClassifier()}}
+{\footnotesize\ttfamily ANNClassifier\+::\+ANNClassifier (\begin{DoxyParamCaption}\item[{double}]{\+\_\+eta,  }\item[{int}]{\+\_\+n\+\_\+iter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classANNClassifier_af1d25129fd2594d89a08a025b03dfd62}\label{classANNClassifier_af1d25129fd2594d89a08a025b03dfd62}} 
+\index{ANNClassifier@{ANNClassifier}!activation@{activation}}
+\index{activation@{activation}!ANNClassifier@{ANNClassifier}}
+\doxysubsubsection{\texorpdfstring{activation()}{activation()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ ANNClassifier\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Activates a given input \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classAdalineGD_a04a7e391e198bd1b007cfe08633ec671}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_abea138dacd3498bc02ace2924eacf5f6}{Adaline\+SGD}}, \mbox{\hyperlink{classLogRegSGD_ace312230b45f4c6eb9bf42c1f1fc2e87}{Log\+Reg\+SGD}}, and \mbox{\hyperlink{classPerceptron_a705ba8a2e4c9c5d0884ba9bdf769bd18}{Perceptron}}.
+
+\mbox{\Hypertarget{classANNClassifier_aa5a6c1d789eed4f0a6a501dc08e420ce}\label{classANNClassifier_aa5a6c1d789eed4f0a6a501dc08e420ce}} 
+\index{ANNClassifier@{ANNClassifier}!costFunction@{costFunction}}
+\index{costFunction@{costFunction}!ANNClassifier@{ANNClassifier}}
+\doxysubsubsection{\texorpdfstring{costFunction()}{costFunction()}}
+{\footnotesize\ttfamily virtual double ANNClassifier\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+calculates the current cost if unused override returning 0 
+
+Implemented in \mbox{\hyperlink{classLogRegSGD_a31bce949b842722348434559d7219586}{Log\+Reg\+SGD}}, \mbox{\hyperlink{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_a7a65df1059ac4b19e8c69c166f76caef}{Adaline\+SGD}}, and \mbox{\hyperlink{classPerceptron_a8f136bf2a36d5a1b83fb02215cacb271}{Perceptron}}.
+
+\mbox{\Hypertarget{classANNClassifier_a8236348bfd0b4a4907c2ea2ca2b5d71a}\label{classANNClassifier_a8236348bfd0b4a4907c2ea2ca2b5d71a}} 
+\index{ANNClassifier@{ANNClassifier}!netInput@{netInput}}
+\index{netInput@{netInput}!ANNClassifier@{ANNClassifier}}
+\doxysubsubsection{\texorpdfstring{netInput()}{netInput()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ ANNClassifier\+::net\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+calculates the net-\/input (aka output) this is mostly the derivative of {\ttfamily activation} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classAdalineGD_a78657574f5aea255462d75fa6b5e3614}{Adaline\+GD}}, \mbox{\hyperlink{classAdalineSGD_a74a5c439e3594a88812d565708e9adfe}{Adaline\+SGD}}, \mbox{\hyperlink{classLogRegSGD_a4f0b244b494e4fb6bab9932f93ad7bc2}{Log\+Reg\+SGD}}, and \mbox{\hyperlink{classPerceptron_adba6029ff33690c1973fa24222f862b8}{Perceptron}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classANNClassifier_a2e0e1ac7757c8cb67567c4dd4f42fef8}\label{classANNClassifier_a2e0e1ac7757c8cb67567c4dd4f42fef8}} 
+\index{ANNClassifier@{ANNClassifier}!eta@{eta}}
+\index{eta@{eta}!ANNClassifier@{ANNClassifier}}
+\doxysubsubsection{\texorpdfstring{eta}{eta}}
+{\footnotesize\ttfamily double ANNClassifier\+::eta\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Learning rate. 
+
+\mbox{\Hypertarget{classANNClassifier_aae9927c5e2e95d69ba5baa9842f36b02}\label{classANNClassifier_aae9927c5e2e95d69ba5baa9842f36b02}} 
+\index{ANNClassifier@{ANNClassifier}!n\_iter@{n\_iter}}
+\index{n\_iter@{n\_iter}!ANNClassifier@{ANNClassifier}}
+\doxysubsubsection{\texorpdfstring{n\_iter}{n\_iter}}
+{\footnotesize\ttfamily int ANNClassifier\+::n\+\_\+iter\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+number epochs 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/ds/\mbox{\hyperlink{Classifier_8h}{Classifier.\+h}}\end{DoxyCompactItemize}

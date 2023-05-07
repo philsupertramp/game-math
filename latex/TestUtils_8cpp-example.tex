@@ -10,216 +10,216 @@ This is an example on how to use the utils.\+h file.
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{class }UtilsTestCase : \textcolor{keyword}{public} Test}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestDistance() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} a(0, 0, 0);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b(2, 0, 0);}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestDistance() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} a(0, 0, 0);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} b(2, 0, 0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a0648d54048d8ebffd974f0bb280b10b4}{Math::Utils::distance}}(a, b), 2.0f);}
-\DoxyCodeLine{        b = \{ -\/2, 0, 0 \};}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a0648d54048d8ebffd974f0bb280b10b4}{Math::Utils::distance}}(a, b), 2.0f);}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a0648d54048d8ebffd974f0bb280b10b4}{Math::Utils::distance}}(a, b), 2.0f);}
+\DoxyCodeLine{    b = \{ -\/2, 0, 0 \};}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a0648d54048d8ebffd974f0bb280b10b4}{Math::Utils::distance}}(a, b), 2.0f);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestNormalize() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2f}} a2(3, 6);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2f}} b2 = a2.\mbox{\hyperlink{structvec2_a408d0ae10689bf49bf53fb63bf1696bc}{normalize}}();}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a3ef4a16b4eaa74c81964ffbe56cd6148}{Math::Utils::normalize}}(a2), b2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} a3(0, 3, 6);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} b3 = a3.\mbox{\hyperlink{structvec3_a838bfbf88f3bed9fb92880047ea68dc8}{normalize}}();}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a3ef4a16b4eaa74c81964ffbe56cd6148}{Math::Utils::normalize}}(a3), b3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec4}{vec4f}} a4(0, 3, 6, 9);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec4}{vec4f}} b4 = a4.\mbox{\hyperlink{structvec4_a5358b87723af817df7a3ccb9df498452}{normalize}}();}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a3ef4a16b4eaa74c81964ffbe56cd6148}{Math::Utils::normalize}}(a4), b4);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestTranslate() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat4}{mat4f}} model(0.0f);}
+\DoxyCodeLine{    \textcolor{keyword}{auto} b = \mbox{\hyperlink{namespaceMath_1_1Utils_a8f5cda4bbd83dc5d111b0ec4d6bd96e6}{Math::Utils::translate}}(model, \{ 1.0, 1.0, 1.0 \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    AssertEqual(model, b);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestLookAt() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}(1, 0, 1);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} center(0, 0, 0);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} up(0, 1, 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_a8d66ea31a1a3a327fb5d02f8c9ab2740}{Math::Utils::lookAt}}(\mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}, center, up);}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat4}{mat4f}} expected(}
+\DoxyCodeLine{    \{ 0.7071068286895752, 0, 0.70710676908493042, 0 \},}
+\DoxyCodeLine{    \{ 0, 1, -\/0, 0 \},}
+\DoxyCodeLine{    \{ -\/0.7071068286895752, 0, 0.70710676908493042, 0 \},}
+\DoxyCodeLine{    \{ -\/0, -\/0, -\/1.4142135381698608, 1 \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    AssertEqual(res, expected);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestOrtho() \{}
+\DoxyCodeLine{    \textcolor{keyword}{auto} res = Math::Utils::ortho<float>(0, 16, 0, 9);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat4}{mat4f}} expected = \{ \{ 0.125, 0, 0, 0 \}, \{ 0, 0.222222222222222, 0, 0 \}, \{ 0, 0, -\/1, 0 \}, \{ -\/1, -\/1, 0, 1 \} \};}
+\DoxyCodeLine{    AssertEqual(res, expected);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestPerspective() \{}
+\DoxyCodeLine{    \textcolor{keyword}{auto} res = Math::Utils::perspective<float>(35, 800, 600, 0.1, 100000.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat4}{mat4f}} expected = \{ \{ -\/0.16869165003299713, 0, 0, 0 \},}
+\DoxyCodeLine{                       \{ 0, -\/0.22492220997810364, 0, 0 \},}
+\DoxyCodeLine{                       \{ 0, 0, -\/1.0000020265579224, -\/1 \},}
+\DoxyCodeLine{                       \{ 0, 0, -\/0.20000019669532776, 0 \} \};}
+\DoxyCodeLine{    AssertEqual(res, expected);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestAngleAxis() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} a(1, 1, 1);}
+\DoxyCodeLine{    \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_ae5ca756003a50ac7d45a8a2108c35fff}{Math::Utils::angleAxis}}(0, a);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat4}{mat4f}} expected(0);}
+\DoxyCodeLine{    AssertEqual(res, expected);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestScale() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat4}{mat4f}} model(1.0f);}
+\DoxyCodeLine{    \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_aa8428729c539b4820be1f284b6f2603b}{Math::Utils::scale}}(model, 1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    AssertEqual(model, res);}
+\DoxyCodeLine{    res = \mbox{\hyperlink{namespaceMath_1_1Utils_aa8428729c539b4820be1f284b6f2603b}{Math::Utils::scale}}(model, 2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{auto} expected = model * 2.0f;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    AssertEqual(res, expected);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    res = \mbox{\hyperlink{namespaceMath_1_1Utils_aa8428729c539b4820be1f284b6f2603b}{Math::Utils::scale}}(model, (\mbox{\hyperlink{structvec3}{vec3f}})\{ 2, 2, 2 \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    expected[3][3] = 1.0f;}
+\DoxyCodeLine{    AssertEqual(res, expected);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestRotate() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat4}{mat4f}} a(1.0f);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} b(1.0f, 0, 0);}
+\DoxyCodeLine{    \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_a8c50269d1197ea65df150ef859a81846}{Math::Utils::rotate}}(a, 90, b);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat4}{mat4f}} expected(\{ \{ 1, 0, 0, 0 \},}
+\DoxyCodeLine{                     \{ 0, -\/0.4480736255645752, 0.89399665594100952, 0 \},}
+\DoxyCodeLine{                     \{ 0, -\/0.89399665594100952, -\/0.4480736255645752, 0 \},}
+\DoxyCodeLine{                     \{ 0, 0, 0, 1 \} \});}
+\DoxyCodeLine{    AssertEqual(res, expected);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestMax() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} a(1, 0, 0);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} b(2, 0, 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_acbc14126eef6740e79041c8e9945bd1d}{Math::Utils::max}}(a, b), b);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestLerp() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} a(1, 0, 0);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} b(2, 0, 0);}
+\DoxyCodeLine{    \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_ac7a8f4e26a062dedef039a4065ffb94d}{Math::Utils::lerp}}(a, b, 0.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    AssertEqual(res, a);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    res = \mbox{\hyperlink{namespaceMath_1_1Utils_ac7a8f4e26a062dedef039a4065ffb94d}{Math::Utils::lerp}}(b, a, 0.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    AssertEqual(res, b);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    res = \mbox{\hyperlink{namespaceMath_1_1Utils_ac7a8f4e26a062dedef039a4065ffb94d}{Math::Utils::lerp}}(a, b, 0.5);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    AssertEqual(res, \{ 1.5, 0, 0 \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec4}{vec4f}} a4(1, 0, 0, 0);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec4}{vec4f}} b4(2, 0, 0, 0);}
+\DoxyCodeLine{    \textcolor{keyword}{auto} res4 = \mbox{\hyperlink{namespaceMath_1_1Utils_ac7a8f4e26a062dedef039a4065ffb94d}{Math::Utils::lerp}}(a4, b4, 0.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    AssertEqual(res4, a4);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestValuePtr() \{}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2f}} a(1, 2);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec3}{vec3f}} b(1, 2, 3);}
+\DoxyCodeLine{    \mbox{\hyperlink{structvec4}{vec4f}} c(1, 2, 3, 4);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat2}{mat2f}} m(\{ 1, 2 \}, \{ 3, 4 \});}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat3}{mat3f}} n(\{ 1, 2, 3 \}, \{ 4, 5, 6 \}, \{ 7, 8, 9 \});}
+\DoxyCodeLine{    \mbox{\hyperlink{structmat4}{mat4f}} p(\{ 1, 2, 3, 4 \}, \{ 5, 6, 7, 8 \}, \{ 9, 10, 11, 12 \}, \{ 13, 14, 15, 16 \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{auto}* a2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(a);}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 2; ++i) \{ AssertEqual(a2[i], a[i]); \}}
+\DoxyCodeLine{    \textcolor{keyword}{auto}* b2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(b);}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 3; ++i) \{ AssertEqual(b2[i], b[i]); \}}
+\DoxyCodeLine{    \textcolor{keyword}{auto}* c2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(c);}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 4; ++i) \{ AssertEqual(c2[i], c[i]); \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{auto}* m2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(m);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 2; ++i) \{}
+\DoxyCodeLine{      \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < 2; ++j) \{ AssertEqual(m2[i * 2 + j], m[i][j]); \}}
 \DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestNormalize() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec2}{vec2f}} a2(3, 6);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec2}{vec2f}} b2 = a2.\mbox{\hyperlink{structvec2_a408d0ae10689bf49bf53fb63bf1696bc}{normalize}}();}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a3ef4a16b4eaa74c81964ffbe56cd6148}{Math::Utils::normalize}}(a2), b2);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} a3(0, 3, 6);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b3 = a3.\mbox{\hyperlink{structvec3_a838bfbf88f3bed9fb92880047ea68dc8}{normalize}}();}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a3ef4a16b4eaa74c81964ffbe56cd6148}{Math::Utils::normalize}}(a3), b3);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4f}} a4(0, 3, 6, 9);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4f}} b4 = a4.\mbox{\hyperlink{structvec4_a5358b87723af817df7a3ccb9df498452}{normalize}}();}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_a3ef4a16b4eaa74c81964ffbe56cd6148}{Math::Utils::normalize}}(a4), b4);}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \textcolor{keyword}{auto}* n2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(n);}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 3; ++i) \{}
+\DoxyCodeLine{      \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < 3; ++j) \{ AssertEqual(n2[i * 3 + j], n[i][j]); \}}
 \DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestTranslate() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} model(0.0f);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} b = \mbox{\hyperlink{namespaceMath_1_1Utils_a8f5cda4bbd83dc5d111b0ec4d6bd96e6}{Math::Utils::translate}}(model, \{ 1.0, 1.0, 1.0 \});}
+\DoxyCodeLine{    \textcolor{keyword}{auto}* p2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(p);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(model, b);}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 4; ++i) \{}
+\DoxyCodeLine{      \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < 4; ++j) \{ AssertEqual(p2[i * 4 + j], p[i][j]); \}}
 \DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestLookAt() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}(1, 0, 1);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} center(0, 0, 0);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} up(0, 1, 0);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_a8d66ea31a1a3a327fb5d02f8c9ab2740}{Math::Utils::lookAt}}(\mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}, center, up);}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} expected(}
-\DoxyCodeLine{        \{ 0.7071068286895752, 0, 0.70710676908493042, 0 \},}
-\DoxyCodeLine{        \{ 0, 1, -\/0, 0 \},}
-\DoxyCodeLine{        \{ -\/0.7071068286895752, 0, 0.70710676908493042, 0 \},}
-\DoxyCodeLine{        \{ -\/0, -\/0, -\/1.4142135381698608, 1 \});}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestSign() \{}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{utils_8h_ac0a2b288a0de78414082788f935417ec}{sign}}(-\/1.), -\/1);}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{utils_8h_ac0a2b288a0de78414082788f935417ec}{sign}}(1.), 1);}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{utils_8h_ac0a2b288a0de78414082788f935417ec}{sign}}(0.), 1);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(res, expected);}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestOrtho() \{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = Math::Utils::ortho<float>(0, 16, 0, 9);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} expected = \{ \{ 0.125, 0, 0, 0 \}, \{ 0, 0.222222222222222, 0, 0 \}, \{ 0, 0, -\/1, 0 \}, \{ -\/1, -\/1, 0, 1 \} \};}
-\DoxyCodeLine{        AssertEqual(res, expected);}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestPerspective() \{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = Math::Utils::perspective<float>(35, 800, 600, 0.1, 100000.0);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} expected = \{ \{ -\/0.16869165003299713, 0, 0, 0 \},}
-\DoxyCodeLine{                           \{ 0, -\/0.22492220997810364, 0, 0 \},}
-\DoxyCodeLine{                           \{ 0, 0, -\/1.0000020265579224, -\/1 \},}
-\DoxyCodeLine{                           \{ 0, 0, -\/0.20000019669532776, 0 \} \};}
-\DoxyCodeLine{        AssertEqual(res, expected);}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestAngleAxis() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} a(1, 1, 1);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_ae5ca756003a50ac7d45a8a2108c35fff}{Math::Utils::angleAxis}}(0, a);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} expected(0);}
-\DoxyCodeLine{        AssertEqual(res, expected);}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestScale() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} model(1.0f);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_aa8428729c539b4820be1f284b6f2603b}{Math::Utils::scale}}(model, 1);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(model, res);}
-\DoxyCodeLine{        res = \mbox{\hyperlink{namespaceMath_1_1Utils_aa8428729c539b4820be1f284b6f2603b}{Math::Utils::scale}}(model, 2);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto} expected = model * 2.0f;}
-\DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(res, expected);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        res = \mbox{\hyperlink{namespaceMath_1_1Utils_aa8428729c539b4820be1f284b6f2603b}{Math::Utils::scale}}(model, (\mbox{\hyperlink{structvec3}{vec3f}})\{ 2, 2, 2 \});}
-\DoxyCodeLine{}
-\DoxyCodeLine{        expected[3][3] = 1.0f;}
-\DoxyCodeLine{        AssertEqual(res, expected);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestRotate() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} a(1.0f);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b(1.0f, 0, 0);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_a8c50269d1197ea65df150ef859a81846}{Math::Utils::rotate}}(a, 90, b);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} expected(\{ \{ 1, 0, 0, 0 \},}
-\DoxyCodeLine{                         \{ 0, -\/0.4480736255645752, 0.89399665594100952, 0 \},}
-\DoxyCodeLine{                         \{ 0, -\/0.89399665594100952, -\/0.4480736255645752, 0 \},}
-\DoxyCodeLine{                         \{ 0, 0, 0, 1 \} \});}
-\DoxyCodeLine{        AssertEqual(res, expected);}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestMax() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} a(1, 0, 0);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b(2, 0, 0);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{namespaceMath_1_1Utils_acbc14126eef6740e79041c8e9945bd1d}{Math::Utils::max}}(a, b), b);}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestLerp() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} a(1, 0, 0);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b(2, 0, 0);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res = \mbox{\hyperlink{namespaceMath_1_1Utils_ac7a8f4e26a062dedef039a4065ffb94d}{Math::Utils::lerp}}(a, b, 0.0);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(res, a);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        res = \mbox{\hyperlink{namespaceMath_1_1Utils_ac7a8f4e26a062dedef039a4065ffb94d}{Math::Utils::lerp}}(b, a, 0.0);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(res, b);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        res = \mbox{\hyperlink{namespaceMath_1_1Utils_ac7a8f4e26a062dedef039a4065ffb94d}{Math::Utils::lerp}}(a, b, 0.5);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(res, \{ 1.5, 0, 0 \});}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4f}} a4(1, 0, 0, 0);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4f}} b4(2, 0, 0, 0);}
-\DoxyCodeLine{        \textcolor{keyword}{auto} res4 = \mbox{\hyperlink{namespaceMath_1_1Utils_ac7a8f4e26a062dedef039a4065ffb94d}{Math::Utils::lerp}}(a4, b4, 0.0);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(res4, a4);}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestValuePtr() \{}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec2}{vec2f}} a(1, 2);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec3}{vec3f}} b(1, 2, 3);}
-\DoxyCodeLine{        \mbox{\hyperlink{structvec4}{vec4f}} c(1, 2, 3, 4);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat2}{mat2f}} m(\{ 1, 2 \}, \{ 3, 4 \});}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat3}{mat3f}} n(\{ 1, 2, 3 \}, \{ 4, 5, 6 \}, \{ 7, 8, 9 \});}
-\DoxyCodeLine{        \mbox{\hyperlink{structmat4}{mat4f}} p(\{ 1, 2, 3, 4 \}, \{ 5, 6, 7, 8 \}, \{ 9, 10, 11, 12 \}, \{ 13, 14, 15, 16 \});}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto}* a2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(a);}
-\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 2; ++i) \{ AssertEqual(a2[i], a[i]); \}}
-\DoxyCodeLine{        \textcolor{keyword}{auto}* b2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(b);}
-\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 3; ++i) \{ AssertEqual(b2[i], b[i]); \}}
-\DoxyCodeLine{        \textcolor{keyword}{auto}* c2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(c);}
-\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 4; ++i) \{ AssertEqual(c2[i], c[i]); \}}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keyword}{auto}* m2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(m);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 2; ++i) \{}
-\DoxyCodeLine{            \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < 2; ++j) \{ AssertEqual(m2[i * 2 + j], m[i][j]); \}}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{        \textcolor{keyword}{auto}* n2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(n);}
-\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 3; ++i) \{}
-\DoxyCodeLine{            \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < 3; ++j) \{ AssertEqual(n2[i * 3 + j], n[i][j]); \}}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{        \textcolor{keyword}{auto}* p2 = (\textcolor{keywordtype}{float}*)\mbox{\hyperlink{utils_8h_ad164050ba1af1ecc25ad21ae05e6c6d7}{value\_ptr}}(p);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 4; ++i) \{}
-\DoxyCodeLine{            \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < 4; ++j) \{ AssertEqual(p2[i * 4 + j], p[i][j]); \}}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestSign() \{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_ac0a2b288a0de78414082788f935417ec}{sign}}(-\/1.), -\/1);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_ac0a2b288a0de78414082788f935417ec}{sign}}(1.), 1);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_ac0a2b288a0de78414082788f935417ec}{sign}}(0.), 1);}
-\DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(sign<int>(-\/1.2), -\/1);}
-\DoxyCodeLine{        AssertEqual(sign<float>(1.), 1.);}
-\DoxyCodeLine{        AssertEqual(sign<int>(0), 1);}
+\DoxyCodeLine{    AssertEqual(sign<int>(-\/1.2), -\/1);}
+\DoxyCodeLine{    AssertEqual(sign<float>(1.), 1.);}
+\DoxyCodeLine{    AssertEqual(sign<int>(0), 1);}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestAbs() \{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(-\/1), 1);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(1.), 1.);}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(0.), 0.);}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestAbs() \{}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(-\/1), 1);}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(1.), 1.);}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{utils_8h_a293c3b1dd8becf243f63d1e80f0bf9fb}{abs}}(0.), 0.);}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(abs<int>(-\/1.2), 1);}
-\DoxyCodeLine{        AssertEqual(abs<float>(1.), 1.);}
-\DoxyCodeLine{        AssertEqual(abs<int>(0), 0);}
+\DoxyCodeLine{    AssertEqual(abs<int>(-\/1.2), 1);}
+\DoxyCodeLine{    AssertEqual(abs<float>(1.), 1.);}
+\DoxyCodeLine{    AssertEqual(abs<int>(0), 0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}
-\DoxyCodeLine{    \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{}
-\DoxyCodeLine{        TestDistance();}
-\DoxyCodeLine{        TestNormalize();}
-\DoxyCodeLine{        TestTranslate();}
-\DoxyCodeLine{        TestLookAt();}
-\DoxyCodeLine{        TestLerp();}
-\DoxyCodeLine{        TestOrtho();}
-\DoxyCodeLine{        TestPerspective();}
-\DoxyCodeLine{        TestAngleAxis();}
-\DoxyCodeLine{        TestScale();}
-\DoxyCodeLine{        TestRotate();}
-\DoxyCodeLine{        TestMax();}
-\DoxyCodeLine{        TestSign();}
-\DoxyCodeLine{        TestValuePtr();}
-\DoxyCodeLine{    \}}
+\DoxyCodeLine{  \textcolor{keywordtype}{void} run()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{    TestDistance();}
+\DoxyCodeLine{    TestNormalize();}
+\DoxyCodeLine{    TestTranslate();}
+\DoxyCodeLine{    TestLookAt();}
+\DoxyCodeLine{    TestLerp();}
+\DoxyCodeLine{    TestOrtho();}
+\DoxyCodeLine{    TestPerspective();}
+\DoxyCodeLine{    TestAngleAxis();}
+\DoxyCodeLine{    TestScale();}
+\DoxyCodeLine{    TestRotate();}
+\DoxyCodeLine{    TestMax();}
+\DoxyCodeLine{    TestSign();}
+\DoxyCodeLine{    TestValuePtr();}
+\DoxyCodeLine{  \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
-\DoxyCodeLine{    UtilsTestCase().run();}
-\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{  UtilsTestCase().run();}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{\}}
 
 \end{DoxyCodeInclude}

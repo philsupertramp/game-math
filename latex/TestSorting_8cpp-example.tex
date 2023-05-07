@@ -9,22 +9,22 @@ This is an example on how to use the sort method.
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{class }SortTestCase : \textcolor{keyword}{public} Test}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{    \textcolor{keywordtype}{bool} TestSort() \{}
-\DoxyCodeLine{        std::vector<double> in       = \{ -\/1.0, 2, 5, 3, 9, 0, 4 \};}
-\DoxyCodeLine{        std::vector<double> expected = \{ -\/1, 0, 2, 3, 4, 5, 9 \};}
+\DoxyCodeLine{  \textcolor{keywordtype}{bool} TestSort() \{}
+\DoxyCodeLine{    std::vector<double> in       = \{ -\/1.0, 2, 5, 3, 9, 0, 4 \};}
+\DoxyCodeLine{    std::vector<double> expected = \{ -\/1, 0, 2, 3, 4, 5, 9 \};}
 \DoxyCodeLine{}
-\DoxyCodeLine{        AssertEqual(\mbox{\hyperlink{sorting_8h_ad3d28c133882ced8b95545bb5fba55d0}{sort}}(in), expected);}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{    \}}
+\DoxyCodeLine{    AssertEqual(\mbox{\hyperlink{sorting_8h_ad3d28c133882ced8b95545bb5fba55d0}{sort}}(in), expected);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{  \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}
-\DoxyCodeLine{    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run() \{ TestSort(); \}}
+\DoxyCodeLine{  \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run() \{ TestSort(); \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
-\DoxyCodeLine{    SortTestCase().run();}
-\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{  SortTestCase().run();}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{\}}
 
 \end{DoxyCodeInclude}

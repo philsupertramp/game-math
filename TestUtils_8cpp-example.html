@@ -87,216 +87,216 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span>UtilsTestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">bool</span> TestDistance() {</div>
-<div class="line">        <a id="_a0" name="_a0"></a><a class="code hl_struct" href="structvec3.html">vec3f</a> a(0, 0, 0);</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> b(2, 0, 0);</div>
+<div class="line">  <span class="keywordtype">bool</span> TestDistance() {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_struct" href="structvec3.html">vec3f</a> a(0, 0, 0);</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> b(2, 0, 0);</div>
 <div class="line"> </div>
-<div class="line">        AssertEqual(<a id="a1" name="a1"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#a0648d54048d8ebffd974f0bb280b10b4">Math::Utils::distance</a>(a, b), 2.0f);</div>
-<div class="line">        b = { -2, 0, 0 };</div>
-<div class="line">        AssertEqual(<a class="code hl_function" href="namespaceMath_1_1Utils.html#a0648d54048d8ebffd974f0bb280b10b4">Math::Utils::distance</a>(a, b), 2.0f);</div>
+<div class="line">    AssertEqual(<a id="a1" name="a1"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#a0648d54048d8ebffd974f0bb280b10b4">Math::Utils::distance</a>(a, b), 2.0f);</div>
+<div class="line">    b = { -2, 0, 0 };</div>
+<div class="line">    AssertEqual(<a class="code hl_function" href="namespaceMath_1_1Utils.html#a0648d54048d8ebffd974f0bb280b10b4">Math::Utils::distance</a>(a, b), 2.0f);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestNormalize() {</div>
+<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_struct" href="structvec2.html">vec2f</a> a2(3, 6);</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2f</a> b2 = a2.<a id="a3" name="a3"></a><a class="code hl_function" href="structvec2.html#a408d0ae10689bf49bf53fb63bf1696bc">normalize</a>();</div>
+<div class="line">    AssertEqual(<a id="a4" name="a4"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#a3ef4a16b4eaa74c81964ffbe56cd6148">Math::Utils::normalize</a>(a2), b2);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> a3(0, 3, 6);</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> b3 = a3.<a id="a5" name="a5"></a><a class="code hl_function" href="structvec3.html#a838bfbf88f3bed9fb92880047ea68dc8">normalize</a>();</div>
+<div class="line">    AssertEqual(<a class="code hl_function" href="namespaceMath_1_1Utils.html#a3ef4a16b4eaa74c81964ffbe56cd6148">Math::Utils::normalize</a>(a3), b3);</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_struct" href="structvec4.html">vec4f</a> a4(0, 3, 6, 9);</div>
+<div class="line">    <a class="code hl_struct" href="structvec4.html">vec4f</a> b4 = a4.<a id="a7" name="a7"></a><a class="code hl_function" href="structvec4.html#a5358b87723af817df7a3ccb9df498452">normalize</a>();</div>
+<div class="line">    AssertEqual(<a class="code hl_function" href="namespaceMath_1_1Utils.html#a3ef4a16b4eaa74c81964ffbe56cd6148">Math::Utils::normalize</a>(a4), b4);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestTranslate() {</div>
+<div class="line">    <a id="_a8" name="_a8"></a><a class="code hl_struct" href="structmat4.html">mat4f</a> model(0.0f);</div>
+<div class="line">    <span class="keyword">auto</span> b = <a id="a9" name="a9"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#a8f5cda4bbd83dc5d111b0ec4d6bd96e6">Math::Utils::translate</a>(model, { 1.0, 1.0, 1.0 });</div>
+<div class="line"> </div>
+<div class="line">    AssertEqual(model, b);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestLookAt() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> <a id="a10" name="a10"></a><a class="code hl_function" href="numerics_2utils_8h.html#a9d6daf45f94f1c1f482d7abfdde9dd01">eye</a>(1, 0, 1);</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> center(0, 0, 0);</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> up(0, 1, 0);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span> res = <a id="a11" name="a11"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#a8d66ea31a1a3a327fb5d02f8c9ab2740">Math::Utils::lookAt</a>(<a class="code hl_function" href="numerics_2utils_8h.html#a9d6daf45f94f1c1f482d7abfdde9dd01">eye</a>, center, up);</div>
+<div class="line">    <a class="code hl_struct" href="structmat4.html">mat4f</a> expected(</div>
+<div class="line">    { 0.7071068286895752, 0, 0.70710676908493042, 0 },</div>
+<div class="line">    { 0, 1, -0, 0 },</div>
+<div class="line">    { -0.7071068286895752, 0, 0.70710676908493042, 0 },</div>
+<div class="line">    { -0, -0, -1.4142135381698608, 1 });</div>
+<div class="line"> </div>
+<div class="line">    AssertEqual(res, expected);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestOrtho() {</div>
+<div class="line">    <span class="keyword">auto</span> res = Math::Utils::ortho&lt;float&gt;(0, 16, 0, 9);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structmat4.html">mat4f</a> expected = { { 0.125, 0, 0, 0 }, { 0, 0.222222222222222, 0, 0 }, { 0, 0, -1, 0 }, { -1, -1, 0, 1 } };</div>
+<div class="line">    AssertEqual(res, expected);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestPerspective() {</div>
+<div class="line">    <span class="keyword">auto</span> res = Math::Utils::perspective&lt;float&gt;(35, 800, 600, 0.1, 100000.0);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structmat4.html">mat4f</a> expected = { { -0.16869165003299713, 0, 0, 0 },</div>
+<div class="line">                       { 0, -0.22492220997810364, 0, 0 },</div>
+<div class="line">                       { 0, 0, -1.0000020265579224, -1 },</div>
+<div class="line">                       { 0, 0, -0.20000019669532776, 0 } };</div>
+<div class="line">    AssertEqual(res, expected);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestAngleAxis() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> a(1, 1, 1);</div>
+<div class="line">    <span class="keyword">auto</span> res = <a id="a12" name="a12"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#ae5ca756003a50ac7d45a8a2108c35fff">Math::Utils::angleAxis</a>(0, a);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structmat4.html">mat4f</a> expected(0);</div>
+<div class="line">    AssertEqual(res, expected);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestScale() {</div>
+<div class="line">    <a class="code hl_struct" href="structmat4.html">mat4f</a> model(1.0f);</div>
+<div class="line">    <span class="keyword">auto</span> res = <a id="a13" name="a13"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#aa8428729c539b4820be1f284b6f2603b">Math::Utils::scale</a>(model, 1);</div>
+<div class="line"> </div>
+<div class="line">    AssertEqual(model, res);</div>
+<div class="line">    res = <a class="code hl_function" href="namespaceMath_1_1Utils.html#aa8428729c539b4820be1f284b6f2603b">Math::Utils::scale</a>(model, 2);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span> expected = model * 2.0f;</div>
+<div class="line"> </div>
+<div class="line">    AssertEqual(res, expected);</div>
+<div class="line"> </div>
+<div class="line">    res = <a class="code hl_function" href="namespaceMath_1_1Utils.html#aa8428729c539b4820be1f284b6f2603b">Math::Utils::scale</a>(model, (<a class="code hl_struct" href="structvec3.html">vec3f</a>){ 2, 2, 2 });</div>
+<div class="line"> </div>
+<div class="line">    expected[3][3] = 1.0f;</div>
+<div class="line">    AssertEqual(res, expected);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestRotate() {</div>
+<div class="line">    <a class="code hl_struct" href="structmat4.html">mat4f</a> a(1.0f);</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> b(1.0f, 0, 0);</div>
+<div class="line">    <span class="keyword">auto</span> res = <a id="a14" name="a14"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#a8c50269d1197ea65df150ef859a81846">Math::Utils::rotate</a>(a, 90, b);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structmat4.html">mat4f</a> expected({ { 1, 0, 0, 0 },</div>
+<div class="line">                     { 0, -0.4480736255645752, 0.89399665594100952, 0 },</div>
+<div class="line">                     { 0, -0.89399665594100952, -0.4480736255645752, 0 },</div>
+<div class="line">                     { 0, 0, 0, 1 } });</div>
+<div class="line">    AssertEqual(res, expected);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestMax() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> a(1, 0, 0);</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> b(2, 0, 0);</div>
+<div class="line"> </div>
+<div class="line">    AssertEqual(<a id="a15" name="a15"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#acbc14126eef6740e79041c8e9945bd1d">Math::Utils::max</a>(a, b), b);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestLerp() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> a(1, 0, 0);</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> b(2, 0, 0);</div>
+<div class="line">    <span class="keyword">auto</span> res = <a id="a16" name="a16"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#ac7a8f4e26a062dedef039a4065ffb94d">Math::Utils::lerp</a>(a, b, 0.0);</div>
+<div class="line"> </div>
+<div class="line">    AssertEqual(res, a);</div>
+<div class="line"> </div>
+<div class="line">    res = <a class="code hl_function" href="namespaceMath_1_1Utils.html#ac7a8f4e26a062dedef039a4065ffb94d">Math::Utils::lerp</a>(b, a, 0.0);</div>
+<div class="line"> </div>
+<div class="line">    AssertEqual(res, b);</div>
+<div class="line"> </div>
+<div class="line">    res = <a class="code hl_function" href="namespaceMath_1_1Utils.html#ac7a8f4e26a062dedef039a4065ffb94d">Math::Utils::lerp</a>(a, b, 0.5);</div>
+<div class="line"> </div>
+<div class="line">    AssertEqual(res, { 1.5, 0, 0 });</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structvec4.html">vec4f</a> a4(1, 0, 0, 0);</div>
+<div class="line">    <a class="code hl_struct" href="structvec4.html">vec4f</a> b4(2, 0, 0, 0);</div>
+<div class="line">    <span class="keyword">auto</span> res4 = <a class="code hl_function" href="namespaceMath_1_1Utils.html#ac7a8f4e26a062dedef039a4065ffb94d">Math::Utils::lerp</a>(a4, b4, 0.0);</div>
+<div class="line"> </div>
+<div class="line">    AssertEqual(res4, a4);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestValuePtr() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2f</a> a(1, 2);</div>
+<div class="line">    <a class="code hl_struct" href="structvec3.html">vec3f</a> b(1, 2, 3);</div>
+<div class="line">    <a class="code hl_struct" href="structvec4.html">vec4f</a> c(1, 2, 3, 4);</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a17" name="_a17"></a><a class="code hl_struct" href="structmat2.html">mat2f</a> m({ 1, 2 }, { 3, 4 });</div>
+<div class="line">    <a id="_a18" name="_a18"></a><a class="code hl_struct" href="structmat3.html">mat3f</a> n({ 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 });</div>
+<div class="line">    <a class="code hl_struct" href="structmat4.html">mat4f</a> p({ 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 });</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span>* a2 = (<span class="keywordtype">float</span>*)<a id="a19" name="a19"></a><a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(a);</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 2; ++i) { AssertEqual(a2[i], a[i]); }</div>
+<div class="line">    <span class="keyword">auto</span>* b2 = (<span class="keywordtype">float</span>*)<a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(b);</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) { AssertEqual(b2[i], b[i]); }</div>
+<div class="line">    <span class="keyword">auto</span>* c2 = (<span class="keywordtype">float</span>*)<a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(c);</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i) { AssertEqual(c2[i], c[i]); }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span>* m2 = (<span class="keywordtype">float</span>*)<a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(m);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 2; ++i) {</div>
+<div class="line">      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; 2; ++j) { AssertEqual(m2[i * 2 + j], m[i][j]); }</div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestNormalize() {</div>
-<div class="line">        <a id="_a2" name="_a2"></a><a class="code hl_struct" href="structvec2.html">vec2f</a> a2(3, 6);</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2f</a> b2 = a2.<a id="a3" name="a3"></a><a class="code hl_function" href="structvec2.html#a408d0ae10689bf49bf53fb63bf1696bc">normalize</a>();</div>
-<div class="line">        AssertEqual(<a id="a4" name="a4"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#a3ef4a16b4eaa74c81964ffbe56cd6148">Math::Utils::normalize</a>(a2), b2);</div>
-<div class="line"> </div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> a3(0, 3, 6);</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> b3 = a3.<a id="a5" name="a5"></a><a class="code hl_function" href="structvec3.html#a838bfbf88f3bed9fb92880047ea68dc8">normalize</a>();</div>
-<div class="line">        AssertEqual(<a class="code hl_function" href="namespaceMath_1_1Utils.html#a3ef4a16b4eaa74c81964ffbe56cd6148">Math::Utils::normalize</a>(a3), b3);</div>
-<div class="line"> </div>
-<div class="line">        <a id="_a6" name="_a6"></a><a class="code hl_struct" href="structvec4.html">vec4f</a> a4(0, 3, 6, 9);</div>
-<div class="line">        <a class="code hl_struct" href="structvec4.html">vec4f</a> b4 = a4.<a id="a7" name="a7"></a><a class="code hl_function" href="structvec4.html#a5358b87723af817df7a3ccb9df498452">normalize</a>();</div>
-<div class="line">        AssertEqual(<a class="code hl_function" href="namespaceMath_1_1Utils.html#a3ef4a16b4eaa74c81964ffbe56cd6148">Math::Utils::normalize</a>(a4), b4);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    <span class="keyword">auto</span>* n2 = (<span class="keywordtype">float</span>*)<a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(n);</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) {</div>
+<div class="line">      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; 3; ++j) { AssertEqual(n2[i * 3 + j], n[i][j]); }</div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestTranslate() {</div>
-<div class="line">        <a id="_a8" name="_a8"></a><a class="code hl_struct" href="structmat4.html">mat4f</a> model(0.0f);</div>
-<div class="line">        <span class="keyword">auto</span> b = <a id="a9" name="a9"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#a8f5cda4bbd83dc5d111b0ec4d6bd96e6">Math::Utils::translate</a>(model, { 1.0, 1.0, 1.0 });</div>
+<div class="line">    <span class="keyword">auto</span>* p2 = (<span class="keywordtype">float</span>*)<a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(p);</div>
 <div class="line"> </div>
-<div class="line">        AssertEqual(model, b);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i) {</div>
+<div class="line">      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; 4; ++j) { AssertEqual(p2[i * 4 + j], p[i][j]); }</div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestLookAt() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> <a id="a10" name="a10"></a><a class="code hl_function" href="numerics_2utils_8h.html#a9d6daf45f94f1c1f482d7abfdde9dd01">eye</a>(1, 0, 1);</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> center(0, 0, 0);</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> up(0, 1, 0);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">auto</span> res = <a id="a11" name="a11"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#a8d66ea31a1a3a327fb5d02f8c9ab2740">Math::Utils::lookAt</a>(<a class="code hl_function" href="numerics_2utils_8h.html#a9d6daf45f94f1c1f482d7abfdde9dd01">eye</a>, center, up);</div>
-<div class="line">        <a class="code hl_struct" href="structmat4.html">mat4f</a> expected(</div>
-<div class="line">        { 0.7071068286895752, 0, 0.70710676908493042, 0 },</div>
-<div class="line">        { 0, 1, -0, 0 },</div>
-<div class="line">        { -0.7071068286895752, 0, 0.70710676908493042, 0 },</div>
-<div class="line">        { -0, -0, -1.4142135381698608, 1 });</div>
+<div class="line">  <span class="keywordtype">bool</span> TestSign() {</div>
+<div class="line">    AssertEqual(<a id="a20" name="a20"></a><a class="code hl_function" href="utils_8h.html#ac0a2b288a0de78414082788f935417ec">sign</a>(-1.), -1);</div>
+<div class="line">    AssertEqual(<a class="code hl_function" href="utils_8h.html#ac0a2b288a0de78414082788f935417ec">sign</a>(1.), 1);</div>
+<div class="line">    AssertEqual(<a class="code hl_function" href="utils_8h.html#ac0a2b288a0de78414082788f935417ec">sign</a>(0.), 1);</div>
 <div class="line"> </div>
-<div class="line">        AssertEqual(res, expected);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestOrtho() {</div>
-<div class="line">        <span class="keyword">auto</span> res = Math::Utils::ortho&lt;float&gt;(0, 16, 0, 9);</div>
-<div class="line"> </div>
-<div class="line">        <a class="code hl_struct" href="structmat4.html">mat4f</a> expected = { { 0.125, 0, 0, 0 }, { 0, 0.222222222222222, 0, 0 }, { 0, 0, -1, 0 }, { -1, -1, 0, 1 } };</div>
-<div class="line">        AssertEqual(res, expected);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestPerspective() {</div>
-<div class="line">        <span class="keyword">auto</span> res = Math::Utils::perspective&lt;float&gt;(35, 800, 600, 0.1, 100000.0);</div>
-<div class="line"> </div>
-<div class="line">        <a class="code hl_struct" href="structmat4.html">mat4f</a> expected = { { -0.16869165003299713, 0, 0, 0 },</div>
-<div class="line">                           { 0, -0.22492220997810364, 0, 0 },</div>
-<div class="line">                           { 0, 0, -1.0000020265579224, -1 },</div>
-<div class="line">                           { 0, 0, -0.20000019669532776, 0 } };</div>
-<div class="line">        AssertEqual(res, expected);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestAngleAxis() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> a(1, 1, 1);</div>
-<div class="line">        <span class="keyword">auto</span> res = <a id="a12" name="a12"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#ae5ca756003a50ac7d45a8a2108c35fff">Math::Utils::angleAxis</a>(0, a);</div>
-<div class="line"> </div>
-<div class="line">        <a class="code hl_struct" href="structmat4.html">mat4f</a> expected(0);</div>
-<div class="line">        AssertEqual(res, expected);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestScale() {</div>
-<div class="line">        <a class="code hl_struct" href="structmat4.html">mat4f</a> model(1.0f);</div>
-<div class="line">        <span class="keyword">auto</span> res = <a id="a13" name="a13"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#aa8428729c539b4820be1f284b6f2603b">Math::Utils::scale</a>(model, 1);</div>
-<div class="line"> </div>
-<div class="line">        AssertEqual(model, res);</div>
-<div class="line">        res = <a class="code hl_function" href="namespaceMath_1_1Utils.html#aa8428729c539b4820be1f284b6f2603b">Math::Utils::scale</a>(model, 2);</div>
-<div class="line"> </div>
-<div class="line">        <span class="keyword">auto</span> expected = model * 2.0f;</div>
-<div class="line"> </div>
-<div class="line">        AssertEqual(res, expected);</div>
-<div class="line"> </div>
-<div class="line">        res = <a class="code hl_function" href="namespaceMath_1_1Utils.html#aa8428729c539b4820be1f284b6f2603b">Math::Utils::scale</a>(model, (<a class="code hl_struct" href="structvec3.html">vec3f</a>){ 2, 2, 2 });</div>
-<div class="line"> </div>
-<div class="line">        expected[3][3] = 1.0f;</div>
-<div class="line">        AssertEqual(res, expected);</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestRotate() {</div>
-<div class="line">        <a class="code hl_struct" href="structmat4.html">mat4f</a> a(1.0f);</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> b(1.0f, 0, 0);</div>
-<div class="line">        <span class="keyword">auto</span> res = <a id="a14" name="a14"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#a8c50269d1197ea65df150ef859a81846">Math::Utils::rotate</a>(a, 90, b);</div>
-<div class="line"> </div>
-<div class="line">        <a class="code hl_struct" href="structmat4.html">mat4f</a> expected({ { 1, 0, 0, 0 },</div>
-<div class="line">                         { 0, -0.4480736255645752, 0.89399665594100952, 0 },</div>
-<div class="line">                         { 0, -0.89399665594100952, -0.4480736255645752, 0 },</div>
-<div class="line">                         { 0, 0, 0, 1 } });</div>
-<div class="line">        AssertEqual(res, expected);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestMax() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> a(1, 0, 0);</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> b(2, 0, 0);</div>
-<div class="line"> </div>
-<div class="line">        AssertEqual(<a id="a15" name="a15"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#acbc14126eef6740e79041c8e9945bd1d">Math::Utils::max</a>(a, b), b);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestLerp() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> a(1, 0, 0);</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> b(2, 0, 0);</div>
-<div class="line">        <span class="keyword">auto</span> res = <a id="a16" name="a16"></a><a class="code hl_function" href="namespaceMath_1_1Utils.html#ac7a8f4e26a062dedef039a4065ffb94d">Math::Utils::lerp</a>(a, b, 0.0);</div>
-<div class="line"> </div>
-<div class="line">        AssertEqual(res, a);</div>
-<div class="line"> </div>
-<div class="line">        res = <a class="code hl_function" href="namespaceMath_1_1Utils.html#ac7a8f4e26a062dedef039a4065ffb94d">Math::Utils::lerp</a>(b, a, 0.0);</div>
-<div class="line"> </div>
-<div class="line">        AssertEqual(res, b);</div>
-<div class="line"> </div>
-<div class="line">        res = <a class="code hl_function" href="namespaceMath_1_1Utils.html#ac7a8f4e26a062dedef039a4065ffb94d">Math::Utils::lerp</a>(a, b, 0.5);</div>
-<div class="line"> </div>
-<div class="line">        AssertEqual(res, { 1.5, 0, 0 });</div>
-<div class="line"> </div>
-<div class="line">        <a class="code hl_struct" href="structvec4.html">vec4f</a> a4(1, 0, 0, 0);</div>
-<div class="line">        <a class="code hl_struct" href="structvec4.html">vec4f</a> b4(2, 0, 0, 0);</div>
-<div class="line">        <span class="keyword">auto</span> res4 = <a class="code hl_function" href="namespaceMath_1_1Utils.html#ac7a8f4e26a062dedef039a4065ffb94d">Math::Utils::lerp</a>(a4, b4, 0.0);</div>
-<div class="line"> </div>
-<div class="line">        AssertEqual(res4, a4);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestValuePtr() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2f</a> a(1, 2);</div>
-<div class="line">        <a class="code hl_struct" href="structvec3.html">vec3f</a> b(1, 2, 3);</div>
-<div class="line">        <a class="code hl_struct" href="structvec4.html">vec4f</a> c(1, 2, 3, 4);</div>
-<div class="line"> </div>
-<div class="line">        <a id="_a17" name="_a17"></a><a class="code hl_struct" href="structmat2.html">mat2f</a> m({ 1, 2 }, { 3, 4 });</div>
-<div class="line">        <a id="_a18" name="_a18"></a><a class="code hl_struct" href="structmat3.html">mat3f</a> n({ 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 });</div>
-<div class="line">        <a class="code hl_struct" href="structmat4.html">mat4f</a> p({ 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 });</div>
-<div class="line"> </div>
-<div class="line">        <span class="keyword">auto</span>* a2 = (<span class="keywordtype">float</span>*)<a id="a19" name="a19"></a><a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(a);</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 2; ++i) { AssertEqual(a2[i], a[i]); }</div>
-<div class="line">        <span class="keyword">auto</span>* b2 = (<span class="keywordtype">float</span>*)<a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(b);</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) { AssertEqual(b2[i], b[i]); }</div>
-<div class="line">        <span class="keyword">auto</span>* c2 = (<span class="keywordtype">float</span>*)<a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(c);</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i) { AssertEqual(c2[i], c[i]); }</div>
-<div class="line"> </div>
-<div class="line">        <span class="keyword">auto</span>* m2 = (<span class="keywordtype">float</span>*)<a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(m);</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 2; ++i) {</div>
-<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; 2; ++j) { AssertEqual(m2[i * 2 + j], m[i][j]); }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keyword">auto</span>* n2 = (<span class="keywordtype">float</span>*)<a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(n);</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) {</div>
-<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; 3; ++j) { AssertEqual(n2[i * 3 + j], n[i][j]); }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keyword">auto</span>* p2 = (<span class="keywordtype">float</span>*)<a class="code hl_function" href="utils_8h.html#ad164050ba1af1ecc25ad21ae05e6c6d7">value_ptr</a>(p);</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i) {</div>
-<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; 4; ++j) { AssertEqual(p2[i * 4 + j], p[i][j]); }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> TestSign() {</div>
-<div class="line">        AssertEqual(<a id="a20" name="a20"></a><a class="code hl_function" href="utils_8h.html#ac0a2b288a0de78414082788f935417ec">sign</a>(-1.), -1);</div>
-<div class="line">        AssertEqual(<a class="code hl_function" href="utils_8h.html#ac0a2b288a0de78414082788f935417ec">sign</a>(1.), 1);</div>
-<div class="line">        AssertEqual(<a class="code hl_function" href="utils_8h.html#ac0a2b288a0de78414082788f935417ec">sign</a>(0.), 1);</div>
-<div class="line"> </div>
-<div class="line">        AssertEqual(sign&lt;int&gt;(-1.2), -1);</div>
-<div class="line">        AssertEqual(sign&lt;float&gt;(1.), 1.);</div>
-<div class="line">        AssertEqual(sign&lt;int&gt;(0), 1);</div>
+<div class="line">    AssertEqual(sign&lt;int&gt;(-1.2), -1);</div>
+<div class="line">    AssertEqual(sign&lt;float&gt;(1.), 1.);</div>
+<div class="line">    AssertEqual(sign&lt;int&gt;(0), 1);</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> TestAbs() {</div>
-<div class="line">        AssertEqual(<a id="a21" name="a21"></a><a class="code hl_function" href="utils_8h.html#a293c3b1dd8becf243f63d1e80f0bf9fb">abs</a>(-1), 1);</div>
-<div class="line">        AssertEqual(<a class="code hl_function" href="utils_8h.html#a293c3b1dd8becf243f63d1e80f0bf9fb">abs</a>(1.), 1.);</div>
-<div class="line">        AssertEqual(<a class="code hl_function" href="utils_8h.html#a293c3b1dd8becf243f63d1e80f0bf9fb">abs</a>(0.), 0.);</div>
+<div class="line">  <span class="keywordtype">bool</span> TestAbs() {</div>
+<div class="line">    AssertEqual(<a id="a21" name="a21"></a><a class="code hl_function" href="utils_8h.html#a293c3b1dd8becf243f63d1e80f0bf9fb">abs</a>(-1), 1);</div>
+<div class="line">    AssertEqual(<a class="code hl_function" href="utils_8h.html#a293c3b1dd8becf243f63d1e80f0bf9fb">abs</a>(1.), 1.);</div>
+<div class="line">    AssertEqual(<a class="code hl_function" href="utils_8h.html#a293c3b1dd8becf243f63d1e80f0bf9fb">abs</a>(0.), 0.);</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">        AssertEqual(abs&lt;int&gt;(-1.2), 1);</div>
-<div class="line">        AssertEqual(abs&lt;float&gt;(1.), 1.);</div>
-<div class="line">        AssertEqual(abs&lt;int&gt;(0), 0);</div>
+<div class="line">    AssertEqual(abs&lt;int&gt;(-1.2), 1);</div>
+<div class="line">    AssertEqual(abs&lt;float&gt;(1.), 1.);</div>
+<div class="line">    AssertEqual(abs&lt;int&gt;(0), 0);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
-<div class="line">        TestDistance();</div>
-<div class="line">        TestNormalize();</div>
-<div class="line">        TestTranslate();</div>
-<div class="line">        TestLookAt();</div>
-<div class="line">        TestLerp();</div>
-<div class="line">        TestOrtho();</div>
-<div class="line">        TestPerspective();</div>
-<div class="line">        TestAngleAxis();</div>
-<div class="line">        TestScale();</div>
-<div class="line">        TestRotate();</div>
-<div class="line">        TestMax();</div>
-<div class="line">        TestSign();</div>
-<div class="line">        TestValuePtr();</div>
-<div class="line">    }</div>
+<div class="line">  <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
+<div class="line">    TestDistance();</div>
+<div class="line">    TestNormalize();</div>
+<div class="line">    TestTranslate();</div>
+<div class="line">    TestLookAt();</div>
+<div class="line">    TestLerp();</div>
+<div class="line">    TestOrtho();</div>
+<div class="line">    TestPerspective();</div>
+<div class="line">    TestAngleAxis();</div>
+<div class="line">    TestScale();</div>
+<div class="line">    TestRotate();</div>
+<div class="line">    TestMax();</div>
+<div class="line">    TestSign();</div>
+<div class="line">    TestValuePtr();</div>
+<div class="line">  }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    UtilsTestCase().run();</div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">  UtilsTestCase().run();</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aMatrix_8h_html"><div class="ttname"><a href="Matrix_8h.html">Matrix.h</a></div></div>
 <div class="ttc" id="amath_8h_html"><div class="ttname"><a href="math_8h.html">math.h</a></div></div>

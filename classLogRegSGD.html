@@ -93,7 +93,9 @@ Inheritance diagram for LogRegSGD:</div>
  <div class="center">
   <img src="classLogRegSGD.png" usemap="#LogRegSGD_map" alt=""/>
   <map id="LogRegSGD_map" name="LogRegSGD_map">
-<area href="classClassifier.html" alt="Classifier" shape="rect" coords="0,0,81,24"/>
+<area href="classANNClassifier.html" alt="ANNClassifier" shape="rect" coords="0,112,92,136"/>
+<area href="classClassifier.html" alt="Classifier" shape="rect" coords="0,56,92,80"/>
+<area href="classPredictor.html" alt="Predictor" shape="rect" coords="0,0,92,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -111,25 +113,32 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ace312230b45f4c6eb9bf42c1f1fc2e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55ac458f1e5b06f8b9542d1133d50e67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogRegSGD.html#a55ac458f1e5b06f8b9542d1133d50e67">predict</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X) override</td></tr>
 <tr class="separator:a55ac458f1e5b06f8b9542d1133d50e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa66da6584236e3253e19d8738248f182"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogRegSGD.html#aa66da6584236e3253e19d8738248f182">costFunction</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mat)</td></tr>
-<tr class="separator:aa66da6584236e3253e19d8738248f182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31bce949b842722348434559d7219586"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogRegSGD.html#a31bce949b842722348434559d7219586">costFunction</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;mat) override</td></tr>
+<tr class="separator:a31bce949b842722348434559d7219586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classANNClassifier"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classANNClassifier')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classANNClassifier.html">ANNClassifier</a></td></tr>
+<tr class="memitem:af6e0a151d0d20cfff2abedca49c617ab inherit pub_methods_classANNClassifier"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classANNClassifier.html#af6e0a151d0d20cfff2abedca49c617ab">ANNClassifier</a> (double _eta, int _n_iter)</td></tr>
+<tr class="separator:af6e0a151d0d20cfff2abedca49c617ab inherit pub_methods_classANNClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1d25129fd2594d89a08a025b03dfd62 inherit pub_methods_classANNClassifier"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classANNClassifier.html#af1d25129fd2594d89a08a025b03dfd62">activation</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
+<tr class="separator:af1d25129fd2594d89a08a025b03dfd62 inherit pub_methods_classANNClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8236348bfd0b4a4907c2ea2ca2b5d71a inherit pub_methods_classANNClassifier"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classANNClassifier.html#a8236348bfd0b4a4907c2ea2ca2b5d71a">netInput</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
+<tr class="separator:a8236348bfd0b4a4907c2ea2ca2b5d71a inherit pub_methods_classANNClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5a6c1d789eed4f0a6a501dc08e420ce inherit pub_methods_classANNClassifier"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classANNClassifier.html#aa5a6c1d789eed4f0a6a501dc08e420ce">costFunction</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
+<tr class="separator:aa5a6c1d789eed4f0a6a501dc08e420ce inherit pub_methods_classANNClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classClassifier"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classClassifier')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classClassifier.html">Classifier</a></td></tr>
-<tr class="memitem:adf323be2120dbc43c65e1aed08efd5cb inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#adf323be2120dbc43c65e1aed08efd5cb">Classifier</a> (double _eta, int _n_iter)</td></tr>
-<tr class="separator:adf323be2120dbc43c65e1aed08efd5cb inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6132b100c96a4f3d8ad3885b5acb28e inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#ae6132b100c96a4f3d8ad3885b5acb28e">Classifier</a> ()</td></tr>
+<tr class="separator:ae6132b100c96a4f3d8ad3885b5acb28e inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82afce4aff01a4d7292eb43fb38329b8 inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a82afce4aff01a4d7292eb43fb38329b8">initialize_weights</a> (size_t numRows, size_t numColumns=1)</td></tr>
 <tr class="separator:a82afce4aff01a4d7292eb43fb38329b8 inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9257aed615a41cac4030fcfc7dc08ca inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#aa9257aed615a41cac4030fcfc7dc08ca">update_weights</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;update, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;delta)</td></tr>
 <tr class="separator:aa9257aed615a41cac4030fcfc7dc08ca inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fa552228aeeee5abe1108c97f676cad inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a3fa552228aeeee5abe1108c97f676cad">fit</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)=0</td></tr>
-<tr class="separator:a3fa552228aeeee5abe1108c97f676cad inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a878bf4c825a27bee85a2466b2725e406 inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a878bf4c825a27bee85a2466b2725e406">predict</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
-<tr class="separator:a878bf4c825a27bee85a2466b2725e406 inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a360e549818a6c6532c0d83695fec8eea inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a360e549818a6c6532c0d83695fec8eea">activation</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
-<tr class="separator:a360e549818a6c6532c0d83695fec8eea inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f9a5f0ad65397e560b8bb2714c31901 inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a5f9a5f0ad65397e560b8bb2714c31901">netInput</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
-<tr class="separator:a5f9a5f0ad65397e560b8bb2714c31901 inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3508f6b16b8e4e770d1fc6e31f8eced inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#ae3508f6b16b8e4e770d1fc6e31f8eced">costFunction</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
-<tr class="separator:ae3508f6b16b8e4e770d1fc6e31f8eced inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa171a8c6668f6ea0c22fa2312c0f0061 inherit pub_methods_classClassifier"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#aa171a8c6668f6ea0c22fa2312c0f0061">transform</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;in) override</td></tr>
+<tr class="separator:aa171a8c6668f6ea0c22fa2312c0f0061 inherit pub_methods_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5364a5c595cd09f99fdc57fd28839bdf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPredictor.html#a5364a5c595cd09f99fdc57fd28839bdf">fit</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;X, const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;y)=0</td></tr>
+<tr class="separator:a5364a5c595cd09f99fdc57fd28839bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33fd5ee04d4d1f55e9f3c1557838c6d2"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPredictor.html#a33fd5ee04d4d1f55e9f3c1557838c6d2">predict</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
+<tr class="separator:a33fd5ee04d4d1f55e9f3c1557838c6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a341a4d9fc8af8f53a07089100b213a73"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPredictor.html#a341a4d9fc8af8f53a07089100b213a73">transform</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;)=0</td></tr>
+<tr class="separator:a341a4d9fc8af8f53a07089100b213a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -164,13 +173,14 @@ Static Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classANNClassifier"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classANNClassifier')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classANNClassifier.html">ANNClassifier</a></td></tr>
+<tr class="memitem:a2e0e1ac7757c8cb67567c4dd4f42fef8 inherit pro_attribs_classANNClassifier"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classANNClassifier.html#a2e0e1ac7757c8cb67567c4dd4f42fef8">eta</a></td></tr>
+<tr class="memdesc:a2e0e1ac7757c8cb67567c4dd4f42fef8 inherit pro_attribs_classANNClassifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Learning rate.  <a href="classANNClassifier.html#a2e0e1ac7757c8cb67567c4dd4f42fef8">More...</a><br /></td></tr>
+<tr class="separator:a2e0e1ac7757c8cb67567c4dd4f42fef8 inherit pro_attribs_classANNClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9927c5e2e95d69ba5baa9842f36b02 inherit pro_attribs_classANNClassifier"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classANNClassifier.html#aae9927c5e2e95d69ba5baa9842f36b02">n_iter</a></td></tr>
+<tr class="memdesc:aae9927c5e2e95d69ba5baa9842f36b02 inherit pro_attribs_classANNClassifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">number epochs  <a href="classANNClassifier.html#aae9927c5e2e95d69ba5baa9842f36b02">More...</a><br /></td></tr>
+<tr class="separator:aae9927c5e2e95d69ba5baa9842f36b02 inherit pro_attribs_classANNClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classClassifier"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classClassifier')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classClassifier.html">Classifier</a></td></tr>
-<tr class="memitem:ada5781f6955d4584bb9e8a24216ce654 inherit pro_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#ada5781f6955d4584bb9e8a24216ce654">eta</a></td></tr>
-<tr class="memdesc:ada5781f6955d4584bb9e8a24216ce654 inherit pro_attribs_classClassifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Learning rate.  <a href="classClassifier.html#ada5781f6955d4584bb9e8a24216ce654">More...</a><br /></td></tr>
-<tr class="separator:ada5781f6955d4584bb9e8a24216ce654 inherit pro_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a262d07b1324365425b12bb08a859984a inherit pro_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a262d07b1324365425b12bb08a859984a">n_iter</a></td></tr>
-<tr class="memdesc:a262d07b1324365425b12bb08a859984a inherit pro_attribs_classClassifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">number epochs  <a href="classClassifier.html#a262d07b1324365425b12bb08a859984a">More...</a><br /></td></tr>
-<tr class="separator:a262d07b1324365425b12bb08a859984a inherit pro_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c3236f91e4f14965715caaca167dec8 inherit pro_attribs_classClassifier"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a5c3236f91e4f14965715caaca167dec8">w_initialized</a> = false</td></tr>
 <tr class="memdesc:a5c3236f91e4f14965715caaca167dec8 inherit pro_attribs_classClassifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to initialize weights only once  <a href="classClassifier.html#a5c3236f91e4f14965715caaca167dec8">More...</a><br /></td></tr>
 <tr class="separator:a5c3236f91e4f14965715caaca167dec8 inherit pro_attribs_classClassifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -269,12 +279,12 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>activated values </dd></dl>
 
-<p>Implements <a class="el" href="classClassifier.html#a360e549818a6c6532c0d83695fec8eea">Classifier</a>.</p>
+<p>Implements <a class="el" href="classANNClassifier.html#af1d25129fd2594d89a08a025b03dfd62">ANNClassifier</a>.</p>
 
 </div>
 </div>
-<a id="aa66da6584236e3253e19d8738248f182" name="aa66da6584236e3253e19d8738248f182"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa66da6584236e3253e19d8738248f182">&#9670;&#160;</a></span>costFunction()</h2>
+<a id="a31bce949b842722348434559d7219586" name="a31bce949b842722348434559d7219586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31bce949b842722348434559d7219586">&#9670;&#160;</a></span>costFunction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -283,7 +293,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual double LogRegSGD::costFunction </td>
+          <td class="memname">double LogRegSGD::costFunction </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>mat</em></td><td>)</td>
@@ -292,7 +302,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -304,7 +314,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Implements <a class="el" href="classClassifier.html#ae3508f6b16b8e4e770d1fc6e31f8eced">Classifier</a>.</p>
+<p>Implements <a class="el" href="classANNClassifier.html#aa5a6c1d789eed4f0a6a501dc08e420ce">ANNClassifier</a>.</p>
 
 </div>
 </div>
@@ -350,7 +360,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>this </dd></dl>
 
-<p>Implements <a class="el" href="classClassifier.html#a3fa552228aeeee5abe1108c97f676cad">Classifier</a>.</p>
+<p>Implements <a class="el" href="classPredictor.html#a5364a5c595cd09f99fdc57fd28839bdf">Predictor</a>.</p>
 
 </div>
 </div>
@@ -450,7 +460,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Implements <a class="el" href="classClassifier.html#a5f9a5f0ad65397e560b8bb2714c31901">Classifier</a>.</p>
+<p>Implements <a class="el" href="classANNClassifier.html#a8236348bfd0b4a4907c2ea2ca2b5d71a">ANNClassifier</a>.</p>
 
 </div>
 </div>
@@ -528,7 +538,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>predicted output for given input </dd></dl>
 
-<p>Implements <a class="el" href="classClassifier.html#a878bf4c825a27bee85a2466b2725e406">Classifier</a>.</p>
+<p>Implements <a class="el" href="classPredictor.html#a33fd5ee04d4d1f55e9f3c1557838c6d2">Predictor</a>.</p>
 
 </div>
 </div>

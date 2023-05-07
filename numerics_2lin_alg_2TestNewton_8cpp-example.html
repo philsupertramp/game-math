@@ -88,27 +88,27 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span>NewtonTestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">bool</span> TestNewton() {</div>
-<div class="line">        <span class="keyword">auto</span> f  = [](<a id="_a0" name="_a0"></a><a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> x) { <span class="keywordflow">return</span> <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a>({ { cos(x(0, 0)) - x(0, 0) } }); };</div>
-<div class="line">        <span class="keyword">auto</span> Df = [](<a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> x) { <span class="keywordflow">return</span> <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a>({ { (-sin(x(0, 0)) - 1) } }); };</div>
+<div class="line">  <span class="keywordtype">bool</span> TestNewton() {</div>
+<div class="line">    <span class="keyword">auto</span> f  = [](<a id="_a0" name="_a0"></a><a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> x) { <span class="keywordflow">return</span> <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a>({ { cos(x(0, 0)) - x(0, 0) } }); };</div>
+<div class="line">    <span class="keyword">auto</span> Df = [](<a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> x) { <span class="keywordflow">return</span> <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a>({ { (-sin(x(0, 0)) - 1) } }); };</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordtype">int</span> maxIter = 100;</div>
-<div class="line">        <span class="keywordtype">double</span> TOL  = 1e-16;</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> x0({ { 1 } });</div>
-<div class="line">        <span class="keyword">auto</span> res = <a id="a1" name="a1"></a><a class="code hl_function" href="newton_8h.html#aacc26d9c74d7d171569d8fed83c6a967">newton</a>(f, Df, x0, TOL, maxIter);</div>
+<div class="line">    <span class="keywordtype">int</span> maxIter = 100;</div>
+<div class="line">    <span class="keywordtype">double</span> TOL  = 1e-16;</div>
+<div class="line">    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> x0({ { 1 } });</div>
+<div class="line">    <span class="keyword">auto</span> res = <a id="a1" name="a1"></a><a class="code hl_function" href="newton_8h.html#aacc26d9c74d7d171569d8fed83c6a967">newton</a>(f, Df, x0, TOL, maxIter);</div>
 <div class="line"> </div>
-<div class="line">        std::vector&lt;double&gt; xExpt = { 0.73908513321516067 };</div>
+<div class="line">    std::vector&lt;double&gt; xExpt = { 0.73908513321516067 };</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 1; ++i) { AssertEqual(res.first(i, 0), xExpt[i]); }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 1; ++i) { AssertEqual(res.first(i, 0), xExpt[i]); }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{ TestNewton(); }</div>
+<div class="line">  <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{ TestNewton(); }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() { NewtonTestCase().run(); }</div>
-<div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:40</div></div>
+<div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:42</div></div>
 <div class="ttc" id="anewton_8h_html"><div class="ttname"><a href="newton_8h.html">newton.h</a></div></div>
 <div class="ttc" id="anewton_8h_html_aacc26d9c74d7d171569d8fed83c6a967"><div class="ttname"><a href="newton_8h.html#aacc26d9c74d7d171569d8fed83c6a967">newton</a></div><div class="ttdeci">std::pair&lt; Matrix&lt; double &gt;, int &gt; newton(const LinearEquation &amp;f, const Jacobian &amp;Df, const Matrix&lt; double &gt; &amp;x0, double TOL, int maxIter)</div><div class="ttdef"><b>Definition:</b> newton.h:32</div></div>
 </div><!-- fragment --> </div><!-- contents -->

@@ -11,148 +11,148 @@
 \DoxyCodeLine{11 \textcolor{keyword}{struct }\mbox{\hyperlink{structvec2}{vec2}} \{}
 \DoxyCodeLine{12 \textcolor{keyword}{public}:}
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#ifdef MATH\_SILENCE\_WARNING}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{    \#if COMPILER\_GCC}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{        \#pragma GCC diagnostic push}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{        \#pragma GCC diagnostic ignored "{}-\/Wpedantic"{}}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{    \#elif COMPILER\_CLANG}}
-\DoxyCodeLine{18 \textcolor{preprocessor}{        \#pragma clang diagnostic push}}
-\DoxyCodeLine{19 \textcolor{preprocessor}{        \#pragma clang diagnostic ignored "{}-\/Wgnu-\/anonymous-\/struct"{}}}
-\DoxyCodeLine{20 \textcolor{preprocessor}{        \#pragma clang diagnostic ignored "{}-\/Wnested-\/anon-\/types"{}}}
-\DoxyCodeLine{21 \textcolor{preprocessor}{    \#elif COMPILER\_VC}}
-\DoxyCodeLine{22 \textcolor{preprocessor}{        \#pragma warning(push)}}
-\DoxyCodeLine{23 \textcolor{preprocessor}{        \#pragma warning(disable : 4201) }\textcolor{comment}{// nonstandard extension used : nameless struct/union}}
-\DoxyCodeLine{24 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{  \#if COMPILER\_GCC}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{    \#pragma GCC diagnostic push}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{    \#pragma GCC diagnostic ignored "{}-\/Wpedantic"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{  \#elif COMPILER\_CLANG}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{    \#pragma clang diagnostic push}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{    \#pragma clang diagnostic ignored "{}-\/Wgnu-\/anonymous-\/struct"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{    \#pragma clang diagnostic ignored "{}-\/Wnested-\/anon-\/types"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{  \#elif COMPILER\_VC}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{    \#pragma warning(push)}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{    \#pragma warning(disable : 4201) }\textcolor{comment}{// nonstandard extension used : nameless struct/union}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{  \#endif}}
 \DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{27     \textcolor{keyword}{union }\{}
-\DoxyCodeLine{28         \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{29             T \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}}, \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
-\DoxyCodeLine{30         \};}
-\DoxyCodeLine{31     \};}
+\DoxyCodeLine{27   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{28     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{29       T \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}}, \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
+\DoxyCodeLine{30     \};}
+\DoxyCodeLine{31   \};}
 \DoxyCodeLine{32 }
 \DoxyCodeLine{33 \textcolor{preprocessor}{\#ifdef MATH\_SILENCE\_WARNING}}
-\DoxyCodeLine{34 \textcolor{preprocessor}{    \#if COMPILER\_CLANG}}
-\DoxyCodeLine{35 \textcolor{preprocessor}{        \#pragma clang diagnostic pop}}
-\DoxyCodeLine{36 \textcolor{preprocessor}{    \#elif COMPILER\_GCC}}
-\DoxyCodeLine{37 \textcolor{preprocessor}{        \#pragma GCC diagnostic pop}}
-\DoxyCodeLine{38 \textcolor{preprocessor}{    \#elif COMPILER\_VC}}
-\DoxyCodeLine{39 \textcolor{preprocessor}{        \#pragma warning(pop)}}
-\DoxyCodeLine{40 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{  \#if COMPILER\_CLANG}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{    \#pragma clang diagnostic pop}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{  \#elif COMPILER\_GCC}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{    \#pragma GCC diagnostic pop}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{  \#elif COMPILER\_VC}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{    \#pragma warning(pop)}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{  \#endif}}
 \DoxyCodeLine{41 \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{42 }
-\DoxyCodeLine{44     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structvec2_aa5afbdfa81ffd38272563940ffa7469c}{dim}} = 2;}
+\DoxyCodeLine{44   \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structvec2_aa5afbdfa81ffd38272563940ffa7469c}{dim}} = 2;}
 \DoxyCodeLine{45 }
-\DoxyCodeLine{49     \mbox{\hyperlink{structvec2_a4307f112f2113890dc1107f1106a9376}{vec2}}() \{}
-\DoxyCodeLine{50         \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0.0f);}
-\DoxyCodeLine{51         \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0.0f);}
-\DoxyCodeLine{52     \}}
-\DoxyCodeLine{58     \mbox{\hyperlink{structvec2_ae20b5d22cb8752513b4adff218dccb76}{vec2}}(\textcolor{keyword}{const} T\& \_x, \textcolor{keyword}{const} T\& \_y) \{}
-\DoxyCodeLine{59         \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = \_x;}
-\DoxyCodeLine{60         \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = \_y;}
-\DoxyCodeLine{61     \}}
+\DoxyCodeLine{49   \mbox{\hyperlink{structvec2_a4307f112f2113890dc1107f1106a9376}{vec2}}() \{}
+\DoxyCodeLine{50     \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0.0f);}
+\DoxyCodeLine{51     \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0.0f);}
+\DoxyCodeLine{52   \}}
+\DoxyCodeLine{58   \mbox{\hyperlink{structvec2_ae20b5d22cb8752513b4adff218dccb76}{vec2}}(\textcolor{keyword}{const} T\& \_x, \textcolor{keyword}{const} T\& \_y) \{}
+\DoxyCodeLine{59     \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = \_x;}
+\DoxyCodeLine{60     \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = \_y;}
+\DoxyCodeLine{61   \}}
 \DoxyCodeLine{62 }
-\DoxyCodeLine{67     \textcolor{keyword}{explicit} \mbox{\hyperlink{structvec2_af783c06d303c7c0ed0e4f394fb314bce}{vec2}}(\textcolor{keyword}{const} T\& \_v) \{}
-\DoxyCodeLine{68         \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = \_v;}
-\DoxyCodeLine{69         \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = \_v;}
-\DoxyCodeLine{70     \}}
+\DoxyCodeLine{67   \textcolor{keyword}{explicit} \mbox{\hyperlink{structvec2_af783c06d303c7c0ed0e4f394fb314bce}{vec2}}(\textcolor{keyword}{const} T\& \_v) \{}
+\DoxyCodeLine{68     \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = \_v;}
+\DoxyCodeLine{69     \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = \_v;}
+\DoxyCodeLine{70   \}}
 \DoxyCodeLine{71 }
-\DoxyCodeLine{76     \mbox{\hyperlink{structvec2_a533cbc72a42f0b16e3b493e1da8285e3}{vec2}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& \_v) \{}
-\DoxyCodeLine{77         \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = \_v.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
-\DoxyCodeLine{78         \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = \_v.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
-\DoxyCodeLine{79     \}}
+\DoxyCodeLine{76   \mbox{\hyperlink{structvec2_a533cbc72a42f0b16e3b493e1da8285e3}{vec2}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& \_v) \{}
+\DoxyCodeLine{77     \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = \_v.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
+\DoxyCodeLine{78     \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = \_v.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
+\DoxyCodeLine{79   \}}
 \DoxyCodeLine{80 }
-\DoxyCodeLine{81     \textcolor{comment}{/* Misc functions */}}
-\DoxyCodeLine{86     \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} sqrtf(\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} * \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} + \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} * \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}}); \}}
-\DoxyCodeLine{91     \textcolor{keyword}{inline} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_a408d0ae10689bf49bf53fb63bf1696bc}{normalize}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2_a4307f112f2113890dc1107f1106a9376}{vec2}}(\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} / \mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}}(), \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} / \mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}}()); \}}
+\DoxyCodeLine{81   \textcolor{comment}{/* Misc functions */}}
+\DoxyCodeLine{86   \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} sqrtf(\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} * \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} + \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} * \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}}); \}}
+\DoxyCodeLine{91   \textcolor{keyword}{inline} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_a408d0ae10689bf49bf53fb63bf1696bc}{normalize}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2_a4307f112f2113890dc1107f1106a9376}{vec2}}(\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} / \mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}}(), \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} / \mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}}()); \}}
 \DoxyCodeLine{92 }
-\DoxyCodeLine{93     \textcolor{comment}{/* Arithmetic operators */}}
-\DoxyCodeLine{100     \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_a73f34b3602549adee03b74e9980411e0}{operator+}}(\mbox{\hyperlink{structvec2}{vec2<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs += rhs; \}}
-\DoxyCodeLine{107     \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_ab27e7cbf43a6ca7e994e94a581eb119b}{operator-\/}}(\mbox{\hyperlink{structvec2}{vec2<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs -\/= rhs; \}}
-\DoxyCodeLine{114     \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_aee9321ff54a6fb82804dc6ae8e237850}{operator*}}(\mbox{\hyperlink{structvec2}{vec2<T>}} lhs, \textcolor{keyword}{const} T\& rhs) \{ \textcolor{keywordflow}{return} lhs *= rhs; \}}
-\DoxyCodeLine{121     \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_a88275d201c22df5ee65860b4f1929b1a}{operator*}}(\textcolor{keyword}{const} T\& lhs, \mbox{\hyperlink{structvec2}{vec2<T>}} rhs) \{ \textcolor{keywordflow}{return} rhs *= lhs; \}}
+\DoxyCodeLine{93   \textcolor{comment}{/* Arithmetic operators */}}
+\DoxyCodeLine{100   \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_a73f34b3602549adee03b74e9980411e0}{operator+}}(\mbox{\hyperlink{structvec2}{vec2<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs += rhs; \}}
+\DoxyCodeLine{107   \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_ab27e7cbf43a6ca7e994e94a581eb119b}{operator-\/}}(\mbox{\hyperlink{structvec2}{vec2<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs -\/= rhs; \}}
+\DoxyCodeLine{114   \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_aee9321ff54a6fb82804dc6ae8e237850}{operator*}}(\mbox{\hyperlink{structvec2}{vec2<T>}} lhs, \textcolor{keyword}{const} T\& rhs) \{ \textcolor{keywordflow}{return} lhs *= rhs; \}}
+\DoxyCodeLine{121   \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_a88275d201c22df5ee65860b4f1929b1a}{operator*}}(\textcolor{keyword}{const} T\& lhs, \mbox{\hyperlink{structvec2}{vec2<T>}} rhs) \{ \textcolor{keywordflow}{return} rhs *= lhs; \}}
 \DoxyCodeLine{122 }
-\DoxyCodeLine{123     \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_a155f26c17be1bebf3d2f55d65e69da67}{operator/}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& lhs, \mbox{\hyperlink{structvec2}{vec2<T>}} rhs) \{ \textcolor{keywordflow}{return} rhs /= lhs; \}}
+\DoxyCodeLine{123   \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_a155f26c17be1bebf3d2f55d65e69da67}{operator/}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& lhs, \mbox{\hyperlink{structvec2}{vec2<T>}} rhs) \{ \textcolor{keywordflow}{return} rhs /= lhs; \}}
 \DoxyCodeLine{124 }
-\DoxyCodeLine{131     \textcolor{keyword}{friend} T \mbox{\hyperlink{structvec2_a3cfba91b3cd28c026bf68e02891fe6d8}{operator*}}(\mbox{\hyperlink{structvec2}{vec2<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} * rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} + lhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} * rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}}; \}}
+\DoxyCodeLine{131   \textcolor{keyword}{friend} T \mbox{\hyperlink{structvec2_a3cfba91b3cd28c026bf68e02891fe6d8}{operator*}}(\mbox{\hyperlink{structvec2}{vec2<T>}} lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} * rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} + lhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} * rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}}; \}}
 \DoxyCodeLine{132 }
-\DoxyCodeLine{139     \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_afd1fe87e0723c799fa2b8ff01167c8ea}{operator/}}(\mbox{\hyperlink{structvec2}{vec2<T>}} lhs, \textcolor{keyword}{const} T\& rhs) \{ \textcolor{keywordflow}{return} lhs /= rhs; \}}
+\DoxyCodeLine{139   \textcolor{keyword}{friend} \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{structvec2_afd1fe87e0723c799fa2b8ff01167c8ea}{operator/}}(\mbox{\hyperlink{structvec2}{vec2<T>}} lhs, \textcolor{keyword}{const} T\& rhs) \{ \textcolor{keywordflow}{return} lhs /= rhs; \}}
 \DoxyCodeLine{140 }
-\DoxyCodeLine{141     \textcolor{comment}{/* compound assignment */}}
-\DoxyCodeLine{147     \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_a0a0e7d8c2e2e9b373ef64cd668515386}{operator+=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{}
-\DoxyCodeLine{148         \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} += rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
-\DoxyCodeLine{149         \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} += rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
-\DoxyCodeLine{150         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{151     \}}
-\DoxyCodeLine{157     \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_ac2e4488f7dab63f32cd2baf751441ef7}{operator-\/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{}
-\DoxyCodeLine{158         \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} -\/= rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
-\DoxyCodeLine{159         \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} -\/= rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
-\DoxyCodeLine{160         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{161     \}}
-\DoxyCodeLine{167     \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_a3f50fa0c919f72ab4309bdf344c7a70e}{operator*=}}(\textcolor{keyword}{const} T\& rhs) \{}
-\DoxyCodeLine{168         \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} *= rhs;}
-\DoxyCodeLine{169         \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} *= rhs;}
-\DoxyCodeLine{170         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{171     \}}
-\DoxyCodeLine{177     \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_a18fe791cc62647332bf016f0ae0dc5e2}{operator/=}}(\textcolor{keyword}{const} T\& rhs) \{}
-\DoxyCodeLine{178         \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} /= rhs;}
-\DoxyCodeLine{179         \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} /= rhs;}
-\DoxyCodeLine{180         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{181     \}}
-\DoxyCodeLine{182     \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_a842617c08bdccc553e54b7a5a6a08269}{operator/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{}
-\DoxyCodeLine{183         \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} /= rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
-\DoxyCodeLine{184         \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} /= rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
-\DoxyCodeLine{185         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{186     \}}
+\DoxyCodeLine{141   \textcolor{comment}{/* compound assignment */}}
+\DoxyCodeLine{147   \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_a0a0e7d8c2e2e9b373ef64cd668515386}{operator+=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{}
+\DoxyCodeLine{148     \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} += rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
+\DoxyCodeLine{149     \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} += rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
+\DoxyCodeLine{150     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{151   \}}
+\DoxyCodeLine{157   \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_ac2e4488f7dab63f32cd2baf751441ef7}{operator-\/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{}
+\DoxyCodeLine{158     \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} -\/= rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
+\DoxyCodeLine{159     \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} -\/= rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
+\DoxyCodeLine{160     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{161   \}}
+\DoxyCodeLine{167   \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_a3f50fa0c919f72ab4309bdf344c7a70e}{operator*=}}(\textcolor{keyword}{const} T\& rhs) \{}
+\DoxyCodeLine{168     \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} *= rhs;}
+\DoxyCodeLine{169     \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} *= rhs;}
+\DoxyCodeLine{170     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{171   \}}
+\DoxyCodeLine{177   \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_a18fe791cc62647332bf016f0ae0dc5e2}{operator/=}}(\textcolor{keyword}{const} T\& rhs) \{}
+\DoxyCodeLine{178     \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} /= rhs;}
+\DoxyCodeLine{179     \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} /= rhs;}
+\DoxyCodeLine{180     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{181   \}}
+\DoxyCodeLine{182   \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_a842617c08bdccc553e54b7a5a6a08269}{operator/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{}
+\DoxyCodeLine{183     \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} /= rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
+\DoxyCodeLine{184     \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} /= rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
+\DoxyCodeLine{185     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{186   \}}
 \DoxyCodeLine{187 }
-\DoxyCodeLine{188     \textcolor{comment}{/* comparison operators */}}
+\DoxyCodeLine{188   \textcolor{comment}{/* comparison operators */}}
 \DoxyCodeLine{189 }
-\DoxyCodeLine{196     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structvec2_a783e39d62df5ebca6654640dd95b6f54}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} \&\& lhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}}; \}}
-\DoxyCodeLine{197     \textcolor{comment}{/* explicit type casts */}}
+\DoxyCodeLine{196   \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structvec2_a783e39d62df5ebca6654640dd95b6f54}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& rhs) \{ \textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == rhs.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} \&\& lhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == rhs.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}}; \}}
+\DoxyCodeLine{197   \textcolor{comment}{/* explicit type casts */}}
 \DoxyCodeLine{198 }
-\DoxyCodeLine{204     \textcolor{keyword}{constexpr} \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_a77c9f05ce87b750f557a062b31940104}{operator=}}(\mbox{\hyperlink{structvec2}{vec2<T>}} \textcolor{keyword}{const}\& V) \{}
-\DoxyCodeLine{205         this-\/>\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(V.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}});}
-\DoxyCodeLine{206         this-\/>\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(V.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}});}
-\DoxyCodeLine{207         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{208     \}}
+\DoxyCodeLine{204   \textcolor{keyword}{constexpr} \mbox{\hyperlink{structvec2}{vec2<T>}}\& \mbox{\hyperlink{structvec2_a77c9f05ce87b750f557a062b31940104}{operator=}}(\mbox{\hyperlink{structvec2}{vec2<T>}} \textcolor{keyword}{const}\& V) \{}
+\DoxyCodeLine{205     this-\/>\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(V.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}});}
+\DoxyCodeLine{206     this-\/>\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(V.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}});}
+\DoxyCodeLine{207     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{208   \}}
 \DoxyCodeLine{209 }
-\DoxyCodeLine{210     \textcolor{comment}{/* Member access */}}
-\DoxyCodeLine{216     T\& \mbox{\hyperlink{structvec2_ad6c774b59074ede5cb4f65f09b0975ed}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& index) \{}
-\DoxyCodeLine{217         \textcolor{keywordflow}{switch}(index) \{}
-\DoxyCodeLine{218             \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{219             \textcolor{keywordflow}{case} 0: \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
-\DoxyCodeLine{220             \textcolor{keywordflow}{case} 1: \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
-\DoxyCodeLine{221         \}}
-\DoxyCodeLine{222     \}}
-\DoxyCodeLine{228     \textcolor{keyword}{const} T\& \mbox{\hyperlink{structvec2_a454cd639425e30dbdd3f5152ffb3bda4}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& index)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{229         \textcolor{keywordflow}{switch}(index) \{}
-\DoxyCodeLine{230             \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{231             \textcolor{keywordflow}{case} 0: \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
-\DoxyCodeLine{232             \textcolor{keywordflow}{case} 1: \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
-\DoxyCodeLine{233         \}}
-\DoxyCodeLine{234     \}}
+\DoxyCodeLine{210   \textcolor{comment}{/* Member access */}}
+\DoxyCodeLine{216   T\& \mbox{\hyperlink{structvec2_ad6c774b59074ede5cb4f65f09b0975ed}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& index) \{}
+\DoxyCodeLine{217     \textcolor{keywordflow}{switch}(index) \{}
+\DoxyCodeLine{218       \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{219       \textcolor{keywordflow}{case} 0: \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
+\DoxyCodeLine{220       \textcolor{keywordflow}{case} 1: \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
+\DoxyCodeLine{221     \}}
+\DoxyCodeLine{222   \}}
+\DoxyCodeLine{228   \textcolor{keyword}{const} T\& \mbox{\hyperlink{structvec2_a454cd639425e30dbdd3f5152ffb3bda4}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& index)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{229     \textcolor{keywordflow}{switch}(index) \{}
+\DoxyCodeLine{230       \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{231       \textcolor{keywordflow}{case} 0: \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}};}
+\DoxyCodeLine{232       \textcolor{keywordflow}{case} 1: \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}};}
+\DoxyCodeLine{233     \}}
+\DoxyCodeLine{234   \}}
 \DoxyCodeLine{235 }
-\DoxyCodeLine{241     \textcolor{keyword}{template}<\textcolor{keyword}{typename} U>}
-\DoxyCodeLine{242     \textcolor{keyword}{explicit} \textcolor{keyword}{operator} \mbox{\hyperlink{structvec2}{vec2<U>}}() \{}
-\DoxyCodeLine{243         \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2}{vec2<U>}}(\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}}, \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}});}
-\DoxyCodeLine{244     \}}
+\DoxyCodeLine{241   \textcolor{keyword}{template}<\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{242   \textcolor{keyword}{explicit} \textcolor{keyword}{operator} \mbox{\hyperlink{structvec2}{vec2<U>}}() \{}
+\DoxyCodeLine{243     \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2}{vec2<U>}}(\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}}, \mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}});}
+\DoxyCodeLine{244   \}}
 \DoxyCodeLine{245 }
-\DoxyCodeLine{246     \textcolor{comment}{// LCOV\_EXCL\_START}}
-\DoxyCodeLine{247     \textcolor{comment}{/* stream operators */}}
-\DoxyCodeLine{253     \textcolor{keyword}{template}<\textcolor{keyword}{class} U>}
-\DoxyCodeLine{254     \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{structvec2_ab97f4dfbc5bc71784b0ca418c2f7d5f0}{operator<<}}(std::ostream\&, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<U>}}\&);}
-\DoxyCodeLine{255     \textcolor{comment}{// LCOV\_EXCL\_STOP}}
+\DoxyCodeLine{246   \textcolor{comment}{// LCOV\_EXCL\_START}}
+\DoxyCodeLine{247   \textcolor{comment}{/* stream operators */}}
+\DoxyCodeLine{253   \textcolor{keyword}{template}<\textcolor{keyword}{class} U>}
+\DoxyCodeLine{254   \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{structvec2_ab97f4dfbc5bc71784b0ca418c2f7d5f0}{operator<<}}(std::ostream\&, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<U>}}\&);}
+\DoxyCodeLine{255   \textcolor{comment}{// LCOV\_EXCL\_STOP}}
 \DoxyCodeLine{256 \};}
 \DoxyCodeLine{257 }
 \DoxyCodeLine{258 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
 \DoxyCodeLine{259 std::ostream\& \mbox{\hyperlink{vec2_8h_aef345b708d55cba4beb5ddf80c7f637a}{operator<<}}(std::ostream\& os, \textcolor{keyword}{const} \mbox{\hyperlink{structvec2}{vec2<T>}}\& obj) \{}
-\DoxyCodeLine{260     os.precision(17);}
-\DoxyCodeLine{261     os << obj.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} << \textcolor{stringliteral}{"{}, "{}} << obj.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} << std::endl;}
-\DoxyCodeLine{262     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{260   os.precision(17);}
+\DoxyCodeLine{261   os << obj.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} << \textcolor{stringliteral}{"{}, "{}} << obj.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} << std::endl;}
+\DoxyCodeLine{262   \textcolor{keywordflow}{return} os;}
 \DoxyCodeLine{263 \}}
 \DoxyCodeLine{264 }
 \DoxyCodeLine{271 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
 \DoxyCodeLine{272 \mbox{\hyperlink{structvec2}{vec2<T>}} \mbox{\hyperlink{vec2_8h_ad222221659b0305aab7eb25ab475dc2a}{build\_vec2}}(\textcolor{keywordtype}{void}* in) \{}
-\DoxyCodeLine{273     T* values = (T*)in;}
-\DoxyCodeLine{274     \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2}{vec2<T>}}(values[0], values[1]);}
+\DoxyCodeLine{273   T* values = (T*)in;}
+\DoxyCodeLine{274   \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec2}{vec2<T>}}(values[0], values[1]);}
 \DoxyCodeLine{275 \}}
 \DoxyCodeLine{276 }
 

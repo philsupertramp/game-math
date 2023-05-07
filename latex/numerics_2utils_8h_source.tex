@@ -5,39 +5,44 @@
 \DoxyCodeLine{1 }
 \DoxyCodeLine{17 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
-\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef EPS}}
-\DoxyCodeLine{23 \textcolor{preprocessor}{    \#define EPS 1e-\/8}}
-\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{25 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../sorting.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifndef EPS}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{  \#define EPS 1e-\/8}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{26 }
-\DoxyCodeLine{34 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(\textcolor{keywordtype}{double} start, \textcolor{keywordtype}{double} end, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} num\_elements);}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{43 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(\textcolor{keywordtype}{size\_t} rows, \textcolor{keywordtype}{size\_t} columns, \textcolor{keywordtype}{size\_t} elements = 1);}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{50 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_ae4d3442586cdfc0c5468be49ff561bcd}{zerosV}}(\textcolor{keywordtype}{size\_t} rows);}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{59 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_aaf883b485905c5bcd46724b44a12e094}{ones}}(\textcolor{keywordtype}{size\_t} rows, \textcolor{keywordtype}{size\_t} columns = 1, \textcolor{keywordtype}{size\_t} elements = 1);}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{67 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}(\textcolor{keywordtype}{size\_t} rows, \textcolor{keywordtype}{size\_t} columns = 0);}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{78 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_aa7eb7984fa32d548f6a24b4d440c919a}{tridiag}}(\textcolor{keywordtype}{size\_t} rows, \textcolor{keywordtype}{size\_t} columns, \textcolor{keywordtype}{double} left, \textcolor{keywordtype}{double} center, \textcolor{keywordtype}{double} right);}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{92 \textcolor{keywordtype}{double} \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in);}
-\DoxyCodeLine{93 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{35 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(\textcolor{keywordtype}{double} start, \textcolor{keywordtype}{double} end, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} num\_elements);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{44 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(\textcolor{keywordtype}{size\_t} rows, \textcolor{keywordtype}{size\_t} columns, \textcolor{keywordtype}{size\_t} elements = 1);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{51 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_ae4d3442586cdfc0c5468be49ff561bcd}{zerosV}}(\textcolor{keywordtype}{size\_t} rows);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{60 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_aaf883b485905c5bcd46724b44a12e094}{ones}}(\textcolor{keywordtype}{size\_t} rows, \textcolor{keywordtype}{size\_t} columns = 1, \textcolor{keywordtype}{size\_t} elements = 1);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{68 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}(\textcolor{keywordtype}{size\_t} rows, \textcolor{keywordtype}{size\_t} columns = 0);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{79 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_aa7eb7984fa32d548f6a24b4d440c919a}{tridiag}}(\textcolor{keywordtype}{size\_t} rows, \textcolor{keywordtype}{size\_t} columns, \textcolor{keywordtype}{double} left, \textcolor{keywordtype}{double} center, \textcolor{keywordtype}{double} right);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{93 \textcolor{keywordtype}{double} \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in);}
 \DoxyCodeLine{94 }
-\DoxyCodeLine{105 \mbox{\hyperlink{classMatrix}{Matrix<size\_t>}} \mbox{\hyperlink{numerics_2utils_8h_a7f1911548355817103d492232e6eaa8d}{nonzero}}(\textcolor{keyword}{const} std::function<\textcolor{keywordtype}{bool}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\&)>\& validation, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x);}
-\DoxyCodeLine{106 }
-\DoxyCodeLine{107 }
-\DoxyCodeLine{108 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{109 \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& in) \{}
-\DoxyCodeLine{110     \textcolor{keywordtype}{bool} isRows = in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() > in.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
-\DoxyCodeLine{111     \textcolor{keyword}{auto} k      = isRows ? in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() : in.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
-\DoxyCodeLine{112     \textcolor{keyword}{auto} result = \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}(k);}
-\DoxyCodeLine{113     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < k; ++i) \{ result(i, i) = in(isRows ? i : 0, isRows ? 0 : i); \}}
-\DoxyCodeLine{114     \textcolor{keywordflow}{return} result;}
-\DoxyCodeLine{115 \}}
-\DoxyCodeLine{116 }
+\DoxyCodeLine{102 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in, \textcolor{keywordtype}{int} axis);}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{111 \mbox{\hyperlink{classMatrix}{Matrix<size\_t>}} \mbox{\hyperlink{numerics_2utils_8h_a3941c57711e2df110722731c03ceb7b5}{argsort}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 }
+\DoxyCodeLine{124 \mbox{\hyperlink{classMatrix}{Matrix<size\_t>}} \mbox{\hyperlink{numerics_2utils_8h_a7f1911548355817103d492232e6eaa8d}{nonzero}}(\textcolor{keyword}{const} std::function<\textcolor{keywordtype}{bool}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\&)>\& validation, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 }
+\DoxyCodeLine{134 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{135 \mbox{\hyperlink{classMatrix}{Matrix<T>}} \mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<T>}}\& in) \{}
+\DoxyCodeLine{136   \textcolor{keywordtype}{bool} isRows = in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() > in.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
+\DoxyCodeLine{137   \textcolor{keyword}{auto} k      = isRows ? in.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() : in.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
+\DoxyCodeLine{138   \textcolor{keyword}{auto} result = \mbox{\hyperlink{numerics_2utils_8h_a9d6daf45f94f1c1f482d7abfdde9dd01}{eye}}(k);}
+\DoxyCodeLine{139   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < k; ++i) \{ result(i, i) = in(isRows ? i : 0, isRows ? 0 : i); \}}
+\DoxyCodeLine{140   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{141 \}}
+\DoxyCodeLine{142 }
 
 \end{DoxyCode}

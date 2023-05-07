@@ -87,65 +87,65 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span>ForwardSubTestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">bool</span> TestForwardSub() {</div>
-<div class="line">        <a id="_a0" name="_a0"></a><a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> L({ { 1.0f, 0.0f, 0.0f }, { 0.5f, 1.f, 0.f }, { 0.5f, 1.f, 1.f } });</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> b({ { 2.0f }, { 1.0f }, { 2.0f } });</div>
-<div class="line">        <span class="keyword">auto</span> x = <a id="a1" name="a1"></a><a class="code hl_function" href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a>(L, b);</div>
+<div class="line">  <span class="keywordtype">bool</span> TestForwardSub() {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> L({ { 1.0f, 0.0f, 0.0f }, { 0.5f, 1.f, 0.f }, { 0.5f, 1.f, 1.f } });</div>
+<div class="line">    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> b({ { 2.0f }, { 1.0f }, { 2.0f } });</div>
+<div class="line">    <span class="keyword">auto</span> x = <a id="a1" name="a1"></a><a class="code hl_function" href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a>(L, b);</div>
 <div class="line"> </div>
-<div class="line">        std::vector&lt;double&gt; LsgX = { 2.0f, 0.0f, 1.0f };</div>
+<div class="line">    std::vector&lt;double&gt; LsgX = { 2.0f, 0.0f, 1.0f };</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 3; i++) { AssertEqual(x(i, 0), LsgX[i]); }</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 3; i++) { AssertEqual(x(i, 0), LsgX[i]); }</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">        L = { { 1, 0, 0, 0 }, { 0.5, 1, 0, 0 }, { 0.5, 0.5, 1, 0 }, { 0.25, 0.5, 0.25, 1.0 } };</div>
-<div class="line">        b = { { 2 }, { 2 }, { 2.5 }, { -1.625 } };</div>
-<div class="line">        x = <a class="code hl_function" href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a>(L, b);</div>
+<div class="line">    L = { { 1, 0, 0, 0 }, { 0.5, 1, 0, 0 }, { 0.5, 0.5, 1, 0 }, { 0.25, 0.5, 0.25, 1.0 } };</div>
+<div class="line">    b = { { 2 }, { 2 }, { 2.5 }, { -1.625 } };</div>
+<div class="line">    x = <a class="code hl_function" href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a>(L, b);</div>
 <div class="line"> </div>
-<div class="line">        LsgX = { 2.0f, 1.0f, 1.0f, -2.8750f };</div>
+<div class="line">    LsgX = { 2.0f, 1.0f, 1.0f, -2.8750f };</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 3; i++) { AssertEqual(x(i, 0), LsgX[i]); }</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 3; i++) { AssertEqual(x(i, 0), LsgX[i]); }</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> TestForwardSubExample() {</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> L = { { 1.0f, 0.0f, 0.0f }, { -2.0f, 3.f, 0.f }, { -1.f, 7.f, 1.f } };</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> b = { { 2.0f }, { -1.0f }, { 4.0f } };</div>
-<div class="line">        <span class="keyword">auto</span> x           = <a class="code hl_function" href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a>(L, b);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> TestForwardSubExample() {</div>
+<div class="line">    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> L = { { 1.0f, 0.0f, 0.0f }, { -2.0f, 3.f, 0.f }, { -1.f, 7.f, 1.f } };</div>
+<div class="line">    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> b = { { 2.0f }, { -1.0f }, { 4.0f } };</div>
+<div class="line">    <span class="keyword">auto</span> x           = <a class="code hl_function" href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a>(L, b);</div>
 <div class="line"> </div>
-<div class="line">        std::vector&lt;double&gt; LsgX = { 2.0f, 3.0f, -15.0f };</div>
+<div class="line">    std::vector&lt;double&gt; LsgX = { 2.0f, 3.0f, -15.0f };</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 3; i++) { AssertEqual(x(i, 0), LsgX[i]); }</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 3; i++) { AssertEqual(x(i, 0), LsgX[i]); }</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> TestErrors() {</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> R({ { 15.0f }, { 16.0f } });</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> b({ { 2.0f }, { 3.0f } });</div>
+<div class="line">  <span class="keywordtype">bool</span> TestErrors() {</div>
+<div class="line">    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> R({ { 15.0f }, { 16.0f } });</div>
+<div class="line">    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> b({ { 2.0f }, { 3.0f } });</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">auto</span> x = <a class="code hl_function" href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a>(R, b);</div>
-<div class="line">        assert(x.<a id="a2" name="a2"></a><a class="code hl_function" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>() == 0);</div>
+<div class="line">    <span class="keyword">auto</span> x = <a class="code hl_function" href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a>(R, b);</div>
+<div class="line">    assert(x.<a id="a2" name="a2"></a><a class="code hl_function" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>() == 0);</div>
 <div class="line"> </div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> R2 = { { 15.0f, 1.0f } };</div>
-<div class="line">        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> b2 = { { 2.0f }, { 3.0f } };</div>
+<div class="line">    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> R2 = { { 15.0f, 1.0f } };</div>
+<div class="line">    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> b2 = { { 2.0f }, { 3.0f } };</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">auto</span> x2 = <a class="code hl_function" href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a>(R2, b2);</div>
-<div class="line">        assert(x2.rows() == 0);</div>
-<div class="line">        assert(x2.columns() == 0);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keyword">auto</span> x2 = <a class="code hl_function" href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a>(R2, b2);</div>
+<div class="line">    assert(x2.rows() == 0);</div>
+<div class="line">    assert(x2.columns() == 0);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
-<div class="line">        TestForwardSub();</div>
-<div class="line">        TestForwardSubExample();</div>
-<div class="line">        TestErrors();</div>
-<div class="line">    }</div>
+<div class="line">  <span class="keywordtype">void</span> run()<span class="keyword"> override </span>{</div>
+<div class="line">    TestForwardSub();</div>
+<div class="line">    TestForwardSubExample();</div>
+<div class="line">    TestErrors();</div>
+<div class="line">  }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() { ForwardSubTestCase().run(); }</div>
-<div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:40</div></div>
-<div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:189</div></div>
+<div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:42</div></div>
+<div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:211</div></div>
 <div class="ttc" id="aforwardSub_8h_html"><div class="ttname"><a href="forwardSub_8h.html">forwardSub.h</a></div></div>
 <div class="ttc" id="aforwardSub_8h_html_a2004e88ef01c16e0c9c5d99a45a208cf"><div class="ttname"><a href="forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf">forwardSub</a></div><div class="ttdeci">Matrix&lt; double &gt; forwardSub(const Matrix&lt; double &gt; &amp;L, const Matrix&lt; double &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> forwardSub.h:27</div></div>
 </div><!-- fragment --> </div><!-- contents -->

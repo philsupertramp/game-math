@@ -7,7 +7,7 @@
 Inheritance diagram for Perceptron\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classPerceptron}
+\includegraphics[height=4.000000cm]{classPerceptron}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -19,11 +19,11 @@ void \mbox{\hyperlink{classPerceptron_a430fcf4782a3020add0094f986a1c54e}{fit}} (
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_adba6029ff33690c1973fa24222f862b8}{net\+Input}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_a6eed548c264c9d91ca944b527c3df606}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_a705ba8a2e4c9c5d0884ba9bdf769bd18}{activation}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPerceptron_a8ecc2a278aefaf4eea183ae25455d14d}{predict}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \item 
-virtual double \mbox{\hyperlink{classPerceptron_a832773d19fa85440d301b4159cee76f6}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X)
+double \mbox{\hyperlink{classPerceptron_a8f136bf2a36d5a1b83fb02215cacb271}{cost\+Function}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X) override
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -61,11 +61,11 @@ default constructor
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classPerceptron_a6eed548c264c9d91ca944b527c3df606}\label{classPerceptron_a6eed548c264c9d91ca944b527c3df606}} 
+\mbox{\Hypertarget{classPerceptron_a705ba8a2e4c9c5d0884ba9bdf769bd18}\label{classPerceptron_a705ba8a2e4c9c5d0884ba9bdf769bd18}} 
 \index{Perceptron@{Perceptron}!activation@{activation}}
 \index{activation@{activation}!Perceptron@{Perceptron}}
 \doxysubsubsection{\texorpdfstring{activation()}{activation()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Perceptron\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Perceptron\+::activation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 activate given input 
 \begin{DoxyParams}{Parameters}
@@ -77,13 +77,13 @@ activate given input
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a360e549818a6c6532c0d83695fec8eea}{Classifier}}.
+Implements \mbox{\hyperlink{classANNClassifier_af1d25129fd2594d89a08a025b03dfd62}{ANNClassifier}}.
 
-\mbox{\Hypertarget{classPerceptron_a832773d19fa85440d301b4159cee76f6}\label{classPerceptron_a832773d19fa85440d301b4159cee76f6}} 
+\mbox{\Hypertarget{classPerceptron_a8f136bf2a36d5a1b83fb02215cacb271}\label{classPerceptron_a8f136bf2a36d5a1b83fb02215cacb271}} 
 \index{Perceptron@{Perceptron}!costFunction@{costFunction}}
 \index{costFunction@{costFunction}!Perceptron@{Perceptron}}
 \doxysubsubsection{\texorpdfstring{costFunction()}{costFunction()}}
-{\footnotesize\ttfamily virtual double Perceptron\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily double Perceptron\+::cost\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 cost function override, don\textquotesingle{}t use! 
 \begin{DoxyParams}{Parameters}
@@ -95,7 +95,7 @@ cost function override, don\textquotesingle{}t use!
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_ae3508f6b16b8e4e770d1fc6e31f8eced}{Classifier}}.
+Implements \mbox{\hyperlink{classANNClassifier_aa5a6c1d789eed4f0a6a501dc08e420ce}{ANNClassifier}}.
 
 \mbox{\Hypertarget{classPerceptron_a430fcf4782a3020add0094f986a1c54e}\label{classPerceptron_a430fcf4782a3020add0094f986a1c54e}} 
 \index{Perceptron@{Perceptron}!fit@{fit}}
@@ -115,7 +115,7 @@ this
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a3fa552228aeeee5abe1108c97f676cad}{Classifier}}.
+Implements \mbox{\hyperlink{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}{Predictor}}.
 
 \mbox{\Hypertarget{classPerceptron_adba6029ff33690c1973fa24222f862b8}\label{classPerceptron_adba6029ff33690c1973fa24222f862b8}} 
 \index{Perceptron@{Perceptron}!netInput@{netInput}}
@@ -135,13 +135,13 @@ calculates net input  \[
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a5f9a5f0ad65397e560b8bb2714c31901}{Classifier}}.
+Implements \mbox{\hyperlink{classANNClassifier_a8236348bfd0b4a4907c2ea2ca2b5d71a}{ANNClassifier}}.
 
-\mbox{\Hypertarget{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}\label{classPerceptron_a5dfe81d65411060c2ca93a6ee1d73bd1}} 
+\mbox{\Hypertarget{classPerceptron_a8ecc2a278aefaf4eea183ae25455d14d}\label{classPerceptron_a8ecc2a278aefaf4eea183ae25455d14d}} 
 \index{Perceptron@{Perceptron}!predict@{predict}}
 \index{predict@{predict}!Perceptron@{Perceptron}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Perceptron\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Perceptron\+::predict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 predict class of given input 
 \begin{DoxyParams}{Parameters}
@@ -153,7 +153,7 @@ predict class of given input
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classClassifier_a878bf4c825a27bee85a2466b2725e406}{Classifier}}.
+Implements \mbox{\hyperlink{classPredictor_a33fd5ee04d4d1f55e9f3c1557838c6d2}{Predictor}}.
 
 
 

@@ -9,57 +9,58 @@
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qr_8h}{qr.h}}"{}}}
 \DoxyCodeLine{6 }
 \DoxyCodeLine{14 std::vector<Matrix<double>> \mbox{\hyperlink{svd_8h_a3b139aaaee48ddeff126b386e555cee0}{svd}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& A, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t}\& k, \textcolor{keyword}{const} \textcolor{keywordtype}{double} epsilon = 0.1e-\/4) \{}
-\DoxyCodeLine{15     \textcolor{comment}{// works with squared and not squared matrizes}}
-\DoxyCodeLine{16     \textcolor{keywordtype}{size\_t} n\_orig   = A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
-\DoxyCodeLine{17     \textcolor{keywordtype}{size\_t} m\_orig   = A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
-\DoxyCodeLine{18     \textcolor{keywordtype}{size\_t} chosen\_k = k;}
-\DoxyCodeLine{19     \textcolor{keywordflow}{if}(k == 0) \{ chosen\_k = n\_orig < m\_orig ? n\_orig : m\_orig; \}}
-\DoxyCodeLine{20     \textcolor{keyword}{auto} A\_copy = A;}
-\DoxyCodeLine{21     \textcolor{keywordtype}{size\_t} n, m;}
-\DoxyCodeLine{22     \textcolor{keywordflow}{if}(n\_orig > m\_orig) \{}
-\DoxyCodeLine{23         A\_copy = A\_copy.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() * A\_copy;}
-\DoxyCodeLine{24         n      = A\_copy.rows();}
-\DoxyCodeLine{25         m      = A\_copy.columns();}
-\DoxyCodeLine{26     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(n\_orig < m\_orig) \{}
-\DoxyCodeLine{27         A\_copy = A * A.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
-\DoxyCodeLine{28         n      = A\_copy.rows();}
-\DoxyCodeLine{29         m      = A\_copy.columns();}
-\DoxyCodeLine{30     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{31         n = n\_orig;}
-\DoxyCodeLine{32         m = m\_orig;}
-\DoxyCodeLine{33     \}}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35     \textcolor{keyword}{auto} Q      = \mbox{\hyperlink{classMatrix_ab72c15d620fbe70b88578543b65e70ff}{Matrix<double>::Random}}(n, chosen\_k);}
-\DoxyCodeLine{36     \textcolor{keyword}{auto} R      = \mbox{\hyperlink{classMatrix_ab72c15d620fbe70b88578543b65e70ff}{Matrix<double>::Random}}(n, chosen\_k);}
-\DoxyCodeLine{37     \textcolor{keyword}{auto} res    = \mbox{\hyperlink{qr_8h_a1a1666b745736ba8fd4b2061a31399d2}{qr}}(Q);}
-\DoxyCodeLine{38     Q           = res.first;}
-\DoxyCodeLine{39     \textcolor{keyword}{auto} Q\_prev = Q;}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 1000; i++) \{}
-\DoxyCodeLine{42         \textcolor{keyword}{auto} Z    = A\_copy * Q;}
-\DoxyCodeLine{43         \textcolor{keyword}{auto} \_res = \mbox{\hyperlink{qr_8h_a1a1666b745736ba8fd4b2061a31399d2}{qr}}(Z);}
-\DoxyCodeLine{44         Q         = \_res.first;}
-\DoxyCodeLine{45         R         = \_res.second;}
-\DoxyCodeLine{46         \textcolor{keyword}{auto} err  = ((Q -\/ Q\_prev)).Apply([](\textcolor{keywordtype}{float} val) \{ \textcolor{keywordflow}{return} val * val; \}).sumElements();}
-\DoxyCodeLine{47         Q\_prev    = Q;}
-\DoxyCodeLine{48         \textcolor{keywordflow}{if}(err < epsilon) \{ \textcolor{keywordflow}{break}; \}}
-\DoxyCodeLine{49     \}}
-\DoxyCodeLine{50     \textcolor{keyword}{auto} singular\_values = \mbox{\hyperlink{Matrix_8h_a2e19f18bb0d422da0e75d5d0f6753331}{diag\_elements}}(R).Apply([](\textcolor{keywordtype}{double} val) \{ \textcolor{keywordflow}{return} sqrt(val); \});}
-\DoxyCodeLine{51     \mbox{\hyperlink{classMatrix}{Matrix<double>}} left\_vecs, right\_vecs;}
-\DoxyCodeLine{52     \textcolor{keywordflow}{if}(n\_orig < m\_orig) \{}
-\DoxyCodeLine{53         left\_vecs  = Q.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
-\DoxyCodeLine{54         right\_vecs = (\mbox{\hyperlink{gaussJordan_8h_a087b5645f23895d3500c37baa113cb9d}{gaussJordan}}(\mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(singular\_values)) * left\_vecs.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}()) * A;}
-\DoxyCodeLine{55     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(n\_orig == m\_orig) \{}
-\DoxyCodeLine{56         left\_vecs       = Q.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
-\DoxyCodeLine{57         right\_vecs      = left\_vecs;}
-\DoxyCodeLine{58         singular\_values = singular\_values.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keywordtype}{double} val) \{ \textcolor{keywordflow}{return} val * val; \});}
-\DoxyCodeLine{59     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{60         right\_vecs = Q.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
-\DoxyCodeLine{61         left\_vecs  = A.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() * right\_vecs * \mbox{\hyperlink{gaussJordan_8h_a087b5645f23895d3500c37baa113cb9d}{gaussJordan}}(\mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(singular\_values));}
-\DoxyCodeLine{62     \}}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{64     \textcolor{keywordflow}{return} \{ left\_vecs, singular\_values, right\_vecs \};}
-\DoxyCodeLine{65 \}}
-\DoxyCodeLine{66 }
+\DoxyCodeLine{15   \textcolor{comment}{// works with squared and not squared matrizes}}
+\DoxyCodeLine{16   \textcolor{keywordtype}{size\_t} n\_orig   = A.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{17   \textcolor{keywordtype}{size\_t} m\_orig   = A.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}();}
+\DoxyCodeLine{18   \textcolor{keywordtype}{size\_t} chosen\_k = k;}
+\DoxyCodeLine{19   \textcolor{keywordflow}{if}(k == 0) \{ chosen\_k = n\_orig < m\_orig ? n\_orig : m\_orig; \}}
+\DoxyCodeLine{20   \textcolor{keyword}{auto} A\_copy = A;}
+\DoxyCodeLine{21   \textcolor{keyword}{auto} A\_orig = A;}
+\DoxyCodeLine{22   \textcolor{keywordtype}{size\_t} n, m;}
+\DoxyCodeLine{23   \textcolor{keywordflow}{if}(n\_orig > m\_orig) \{}
+\DoxyCodeLine{24     A\_copy = A\_copy.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() * A\_copy;}
+\DoxyCodeLine{25     n      = A\_copy.rows();}
+\DoxyCodeLine{26     m      = A\_copy.columns();}
+\DoxyCodeLine{27   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(n\_orig < m\_orig) \{}
+\DoxyCodeLine{28     A\_copy = A\_copy * A\_copy.Transpose();}
+\DoxyCodeLine{29     n      = A\_copy.rows();}
+\DoxyCodeLine{30     m      = A\_copy.columns();}
+\DoxyCodeLine{31   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{32     n = n\_orig;}
+\DoxyCodeLine{33     m = m\_orig;}
+\DoxyCodeLine{34   \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   \textcolor{keyword}{auto} Q      = \mbox{\hyperlink{classMatrix_ab72c15d620fbe70b88578543b65e70ff}{Matrix<double>::Random}}(n, chosen\_k);}
+\DoxyCodeLine{37   \textcolor{keyword}{auto} R      = \mbox{\hyperlink{classMatrix_ab72c15d620fbe70b88578543b65e70ff}{Matrix<double>::Random}}(n, chosen\_k);}
+\DoxyCodeLine{38   \textcolor{keyword}{auto} res    = \mbox{\hyperlink{qr_8h_a1a1666b745736ba8fd4b2061a31399d2}{qr}}(Q);}
+\DoxyCodeLine{39   Q           = res.first;}
+\DoxyCodeLine{40   \textcolor{keyword}{auto} Q\_prev = Q;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 1000; i++) \{}
+\DoxyCodeLine{43     \textcolor{keyword}{auto} Z    = A\_copy * Q;}
+\DoxyCodeLine{44     \textcolor{keyword}{auto} \_res = \mbox{\hyperlink{qr_8h_a1a1666b745736ba8fd4b2061a31399d2}{qr}}(Z);}
+\DoxyCodeLine{45     Q         = \_res.first;}
+\DoxyCodeLine{46     R         = \_res.second;}
+\DoxyCodeLine{47     \textcolor{keyword}{auto} err  = ((Q -\/ Q\_prev)).Apply([](\textcolor{keywordtype}{float} val) \{ \textcolor{keywordflow}{return} val * val; \}).sumElements();}
+\DoxyCodeLine{48     Q\_prev    = Q;}
+\DoxyCodeLine{49     \textcolor{keywordflow}{if}(err < epsilon) \{ \textcolor{keywordflow}{break}; \}}
+\DoxyCodeLine{50   \}}
+\DoxyCodeLine{51   \textcolor{keyword}{auto} singular\_values = \mbox{\hyperlink{Matrix_8h_a2e19f18bb0d422da0e75d5d0f6753331}{diag\_elements}}(R).Apply([](\textcolor{keywordtype}{double} val) \{ \textcolor{keywordflow}{return} sqrt(val); \});}
+\DoxyCodeLine{52   \mbox{\hyperlink{classMatrix}{Matrix<double>}} left\_vecs, right\_vecs;}
+\DoxyCodeLine{53   \textcolor{keywordflow}{if}(n\_orig < m\_orig) \{}
+\DoxyCodeLine{54     left\_vecs  = Q.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
+\DoxyCodeLine{55     right\_vecs = (\mbox{\hyperlink{gaussJordan_8h_a087b5645f23895d3500c37baa113cb9d}{gaussJordan}}(\mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(singular\_values)) * left\_vecs.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}()) * A;}
+\DoxyCodeLine{56   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(n\_orig == m\_orig) \{}
+\DoxyCodeLine{57     left\_vecs       = Q.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
+\DoxyCodeLine{58     right\_vecs      = left\_vecs;}
+\DoxyCodeLine{59     singular\_values = singular\_values.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keywordtype}{double} val) \{ \textcolor{keywordflow}{return} val * val; \});}
+\DoxyCodeLine{60   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{61     right\_vecs = Q.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
+\DoxyCodeLine{62     left\_vecs  = A * (right\_vecs.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() * \mbox{\hyperlink{gaussJordan_8h_a087b5645f23895d3500c37baa113cb9d}{gaussJordan}}(\mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(singular\_values)));}
+\DoxyCodeLine{63   \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65   \textcolor{keywordflow}{return} \{ left\_vecs, singular\_values, right\_vecs \};}
+\DoxyCodeLine{66 \}}
+\DoxyCodeLine{67 }
 
 \end{DoxyCode}

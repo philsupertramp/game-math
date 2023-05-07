@@ -1,6 +1,7 @@
 \hypertarget{numerics_2utils_8h}{}\doxysection{include/math/numerics/utils.h File Reference}
 \label{numerics_2utils_8h}\index{include/math/numerics/utils.h@{include/math/numerics/utils.h}}
 {\ttfamily \#include \char`\"{}../\+Matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../sorting.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
@@ -23,6 +24,10 @@
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_aa7eb7984fa32d548f6a24b4d440c919a}{tridiag}} (size\+\_\+t rows, size\+\_\+t columns, double left, double center, double right)
 \item 
 double \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{numerics_2utils_8h_a62b90f37912a0050991dfb3098e1f645}{norm}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in, int axis)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{numerics_2utils_8h_a3941c57711e2df110722731c03ceb7b5}{argsort}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in)
 \item 
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{numerics_2utils_8h_a7f1911548355817103d492232e6eaa8d}{nonzero}} (const std\+::function$<$ bool(const double \&)$>$ \&validation, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&x)
 \item 
@@ -56,6 +61,22 @@ accuracy of calculated results
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{numerics_2utils_8h_a3941c57711e2df110722731c03ceb7b5}\label{numerics_2utils_8h_a3941c57711e2df110722731c03ceb7b5}} 
+\index{utils.h@{utils.h}!argsort@{argsort}}
+\index{argsort@{argsort}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{argsort()}{argsort()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ argsort (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{in }\end{DoxyParamCaption})}
+
+Computes indices of ordered vector. Orders vector, than builds resulting vector by selecting indices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & given matrix to sort \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indices of sorted version of given matrix 
+\end{DoxyReturn}
 \mbox{\Hypertarget{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}\label{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}} 
 \index{utils.h@{utils.h}!diag@{diag}}
 \index{diag@{diag}!utils.h@{utils.h}}
@@ -63,6 +84,16 @@ accuracy of calculated results
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ diag (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{in }\end{DoxyParamCaption})}
 
+Method to extract diagonal elements of given matrix into dedicated vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & given matrix to extract diagonal elements from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of diagonal elements 
+\end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{numerics_2lin_alg_2TestSVD_8cpp-example}{numerics/lin\+\_\+alg/\+Test\+SVD.\+cpp}}.\end{Desc}
@@ -129,7 +160,7 @@ index vectors of values true to the validation function
 \mbox{\Hypertarget{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}\label{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}} 
 \index{utils.h@{utils.h}!norm@{norm}}
 \index{norm@{norm}!utils.h@{utils.h}}
-\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily double norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{in }\end{DoxyParamCaption})}
 
 Calculates the p=2-\/Norm for a given matrix
@@ -151,6 +182,24 @@ In 2D this is equal to the pythagorean theorem.
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{numerics_2TestUtils_8cpp-example}{numerics/\+Test\+Utils.\+cpp}}, and \mbox{\hyperlink{statistics_2TestProbability_8cpp-example}{statistics/\+Test\+Probability.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{numerics_2utils_8h_a62b90f37912a0050991dfb3098e1f645}\label{numerics_2utils_8h_a62b90f37912a0050991dfb3098e1f645}} 
+\index{utils.h@{utils.h}!norm@{norm}}
+\index{norm@{norm}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{in,  }\item[{int}]{axis }\end{DoxyParamCaption})}
+
+Helper method to calculate 2-\/Norm on given axis
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & input matrix to calculate norm(s) of \\
+\hline
+{\em axis} & along which to calculate norm on (options\+: 0 (row-\/wise), 1 (column-\/wise)) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+norm on given axis 
+\end{DoxyReturn}
 \mbox{\Hypertarget{numerics_2utils_8h_aaf883b485905c5bcd46724b44a12e094}\label{numerics_2utils_8h_aaf883b485905c5bcd46724b44a12e094}} 
 \index{utils.h@{utils.h}!ones@{ones}}
 \index{ones@{ones}!utils.h@{utils.h}}

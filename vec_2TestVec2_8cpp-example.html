@@ -87,163 +87,163 @@ $(function() {
 <div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><span class="keyword">class </span>Vec2TestCase : <span class="keyword">public</span> Test</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">bool</span> testInitialization() {</div>
-<div class="line">        <a id="_a0" name="_a0"></a><a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo;</div>
-<div class="line">        assert(foo.<a id="a1" name="a1"></a><a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)0);</div>
-<div class="line">        assert(foo.<a id="a2" name="a2"></a><a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)0);</div>
+<div class="line">  <span class="keywordtype">bool</span> testInitialization() {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo;</div>
+<div class="line">    assert(foo.<a id="a1" name="a1"></a><a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)0);</div>
+<div class="line">    assert(foo.<a id="a2" name="a2"></a><a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)0);</div>
 <div class="line"> </div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo2((T)1, (T)2);</div>
-<div class="line">        assert(foo2.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)1);</div>
-<div class="line">        assert(foo2.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)2);</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo2((T)1, (T)2);</div>
+<div class="line">    assert(foo2.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)1);</div>
+<div class="line">    assert(foo2.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)2);</div>
 <div class="line"> </div>
-<div class="line">        T vals[2]   = { 2, 4 };</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> vec = build_vec2&lt;T&gt;((<span class="keywordtype">void</span>*)vals);</div>
-<div class="line">        assert(vec.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)2);</div>
-<div class="line">        assert(vec.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)4);</div>
+<div class="line">    T vals[2]   = { 2, 4 };</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> vec = build_vec2&lt;T&gt;((<span class="keywordtype">void</span>*)vals);</div>
+<div class="line">    assert(vec.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)2);</div>
+<div class="line">    assert(vec.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)4);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> testAssignment() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo;</div>
+<div class="line"> </div>
+<div class="line">    foo.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> = (T)1;</div>
+<div class="line">    foo.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> = (T)2;</div>
+<div class="line"> </div>
+<div class="line">    assert(foo.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)1);</div>
+<div class="line">    assert(foo.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)2);</div>
+<div class="line"> </div>
+<div class="line">    foo[0] = (T)3;</div>
+<div class="line">    foo[1] = (T)4;</div>
+<div class="line"> </div>
+<div class="line">    assert(foo.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)3);</div>
+<div class="line">    assert(foo.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)4);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> testMemberAccess() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo;</div>
+<div class="line"> </div>
+<div class="line">    foo.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> = (T)1;</div>
+<div class="line">    foo.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> = (T)2;</div>
+<div class="line"> </div>
+<div class="line">    assert(foo[0] == 1);</div>
+<div class="line">    assert(foo[1] == 2);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> testMisc() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo(2, 2);</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> bar(2, -2);</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> baz(10, 0);</div>
+<div class="line"> </div>
+<div class="line">    assert(foo.<a id="a3" name="a3"></a><a class="code hl_function" href="structvec2.html#a98b53c74527a746687775313f1774a63">length</a>() == 2.82842708f);</div>
+<div class="line">    assert(bar.<a class="code hl_function" href="structvec2.html#a98b53c74527a746687775313f1774a63">length</a>() == 2.82842708f);</div>
+<div class="line">    assert(baz.<a class="code hl_function" href="structvec2.html#a98b53c74527a746687775313f1774a63">length</a>() == 10.0f);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span>(extended) {</div>
+<div class="line">      <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> normFoo = foo.<a id="a4" name="a4"></a><a class="code hl_function" href="structvec2.html#a408d0ae10689bf49bf53fb63bf1696bc">normalize</a>();</div>
+<div class="line">      <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> normBar = bar.<a class="code hl_function" href="structvec2.html#a408d0ae10689bf49bf53fb63bf1696bc">normalize</a>();</div>
+<div class="line">      <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> normBaz = baz.<a class="code hl_function" href="structvec2.html#a408d0ae10689bf49bf53fb63bf1696bc">normalize</a>();</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// floating point precision 1e-7</span></div>
+<div class="line">      assert(normFoo.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> - (T)0.70710679328816484f &lt; 1e-7);</div>
+<div class="line">      assert(normFoo.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> - (T)0.70710679328816484f &lt; 1e-7);</div>
+<div class="line">      assert(normBar.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> - (T)0.70710679328816484f &lt; 1e-7);</div>
+<div class="line">      assert(normBar.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> - (T)-0.70710679328816484f &lt; 1e-7);</div>
+<div class="line">      assert(normBaz.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> - (T)1.0f &lt; 1e-7);</div>
+<div class="line">      assert(normBaz.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> - (T)0.0f &lt; 1e-7);</div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> testAssignment() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">bool</span> testOperators() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo(1, 1);</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> bar(1, -1);</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> baz(10, 0);</div>
+<div class="line">    <span class="comment">// +</span></div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> fooCopy = foo;</div>
+<div class="line">    fooCopy += bar;</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == 2.0f);</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == 0.0f);</div>
+<div class="line">    fooCopy = foo + bar;</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == 2.0f);</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == 0.0f);</div>
+<div class="line">    fooCopy = foo;</div>
 <div class="line"> </div>
-<div class="line">        foo.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> = (T)1;</div>
-<div class="line">        foo.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> = (T)2;</div>
+<div class="line">    <span class="comment">// -</span></div>
+<div class="line">    fooCopy -= bar;</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == 0.0f);</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == 2.0f);</div>
+<div class="line">    fooCopy = foo - bar;</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == 0.0f);</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == 2.0f);</div>
+<div class="line">    fooCopy = foo;</div>
 <div class="line"> </div>
-<div class="line">        assert(foo.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)1);</div>
-<div class="line">        assert(foo.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)2);</div>
+<div class="line">    <span class="comment">// *</span></div>
+<div class="line">    fooCopy *= 2.0f;</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)2.0f);</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)2.0f);</div>
+<div class="line">    fooCopy = foo * 2.0f;</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)2.0f);</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)2.0f);</div>
 <div class="line"> </div>
-<div class="line">        foo[0] = (T)3;</div>
-<div class="line">        foo[1] = (T)4;</div>
+<div class="line">    <span class="keywordtype">float</span> fooVal = foo * bar;</div>
+<div class="line">    assert(fooVal == (T)0.0f);</div>
+<div class="line">    fooVal = foo * baz;</div>
+<div class="line">    assert(fooVal == (T)10.0f);</div>
+<div class="line">    fooCopy = foo;</div>
 <div class="line"> </div>
-<div class="line">        assert(foo.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)3);</div>
-<div class="line">        assert(foo.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)4);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> testMemberAccess() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo;</div>
+<div class="line">    <span class="comment">// /</span></div>
+<div class="line">    fooCopy /= 2.0f;</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)0.5f);</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)0.5f);</div>
+<div class="line">    fooCopy = foo / 2.0f;</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)0.5f);</div>
+<div class="line">    assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)0.5f);</div>
 <div class="line"> </div>
-<div class="line">        foo.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> = (T)1;</div>
-<div class="line">        foo.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> = (T)2;</div>
+<div class="line">    <span class="comment">// ostream&lt;&lt;</span></div>
+<div class="line">    <span class="comment">//        std::cout &lt;&lt; &quot;vec2:\n&quot; &lt;&lt; foo;</span></div>
 <div class="line"> </div>
-<div class="line">        assert(foo[0] == 1);</div>
-<div class="line">        assert(foo[1] == 2);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> testMisc() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo(2, 2);</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> bar(2, -2);</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> baz(10, 0);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">        assert(foo.<a id="a3" name="a3"></a><a class="code hl_function" href="structvec2.html#a98b53c74527a746687775313f1774a63">length</a>() == 2.82842708f);</div>
-<div class="line">        assert(bar.<a class="code hl_function" href="structvec2.html#a98b53c74527a746687775313f1774a63">length</a>() == 2.82842708f);</div>
-<div class="line">        assert(baz.<a class="code hl_function" href="structvec2.html#a98b53c74527a746687775313f1774a63">length</a>() == 10.0f);</div>
+<div class="line">  <span class="keywordtype">bool</span> testComparison() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> a(1, 2);</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> b(1, 2);</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">if</span>(extended) {</div>
-<div class="line">            <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> normFoo = foo.<a id="a4" name="a4"></a><a class="code hl_function" href="structvec2.html#a408d0ae10689bf49bf53fb63bf1696bc">normalize</a>();</div>
-<div class="line">            <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> normBar = bar.<a class="code hl_function" href="structvec2.html#a408d0ae10689bf49bf53fb63bf1696bc">normalize</a>();</div>
-<div class="line">            <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> normBaz = baz.<a class="code hl_function" href="structvec2.html#a408d0ae10689bf49bf53fb63bf1696bc">normalize</a>();</div>
+<div class="line">    assert(a == b);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">            <span class="comment">// floating point precision 1e-7</span></div>
-<div class="line">            assert(normFoo.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> - (T)0.70710679328816484f &lt; 1e-7);</div>
-<div class="line">            assert(normFoo.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> - (T)0.70710679328816484f &lt; 1e-7);</div>
-<div class="line">            assert(normBar.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> - (T)0.70710679328816484f &lt; 1e-7);</div>
-<div class="line">            assert(normBar.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> - (T)-0.70710679328816484f &lt; 1e-7);</div>
-<div class="line">            assert(normBaz.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> - (T)1.0f &lt; 1e-7);</div>
-<div class="line">            assert(normBaz.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> - (T)0.0f &lt; 1e-7);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">bool</span> testOperators() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> foo(1, 1);</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> bar(1, -1);</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> baz(10, 0);</div>
-<div class="line">        <span class="comment">// +</span></div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> fooCopy = foo;</div>
-<div class="line">        fooCopy += bar;</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == 2.0f);</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == 0.0f);</div>
-<div class="line">        fooCopy = foo + bar;</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == 2.0f);</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == 0.0f);</div>
-<div class="line">        fooCopy = foo;</div>
+<div class="line">  <span class="keywordtype">bool</span> testCast() {</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> a(1, 2);</div>
+<div class="line">    <a class="code hl_struct" href="structvec2.html">vec2&lt;int&gt;</a> a2(1, 2);</div>
+<div class="line">    <span class="keyword">auto</span> b = <a class="code hl_struct" href="structvec2.html">vec2&lt;int&gt;</a>(a);</div>
 <div class="line"> </div>
-<div class="line">        <span class="comment">// -</span></div>
-<div class="line">        fooCopy -= bar;</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == 0.0f);</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == 2.0f);</div>
-<div class="line">        fooCopy = foo - bar;</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == 0.0f);</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == 2.0f);</div>
-<div class="line">        fooCopy = foo;</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// *</span></div>
-<div class="line">        fooCopy *= 2.0f;</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)2.0f);</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)2.0f);</div>
-<div class="line">        fooCopy = foo * 2.0f;</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)2.0f);</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)2.0f);</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordtype">float</span> fooVal = foo * bar;</div>
-<div class="line">        assert(fooVal == (T)0.0f);</div>
-<div class="line">        fooVal = foo * baz;</div>
-<div class="line">        assert(fooVal == (T)10.0f);</div>
-<div class="line">        fooCopy = foo;</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// /</span></div>
-<div class="line">        fooCopy /= 2.0f;</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)0.5f);</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)0.5f);</div>
-<div class="line">        fooCopy = foo / 2.0f;</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#acbedc70458fbe177e24770b64267f07d">x</a> == (T)0.5f);</div>
-<div class="line">        assert(fooCopy.<a class="code hl_variable" href="structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b">y</a> == (T)0.5f);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// ostream&lt;&lt;</span></div>
-<div class="line">        <span class="comment">//        std::cout &lt;&lt; &quot;vec2:\n&quot; &lt;&lt; foo;</span></div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> testComparison() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> a(1, 2);</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> b(1, 2);</div>
-<div class="line"> </div>
-<div class="line">        assert(a == b);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> testCast() {</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;T&gt;</a> a(1, 2);</div>
-<div class="line">        <a class="code hl_struct" href="structvec2.html">vec2&lt;int&gt;</a> a2(1, 2);</div>
-<div class="line">        <span class="keyword">auto</span> b = <a class="code hl_struct" href="structvec2.html">vec2&lt;int&gt;</a>(a);</div>
-<div class="line"> </div>
-<div class="line">        assert(a2 == b);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
+<div class="line">    assert(a2 == b);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> run() {</div>
-<div class="line">        testInitialization();</div>
-<div class="line">        testAssignment();</div>
-<div class="line">        testMemberAccess();</div>
-<div class="line">        testMisc();</div>
-<div class="line">        testOperators();</div>
-<div class="line">        testComparison();</div>
-<div class="line">        testCast();</div>
-<div class="line">    }</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> run() {</div>
+<div class="line">    testInitialization();</div>
+<div class="line">    testAssignment();</div>
+<div class="line">    testMemberAccess();</div>
+<div class="line">    testMisc();</div>
+<div class="line">    testOperators();</div>
+<div class="line">    testComparison();</div>
+<div class="line">    testCast();</div>
+<div class="line">  }</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="keyword">auto</span> testCase = Vec2TestCase&lt;int&gt;();</div>
-<div class="line">    testCase.run();</div>
-<div class="line">    <span class="keyword">auto</span> testCase2     = Vec2TestCase&lt;float&gt;();</div>
-<div class="line">    testCase2.extended = <span class="keyword">true</span>;</div>
-<div class="line">    testCase2.run();</div>
-<div class="line">    <span class="keyword">auto</span> testCase3     = Vec2TestCase&lt;double&gt;();</div>
-<div class="line">    testCase3.extended = <span class="keyword">true</span>;</div>
-<div class="line">    testCase3.run();</div>
+<div class="line">  <span class="keyword">auto</span> testCase = Vec2TestCase&lt;int&gt;();</div>
+<div class="line">  testCase.run();</div>
+<div class="line">  <span class="keyword">auto</span> testCase2     = Vec2TestCase&lt;float&gt;();</div>
+<div class="line">  testCase2.extended = <span class="keyword">true</span>;</div>
+<div class="line">  testCase2.run();</div>
+<div class="line">  <span class="keyword">auto</span> testCase3     = Vec2TestCase&lt;double&gt;();</div>
+<div class="line">  testCase3.extended = <span class="keyword">true</span>;</div>
+<div class="line">  testCase3.run();</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="amath_8h_html"><div class="ttname"><a href="math_8h.html">math.h</a></div></div>
 <div class="ttc" id="astructvec2_html"><div class="ttname"><a href="structvec2.html">vec2</a></div><div class="ttdef"><b>Definition:</b> vec2.h:11</div></div>

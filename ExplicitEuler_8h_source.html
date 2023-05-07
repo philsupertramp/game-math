@@ -92,35 +92,35 @@ $(function() {
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="ExplicitEuler_8h.html#af98076bc70f573a584428cf3fe528af3">   26</a></span><a class="code hl_struct" href="structODEResult.html">ODEResult</a> <a class="code hl_function" href="ExplicitEuler_8h.html#af98076bc70f573a584428cf3fe528af3">ODEExpEuler</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="ode_2ode_8h.html#ad676feada87db8725ebe89248f5f3379">ODE</a>&amp; fun, <span class="keyword">const</span> std::vector&lt;double&gt;&amp; tInterval, <span class="keyword">const</span> <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a>&amp; y0, <span class="keywordtype">double</span> h = 0.0) {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">size_t</span> dim       = tInterval.size();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">size_t</span> elem_size = y0.<a class="code hl_function" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">if</span>(h == 0) { h = (tInterval[dim - 1] - tInterval[0]) / 1000; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">size_t</span> dim       = tInterval.size();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keywordtype">size_t</span> elem_size = y0.<a class="code hl_function" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keywordflow">if</span>(h == 0) { h = (tInterval[dim - 1] - tInterval[0]) / 1000; }</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">//    % initialize result vectors</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">auto</span> result_dim = ((tInterval[dim - 1] - tInterval[0]) / h) + 1;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> t(0, result_dim, 1, 1);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">size_t</span> n = result_dim;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">auto</span> y   = <a class="code hl_function" href="numerics_2utils_8h.html#af5994908a659705a385de5bee89039fc">zeros</a>(n, elem_size);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="comment">//    % initialize result vectors</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keyword">auto</span> result_dim = ((tInterval[dim - 1] - tInterval[0]) / h) + 1;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> t(0, result_dim, 1, 1);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keywordtype">size_t</span> n = result_dim;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keyword">auto</span> y   = <a class="code hl_function" href="numerics_2utils_8h.html#af5994908a659705a385de5bee89039fc">zeros</a>(n, elem_size);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    t(0, 0) = tInterval[0];</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> i = 0; i &lt; y0.<a class="code hl_function" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>(); ++i) y(0, i) = y0(0, i);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  t(0, 0) = tInterval[0];</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> i = 0; i &lt; y0.<a class="code hl_function" href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">columns</a>(); ++i) y(0, i) = y0(0, i);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 1; i &lt; n; i++) {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">auto</span> cur_t               = t(i - 1, 0);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> cur_y     = y(i - 1);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> fun_value = fun(cur_t, cur_y);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 1; i &lt; n; i++) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">auto</span> cur_t               = t(i - 1, 0);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> cur_y     = y(i - 1);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classMatrix.html">Matrix&lt;double&gt;</a> fun_value = fun(cur_t, cur_y);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">auto</span> yi = cur_y + fun_value * h;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        y.<a class="code hl_function" href="classMatrix.html#a097ed201a1768090a524f621ee2d80a1">SetRow</a>(i, yi.GetSlice(0, 0, 0, elem_size - 1));</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        t(i, 0) = cur_t + h;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">return</span> { y, t };</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">auto</span> yi = cur_y + fun_value * h;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    y.<a class="code hl_function" href="classMatrix.html#a097ed201a1768090a524f621ee2d80a1">SetRow</a>(i, yi.GetSlice(0, 0, 0, elem_size - 1));</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    t(i, 0) = cur_t + h;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keywordflow">return</span> { y, t };</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="ttc" id="aExplicitEuler_8h_html_af98076bc70f573a584428cf3fe528af3"><div class="ttname"><a href="ExplicitEuler_8h.html#af98076bc70f573a584428cf3fe528af3">ODEExpEuler</a></div><div class="ttdeci">ODEResult ODEExpEuler(const ODE &amp;fun, const std::vector&lt; double &gt; &amp;tInterval, const Matrix&lt; double &gt; &amp;y0, double h=0.0)</div><div class="ttdef"><b>Definition:</b> ExplicitEuler.h:26</div></div>
-<div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:40</div></div>
-<div class="ttc" id="aclassMatrix_html_a097ed201a1768090a524f621ee2d80a1"><div class="ttname"><a href="classMatrix.html#a097ed201a1768090a524f621ee2d80a1">Matrix::SetRow</a></div><div class="ttdeci">void SetRow(size_t index, const Matrix&lt; T &gt; &amp;other)</div><div class="ttdef"><b>Definition:</b> Matrix.h:514</div></div>
-<div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:189</div></div>
+<div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:42</div></div>
+<div class="ttc" id="aclassMatrix_html_a097ed201a1768090a524f621ee2d80a1"><div class="ttname"><a href="classMatrix.html#a097ed201a1768090a524f621ee2d80a1">Matrix::SetRow</a></div><div class="ttdeci">void SetRow(size_t index, const Matrix&lt; T &gt; &amp;other)</div><div class="ttdef"><b>Definition:</b> Matrix.h:579</div></div>
+<div class="ttc" id="aclassMatrix_html_a710d9b6934a24229fe06789f65ed0571"><div class="ttname"><a href="classMatrix.html#a710d9b6934a24229fe06789f65ed0571">Matrix::columns</a></div><div class="ttdeci">size_t columns() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:211</div></div>
 <div class="ttc" id="anumerics_2utils_8h_html_af5994908a659705a385de5bee89039fc"><div class="ttname"><a href="numerics_2utils_8h.html#af5994908a659705a385de5bee89039fc">zeros</a></div><div class="ttdeci">Matrix&lt; double &gt; zeros(size_t rows, size_t columns, size_t elements=1)</div></div>
 <div class="ttc" id="aode_2ode_8h_html"><div class="ttname"><a href="ode_2ode_8h.html">ode.h</a></div></div>
 <div class="ttc" id="aode_2ode_8h_html_ad676feada87db8725ebe89248f5f3379"><div class="ttname"><a href="ode_2ode_8h.html#ad676feada87db8725ebe89248f5f3379">ODE</a></div><div class="ttdeci">std::function&lt; Matrix&lt; double &gt;(double, Matrix&lt; double &gt;)&gt; ODE</div><div class="ttdoc">alias for ODE</div><div class="ttdef"><b>Definition:</b> ode.h:17</div></div>
