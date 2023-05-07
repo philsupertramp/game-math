@@ -76,12 +76,12 @@ class ProbabilityTestCase : public Test
       { 12.5, 10., 9.95, 11.5, 12., 10., 8. },
     };
 
-    auto res  = sd(A.Transpose());
-    auto res2 = sd(B.Transpose());
+    auto res  = sd(A.Transpose(), 0);
+    auto res2 = sd(B.Transpose(), 0);
 
     AssertEqual(res(0, 0), 3.6027200608339);
     AssertEqual(res2(0, 0), 3.6027200608339);
-    AssertEqual(res2(1, 0), 1.4279641566416);
+    AssertEqual(res2(0, 1), 1.4279641566416);
 
 
     return true;
@@ -91,7 +91,7 @@ class ProbabilityTestCase : public Test
     Matrix<double> A = { { 1, 2, 3 } };
     Matrix<double> B = { { 1, 2, 3 } };
 
-    std::cout << corr(A, B);
+    std::cout << corr(A.Transpose(), B.Transpose());
 
     return true;
   }

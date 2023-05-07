@@ -133,11 +133,11 @@ Matrix<double> sd(const Matrix<double>& x, int axis) {
                   return val * val;
                 })
                 .sumElements()
-                / (double)x.rows();
+                / (double)(row_wise ? x.rows() : x.columns());
 
-    sds(row_wise ? col : 0, row_wise ? 0 : col) = sqrt(diff);
+    sds(row_wise ? 0 : col, row_wise ? col : 0) = sqrt(diff);
   }
   return sds;
 }
 
-Matrix<double> corr(const Matrix<double>& A, const Matrix<double>& B) { return sd(A) * sd(B) * (1.0 / cov(A, B)); }
+Matrix<double> corr(const Matrix<double>& A, const Matrix<double>& B) { return sd(A) * sd(B) / cov(A, B); }

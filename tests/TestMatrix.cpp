@@ -20,6 +20,13 @@ class MatrixTestCase : public Test
     for(size_t i = 0; i < D.rows(); ++i) {
       for(size_t j = 0; j < D.columns(); ++j) { assert(D(i, j) == 2.0); }
     }
+    D = A;
+    D *= v;
+    D.assertSize(A);
+    for(size_t i = 0; i < D.rows(); ++i) {
+      for(size_t j = 0; j < D.columns(); ++j) { assert(D(i, j) == 2.0); }
+    }
+
     //    B * C; <- not possible
     C* C2;
 
@@ -56,6 +63,22 @@ class MatrixTestCase : public Test
     return true;
   }
 
+  bool TestMatrixDivision(){
+    Matrix<double> A({{2,4,8}});
+    Matrix<double> B({{.5,.25,.125}});
+    Matrix<double> C({{1,2,4}});
+    AssertEqual(1.0/A, B);
+    AssertEqual(A/2, C);
+    AssertEqual(1/A, B);
+    AssertEqual(A/2.0f, C);
+
+    auto E = Matrix<double>(2,2,2);
+    auto F = Matrix<double>(1,2,2);
+    AssertEqual(E/F,2*E);
+
+      return true;
+    }
+
   bool TestMatrixAddition() {
     Matrix<double> A(2.0, 2, 2);
     Matrix<double> B(2.0, 2, 2);
@@ -75,6 +98,10 @@ class MatrixTestCase : public Test
 
     // Impossible
     //    vec2 + A;
+    auto foo = A + vec2;
+    Matrix<double> F(3.0,2,2);
+    AssertEqual(foo, F);
+    AssertEqual(A + vec2c, E);
     return true;
   }
 
@@ -237,6 +264,22 @@ class MatrixTestCase : public Test
     for(size_t i = 0; i < 2; i++) {
       for(size_t j = 0; j < 2; j++) { assert(m6(i, j) == 1.0); }
     }
+
+    Matrix<double> foo = {{1.,2.,3.}};
+    Matrix<float> bar = foo;
+    Matrix<int> baz = bar;
+
+    AssertEqual(foo(0, 1), 2.0);
+    AssertEqual(bar(0, 1), 2.0f);
+    AssertEqual(baz(0, 2), 3);
+
+    AssertEqual(foo, Matrix<double>(&foo(0, 0), 3));
+    AssertEqual(foo, Matrix<double>((double*)&*foo, 3));
+
+    const Matrix<double> const_foo = foo;
+    AssertEqual(const_foo, Matrix<double>(&const_foo(0, 0), 3));
+    AssertEqual(const_foo, Matrix<double>((double*)&*const_foo, 3));
+
     return true;
   }
 
@@ -283,6 +326,14 @@ class MatrixTestCase : public Test
     return true;
   }
 
+  bool TestMax(){
+
+    Matrix<int> A({{1,2,3,4,5,6}});
+    AssertEqual(elemMax(A,0), 6);
+    return true;
+
+  }
+
   bool TestCorr() {
     Matrix<int> A({ { 1, 2, 3, 4, 5 } });
     Matrix<int> B({ { 5, 4, 3, 2, 1 } });
@@ -297,6 +348,9 @@ class MatrixTestCase : public Test
     Matrix<double> B(0, 2, 2);
 
     assert(Corr(A, B) < 4);
+
+    Matrix<double> C = Matrix<double>::Random(2, 2, 1);
+    assert(Corr(C, B) < 4);
 
     return true;
   }
@@ -325,17 +379,31 @@ class MatrixTestCase : public Test
     Matrix<int> B({ { 2, 2 }, { 3, 3 } });
 
     AssertEqual(A.GetSlice(1, 2, 1, 2), B);
+    AssertEqual(A.GetSlice(1, 2, 1), B);
 
     Matrix<int> C({ { 1, 2 }, { 3, 4 } });
     Matrix<int> D({ { 1, 2 } });
     Matrix<int> E({ { 3, 4 } });
 
     //        std::cout << C(0) << C(1);
+    AssertEqual(C.GetSlice(0, 0), D);
+    AssertEqual(C.GetSlice(0, 0, 0), D);
+    AssertEqual(C.GetSlice(0, 0, 0, 1), D);
     AssertEqual(C(0), D);
+    AssertEqual(C.GetSlice(1, 1), E);
+    AssertEqual(C.GetSlice(1, 1, 0), E);
+    AssertEqual(C.GetSlice(1, 1, 0, 1), E);
     AssertEqual(C(1), E);
     return true;
   }
 
+  bool TestGetComponents(){
+    Matrix<double> A({{1,2,3,4,5,6,7,8,9}});
+
+    AssertEqual(A.GetComponents(0), A);
+
+    return true;
+    }
   bool TestApply() {
     Matrix<double> A = eye(2, 2);
     Matrix<double> B = eye(2, 2);
@@ -371,12 +439,17 @@ class MatrixTestCase : public Test
     AssertEqual(mean(A), B);
     AssertEqual(mean(A, 0), C);
     AssertEqual(mean(A, 1), D);
+
+    AssertEqual(elemMean(A,0), B(0,0));
+
+    return true;
   }
 
 public:
   void run() override {
     TestMatrixInit();
     TestMatrixMultiplication();
+    TestMatrixDivision();
     TestMatrixAddition();
     TestMatrixCompare();
     TestMatrixDeterminant();
@@ -395,6 +468,8 @@ public:
     TestApply();
     TestUnique();
     TestMean();
+    TestMax();
+    TestGetComponents();
   }
 };
 

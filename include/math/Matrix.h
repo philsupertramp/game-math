@@ -29,7 +29,7 @@ struct MatrixDimension {
  * Represents a multi dimensional Matrix of data with type `T`
  *
  * The class is capable of regular matrix operations, including matrix - vector calculation.
- * It also holds several helper methods to calculate data science specific products or other
+* It also holds several helper methods to calculate data science specific products or other
  * common operations.
  * @tparam T
  *
@@ -133,11 +133,11 @@ public:
    */
   template<typename V>
   Matrix(const Matrix<V>& other) {
-    Resize(other._rows, other._columns, other._element_size);
-    for(size_t col = 0; col < other._columns; ++col) {
-      for(size_t row = 0; row < other._rows; ++row) {
-        for(size_t elem = 0; elem < other._element_size; ++elem) {
-          this(col, row, elem) = static_cast<T>(other(col, row, elem));
+    Resize(other.rows(), other.columns(), other.elements());
+    for(size_t col = 0; col < other.columns(); ++col) {
+      for(size_t row = 0; row < other.rows(); ++row) {
+        for(size_t elem = 0; elem < other.elements(); ++elem) {
+          _data[GetIndex(row,col,elem)] = static_cast<T>(other(row, col, elem));
         }
       }
     }
@@ -145,13 +145,6 @@ public:
     this->needsFree = true;
   }
 
-  /**
-   * Conversion operator to convert given Matrix with elements of type T into Matrix with elements of type V
-   */
-  template<typename V>
-  operator Matrix<V>() {
-    return Matrix<T>(*this);
-  }
   /**
    * Default destructor, doesn't do anything
    */
@@ -317,6 +310,34 @@ public:
    */
   bool operator!=(const Matrix<T>& rhs) const {
     return !(rhs == *this); // NOLINT
+  }
+
+  bool operator<(const Matrix<T>& rhs) const {
+    assertSize(rhs);
+    for(size_t i = 0; i < _rows; ++i){
+      for(size_t j = 0; j < _columns; ++j){
+        for(size_t k = 0; k < _element_size; ++k){
+          if(_data[GetIndex(i,j,k)] > rhs(i,j,k)){
+            return false;
+          }
+        }
+      }
+    }
+    return true;
+  }
+
+  bool operator>(const Matrix<T>& rhs) const {
+    assertSize(rhs);
+    for(size_t i = 0; i < _rows; ++i){
+      for(size_t j = 0; j < _columns; ++j){
+        for(size_t k = 0; k < _element_size; ++k){
+          if(_data[GetIndex(i,j,k)] < rhs(i,j,k)){
+            return false;
+          }
+        }
+      }
+    }
+    return true;
   }
 
   /**
@@ -630,7 +651,7 @@ public:
     return GetSlice(rowStart, rowEnd, 0, _columns - 1);
   }
   [[nodiscard]] inline Matrix GetSlice(size_t rowStart, size_t rowEnd, size_t colStart) const {
-    return GetSlice(rowStart, rowEnd, colStart, colStart + _columns - 1);
+    return GetSlice(rowStart, rowEnd, colStart, _columns - 1);
   }
   /**
    * Returns a slice of given dimension from the matrix
@@ -794,7 +815,13 @@ inline Matrix<T> operator-(Matrix<T> lhs, const Matrix<T>& rhs) {
   }
   return *result;
 }
-
+/**
+ * Scalar Matrix-division
+ * @tparam T value type of elements inside given matrix
+ * @param lhs scalar divident
+ * @param rhs matrix divisor
+ * @return
+ */
 template<typename T, typename U>
 inline Matrix<T> operator/(U lhs, const Matrix<T>& rhs) {
   auto result = new Matrix<T>(0.0, rhs.rows(), rhs.columns(), rhs.elements());
@@ -804,6 +831,61 @@ inline Matrix<T> operator/(U lhs, const Matrix<T>& rhs) {
     }
   }
   return *result;
+}
+/**
+ * Element wise division of matrix elements with given scalar
+ * @tparam T value type of elements inside given matrix
+ * @param lhs matrix divident
+ * @param rhs scalar divisor
+ * @return
+ */
+template<typename T, typename U>
+inline Matrix<T> operator/(Matrix<T> lhs, const U& rhs) {
+  auto result = new Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
+  for(size_t i = 0; i < lhs.rows(); i++) {
+    for(size_t j = 0; j < lhs.columns(); j++) {
+      for(size_t elem = 0; elem < lhs.elements(); elem++) { (*result)(i, j, elem) = lhs(i, j, elem) / rhs; }
+    }
+  }
+  return *result;
+}
+
+
+/**
+ * Matrix-Matrix division, element wise division if rhs is matrix. Row/Column-wise division for given rhs vector.
+ *
+ * rhs matrix:
+ *  lhs: N x M
+ *  rhs: M x T
+ *  result: N x T
+ *
+ * rhs vector:
+ *  lhs: N x M
+ *  rhs: 1 x M or M x 1
+ *  result: N x M
+ *
+ * @tparam value type of matrix elements
+ * @param lhs matrix divident
+ * @param rhs matrix divisor
+ * @retrun matrix in dimension of given 
+ *
+ */
+template<typename T>
+inline Matrix<T> operator/(const Matrix<T>& lhs, const Matrix<T>& rhs) {
+  auto result = new Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
+  if(rhs.IsVector()){
+    bool row_wise = rhs.columns() > rhs.columns();
+    for(size_t i = 0; i < lhs.rows(); i++) {
+      for(size_t j = 0; j < lhs.columns(); j++) {
+        for(size_t elem = 0; elem < lhs.elements(); elem++) {
+          (*result)(i, j, elem) = lhs(i, j, elem) / rhs(row_wise ? i : 0, row_wise ? 0 : j, elem);
+        }
+      }
+    }
+    return *result;
+  }
+
+  return lhs * (1.0/rhs);
 }
 
 /**
@@ -848,15 +930,27 @@ inline Matrix<T> operator*(U lambda, const Matrix<T>& A) {
  */
 template<typename T>
 inline Matrix<T>& operator*(const Matrix<T>& lhs, const Matrix<T>& rhs) {
-  assert(lhs.columns() == rhs.rows());
-  assert(lhs.elements() == rhs.elements());
-  auto result = new Matrix<T>(0.0, lhs.rows(), rhs.columns(), rhs.elements());
-  for(size_t i = 0; i < lhs.rows(); i++) {
-    for(size_t j = 0; j < rhs.columns(); j++) {
-      for(size_t k = 0; k < rhs.rows(); k++) {
-        for(size_t elem = 0; elem < rhs.elements(); elem++) {
-          (*result)(i, j, elem) += (T)(lhs(i, k, elem) * rhs(k, j, elem));
+  if(lhs.columns() == rhs.rows() && lhs.elements() == rhs.elements()){
+    auto result = new Matrix<T>(0.0, lhs.rows(), rhs.columns(), rhs.elements());
+    for(size_t i = 0; i < lhs.rows(); i++) {
+      for(size_t j = 0; j < rhs.columns(); j++) {
+        for(size_t k = 0; k < rhs.rows(); k++) {
+          for(size_t elem = 0; elem < rhs.elements(); elem++) {
+            (*result)(i, j, elem) += (T)(lhs(i, k, elem) * rhs(k, j, elem));
+          }
         }
+      }
+    }
+    return *result;
+  }
+  assert(rhs.IsVector() && !lhs.IsVector());
+
+  auto row_wise = rhs.rows() > rhs.columns();
+  auto result = new Matrix<T>(0.0, lhs.rows(), lhs.columns(), lhs.elements());
+  for(size_t i = 0; i < lhs.rows(); ++i){
+    for(size_t j = 0; j < lhs.rows(); ++j){
+      for(size_t k = 0; k < lhs.elements(); ++k){
+        (*result)(i, j, k) = (T)(lhs(i, j, k) * rhs(row_wise ? i : 0, row_wise ? 0 : j, k));
       }
     }
   }
@@ -1142,6 +1236,21 @@ T max(const Matrix<T>& mat) {
   }
   return maxVal;
 }
+
+
+template<typename T>
+Matrix<T> max(const Matrix<T>& mat, int axis) {
+  bool row_wise = axis == 0;
+  Matrix<T> out = Matrix<T>(0, row_wise ? 1 : mat.rows(), row_wise ? mat.columns() : 1);
+
+  for(size_t i = 0; i < (row_wise ? mat.columns() : mat.rows()); ++i) {
+    out(row_wise ? 0 : i, row_wise ? i : 0) = elemMax(mat.GetSlice(
+      row_wise ? 0 : i, row_wise ? mat.rows() - 1 : i,
+      row_wise ? i : 0, row_wise ? i : mat.columns() - 1
+    ), 0);
+  }
+  return out;
+}
 /**
  * Min value of given matrix
  * @tparam T given datatype
@@ -1161,6 +1270,21 @@ T min(const Matrix<T>& mat) {
   return minVal;
 }
 
+template<typename T>
+Matrix<T> min(const Matrix<T>& mat, int axis) {
+  bool row_wise = axis == 0;
+  Matrix<T> out = Matrix<T>(0, row_wise ? 1 : mat.rows(), row_wise ? mat.columns() : 1);
+
+  for(size_t i = 0; i < (row_wise ? mat.columns() : mat.rows()); ++i) {
+    out(row_wise ? 0 : i, row_wise ? i : 0) = elemMin(mat.GetSlice(
+      row_wise ? 0 : i, row_wise ? mat.rows() - 1 : i,
+      row_wise ? i : 0, row_wise ? i : mat.columns() - 1
+    ), 0);
+  }
+  return out;
+}
+
+
 /**
  * Max value from given element index in matrix
  * @tparam T given datatype
@@ -1176,6 +1300,27 @@ T elemMax(const Matrix<T>& mat, const size_t& elemIndex) {
   for(size_t i = 0; i < mat.rows(); i++) {
     for(size_t j = 0; j < mat.columns(); j++) {
       if(mat(i, j, elemIndex) > maxVal) { maxVal = mat(i, j, elemIndex); }
+      index++;
+    }
+  }
+  return maxVal;
+}
+
+/**
+ * Min value from given element index in matrix
+ * @tparam T given datatype
+ * @param mat matrix to search in
+ * @param elemIndex index of element to compute max value of
+ * @return min value over all elements with given index
+ */
+template<typename T>
+T elemMin(const Matrix<T>& mat, const size_t& elemIndex) {
+  assert(mat.elements() - 1 >= elemIndex);
+  T maxVal     = std::numeric_limits<T>::max();
+  size_t index = 0;
+  for(size_t i = 0; i < mat.rows(); i++) {
+    for(size_t j = 0; j < mat.columns(); j++) {
+      if(mat(i, j, elemIndex) < maxVal) { maxVal = mat(i, j, elemIndex); }
       index++;
     }
   }

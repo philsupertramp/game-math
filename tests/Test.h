@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <iostream>
+#include <cmath>
 #include <math/math.h>
 #include <math/numerics/utils.h>
 

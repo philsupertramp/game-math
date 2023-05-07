@@ -1,5 +1,6 @@
 #include "../Test.h"
 #include <math/ds/KNN.h>
+#include <math/ds/DataSet.h>
 
 class KNNTestCase : public Test
 {
@@ -42,12 +43,26 @@ class KNNTestCase : public Test
     return true;
   }
 
+  bool TestPredictionOnIrisData(){
+    Set dataset = Set("./iris_dataset_train.tsv", 4, 1);
+    Set test_set = Set("./iris_dataset_test.tsv", 4, 1);
+
+    auto clf = KNN(10);
+    clf.fit(dataset.Input, dataset.Output);
+    
+    auto preds = clf.predict(test_set.Input);
+
+    AssertEqual(preds, test_set.Output);
+    return true;
+  }
+
 
 public:
   virtual void run() {
     TestConstructor();
     TestFit();
     TestPredict();
+    TestPredictionOnIrisData();
   }
 };
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../format.h"
-#include "math/Matrix.h"
+#include "../Matrix.h"
 #include <fstream>
 #include <map>
 #include <sstream>
@@ -44,7 +44,7 @@ struct Set {
   /**
    * Constructor which immediately reads a given set file
    * @param fileName file name to read from
-   * @param inputCount number input elements
+   *@param inputCount number input elements
    * @param outputCount number output elements
    */
   Set(const char* fileName, size_t inputCount, size_t outputCount) {
