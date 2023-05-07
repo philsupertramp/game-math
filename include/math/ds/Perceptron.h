@@ -2,6 +2,7 @@
 
 #include "../Matrix.h"
 #include "Classifier.h"
+#include "SGD.h"
 
 /**
  * Represents Perceptron definition by Frank Rosenblatt
@@ -64,19 +65,7 @@ public:
    * @return
    */
   Matrix<double> netInput(const Matrix<double>& X) override {
-    Matrix<double> A, B;
-    A.Resize(weights.rows() - 1, weights.columns());
-    B.Resize(1, weights.columns());
-    for(size_t i = 0; i < weights.rows(); i++) {
-      for(size_t j = 0; j < weights.columns(); j++) {
-        if(i == 0) {
-          B(i, j) = weights(i, j);
-        } else {
-          A(i - 1, j) = weights(i, j);
-        }
-      }
-    }
-    return (X * A) + B;
+    return SGD::netInput(X, weights);
   }
 
   /**
