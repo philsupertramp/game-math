@@ -55,11 +55,15 @@ class MatrixTestCase : public Test
     assert(resVec2.columns() == 1);
 
     Matrix<double> vec2A(2.0, 2, 1);
+    Matrix<double> vec2B(2.0, 1, 2);
     Matrix<double> mat2(1.0, 2, 2);
+    Matrix<double> mat2B(2.0, 2, 2);
     Matrix<double> vec2b(4.0, 2, 1);
     Matrix<double> resA = mat2 * vec2A;
+    Matrix<double> resB = mat2 * vec2B;
 
     assert(resA == vec2b);
+    assert(resB == mat2B);
     return true;
   }
 
@@ -203,6 +207,16 @@ class MatrixTestCase : public Test
     //    assert(D == E);
     assert(F != G);
     assert(F.Determinant() == G.Determinant());
+
+    AssertTrue(A < B);
+    AssertTrue(B < A);
+    AssertTrue(A > B);
+    AssertTrue(B > A);
+    AssertTrue(A > C);
+    AssertFalse(A < C);
+    AssertTrue(C < A);
+    AssertFalse(C > A);
+    AssertTrue(G > F);
 
     return true;
   }

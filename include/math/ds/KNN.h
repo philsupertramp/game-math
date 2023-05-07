@@ -11,7 +11,7 @@
  * fit model:
  *  not required
  *
- * predicting:
+ * prediction:
  *  1. Compute distance between test data X and training data weights: $||weights - X_i||_2$
  *  2. Sort distances, in ascending order, select K shortest distances: $\text{argsort} ||weights - X_i||_2$
  *  3. For each class in trainLabels count the number of members inside the distance set: $\gamma_{y_k} \leftarrow \gamma_{y_k} + 1$

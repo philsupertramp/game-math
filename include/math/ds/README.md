@@ -23,13 +23,17 @@ to your main to initialize `Magick++`
 
 ## TOC
 
-File | Usage 
-:--- | --- |
-**Data Science** |
-`DataSet.h` | Represents a dataset |
-`ImageDataSet.h` | Represents a dataset of image files |
-**Machine Learning** |
-*Neuronal Networks* |
-`Perceptron.h` | Perceptron classifier |
-`AdalineGD.h` | Adaline Neuron classifier trained using the gradient decent method |
-`AdalineSGD.h` | Adaline Neuron classifier trained using the statistical gradient decent method |
+| File | Usage |
+|:--- | --- |
+|**Data Science** | |
+|`DataSet.h` | Represents a dataset |
+|`ImageDataSet.h` | Represents a dataset of image files |
+|**Machine Learning** | |
+|*Linear Classifiers*| |
+|`NCC.h`| Nearest Centroid Classifier |
+|*Non-linear Classifiers*| |
+|`KNN.h` | K Nearest Neighbor Classifier |
+|*Neuronal Networks* | |
+|`Perceptron.h` | Perceptron classifier |
+|`AdalineGD.h` | Adaline Neuron classifier trained using the gradient decent method |
+|`AdalineSGD.h` | Adaline Neuron classifier trained using the statistical gradient decent method |
