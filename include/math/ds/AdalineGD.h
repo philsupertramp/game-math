@@ -44,9 +44,7 @@ public:
    * @param X input values
    * @return
    */
-  Matrix<double> netInput(const Matrix<double>& X) override {
-    return SGD::netInput(X, weights);
-  }
+  Matrix<double> netInput(const Matrix<double>& X) override { return SGD::netInput(X, weights); }
 
   /**
    * activates given input

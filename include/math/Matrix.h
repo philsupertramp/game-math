@@ -1399,14 +1399,17 @@ Matrix<T> diag_elements(const Matrix<T>& in) {
  */
 template<typename T>
 Matrix<T> unique(const Matrix<T>& in, int axis = 0) {
-  bool row_wise = axis == 0;
+  bool row_wise     = axis == 0;
   Matrix<T> out     = Matrix<T>(0, in.rows(), in.columns());
   size_t found_vals = 0;
   for(size_t i = 0; i < (row_wise ? in.rows() : in.columns()); ++i) {
     bool found = false;
-    auto xi    = in.GetSlice(row_wise ? i : 0, row_wise ? i : in.rows() - 1, row_wise ? 0 : i, row_wise ? in.columns() - 1 : i);
+    auto xi =
+    in.GetSlice(row_wise ? i : 0, row_wise ? i : in.rows() - 1, row_wise ? 0 : i, row_wise ? in.columns() - 1 : i);
     for(size_t j = 0; j < found_vals; ++j) {
-      found = xi == out.GetSlice(row_wise ? j : 0, row_wise ? j : out.rows() - 1, row_wise ? 0 : j, row_wise ? out.columns() - 1 : j);
+      found = xi
+              == out.GetSlice(
+              row_wise ? j : 0, row_wise ? j : out.rows() - 1, row_wise ? 0 : j, row_wise ? out.columns() - 1 : j);
       if(found) { break; }
     }
     if(!found) {
