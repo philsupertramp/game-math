@@ -50,11 +50,7 @@ public:
    */
   explicit Matrix(T val, size_t rowCount, size_t colCount, size_t elementDimension = 1) {
     Resize(rowCount, colCount, elementDimension);
-    for(size_t i = 0; i < _rows; ++i) {
-      for(size_t j = 0; j < _columns; ++j) {
-        for(size_t c = 0; c < _element_size; ++c) { _data[GetIndex(i, j, c)] = val; }
-      }
-    }
+    for(size_t i = 0; i < _dataSize; ++i) { _data[i] = val; }
   }
 
   /**
@@ -164,11 +160,7 @@ public:
   static Matrix
   Random(size_t rows, size_t columns, size_t element_size = 1, double minValue = 0.0, double maxValue = 1.0) {
     Matrix<T> matrix(0, rows, columns, element_size);
-    for(size_t i = 0; i < rows; ++i) {
-      for(size_t j = 0; j < columns; ++j) {
-        for(size_t elem = 0; elem < element_size; ++elem) { matrix(i, j, elem) = Random::Get(minValue, maxValue); }
-      }
-    }
+    for(size_t i = 0; i < rows * columns * element_size; ++i) { matrix._data[i] = Random::Get(minValue, maxValue); }
     return matrix;
   }
 
@@ -185,15 +177,13 @@ public:
     constexpr double two_pi = 2.0 * M_PI;
     Matrix out;
     out.Resize(rows, columns);
-    for(size_t i = 0; i < rows; ++i) {
-      for(size_t k = 0; k < columns; k += 2) {
-        auto u1 = Random::Get();
-        auto u2 = Random::Get();
+    for(size_t i = 0; i < rows * columns; i+=2) {
+      auto u1 = Random::Get();
+      auto u2 = Random::Get();
 
-        auto mag      = sigma * sqrt(-2.0 * log(u1));
-        out(i, k)     = mag * cos(two_pi * u2) + mu;
-        out(i, k + 1) = mag * sin(two_pi * u2) + mu;
-      }
+      auto mag      = sigma * sqrt(-2.0 * log(u1));
+      out._data[i]     = mag * cos(two_pi * u2) + mu;
+      out._data[i + 1] = mag * sin(two_pi * u2) + mu;
     }
 
     return out;
