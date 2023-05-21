@@ -55,11 +55,15 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{    assert(resVec2.columns() == 1);}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \mbox{\hyperlink{classMatrix}{Matrix<double>}} vec2A(2.0, 2, 1);}
+\DoxyCodeLine{    \mbox{\hyperlink{classMatrix}{Matrix<double>}} vec2B(2.0, 1, 2);}
 \DoxyCodeLine{    \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{structmat2}{mat2}}(1.0, 2, 2);}
+\DoxyCodeLine{    \mbox{\hyperlink{classMatrix}{Matrix<double>}} mat2B(2.0, 2, 2);}
 \DoxyCodeLine{    \mbox{\hyperlink{classMatrix}{Matrix<double>}} vec2b(4.0, 2, 1);}
 \DoxyCodeLine{    \mbox{\hyperlink{classMatrix}{Matrix<double>}} resA = \mbox{\hyperlink{structmat2}{mat2}} * vec2A;}
+\DoxyCodeLine{    \mbox{\hyperlink{classMatrix}{Matrix<double>}} resB = \mbox{\hyperlink{structmat2}{mat2}} * vec2B;}
 \DoxyCodeLine{}
 \DoxyCodeLine{    assert(resA == vec2b);}
+\DoxyCodeLine{    assert(resB == mat2B);}
 \DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{  \}}
 \DoxyCodeLine{}
@@ -203,6 +207,16 @@ This is an example on how to use the \mbox{\hyperlink{classMatrix}{Matrix}} clas
 \DoxyCodeLine{    \textcolor{comment}{//    assert(D == E);}}
 \DoxyCodeLine{    assert(F != G);}
 \DoxyCodeLine{    assert(F.Determinant() == G.Determinant());}
+\DoxyCodeLine{}
+\DoxyCodeLine{    AssertTrue(A < B);}
+\DoxyCodeLine{    AssertTrue(B < A);}
+\DoxyCodeLine{    AssertTrue(A > B);}
+\DoxyCodeLine{    AssertTrue(B > A);}
+\DoxyCodeLine{    AssertTrue(A > C);}
+\DoxyCodeLine{    AssertFalse(A < C);}
+\DoxyCodeLine{    AssertTrue(C < A);}
+\DoxyCodeLine{    AssertFalse(C > A);}
+\DoxyCodeLine{    AssertTrue(G > F);}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{  \}}

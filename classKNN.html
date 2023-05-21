@@ -149,7 +149,7 @@ Additional Inherited Members</h2></td></tr>
 </ul>
 <p >Implementation:</p>
 <p >fit model: not required</p>
-<p >predicting:</p><ol type="1">
+<p >prediction:</p><ol type="1">
 <li>Compute distance between test data X and training data weights: $||weights - X_i||_2$</li>
 <li>Sort distances, in ascending order, select K shortest distances: $\text{argsort} ||weights - X_i||_2$</li>
 <li>For each class in trainLabels count the number of members inside the distance set: $\gamma_{y_k} \leftarrow \gamma_{y_k} + 1$</li>

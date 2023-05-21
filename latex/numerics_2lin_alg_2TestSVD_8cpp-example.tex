@@ -60,7 +60,7 @@ This is an example on how to use the svd method.
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// 2. B = X -\/ X'}}
 \DoxyCodeLine{    \textcolor{keyword}{auto} B = X -\/ X\_bar;}
-\DoxyCodeLine{    B      = 1.0 / (double)sqrt(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(n\_points)) * B;}
+\DoxyCodeLine{    B      = 1.0 / (double)sqrt(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(X.rows())) * B;}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// find principal components}}
 \DoxyCodeLine{    \textcolor{keyword}{auto} SVD = \mbox{\hyperlink{svd_8h_a3b139aaaee48ddeff126b386e555cee0}{svd}}(B, 0);}
