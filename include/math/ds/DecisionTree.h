@@ -3,6 +3,7 @@
 #include "Predictor.h"
 #include "../Matrix.h"
 #include "../numerics/utils.h"
+#include <string>
 
 
 enum ImpurityMeasure {
@@ -174,8 +175,8 @@ private:
    * @return information gain of given split
    */
   float information_gain(const Matrix<double>& parent, const Matrix<double>& left_child, const Matrix<double>& right_child){
-    auto p_left = left_child.rows()/parent.rows();
-    auto p_right = right_child.rows()/parent.rows();
+    float p_left = (float)left_child.rows()/parent.rows();
+    float p_right = (float)right_child.rows()/parent.rows();
     return impurity(parent) - (p_left * impurity(left_child) + p_right * impurity(right_child));
   }
 
@@ -198,7 +199,11 @@ private:
         if(left_indices.rows() > 0 && right_indices.rows() > 0){
           auto left_split = df.GetSlicesByIndex(left_indices);
           auto right_split = df.GetSlicesByIndex(right_indices);
-          auto gain = information_gain(y, left_split.GetSlice(0, left_split.rows()-1, left_split.columns()-1), right_split.GetSlice(0, right_split.rows() - 1, right_split.columns() - 1));
+          auto gain = information_gain(
+            y,
+            left_split.GetSlice(0, left_split.rows() - 1, left_split.columns() - 1),
+            right_split.GetSlice(0, right_split.rows() - 1, right_split.columns() - 1)
+          );
           if(gain > best_info_gain){
             best_info_gain = gain;
             best_split.information_gain = gain;
@@ -229,7 +234,7 @@ private:
   DecisionNode* build_tree(const Matrix<double>& X, const Matrix<double>& y, int depth=0){
     DecisionNode* out = (DecisionNode*)malloc(sizeof(DecisionNode));
     // TODO: implement pruning methods
-    if(X.rows() > 1){
+    if(X.rows() >= _min_samples_per_split && depth <= _max_depth){
       auto best = best_split(X, y);
       if(best.information_gain > 0){
         auto left = build_tree(
@@ -254,7 +259,8 @@ private:
 
     // found leaf node
     auto bins = count_bins(y);
-    out = new DecisionNode(bins(argmax(bins.Transpose().GetSlice(1, 1)), 0));
+
+    out = new DecisionNode(bins(argmax(bins.GetSlice(0, bins.rows() - 1, 1, 1)), 0));
     return out;
   }
 
@@ -276,7 +282,22 @@ private:
     return _predict(x, node->right);
 
   }
+  
+  void render_node(std::ostream& ostr, DecisionNode* node, const char* side, int depth) const {
+    ostr << std::string(depth, '\t') << side;
+    if(node->type == DecisionNodeType::LEAF){
+      ostr << "label = " << node->value << std::endl;
+    } else {
+      ostr << "feature(" << node->feature << ") threshold(" << node->threshold << ")" << std::endl;
+      if(node->left){
+        render_node(ostr, node->left, ("L (x_" + std::to_string(node->feature) + " <= " + std::to_string(node->threshold) + "): ").c_str(), depth + 1);
+      }
+      if(node->right){
+        render_node(ostr, node->right, ("R (x_" + std::to_string(node->feature) + " > " + std::to_string(node->threshold) + "): ").c_str(), depth + 1);
+      }
+    }
 
+  }
 public:
 
   DecisionNode* GetRootNode() const { return base_node; }
@@ -308,5 +329,11 @@ public:
    *
    */
   Matrix<double> transform(const Matrix<double>& in) override { return in; };
+
+  friend std::ostream& operator<<(std::ostream& ostr, const DecisionTree& tree) {
+    ostr.precision(17);
+    tree.render_node(ostr, tree.base_node, "root: ", 0);
+    return ostr;
+  }
 
 };

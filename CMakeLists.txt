@@ -148,8 +148,8 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
     target_link_libraries(math-lib ${ImageMagick_LIBRARIES})
 endif()
 
-add_compile_options(-fsanitize=address -fsanitize=undefined)
-add_link_options(-fsanitize=address -fsanitize=undefined)
+# add_compile_options(-fsanitize=address -fsanitize=undefined)
+# add_link_options(-fsanitize=address -fsanitize=undefined)
 
 if(MATH_TESTS)
     include(CTest)

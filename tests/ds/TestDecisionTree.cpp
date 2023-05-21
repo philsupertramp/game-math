@@ -31,7 +31,7 @@ class DecisionTreeTestCase : public Test
     { { 2, 1 }, { 4, 1 }, { 2, 3 }, { 4, 3 }, { 8, 6 }, { 10, 8 }, { 2, 12 }, { 2, 14 }, { 4, 14 } });
     Matrix<double> labels({ { 0 }, { 0 }, { 0 }, { 0 }, { 1 }, { 1 }, { 2 }, { 2 }, { 2 } });
     Matrix<double> test_data({ { 1, 0 }, { 8, 8 }, { 0, 1 }, { 5, 16 } });
-    Matrix<double> expected_labels({ { 0 }, { 1 }, { 0 }, { 1 } });
+    Matrix<double> expected_labels({ { 0 }, { 1 }, { 0 }, { 2 } });
 
     auto clf = DecisionTree(2);
     clf.fit(input_data, labels);
@@ -53,13 +53,14 @@ class DecisionTreeTestCase : public Test
     Set dataset  = Set("../../tests/ds/iris_dataset_train.tsv", 4, 1);
     Set test_set = Set("../../tests/ds/iris_dataset_test.tsv", 4, 1);
 
-    auto clf = DecisionTree();
+    auto clf = DecisionTree(2, 5);
     clf.fit(dataset.Input, dataset.Output);
 
     auto preds = clf.predict(test_set.Input);
 
     auto acc = accuracy(preds, test_set.Output);
 
+    std::cout << clf << std::endl;
     std::cout << "Iris flower classification, achieved " << acc * 100. << "% accuracy." << std::endl;
     AssertEqual(acc, 1.0);
     return true;
