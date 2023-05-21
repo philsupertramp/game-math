@@ -1,24 +1,18 @@
 #pragma once
 
-#include "Predictor.h"
 #include "../Matrix.h"
 #include "../numerics/utils.h"
+#include "Predictor.h"
 #include <string>
 
 
-enum ImpurityMeasure {
-  ENTROPY=0,
-  GINI=1
-};
+enum ImpurityMeasure { ENTROPY = 0, GINI = 1 };
 
-const char* measure_to_name(ImpurityMeasure measure){
-  switch (measure) {
-    case ImpurityMeasure::ENTROPY:
-      return "entropy";
-    case ImpurityMeasure::GINI:
-      return "gini";
-    default:
-      return "unknown";
+const char* measure_to_name(ImpurityMeasure measure) {
+  switch(measure) {
+    case ImpurityMeasure::ENTROPY: return "entropy";
+    case ImpurityMeasure::GINI: return "gini";
+    default: return "unknown";
   }
 }
 /*
@@ -31,49 +25,45 @@ const char* measure_to_name(ImpurityMeasure measure){
             entropy += pct*np.log2(pct)
     return -entropy
  */
-float entropy(const Matrix<double>& in){
+float entropy(const Matrix<double>& in) {
   auto unique_values = unique(in);
   // TODO: Implement log2 to implement entropy... sadge
   return 0;
 }
 
-Matrix<double> count_bins(const Matrix<double>& in){
+Matrix<double> count_bins(const Matrix<double>& in) {
   auto unique_values = unique(in);
-  auto bins = zeros(unique_values.rows(), 2);
-  for(size_t i = 0; i < unique_values.rows(); ++i){
-    auto label = unique_values(i, 0);
+  auto bins          = zeros(unique_values.rows(), 2);
+  for(size_t i = 0; i < unique_values.rows(); ++i) {
+    auto label                       = unique_values(i, 0);
     std::function<bool(double)> cond = [label](double xi) { return bool(xi == label); };
-    bins(i, 0) = label;
-    bins(i, 1) = where_true(where(cond, in, {{1}}, {{0}})).rows();
+    bins(i, 0)                       = label;
+    bins(i, 1)                       = where_true(where(cond, in, { { 1 } }, { { 0 } })).rows();
   }
   return bins;
 }
 
 /*
- 
+
  def gini_impurity(s):
     counts = np.bincount(np.array(s, dtype=np.int64))
     percentages = counts / len(s)
     return 1 - (percentages**2).sum()
  */
-float gini(const Matrix<double>& in){
+float gini(const Matrix<double>& in) {
   auto bins = count_bins(in);
-  auto pct = 1.0/in.rows() * bins;
+  auto pct  = 1.0 / in.rows() * bins;
   return 1 - HadamardMulti(pct, pct).sumElements();
 }
 
-enum DecisionNodeType {
-  NONE=-1,
-  LEAF=0,
-  DECISION=1
-};
+enum DecisionNodeType { NONE = -1, LEAF = 0, DECISION = 1 };
 
-/** 
+/**
  * Binary Decision Tree Node.
- * 
+ *
  * Avaibale in two types:
  * - LEAF: Leaf node holding final class label
- * - DECISION: Node holding two children that split a subset of the train data 
+ * - DECISION: Node holding two children that split a subset of the train data
  *
  */
 class DecisionNode
@@ -81,32 +71,31 @@ class DecisionNode
 public:
   // Leaf node
   float value = -1; // class label for leaf node
-  
+
   // Decision node
-  int feature = -1;
-  float threshold = -1;
+  int feature            = -1;
+  float threshold        = -1;
   float information_gain = -1;
 
   DecisionNode *left, *right;
 
   // general
   DecisionNodeType type = DecisionNodeType::NONE;
+
 public:
-  DecisionNode(){}
+  DecisionNode() { }
 
   DecisionNode(float val)
-  : value(val)
-  {
+    : value(val) {
     type = DecisionNodeType::LEAF;
   }
 
   DecisionNode(int feat, float thresh, float ig, DecisionNode* left, DecisionNode* right)
-  : feature(feat)
-  , threshold(thresh)
-  , information_gain(ig)
-  , left(left)
-  , right(right)
-  {
+    : feature(feat)
+    , threshold(thresh)
+    , information_gain(ig)
+    , left(left)
+    , right(right) {
     type = DecisionNodeType::DECISION;
   }
 };
@@ -115,8 +104,7 @@ public:
 /**
  *
  */
-struct DataSplit
-{
+struct DataSplit {
   int feature;
   float threshold;
   float information_gain;
@@ -125,43 +113,39 @@ struct DataSplit
 } DataSplit;
 
 /**
-  * Decision (Bi-)Tree implementation
-  * - The constructor allows providing a decision_method for the impurity measure that is used when selecting a good split
-  * - The _information_gain(parent, left_child, right_child) calculates the information gain value of a split between a parent and two children
-  * - The _best_split(X, y) function calculates the best splitting parameters for input features X and a target variable y
-  *    - It does so by iterating over every column in X and every thresold value in every column to find the optimal split using information gain
-  * - The _build(X, y, depth) function recursively builds a decision tree until the data is _non splittable_
-  * - The fit(X, y) function calls the _build() function and stores the built tree to the constructor
-  * - The _predict(x) function traverses the tree to classify a single instance
-  * - The predict(X) function applies the _predict() function to every instance in matrix X
-  *
-  */
-class DecisionTree
-: public Predictor
+ * Decision (Bi-)Tree implementation
+ * - The constructor allows providing a decision_method for the impurity measure that is used when selecting a good split
+ * - The _information_gain(parent, left_child, right_child) calculates the information gain value of a split between a parent and two children
+ * - The _best_split(X, y) function calculates the best splitting parameters for input features X and a target variable y
+ *    - It does so by iterating over every column in X and every thresold value in every column to find the optimal
+ * split using information gain
+ * - The _build(X, y, depth) function recursively builds a decision tree until the data is _non splittable_
+ * - The fit(X, y) function calls the _build() function and stores the built tree to the constructor
+ * - The _predict(x) function traverses the tree to classify a single instance
+ * - The predict(X) function applies the _predict() function to every instance in matrix X
+ *
+ */
+class DecisionTree : public Predictor
 {
   ImpurityMeasure _decision_method;
-  int _max_depth = 10;
+  int _max_depth             = 10;
   int _min_samples_per_split = 2;
   DecisionNode* base_node;
 
 public:
-  DecisionTree(int min_samples_per_split=2, int max_depth=10, ImpurityMeasure decision_method = ImpurityMeasure::GINI)
-  : Predictor()
-  , _decision_method(decision_method)
-  , _min_samples_per_split(min_samples_per_split)
-  , _max_depth(max_depth)
-  {
-  }
+  DecisionTree(
+  int min_samples_per_split = 2, int max_depth = 10, ImpurityMeasure decision_method = ImpurityMeasure::GINI)
+    : Predictor()
+    , _decision_method(decision_method)
+    , _min_samples_per_split(min_samples_per_split)
+    , _max_depth(max_depth) { }
 
 private:
-  float impurity(const Matrix<double>& x){
-    switch(_decision_method){
-      case ImpurityMeasure::ENTROPY:
-        return entropy(x);
-      case ImpurityMeasure::GINI:
-        return gini(x);
-      default:
-        return -1;
+  float impurity(const Matrix<double>& x) {
+    switch(_decision_method) {
+      case ImpurityMeasure::ENTROPY: return entropy(x);
+      case ImpurityMeasure::GINI: return gini(x);
+      default: return -1;
     }
   }
   /**
@@ -174,54 +158,53 @@ private:
    * @param right_child: right split of parent set
    * @return information gain of given split
    */
-  float information_gain(const Matrix<double>& parent, const Matrix<double>& left_child, const Matrix<double>& right_child){
-    float p_left = (float)left_child.rows()/parent.rows();
-    float p_right = (float)right_child.rows()/parent.rows();
+  float
+  information_gain(const Matrix<double>& parent, const Matrix<double>& left_child, const Matrix<double>& right_child) {
+    float p_left  = (float)left_child.rows() / parent.rows();
+    float p_right = (float)right_child.rows() / parent.rows();
     return impurity(parent) - (p_left * impurity(left_child) + p_right * impurity(right_child));
   }
 
-  struct DataSplit best_split(const Matrix<double>& X, const Matrix<double>& y){
-    struct DataSplit best_split{};
+  struct DataSplit best_split(const Matrix<double>& X, const Matrix<double>& y) {
+    struct DataSplit best_split { };
     float best_info_gain = -1.;
 
-    for(size_t idf = 0; idf < X.columns(); ++idf){
-      auto eV = zerosV(X.columns());
-      eV(idf, 0) = 1;
+    for(size_t idf = 0; idf < X.columns(); ++idf) {
+      auto eV       = zerosV(X.columns());
+      eV(idf, 0)    = 1;
       auto features = X * eV;
-      for(size_t idx = 0; idx < features.rows(); ++idx){
-        auto df = HorizontalConcat(X, y);
+      for(size_t idx = 0; idx < features.rows(); ++idx) {
+        auto df        = HorizontalConcat(X, y);
         auto threshold = features(idx, 0);
 
         std::function<bool(double)> cond = [threshold](double xi) { return bool(xi <= threshold); };
-        auto split_indices = where(cond, features, {{1}}, {{0}});
-        auto left_indices = where_true(split_indices);
-        auto right_indices = where_false(split_indices);
-        if(left_indices.rows() > 0 && right_indices.rows() > 0){
-          auto left_split = df.GetSlicesByIndex(left_indices);
+        auto split_indices               = where(cond, features, { { 1 } }, { { 0 } });
+        auto left_indices                = where_true(split_indices);
+        auto right_indices               = where_false(split_indices);
+        if(left_indices.rows() > 0 && right_indices.rows() > 0) {
+          auto left_split  = df.GetSlicesByIndex(left_indices);
           auto right_split = df.GetSlicesByIndex(right_indices);
-          auto gain = information_gain(
-            y,
-            left_split.GetSlice(0, left_split.rows() - 1, left_split.columns() - 1),
-            right_split.GetSlice(0, right_split.rows() - 1, right_split.columns() - 1)
-          );
-          if(gain > best_info_gain){
-            best_info_gain = gain;
+          auto gain        = information_gain(
+          y,
+          left_split.GetSlice(0, left_split.rows() - 1, left_split.columns() - 1),
+          right_split.GetSlice(0, right_split.rows() - 1, right_split.columns() - 1));
+          if(gain > best_info_gain) {
+            best_info_gain              = gain;
             best_split.information_gain = gain;
-            best_split.feature = idf;
-            best_split.threshold = threshold;
-            best_split.left_split = left_split;
-            best_split.right_split = right_split;
+            best_split.feature          = idf;
+            best_split.threshold        = threshold;
+            best_split.left_split       = left_split;
+            best_split.right_split      = right_split;
           }
         }
       }
     }
     return best_split;
-
   }
 
   /**
    * Method to recursively build decision tree nodes.
-   * 
+   *
    * Uses pruning to decide to split the data further.
    * Class-Hyperparameters:
    * - max_depth
@@ -231,28 +214,22 @@ private:
    * @param y: related class labels
    * @return: A DecisionNode instance holding the next node.
    */
-  DecisionNode* build_tree(const Matrix<double>& X, const Matrix<double>& y, int depth=0){
+  DecisionNode* build_tree(const Matrix<double>& X, const Matrix<double>& y, int depth = 0) {
     DecisionNode* out = (DecisionNode*)malloc(sizeof(DecisionNode));
     // TODO: implement pruning methods
-    if(X.rows() >= _min_samples_per_split && depth <= _max_depth){
+    if(X.rows() >= _min_samples_per_split && depth <= _max_depth) {
       auto best = best_split(X, y);
-      if(best.information_gain > 0){
+      if(best.information_gain > 0) {
         auto left = build_tree(
-          best.left_split.GetSlice(0, best.left_split.rows()-1, 0, best.left_split.columns()-2),
-          best.left_split.GetSlice(0, best.left_split.rows() - 1, best.left_split.columns()-1),
-          depth + 1
-        );
+        best.left_split.GetSlice(0, best.left_split.rows() - 1, 0, best.left_split.columns() - 2),
+        best.left_split.GetSlice(0, best.left_split.rows() - 1, best.left_split.columns() - 1),
+        depth + 1);
         auto right = build_tree(
-          best.right_split.GetSlice(0, best.right_split.rows()-1, 0, best.right_split.columns()-2),
-          best.right_split.GetSlice(0, best.right_split.rows() - 1, best.right_split.columns()-1),
-          depth + 1
-        );
+        best.right_split.GetSlice(0, best.right_split.rows() - 1, 0, best.right_split.columns() - 2),
+        best.right_split.GetSlice(0, best.right_split.rows() - 1, best.right_split.columns() - 1),
+        depth + 1);
 
-        out = new DecisionNode(
-          best.feature, best.threshold,
-          best.information_gain,
-          left, right
-        );
+        out = new DecisionNode(best.feature, best.threshold, best.information_gain, left, right);
         return out;
       }
     }
@@ -272,34 +249,36 @@ private:
    * @param node: the current node to evaluate
    * @return: prediction for given node
    */
-  float _predict(const Matrix<double>& x, DecisionNode* node){
-    if(node->type == DecisionNodeType::LEAF){
-      return node->value;
-    }
-    if(x(0, node->feature) <= node->threshold){
-      return _predict(x, node->left);
-    }
+  float _predict(const Matrix<double>& x, DecisionNode* node) {
+    if(node->type == DecisionNodeType::LEAF) { return node->value; }
+    if(x(0, node->feature) <= node->threshold) { return _predict(x, node->left); }
     return _predict(x, node->right);
-
   }
-  
+
   void render_node(std::ostream& ostr, DecisionNode* node, const char* side, int depth) const {
     ostr << std::string(depth, '\t') << side;
-    if(node->type == DecisionNodeType::LEAF){
+    if(node->type == DecisionNodeType::LEAF) {
       ostr << "label = " << node->value << std::endl;
     } else {
       ostr << "feature(" << node->feature << ") threshold(" << node->threshold << ")" << std::endl;
-      if(node->left){
-        render_node(ostr, node->left, ("L (x_" + std::to_string(node->feature) + " <= " + std::to_string(node->threshold) + "): ").c_str(), depth + 1);
+      if(node->left) {
+        render_node(
+        ostr,
+        node->left,
+        ("L (x_" + std::to_string(node->feature) + " <= " + std::to_string(node->threshold) + "): ").c_str(),
+        depth + 1);
       }
-      if(node->right){
-        render_node(ostr, node->right, ("R (x_" + std::to_string(node->feature) + " > " + std::to_string(node->threshold) + "): ").c_str(), depth + 1);
+      if(node->right) {
+        render_node(
+        ostr,
+        node->right,
+        ("R (x_" + std::to_string(node->feature) + " > " + std::to_string(node->threshold) + "): ").c_str(),
+        depth + 1);
       }
     }
-
   }
-public:
 
+public:
   DecisionNode* GetRootNode() const { return base_node; }
   /**
    * Implements training algorithm
@@ -318,9 +297,7 @@ public:
    */
   Matrix<double> predict(const Matrix<double>& X) override {
     auto out = zeros(X.rows(), 1);
-    for(size_t i = 0; i < X.rows(); ++i){
-      out(i, 0) = _predict(X.GetSlice(i), base_node);
-    }
+    for(size_t i = 0; i < X.rows(); ++i) { out(i, 0) = _predict(X.GetSlice(i), base_node); }
     return out;
   }
 
@@ -335,5 +312,4 @@ public:
     tree.render_node(ostr, tree.base_node, "root: ", 0);
     return ostr;
   }
-
 };
