@@ -52,7 +52,7 @@ Matrix<double> count_bins(const Matrix<double>& in) {
  */
 float gini(const Matrix<double>& in) {
   auto bins = count_bins(in);
-  auto pct  = 1.0 / in.rows() * bins;
+  auto pct  = (1.0 / in.rows()) * bins;
   return 1 - HadamardMulti(pct, pct).sumElements();
 }
 
