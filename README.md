@@ -41,8 +41,9 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
   - Insurance.h
 - Plot support (uses/requires gnuplot see include/math/visualization/README.md or Plot.h)
 - Data Science:
-  - Nearest Centroid Classifier (linear classifier) (NCC.h)
-  - K Nearest Neighbor Classifier (non-linear classifier) (KNN.h)
+  - Classification:
+    - NCC: Nearest Centroid Classifier (linear classifier) (NCC.h)
+    - KNN: K Nearest Neighbor Classifier (non-linear classifier) (KNN.h)
   - Neural networks
     - Feed Forward NNs
       - Perceptron classifier (`Perceptron`)

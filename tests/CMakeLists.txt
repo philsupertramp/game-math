@@ -97,6 +97,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
     add_test_source(ds/TestNCC.cpp)
     add_test_source(ds/TestKNN.cpp)
     add_test_source(ds/preprocessing/TestScaler.cpp)
+    add_test_source(ds/decomposition/TestPCA.cpp)
 endif()
 
 IF (MATH_COVERAGE)

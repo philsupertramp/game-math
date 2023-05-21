@@ -54,7 +54,11 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
             include/math/numerics/analysis/SupportValues.h
             include/math/numerics/analysis/Spline.h
             include/math/numerics/analysis/Differentiation.h
-            include/math/numerics/Fractals.h include/math/numerics/lin_alg/gaussJordan.h include/math/numerics/lin_alg/qr.h include/math/numerics/lin_alg/svd.h)
+            include/math/numerics/Fractals.h
+            include/math/numerics/lin_alg/gaussJordan.h
+            include/math/numerics/lin_alg/qr.h
+            include/math/numerics/lin_alg/svd.h
+    )
     set(LIB_SOURCES
             ${LIB_SOURCES}
             src/Matrix.cpp
@@ -94,6 +98,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/KNN.h
             
             include/math/ds/preprocessing/Scaler.h
+            include/math/ds/decomposition/PCA.h
             )
     if(MATH_IMAGE_PROCESSING)
         set(LIB_HEADERS ${LIB_HEADERS}

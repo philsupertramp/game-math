@@ -59,7 +59,7 @@ class SVDTestCase : public Test
 
     // 2. B = X - X'
     auto B = X - X_bar;
-    B      = 1.0 / (double)sqrt(static_cast<double>(n_points)) * B;
+    B      = 1.0 / (double)sqrt(static_cast<double>(X.rows())) * B;
 
     // find principal components
     auto SVD = svd(B, 0);
