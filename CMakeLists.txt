@@ -97,6 +97,7 @@ if (MATH_EXTENSIONS MATCHES "(ds)")
             include/math/ds/SGD.h
             include/math/ds/NCC.h
             include/math/ds/KNN.h
+            include/math/ds/DecisionTree.h
             
             include/math/ds/preprocessing/Scaler.h
             include/math/ds/decomposition/PCA.h
@@ -146,6 +147,9 @@ set_target_properties(math-lib PROPERTIES LINKER_LANGUAGE CXX)
 if (MATH_EXTENSIONS MATCHES "(ds)")
     target_link_libraries(math-lib ${ImageMagick_LIBRARIES})
 endif()
+
+add_compile_options(-fsanitize=address -fsanitize=undefined)
+add_link_options(-fsanitize=address -fsanitize=undefined)
 
 if(MATH_TESTS)
     include(CTest)
