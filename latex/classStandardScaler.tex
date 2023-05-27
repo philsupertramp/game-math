@@ -1,0 +1,142 @@
+\hypertarget{classStandardScaler}{}\doxysection{Standard\+Scaler Class Reference}
+\label{classStandardScaler}\index{StandardScaler@{StandardScaler}}
+
+
+{\ttfamily \#include $<$Scaler.\+h$>$}
+
+Inheritance diagram for Standard\+Scaler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classStandardScaler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStandardScaler_a9e15355fc3d19b29336d07460a56fae0}{Standard\+Scaler}} (bool with\+Means=true, bool with\+Std=true)
+\item 
+void \mbox{\hyperlink{classStandardScaler_ac21dcb106786b3bc69cb8a0e1e226fec}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y) override
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classStandardScaler_ae2a4e02ac2ed3a0fa74656b87bb13ff7}{transform}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classStandardScaler_a564e42e242489cbb290fa6061e9f4bba}{means}}
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classStandardScaler_a0d695e1928f2949cccd440ee39dec26c}{std\+\_\+deviations}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classStandardScaler_a70710d2726c83503d50417c5e454bf08}{with\+\_\+std}} = true
+\item 
+bool \mbox{\hyperlink{classStandardScaler_a7701dce93dd11c481804fd252bfec150}{with\+\_\+means}} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Standarize features by removing the mean and scaling to unit variance.
+
+The standard score of a sample \$x\textbackslash{}inX\$ with \$X\textbackslash{}in\textbackslash{}mathbf\{R\}$^\wedge$\{N\textbackslash{}times M\}\$ is calculated as \$\$ \textbackslash{}tilde\{x\} = \textbackslash{}frac\{x -\/ \textbackslash{}mu\}\{\textbackslash{}sigma\} \$\$ with
+\begin{DoxyItemize}
+\item \$\textbackslash{}mu\textbackslash{}in\textbackslash{}mathbf\{R\}$^\wedge$M\$ the mean of the training samples
+\item \$\textbackslash{}sigma\textbackslash{}in\textbackslash{}mathbf\{R\}$^\wedge$M\$ the standard deviation of the training samples
+\end{DoxyItemize}
+
+Note\+: Standardization of a data set is a common requirement for many ML estimators\+: They might behave badly if the individual featrues do not more or less look like standard normally distributed data.
+
+For instance many elements used in the objective funtion of a learning algorithm assume that all features are centered around 0 and have variance in the same order. If a feature has a variance that is orders of maginiteds larger than others, it might dominate the objective function and make the estimator unable to learn from other feaztures correctly as expected.\mbox{[}$^\wedge$1\mbox{]}
+
+
+\begin{DoxyItemize}
+\item \mbox{[}$^\wedge$1\mbox{]}\+: \href{https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html}{\texttt{ https\+://scikit-\/learn.\+org/stable/modules/generated/sklearn.\+preprocessing.\+Standard\+Scaler.\+html}} 
+\end{DoxyItemize}\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{ds_2preprocessing_2TestScaler_8cpp-example}{ds/preprocessing/\+Test\+Scaler.\+cpp}}.\end{Desc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStandardScaler_a9e15355fc3d19b29336d07460a56fae0}\label{classStandardScaler_a9e15355fc3d19b29336d07460a56fae0}} 
+\index{StandardScaler@{StandardScaler}!StandardScaler@{StandardScaler}}
+\index{StandardScaler@{StandardScaler}!StandardScaler@{StandardScaler}}
+\doxysubsubsection{\texorpdfstring{StandardScaler()}{StandardScaler()}}
+{\footnotesize\ttfamily Standard\+Scaler\+::\+Standard\+Scaler (\begin{DoxyParamCaption}\item[{bool}]{with\+Means = {\ttfamily true},  }\item[{bool}]{with\+Std = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStandardScaler_ac21dcb106786b3bc69cb8a0e1e226fec}\label{classStandardScaler_ac21dcb106786b3bc69cb8a0e1e226fec}} 
+\index{StandardScaler@{StandardScaler}!fit@{fit}}
+\index{fit@{fit}!StandardScaler@{StandardScaler}}
+\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
+{\footnotesize\ttfamily void Standard\+Scaler\+::fit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Computes mean and sds to be used later in scaling.
+
+
+\begin{DoxyParams}{Parameters}
+{\em X} & given matrix to use to calculate mean/standard deviations \\
+\hline
+{\em y} & unused \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}{Predictor}}.
+
+\mbox{\Hypertarget{classStandardScaler_ae2a4e02ac2ed3a0fa74656b87bb13ff7}\label{classStandardScaler_ae2a4e02ac2ed3a0fa74656b87bb13ff7}} 
+\index{StandardScaler@{StandardScaler}!transform@{transform}}
+\index{transform@{transform}!StandardScaler@{StandardScaler}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ Standard\+Scaler\+::transform (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Perform standarization by centering and scaling
+\begin{DoxyItemize}
+\item To achieve center at 0 and unit variance.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Data to transform \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: transformed data 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPredictor_a341a4d9fc8af8f53a07089100b213a73}{Predictor}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classStandardScaler_a564e42e242489cbb290fa6061e9f4bba}\label{classStandardScaler_a564e42e242489cbb290fa6061e9f4bba}} 
+\index{StandardScaler@{StandardScaler}!means@{means}}
+\index{means@{means}!StandardScaler@{StandardScaler}}
+\doxysubsubsection{\texorpdfstring{means}{means}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Standard\+Scaler\+::means}
+
+\mbox{\Hypertarget{classStandardScaler_a0d695e1928f2949cccd440ee39dec26c}\label{classStandardScaler_a0d695e1928f2949cccd440ee39dec26c}} 
+\index{StandardScaler@{StandardScaler}!std\_deviations@{std\_deviations}}
+\index{std\_deviations@{std\_deviations}!StandardScaler@{StandardScaler}}
+\doxysubsubsection{\texorpdfstring{std\_deviations}{std\_deviations}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ Standard\+Scaler\+::std\+\_\+deviations}
+
+\mbox{\Hypertarget{classStandardScaler_a7701dce93dd11c481804fd252bfec150}\label{classStandardScaler_a7701dce93dd11c481804fd252bfec150}} 
+\index{StandardScaler@{StandardScaler}!with\_means@{with\_means}}
+\index{with\_means@{with\_means}!StandardScaler@{StandardScaler}}
+\doxysubsubsection{\texorpdfstring{with\_means}{with\_means}}
+{\footnotesize\ttfamily bool Standard\+Scaler\+::with\+\_\+means = true\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classStandardScaler_a70710d2726c83503d50417c5e454bf08}\label{classStandardScaler_a70710d2726c83503d50417c5e454bf08}} 
+\index{StandardScaler@{StandardScaler}!with\_std@{with\_std}}
+\index{with\_std@{with\_std}!StandardScaler@{StandardScaler}}
+\doxysubsubsection{\texorpdfstring{with\_std}{with\_std}}
+{\footnotesize\ttfamily bool Standard\+Scaler\+::with\+\_\+std = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/ds/preprocessing/\mbox{\hyperlink{Scaler_8h}{Scaler.\+h}}\end{DoxyCompactItemize}

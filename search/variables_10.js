@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['sgd_0',['sgd',['../classAdalineSGD.html#aea1fdb9d477c9d44016ef13e5bc2342f',1,'AdalineSGD::sgd()'],['../classLogRegSGD.html#af80d2b982ab742580caeda9bd2f48d97',1,'LogRegSGD::sgd()']]],
-  ['shuffle_1',['shuffle',['../classAdalineSGD.html#a2272921984f8d5a13dc75e60c5d006be',1,'AdalineSGD::shuffle()'],['../classLogRegSGD.html#a3bfe916ce0635c0b00c77731bf3ad77e',1,'LogRegSGD::shuffle()'],['../classSGD.html#a3150c7954c208f5f57f7744196ec1fcc',1,'SGD::shuffle()']]],
-  ['start_2',['start',['../structPlotIndex.html#adf5d747c854473c22634f06718f8d1c2',1,'PlotIndex']]],
-  ['startx_3',['startX',['../classMandelbrot.html#aaa65ca8561039deb5e74acc4cd2f920f',1,'Mandelbrot']]],
-  ['starty_4',['startY',['../classMandelbrot.html#af75cb6f92b971fdc1159248675c03e00',1,'Mandelbrot']]],
-  ['stop_5',['stop',['../structPlotIndex.html#a0ea32d0e0e56a4a5eb07705676fb1b1e',1,'PlotIndex']]],
-  ['stopthreshold_6',['stopThreshold',['../classDataSet.html#ac26562ed16c2c3b63aed463cb8c77fe3',1,'DataSet']]],
-  ['storagefile_7',['storageFile',['../classPlot.html#a80885621943f0e082328be034f1478f3',1,'Plot']]],
-  ['symbols_8',['symbols',['../classEquation.html#a3322e357ba9e92033eb40eb61e82b2f7',1,'Equation::symbols()'],['../classEquationParser.html#a3b3f6b7c14c08795f64e9106e32cf1c3',1,'EquationParser::symbols()']]]
+  ['r_0',['R',['../structInterest.html#a9857fe887e98a30e7ba7bee2e8dec26f',1,'Interest']]],
+  ['randomseed_1',['RandomSeed',['../Random_8h.html#a682a5d05601724697eb6d443f4f6f8c0',1,'Random.h']]],
+  ['randomstate_2',['randomState',['../classAdalineSGD.html#a7930ffb33b513fec12a6503191fa89a3',1,'AdalineSGD::randomState()'],['../classLogRegSGD.html#a654e74118d5644bc8e18ca5e5bcca997',1,'LogRegSGD::randomState()']]],
+  ['residuals_3',['residuals',['../structLinearModel.html#a8501968c7d6871dd6f3c6aa00e7b1f4d',1,'LinearModel']]],
+  ['right_4',['right',['../classPCA.html#a9a1284cd642c93db82d98d6c3a042b2b',1,'PCA::right()'],['../classMathNode.html#af81f7d62cd9008544aa999c6a1c55934',1,'MathNode::right()']]],
+  ['rows_5',['rows',['../structMatrixDimension.html#a93df531cf74c1c3a6d6c0519cb2789ef',1,'MatrixDimension']]]
 ];

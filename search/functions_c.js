@@ -9,5 +9,6 @@ var searchData=
   ['max_6',['max',['../classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#ad3e54df8e4a59096fafd647360c33c48',1,'std::numeric_limits&lt; vec3&lt; T &gt; &gt;::max()'],['../matrix__utils_8h.html#a8dd66fbac5097923b2ecf481b0ae77e5',1,'max(const Matrix&lt; T &gt; &amp;mat):&#160;matrix_utils.h'],['../matrix__utils_8h.html#aa7722dce2d979bc78b2dc2cc04d493b0',1,'max(const Matrix&lt; T &gt; &amp;mat, int axis):&#160;matrix_utils.h'],['../namespaceMath_1_1Utils.html#acbc14126eef6740e79041c8e9945bd1d',1,'Math::Utils::max()']]],
   ['mean_7',['mean',['../matrix__utils_8h.html#a23bb7f728122a09c240223a4de6730a9',1,'matrix_utils.h']]],
   ['min_8',['min',['../classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#aba2880be0a668a8cfd01e99f4d084a62',1,'std::numeric_limits&lt; vec3&lt; T &gt; &gt;::min()'],['../matrix__utils_8h.html#a4bb73e4029612f323f406f1ecfc2ed57',1,'min(const Matrix&lt; T &gt; &amp;mat):&#160;matrix_utils.h'],['../matrix__utils_8h.html#a5864943a2ff7fa841eb1af250a9ed8c1',1,'min(const Matrix&lt; T &gt; &amp;mat, int axis):&#160;matrix_utils.h']]],
-  ['monombase_9',['MonomBase',['../classMonomBase.html#a47e7386045d2d95bf51b08e45dc316a1',1,'MonomBase']]]
+  ['minmaxscaler_9',['MinMaxScaler',['../classMinMaxScaler.html#a5a92384d12fdc77a5cd3b4f69709dae8',1,'MinMaxScaler']]],
+  ['monombase_10',['MonomBase',['../classMonomBase.html#a47e7386045d2d95bf51b08e45dc316a1',1,'MonomBase']]]
 ];

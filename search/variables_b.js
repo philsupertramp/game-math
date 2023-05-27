@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['max_0',['max',['../structPlotBoundary.html#a7383471ba4ac63f8bd967831dc140a37',1,'PlotBoundary']]],
-  ['maxepoch_1',['maxEpoch',['../classDataSet.html#ac2b6c6303ce008694bbfd6d177f18e57',1,'DataSet']]],
-  ['maxiter_2',['maxIter',['../classNewtonFractal.html#a1725f679c603cdc4630e7b5aa164f94e',1,'NewtonFractal::maxIter()'],['../structODEOption.html#a45abb7aa0806c54ed678f2a7d9cad631',1,'ODEOption::maxIter()']]],
-  ['maxiters_3',['maxIters',['../classMandelbrot.html#a02ac592d77e906df905626032b9af8aa',1,'Mandelbrot']]],
-  ['min_4',['min',['../structPlotBoundary.html#a3a9ad8401fcf0035091fdc94c3f09c36',1,'PlotBoundary']]]
+  ['left_0',['left',['../classMathNode.html#a7246ecf47bdb68471202f2c725cb41e4',1,'MathNode']]],
+  ['linestrength_1',['lineStrength',['../structPlotAttributes.html#a9c108066e425622ee8ee97a85cf31523',1,'PlotAttributes']]]
 ];

@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['y_0',['Y',['../structODEResult.html#aaef028566259040421ab1b73443c6f3b',1,'ODEResult']]],
-  ['y_1',['y',['../classLagrangeBase.html#aabccb7239c0da02245eb9a9f5e4ce243',1,'LagrangeBase::y()'],['../structvec2.html#a74bc54c64e2e47307e3807b2f1c6436b',1,'vec2::y()'],['../structvec3.html#a77c2f238c0b2b7895304f5ca64b8d770',1,'vec3::y()'],['../structvec4.html#a794403b7afd3d540f2574f891c1363f4',1,'vec4::y()']]],
-  ['y_5festimate_2',['y_estimate',['../structLinearModel.html#a1335876476367801bf8eb1814dd83967',1,'LinearModel']]],
-  ['yaxis_3',['yAxis',['../structPlotAttributes.html#a59b064dd22efe8ac933dec0665533c95',1,'PlotAttributes']]],
-  ['yi_4',['YI',['../classSpline.html#ad89c7a69b3b12323fb7068e32b90f645',1,'Spline']]],
-  ['ymax_5',['yMax',['../classNewtonFractal.html#a10bdd859b70e53a4e5bebbf947e4f814',1,'NewtonFractal']]],
-  ['ymin_6',['yMin',['../classNewtonFractal.html#af442f7377e1fa72f5a9431f7536815f7',1,'NewtonFractal']]]
+  ['x_0',['x',['../classLagrangeBase.html#aa2ab424392d5406ff753233818e20fc6',1,'LagrangeBase::x()'],['../structvec2.html#acbedc70458fbe177e24770b64267f07d',1,'vec2::x()'],['../structvec3.html#a3f1f0c60e13b8bf67f64b1afc9cd6d1a',1,'vec3::x()'],['../structvec4.html#ac71a642a8279ea6d303006e81e4abf2a',1,'vec4::x()']]],
+  ['x_1',['X',['../classNewtonBase.html#a06ff10676feb2bfddd21d01b883cb539',1,'NewtonBase']]],
+  ['xaxis_2',['xAxis',['../structPlotAttributes.html#a80a3dec051e0195255ff3471fa7ea9ea',1,'PlotAttributes']]],
+  ['xi_3',['XI',['../classSpline.html#aec3e4ba42a25a84af7b30e9a93a34548',1,'Spline']]],
+  ['xmax_4',['xMax',['../classNewtonFractal.html#ac710ac326aa58002987217f7fd6198c4',1,'NewtonFractal']]],
+  ['xmin_5',['xMin',['../classNewtonFractal.html#ab61b91764458edf714b5fbf636ee8800',1,'NewtonFractal']]]
 ];

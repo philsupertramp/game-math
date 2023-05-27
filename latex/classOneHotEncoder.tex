@@ -1,0 +1,82 @@
+\hypertarget{classOneHotEncoder}{}\doxysection{One\+Hot\+Encoder Class Reference}
+\label{classOneHotEncoder}\index{OneHotEncoder@{OneHotEncoder}}
+
+
+{\ttfamily \#include $<$Encoder.\+h$>$}
+
+Inheritance diagram for One\+Hot\+Encoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classOneHotEncoder}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classOneHotEncoder_ac64f21104b234394d9b735839d392429}{One\+Hot\+Encoder}} ()
+\item 
+void \mbox{\hyperlink{classOneHotEncoder_a80ba2dfa75f9fb35b3af6853e2f9a200}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y) override
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classOneHotEncoder_a4722e28c22e8253771950203c0713436}{transform}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ int $>$ \mbox{\hyperlink{classOneHotEncoder_a0944cf64bb8ae51bfcf5fb6d1ca527a6}{unique\+\_\+values}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOneHotEncoder_ac64f21104b234394d9b735839d392429}\label{classOneHotEncoder_ac64f21104b234394d9b735839d392429}} 
+\index{OneHotEncoder@{OneHotEncoder}!OneHotEncoder@{OneHotEncoder}}
+\index{OneHotEncoder@{OneHotEncoder}!OneHotEncoder@{OneHotEncoder}}
+\doxysubsubsection{\texorpdfstring{OneHotEncoder()}{OneHotEncoder()}}
+{\footnotesize\ttfamily One\+Hot\+Encoder\+::\+One\+Hot\+Encoder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOneHotEncoder_a80ba2dfa75f9fb35b3af6853e2f9a200}\label{classOneHotEncoder_a80ba2dfa75f9fb35b3af6853e2f9a200}} 
+\index{OneHotEncoder@{OneHotEncoder}!fit@{fit}}
+\index{fit@{fit}!OneHotEncoder@{OneHotEncoder}}
+\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
+{\footnotesize\ttfamily void One\+Hot\+Encoder\+::fit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Implements training algorithm 
+\begin{DoxyParams}{Parameters}
+{\em X} & array-\/like with the shape\+: \mbox{[}n\+\_\+samples, n\+\_\+features\mbox{]} \\
+\hline
+{\em y} & array-\/like with shape\+: \mbox{[}n\+\_\+samples, 1\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}{Predictor}}.
+
+\mbox{\Hypertarget{classOneHotEncoder_a4722e28c22e8253771950203c0713436}\label{classOneHotEncoder_a4722e28c22e8253771950203c0713436}} 
+\index{OneHotEncoder@{OneHotEncoder}!transform@{transform}}
+\index{transform@{transform}!OneHotEncoder@{OneHotEncoder}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ One\+Hot\+Encoder\+::transform (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classPredictor_a341a4d9fc8af8f53a07089100b213a73}{Predictor}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classOneHotEncoder_a0944cf64bb8ae51bfcf5fb6d1ca527a6}\label{classOneHotEncoder_a0944cf64bb8ae51bfcf5fb6d1ca527a6}} 
+\index{OneHotEncoder@{OneHotEncoder}!unique\_values@{unique\_values}}
+\index{unique\_values@{unique\_values}!OneHotEncoder@{OneHotEncoder}}
+\doxysubsubsection{\texorpdfstring{unique\_values}{unique\_values}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$int$>$ One\+Hot\+Encoder\+::unique\+\_\+values\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/ds/preprocessing/\mbox{\hyperlink{Encoder_8h}{Encoder.\+h}}\end{DoxyCompactItemize}

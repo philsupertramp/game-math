@@ -1,0 +1,30 @@
+\hypertarget{PCA_8h_source}{}\doxysection{PCA.\+h}
+\label{PCA_8h_source}\index{include/math/ds/decomposition/PCA.h@{include/math/ds/decomposition/PCA.h}}
+\mbox{\hyperlink{PCA_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../../numerics/lin\_alg/svd.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../Predictor.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{classPCA}{PCA}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTransformer}{Transformer}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPCA_a0337f6dfbb33528325f515c0a2d5116a}{PCs}};}
+\DoxyCodeLine{10   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPCA_a9a1284cd642c93db82d98d6c3a042b2b}{right}};}
+\DoxyCodeLine{11   \textcolor{keywordtype}{int} \mbox{\hyperlink{classPCA_a3a3cb88e88d8a341cd4c03df91c986da}{keep\_components}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14   \mbox{\hyperlink{classPCA_a99d020177376b81962442d9001d17e99}{PCA}}(\textcolor{keywordtype}{int} k\_components = 0)}
+\DoxyCodeLine{15     : \mbox{\hyperlink{classTransformer}{Transformer}}()}
+\DoxyCodeLine{16     , \mbox{\hyperlink{classPCA_a3a3cb88e88d8a341cd4c03df91c986da}{keep\_components}}(k\_components) \{ \}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18   \textcolor{keywordtype}{void} \mbox{\hyperlink{classPCA_a425bf6a87a11aa8bfd5c82cdf2b18520}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{19     \textcolor{keyword}{auto} res = \mbox{\hyperlink{svd_8h_a3b139aaaee48ddeff126b386e555cee0}{svd}}(X, \mbox{\hyperlink{classPCA_a3a3cb88e88d8a341cd4c03df91c986da}{keep\_components}});}
+\DoxyCodeLine{20     \mbox{\hyperlink{classPCA_a0337f6dfbb33528325f515c0a2d5116a}{PCs}}      = res[0] * res[1];}
+\DoxyCodeLine{21     \mbox{\hyperlink{classPCA_a9a1284cd642c93db82d98d6c3a042b2b}{right}}    = res[2];}
+\DoxyCodeLine{22   \}}
+\DoxyCodeLine{23   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classPCA_adc66271e89ab7e91e90081f5d1e4257a}{transform}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} in * \mbox{\hyperlink{classPCA_a0337f6dfbb33528325f515c0a2d5116a}{PCs}}; \}}
+\DoxyCodeLine{24 \};}
+
+\end{DoxyCode}

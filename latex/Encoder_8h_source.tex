@@ -1,0 +1,21 @@
+\hypertarget{Encoder_8h_source}{}\doxysection{Encoder.\+h}
+\label{Encoder_8h_source}\index{include/math/ds/preprocessing/Encoder.h@{include/math/ds/preprocessing/Encoder.h}}
+\mbox{\hyperlink{Encoder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include "{}../Predictor.h"{}}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{classOneHotEncoder}{OneHotEncoder}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTransformer}{Transformer}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6   \mbox{\hyperlink{classMatrix}{Matrix<int>}} \mbox{\hyperlink{classOneHotEncoder_a0944cf64bb8ae51bfcf5fb6d1ca527a6}{unique\_values}};}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9   \mbox{\hyperlink{classOneHotEncoder_ac64f21104b234394d9b735839d392429}{OneHotEncoder}}()}
+\DoxyCodeLine{10     : \mbox{\hyperlink{classTransformer}{Transformer}}() \{ \}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12   \textcolor{keywordtype}{void} \mbox{\hyperlink{classOneHotEncoder_a80ba2dfa75f9fb35b3af6853e2f9a200}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, [[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y)\textcolor{keyword}{ override }\{ \mbox{\hyperlink{classOneHotEncoder_a0944cf64bb8ae51bfcf5fb6d1ca527a6}{unique\_values}} = \mbox{\hyperlink{matrix__utils_8h_af79386365c3901ef0bec8f116368ded2}{unique}}(X, 0); \}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classOneHotEncoder_a4722e28c22e8253771950203c0713436}{transform}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} in; \}}
+\DoxyCodeLine{15 \};}
+
+\end{DoxyCode}

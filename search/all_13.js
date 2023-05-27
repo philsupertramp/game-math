@@ -13,7 +13,7 @@ var searchData=
   ['residuals_10',['residuals',['../structLinearModel.html#a8501968c7d6871dd6f3c6aa00e7b1f4d',1,'LinearModel']]],
   ['resize_11',['Resize',['../classMatrix.html#a9483215681a238c3da0e385c3a31fe16',1,'Matrix']]],
   ['resolveop_12',['resolveOP',['../classEquation.html#a97a7ed33a1b30e31257b1663610f303b',1,'Equation']]],
-  ['right_13',['right',['../classMathNode.html#af81f7d62cd9008544aa999c6a1c55934',1,'MathNode']]],
+  ['right_13',['right',['../classPCA.html#a9a1284cd642c93db82d98d6c3a042b2b',1,'PCA::right()'],['../classMathNode.html#af81f7d62cd9008544aa999c6a1c55934',1,'MathNode::right()']]],
   ['rotate_14',['rotate',['../namespaceMath_1_1Utils.html#a8c50269d1197ea65df150ef859a81846',1,'Math::Utils']]],
   ['round_15',['round',['../Probability_8h.html#aa3e12acd040b791cdf25cbb4d3d41bb5',1,'Probability.h']]],
   ['row_5fmean_16',['ROW_MEAN',['../DataSet_8h.html#a8436cce5c4911a0849d9e3e6f6ac2d95afada0aad94a33b044fc15d463b814988',1,'DataSet.h']]],

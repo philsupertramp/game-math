@@ -1,9 +1,13 @@
 var searchData=
 [
-  ['r_0',['R',['../structInterest.html#a9857fe887e98a30e7ba7bee2e8dec26f',1,'Interest']]],
-  ['randomseed_1',['RandomSeed',['../Random_8h.html#a682a5d05601724697eb6d443f4f6f8c0',1,'Random.h']]],
-  ['randomstate_2',['randomState',['../classAdalineSGD.html#a7930ffb33b513fec12a6503191fa89a3',1,'AdalineSGD::randomState()'],['../classLogRegSGD.html#a654e74118d5644bc8e18ca5e5bcca997',1,'LogRegSGD::randomState()']]],
-  ['residuals_3',['residuals',['../structLinearModel.html#a8501968c7d6871dd6f3c6aa00e7b1f4d',1,'LinearModel']]],
-  ['right_4',['right',['../classMathNode.html#af81f7d62cd9008544aa999c6a1c55934',1,'MathNode']]],
-  ['rows_5',['rows',['../structMatrixDimension.html#a93df531cf74c1c3a6d6c0519cb2789ef',1,'MatrixDimension']]]
+  ['pcs_0',['PCs',['../classPCA.html#a0337f6dfbb33528325f515c0a2d5116a',1,'PCA']]],
+  ['plotindices_1',['plotIndices',['../structPlotAttributes.html#ab52812aea2de2730dbccf423d5f4797e',1,'PlotAttributes']]],
+  ['plotnames_2',['plotNames',['../structPlotAttributes.html#af1fbc2faf45c17722017f841f3e92639',1,'PlotAttributes']]],
+  ['plottype_3',['plotType',['../classPlot.html#a77875f7b918ccd9a43f72b189b2e102d',1,'Plot']]],
+  ['plottypename_4',['plotTypeName',['../classPlot.html#a84d0108c396f7665f228340fce807992',1,'Plot']]],
+  ['plottypes_5',['plotTypes',['../structPlotAttributes.html#a366b5a4078cb55cc358dc956bf3fef88',1,'PlotAttributes']]],
+  ['pointstrength_6',['pointStrength',['../structPlotAttributes.html#a84595caf0d1f946b36c8c4b5280830eb',1,'PlotAttributes']]],
+  ['prevwasoperator_7',['prevWasOperator',['../classEquationParser.html#a155e7464251f20395bdb713e129f7ca6',1,'EquationParser']]],
+  ['priority_8',['priority',['../classOperator.html#aac3650047650adcb082c21b2a5bdfb1c',1,'Operator']]],
+  ['processstring_9',['processString',['../classEquationParser.html#a827fc71df4f69659b5ebbfbad6deb517',1,'EquationParser']]]
 ];

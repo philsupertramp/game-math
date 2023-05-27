@@ -9,5 +9,6 @@ var searchData=
   ['matrix_3c_20double_20_3e_6',['Matrix&lt; double &gt;',['../classMatrix.html',1,'']]],
   ['matrix_3c_20int_20_3e_7',['Matrix&lt; int &gt;',['../classMatrix.html',1,'']]],
   ['matrixdimension_8',['MatrixDimension',['../structMatrixDimension.html',1,'']]],
-  ['monombase_9',['MonomBase',['../classMonomBase.html',1,'']]]
+  ['minmaxscaler_9',['MinMaxScaler',['../classMinMaxScaler.html',1,'']]],
+  ['monombase_10',['MonomBase',['../classMonomBase.html',1,'']]]
 ];

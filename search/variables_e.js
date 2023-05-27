@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['plotindices_0',['plotIndices',['../structPlotAttributes.html#ab52812aea2de2730dbccf423d5f4797e',1,'PlotAttributes']]],
-  ['plotnames_1',['plotNames',['../structPlotAttributes.html#af1fbc2faf45c17722017f841f3e92639',1,'PlotAttributes']]],
-  ['plottype_2',['plotType',['../classPlot.html#a77875f7b918ccd9a43f72b189b2e102d',1,'Plot']]],
-  ['plottypename_3',['plotTypeName',['../classPlot.html#a84d0108c396f7665f228340fce807992',1,'Plot']]],
-  ['plottypes_4',['plotTypes',['../structPlotAttributes.html#a366b5a4078cb55cc358dc956bf3fef88',1,'PlotAttributes']]],
-  ['pointstrength_5',['pointStrength',['../structPlotAttributes.html#a84595caf0d1f946b36c8c4b5280830eb',1,'PlotAttributes']]],
-  ['prevwasoperator_6',['prevWasOperator',['../classEquationParser.html#a155e7464251f20395bdb713e129f7ca6',1,'EquationParser']]],
-  ['priority_7',['priority',['../classOperator.html#aac3650047650adcb082c21b2a5bdfb1c',1,'Operator']]],
-  ['processstring_8',['processString',['../classEquationParser.html#a827fc71df4f69659b5ebbfbad6deb517',1,'EquationParser']]]
+  ['op_0',['op',['../classOperator.html#aa1053c93ac197de3d97d527ce54c6992',1,'Operator']]],
+  ['operandstack_1',['operandStack',['../classEquationParser.html#afa73d296245fd785dea152f54576416f',1,'EquationParser']]],
+  ['operatorstack_2',['operatorStack',['../classEquationParser.html#a70ddbb63cbf2d30ac2d3a2a6a0cbbf98',1,'EquationParser']]],
+  ['output_3',['Output',['../structSet.html#abeb4570e7f558220e76e3fcb03551813',1,'Set']]],
+  ['outputcount_4',['OutputCount',['../structSet.html#a6064a5992e5bc26890f985a836b4aa59',1,'Set::OutputCount()'],['../classDataSet.html#a80e15af63fd1574afb65efa990187203',1,'DataSet::OutputCount()']]]
 ];

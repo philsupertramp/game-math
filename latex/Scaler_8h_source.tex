@@ -1,0 +1,67 @@
+\hypertarget{Scaler_8h_source}{}\doxysection{Scaler.\+h}
+\label{Scaler_8h_source}\index{include/math/ds/preprocessing/Scaler.h@{include/math/ds/preprocessing/Scaler.h}}
+\mbox{\hyperlink{Scaler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}../../Matrix.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../../statistics/Probability.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include "{}../../Matrix.h"{}}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include "{}../../numerics/utils.h"{}}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include "{}../Predictor.h"{}}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{43 \textcolor{keyword}{class }\mbox{\hyperlink{classStandardScaler}{StandardScaler}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTransformer}{Transformer}}}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45 \textcolor{keyword}{private}:}
+\DoxyCodeLine{46   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStandardScaler_a70710d2726c83503d50417c5e454bf08}{with\_std}}   = \textcolor{keyword}{true};}
+\DoxyCodeLine{47   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStandardScaler_a7701dce93dd11c481804fd252bfec150}{with\_means}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{public}:}
+\DoxyCodeLine{50   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classStandardScaler_a564e42e242489cbb290fa6061e9f4bba}{means}};}
+\DoxyCodeLine{51   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classStandardScaler_a0d695e1928f2949cccd440ee39dec26c}{std\_deviations}};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{public}:}
+\DoxyCodeLine{54   \mbox{\hyperlink{classStandardScaler_a9e15355fc3d19b29336d07460a56fae0}{StandardScaler}}(\textcolor{keywordtype}{bool} withMeans = \textcolor{keyword}{true}, \textcolor{keywordtype}{bool} withStd = \textcolor{keyword}{true})}
+\DoxyCodeLine{55     : \mbox{\hyperlink{classTransformer}{Transformer}}()}
+\DoxyCodeLine{56     , \mbox{\hyperlink{classStandardScaler_a70710d2726c83503d50417c5e454bf08}{with\_std}}(withStd)}
+\DoxyCodeLine{57     , \mbox{\hyperlink{classStandardScaler_a7701dce93dd11c481804fd252bfec150}{with\_means}}(withMeans)\{\};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{65   \textcolor{keywordtype}{void} \mbox{\hyperlink{classStandardScaler_ac21dcb106786b3bc69cb8a0e1e226fec}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, [[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{66     \mbox{\hyperlink{classStandardScaler_a564e42e242489cbb290fa6061e9f4bba}{means}}          = \mbox{\hyperlink{classStandardScaler_a7701dce93dd11c481804fd252bfec150}{with\_means}} ? \mbox{\hyperlink{matrix__utils_8h_a23bb7f728122a09c240223a4de6730a9}{mean}}(X, 0) : \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(1, X.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{67     \mbox{\hyperlink{classStandardScaler_a0d695e1928f2949cccd440ee39dec26c}{std\_deviations}} = \mbox{\hyperlink{classStandardScaler_a70710d2726c83503d50417c5e454bf08}{with\_std}} ? \mbox{\hyperlink{Probability_8h_a99cd3620481f103353fba9bd02011854}{sd}}(X, 0) : \mbox{\hyperlink{numerics_2utils_8h_aaf883b485905c5bcd46724b44a12e094}{ones}}(1, X.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{68   \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{78   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classStandardScaler_ae2a4e02ac2ed3a0fa74656b87bb13ff7}{transform}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{79     \textcolor{keyword}{auto} diff = in -\/ \mbox{\hyperlink{classStandardScaler_a564e42e242489cbb290fa6061e9f4bba}{means}};}
+\DoxyCodeLine{80     \textcolor{keywordflow}{return} diff / \mbox{\hyperlink{classStandardScaler_a0d695e1928f2949cccd440ee39dec26c}{std\_deviations}};}
+\DoxyCodeLine{81   \}}
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{class }\mbox{\hyperlink{classMinMaxScaler}{MinMaxScaler}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTransformer}{Transformer}}}
+\DoxyCodeLine{85 \{}
+\DoxyCodeLine{86 \textcolor{keyword}{private}:}
+\DoxyCodeLine{87   \textcolor{keywordtype}{double} \mbox{\hyperlink{classMinMaxScaler_a093652a804c1b9abac66a90682826b26}{min\_val}};}
+\DoxyCodeLine{88   \textcolor{keywordtype}{double} \mbox{\hyperlink{classMinMaxScaler_accb2e2bc54bc3b37b2b217c611e9e523}{max\_val}};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{keyword}{public}:}
+\DoxyCodeLine{91 \textcolor{keyword}{public}:}
+\DoxyCodeLine{92   \mbox{\hyperlink{classMinMaxScaler_a5a92384d12fdc77a5cd3b4f69709dae8}{MinMaxScaler}}(\textcolor{keywordtype}{double} range\_min\_val = 0., \textcolor{keywordtype}{double} range\_max\_val = 1.0)}
+\DoxyCodeLine{93     : \mbox{\hyperlink{classTransformer}{Transformer}}()}
+\DoxyCodeLine{94     , \mbox{\hyperlink{classMinMaxScaler_a093652a804c1b9abac66a90682826b26}{min\_val}}(range\_min\_val)}
+\DoxyCodeLine{95     , \mbox{\hyperlink{classMinMaxScaler_accb2e2bc54bc3b37b2b217c611e9e523}{max\_val}}(range\_max\_val) \{ \}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97   \textcolor{keywordtype}{void} \mbox{\hyperlink{classMinMaxScaler_ae126ec6ab22f69e3d047f26a197ea15e}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, [[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y)\textcolor{keyword}{ override }\{ \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classMinMaxScaler_ae90079be08fd2a30d5707115c4381517}{transform}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{100     \textcolor{keyword}{auto} localDiff  = \mbox{\hyperlink{matrix__utils_8h_a8dd66fbac5097923b2ecf481b0ae77e5}{max}}(in, 0) -\/ \mbox{\hyperlink{matrix__utils_8h_a4bb73e4029612f323f406f1ecfc2ed57}{min}}(in, 0);}
+\DoxyCodeLine{101     \textcolor{keyword}{auto} shiftedIn  = in -\/ \mbox{\hyperlink{matrix__utils_8h_a4bb73e4029612f323f406f1ecfc2ed57}{min}}(in, 0);}
+\DoxyCodeLine{102     \textcolor{keyword}{auto} scaledDiff = shiftedIn / localDiff;}
+\DoxyCodeLine{103     scaledDiff      = scaledDiff * (\mbox{\hyperlink{classMinMaxScaler_accb2e2bc54bc3b37b2b217c611e9e523}{max\_val}} -\/ \mbox{\hyperlink{classMinMaxScaler_a093652a804c1b9abac66a90682826b26}{min\_val}});}
+\DoxyCodeLine{104     scaledDiff      = scaledDiff + \mbox{\hyperlink{classMatrix}{Matrix<double>}}(\mbox{\hyperlink{classMinMaxScaler_a093652a804c1b9abac66a90682826b26}{min\_val}}, scaledDiff.rows(), scaledDiff.columns());}
+\DoxyCodeLine{105     \textcolor{keywordflow}{return} scaledDiff;}
+\DoxyCodeLine{106   \}}
+\DoxyCodeLine{107 \};}
+\DoxyCodeLine{108 }
+
+\end{DoxyCode}

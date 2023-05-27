@@ -1,0 +1,98 @@
+\hypertarget{classPCA}{}\doxysection{PCA Class Reference}
+\label{classPCA}\index{PCA@{PCA}}
+
+
+{\ttfamily \#include $<$PCA.\+h$>$}
+
+Inheritance diagram for PCA\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classPCA}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPCA_a99d020177376b81962442d9001d17e99}{PCA}} (int k\+\_\+components=0)
+\item 
+void \mbox{\hyperlink{classPCA_a425bf6a87a11aa8bfd5c82cdf2b18520}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y) override
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPCA_adc66271e89ab7e91e90081f5d1e4257a}{transform}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&in) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPCA_a0337f6dfbb33528325f515c0a2d5116a}{PCs}}
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{classPCA_a9a1284cd642c93db82d98d6c3a042b2b}{right}}
+\item 
+int \mbox{\hyperlink{classPCA_a3a3cb88e88d8a341cd4c03df91c986da}{keep\+\_\+components}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPCA_a99d020177376b81962442d9001d17e99}\label{classPCA_a99d020177376b81962442d9001d17e99}} 
+\index{PCA@{PCA}!PCA@{PCA}}
+\index{PCA@{PCA}!PCA@{PCA}}
+\doxysubsubsection{\texorpdfstring{PCA()}{PCA()}}
+{\footnotesize\ttfamily PCA\+::\+PCA (\begin{DoxyParamCaption}\item[{int}]{k\+\_\+components = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPCA_a425bf6a87a11aa8bfd5c82cdf2b18520}\label{classPCA_a425bf6a87a11aa8bfd5c82cdf2b18520}} 
+\index{PCA@{PCA}!fit@{fit}}
+\index{fit@{fit}!PCA@{PCA}}
+\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
+{\footnotesize\ttfamily void PCA\+::fit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{X,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Implements training algorithm 
+\begin{DoxyParams}{Parameters}
+{\em X} & array-\/like with the shape\+: \mbox{[}n\+\_\+samples, n\+\_\+features\mbox{]} \\
+\hline
+{\em y} & array-\/like with shape\+: \mbox{[}n\+\_\+samples, 1\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPredictor_a5364a5c595cd09f99fdc57fd28839bdf}{Predictor}}.
+
+\mbox{\Hypertarget{classPCA_adc66271e89ab7e91e90081f5d1e4257a}\label{classPCA_adc66271e89ab7e91e90081f5d1e4257a}} 
+\index{PCA@{PCA}!transform@{transform}}
+\index{transform@{transform}!PCA@{PCA}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ PCA\+::transform (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classPredictor_a341a4d9fc8af8f53a07089100b213a73}{Predictor}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classPCA_a3a3cb88e88d8a341cd4c03df91c986da}\label{classPCA_a3a3cb88e88d8a341cd4c03df91c986da}} 
+\index{PCA@{PCA}!keep\_components@{keep\_components}}
+\index{keep\_components@{keep\_components}!PCA@{PCA}}
+\doxysubsubsection{\texorpdfstring{keep\_components}{keep\_components}}
+{\footnotesize\ttfamily int PCA\+::keep\+\_\+components}
+
+\mbox{\Hypertarget{classPCA_a0337f6dfbb33528325f515c0a2d5116a}\label{classPCA_a0337f6dfbb33528325f515c0a2d5116a}} 
+\index{PCA@{PCA}!PCs@{PCs}}
+\index{PCs@{PCs}!PCA@{PCA}}
+\doxysubsubsection{\texorpdfstring{PCs}{PCs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ PCA\+::\+PCs}
+
+\mbox{\Hypertarget{classPCA_a9a1284cd642c93db82d98d6c3a042b2b}\label{classPCA_a9a1284cd642c93db82d98d6c3a042b2b}} 
+\index{PCA@{PCA}!right@{right}}
+\index{right@{right}!PCA@{PCA}}
+\doxysubsubsection{\texorpdfstring{right}{right}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}$<$double$>$ PCA\+::right}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/math/ds/decomposition/\mbox{\hyperlink{PCA_8h}{PCA.\+h}}\end{DoxyCompactItemize}
