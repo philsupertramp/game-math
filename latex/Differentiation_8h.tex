@@ -1,6 +1,7 @@
 \hypertarget{Differentiation_8h}{}\doxysection{include/math/numerics/analysis/\+Differentiation.h File Reference}
 \label{Differentiation_8h}\index{include/math/numerics/analysis/Differentiation.h@{include/math/numerics/analysis/Differentiation.h}}
 {\ttfamily \#include \char`\"{}../../\+Matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../matrix\+\_\+utils.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}../utils.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -56,12 +57,9 @@ Computes backward difference quotient \$\$ f\textquotesingle{}(x) = \textbacksla
 \begin{DoxyParams}{Parameters}
 {\em x} & x-\/values \\
 \hline
-{\em y} & y-\/values \\
+{\em y} & y-\/values @returnss approximated first differential evaluated on x-\/values \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-approximated first differential evaluated on x-\/values 
-\end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{numerics_2analysis_2TestDifferentiation_8cpp-example}{numerics/analysis/\+Test\+Differentiation.\+cpp}}.\end{Desc}
@@ -77,12 +75,9 @@ Computes backward difference quotient for 1st differential uses 2nd order polyno
 \begin{DoxyParams}{Parameters}
 {\em x} & x-\/values \\
 \hline
-{\em y} & y-\/values \\
+{\em y} & y-\/values @returnss approximated second differential evaluated on x-\/values \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-approximated second differential evaluated on x-\/values 
-\end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{numerics_2analysis_2TestDifferentiation_8cpp-example}{numerics/analysis/\+Test\+Differentiation.\+cpp}}.\end{Desc}
@@ -96,12 +91,9 @@ Computes central difference quotient \$\$ f\textquotesingle{}(x) = \textbackslas
 \begin{DoxyParams}{Parameters}
 {\em x} & x-\/values \\
 \hline
-{\em y} & y-\/values \\
+{\em y} & y-\/values @returnss approximated first differential evaluated on x-\/values \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-approximated first differential evaluated on x-\/values 
-\end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{numerics_2analysis_2TestDifferentiation_8cpp-example}{numerics/analysis/\+Test\+Differentiation.\+cpp}}.\end{Desc}
@@ -117,12 +109,9 @@ Computes central difference quotient for 1st differential uses 2nd order polynom
 \begin{DoxyParams}{Parameters}
 {\em x} & x-\/values \\
 \hline
-{\em y} & y-\/values \\
+{\em y} & y-\/values @returnss approximated second differential evaluated on x-\/values \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-approximated second differential evaluated on x-\/values 
-\end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{numerics_2analysis_2TestDifferentiation_8cpp-example}{numerics/analysis/\+Test\+Differentiation.\+cpp}}.\end{Desc}
@@ -136,12 +125,9 @@ Computes forward difference quotient \$\$ \textbackslash{}frac\{f(x+h)-\/f(x)\}\
 \begin{DoxyParams}{Parameters}
 {\em x} & x-\/values \\
 \hline
-{\em y} & y-\/values \\
+{\em y} & y-\/values @returnss approximated differential evaluated on x-\/values \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-approximated differential evaluated on x-\/values 
-\end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{numerics_2analysis_2TestDifferentiation_8cpp-example}{numerics/analysis/\+Test\+Differentiation.\+cpp}}.\end{Desc}

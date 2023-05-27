@@ -10,7 +10,7 @@ var searchData=
   ['forwardsub_7',['forwardSub',['../forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf',1,'forwardSub.h']]],
   ['forwardsub_2eh_8',['forwardSub.h',['../forwardSub_8h.html',1,'']]],
   ['fractals_2eh_9',['Fractals.h',['../Fractals_8h.html',1,'']]],
-  ['from_5fvptr_10',['from_vptr',['../Matrix_8h.html#abcd4628e1dd87e594aa69c1e9e60cd19',1,'Matrix.h']]],
+  ['from_5fvptr_10',['from_vptr',['../matrix__utils_8h.html#abcd4628e1dd87e594aa69c1e9e60cd19',1,'matrix_utils.h']]],
   ['fun_11',['fun',['../classNewtonFractal.html#a7b5e57d09efeaebe88ccd017220d3e78',1,'NewtonFractal::fun()'],['../classMandelbrot.html#a6b86afb4db2158631df99a45e9821574',1,'Mandelbrot::fun()']]],
   ['function_12',['Function',['../classFunctionPlot.html#a16148c2b8c06689ceaabfb48a302cb44',1,'FunctionPlot::Function()'],['../classPolynomialBase.html#a7c5cff1055e525bd01ab24cf39bf9ed5',1,'PolynomialBase::Function()'],['../classMonomBase.html#a4e86d536f746f544318c18c08c12b99f',1,'MonomBase::Function()'],['../classLagrangeBase.html#a56f2ac80cd5872fc9438283ae5460ed2',1,'LagrangeBase::Function()'],['../classNewtonBase.html#af59cf5892ed772c87c830ceb701160dd',1,'NewtonBase::Function()'],['../classFunction.html#aed501e2ece820e5e66a513486958dcc6',1,'Function::Function(const std::string &amp;val, const std::function&lt; double(double)&gt; &amp;fun)'],['../classFunction.html#abb23d3b78d3d3e49f8ec7fd8279af6ca',1,'Function::Function(const std::string &amp;val, const std::function&lt; double(double, double)&gt; &amp;fun)'],['../classFunction.html',1,'Function']]],
   ['functionplot_13',['FunctionPlot',['../classFunctionPlot.html',1,'FunctionPlot'],['../classFunctionPlot.html#acf609f64cac77f3e556747b73e70fbc1',1,'FunctionPlot::FunctionPlot()']]],

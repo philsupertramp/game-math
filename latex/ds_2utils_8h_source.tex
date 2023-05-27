@@ -5,17 +5,18 @@
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 }
 \DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Matrix.h"{}}}
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{keywordtype}{double} \mbox{\hyperlink{ds_2utils_8h_a911f8108af3ac874d00214c27ead7e11}{relu}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} std::max(0.0, in); \}}
-\DoxyCodeLine{6 \textcolor{keywordtype}{double} \mbox{\hyperlink{ds_2utils_8h_ac728d7b1176ff4bebf1d5c88167dc392}{sigmoid}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} 1.0 / (1.0 + exp(-\/in)); \}}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{ds_2utils_8h_ac662603ed4244e6d87f968e911f020f9}{Sigmoid}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in) \{}
-\DoxyCodeLine{9   \textcolor{comment}{// real sigmoid in lambda}}
-\DoxyCodeLine{10   \textcolor{keywordflow}{return} in.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& a) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{ds_2utils_8h_ac728d7b1176ff4bebf1d5c88167dc392}{sigmoid}}(a); \});}
-\DoxyCodeLine{11 \}}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keywordtype}{double} \mbox{\hyperlink{ds_2utils_8h_a92bb988a831e1ee41cc9f56f9fef9f37}{accuracy}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& predictions, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& ground\_truth) \{}
-\DoxyCodeLine{14   \textcolor{keywordflow}{return} (\textcolor{keywordtype}{double})\mbox{\hyperlink{Matrix_8h_a0a35c20e3d36bb16e1ae7e4dbaae29ce}{Corr}}(predictions, ground\_truth) / predictions.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
-\DoxyCodeLine{15 \}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../matrix\_utils.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keywordtype}{double} \mbox{\hyperlink{ds_2utils_8h_a911f8108af3ac874d00214c27ead7e11}{relu}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} std::max(0.0, in); \}}
+\DoxyCodeLine{7 \textcolor{keywordtype}{double} \mbox{\hyperlink{ds_2utils_8h_ac728d7b1176ff4bebf1d5c88167dc392}{sigmoid}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} 1.0 / (1.0 + exp(-\/in)); \}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{ds_2utils_8h_ac662603ed4244e6d87f968e911f020f9}{Sigmoid}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& in) \{}
+\DoxyCodeLine{10   \textcolor{comment}{// real sigmoid in lambda}}
+\DoxyCodeLine{11   \textcolor{keywordflow}{return} in.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& a) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{ds_2utils_8h_ac728d7b1176ff4bebf1d5c88167dc392}{sigmoid}}(a); \});}
+\DoxyCodeLine{12 \}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keywordtype}{double} \mbox{\hyperlink{ds_2utils_8h_a92bb988a831e1ee41cc9f56f9fef9f37}{accuracy}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& predictions, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& ground\_truth) \{}
+\DoxyCodeLine{15   \textcolor{keywordflow}{return} (\textcolor{keywordtype}{double})\mbox{\hyperlink{matrix__utils_8h_a0a35c20e3d36bb16e1ae7e4dbaae29ce}{Corr}}(predictions, ground\_truth) / predictions.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{16 \}}
 
 \end{DoxyCode}

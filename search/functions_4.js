@@ -2,9 +2,9 @@ var searchData=
 [
   ['elements_0',['elements',['../classMatrix.html#ac9d3a0fe5ce995cf6f997209f72199cc',1,'Matrix']]],
   ['elementwisecompare_1',['elementWiseCompare',['../classMatrix.html#afecf4f1a91e8aa51df4b65cbc0ce621b',1,'Matrix']]],
-  ['elemmax_2',['elemMax',['../Matrix_8h.html#adf917f83162312bfe4a7a861c6f0cbcb',1,'Matrix.h']]],
-  ['elemmean_3',['elemMean',['../Matrix_8h.html#aaad7330b0e1e9c27b308a224210a14f9',1,'Matrix.h']]],
-  ['elemmin_4',['elemMin',['../Matrix_8h.html#a45d36755afc757808fcf8e6dc7a2c063',1,'Matrix.h']]],
+  ['elemmax_2',['elemMax',['../matrix__utils_8h.html#adf917f83162312bfe4a7a861c6f0cbcb',1,'matrix_utils.h']]],
+  ['elemmean_3',['elemMean',['../matrix__utils_8h.html#aaad7330b0e1e9c27b308a224210a14f9',1,'matrix_utils.h']]],
+  ['elemmin_4',['elemMin',['../matrix__utils_8h.html#a45d36755afc757808fcf8e6dc7a2c063',1,'matrix_utils.h']]],
   ['endvalue_5',['endValue',['../Insurance_8h.html#af892d3aae9541cb537e1f5df275ef7d9',1,'Insurance.h']]],
   ['endvalueofannuityinadvance_6',['endValueOfAnnuityInAdvance',['../Insurance_8h.html#ac0f07314aa361d844f287efcfbe46ed1',1,'Insurance.h']]],
   ['endvalueofannuityinarrear_7',['endValueOfAnnuityInArrear',['../Insurance_8h.html#a2de394211d124f7a8f05041cf45547c7',1,'Insurance.h']]],

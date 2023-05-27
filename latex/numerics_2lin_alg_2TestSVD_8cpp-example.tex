@@ -55,7 +55,7 @@ This is an example on how to use the svd method.
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// 1. compute mean row}}
 \DoxyCodeLine{    \mbox{\hyperlink{classMatrix}{Matrix<double>}} row\_mean(0.0, 1, X.rows());}
-\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < X.rows(); ++i) \{ row\_mean(0, i) = \mbox{\hyperlink{Matrix_8h_a23bb7f728122a09c240223a4de6730a9}{mean}}(X.GetSlice(i, i, 0, X.columns() -\/ 1), -\/1)(0, 0); \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < X.rows(); ++i) \{ row\_mean(0, i) = \mbox{\hyperlink{matrix__utils_8h_a23bb7f728122a09c240223a4de6730a9}{mean}}(X.GetSlice(i, i, 0, X.columns() -\/ 1), -\/1)(0, 0); \}}
 \DoxyCodeLine{    \mbox{\hyperlink{classMatrix}{Matrix<double>}} X\_bar = (\mbox{\hyperlink{classMatrix}{Matrix<double>}}(1.0, X.columns(), 1) * row\_mean).Transpose();}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// 2. B = X -\/ X'}}
@@ -71,7 +71,7 @@ This is an example on how to use the svd method.
 \DoxyCodeLine{}
 \DoxyCodeLine{    \mbox{\hyperlink{classMatrix}{Matrix<double>}} Theta = 2.0 * M\_PI * \mbox{\hyperlink{numerics_2utils_8h_af9dcfd52b7832ac134ae73f568a90350}{linspace}}(0, 1, 100).\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}
 \DoxyCodeLine{    \textcolor{keyword}{auto} newTheta =}
-\DoxyCodeLine{    \mbox{\hyperlink{Matrix_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(Theta.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keywordtype}{double} val) \{ return cos(val); \}), Theta.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keywordtype}{double} val) \{ return sin(val); \}))}
+\DoxyCodeLine{    \mbox{\hyperlink{matrix__utils_8h_a1f9177b021b6f3a2ec3a4f0b26797b8e}{HorizontalConcat}}(Theta.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keywordtype}{double} val) \{ return cos(val); \}), Theta.\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([](\textcolor{keywordtype}{double} val) \{ return sin(val); \}))}
 \DoxyCodeLine{    .Transpose();}
 \DoxyCodeLine{    \textcolor{keyword}{auto} xStd = U * \mbox{\hyperlink{numerics_2utils_8h_a32df81a2d10f9099cacedbbd378873bb}{diag}}(S) * newTheta;}
 \DoxyCodeLine{\textcolor{preprocessor}{\#if USE\_VIS}}

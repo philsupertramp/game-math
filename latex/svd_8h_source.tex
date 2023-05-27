@@ -45,7 +45,7 @@
 \DoxyCodeLine{48     Q\_prev    = Q;}
 \DoxyCodeLine{49     \textcolor{keywordflow}{if}(err < epsilon) \{ \textcolor{keywordflow}{break}; \}}
 \DoxyCodeLine{50   \}}
-\DoxyCodeLine{51   \textcolor{keyword}{auto} singular\_values = \mbox{\hyperlink{Matrix_8h_a2e19f18bb0d422da0e75d5d0f6753331}{diag\_elements}}(R).Apply([](\textcolor{keywordtype}{double} val) \{ \textcolor{keywordflow}{return} sqrt(val); \});}
+\DoxyCodeLine{51   \textcolor{keyword}{auto} singular\_values = \mbox{\hyperlink{matrix__utils_8h_a2e19f18bb0d422da0e75d5d0f6753331}{diag\_elements}}(R).Apply([](\textcolor{keywordtype}{double} val) \{ \textcolor{keywordflow}{return} sqrt(val); \});}
 \DoxyCodeLine{52   \mbox{\hyperlink{classMatrix}{Matrix<double>}} left\_vecs, right\_vecs;}
 \DoxyCodeLine{53   \textcolor{keywordflow}{if}(n\_orig < m\_orig) \{}
 \DoxyCodeLine{54     left\_vecs  = Q.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}();}

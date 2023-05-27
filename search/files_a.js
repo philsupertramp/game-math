@@ -5,5 +5,6 @@ var searchData=
   ['mat4_2eh_2',['mat4.h',['../mat4_8h.html',1,'']]],
   ['math_2eh_3',['math.h',['../math_8h.html',1,'']]],
   ['mathnode_2eh_4',['MathNode.h',['../MathNode_8h.html',1,'']]],
-  ['matrix_2eh_5',['Matrix.h',['../Matrix_8h.html',1,'']]]
+  ['matrix_2eh_5',['Matrix.h',['../Matrix_8h.html',1,'']]],
+  ['matrix_5futils_2eh_6',['matrix_utils.h',['../matrix__utils_8h.html',1,'']]]
 ];

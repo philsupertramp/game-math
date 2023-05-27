@@ -3,76 +3,77 @@
 \mbox{\hyperlink{NCC_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
-\DoxyCodeLine{37 \textcolor{preprocessor}{\#include "{}../numerics/utils.h"{}}}
-\DoxyCodeLine{38 \textcolor{preprocessor}{\#include "{}../utils.h"{}}}
-\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Classifier_8h}{Classifier.h}}"{}}}
-\DoxyCodeLine{40 \textcolor{preprocessor}{\#include <cstddef>}}
-\DoxyCodeLine{41 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include "{}../matrix\_utils.h"{}}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include "{}../numerics/utils.h"{}}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}../utils.h"{}}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Classifier_8h}{Classifier.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include <cstddef>}}
 \DoxyCodeLine{42 }
-\DoxyCodeLine{47 \textcolor{keyword}{class }\mbox{\hyperlink{classNCC}{NCC}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClassifier}{Classifier}}}
-\DoxyCodeLine{48 \{}
-\DoxyCodeLine{49   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNCC_afc9875457c682131961c4b7205a48055}{use\_iterative}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51 \textcolor{keyword}{public}:}
-\DoxyCodeLine{52   \mbox{\hyperlink{classNCC_a470527d954ba7507ced80f0a4ad6123f}{NCC}}(\textcolor{keywordtype}{bool} useIterative)}
-\DoxyCodeLine{53     : \mbox{\hyperlink{classClassifier}{Classifier}}()}
-\DoxyCodeLine{54     , \mbox{\hyperlink{classNCC_afc9875457c682131961c4b7205a48055}{use\_iterative}}(useIterative) \{ \}}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{59   \textcolor{keywordtype}{void} \mbox{\hyperlink{classNCC_a712fa8bd2912720d0a69fcfdf748e2cb}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y)\textcolor{keyword}{ override }\{}
-\DoxyCodeLine{60     assert(y.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() == 1 || y.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() == 1);}
-\DoxyCodeLine{61     \textcolor{keyword}{auto} labels = \mbox{\hyperlink{Matrix_8h_af79386365c3901ef0bec8f116368ded2}{unique}}(y);}
-\DoxyCodeLine{62     \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}     = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(labels.rows(), X.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
-\DoxyCodeLine{63     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classNCC_afc9875457c682131961c4b7205a48055}{use\_iterative}}) \{}
-\DoxyCodeLine{64       \mbox{\hyperlink{classNCC_a33865760c545363e114484de9aa62224}{fit\_iterative}}(X, y, labels);}
-\DoxyCodeLine{65     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{66       \mbox{\hyperlink{classNCC_aef1907285e5bcd8e64ea897d9418daae}{fit\_batch}}(X, y, labels);}
-\DoxyCodeLine{67     \}}
-\DoxyCodeLine{68   \};}
-\DoxyCodeLine{69 }
-\DoxyCodeLine{81   \textcolor{keywordtype}{void} \mbox{\hyperlink{classNCC_aef1907285e5bcd8e64ea897d9418daae}{fit\_batch}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& labels) \{}
-\DoxyCodeLine{82     \textcolor{comment}{// TODO: Technically we can omit labels here and only pass the number of unique labels. Or we keep a vector}}
-\DoxyCodeLine{83     \textcolor{comment}{// of unique labels as a class attribute. Both options might make sense.}}
-\DoxyCodeLine{84     \textcolor{comment}{// O(K)}}
-\DoxyCodeLine{85     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < labels.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
-\DoxyCodeLine{86       std::function<bool(\textcolor{keywordtype}{double})> condition = [i](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x == i); \};}
-\DoxyCodeLine{87       \textcolor{comment}{// O(N)}}
-\DoxyCodeLine{88       \textcolor{keyword}{auto} yis = \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, y, \{ \{ 1 \} \}, \{ \{ 0 \} \});}
-\DoxyCodeLine{89       \textcolor{comment}{// O(N)}}
-\DoxyCodeLine{90       \textcolor{keyword}{auto} Nk = yis.sumElements();}
-\DoxyCodeLine{91       \textcolor{comment}{// O(2N)}}
-\DoxyCodeLine{92       \textcolor{keyword}{auto} Xis = X.\mbox{\hyperlink{classMatrix_acbab33bf55dbcfecea49053ccabed802}{GetSlicesByIndex}}(\mbox{\hyperlink{Matrix_8h_a06d4149d83f11dbd6ae1ea8a51cdfa12}{where\_true}}(yis));}
-\DoxyCodeLine{93       \textcolor{comment}{// O(N * N * N)}}
-\DoxyCodeLine{94       \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a15c969e68b5492a3e9918a001ba8beb2}{SetSlice}}(i, Xis.sum(1) * (1. / Nk));}
-\DoxyCodeLine{95     \}}
-\DoxyCodeLine{96   \}}
-\DoxyCodeLine{97 }
-\DoxyCodeLine{110   \textcolor{keywordtype}{void} \mbox{\hyperlink{classNCC_a33865760c545363e114484de9aa62224}{fit\_iterative}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& labels) \{}
-\DoxyCodeLine{111     \textcolor{keyword}{auto} counters = \mbox{\hyperlink{classMatrix}{Matrix<int>}}(0, labels.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1);}
-\DoxyCodeLine{112     \textcolor{comment}{// O(N)}}
-\DoxyCodeLine{113     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < X.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
-\DoxyCodeLine{114       \textcolor{keyword}{auto} k               = y(i, 0);}
-\DoxyCodeLine{115       \textcolor{keyword}{auto} xi              = X.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(i, i);}
-\DoxyCodeLine{116       \textcolor{keyword}{auto} current\_counter = counters(k, 0);}
-\DoxyCodeLine{117       \textcolor{comment}{// O(D)}}
-\DoxyCodeLine{118       \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a15c969e68b5492a3e9918a001ba8beb2}{SetSlice}}(}
-\DoxyCodeLine{119       k,}
-\DoxyCodeLine{120       \textcolor{comment}{// O(D)}}
-\DoxyCodeLine{121       \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(k, k) * (current\_counter / \textcolor{keywordtype}{double}(current\_counter + 1))}
-\DoxyCodeLine{122       \textcolor{comment}{// O(D)}}
-\DoxyCodeLine{123       + xi * (1. / \textcolor{keywordtype}{double}(current\_counter + 1)));}
-\DoxyCodeLine{124       counters(k, 0) += 1;}
-\DoxyCodeLine{125     \}}
-\DoxyCodeLine{126   \}}
-\DoxyCodeLine{127 }
-\DoxyCodeLine{140   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classNCC_a12bb7ec347a8ac42abc2eca6f881dee5}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x)\textcolor{keyword}{ override }\{}
-\DoxyCodeLine{141     \textcolor{keyword}{auto} predictions = \mbox{\hyperlink{numerics_2utils_8h_ae4d3442586cdfc0c5468be49ff561bcd}{zerosV}}(x.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
-\DoxyCodeLine{142     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < x.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
-\DoxyCodeLine{143       \textcolor{keyword}{auto} xi           = x.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(i, i);}
-\DoxyCodeLine{144       \textcolor{keyword}{auto} distances    = \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}} -\/ xi, 0);}
-\DoxyCodeLine{145       predictions(i, 0) = \mbox{\hyperlink{Matrix_8h_a14c028e4d81577bbda70dd22db04afe8}{argmin}}(distances);}
-\DoxyCodeLine{146     \}}
-\DoxyCodeLine{147     \textcolor{keywordflow}{return} predictions;}
-\DoxyCodeLine{148   \};}
-\DoxyCodeLine{149 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{48 \textcolor{keyword}{class }\mbox{\hyperlink{classNCC}{NCC}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClassifier}{Classifier}}}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNCC_afc9875457c682131961c4b7205a48055}{use\_iterative}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{public}:}
+\DoxyCodeLine{53   \mbox{\hyperlink{classNCC_a470527d954ba7507ced80f0a4ad6123f}{NCC}}(\textcolor{keywordtype}{bool} useIterative)}
+\DoxyCodeLine{54     : \mbox{\hyperlink{classClassifier}{Classifier}}()}
+\DoxyCodeLine{55     , \mbox{\hyperlink{classNCC_afc9875457c682131961c4b7205a48055}{use\_iterative}}(useIterative) \{ \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{60   \textcolor{keywordtype}{void} \mbox{\hyperlink{classNCC_a712fa8bd2912720d0a69fcfdf748e2cb}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{61     assert(y.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() == 1 || y.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}() == 1);}
+\DoxyCodeLine{62     \textcolor{keyword}{auto} labels = \mbox{\hyperlink{matrix__utils_8h_af79386365c3901ef0bec8f116368ded2}{unique}}(y);}
+\DoxyCodeLine{63     \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}     = \mbox{\hyperlink{numerics_2utils_8h_af5994908a659705a385de5bee89039fc}{zeros}}(labels.rows(), X.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{64     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classNCC_afc9875457c682131961c4b7205a48055}{use\_iterative}}) \{}
+\DoxyCodeLine{65       \mbox{\hyperlink{classNCC_a33865760c545363e114484de9aa62224}{fit\_iterative}}(X, y, labels);}
+\DoxyCodeLine{66     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{67       \mbox{\hyperlink{classNCC_aef1907285e5bcd8e64ea897d9418daae}{fit\_batch}}(X, y, labels);}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69   \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{82   \textcolor{keywordtype}{void} \mbox{\hyperlink{classNCC_aef1907285e5bcd8e64ea897d9418daae}{fit\_batch}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& labels) \{}
+\DoxyCodeLine{83     \textcolor{comment}{// TODO: Technically we can omit labels here and only pass the number of unique labels. Or we keep a vector}}
+\DoxyCodeLine{84     \textcolor{comment}{// of unique labels as a class attribute. Both options might make sense.}}
+\DoxyCodeLine{85     \textcolor{comment}{// O(K)}}
+\DoxyCodeLine{86     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < labels.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
+\DoxyCodeLine{87       std::function<bool(\textcolor{keywordtype}{double})> condition = [i](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x == i); \};}
+\DoxyCodeLine{88       \textcolor{comment}{// O(N)}}
+\DoxyCodeLine{89       \textcolor{keyword}{auto} yis = \mbox{\hyperlink{matrix__utils_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, y, \{ \{ 1 \} \}, \{ \{ 0 \} \});}
+\DoxyCodeLine{90       \textcolor{comment}{// O(N)}}
+\DoxyCodeLine{91       \textcolor{keyword}{auto} Nk = yis.sumElements();}
+\DoxyCodeLine{92       \textcolor{comment}{// O(2N)}}
+\DoxyCodeLine{93       \textcolor{keyword}{auto} Xis = X.\mbox{\hyperlink{classMatrix_acbab33bf55dbcfecea49053ccabed802}{GetSlicesByIndex}}(\mbox{\hyperlink{matrix__utils_8h_a06d4149d83f11dbd6ae1ea8a51cdfa12}{where\_true}}(yis));}
+\DoxyCodeLine{94       \textcolor{comment}{// O(N * N * N)}}
+\DoxyCodeLine{95       \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a15c969e68b5492a3e9918a001ba8beb2}{SetSlice}}(i, Xis.sum(1) * (1. / Nk));}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97   \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{111   \textcolor{keywordtype}{void} \mbox{\hyperlink{classNCC_a33865760c545363e114484de9aa62224}{fit\_iterative}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& labels) \{}
+\DoxyCodeLine{112     \textcolor{keyword}{auto} counters = \mbox{\hyperlink{classMatrix}{Matrix<int>}}(0, labels.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1);}
+\DoxyCodeLine{113     \textcolor{comment}{// O(N)}}
+\DoxyCodeLine{114     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < X.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
+\DoxyCodeLine{115       \textcolor{keyword}{auto} k               = y(i, 0);}
+\DoxyCodeLine{116       \textcolor{keyword}{auto} xi              = X.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(i, i);}
+\DoxyCodeLine{117       \textcolor{keyword}{auto} current\_counter = counters(k, 0);}
+\DoxyCodeLine{118       \textcolor{comment}{// O(D)}}
+\DoxyCodeLine{119       \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a15c969e68b5492a3e9918a001ba8beb2}{SetSlice}}(}
+\DoxyCodeLine{120       k,}
+\DoxyCodeLine{121       \textcolor{comment}{// O(D)}}
+\DoxyCodeLine{122       \mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}}.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(k, k) * (current\_counter / \textcolor{keywordtype}{double}(current\_counter + 1))}
+\DoxyCodeLine{123       \textcolor{comment}{// O(D)}}
+\DoxyCodeLine{124       + xi * (1. / \textcolor{keywordtype}{double}(current\_counter + 1)));}
+\DoxyCodeLine{125       counters(k, 0) += 1;}
+\DoxyCodeLine{126     \}}
+\DoxyCodeLine{127   \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{141   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classNCC_a12bb7ec347a8ac42abc2eca6f881dee5}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& x)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{142     \textcolor{keyword}{auto} predictions = \mbox{\hyperlink{numerics_2utils_8h_ae4d3442586cdfc0c5468be49ff561bcd}{zerosV}}(x.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}());}
+\DoxyCodeLine{143     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < x.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); ++i) \{}
+\DoxyCodeLine{144       \textcolor{keyword}{auto} xi           = x.\mbox{\hyperlink{classMatrix_a74deba042f505ff0640028b07c20778e}{GetSlice}}(i, i);}
+\DoxyCodeLine{145       \textcolor{keyword}{auto} distances    = \mbox{\hyperlink{numerics_2utils_8h_aa1a08a76ee49f8a9717e4aa127984987}{norm}}(\mbox{\hyperlink{classClassifier_a5d4d61496164c06deab141329b6c878f}{weights}} -\/ xi, 0);}
+\DoxyCodeLine{146       predictions(i, 0) = \mbox{\hyperlink{matrix__utils_8h_a14c028e4d81577bbda70dd22db04afe8}{argmin}}(distances);}
+\DoxyCodeLine{147     \}}
+\DoxyCodeLine{148     \textcolor{keywordflow}{return} predictions;}
+\DoxyCodeLine{149   \};}
+\DoxyCodeLine{150 \};}
 
 \end{DoxyCode}

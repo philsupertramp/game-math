@@ -10,8 +10,8 @@ var searchData=
   ['annclassifier_7',['ANNClassifier',['../classANNClassifier.html#af6e0a151d0d20cfff2abedca49c617ab',1,'ANNClassifier']]],
   ['apply_8',['Apply',['../classMatrix.html#ab6114bb3b048f92505d664efe4a10bfb',1,'Matrix']]],
   ['applyoperator_9',['ApplyOperator',['../classEquation.html#ae78ab4977e573e352f444a52142d4800',1,'Equation']]],
-  ['argmax_10',['argmax',['../Matrix_8h.html#a2a01e8ac881ea58d279cd73ec1803444',1,'Matrix.h']]],
-  ['argmin_11',['argmin',['../Matrix_8h.html#a14c028e4d81577bbda70dd22db04afe8',1,'Matrix.h']]],
+  ['argmax_10',['argmax',['../matrix__utils_8h.html#a2a01e8ac881ea58d279cd73ec1803444',1,'matrix_utils.h']]],
+  ['argmin_11',['argmin',['../matrix__utils_8h.html#a14c028e4d81577bbda70dd22db04afe8',1,'matrix_utils.h']]],
   ['argsort_12',['argsort',['../numerics_2utils_8h.html#a3941c57711e2df110722731c03ceb7b5',1,'utils.h']]],
   ['assertsize_13',['assertSize',['../classMatrix.html#a7ff3adb55a7fcd61963647884d97cbd1',1,'Matrix']]]
 ];

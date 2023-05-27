@@ -35,7 +35,7 @@
 \DoxyCodeLine{55 }
 \DoxyCodeLine{61   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classAdalineGD_a1f0d6aa8bb5847c09273517e60e12cfc}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{}
 \DoxyCodeLine{62     std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= 0.0); \};}
-\DoxyCodeLine{63     \textcolor{keywordflow}{return} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classAdalineGD_ab8f7ac0b173812b54bce6b4bc1b335ac}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
+\DoxyCodeLine{63     \textcolor{keywordflow}{return} \mbox{\hyperlink{matrix__utils_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classAdalineGD_ab8f7ac0b173812b54bce6b4bc1b335ac}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
 \DoxyCodeLine{64   \}}
 \DoxyCodeLine{65 }
 \DoxyCodeLine{73   \textcolor{keywordtype}{double} \mbox{\hyperlink{classAdalineGD_aacea8e107e27c97f9f87cd802187a056}{costFunction}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} HadamardMulti<double>(X, X).sumElements() / 2.0; \}}

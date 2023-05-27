@@ -82,7 +82,7 @@
 \DoxyCodeLine{129 }
 \DoxyCodeLine{135   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classLogRegSGD_a55ac458f1e5b06f8b9542d1133d50e67}{predict}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X)\textcolor{keyword}{ override }\{}
 \DoxyCodeLine{136     std::function<bool(\textcolor{keywordtype}{double})> condition = [](\textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} bool(x >= \mbox{\hyperlink{numerics_2utils_8h_a6ebf6899d6c1c8b7b9d09be872c05aae}{EPS}}); \};}
-\DoxyCodeLine{137     \textcolor{keywordflow}{return} \mbox{\hyperlink{Matrix_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classLogRegSGD_ace312230b45f4c6eb9bf42c1f1fc2e87}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
+\DoxyCodeLine{137     \textcolor{keywordflow}{return} \mbox{\hyperlink{matrix__utils_8h_afb3f7de2743f10b710460feb9c0f9009}{where}}(condition, \mbox{\hyperlink{classLogRegSGD_ace312230b45f4c6eb9bf42c1f1fc2e87}{activation}}(X), \{ \{ 1 \} \}, \{ \{ -\/1 \} \});}
 \DoxyCodeLine{138     \textcolor{comment}{//        return activation(X);}}
 \DoxyCodeLine{139   \}}
 \DoxyCodeLine{140 }

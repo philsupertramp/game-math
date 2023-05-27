@@ -10,7 +10,7 @@ var searchData=
   ['detail_7',['detail',['../classNewtonFractal.html#ac78021b076c2d3a5d3c8b3177ea44bea',1,'NewtonFractal::detail()'],['../classMandelbrot.html#a09a174794619b9f2a13010b4af19d498',1,'Mandelbrot::detail()']]],
   ['determinant_8',['Determinant',['../structmat4.html#a923b473e059a635bdc17bbfb1a0e878d',1,'mat4::Determinant()'],['../structmat3.html#a9590c23f7a73fa134eefdfa3e7bbbece',1,'mat3::Determinant()'],['../structmat2.html#a2392950377c4cbb451ea9d528632b9f9',1,'mat2::Determinant()'],['../classMatrix.html#a5f91e3755bfb6eb7b8aa5d49d8fbadb2',1,'Matrix::Determinant()']]],
   ['diag_9',['diag',['../numerics_2utils_8h.html#a32df81a2d10f9099cacedbbd378873bb',1,'utils.h']]],
-  ['diag_5felements_10',['diag_elements',['../Matrix_8h.html#a2e19f18bb0d422da0e75d5d0f6753331',1,'Matrix.h']]],
+  ['diag_5felements_10',['diag_elements',['../matrix__utils_8h.html#a2e19f18bb0d422da0e75d5d0f6753331',1,'matrix_utils.h']]],
   ['differentiation_2eh_11',['Differentiation.h',['../Differentiation_8h.html',1,'']]],
   ['dim_12',['dim',['../structvec2.html#aa5afbdfa81ffd38272563940ffa7469c',1,'vec2::dim()'],['../structvec3.html#a345843fea85e1b96768cf3ab83c35889',1,'vec3::dim()'],['../structvec4.html#a75071b55935e61bf7f27c7408954dc61',1,'vec4::dim()']]],
   ['discountfactor_13',['discountFactor',['../Insurance_8h.html#a7447721e5975127c235fe6daa2ce95f9',1,'Insurance.h']]],

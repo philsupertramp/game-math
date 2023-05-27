@@ -86,6 +86,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Matrix_8h_source.html">../../Matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="matrix__utils_8h_source.html">../../matrix_utils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="numerics_2utils_8h_source.html">../utils.h</a>&quot;</code><br />
 </div>
 <p><a href="Differentiation_8h_source.html">Go to the source code of this file.</a></p>
@@ -119,9 +120,9 @@ Functions</h2></td></tr>
 <div class="line"> </div>
 <div class="line"><span class="comment">// calculate 1st derivative</span></div>
 <div class="line"><a class="code hl_function" href="Differentiation_8h.html#a491c1ed77a5dc36d6e7a2656a0c7a436">centralDiff</a>(xk, fun(xk));</div>
-<div class="ttc" id="aDifferentiation_8h_html_a491c1ed77a5dc36d6e7a2656a0c7a436"><div class="ttname"><a href="Differentiation_8h.html#a491c1ed77a5dc36d6e7a2656a0c7a436">centralDiff</a></div><div class="ttdeci">Matrix&lt; double &gt; centralDiff(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y)</div><div class="ttdef"><b>Definition:</b> Differentiation.h:90</div></div>
+<div class="ttc" id="aDifferentiation_8h_html_a491c1ed77a5dc36d6e7a2656a0c7a436"><div class="ttname"><a href="Differentiation_8h.html#a491c1ed77a5dc36d6e7a2656a0c7a436">centralDiff</a></div><div class="ttdeci">Matrix&lt; double &gt; centralDiff(const Matrix&lt; double &gt; &amp;x, const Matrix&lt; double &gt; &amp;y)</div><div class="ttdef"><b>Definition:</b> Differentiation.h:92</div></div>
 <div class="ttc" id="aclassMatrix_html"><div class="ttname"><a href="classMatrix.html">Matrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.h:42</div></div>
-<div class="ttc" id="aclassMatrix_html_a054a03bcae4eb86d6f4ef84dc87840ef"><div class="ttname"><a href="classMatrix.html#a054a03bcae4eb86d6f4ef84dc87840ef">Matrix::Transpose</a></div><div class="ttdeci">constexpr Matrix&lt; T &gt; Transpose() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:253</div></div>
+<div class="ttc" id="aclassMatrix_html_a054a03bcae4eb86d6f4ef84dc87840ef"><div class="ttname"><a href="classMatrix.html#a054a03bcae4eb86d6f4ef84dc87840ef">Matrix::Transpose</a></div><div class="ttdeci">constexpr Matrix&lt; T &gt; Transpose() const</div><div class="ttdef"><b>Definition:</b> Matrix.h:250</div></div>
 <div class="ttc" id="anumerics_2utils_8h_html_af9dcfd52b7832ac134ae73f568a90350"><div class="ttname"><a href="numerics_2utils_8h.html#af9dcfd52b7832ac134ae73f568a90350">linspace</a></div><div class="ttdeci">Matrix&lt; double &gt; linspace(double start, double end, unsigned long num_elements)</div></div>
 </div><!-- fragment --><div class="image">
 <object type="image/svg+xml" data="difference_quotients.svg" width="50%" style="pointer-events: none;"></object>
@@ -163,11 +164,10 @@ Functions</h2></td></tr>
 <p >Computes backward difference quotient $$ f'(x) = \frac{f(x)-f(x-h)}{h} $$ <b>Error</b> O(dx) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>x-values </td></tr>
-    <tr><td class="paramname">y</td><td>y-values </td></tr>
+    <tr><td class="paramname">y</td><td>y-values @returnss approximated first differential evaluated on x-values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>approximated first differential evaluated on x-values </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2analysis_2TestDifferentiation_8cpp-example.html#a8">numerics/analysis/TestDifferentiation.cpp</a>.</dd>
 </dl>
 
@@ -210,11 +210,10 @@ Functions</h2></td></tr>
 <p ><b>Error</b> O(dx) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>x-values </td></tr>
-    <tr><td class="paramname">y</td><td>y-values </td></tr>
+    <tr><td class="paramname">y</td><td>y-values @returnss approximated second differential evaluated on x-values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>approximated second differential evaluated on x-values </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2analysis_2TestDifferentiation_8cpp-example.html#a10">numerics/analysis/TestDifferentiation.cpp</a>.</dd>
 </dl>
 
@@ -256,11 +255,10 @@ Functions</h2></td></tr>
 <p >Computes central difference quotient $$ f'(x) = \frac{f(x+h)-f(x-h)}{2h} $$ <b>Error</b> O(dx^2) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>x-values </td></tr>
-    <tr><td class="paramname">y</td><td>y-values </td></tr>
+    <tr><td class="paramname">y</td><td>y-values @returnss approximated first differential evaluated on x-values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>approximated first differential evaluated on x-values </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2analysis_2TestDifferentiation_8cpp-example.html#a9">numerics/analysis/TestDifferentiation.cpp</a>.</dd>
 </dl>
 
@@ -303,11 +301,10 @@ Functions</h2></td></tr>
 <p ><b>Error</b> O(dx^2) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>x-values </td></tr>
-    <tr><td class="paramname">y</td><td>y-values </td></tr>
+    <tr><td class="paramname">y</td><td>y-values @returnss approximated second differential evaluated on x-values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>approximated second differential evaluated on x-values </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2analysis_2TestDifferentiation_8cpp-example.html#a11">numerics/analysis/TestDifferentiation.cpp</a>.</dd>
 </dl>
 
@@ -349,11 +346,10 @@ Functions</h2></td></tr>
 <p >Computes forward difference quotient $$ \frac{f(x+h)-f(x)}{h} $$ <b>Error</b> O(dx) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>x-values </td></tr>
-    <tr><td class="paramname">y</td><td>y-values </td></tr>
+    <tr><td class="paramname">y</td><td>y-values @returnss approximated differential evaluated on x-values </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>approximated differential evaluated on x-values </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="numerics_2analysis_2TestDifferentiation_8cpp-example.html#a7">numerics/analysis/TestDifferentiation.cpp</a>.</dd>
 </dl>
 

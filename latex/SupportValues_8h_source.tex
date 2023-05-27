@@ -153,7 +153,7 @@
 \DoxyCodeLine{278     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 1; j < m; ++j) \{}
 \DoxyCodeLine{279       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = j; i < m; ++i) \{ F(i, j) = (F(i, j -\/ 1) -\/ F(i -\/ 1, j -\/ 1)) / (x(i, 0) -\/ x(i -\/ j, 0)); \}}
 \DoxyCodeLine{280     \}}
-\DoxyCodeLine{281     \mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}} = \mbox{\hyperlink{Matrix_8h_a2e19f18bb0d422da0e75d5d0f6753331}{diag\_elements}}(F);}
+\DoxyCodeLine{281     \mbox{\hyperlink{classNewtonBase_ad33933afa51a82891d615d2789b089b0}{b}} = \mbox{\hyperlink{matrix__utils_8h_a2e19f18bb0d422da0e75d5d0f6753331}{diag\_elements}}(F);}
 \DoxyCodeLine{282   \}}
 \DoxyCodeLine{287   \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{classNewtonBase_af59cf5892ed772c87c830ceb701160dd}{Function}}()\textcolor{keyword}{ const }\{}
 \DoxyCodeLine{288     std::string out;}
@@ -186,7 +186,7 @@
 \DoxyCodeLine{326       \textcolor{keyword}{auto} xAct = \mbox{\hyperlink{classNewtonBase_a06ff10676feb2bfddd21d01b883cb539}{X}}(j, 0);}
 \DoxyCodeLine{327       y         = xIn}
 \DoxyCodeLine{328           .\mbox{\hyperlink{classMatrix_ab6114bb3b048f92505d664efe4a10bfb}{Apply}}([xAct](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} in -\/ xAct; \})  \textcolor{comment}{// (xIn -\/ X[j])}}
-\DoxyCodeLine{329           .\mbox{\hyperlink{Matrix_8h_ace948cba52caa75f48454f881bc51a68}{HadamardMulti}}(y)                                       \textcolor{comment}{// (xIn -\/ X[j]) * y}}
+\DoxyCodeLine{329           .\mbox{\hyperlink{matrix__utils_8h_ace948cba52caa75f48454f881bc51a68}{HadamardMulti}}(y)                                       \textcolor{comment}{// (xIn -\/ X[j]) * y}}
 \DoxyCodeLine{330           .Apply([bAct](\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& in) \{ \textcolor{keywordflow}{return} bAct + in; \}); \textcolor{comment}{// y = b[j] + (xIn -\/ X[j]) * y}}
 \DoxyCodeLine{331     \}}
 \DoxyCodeLine{332     \textcolor{keywordflow}{return} y;}

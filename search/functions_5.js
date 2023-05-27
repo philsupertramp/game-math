@@ -6,7 +6,7 @@ var searchData=
   ['format_3',['format',['../format_8h.html#a1921b31564b858b45e94efff9e9d54bf',1,'format.h']]],
   ['forwarddiff_4',['forwardDiff',['../Differentiation_8h.html#a03b7286d06d466aedafd5fe7e2fcb636',1,'Differentiation.h']]],
   ['forwardsub_5',['forwardSub',['../forwardSub_8h.html#a2004e88ef01c16e0c9c5d99a45a208cf',1,'forwardSub.h']]],
-  ['from_5fvptr_6',['from_vptr',['../Matrix_8h.html#abcd4628e1dd87e594aa69c1e9e60cd19',1,'Matrix.h']]],
+  ['from_5fvptr_6',['from_vptr',['../matrix__utils_8h.html#abcd4628e1dd87e594aa69c1e9e60cd19',1,'matrix_utils.h']]],
   ['fun_7',['fun',['../classNewtonFractal.html#a7b5e57d09efeaebe88ccd017220d3e78',1,'NewtonFractal::fun()'],['../classMandelbrot.html#a6b86afb4db2158631df99a45e9821574',1,'Mandelbrot::fun()']]],
   ['function_8',['Function',['../classMonomBase.html#a4e86d536f746f544318c18c08c12b99f',1,'MonomBase::Function()'],['../classFunction.html#abb23d3b78d3d3e49f8ec7fd8279af6ca',1,'Function::Function(const std::string &amp;val, const std::function&lt; double(double, double)&gt; &amp;fun)'],['../classFunction.html#aed501e2ece820e5e66a513486958dcc6',1,'Function::Function(const std::string &amp;val, const std::function&lt; double(double)&gt; &amp;fun)'],['../classNewtonBase.html#af59cf5892ed772c87c830ceb701160dd',1,'NewtonBase::Function()'],['../classLagrangeBase.html#a56f2ac80cd5872fc9438283ae5460ed2',1,'LagrangeBase::Function()'],['../classPolynomialBase.html#a7c5cff1055e525bd01ab24cf39bf9ed5',1,'PolynomialBase::Function()']]],
   ['functionplot_9',['FunctionPlot',['../classFunctionPlot.html#acf609f64cac77f3e556747b73e70fbc1',1,'FunctionPlot']]],

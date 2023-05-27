@@ -5,20 +5,21 @@
 \DoxyCodeLine{1 }
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../../Matrix.h"{}}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{LU_8h}{LU.h}}"{}}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{backwardSub_8h}{backwardSub.h}}"{}}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{forwardSub_8h}{forwardSub.h}}"{}}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{28 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{gaussSeidel_8h_a7bb1e3f545d858ee2a450500c711f471}{gaussSeidel}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& A, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& b) \{}
-\DoxyCodeLine{29   \textcolor{keyword}{auto} LR = \mbox{\hyperlink{LU_8h_a038dcb2cb21184a74721f04644287d16}{LU}}(A);}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31   \textcolor{keyword}{auto} bCopy = b;}
-\DoxyCodeLine{32   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < b.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{ bCopy.\mbox{\hyperlink{classMatrix_a097ed201a1768090a524f621ee2d80a1}{SetRow}}(i, b(LR.second[i])); \}}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34   \textcolor{keyword}{auto} c = \mbox{\hyperlink{forwardSub_8h_a2004e88ef01c16e0c9c5d99a45a208cf}{forwardSub}}(LR.first, bCopy);}
-\DoxyCodeLine{35   \textcolor{keywordflow}{return} \mbox{\hyperlink{backwardSub_8h_ae28539a00e471c9e01480c2d00874049}{backwardSub}}(LR.first, c);}
-\DoxyCodeLine{36 \}}
-\DoxyCodeLine{37 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../../matrix\_utils.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{LU_8h}{LU.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{backwardSub_8h}{backwardSub.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{forwardSub_8h}{forwardSub.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{29 \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{gaussSeidel_8h_a7bb1e3f545d858ee2a450500c711f471}{gaussSeidel}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& A, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& b) \{}
+\DoxyCodeLine{30   \textcolor{keyword}{auto} LR = \mbox{\hyperlink{LU_8h_a038dcb2cb21184a74721f04644287d16}{LU}}(A);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32   \textcolor{keyword}{auto} bCopy = b;}
+\DoxyCodeLine{33   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < b.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{ bCopy.\mbox{\hyperlink{classMatrix_a097ed201a1768090a524f621ee2d80a1}{SetRow}}(i, b(LR.second[i])); \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35   \textcolor{keyword}{auto} c = \mbox{\hyperlink{forwardSub_8h_a2004e88ef01c16e0c9c5d99a45a208cf}{forwardSub}}(LR.first, bCopy);}
+\DoxyCodeLine{36   \textcolor{keywordflow}{return} \mbox{\hyperlink{backwardSub_8h_ae28539a00e471c9e01480c2d00874049}{backwardSub}}(LR.first, c);}
+\DoxyCodeLine{37 \}}
+\DoxyCodeLine{38 }
 
 \end{DoxyCode}
