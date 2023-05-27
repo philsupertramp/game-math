@@ -130,12 +130,9 @@ public:
   template<typename V>
   Matrix(const Matrix<V>& other) {
     Resize(other.rows(), other.columns(), other.elements());
-    for(size_t col = 0; col < other.columns(); ++col) {
-      for(size_t row = 0; row < other.rows(); ++row) {
-        for(size_t elem = 0; elem < other.elements(); ++elem) {
-          _data[GetIndex(row, col, elem)] = static_cast<T>(other(row, col, elem));
-        }
-      }
+    auto index_factor = _columns * _element_size;
+    for(size_t i = 0; i < (_rows * _columns * _element_size); ++i) {
+      _data[i] = static_cast<T>(other(i / (index_factor), i % (index_factor), i % _element_size));
     }
 
     this->needsFree = true;
