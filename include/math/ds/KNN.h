@@ -20,9 +20,9 @@
  *
  */
 
-#include "../numerics/utils.h"
 #include "../Matrix.h"
 #include "../matrix_utils.h"
+#include "../numerics/utils.h"
 #include "Classifier.h"
 #include <cstddef>
 

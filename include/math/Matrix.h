@@ -50,9 +50,7 @@ public:
    */
   explicit Matrix(T val, size_t rowCount, size_t colCount, size_t elementDimension = 1) {
     Resize(rowCount, colCount, elementDimension);
-    for(size_t i = 0; i < _rows * _columns * _element_size; ++i) {
-      _data[i] = val;
-    }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i) { _data[i] = val; }
   }
 
   /**
@@ -162,9 +160,7 @@ public:
   static Matrix
   Random(size_t rows, size_t columns, size_t element_size = 1, double minValue = 0.0, double maxValue = 1.0) {
     Matrix<T> matrix(0, rows, columns, element_size);
-    for(size_t i = 0; i < rows * columns * element_size; ++i) {
-       matrix._data[i] = Random::Get(minValue, maxValue);
-    }
+    for(size_t i = 0; i < rows * columns * element_size; ++i) { matrix._data[i] = Random::Get(minValue, maxValue); }
     return matrix;
   }
 
@@ -181,11 +177,11 @@ public:
     constexpr double two_pi = 2.0 * M_PI;
     Matrix out;
     out.Resize(rows, columns);
-    for(size_t i = 0; i < rows * columns; i+=2) {
+    for(size_t i = 0; i < rows * columns; i += 2) {
       auto u1 = Random::Get();
       auto u2 = Random::Get();
 
-      auto mag      = sigma * sqrt(-2.0 * log(u1));
+      auto mag         = sigma * sqrt(-2.0 * log(u1));
       out._data[i]     = mag * cos(two_pi * u2) + mu;
       out._data[i + 1] = mag * sin(two_pi * u2) + mu;
     }
@@ -249,7 +245,7 @@ public:
     }
     return d;
   }
-  
+
   /**
    * Creates transposed matrix of `this`
    * @returns
@@ -307,20 +303,16 @@ public:
 
   bool operator<(const Matrix<T>& rhs) const {
     assertSize(rhs);
-    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
-      if(_data[i] > rhs._data[i]){
-        return false;
-      }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i) {
+      if(_data[i] > rhs._data[i]) { return false; }
     }
     return true;
   }
 
   bool operator>(const Matrix<T>& rhs) const {
     assertSize(rhs);
-    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
-      if(_data[i] < rhs._data[i]){
-        return false;
-      }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i) {
+      if(_data[i] < rhs._data[i]) { return false; }
     }
     return true;
   }
@@ -347,10 +339,8 @@ public:
    */
   [[nodiscard]] bool elementWiseCompare(const Matrix<T>& rhs) const {
     assertSize(rhs);
-    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
-      if(_data[i] != rhs._data[i]){
-        return false;
-      }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i) {
+      if(_data[i] != rhs._data[i]) { return false; }
     }
     return true;
   }
@@ -369,9 +359,7 @@ public:
       if((this == NULL) || (_rows != other.rows() || _columns != other.columns())) {
         Resize(other.rows(), other.columns(), other.elements());
       }
-      for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
-        _data[i] = other._data[i];
-      }
+      for(size_t i = 0; i < _rows * _columns * _element_size; ++i) { _data[i] = other._data[i]; }
     }
     return *this;
   }
@@ -383,9 +371,7 @@ public:
    */
   Matrix<T> Apply(const std::function<T(T)>& fun) const {
     auto out = (*this);
-    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
-      out._data[i] = fun(_data[i]);
-    }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i) { out._data[i] = fun(_data[i]); }
     return out;
   }
 
@@ -398,9 +384,7 @@ public:
    * @returns
    */
   Matrix& HadamardMulti(const Matrix& other) {
-    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
-      _data[i] *= other._data[i];
-    }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i) { _data[i] *= other._data[i]; }
     return *this;
   }
 
@@ -434,9 +418,7 @@ public:
    */
   T sumElements() const {
     T result = T(0.0);
-    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
-      result += _data[i];
-    }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i) { result += _data[i]; }
     return result;
   }
 

@@ -10,8 +10,8 @@
 
 #include "../../Matrix.h"
 #include "../../matrix_utils.h"
-#include "../utils.h"
 #include "../lin_alg/gaussSeidel.h"
+#include "../utils.h"
 
 /**
  * Spline implementation.

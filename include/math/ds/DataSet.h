@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../Matrix.h"
-#include "../matrix_utils.h"
 #include "../format.h"
+#include "../matrix_utils.h"
 #include <fstream>
 #include <map>
 #include <sstream>

@@ -461,4 +461,3 @@ Matrix<T> unique(const Matrix<T>& in, [[maybe_unused]] int axis = 0) {
   }
   return out.GetSlice(0, found_vals - 1);
 }
-
