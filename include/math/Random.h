@@ -35,7 +35,7 @@ public:
    * Getter for random number between (including borders) l and r
    * @param l
    * @param r
-   * @return
+   * @returns
    */
   static double Get(double l = 0.0, double r = 1.0) {
     if(!TimeInitialized) InitTime(false);
@@ -50,7 +50,7 @@ public:
    * @tparam T
    * @param l
    * @param r
-   * @return
+   * @returns
    */
   template<typename T>
   static vec2<T> Get(double l = 0.0, double r = 1.0) {
@@ -62,7 +62,7 @@ public:
    * @tparam T
    * @param l
    * @param r
-   * @return
+   * @returns
    */
   template<typename T>
   static vec3<T> Get(double l = 0.0, double r = 1.0) {
@@ -74,7 +74,7 @@ public:
    * @tparam T
    * @param l
    * @param r
-   * @return
+   * @returns
    */
   template<typename T>
   static vec4<T> Get(double l = 0.0, double r = 1.0) {

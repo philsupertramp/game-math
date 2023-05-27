@@ -31,7 +31,7 @@ enum NodeConnectionType {
 /**
  * regex factory for node types
  * @param type
- * @return regex for given type
+ * @returns regex for given type
  */
 std::regex GetRegex(MathNodeType type);
 
@@ -93,13 +93,13 @@ public:
   /**
    * Interface function for evaluation of node,
    * needs to be implemented to add new type of node
-   * @return
+   * @returns
    */
   [[nodiscard]] virtual double Evaluate() const = 0;
 
   /**
    * Getter for string representation of node
-   * @return
+   * @returns
    */
   [[nodiscard]] std::string GetString() const {
     std::stringstream out;
@@ -121,7 +121,7 @@ public:
    * beautified output operator
    * @param ostr
    * @param other
-   * @return
+   * @returns
    */
   friend std::ostream& operator<<(std::ostream& ostr, const MathNode& other) {
     if(other.hasParentheses) ostr << "(";
@@ -135,7 +135,7 @@ public:
    * beautified output operator
    * @param ostr
    * @param other
-   * @return
+   * @returns
    */
   friend std::ostream& operator<<(std::ostream& ostr, MathNode* other) {
     // early exit

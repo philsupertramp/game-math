@@ -73,7 +73,7 @@ public:
    * To achieve center at 0 and unit variance.
    *
    * @param in: Data to transform
-   * @return: transformed data
+   * @returns: transformed data
    */
   Matrix<double> transform(const Matrix<double>& in) override {
     auto diff = in - means;

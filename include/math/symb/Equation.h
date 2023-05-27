@@ -93,7 +93,7 @@ public:
    *
    * @tparam VArgs variable amount of arguments
    * @param args arguments passed for symbols, with index representing index of symbol in symbols
-   * @return Evaluation of equation
+   * @returns Evaluation of equation
    */
   template<typename... VArgs>
   double operator()(VArgs... args) {
@@ -103,7 +103,7 @@ public:
   }
   /**
    * Evaluate equation with preset values
-   * @return
+   * @returns
    */
   double operator()() { return baseNode->Evaluate(); }
 
@@ -139,7 +139,7 @@ public:
 
   /**
    * Helper to recreate string representation based on tree
-   * @return
+   * @returns
    */
   [[nodiscard]] std::string GetString() const { return baseNode->GetString(); }
 
@@ -262,7 +262,7 @@ public:
    * Getter for max AST depth
    * @param node to check depth of
    * @param current_depth counter for current depth level
-   * @return current depth if last node in branch, else max of left depth and right depth
+   * @returns current depth if last node in branch, else max of left depth and right depth
    */
   size_t GetDepth(const std::shared_ptr<MathNode>& node, size_t& current_depth) const {
     current_depth++;
@@ -300,7 +300,7 @@ public:
    * @param left left equation
    * @param right right equation
    * @param op operator to connect with
-   * @return chained equation object
+   * @returns chained equation object
    */
   static Equation Chain(const Equation& left, const Equation& right, const std::shared_ptr<Operator>& op) {
     Equation out;
@@ -332,7 +332,7 @@ private:
   /**
    * Simplify equation tree given by node
    * @param node tree to simplify
-   * @return simplified tree
+   * @returns simplified tree
    */
   [[nodiscard]] std::shared_ptr<MathNode> SimplifyTree(const std::shared_ptr<MathNode>& node) const {
     auto out = node;
@@ -398,7 +398,7 @@ private:
    *      Numeric values can be combined.
    *
    * @param node operator node (-tree) to simplify
-   * @return simplified tree with [num_nodes_in >= num_nodes_out]
+   * @returns simplified tree with [num_nodes_in >= num_nodes_out]
    */
   [[nodiscard]] std::shared_ptr<MathNode> simplifyOP(const std::shared_ptr<MathNode>& node) const {
     std::shared_ptr<MathNode> nodeOut = node;
@@ -442,7 +442,7 @@ private:
    * @param op operator to apply
    * @param val numerical value to apply
    * @param isLeft signalize node is left side of OP
-   * @return evaluated operator node
+   * @returns evaluated operator node
    */
   [[nodiscard]] std::shared_ptr<MathNode> ApplyOperator(
   const std::shared_ptr<MathNode>& node, const std::shared_ptr<Operator>& op, const double& val, bool isLeft) const {

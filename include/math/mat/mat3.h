@@ -80,7 +80,7 @@ public:
 
   /**
    * 3D-Unit-matrix generator
-   * @return
+   * @returns
    */
   static inline mat3<T> Unit() {
     return mat3<T>( // clang-format off
@@ -91,7 +91,7 @@ public:
 
   /**
    * Getter for transposed matrix
-   * @return
+   * @returns
    */
   inline mat3<T> Transpose() {
     // clang-format off
@@ -103,7 +103,7 @@ public:
 
   /**
    * Potentially calculates the inverse matrix
-   * @return inverse (A -> A^-1)
+   * @returns inverse (A -> A^-1)
    */
   inline mat3<T> Inverse() {
     auto invDet = 1.0f / Determinant();
@@ -112,7 +112,7 @@ public:
 
   /**
    * test for symmetry
-   * @return
+   * @returns
    */
   inline bool IsSymmetric() {
     return values[0][1] == values[1][0] && values[0][2] == values[2][0] && values[1][2] == values[2][1];
@@ -120,7 +120,7 @@ public:
 
   /**
    * calculates determinant
-   * @return
+   * @returns
    */
   inline float Determinant() {
     return // clang-format off
@@ -133,7 +133,7 @@ public:
    * matrix-matrix addition
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend mat3<T> operator+(mat3<T> lhs, const mat3<T>& rhs) { return lhs += rhs; }
 
@@ -141,14 +141,14 @@ public:
    * matrix-matrix subtraction
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend mat3<T> operator-(mat3<T> lhs, const mat3<T>& rhs) { return lhs -= rhs; }
   /**
    * Matrix-scalar multiplication
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend mat3<T> operator*(mat3<T> lhs, const T& rhs) { return lhs *= rhs; }
 
@@ -156,7 +156,7 @@ public:
    * matrix-matrix multiplication
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec3<T> operator*(mat3<T> lhs, const vec3<T>& rhs) {
     return vec3<T>( // clang-format off
@@ -170,7 +170,7 @@ public:
    * matrix-matrix multiplication
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend mat3<T> operator*(mat3<T> lhs, const mat3<T>& rhs) { return lhs *= rhs; }
 
@@ -178,7 +178,7 @@ public:
    * matrix-scalar division
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend mat3<T> operator/(mat3<T> lhs, const T& rhs) { return lhs /= rhs; }
 
@@ -186,7 +186,7 @@ public:
   /**
    * matrix-matrix addition
    * @param rhs
-   * @return
+   * @returns
    */
   mat3<T>& operator+=(const mat3<T>& rhs) {
     // clang-format off
@@ -199,7 +199,7 @@ public:
   /**
    * matrix-matrix subtraction
    * @param rhs
-   * @return
+   * @returns
    */
   mat3<T>& operator-=(const mat3<T>& rhs) {
     // clang-format off
@@ -212,7 +212,7 @@ public:
   /**
    * matrix-matrix multiplication
    * @param rhs
-   * @return
+   * @returns
    */
   mat3<T>& operator*=(const mat3<T>& rhs) {
     // clang-format off
@@ -237,7 +237,7 @@ public:
   /**
    * matrix-scalar multiplication
    * @param rhs
-   * @return
+   * @returns
    */
   mat3<T>& operator*=(const T& rhs) {
     // clang-format off
@@ -250,7 +250,7 @@ public:
   /**
    * matrix-scalar division
    * @param rhs
-   * @return
+   * @returns
    */
   mat3<T>& operator/=(const T& rhs) {
     // clang-format off
@@ -264,13 +264,13 @@ public:
   /**
    * member access
    * @param index
-   * @return
+   * @returns
    */
   T* operator[](int index) { return values[index]; }
   /**
    * member access
    * @param index
-   * @return
+   * @returns
    */
   const T* operator[](int index) const { return values[index]; }
 
@@ -278,7 +278,7 @@ public:
   /**
    * beautified std::cout operator
    * @tparam U
-   * @return
+   * @returns
    */
   template<class U>
   friend std::ostream& operator<<(std::ostream&, const mat3<U>&);

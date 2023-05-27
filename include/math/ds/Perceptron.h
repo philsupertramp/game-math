@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Matrix.h"
+#include "../matrix_utils.h"
 #include "Classifier.h"
 #include "SGD.h"
 
@@ -35,7 +36,7 @@ public:
    *
    * @param X: array-like with the shape: [n_samples, n_features]
    * @param y: array-like with shape: [n_samples, 1]
-   * @return this
+   * @returns this
    */
   void fit(const Matrix<double>& X, const Matrix<double>& y) override {
     initialize_weights(X.columns());
@@ -62,21 +63,21 @@ public:
    *      X * weights + b
    * \f]
    * @param X
-   * @return
+   * @returns
    */
   Matrix<double> netInput(const Matrix<double>& X) override { return SGD::netInput(X, weights); }
 
   /**
    * activate given input
    * @param X
-   * @return
+   * @returns
    */
   Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
   /**
    * predict class of given input
    * @param X
-   * @return
+   * @returns
    */
   Matrix<double> predict(const Matrix<double>& X) override {
     std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
@@ -86,7 +87,7 @@ public:
   /**
    * cost function override, don't use!
    * @param X
-   * @return
+   * @returns
    */
   double costFunction(const Matrix<double>& X) override { return (double)(X(0, 0) != 0.0); }
 };

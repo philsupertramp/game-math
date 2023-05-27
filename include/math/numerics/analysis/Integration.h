@@ -55,7 +55,7 @@ namespace integration {
    * @param hMin minimum distance between a and b
    * @param nodes already visited nodes on the integral ("x-axis")
    * @param values already calculated function values for visited nodes
-   * @return approximation of given exact integral.
+   * @returns approximation of given exact integral.
    */
   std::pair<double, std::vector<double>> quad_adaptive_rec(
   const std::function<double(double)>& fun,
@@ -112,7 +112,7 @@ namespace integration {
  * @param upper upper boundary of integral
  * @param tol tolerance of result to exact solution
  * @param hMin minimal distance between approximation points
- * @return approximated exact integral of fun
+ * @returns approximated exact integral of fun
  */
 std::pair<double, std::vector<double>> quadrature(
 const std::function<double(double)>& fun,

@@ -2,6 +2,7 @@
 
 #include "../Matrix.h"
 #include "../format.h"
+#include "../matrix_utils.h"
 #include <fstream>
 #include <map>
 #include <sstream>
@@ -103,7 +104,7 @@ struct Set {
   /**
    * Generates batch of given size based on inputs and outputs
    * @param batchSize number elements per batch
-   * @return
+   * @returns
    */
   [[nodiscard]] Set GetBatch(int batchSize) const {
     if(batchSize == -1 || batchSize == (int)count) { return *this; }

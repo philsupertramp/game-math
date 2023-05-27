@@ -34,7 +34,7 @@ public:
   /**
    * Evaluate a given vector based on the approximation,
    * computes p(x) for given x
-   * @return
+   * @returns
    */
   virtual Matrix<double> Evaluate(const Matrix<double>&) const = 0;
 
@@ -43,7 +43,7 @@ public:
    *
    * Don't overthink this. simply return some kind of equation
    * one can copy into wolframalpha and simplify
-   * @return
+   * @returns
    */
   virtual std::string Function() const = 0;
 
@@ -51,7 +51,7 @@ public:
    * std::cout operator
    * @param ostr
    * @param base
-   * @return
+   * @returns
    */
   friend std::ostream& operator<<(std::ostream& ostr, const PolynomialBase& base) {
     ostr << base.Function() << std::flush;
@@ -99,7 +99,7 @@ public:
   /**
    * iterative evaluation, nothing special
    * @param X evaluation values
-   * @return approximation
+   * @returns approximation
    */
   virtual Matrix<double> Evaluate(const Matrix<double>& X) const {
     Matrix<double> Y(A(0, 0), X.rows(), 1);
@@ -110,7 +110,7 @@ public:
   };
   /**
    * String representation getter
-   * @return string representation in monom base
+   * @returns string representation in monom base
    */
   virtual std::string Function() const {
     std::string out;
@@ -153,7 +153,7 @@ public:
    * $$L_i(x) = \prod_{j=0, j\neq i}^{n} \frac{x-x_j}{x_i-x_j}, \forall i=0, \dots, n$$
    * @param xk current value $$x_k$$
    * @param i index i
-   * @return coefficient value
+   * @returns coefficient value
    */
   [[nodiscard]] double GetCoefficient(const double& xk, const size_t i) const {
     double out = 1.0;
@@ -168,7 +168,7 @@ public:
   /**
    * Evaluates the lagrange base
    * @param in values to evaluate
-   * @return interpolated values
+   * @returns interpolated values
    */
   virtual Matrix<double> Evaluate(const Matrix<double>& in) const {
     Matrix<double> out(0, in.rows(), 1);
@@ -180,7 +180,7 @@ public:
   /**
    * builds lagrange coefficient $$L_i$$ string representation
    * @param i index
-   * @return coefficient representation
+   * @returns coefficient representation
    */
   [[nodiscard]] std::string buildLx(size_t i) const {
     std::string Lx;
@@ -217,7 +217,7 @@ public:
   }
   /**
    * Builds string representation in lagrange base
-   * @return representational string
+   * @returns representational string
    */
   virtual std::string Function() const {
     std::string out;
@@ -282,7 +282,7 @@ public:
   }
   /**
    * String representation in newton base
-   * @return representational string
+   * @returns representational string
    */
   virtual std::string Function() const {
     std::string out;
@@ -307,7 +307,7 @@ public:
    * Getter for coefficient with index i for a value x
    * @param index index of coefficient
    * @param x value to evaluate
-   * @return evaluated coefficient
+   * @returns evaluated coefficient
    */
   double GetCoefficient(size_t index, const double& x) const {
     double out = 1;
@@ -317,7 +317,7 @@ public:
   /**
    * Evaluate the newton base for given values
    * @param xIn values to evaluate
-   * @return interpolated values
+   * @returns interpolated values
    */
   virtual Matrix<double> Evaluate(const Matrix<double>& xIn) const {
     Matrix<double> y(b(b.rows() - 1, 0), xIn.rows(), 1);

@@ -9,8 +9,9 @@
 #pragma once
 
 #include "../../Matrix.h"
+#include "../../matrix_utils.h"
+#include "../lin_alg/gaussSeidel.h"
 #include "../utils.h"
-#include <math/numerics/lin_alg/gaussSeidel.h>
 
 /**
  * Spline implementation.
@@ -68,7 +69,7 @@ public:
   }
   /**
    * Evaluation of cubic polynomial s_j
-   * @return
+   * @returns
    */
   double eval_spline_j(double x_act, size_t j, const Matrix<double>& mi) {
     auto h = XI(j + 1, 0) - XI(j, 0);
@@ -80,7 +81,7 @@ public:
   /**
    * Calculates second derivative on given knot-points
    * @param h distance between points
-   * @return
+   * @returns
    */
   Matrix<double> curv(double h) {
     auto mi  = zeros(XI.rows(), XI.columns());
@@ -105,7 +106,7 @@ public:
   /**
    * Evaluates the spline for given values
    * @param xi input values
-   * @return evaluated input
+   * @returns evaluated input
    */
   Matrix<double> operator()(const Matrix<double>& xi) {
     if(isEquidistant && ZI.rows() == 0) return calculateEquidistant(xi);
@@ -127,7 +128,7 @@ public:
   /**
    * Calculates natural cubic spline for given input xi
    * @param xi input values
-   * @return
+   * @returns
    */
   Matrix<double> calculateEquidistant(const Matrix<double>& xi) {
     auto innerXI = xi.rows() > xi.columns() ? xi : xi.Transpose();

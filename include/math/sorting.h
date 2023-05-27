@@ -27,7 +27,7 @@ void insertion_sort(const T& elem, std::vector<T>& vec, const int& current_index
  * currently using insertion sort, might change at some point
  * @tparam T element type
  * @param in input vector
- * @return sorted vector with ascending values
+ * @returns sorted vector with ascending values
  */
 template<typename T, typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
 std::vector<T> sort(const std::vector<T>& in) {

@@ -54,13 +54,27 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
 # Benchmarks
 see `/benchmarks/README.md`
 ```
+Matrix<int>:
+finished computation with 9 elements and 5000000 * operations. elapsed time: 0.160372s
+finished computation with 9 elements and 5000000 # operations. elapsed time: 0.0172873s
+finished computation with 9 elements and 5000000 + operations. elapsed time: 0.145237s
+mat3<int>:
+finished computation with 9 elements and 5000000 * operations. elapsed time: 4.3e-08s
+finished computation with 9 elements and 5000000 + operations. elapsed time: 5e-08s
 Matrix<double>:
-finished computation with 9 elements and 5000000 * operations. elapsed time: 1.12349s
-finished computation with 9 elements and 5000000 * operations. elapsed time: 0.157367s
-finished computation with 9 elements and 5000000 + operations. elapsed time: 1.03303s
+finished computation with 9 elements and 5000000 * operations. elapsed time: 0.132516s
+finished computation with 9 elements and 5000000 # operations. elapsed time: 0.00899579s
+finished computation with 9 elements and 5000000 + operations. elapsed time: 0.152282s
 mat3<double>:
-finished computation with 9 elements and 5000000 * operations. elapsed time: 4.7e-08s
-finished computation with 9 elements and 5000000 + operations. elapsed time: 4.9e-08s
+finished computation with 9 elements and 5000000 * operations. elapsed time: 5.2e-08s
+finished computation with 9 elements and 5000000 + operations. elapsed time: 5e-08s
+Matrix<float>:
+finished computation with 9 elements and 5000000 * operations. elapsed time: 0.186274s
+finished computation with 9 elements and 5000000 # operations. elapsed time: 0.00887903s
+finished computation with 9 elements and 5000000 + operations. elapsed time: 0.146145s
+mat3<float>:
+finished computation with 9 elements and 5000000 * operations. elapsed time: 7.1e-08s
+finished computation with 9 elements and 5000000 + operations. elapsed time: 8e-08s
 ```
 
 #### Build requirements

@@ -58,7 +58,7 @@ public:
 
   /**
    * returns given evaluation value
-   * @return
+   * @returns
    */
   [[nodiscard]] double Evaluate() const override { return isNegative ? evaluationValue * (-1.0) : evaluationValue; }
 };
@@ -98,7 +98,7 @@ public:
 
   /**
    * returns real value
-   * @return if isNegative -numericValue else numericValue
+   * @returns if isNegative -numericValue else numericValue
    */
   [[nodiscard]] double Evaluate() const override { return isNegative ? numericValue * (-1.0) : numericValue; }
 };

@@ -9,7 +9,7 @@
  * @param A Matrix to operate with
  * @param k dimensions to calculate. If = 0 calculate all
  * @param epsilon squared error tolerance
- * @return SVD of A
+ * @returns SVD of A
  */
 std::vector<Matrix<double>> svd(const Matrix<double>& A, const size_t& k, const double epsilon = 0.1e-4) {
   // works with squared and not squared matrizes

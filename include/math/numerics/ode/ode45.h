@@ -30,7 +30,7 @@
  * @param tInterval interval to perform approximation on
  * @param y0 start value
  * @param h step width for time values
- * @return approximated values
+ * @returns approximated values
  */
 ODEResult ODE45(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, double h = 0.0) {
   size_t dim       = tInterval.size();

@@ -51,7 +51,7 @@ struct cmp_vec3i {
    * comparison operator of two vec3i objects
    * @param a
    * @param b
-   * @return
+   * @returns
    */
   bool operator()(const vec3i& a, const vec3i& b) const { return a.x == b.x && a.y == b.y && a.z == b.z; }
 };

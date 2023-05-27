@@ -4,7 +4,7 @@
 
 class PCATestCase : public Test
 {
-  bool TestConstructor(){
+  bool TestConstructor() {
     auto clf = PCA();
     AssertEqual(clf.keep_components, 0);
 
@@ -19,7 +19,7 @@ class PCATestCase : public Test
     return true;
   }
 
-  bool TestTransform(){
+  bool TestTransform() {
     auto clf = PCA();
     return true;
   }

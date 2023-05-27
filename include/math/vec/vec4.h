@@ -107,13 +107,13 @@ public:
   /* Misc functions */
   /**
    * Getter for vector length
-   * @return
+   * @returns
    */
   inline float length() const { return sqrtf(x * x + y * y + z * z + w * w); }
 
   /**
    * Getter for normalized vector
-   * @return
+   * @returns
    */
   inline vec4<T> normalize() const { return *this / length(); }
 
@@ -124,14 +124,14 @@ public:
    * vector-vector addition
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec4<T> operator+(vec4<T> lhs, const vec4<T>& rhs) { return lhs += rhs; }
   /**
    * vector-vector subtraction
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec4<T> operator-(vec4<T> lhs, const vec4<T>& rhs) { return lhs -= rhs; }
 
@@ -139,7 +139,7 @@ public:
    * vector-constant multiplication
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec4<T> operator*(vec4<T> lhs, const T& rhs) { return lhs *= rhs; }
 
@@ -147,7 +147,7 @@ public:
    * scalar-vector multiplication
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec4<T> operator*(const T& lhs, vec4<T> rhs) { return rhs *= lhs; }
 
@@ -155,7 +155,7 @@ public:
    * Dot product implementation
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec4<T> operator*(vec4<T> lhs, const vec4<T>& rhs) {
     return vec4<T>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * lhs.w);
@@ -164,7 +164,7 @@ public:
    * vector-scalar division
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec4<T> operator/(vec4<T> lhs, const T& rhs) { return lhs /= rhs; }
 
@@ -172,7 +172,7 @@ public:
   /**
    * vector-vector addition
    * @param rhs
-   * @return
+   * @returns
    */
   vec4<T>& operator+=(const vec4<T>& rhs) {
     x += rhs.x;
@@ -184,7 +184,7 @@ public:
   /**
    * vector-vector subtraction
    * @param rhs
-   * @return
+   * @returns
    */
   vec4<T>& operator-=(const vec4<T>& rhs) {
     x -= rhs.x;
@@ -197,7 +197,7 @@ public:
   /**
    * vector-scalar multiplication
    * @param rhs
-   * @return
+   * @returns
    */
   vec4<T>& operator*=(const T& rhs) {
     x *= rhs;
@@ -210,7 +210,7 @@ public:
   /**
    * vector-scalar division
    * @param rhs
-   * @return
+   * @returns
    */
   vec4<T>& operator/=(const T& rhs) {
     x /= rhs;
@@ -225,7 +225,7 @@ public:
    * equality comparison
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend bool operator==(const vec4<T>& lhs, const vec4<T>& rhs) {
     return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.w == rhs.w;
@@ -235,7 +235,7 @@ public:
   /**
    * const copy constructor
    * @param V
-   * @return
+   * @returns
    */
   constexpr vec4<T>& operator=(vec4<T> const& V) {
     this->x = static_cast<T>(V.x);
@@ -249,7 +249,7 @@ public:
   /**
    * element access
    * @param index
-   * @return
+   * @returns
    */
   T& operator[](const int& index) {
     switch(index) {
@@ -263,7 +263,7 @@ public:
   /**
    * const element access
    * @param index
-   * @return
+   * @returns
    */
   const T& operator[](const int& index) const {
     switch(index) {
@@ -279,7 +279,7 @@ public:
    * cast operator into new type
    *
    * @tparam U
-   * @return vec4<U>(vec4<T>)
+   * @returns vec4<U>(vec4<T>)
    */
   template<typename U>
   explicit operator vec4<U>() {
@@ -291,7 +291,7 @@ public:
   /**
    * beautified std::cout operator
    * @tparam U
-   * @return
+   * @returns
    */
   template<class U>
   friend std::ostream& operator<<(std::ostream&, const vec4<U>&);
@@ -309,7 +309,7 @@ std::ostream& operator<<(std::ostream& os, const vec4<T>& obj) {
  * cast from 4d-array of values to vec4
  * @tparam T
  * @param in
- * @return
+ * @returns
  */
 template<class T>
 vec4<T> build_vec4(void* in) {

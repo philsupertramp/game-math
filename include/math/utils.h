@@ -21,7 +21,7 @@ namespace Math::Utils {
    * @tparam V
    * @param a
    * @param b
-   * @return
+   * @returns
    */
   template<class V>
   float distance(const V& a, const V& b) {
@@ -32,7 +32,7 @@ namespace Math::Utils {
    * helper to normalize 2D-vector
    * @tparam T
    * @param a
-   * @return
+   * @returns
    */
   template<class T>
   vec2<T> normalize(const vec2<T>& a) {
@@ -43,7 +43,7 @@ namespace Math::Utils {
    * helper to normalize 3D-vector
    * @tparam T
    * @param a
-   * @return
+   * @returns
    */
   template<class T>
   vec3<T> normalize(const vec3<T>& a) {
@@ -54,7 +54,7 @@ namespace Math::Utils {
    * helper to normalize 4D-vector
    * @tparam T
    * @param a
-   * @return
+   * @returns
    */
   template<class T>
   vec4<T> normalize(const vec4<T>& a) {
@@ -66,7 +66,7 @@ namespace Math::Utils {
    * @tparam T
    * @param M
    * @param V
-   * @return
+   * @returns
    */
   template<class T>
   mat4<T> translate(const mat4<T>& M, const vec3<T>& V) {
@@ -85,7 +85,7 @@ namespace Math::Utils {
    * @param eye
    * @param center
    * @param up
-   * @return
+   * @returns
    */
   template<class T>
   mat4<T> lookAt(const vec3<T>& eye, const vec3<T>& center, const vec3<T>& up) {
@@ -116,7 +116,7 @@ namespace Math::Utils {
    * @param right
    * @param bottom
    * @param top
-   * @return
+   * @returns
    */
   template<class T>
   mat4<T> ortho(const float& left, const float& right, const float& bottom, const float& top) {
@@ -137,7 +137,7 @@ namespace Math::Utils {
    * @param height
    * @param zNear
    * @param zFar
-   * @return
+   * @returns
    */
   template<class T>
   mat4<T>
@@ -168,7 +168,7 @@ namespace Math::Utils {
    * @tparam T
    * @param angle
    * @param axis
-   * @return
+   * @returns
    */
   template<class T>
   mat4<T> angleAxis([[maybe_unused]] const float& angle, [[maybe_unused]] const vec3<T>& axis) {
@@ -181,7 +181,7 @@ namespace Math::Utils {
    * @tparam T
    * @param mat
    * @param factor
-   * @return
+   * @returns
    */
   template<class T>
   mat4<T> scale(const mat4<T>& mat, const float& factor) {
@@ -217,7 +217,7 @@ namespace Math::Utils {
    * @param model (model * view)-matrix
    * @param proj projection matrix
    * @param viewport 4D vector for window viewport (most likely { 0, 0, SCREEN_WIDTH, SCREEN_WIDTH })
-   * @return
+   * @returns
    */
   template<typename T, typename U>
   vec3<T> unProject(vec3<T> const& win, mat4<T> const& model, mat4<T> const& proj, vec4<U> const& viewport) {
@@ -241,7 +241,7 @@ namespace Math::Utils {
    * @param m
    * @param angle
    * @param u
-   * @return
+   * @returns
    */
   template<class T>
   mat4<T> rotate(const mat4<T>& m, const float& angle, vec3<T> u) {
@@ -276,7 +276,7 @@ namespace Math::Utils {
    * @tparam T
    * @param a
    * @param b
-   * @return
+   * @returns
    */
   template<class T>
   vec3<T> max(const vec3<T>& a, const vec3<T>& b) {
@@ -289,7 +289,7 @@ namespace Math::Utils {
    * @param p1
    * @param p2
    * @param v
-   * @return
+   * @returns
    */
   template<class T>
   vec3<T> lerp(const vec3<T>& p1, const vec3<T>& p2, const float& v) {
@@ -305,7 +305,7 @@ namespace Math::Utils {
    * @param p1
    * @param p2
    * @param v
-   * @return
+   * @returns
    */
   template<class T>
   vec4<T> lerp(const vec4<T>& p1, const vec4<T>& p2, const float& v) {
@@ -321,7 +321,7 @@ namespace Math::Utils {
  * cast from vec2 to void*
  * @tparam T
  * @param vec
- * @return
+ * @returns
  */
 template<class T>
 void* value_ptr(vec2<T>& vec) {
@@ -332,7 +332,7 @@ void* value_ptr(vec2<T>& vec) {
  * cast from vec3 to void*
  * @tparam T
  * @param vec
- * @return
+ * @returns
  */
 template<class T>
 void* value_ptr(vec3<T>& vec) {
@@ -343,7 +343,7 @@ void* value_ptr(vec3<T>& vec) {
  * cast from vec4 to void*
  * @tparam T
  * @param vec
- * @return
+ * @returns
  */
 template<class T>
 void* value_ptr(vec4<T>& vec) {
@@ -353,7 +353,7 @@ void* value_ptr(vec4<T>& vec) {
  * cast from mat2 to void*
  * @tparam T
  * @param mat
- * @return
+ * @returns
  */
 template<class T>
 void* value_ptr(mat2<T>& mat) {
@@ -363,7 +363,7 @@ void* value_ptr(mat2<T>& mat) {
  * cast from mat3 to void*
  * @tparam T
  * @param mat
- * @return
+ * @returns
  */
 template<class T>
 void* value_ptr(mat3<T>& mat) {
@@ -374,7 +374,7 @@ void* value_ptr(mat3<T>& mat) {
  * cast from mat4 to void*
  * @tparam T
  * @param mat
- * @return
+ * @returns
  */
 template<class T>
 void* value_ptr(mat4<T>& mat) {
@@ -385,7 +385,7 @@ void* value_ptr(mat4<T>& mat) {
  * cast from const vec2 to void*
  * @tparam T
  * @param vec
- * @return
+ * @returns
  */
 template<class T>
 const void* value_ptr(vec2<T> const& vec) {
@@ -396,7 +396,7 @@ const void* value_ptr(vec2<T> const& vec) {
  * cast from const vec3 to void*
  * @tparam T
  * @param vec
- * @return
+ * @returns
  */
 template<class T>
 const void* value_ptr(vec3<T> const& vec) {
@@ -406,7 +406,7 @@ const void* value_ptr(vec3<T> const& vec) {
  * cast from const vec4 to void*
  * @tparam T
  * @param vec
- * @return
+ * @returns
  */
 template<class T>
 const void* value_ptr(vec4<T> const& vec) {
@@ -416,7 +416,7 @@ const void* value_ptr(vec4<T> const& vec) {
  * cast from const mat2 to void*
  * @tparam T
  * @param mat
- * @return
+ * @returns
  */
 template<class T>
 const void* value_ptr(mat2<T> const& mat) {
@@ -426,7 +426,7 @@ const void* value_ptr(mat2<T> const& mat) {
  * cast from const mat3 to void*
  * @tparam T
  * @param mat
- * @return
+ * @returns
  */
 template<class T>
 const void* value_ptr(mat3<T> const& mat) {
@@ -436,7 +436,7 @@ const void* value_ptr(mat3<T> const& mat) {
  * cast from mat3 to void*
  * @tparam T
  * @param mat
- * @return
+ * @returns
  */
 template<class T>
 const void* value_ptr(mat4<T> const& mat) {
@@ -447,7 +447,7 @@ const void* value_ptr(mat4<T> const& mat) {
  * Calculates sign(d)
  *
  * @param d value to test
- * @return -1 if d < 0 else 1
+ * @returns -1 if d < 0 else 1
  */
 template<class T>
 T sign(const T& d) {
@@ -461,7 +461,7 @@ T sign(const T& d) {
  *
  * @tparam T datatype of input value
  * @param d input value
- * @return |d|
+ * @returns |d|
  */
 template<class T>
 T abs(const T& d) {

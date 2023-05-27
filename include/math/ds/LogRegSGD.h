@@ -35,7 +35,7 @@ private:
    * logistical regression
    * @param xi input values
    * @param target  target output values
-   * @return cost
+   * @returns cost
    */
   double update_weights(const Matrix<double>& xi, const Matrix<double>& target) {
     auto output      = netInput(xi);
@@ -57,7 +57,7 @@ private:
    * Calculates log of each element.
    * Implementation doesn't use Matrix::Apply
    * @param in input matrix
-   * @return
+   * @returns
    */
   static Matrix<double> Log(const Matrix<double>& in) {
     auto out = in;
@@ -86,7 +86,7 @@ public:
    * fits the weights of the model for given input values
    * @param X: array-like with the shape: [n_samples, n_features]
    * @param y: array-like with shape: [n_samples, 1]
-   * @return this
+   * @returns this
    */
   void fit(const Matrix<double>& X, const Matrix<double>& y) override {
     if(sgd == nullptr) {
@@ -115,7 +115,7 @@ public:
   /**
    * calculate netinput
    * @param X input values
-   * @return
+   * @returns
    */
   Matrix<double> netInput(const Matrix<double>& X) override { return Sigmoid(X * weights); }
 
@@ -123,14 +123,14 @@ public:
    * activate given input
    * $$x\mapsto \phi(x)$$
    * @param X input values
-   * @return activated values
+   * @returns activated values
    */
   Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
   /**
    * predict output for given input
    * @param X input values
-   * @return predicted output for given input
+   * @returns predicted output for given input
    */
   Matrix<double> predict(const Matrix<double>& X) override {
     std::function<bool(double)> condition = [](double x) { return bool(x >= EPS); };
@@ -141,7 +141,7 @@ public:
   /**
    * do not use!
    * @param mat
-   * @return
+   * @returns
    */
   double costFunction([[maybe_unused]] const Matrix<double>& mat) override { return 0; }
 };

@@ -6,6 +6,7 @@
 #pragma once
 
 #include "../Matrix.h"
+#include "../matrix_utils.h"
 
 /**
  * Linear Regression Model
@@ -37,34 +38,34 @@ enum P_NORM {
 /**
  * Method to calculate exponent of given value
  * @param x value to calculate exponent of
- * @return exponent
+ * @returns exponent
  */
 double getExponent(double x);
 /**
  * Rounds double value to given precision, cuts off other elements
  * @param x value to round
  * @param precision precision in resulting value
- * @return rounded value
+ * @returns rounded value
  */
 double round(double x, int precision);
 /**
  * Absolute value $$|x|$$
  * @param x a value
- * @return $$|x|$$
+ * @returns $$|x|$$
  */
 double abs(double x);
 /**
  * calculates $$x^{exponent}$$
  * @param x a value
  * @param exponent desired exponent
- * @return $$x^{exponent}$$
+ * @returns $$x^{exponent}$$
  */
 double pow(double x, int exponent);
 /**
  * Calculates the Norm of a given vector
  * @param vec vector to calculate the norm of
  * @param pNorm desired norm to compute
- * @return computed norm value
+ * @returns computed norm value
  */
 double norm(const Matrix<double>& vec, P_NORM pNorm);
 /**
@@ -77,7 +78,7 @@ double norm(const Matrix<double>& vec, P_NORM pNorm);
  *
  * @param x a vector
  * @param y another vector
- * @return resulting covariance
+ * @returns resulting covariance
  */
 double cov(const Matrix<double>& x, const Matrix<double>& y);
 /**
@@ -87,7 +88,7 @@ double cov(const Matrix<double>& x, const Matrix<double>& y);
  * The variance is the expectation of the square deviation of a random variable from its population mean or sample mean.
  *
  * @param x a vector
- * @return $$\text{var}(x)$$
+ * @returns $$\text{var}(x)$$
  */
 double var(const Matrix<double>& x);
 
@@ -100,7 +101,7 @@ double var(const Matrix<double>& x);
  * The standard deviation is a measure of variance or dispersion of a set of values.
  *
  * @param x set of values to compute standard deviation from
- * @returns standard deviation of given x
+ * @returnss standard deviation of given x
  */
 Matrix<double> sd(const Matrix<double>& x, int axis = 0);
 /**
@@ -113,7 +114,7 @@ Matrix<double> sd(const Matrix<double>& x, int axis = 0);
  * $$
  * @param x $$X_i$$
  * @param y $$Y_i$$
- * @return constructed linear model
+ * @returns constructed linear model
  */
 LinearModel lm(const Matrix<double>& x, const Matrix<double>& y);
 /**
@@ -123,12 +124,12 @@ LinearModel lm(const Matrix<double>& x, const Matrix<double>& y);
  *$$R^2 = \frac{\text{var}(y)}{\text{var}(\hat{y})}$$
  * @param y $$y$$
  * @param yHat $$\hat{y}$$
- * @return proportion of the variation
+ * @returns proportion of the variation
  */
 double coefficientOfDetermination(const Matrix<double>& y, const Matrix<double>& yHat);
 /**
  * Computes likelihood
- * @return
+ * @returns
  */
 double likelihood(const Matrix<double>&);
 
@@ -139,7 +140,7 @@ double likelihood(const Matrix<double>&);
  * $$Y_i = \beta_0 + \beta_1 * a_i$$
  *
  * @param A vector of y-values
- * @return A vector of x-value approximations
+ * @returns A vector of x-value approximations
  */
 Matrix<double> Regression(const Matrix<double>& A);
 
@@ -157,7 +158,7 @@ Matrix<double> Regression(const Matrix<double>& A);
  * - neutral correlation coefficients: The values don't influence each other
  * @param A the first matrix of values
  * @param B second matrix of values in same shape as A
- * @return The correlation matrix of A and B
+ * @returns The correlation matrix of A and B
  */
 Matrix<double> corr(const Matrix<double>& A, const Matrix<double>& B);
 
@@ -172,7 +173,7 @@ Matrix<double> corr(const Matrix<double>& A, const Matrix<double>& B);
  * Given a set of random values, the expected value is the value that is most likely to occur within given distribution of values.
  *
  * @param A the matrix to caclulate the expected value(s) of, each row will receive a corresponding expected value
- * @return The expected value(s) of A
+ * @returns The expected value(s) of A
  */
 Matrix<double> expected_value(const Matrix<double>& A);
 
