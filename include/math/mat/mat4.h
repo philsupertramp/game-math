@@ -89,7 +89,7 @@ public:
 
   /**
    * unit-matrix generator
-   * @return
+   * @returns
    */
   static inline mat4<T> Unit() {
     return mat4<T>( // clang-format off
@@ -102,7 +102,7 @@ public:
   /**
    * transforms around given matrix
    * @param m
-   * @return
+   * @returns
    */
   static inline mat4<T> Transformation(const mat3<T>& m) {
     return mat4<T>( // clang-format off
@@ -114,7 +114,7 @@ public:
 
   /**
    * getter for transposed matrix
-   * @return
+   * @returns
    */
   inline mat4<T> Transpose() {
     return mat4<T>( // clang-format off
@@ -126,7 +126,7 @@ public:
 
   /**
    * test whether matrix is symmetric
-   * @return
+   * @returns
    */
   inline bool IsSymmetric() {
     return values[0][1] == values[1][0] && values[0][2] == values[2][0] && values[0][3] == values[3][0]
@@ -135,7 +135,7 @@ public:
 
   /**
    * computes determinant
-   * @return
+   * @returns
    */
   inline float Determinant() {
     return // clang-format off
@@ -150,7 +150,7 @@ public:
    *
    * @param i row to exclude
    * @param j column to exclude
-   * @return values without row i and column j
+   * @returns values without row i and column j
    */
   inline mat3<T> getMinor(const size_t& i, const size_t& j) {
     mat3<T> out;
@@ -164,7 +164,7 @@ public:
 
   /**
    * Calculate inverse matrix
-   * @return A -> A^-1
+   * @returns A -> A^-1
    */
   inline mat4 Inverse() {
     T SubFactor00 = values[2][2] * values[3][3] - values[3][2] * values[2][3];
@@ -219,21 +219,21 @@ public:
    * matrix-matrix addition
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend mat4<T> operator+(mat4<T> lhs, const mat4<T>& rhs) { return lhs += rhs; }
   /**
    * matrix-matrix subtraction
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend mat4<T> operator-(mat4<T> lhs, const mat4<T>& rhs) { return lhs -= rhs; }
   /**
    * matrix-matrix multiplication
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend mat4<T> operator*(mat4<T> lhs, const T& rhs) { return lhs *= rhs; }
 
@@ -241,7 +241,7 @@ public:
    * scalar-matrix multiplication
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec4<T> operator*(mat4<T> lhs, const vec4<T>& rhs) {
     return vec4<T>( // clang-format off
@@ -256,7 +256,7 @@ public:
    * matrix-matrix multiplication
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend mat4<T> operator*(mat4<T> lhs, const mat4<T>& rhs) { return lhs *= rhs; }
 
@@ -264,7 +264,7 @@ public:
    * matrix-matrix division
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend mat4<T> operator/(mat4<T> lhs, const T& rhs) { return lhs /= rhs; }
 
@@ -272,7 +272,7 @@ public:
   /**
    * matrix-matrix addition
    * @param rhs
-   * @return
+   * @returns
    */
   mat4<T>& operator+=(const mat4<T>& rhs) {
     // clang-format off
@@ -286,7 +286,7 @@ public:
   /**
    * matrix-matrix subtraction
    * @param rhs
-   * @return
+   * @returns
    */
   mat4<T>& operator-=(const mat4<T>& rhs) {
     // clang-format off
@@ -300,7 +300,7 @@ public:
   /**
    * matrix-matrix multiplication
    * @param rhs
-   * @return
+   * @returns
    */
   mat4<T>& operator*=(const mat4<T>& rhs) {
     // clang-format off
@@ -334,7 +334,7 @@ public:
   /**
    * matrix-scalar multiplication
    * @param rhs
-   * @return
+   * @returns
    */
   mat4<T>& operator*=(const T& rhs) {
     // clang-format off
@@ -348,7 +348,7 @@ public:
   /**
    * matrix-scalar division
    * @param rhs
-   * @return
+   * @returns
    */
   mat4<T>& operator/=(const T& rhs) {
     // clang-format off
@@ -362,7 +362,7 @@ public:
   /**
    * equality comparison operator
    * @param rhs
-   * @return
+   * @returns
    */
   bool operator==(const mat4<T>& rhs) {
     // clang-format off
@@ -375,7 +375,7 @@ public:
   /**
    * not equal operator
    * @param rhs
-   * @return
+   * @returns
    */
   bool operator!=(const mat4<T>& rhs) { return !(*this == rhs); }
 
@@ -383,13 +383,13 @@ public:
   /**
    * member access
    * @param index
-   * @return
+   * @returns
    */
   T* operator[](int index) { return values[index]; }
   /**
    * const member access
    * @param index
-   * @return
+   * @returns
    */
   const T* operator[](int index) const { return values[index]; }
 
@@ -397,7 +397,7 @@ public:
   /**
    * beautified std::cout operator
    * @tparam U
-   * @return
+   * @returns
    */
   template<class U>
   friend std::ostream& operator<<(std::ostream&, const mat4<U>&);

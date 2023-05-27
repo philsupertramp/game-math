@@ -40,7 +40,7 @@ public:
    * helper method to generate superset of given vectors
    * @param a set of symbols
    * @param b other set of symbols
-   * @return merged unique set of symbols
+   * @returns merged unique set of symbols
    */
   static std::vector<std::shared_ptr<Symbolic>> buildSymbolSuperSet(
   const std::vector<std::shared_ptr<Symbolic>>& a, const std::vector<std::shared_ptr<Symbolic>>& b) {
@@ -68,14 +68,14 @@ public:
    * https://en.wikipedia.org/wiki/Shunting-yard_algorithm
    *
    * @param processString
-   * @return
+   * @returns
    */
   std::shared_ptr<MathNode> createAST();
 
   /**
    * Lexer function to determine first connecting operator
    * @param valString
-   * @return
+   * @returns
    */
   static std::shared_ptr<Operator> GetOperator(const std::string& valString) {
     if(valString.empty()) { return {}; }
@@ -96,7 +96,7 @@ private:
   /**
    * parses a sequence, can be a Function, Operator, Number, Symbol or ANY
    * @param c sequence to parse
-   * @return success
+   * @returns success
    */
   bool parseSequence(const std::string& c) {
     std::string copy = c;
@@ -147,7 +147,7 @@ private:
   /**
    * Lexer function to detect a Function node.
    * @param valString element of DefaultFunctions vector
-   * @return
+   * @returns
    */
   static std::shared_ptr<Function> GetFunction(const std::string& valString) {
     auto elem = DefaultFunctions.find(valString);
@@ -157,7 +157,7 @@ private:
   /**
    * Recursively split of input string into function/symbol/operator/numerical substrings.
    * @param processString
-   * @return
+   * @returns
    */
   std::vector<std::string> splitFunctionsOrElementwise(const std::string& in) {
     std::vector<std::string> out;
@@ -186,14 +186,14 @@ private:
    * Splits an equation string into a vector of strings
    *
    * @param eqString equation string to split
-   * @return vector with equation elements
+   * @returns vector with equation elements
    */
   std::vector<std::string> splitEquation(const std::string& eqString);
 
   /**
    * tests if value is number
    * @param in
-   * @return
+   * @returns
    */
   static bool isNumber(const std::string& in) {
     static auto numberRegex = GetRegex(MathNodeType::NodeType_Numeric);
@@ -203,7 +203,7 @@ private:
   /**
    * tests if value is symbol
    * @param in
-   * @return
+   * @returns
    */
   static bool isSymbol(const std::string& in) {
     static auto symbolRegex = GetRegex(MathNodeType::NodeType_Symbolic);
@@ -213,7 +213,7 @@ private:
   /**
    * test if value is operator
    * @param in
-   * @return
+   * @returns
    */
   static bool isOperator(const std::string& in) {
     static auto operatorRegex = GetRegex(MathNodeType::NodeType_Operator);
@@ -223,7 +223,7 @@ private:
   /**
    * test if value is anything processable
    * @param in
-   * @return
+   * @returns
    */
   static bool isAny(const std::string& in) {
     static auto anyRegex = GetRegex(MathNodeType::NodeType_Any);
@@ -233,13 +233,13 @@ private:
   /**
    * test if value is parentheses open
    * @param in
-   * @return
+   * @returns
    */
   static bool isParenthesesOpen(const std::string& in) { return in.find('(') != std::string::npos; };
   /**
    * test if value is parentheses close
    * @param in
-   * @return
+   * @returns
    */
   static bool isParenthesesClose(const std::string& in) { return in.find(')') != std::string::npos; };
 
@@ -267,7 +267,7 @@ private:
    * extracts given objects from given equation string
    * @param eq equation string
    * @param container container containing objects to search for
-   * @return extracted objects
+   * @returns extracted objects
    */
   std::vector<std::string> extractObjects(std::string& eq, const std::vector<std::string>& container);
 };

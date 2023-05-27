@@ -8,13 +8,13 @@ public:
    * Implements training algorithm
    * @param X: array-like with the shape: [n_samples, n_features]
    * @param y: array-like with shape: [n_samples, 1]
-   * @return this
+   * @returns this
    */
   virtual void fit(const Matrix<double>& X, const Matrix<double>& y) = 0;
 
   /**
    * Makes prediction for given input
-   * @return
+   * @returns
    */
   virtual Matrix<double> predict(const Matrix<double>&) = 0;
 

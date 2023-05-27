@@ -41,7 +41,7 @@
 /**
  * LU-decomposition of A
  * @param A matrix to decompose
- * @return in-place decomposed matrix L+U
+ * @returns in-place decomposed matrix L+U
  */
 std::pair<Matrix<double>, std::vector<unsigned int>> LU(const Matrix<double>& A) {
   auto m           = A.rows();

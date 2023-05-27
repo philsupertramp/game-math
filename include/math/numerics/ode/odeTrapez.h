@@ -22,7 +22,7 @@
  * @param tInterval interval to perform approximation on
  * @param y0 start value
  * @param option solver options
- * @return approximated values
+ * @returns approximated values
  */
 ODEResult
 ODETrapez(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, const ODEOption& option) {

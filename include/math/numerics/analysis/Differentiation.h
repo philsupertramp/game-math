@@ -36,6 +36,8 @@
 #pragma once
 
 #include "../../Matrix.h"
+#include "../../matrix_utils.h"
+
 #include "../utils.h"
 
 /**
@@ -46,7 +48,7 @@
  * **Error** O(dx)
  * @param x x-values
  * @param y y-values
- * @returns approximated differential evaluated on x-values
+ * @returnss approximated differential evaluated on x-values
  */
 inline Matrix<double> forwardDiff(const Matrix<double>& x, const Matrix<double>& y) {
   auto df  = zeros(x.rows(), x.columns());
@@ -66,7 +68,7 @@ inline Matrix<double> forwardDiff(const Matrix<double>& x, const Matrix<double>&
  * **Error** O(dx)
  * @param x x-values
  * @param y y-values
- * @returns approximated first differential evaluated on x-values
+ * @returnss approximated first differential evaluated on x-values
  */
 inline Matrix<double> backwardDiff(const Matrix<double>& x, const Matrix<double>& y) {
   auto df  = zeros(x.rows(), x.columns());
@@ -85,7 +87,7 @@ inline Matrix<double> backwardDiff(const Matrix<double>& x, const Matrix<double>
  * **Error** O(dx^2)
  * @param x x-values
  * @param y y-values
- * @returns approximated first differential evaluated on x-values
+ * @returnss approximated first differential evaluated on x-values
  */
 inline Matrix<double> centralDiff(const Matrix<double>& x, const Matrix<double>& y) {
   auto df  = zeros(x.rows(), x.columns());
@@ -103,7 +105,7 @@ inline Matrix<double> centralDiff(const Matrix<double>& x, const Matrix<double>&
  * **Error** O(dx)
  * @param x x-values
  * @param y y-values
- * @returns approximated second differential evaluated on x-values
+ * @returnss approximated second differential evaluated on x-values
  */
 inline Matrix<double> backwardDiff2(const Matrix<double>& x, const Matrix<double>& y) {
   auto df = zeros(x.rows(), x.columns());
@@ -122,7 +124,7 @@ inline Matrix<double> backwardDiff2(const Matrix<double>& x, const Matrix<double
  * **Error** O(dx^2)
  * @param x x-values
  * @param y y-values
- * @returns approximated second differential evaluated on x-values
+ * @returnss approximated second differential evaluated on x-values
  */
 inline Matrix<double> centralDiff4(const Matrix<double>& x, const Matrix<double>& y) {
   auto df = zeros(x.rows(), x.columns());

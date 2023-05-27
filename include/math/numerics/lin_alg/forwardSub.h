@@ -22,7 +22,7 @@
  * Forward-substitution
  * @param L Coefficient Matrix
  * @param b resulting vector
- * @return c
+ * @returns c
  */
 Matrix<double> forwardSub(const Matrix<double>& L, const Matrix<double>& b) {
   size_t m  = L.rows();

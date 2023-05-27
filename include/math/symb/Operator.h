@@ -89,7 +89,7 @@ public:
 
   /**
    * evaluates op(left, right)
-   * @return
+   * @returns
    */
   [[nodiscard]] double Evaluate() const override {
     if(priority == OPClassParentheses) { return left->Evaluate(); }
@@ -101,7 +101,7 @@ public:
 /**
  * Operator factory, returns shared_ptr to operator with given type
  * @param type
- * @return
+ * @returns
  */
 std::shared_ptr<Operator> GenerateOperator(OperatorType type);
 
@@ -167,7 +167,7 @@ const std::map<std::string, std::shared_ptr<Function>> DefaultFunctions = {
 /**
  * Helper function to test if string is function representation
  * @param in
- * @return
+ * @returns
  */
 bool isFunction(const std::string& in);
 

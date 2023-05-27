@@ -30,7 +30,7 @@
  * @param start start value
  * @param end  end value
  * @param num_elements number of elements within the resulting vector
- * @return vector of equidistant values from start to end
+ * @returns vector of equidistant values from start to end
  */
 Matrix<double> linspace(double start, double end, unsigned long num_elements);
 
@@ -39,14 +39,14 @@ Matrix<double> linspace(double start, double end, unsigned long num_elements);
  * @param rows number rows for resulting matrix
  * @param columns number columns for resulting matrix
  * @param elements number of elements per cell
- * @return rows x columns-Matrix with 0 as each value
+ * @returns rows x columns-Matrix with 0 as each value
  */
 Matrix<double> zeros(size_t rows, size_t columns, size_t elements = 1);
 
 /**
  * Generates a matrix with each element = 0 for given size
  * @param rows number of rows in resulting vetor
- * @return zero-vector of size rows
+ * @returns zero-vector of size rows
  */
 Matrix<double> zerosV(size_t rows);
 
@@ -55,7 +55,7 @@ Matrix<double> zerosV(size_t rows);
  * @param rows number rows for resulting matrix
  * @param columns number columns for resulting matrix
  * @param elements number of elements per cell
- * @return rows x columns-Matrix with 1 as each value
+ * @returns rows x columns-Matrix with 1 as each value
  */
 Matrix<double> ones(size_t rows, size_t columns = 1, size_t elements = 1);
 
@@ -63,7 +63,7 @@ Matrix<double> ones(size_t rows, size_t columns = 1, size_t elements = 1);
  * creates unit matrix of dimension rows, columns
  * @param rows
  * @param columns if 0, then columns = rows
- * @return
+ * @returns
  */
 Matrix<double> eye(size_t rows, size_t columns = 0);
 
@@ -74,7 +74,7 @@ Matrix<double> eye(size_t rows, size_t columns = 0);
  * @param left left/lower diagonal element value
  * @param center diagonal element value
  * @param right right/upper diagonal element value
- * @return tri-diagonal-matrix
+ * @returns tri-diagonal-matrix
  */
 Matrix<double> tridiag(size_t rows, size_t columns, double left, double center, double right);
 
@@ -88,7 +88,7 @@ Matrix<double> tridiag(size_t rows, size_t columns, double left, double center, 
  * In 2D this is equal to the pythagorean theorem.
  *
  * @param in input matrix to calculate norm of
- * @return 2-norm of given matrix
+ * @returns 2-norm of given matrix
  */
 double norm(const Matrix<double>& in);
 
@@ -97,7 +97,7 @@ double norm(const Matrix<double>& in);
  *
  * @param in input matrix to calculate norm(s) of
  * @param axis along which to calculate norm on (options: 0 (row-wise), 1 (column-wise))
- * @returns norm on given axis
+ * @returnss norm on given axis
  */
 Matrix<double> norm(const Matrix<double>& in, int axis);
 
@@ -106,7 +106,7 @@ Matrix<double> norm(const Matrix<double>& in, int axis);
  * Orders vector, than builds resulting vector by selecting indices.
  *
  * @param in given matrix to sort
- * @return indices of sorted version of given matrix
+ * @returns indices of sorted version of given matrix
  */
 Matrix<size_t> argsort(const Matrix<double>& in);
 
@@ -119,7 +119,7 @@ Matrix<size_t> argsort(const Matrix<double>& in);
  *
  * @param validation validation function, this method validates your data
  * @param x vector to test
- * @return index vectors of values true to the validation function
+ * @returns index vectors of values true to the validation function
  */
 Matrix<size_t> nonzero(const std::function<bool(const double&)>& validation, const Matrix<double>& x);
 
@@ -129,7 +129,7 @@ Matrix<size_t> nonzero(const std::function<bool(const double&)>& validation, con
  *
  *
  * @param in given matrix to extract diagonal elements from
- * @return vector of diagonal elements
+ * @returns vector of diagonal elements
  */
 template<typename T>
 Matrix<T> diag(const Matrix<T>& in) {

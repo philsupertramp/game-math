@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Matrix.h"
+#include "../matrix_utils.h"
 #include <functional>
 
 
@@ -94,7 +95,7 @@ public:
    * @param xi
    * @param target
    * @param weights
-   * @return
+   * @returns
    */
   double update_weights(const Matrix<double>& xi, const Matrix<double>& target, Matrix<double>& weights) const {
     auto output = Matrix<double>();
@@ -114,7 +115,7 @@ public:
    * shuffles given data
    * @param X
    * @param y
-   * @return
+   * @returns
    */
   std::pair<Matrix<double>, Matrix<double>>
   shuffleData([[maybe_unused]] const Matrix<double>& X, [[maybe_unused]] const Matrix<double>& y) {
@@ -125,7 +126,7 @@ public:
    * computes the net-input for given values
    * @param X
    * @param weights
-   * @return
+   * @returns
    */
   [[nodiscard]] static Matrix<double> netInput(const Matrix<double>& X, const Matrix<double>& weights) {
     Matrix<double> A(0, weights.rows() - 1, weights.columns());

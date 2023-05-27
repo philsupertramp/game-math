@@ -50,7 +50,9 @@ public:
    */
   explicit Matrix(T val, size_t rowCount, size_t colCount, size_t elementDimension = 1) {
     Resize(rowCount, colCount, elementDimension);
-    for(size_t i = 0; i < _dataSize; ++i) { _data[i] = val; }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i) {
+      _data[i] = val;
+    }
   }
 
   /**
@@ -125,7 +127,7 @@ public:
    * Conversion constructor to convert Matrix into other type V
    *
    * @param other the matrix to use
-   * @return given matrix casted to type V
+   * @returns given matrix casted to type V
    */
   template<typename V>
   Matrix(const Matrix<V>& other) {
@@ -155,12 +157,14 @@ public:
    * @param element_size
    * @param minValue
    * @param maxValue
-   * @return matrix of dimension `rows`, `columns` initialized with random values from `minValue` to `maxValue`
+   * @returns matrix of dimension `rows`, `columns` initialized with random values from `minValue` to `maxValue`
    */
   static Matrix
   Random(size_t rows, size_t columns, size_t element_size = 1, double minValue = 0.0, double maxValue = 1.0) {
     Matrix<T> matrix(0, rows, columns, element_size);
-    for(size_t i = 0; i < rows * columns * element_size; ++i) { matrix._data[i] = Random::Get(minValue, maxValue); }
+    for(size_t i = 0; i < rows * columns * element_size; ++i) {
+       matrix._data[i] = Random::Get(minValue, maxValue);
+    }
     return matrix;
   }
 
@@ -169,7 +173,7 @@ public:
    *
    * @param rows
    * @param columns
-   * @return data set of normal distributed data
+   * @returns data set of normal distributed data
    */
   static Matrix Normal(size_t rows, size_t columns, double mu, double sigma) {
     assert(columns % 2 == 0);
@@ -191,24 +195,24 @@ public:
 
   /**
    * row getter
-   * @return
+   * @returns
    */
   [[nodiscard]] inline size_t rows() const { return _rows; }
   /**
    * columns getter
-   * @return
+   * @returns
    */
   [[nodiscard]] inline size_t columns() const { return _columns; }
 
   /**
    * elements getter
-   * @return
+   * @returns
    */
   [[nodiscard]] inline size_t elements() const { return _element_size; }
 
   /**
    * Calculates Determinant
-   * @return
+   * @returns
    */
   [[nodiscard]] inline T Determinant() const {
     if(!HasDet()) return 0;
@@ -245,19 +249,16 @@ public:
     }
     return d;
   }
-
+  
   /**
    * Creates transposed matrix of `this`
-   * @return
+   * @returns
    */
   [[nodiscard]] constexpr Matrix<T> Transpose() const {
     Matrix<T> res(0, _columns, _rows, _element_size);
-    for(size_t i = 0; i < _columns; ++i) {
-      for(size_t j = 0; j < _rows; ++j) {
-        for(size_t elem = 0; elem < _element_size; ++elem) {
-          res._data[res.GetIndex(i, j, elem)] = _data[GetIndex(j, i, elem)];
-        }
-      }
+    int index_factor = _rows * _element_size;
+    for(size_t i = 0; i < (_rows * _columns * _element_size); ++i) {
+      res._data[i] = _data[GetIndex(i % (index_factor), i / (index_factor), i % _element_size)];
     }
     return res;
   }
@@ -265,7 +266,7 @@ public:
   /**
    * Horizontal matrix concatenation
    * @param other Matrix with same number of rows, dimension n1, m2
-   * @return concatenated matrix of [this, other] with dimension n1, m1 + m2
+   * @returns concatenated matrix of [this, other] with dimension n1, m1 + m2
    */
   Matrix<T> HorizontalConcat(const Matrix<T>& other) {
     assert(this->rows() == other.rows());
@@ -287,7 +288,7 @@ public:
   /**
    * comparison operator
    * @param rhs
-   * @return
+   * @returns
    */
   bool operator==(const Matrix<T>& rhs) const {
     // Just need to check element-wise
@@ -298,7 +299,7 @@ public:
   /**
    * not-equal operator
    * @param rhs
-   * @return
+   * @returns
    */
   bool operator!=(const Matrix<T>& rhs) const {
     return !(rhs == *this); // NOLINT
@@ -306,11 +307,9 @@ public:
 
   bool operator<(const Matrix<T>& rhs) const {
     assertSize(rhs);
-    for(size_t i = 0; i < _rows; ++i) {
-      for(size_t j = 0; j < _columns; ++j) {
-        for(size_t k = 0; k < _element_size; ++k) {
-          if(_data[GetIndex(i, j, k)] > rhs(i, j, k)) { return false; }
-        }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
+      if(_data[i] > rhs._data[i]){
+        return false;
       }
     }
     return true;
@@ -318,11 +317,9 @@ public:
 
   bool operator>(const Matrix<T>& rhs) const {
     assertSize(rhs);
-    for(size_t i = 0; i < _rows; ++i) {
-      for(size_t j = 0; j < _columns; ++j) {
-        for(size_t k = 0; k < _element_size; ++k) {
-          if(_data[GetIndex(i, j, k)] < rhs(i, j, k)) { return false; }
-        }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
+      if(_data[i] < rhs._data[i]){
+        return false;
       }
     }
     return true;
@@ -331,7 +328,7 @@ public:
   /**
    * Helper to determine whether given matrix is a vector.
    *
-   * @return boolean, true if matrix is vector, else false
+   * @returns boolean, true if matrix is vector, else false
    */
   [[nodiscard]] bool IsVector() const { return _columns == 1 || _rows == 1; }
 
@@ -346,15 +343,13 @@ public:
   /**
    * Element-wise comparison
    * @param rhs
-   * @return
+   * @returns
    */
   [[nodiscard]] bool elementWiseCompare(const Matrix<T>& rhs) const {
     assertSize(rhs);
-    for(size_t i = 0; i < rows(); i++) {
-      for(size_t j = 0; j < columns(); j++) {
-        for(size_t elem = 0; elem < _element_size; ++elem) {
-          if(_data[GetIndex(i, j, elem)] != rhs(i, j, elem)) { return false; }
-        }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
+      if(_data[i] != rhs._data[i]){
+        return false;
       }
     }
     return true;
@@ -367,17 +362,15 @@ public:
    *
    * careful! actually overrides different sized matrices, just like other languages (python, matlab)
    * @param other
-   * @return
+   * @returns
    */
   Matrix<T> operator=(const Matrix<T>& other) {
     if(this != &other) {
       if((this == NULL) || (_rows != other.rows() || _columns != other.columns())) {
         Resize(other.rows(), other.columns(), other.elements());
       }
-      for(size_t i = 0; i < _rows; i++) {
-        for(size_t j = 0; j < _columns; j++) {
-          for(size_t elem = 0; elem < _element_size; ++elem) { _data[GetIndex(i, j, elem)] = other(i, j, elem); }
-        }
+      for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
+        _data[i] = other._data[i];
       }
     }
     return *this;
@@ -386,14 +379,12 @@ public:
   /**
    * Apply given function to Matrix
    * @param fun element-wise function to apply
-   * @return fun(this)
+   * @returns fun(this)
    */
   Matrix<T> Apply(const std::function<T(T)>& fun) const {
     auto out = (*this);
-    for(size_t i = 0; i < out.rows(); i++) {
-      for(size_t j = 0; j < out.columns(); j++) {
-        for(size_t elem = 0; elem < out.elements(); ++elem) { out(i, j, elem) = fun(_data[GetIndex(i, j, elem)]); }
-      }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
+      out._data[i] = fun(_data[i]);
     }
     return out;
   }
@@ -404,13 +395,11 @@ public:
    * Hadamard Multiplication
    * Z[i][j] = A[i][j] * B[i][j]
    * @param other
-   * @return
+   * @returns
    */
   Matrix& HadamardMulti(const Matrix& other) {
-    for(size_t i = 0; i < rows(); i++) {
-      for(size_t j = 0; j < columns(); j++) {
-        for(size_t elem = 0; elem < _element_size; ++elem) { _data[GetIndex(i, j, elem)] *= other(i, j, elem); }
-      }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
+      _data[i] *= other._data[i];
     }
     return *this;
   }
@@ -419,7 +408,7 @@ public:
    * A form of matrix multiplication
    * For explicit reference please consult https://en.wikipedia.org/wiki/Kronecker_product
    * @param other right hand side with same dimension
-   * @return resulting matrix with same dimension
+   * @returns resulting matrix with same dimension
    */
   Matrix<T>& KroneckerMulti(const Matrix<T>& other) {
     assert(_element_size == other.elements());
@@ -441,14 +430,12 @@ public:
 
   /**
    * Calculates sum of all elements
-   * @return element sum
+   * @returns element sum
    */
   T sumElements() const {
     T result = T(0.0);
-    for(size_t i = 0; i < rows(); i++) {
-      for(size_t j = 0; j < columns(); j++) {
-        for(size_t elem = 0; elem < _element_size; ++elem) { result += _data[GetIndex(i, j, elem)]; }
-      }
+    for(size_t i = 0; i < _rows * _columns * _element_size; ++i){
+      result += _data[i];
     }
     return result;
   }
@@ -457,7 +444,7 @@ public:
    * Calculates element wise sum of sub-elements along given axis
    *
    * @param axis axis index (0: rows, 1: columns) to calculate sum on
-   * @return vector of element wise sums along given axis
+   * @returns vector of element wise sums along given axis
    */
   Matrix<T> sum(size_t axis) const {
     Matrix<T> out(0, axis == 0 ? _rows : 1, axis == 1 ? _columns : 1);
@@ -472,7 +459,7 @@ public:
   /**
    * Matrix-Constant-Multiplication
    * @param rhs
-   * @return
+   * @returns
    */
   Matrix<T>& operator*=(T rhs) {
     (*this) = *this * rhs;
@@ -482,7 +469,7 @@ public:
   /**
    * Matrix-Addition
    * @param rhs
-   * @return
+   * @returns
    */
   Matrix<T>& operator+=(const Matrix<T>& rhs) {
     (*this) = (*this) + rhs;
@@ -491,7 +478,7 @@ public:
   /**
    * Matrix-Subtraction
    * @param rhs
-   * @return
+   * @returns
    */
   Matrix<T>& operator-=(const Matrix<T>& rhs) {
     (*this) = (*this) - rhs;
@@ -505,7 +492,7 @@ public:
    * @param row row index
    * @param column column index
    * @param elem element index
-   * @return value at given address
+   * @returns value at given address
    */
   T& operator()(size_t row, size_t column, size_t elem = 0) { return _data[GetIndex(row, column, elem)]; }
   /**
@@ -513,7 +500,7 @@ public:
    * @param row row index
    * @param column column index
    * @param elem element index
-   * @return const value at given address
+   * @returns const value at given address
    */
   T& operator()(size_t row, size_t column, size_t elem = 0) const { return _data[GetIndex(row, column, elem)]; }
 
@@ -523,24 +510,24 @@ public:
    * **no in-place editing, creates new object!**
    * use SetRow instead
    * @param row index of row to get
-   * @return row elements
+   * @returns row elements
    */
   Matrix<T> operator()(size_t row) { return GetSlice(row, row, 0, _columns - 1); }
   /**
    * const row-getter
    * @param row index of row
-   * @return row values
+   * @returns row values
    */
   Matrix<T> operator()(size_t row) const { return GetSlice(row, row, 0, _columns - 1); }
 
   /**
    * pointer operator
-   * @return
+   * @returns
    */
   T& operator*() { return _data[0]; }
   /**
    * const pointer operator
-   * @return
+   * @returns
    */
   T& operator*() const { return _data[0]; }
 
@@ -582,7 +569,7 @@ public:
    * ostream operator, beatified representation
    * @param ostr
    * @param m
-   * @return
+   * @returns
    */
   friend std::ostream& operator<<(std::ostream& ostr, const Matrix& m) {
     ostr.precision(17);
@@ -628,7 +615,7 @@ public:
    * @param row \f[\in [0, rows() - 1]\f]
    * @param col \f[\in [0, columns() - 1]\f]
    * @param elem \f[\in [0, elements() - 1]\f]
-   * @return elem + col * elements() + row * columns() * elements()
+   * @returns elem + col * elements() + row * columns() * elements()
    */
   [[nodiscard]] inline int GetIndex(size_t row, size_t col, size_t elem = 0) const {
     //        assert(row < _rows && col < _columns && elem < _element_size);
@@ -648,7 +635,7 @@ public:
    * @param rowEnd row end index
    * @param colStart column start index
    * @param colEnd column end index
-   * @return sub-matrix
+   * @returns sub-matrix
    */
   [[nodiscard]] inline Matrix GetSlice(size_t rowStart, size_t rowEnd, size_t colStart, size_t colEnd) const {
     size_t numRows = (rowEnd - rowStart) + 1;
@@ -693,7 +680,7 @@ public:
   /**
    * returns 1D-Matrix from given index
    * @param index of elements
-   * @return
+   * @returns
    */
   Matrix<T> GetComponents(const size_t& index) const {
     assert(index < _element_size);
@@ -719,7 +706,7 @@ public:
 private:
   /**
    * Helper to test if Matrix can have a determinant
-   * @return
+   * @returns
    */
   [[nodiscard]] bool HasDet() const { return _columns > 1 && _rows > 1 && _element_size == 1; }
 
@@ -746,7 +733,7 @@ private:
  * @tparam T
  * @param lhs
  * @param rhs
- * @return
+ * @returns
  */
 template<typename T>
 inline Matrix<T> operator+(const Matrix<T>& lhs, const Matrix<T>& rhs) {
@@ -780,7 +767,7 @@ inline Matrix<T> operator+(const Matrix<T>& lhs, const Matrix<T>& rhs) {
  * @tparam T
  * @param lhs
  * @param rhs
- * @return
+ * @returns
  */
 template<typename T>
 inline Matrix<T> operator-(const Matrix<T>& lhs, const Matrix<T>& rhs) {
@@ -813,7 +800,7 @@ inline Matrix<T> operator-(const Matrix<T>& lhs, const Matrix<T>& rhs) {
  * @tparam T value type of elements inside given matrix
  * @param lhs scalar divident
  * @param rhs matrix divisor
- * @return
+ * @returns
  */
 template<typename T, typename U>
 inline Matrix<T> operator/(U lhs, const Matrix<T>& rhs) {
@@ -830,7 +817,7 @@ inline Matrix<T> operator/(U lhs, const Matrix<T>& rhs) {
  * @tparam T value type of elements inside given matrix
  * @param lhs matrix divident
  * @param rhs scalar divisor
- * @return
+ * @returns
  */
 template<typename T, typename U>
 inline Matrix<T> operator/(const Matrix<T>& lhs, const U& rhs) {
@@ -885,7 +872,7 @@ inline Matrix<T> operator/(const Matrix<T>& lhs, const Matrix<T>& rhs) {
  * Simple Matrix scalar multiplication
  * @param lhs
  * @param rhs
- * @return scaled matrix
+ * @returns scaled matrix
  */
 template<typename T, typename U>
 inline Matrix<T> operator*(const Matrix<T>& lhs, const U& rhs) {
@@ -901,7 +888,7 @@ inline Matrix<T> operator*(const Matrix<T>& lhs, const U& rhs) {
  * Simple Matrix scalar multiplication
  * @param lambda
  * @param A
- * @return scaled matrix lambda * A = B with B(i, j) = lambda * A(i, j)
+ * @returns scaled matrix lambda * A = B with B(i, j) = lambda * A(i, j)
  */
 template<typename T, typename U>
 inline Matrix<T> operator*(U lambda, const Matrix<T>& A) {
@@ -919,7 +906,7 @@ inline Matrix<T> operator*(U lambda, const Matrix<T>& A) {
  * Calculates LHS * RHS
  * @param lhs
  * @param rhs
- * @return Rows x C result matrix
+ * @returns Rows x C result matrix
  */
 template<typename T>
 inline Matrix<T> operator*(const Matrix<T>& lhs, const Matrix<T>& rhs) {
@@ -950,465 +937,6 @@ inline Matrix<T> operator*(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   return result;
 }
 
-/**
- * Helper utilities
- */
-
-/**
- * Element wise multiplication
- * @tparam T value type
- * @param lhs left hand side with dimension n1, m1
- * @param rhs right hand side with dimension n1, m1
- * @return product of element wise multiplication of lhs * rhs with dimension n1, m1
- */
-template<typename T>
-Matrix<T> HadamardMulti(const Matrix<T>& lhs, const Matrix<T>& rhs) {
-  lhs.assertSize(rhs);
-  auto result = Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
-  for(size_t i = 0; i < result.rows(); i++) {
-    for(size_t j = 0; j < result.columns(); j++) {
-      for(size_t elem = 0; elem < result.elements(); elem++) { result(i, j, elem) = lhs(i, j, elem) * rhs(i, j, elem); }
-    }
-  }
-  return result;
-}
-
-/**
- * Element wise division
- * @tparam T value type
- * @param lhs left hand side with dimension n1, m1
- * @param rhs right hand side with dimension n1, m1
- * @return product of element wise multiplication of lhs * rhs with dimension n1, m1
- */
-template<typename T>
-Matrix<T> HadamardDiv(const Matrix<T>& lhs, const Matrix<T>& rhs) {
-  lhs.assertSize(rhs);
-  auto result = Matrix<T>(0, lhs.rows(), lhs.columns(), lhs.elements());
-  for(size_t i = 0; i < result.rows(); i++) {
-    for(size_t j = 0; j < result.columns(); j++) {
-      for(size_t elem = 0; elem < result.elements(); elem++) { result(i, j, elem) = lhs(i, j, elem) / rhs(i, j, elem); }
-    }
-  }
-  return result;
-}
-
-/**
- * A form of matrix multiplication
- * For explicit reference please consult https://en.wikipedia.org/wiki/Kronecker_product
- * @tparam T value type
- * @param lhs left hand side with dimension n1, m1
- * @param rhs right hand side with dimension n2, m2
- * @return resulting matrix with dimension n1 * n2, m1 * m2
- */
-template<typename T>
-Matrix<T> KroneckerMulti(const Matrix<T>& lhs, const Matrix<T>& rhs) {
-  assert(lhs.elements() == rhs.elements());
-  auto result = Matrix<T>(0, lhs.rows() * rhs.rows(), lhs.columns() * rhs.columns(), rhs.elements());
-  for(size_t m = 0; m < lhs.rows(); m++) {
-    for(size_t n = 0; n < lhs.columns(); n++) {
-      for(size_t p = 0; p < rhs.rows(); p++) {
-        for(size_t q = 0; q < rhs.columns(); q++) {
-          for(size_t elem = 0; elem < rhs.elements(); elem++) {
-            result(m * rhs.rows() + p, n * rhs.columns() + q, elem) = lhs(m, n, elem) * rhs(p, q, elem);
-          }
-        }
-      }
-    }
-  }
-  return result;
-}
-
-/**
- * Horizontal concatenation of 2 matrices of same Row size
- * @tparam T value type
- * @param lhs left hand side with dimension n1, m1
- * @param rhs right hand side with dimension n1, m2
- * @return concatenated matrix [lhs, rhs] of dimension n1, m1 + m2
- */
-template<typename T>
-Matrix<T> HorizontalConcat(const Matrix<T>& lhs, const Matrix<T>& rhs) {
-  assert(lhs.rows() == rhs.rows());
-  assert(lhs.elements() == rhs.elements());
-  auto result = Matrix<T>(0.0, lhs.rows(), lhs.columns() + rhs.columns(), lhs.elements());
-  for(size_t i = 0; i < lhs.rows(); ++i) {
-    for(size_t j = 0; j < lhs.columns() + rhs.columns(); ++j) {
-      for(size_t elem = 0; elem < lhs.elements(); ++elem) {
-        result(i, j, elem) = j < lhs.columns() ? lhs(i, j, elem) : rhs(i, j - lhs.columns(), elem);
-      }
-    }
-  }
-  return result;
-}
-
-/**
- * Counts correlations between `A` and `B`
- * @tparam T value type of `A` and `B`
- * @param A matrix to compare
- * @param B matrix to compare with
- * @return number of element wise equal elements
- */
-template<typename T>
-size_t Corr(const Matrix<T>& A, const Matrix<T>& B) {
-  A.assertSize(B);
-  size_t count = 0;
-  for(size_t i = 0; i < A.rows(); i++) {
-    for(size_t j = 0; j < A.columns(); j++) {
-      for(size_t elem = 0; elem < A.elements(); elem++) { count += (A(i, j, elem) == B(i, j, elem)); }
-    }
-  }
-  return count;
-}
-
-/**
- * Converts array of elements of type `T` into matrix of given `size`
- * @tparam T value type
- * @param value pointer to array of elements of type `T`
- * @param size dimension of target matrix
- * @return
- */
-template<typename T>
-Matrix<T> from_vptr(const T* value, MatrixDimension size) {
-  auto out = Matrix<T>(0, size.rows, size.columns);
-  for(size_t i = 0; i < size.rows; i++) {
-    for(size_t j = 0; j < size.columns; j++) {
-      for(size_t elem = 0; elem < size.elemDim; elem++) {
-        out(i, j, elem) = value[elem + j * size.elemDim + i * size.columns * size.elemDim];
-      }
-    }
-  }
-  return out;
-}
-
-/**
- * Search index of value with maximum value
- * **Caution!** This value does represent the index in a ongoing array.
- *
- * @tparam T
- * @param mat
- * @return
- */
-template<typename T>
-size_t argmax(const Matrix<T>& mat) {
-  T maxVal        = std::numeric_limits<T>::min();
-  size_t maxIndex = -1;
-  for(size_t i = 0; i < mat.rows(); i++) {
-    for(size_t j = 0; j < mat.columns(); j++) {
-      for(size_t elem = 0; elem < mat.elements(); elem++) {
-        if(mat(i, j, elem) > maxVal) {
-          maxVal   = mat(i, j, elem);
-          maxIndex = elem + j * mat.elements() + i * mat.columns() * mat.elements();
-        }
-      }
-    }
-  }
-  return maxIndex;
-}
-
-/**
- * Search index of value with lowest value
- * **Caution!** This value does represent the index in a ongoing array.
- * @tparam T matrix value type
- * @param mat element to search in
- * @return index of minimal value
- */
-template<typename T>
-size_t argmin(const Matrix<T>& mat) {
-  T maxVal        = std::numeric_limits<T>::max();
-  size_t maxIndex = -1;
-  for(size_t i = 0; i < mat.rows(); i++) {
-    for(size_t j = 0; j < mat.columns(); j++) {
-      for(size_t elem = 0; elem < mat.elements(); ++elem) {
-        if(mat(i, j, elem) < maxVal) {
-          maxVal   = mat(i, j, elem);
-          maxIndex = elem + j * mat.elements() + i * mat.columns() * mat.elements();
-        }
-      }
-    }
-  }
-  return maxIndex;
-}
-
-
-/**
- * Returns elements chosen from `valIfTrue` or `valIfFalse` depending on `condition`
- * @tparam T value type
- * @param condition lambda/function to test a condition on every element of `in`
- * @param in input values
- * @param valIfTrue value vector with values in case `in` meets `condition`
- * @param valIfFalse value vector with values in case `in` does not meet `condition`
- * @return
- */
-template<typename T>
-Matrix<T> where(
-const std::function<bool(T)>& condition, const Matrix<T>& in, const Matrix<T>& valIfTrue, const Matrix<T>& valIfFalse) {
-  assert(valIfTrue.columns() == valIfFalse.columns() && valIfTrue.rows() == valIfFalse.rows());
-  bool refVector = true;
-  if((valIfTrue.columns() == valIfTrue.rows()) == 1) { refVector = false; }
-  auto out = refVector ? valIfTrue : Matrix<T>(0, in.rows(), in.columns(), in.elements());
-
-  for(size_t i = 0; i < in.rows(); i++) {
-    for(size_t j = 0; j < in.columns(); j++) {
-      for(size_t elem = 0; elem < in.elements(); elem++) {
-        if(refVector) {
-          if(!condition(in(i, j, elem))) out(i, j, elem) = valIfFalse(i, j);
-          else
-            out(i, j, elem) = in(i, j, elem);
-        } else {
-          out(i, j, elem) = condition(in(i, j, elem)) ? valIfTrue(0, 0) : valIfFalse(0, 0);
-        }
-      }
-    }
-  }
-  return out;
-}
-
-/**
- * Evaluates elements of a given vector. Responds with indices of
- * true values.
- *
- * @param in vector to evaluate in
- * @return vector of indices where element has true value
- */
-template<typename T>
-Matrix<size_t> where_true(const Matrix<T>& in) {
-  assert(in.IsVector());
-  bool requires_transposition = in.rows() < in.columns();
-  Matrix<size_t> out          = Matrix<size_t>(0, !requires_transposition ? in.rows() : in.columns(), 1);
-  size_t found_vals           = 0;
-  for(size_t i = 0; i < (!requires_transposition ? in.rows() : in.columns()); ++i) {
-    if(in(requires_transposition ? 0 : i, requires_transposition ? i : 0)) {
-      out(found_vals, 0) = i;
-      found_vals++;
-    }
-  }
-  return requires_transposition ? out.GetSlice(0, found_vals - 1).Transpose() : out.GetSlice(0, found_vals - 1);
-}
-
-/**
- * Converts two input matrices into a vector of
- * row-wise pairs of `a` and `b`
- * @tparam T value type
- * @param a
- * @param b
- * @return
- */
-template<typename T>
-std::vector<std::pair<Matrix<T>, Matrix<T>>> zip(const Matrix<T>& a, const Matrix<T>& b) {
-  std::vector<std::pair<Matrix<T>, Matrix<T>>> out(a.rows());
-  for(size_t i = 0; i < a.rows(); i++) {
-    Matrix<T> subA, subB;
-    subA.Resize(1, a.columns());
-    subB.Resize(1, b.columns());
-    for(size_t j = 0; j < a.columns(); j++) { subA(0, j) = a(i, j); }
-    for(size_t j = 0; j < b.columns(); j++) { subB(0, j) = b(i, j); }
-
-    out[i] = { subA, subB };
-  }
-  return out;
-}
-
-/**
- * Max value of given Matrix
- * @tparam T given datatype
- * @param mat matrix to search max value in
- * @return max value of given matrix
- */
-template<typename T>
-T max(const Matrix<T>& mat) {
-  T maxVal = std::numeric_limits<T>::min();
-  for(size_t i = 0; i < mat.rows(); i++) {
-    for(size_t j = 0; j < mat.columns(); j++) {
-      for(size_t k = 0; k < mat.elements(); k++) {
-        if(mat(i, j, k) > maxVal) { maxVal = mat(i, j, k); }
-      }
-    }
-  }
-  return maxVal;
-}
-
-
-template<typename T>
-Matrix<T> max(const Matrix<T>& mat, int axis) {
-  bool row_wise = axis == 0;
-  Matrix<T> out = Matrix<T>(0, row_wise ? 1 : mat.rows(), row_wise ? mat.columns() : 1);
-
-  for(size_t i = 0; i < (row_wise ? mat.columns() : mat.rows()); i++) {
-    out(row_wise ? 0 : i, row_wise ? i : 0) = elemMax(
-    mat.GetSlice(row_wise ? 0 : i, row_wise ? mat.rows() - 1 : i, row_wise ? i : 0, row_wise ? i : mat.columns() - 1),
-    0);
-  }
-  return out;
-}
-/**
- * Min value of given matrix
- * @tparam T given datatype
- * @param mat matrix to search min value in
- * @return min value of matrix
- */
-template<typename T>
-T min(const Matrix<T>& mat) {
-  T minVal = std::numeric_limits<T>::max();
-  for(size_t i = 0; i < mat.rows(); i++) {
-    for(size_t j = 0; j < mat.columns(); j++) {
-      for(size_t k = 0; k < mat.elements(); k++) {
-        if(mat(i, j, k) < minVal) { minVal = mat(i, j, k); }
-      }
-    }
-  }
-  return minVal;
-}
-
-template<typename T>
-Matrix<T> min(const Matrix<T>& mat, int axis) {
-  bool row_wise = axis == 0;
-  Matrix<T> out = Matrix<T>(0, row_wise ? 1 : mat.rows(), row_wise ? mat.columns() : 1);
-
-  for(size_t i = 0; i < (row_wise ? mat.columns() : mat.rows()); i++) {
-    out(row_wise ? 0 : i, row_wise ? i : 0) = elemMin(
-    mat.GetSlice(row_wise ? 0 : i, row_wise ? mat.rows() - 1 : i, row_wise ? i : 0, row_wise ? i : mat.columns() - 1),
-    0);
-  }
-  return out;
-}
-
-
-/**
- * Max value from given element index in matrix
- * @tparam T given datatype
- * @param mat matrix to search in
- * @param elemIndex index of element to compute max value of
- * @return max value over all elements with given index
- */
-template<typename T>
-T elemMax(const Matrix<T>& mat, const size_t& elemIndex) {
-  assert(mat.elements() - 1 >= elemIndex);
-  T maxVal     = std::numeric_limits<T>::min();
-  size_t index = 0;
-  for(size_t i = 0; i < mat.rows(); i++) {
-    for(size_t j = 0; j < mat.columns(); j++) {
-      if(mat(i, j, elemIndex) > maxVal) { maxVal = mat(i, j, elemIndex); }
-      index++;
-    }
-  }
-  return maxVal;
-}
-
-/**
- * Min value from given element index in matrix
- * @tparam T given datatype
- * @param mat matrix to search in
- * @param elemIndex index of element to compute max value of
- * @return min value over all elements with given index
- */
-template<typename T>
-T elemMin(const Matrix<T>& mat, const size_t& elemIndex) {
-  assert(mat.elements() - 1 >= elemIndex);
-  T maxVal     = std::numeric_limits<T>::max();
-  size_t index = 0;
-  for(size_t i = 0; i < mat.rows(); i++) {
-    for(size_t j = 0; j < mat.columns(); j++) {
-      if(mat(i, j, elemIndex) < maxVal) { maxVal = mat(i, j, elemIndex); }
-      index++;
-    }
-  }
-  return maxVal;
-}
-
-/**
- *  Calculates mean over given axis
- *
- * @tparam T given dataatype
- * @param mat matrix to calculate mean of
- * @param axis axis along which to calculate the mean (-1: no axis - over all elements, 0: row wise, 1: column wise)
- * @return mean of elements inside given matrix along given axis
- */
-template<typename T>
-Matrix<T> mean(const Matrix<T>& mat, int axis = -1) {
-  if(axis == -1) {
-    Matrix<T> sum = Matrix<T>(0, 1, 1);
-    T index       = 0;
-    for(size_t i = 0; i < mat.rows(); i++) {
-      for(size_t j = 0; j < mat.columns(); j++) {
-        sum(0, 0) += mat(i, j);
-        index++;
-      }
-    }
-    return (1.0 / index) * sum;
-  }
-  bool row_wise = axis == 0;
-
-  Matrix<T> sum = Matrix<T>(0, row_wise ? 1 : mat.rows(), row_wise ? mat.columns() : 1);
-  for(size_t i = 0; i < (row_wise ? mat.rows() : mat.columns()); i++) {
-    sum +=
-    mat.GetSlice(row_wise ? i : 0, row_wise ? i : mat.rows() - 1, row_wise ? 0 : i, row_wise ? mat.columns() - 1 : i);
-  }
-  return (1.0 / (row_wise ? mat.rows() : mat.columns())) * sum;
-}
-
-/**
- * mean operation on element with given index
- * @tparam T given datatype
- * @param mat input matrix
- * @param elemIndex index of element to compute mean of
- * @return mean of all elements
- */
-template<typename T>
-T elemMean(const Matrix<T>& mat, const size_t& elemIndex) {
-  assert(mat.elements() - 1 >= elemIndex);
-  T sum(0);
-  size_t index = 0;
-  for(size_t i = 0; i < mat.rows(); i++) {
-    for(size_t j = 0; j < mat.columns(); j++) {
-      sum += mat(i, j, elemIndex);
-      index++;
-    }
-  }
-  return sum / index;
-}
-
-/**
- * Returns Vector of diagonal elements from matrix.
- * @tparam T given datatype
- * @param in input matrix
- * @return vector of diagonal elements
- */
-template<typename T>
-Matrix<T> diag_elements(const Matrix<T>& in) {
-  Matrix<T> out(0, in.rows(), 1, in.elements());
-  for(size_t i = 0; i < in.rows(); i++) {
-    for(size_t elem = 0; elem < in.elements(); elem++) { out(i, 0, elem) = in(i, i, elem); }
-  }
-  return out;
-}
-
-/**
- *  Returns unique values of given matrix.
- *  @tparam T given datatype
- *  @param in input matrix
- *  @return matrix of unique values
- */
-template<typename T>
-Matrix<T> unique(const Matrix<T>& in, int axis = 0) {
-  bool row_wise     = axis == 0;
-  Matrix<T> out     = Matrix<T>(0, in.rows(), in.columns());
-  size_t found_vals = 0;
-  for(size_t i = 0; i < (row_wise ? in.rows() : in.columns()); ++i) {
-    bool found = false;
-    auto xi =
-    in.GetSlice(row_wise ? i : 0, row_wise ? i : in.rows() - 1, row_wise ? 0 : i, row_wise ? in.columns() - 1 : i);
-    for(size_t j = 0; j < found_vals; ++j) {
-      found = xi
-              == out.GetSlice(
-              row_wise ? j : 0, row_wise ? j : out.rows() - 1, row_wise ? 0 : j, row_wise ? out.columns() - 1 : j);
-      if(found) { break; }
-    }
-    if(!found) {
-      out.SetSlice(found_vals, xi);
-      found_vals++;
-    }
-  }
-  return out.GetSlice(0, found_vals - 1);
-}
 /**
  * \example TestMatrix.cpp
  * This is an example on how to use the Matrix class.

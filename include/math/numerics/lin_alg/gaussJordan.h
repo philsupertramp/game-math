@@ -11,6 +11,7 @@
  */
 #pragma once
 #include "../../Matrix.h"
+#include "../../matrix_utils.h"
 #include "LU.h"
 #include "backwardSub.h"
 #include "forwardSub.h"
@@ -21,7 +22,7 @@
  *
  *
  * @param A squared Coefficient matrix
- * @return $$A^{-1}$$
+ * @returns $$A^{-1}$$
  */
 Matrix<double> gaussJordan(const Matrix<double>& A) {
   size_t i, j, k;

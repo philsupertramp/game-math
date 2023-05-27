@@ -34,7 +34,7 @@ class SVDTestCase : public Test
 
   /**
    * For more details see https://wiki.godesteem.de/wiki/pca-using-svd/
-   * @return
+   * @returns
    */
   bool TestPCANormalDistribution() {
     // Create in (2, 1) centered normal distributed data.

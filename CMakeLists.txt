@@ -37,6 +37,7 @@ if(MATH_EXTENSIONS MATCHES "(numerics)")
     set(LIB_HEADERS
             ${LIB_HEADERS}
             include/math/Matrix.h
+            include/math/matrix_utils.h
             include/math/numerics/utils.h
             include/math/numerics/lin_alg/newton.h
             include/math/numerics/lin_alg/backwardSub.h

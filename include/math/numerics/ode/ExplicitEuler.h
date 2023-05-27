@@ -21,7 +21,7 @@
  * @param tInterval interval to perform approximation on
  * @param y0 start value
  * @param h stepwith,  $$h = t_{i+1} - t_i$$
- * @return
+ * @returns
  */
 ODEResult ODEExpEuler(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, double h = 0.0) {
   size_t dim       = tInterval.size();

@@ -7,7 +7,7 @@
  * Calculates QR decomposition of given matrix
  * so in = Q * R
  * @param in matrix to calculate with
- * @return { Q, R } decomposition
+ * @returns { Q, R } decomposition
  */
 std::pair<Matrix<double>, Matrix<double>> qr(const Matrix<double>& A) {
   size_t num_rows = A.rows();

@@ -119,7 +119,7 @@ public:
   /**
    * cross-product
    * @param rhs
-   * @return
+   * @returns
    */
   inline vec3<T> cross(const vec3<T>& rhs) const {
     return vec3<T>(
@@ -131,12 +131,12 @@ public:
    * \f[
    *  \sqrt{\sum x_i}
    * \f]
-   * @return
+   * @returns
    */
   inline float length() const { return sqrtf(x * x + y * y + z * z); }
   /**
    * returns normalized vector
-   * @return
+   * @returns
    */
   inline vec3<T> normalize() const {
     float len = length();
@@ -148,14 +148,14 @@ public:
    * vector-vector addition
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec3<T> operator+(vec3<T> lhs, const vec3<T>& rhs) { return lhs += rhs; }
   /**
    * vector-vector subtraction
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec3<T> operator-(vec3<T> lhs, const vec3<T>& rhs) { return lhs -= rhs; }
 
@@ -163,7 +163,7 @@ public:
    * vector-scalar multiplication
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec3<T> operator*(vec3<T> lhs, const T& rhs) { return lhs *= rhs; }
 
@@ -171,7 +171,7 @@ public:
    * vector-scalar multiplication
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec3<T> operator*(const T& lhs, vec3<T> rhs) { return rhs *= lhs; }
 
@@ -179,7 +179,7 @@ public:
    * vector-vector multiplication aka dot-product
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend T operator*(vec3<T> lhs, const vec3<T>& rhs) { return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z; }
 
@@ -187,7 +187,7 @@ public:
    * vector-scalar division
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec3<T> operator/(vec3<T> lhs, const T& rhs) { return lhs /= rhs; }
 
@@ -196,7 +196,7 @@ public:
    * vector-scalar division
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend vec3<T> operator/(vec3<T> lhs, const vec3<T>& rhs) { return { lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z }; }
 
@@ -204,7 +204,7 @@ public:
   /**
    * vector-vector addition
    * @param rhs
-   * @return
+   * @returns
    */
   vec3<T>& operator+=(const vec3<T>& rhs) {
     this->x += rhs.x;
@@ -215,7 +215,7 @@ public:
   /**
    * vector-vector subtraction
    * @param rhs
-   * @return
+   * @returns
    */
   vec3<T>& operator-=(const vec3<T>& rhs) {
     this->x -= rhs.x;
@@ -226,7 +226,7 @@ public:
   /**
    * vector-scalar multiplication
    * @param rhs
-   * @return
+   * @returns
    */
   vec3<T>& operator*=(const T& rhs) {
     this->x *= rhs;
@@ -237,7 +237,7 @@ public:
   /**
    * vector-scalar division
    * @param rhs
-   * @return
+   * @returns
    */
   vec3<T>& operator/=(const T& rhs) {
     this->x /= rhs;
@@ -251,7 +251,7 @@ public:
    * equality comparison
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend bool operator==(const vec3<T>& lhs, const vec3<T>& rhs) {
     return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
@@ -261,7 +261,7 @@ public:
    * bigger comparison operator
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend bool operator>(const vec3<T>& lhs, const vec3<T>& rhs) { return lhs.length() > rhs.length(); }
 
@@ -269,7 +269,7 @@ public:
    * smaller comparison operator
    * @param lhs
    * @param rhs
-   * @return
+   * @returns
    */
   friend bool operator<(const vec3<T>& lhs, const vec3<T>& rhs) { return lhs.length() < rhs.length(); }
 
@@ -278,7 +278,7 @@ public:
   /**
    * copy constructor
    * @param V
-   * @return
+   * @returns
    */
   constexpr vec3<T>& operator=(vec3<T> const& V) {
     this->x = static_cast<T>(V.x);
@@ -291,7 +291,7 @@ public:
   /**
    * element access
    * @param index
-   * @return
+   * @returns
    */
   T& operator[](const int& index) {
     switch(index) {
@@ -304,7 +304,7 @@ public:
   /**
    * const element access
    * @param index
-   * @return
+   * @returns
    */
   const T& operator[](const int& index) const {
     switch(index) {
@@ -318,7 +318,7 @@ public:
   /**
    * cast operator into new type U
    * @tparam U
-   * @return vec3<U>(vec3<T>)
+   * @returns vec3<U>(vec3<T>)
    */
   template<typename U>
   explicit operator vec3<U>() {
@@ -329,7 +329,7 @@ public:
   /**
    * beautified std::cout operator
    * @tparam U
-   * @return
+   * @returns
    */
   template<class U>
   friend std::ostream& operator<<(std::ostream&, const vec3<U>&);
@@ -348,7 +348,7 @@ std::ostream& operator<<(std::ostream& os, const vec3<T>& obj) {
  * cast from 3d-array to vec3
  * @tparam T
  * @param in
- * @return
+ * @returns
  */
 template<class T>
 vec3<T> build_vec3(void* in) {
@@ -368,17 +368,17 @@ namespace std {
   public:
     /**
      * static getter for lowes value
-     * @return
+     * @returns
      */
     static vec3<T> lowest() { return vec3<T>(std::numeric_limits<T>::lowest()); };
     /**
      * static getter for maximal value
-     * @return
+     * @returns
      */
     static vec3<T> max() { return vec3<T>(std::numeric_limits<T>::max()); };
     /**
      * static getter for minimal value
-     * @return
+     * @returns
      */
     static vec3<T> min() { return vec3<T>(std::numeric_limits<T>::min()); };
     // One can implement other methods if needed

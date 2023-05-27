@@ -42,21 +42,21 @@ public:
    * calculates
    * $$ X \cdot w + b
    * @param X input values
-   * @return
+   * @returns
    */
   Matrix<double> netInput(const Matrix<double>& X) override { return SGD::netInput(X, weights); }
 
   /**
    * activates given input
    * @param X input
-   * @return activated input
+   * @returns activated input
    */
   Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
   /**
    * predicts class of given input
    * @param X input values
-   * @return prediction
+   * @returns prediction
    */
   Matrix<double> predict(const Matrix<double>& X) override {
     std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };
@@ -68,7 +68,7 @@ public:
    *
    * $$\frac{\sum X^2}{2}
    * @param X input values
-   * @return squared cost
+   * @returns squared cost
    */
   double costFunction(const Matrix<double>& X) override { return HadamardMulti<double>(X, X).sumElements() / 2.0; }
 };

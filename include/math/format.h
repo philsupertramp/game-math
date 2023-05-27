@@ -17,7 +17,7 @@
  * this is safe and convenient but not exactly efficient
  * @param fmt string to be formatted
  * @param ... variable amount of parameters
- * @return formatted string
+ * @returns formatted string
  */
 inline std::string format(const char* fmt, ...) {
   int size     = 512;
@@ -42,7 +42,7 @@ inline std::string format(const char* fmt, ...) {
 /**
  * Strips whitespaces of a string
  * @param in string which may contain whitespaces
- * @return input string without whitespaces
+ * @returns input string without whitespaces
  */
 std::string strip(const std::string& in);
 
@@ -65,7 +65,7 @@ void split(const std::string& s, char delim, Out result);
  * Helper method to simplify call to split
  * @param s string to split
  * @param delim character to split by
- * @return vector of strings split' by delim
+ * @returns vector of strings split' by delim
  */
 std::vector<std::string> split(const std::string& s, char delim);
 
@@ -82,7 +82,7 @@ void split(const std::string& s, Out result);
 /**
  * Helper method to simplify call to split
  * @param s string to split
- * @return split vector of strings
+ * @returns split vector of strings
  */
 std::vector<std::string> split(const std::string& s);
 

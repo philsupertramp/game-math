@@ -35,6 +35,7 @@
  */
 
 #include "../numerics/utils.h"
+#include "../matrix_utils.h"
 #include "../utils.h"
 #include "Classifier.h"
 #include <cstddef>

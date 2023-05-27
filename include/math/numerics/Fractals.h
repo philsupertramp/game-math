@@ -149,7 +149,7 @@ public:
   /**
    * Approximates newton fractal given by NewtonFractal::fun and NewtonFractal::jac.
    *
-   * @return Classified roots, meaning pixels approximated with same roots hold same values
+   * @returns Classified roots, meaning pixels approximated with same roots hold same values
    */
   Matrix<double> operator()() const {
     size_t n = fabs(xMax - xMin) / (1 / (detail > 10 ? detail : 10));
@@ -191,7 +191,7 @@ private:
    * \end{pmatrix}
    * $$
    * @param x point to evaluate
-   * @return evaluated value
+   * @returns evaluated value
    */
   static Matrix<double> fun(const Matrix<double>& x) {
     return Matrix<double>({ { pow(x(0, 0), 3) - 3 * x(0, 0) * x(1, 0) * x(1, 0) - 1 },
@@ -207,7 +207,7 @@ private:
    * \end{pmatrix}
    * $$
    * @param x current value (2 dimensional)
-   * @return 2 by 2 jacobian matrix evaluated in x
+   * @returns 2 by 2 jacobian matrix evaluated in x
    */
   static Matrix<double> jac(const Matrix<double>& x) {
     return Matrix<double>({ { 3 * (x(0, 0) * x(0, 0) - x(1, 0) * x(1, 0)), -6 * x(0, 0) * x(1, 0) },
@@ -239,7 +239,7 @@ public:
 
   /**
    * Evaluates mandelbrot for given view.
-   * @return
+   * @returns
    */
   Matrix<double> operator()() {
     auto stepWidthX = (endX - startX) / (double)detail;
@@ -260,7 +260,7 @@ private:
    * Evaluates mandelbrot at given point
    * @param real_c real part of C (chose from [-2.5, 1])
    * @param img_c imaginary part of C (chose from [-1, 1])
-   * @return iterations needed to evaluate for given values
+   * @returns iterations needed to evaluate for given values
    */
   size_t fun(const double& real_c, const double& img_c) {
     size_t iters = 0;

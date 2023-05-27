@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Matrix.h"
+#include "../matrix_utils.h"
 #include "../numerics/utils.h"
 #include <utility>
 
@@ -20,7 +21,7 @@ enum DataTypes {
 /**
  * Getter for name strings of types
  * @param type type to get string representation of
- * @return string representation of type
+ * @returns string representation of type
  */
 const char* GetPlotDataTypeName(DataTypes type) {
   switch(type) {
@@ -285,7 +286,7 @@ private:
   /**
    * calculates boundaries of given matrix (min and max values)
    * @param x input vector to calculate boundaries of
-   * @return boundaries of input
+   * @returns boundaries of input
    */
   [[nodiscard]] inline PlotBoundary getBoundaries(const Matrix<double>& x) const {
     /*

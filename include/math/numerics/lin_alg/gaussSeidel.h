@@ -11,6 +11,7 @@
  */
 #pragma once
 #include "../../Matrix.h"
+#include "../../matrix_utils.h"
 #include "LU.h"
 #include "backwardSub.h"
 #include "forwardSub.h"
@@ -23,7 +24,7 @@
  *
  * @param A Coefficient matrix
  * @param b resulting vector
- * @return $$x$$
+ * @returns $$x$$
  */
 Matrix<double> gaussSeidel(const Matrix<double>& A, const Matrix<double>& b) {
   auto LR = LU(A);

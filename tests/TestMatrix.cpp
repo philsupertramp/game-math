@@ -1,5 +1,6 @@
 #include "Test.h"
 #include <math/Matrix.h>
+#include <math/matrix_utils.h>
 
 
 class MatrixTestCase : public Test
@@ -241,18 +242,18 @@ class MatrixTestCase : public Test
     Matrix<double> vec2 = vec.Transpose();
     assert(vec2.columns() == vec.rows());
     assert(vec2.rows() == vec.columns());
-    for(size_t i = 0; i < 3; ++i) { assert(vec(0, i) == vec2(i, 0)); }
+    for(size_t i = 0; i < 3; ++i) { AssertEqual(vec(0, i), vec2(i, 0)); }
     // Matrix
     Matrix<double> A(1, 2, 2);
-    assert(A == A.Transpose());
+    AssertEqual(A, A.Transpose());
     Matrix<double> B({ { 1, 1 }, { 2, 2 } });
     Matrix<double> C({ { 1, 2 }, { 1, 2 } });
 
-    assert(B.Transpose() == C);
+    AssertEqual(B.Transpose(), C);
 
     Matrix<double> D({ { 1, 1 }, { 2, 2 }, { 3, 3 } });
     Matrix<double> E({ { 1, 2, 3 }, { 1, 2, 3 } });
-    assert(D.Transpose() == E);
+    AssertEqual(D.Transpose(), E);
     return true;
   }
 

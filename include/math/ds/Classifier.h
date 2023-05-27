@@ -82,13 +82,13 @@ public:
 
   /**
    * Activates a given input
-   * @return
+   * @returns
    */
   virtual Matrix<double> activation(const Matrix<double>&) = 0;
 
   /**
    * calculates the net-input (aka output) this is mostly the derivative of `activation`
-   * @return
+   * @returns
    */
   virtual Matrix<double> netInput(const Matrix<double>&) = 0;
 

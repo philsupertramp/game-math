@@ -47,7 +47,7 @@ public:
    * fit weights using sgd member
    * @param X: array-like with the shape: [n_samples, n_features]
    * @param y: array-like with shape: [n_samples, 1]
-   * @return this
+   * @returns this
    */
   void fit(const Matrix<double>& X, const Matrix<double>& y) override {
     initialize_weights(X.columns());
@@ -67,28 +67,28 @@ public:
   /**
    * alias for sdg.netInput
    * @param X input values
-   * @return
+   * @returns
    */
   Matrix<double> netInput(const Matrix<double>& X) override { return sgd.netInput(X, weights); }
 
   /**
    * Do not use
    * @param X
-   * @return
+   * @returns
    */
   double costFunction([[maybe_unused]] const Matrix<double>& X) override { return 0; }
 
   /**
    * activates given input
    * @param X input values
-   * @return activated input values
+   * @returns activated input values
    */
   Matrix<double> activation(const Matrix<double>& X) override { return netInput(X); }
 
   /**
    * predict output class of given input
    * @param X input values
-   * @return predicted output
+   * @returns predicted output
    */
   Matrix<double> predict(const Matrix<double>& X) override {
     std::function<bool(double)> condition = [](double x) { return bool(x >= 0.0); };

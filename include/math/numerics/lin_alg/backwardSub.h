@@ -22,7 +22,7 @@
  * Backward-substitution
  * @param R Coefficient matrix
  * @param b result vector
- * @return z
+ * @returns z
  */
 Matrix<double> backwardSub(const Matrix<double>& R, const Matrix<double>& b) {
   size_t m  = R.rows();

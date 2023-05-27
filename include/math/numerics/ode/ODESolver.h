@@ -29,7 +29,7 @@ public:
    * @param tInterval interval to perform approximation on
    * @param y0 start value
    * @param option solver options
-   * @return ::ODEExpEuler(fun, tInterval, y0, option.h)
+   * @returns ::ODEExpEuler(fun, tInterval, y0, option.h)
    */
   static ODEResult
   odeExpEuler(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, const ODEOption& option) {
@@ -41,7 +41,7 @@ public:
    * @param tInterval interval to perform approximation on
    * @param y0 start value
    * @param option solver options
-   * @return ::ODE45(fun, tInterval, y0, option.h)
+   * @returns ::ODE45(fun, tInterval, y0, option.h)
    */
   static ODEResult
   ode45(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, const ODEOption& option) {
@@ -53,7 +53,7 @@ public:
    * @param tInterval interval to perform approximation on
    * @param y0 start value
    * @param option solver options
-   * @return ODETrapez(fun, tInterval, y0, option)
+   * @returns ODETrapez(fun, tInterval, y0, option)
    */
   static ODEResult
   odeTrapez(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, const ODEOption& option) {
@@ -65,7 +65,7 @@ public:
    * @param tInterval interval to perform approximation on
    * @param y0 start value
    * @param option solver options
-   * @return ODEBDF2(fun, tInterval, y0, option)
+   * @returns ODEBDF2(fun, tInterval, y0, option)
    */
   static ODEResult
   odeBDF2(const ODE& fun, const std::vector<double>& tInterval, const Matrix<double>& y0, const ODEOption& option) {
