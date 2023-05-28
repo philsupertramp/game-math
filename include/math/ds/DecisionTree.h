@@ -25,20 +25,20 @@ const char* measure_to_name(ImpurityMeasure measure) {
             entropy += pct*np.log2(pct)
     return -entropy
  */
-float entropy(const Matrix<double>& in) {
+double entropy(const Matrix<double>& in) {
   auto unique_values = unique(in);
   // TODO: Implement log2 to implement entropy... sadge
   return 0;
 }
 
 Matrix<double> count_bins(const Matrix<double>& in) {
-  auto unique_values = unique(in);
+  auto unique_values = unique(in.rows() > in.columns() ? in : in.Transpose());
   auto bins          = zeros(unique_values.rows(), 2);
   for(size_t i = 0; i < unique_values.rows(); ++i) {
     auto label                       = unique_values(i, 0);
     std::function<bool(double)> cond = [label](double xi) { return bool(xi == label); };
-    bins(i, 0)                       = label;
-    bins(i, 1)                       = where_true(where(cond, in, { { 1 } }, { { 0 } })).rows();
+    bins(i, 0) = label;
+    bins(i, 1)                       = where_true(where(cond, in, { { 1 } }, { { 0 } })).elements_total();
   }
   return bins;
 }
@@ -50,10 +50,10 @@ Matrix<double> count_bins(const Matrix<double>& in) {
     percentages = counts / len(s)
     return 1 - (percentages**2).sum()
  */
-float gini(const Matrix<double>& in) {
+double gini(const Matrix<double>& in) {
   auto bins = count_bins(in);
-  auto pct  = (1.0 / in.rows()) * bins;
-  return 1 - HadamardMulti(pct, pct).sumElements();
+  auto pct  = bins / (double)in.elements_total();
+  return 1.0 - (pct.Apply([](double xi){return xi * xi;})).sumElements();
 }
 
 enum DecisionNodeType { NONE = -1, LEAF = 0, DECISION = 1 };
@@ -70,12 +70,12 @@ class DecisionNode
 {
 public:
   // Leaf node
-  float value = -1; // class label for leaf node
+  double value = -1; // class label for leaf node
 
   // Decision node
   int feature            = -1;
-  float threshold        = -1;
-  float information_gain = -1;
+  double threshold        = -1;
+  double information_gain = -1;
 
   DecisionNode *left, *right;
 
@@ -85,12 +85,12 @@ public:
 public:
   DecisionNode() { }
 
-  DecisionNode(float val)
+  DecisionNode(double val)
     : value(val) {
     type = DecisionNodeType::LEAF;
   }
 
-  DecisionNode(int feat, float thresh, float ig, DecisionNode* left, DecisionNode* right)
+  DecisionNode(int feat, double thresh, double ig, DecisionNode* left, DecisionNode* right)
     : feature(feat)
     , threshold(thresh)
     , information_gain(ig)
@@ -106,8 +106,8 @@ public:
  */
 struct DataSplit {
   int feature;
-  float threshold;
-  float information_gain;
+  double threshold;
+  double information_gain;
   Matrix<double> left_split;
   Matrix<double> right_split;
 } DataSplit;
@@ -141,7 +141,7 @@ public:
     , _max_depth(max_depth) { }
 
 private:
-  float impurity(const Matrix<double>& x) {
+  double impurity(const Matrix<double>& x) {
     switch(_decision_method) {
       case ImpurityMeasure::ENTROPY: return entropy(x);
       case ImpurityMeasure::GINI: return gini(x);
@@ -158,16 +158,16 @@ private:
    * @param right_child: right split of parent set
    * @return information gain of given split
    */
-  float
+  double
   information_gain(const Matrix<double>& parent, const Matrix<double>& left_child, const Matrix<double>& right_child) {
-    float p_left  = (float)left_child.rows() / parent.rows();
-    float p_right = (float)right_child.rows() / parent.rows();
+    double p_left  = (double)left_child.elements_total() / parent.elements_total();
+    double p_right = (double)right_child.elements_total() / parent.elements_total();
     return impurity(parent) - (p_left * impurity(left_child) + p_right * impurity(right_child));
   }
 
   struct DataSplit best_split(const Matrix<double>& X, const Matrix<double>& y) {
     struct DataSplit best_split { };
-    float best_info_gain = -1.;
+    double best_info_gain = -1.;
 
     for(size_t idf = 0; idf < X.columns(); ++idf) {
       auto eV       = zerosV(X.columns());
@@ -249,7 +249,7 @@ private:
    * @param node: the current node to evaluate
    * @return: prediction for given node
    */
-  float _predict(const Matrix<double>& x, DecisionNode* node) {
+  double _predict(const Matrix<double>& x, DecisionNode* node) {
     if(node->type == DecisionNodeType::LEAF) { return node->value; }
     if(x(0, node->feature) <= node->threshold) { return _predict(x, node->left); }
     return _predict(x, node->right);
@@ -260,7 +260,7 @@ private:
     if(node->type == DecisionNodeType::LEAF) {
       ostr << "label = " << node->value << std::endl;
     } else {
-      ostr << "feature(" << node->feature << ") threshold(" << node->threshold << ")" << std::endl;
+      ostr << "feature(" << node->feature << ") threshold(" << node->threshold << ")" << measure_to_name(_decision_method) << " = " << node->information_gain << std::endl;
       if(node->left) {
         render_node(
         ostr,

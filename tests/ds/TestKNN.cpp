@@ -52,8 +52,8 @@ class KNNTestCase : public Test
    * TSV files.
    */
   bool TestPredictionOnIrisData() {
-    Set dataset  = Set("../../tests/ds/iris_dataset_train.tsv", 4, 1);
-    Set test_set = Set("../../tests/ds/iris_dataset_test.tsv", 4, 1);
+    Set dataset  = Set("../../tests/ds/train.tsv", 4, 1);
+    Set test_set = Set("../../tests/ds/test.tsv", 4, 1);
 
     auto clf = KNN(10);
     clf.fit(dataset.Input, dataset.Output);
