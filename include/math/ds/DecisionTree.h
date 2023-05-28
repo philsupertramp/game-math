@@ -52,8 +52,9 @@ Matrix<double> count_bins(const Matrix<double>& in) {
  */
 double gini(const Matrix<double>& in) {
   auto bins = count_bins(in);
-  auto pct  = bins / (double)in.elements_total();
-  return 1.0 - (pct.Apply([](double xi){return xi * xi;})).sumElements();
+  bins = bins.GetSlice(0,bins.rows()-1,1,1);
+  auto pct  = ((1.0 / (double)in.elements_total()) * bins).Apply([](double xi){return xi * xi;});
+  return 1.0 - pct.sumElements();
 }
 
 enum DecisionNodeType { NONE = -1, LEAF = 0, DECISION = 1 };
@@ -236,8 +237,8 @@ private:
 
     // found leaf node
     auto bins = count_bins(y);
-
-    out = new DecisionNode(bins(argmax(bins.GetSlice(0, bins.rows() - 1, 1, 1)), 0));
+    auto argmax_value = bins(argmax(bins.GetSlice(0, bins.rows() - 1, 1, 1)), 0);
+    out = new DecisionNode(argmax_value);
     return out;
   }
 

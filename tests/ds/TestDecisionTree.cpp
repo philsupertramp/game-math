@@ -12,7 +12,6 @@ class DecisionTreeTestCase : public Test
     Matrix<double>C{{0,0,0,1,1,1,1,1,1,1}};
 
     auto bins_a = count_bins(A);
-      std::cout << bins_a << std::endl;
     AssertEqual(bins_a, {{0,7},{1,3}});
     AssertEqual(count_bins(B), {{0,5},{1,5}});
     AssertEqual(count_bins(C), {{0,3},{1,7}});
@@ -20,11 +19,11 @@ class DecisionTreeTestCase : public Test
     return true;
   }
   bool TestGini() {
-    Matrix<double>A{{0,0,0,0,0,0,0,1,1,1}};
-    Matrix<double>B{{0,0,0,0,0,1,1,1,1,1}};
-    Matrix<double>C{{0,0,0,1,1,1,1,1,1,1}};
+    Matrix<double>A{{0,0,0,0,0,0,0,0,0,1,1,1,1,1}};
+    Matrix<double>B{{0,0,0,0,0,0,0,1,1,1,1,1,1,1}};
+    Matrix<double>C{{0,0,0,0,0,1,1,1,1,1,1,1,1,1}};
 
-    //AssertEqual(gini(A), 0.42);
+    AssertEqual(gini(A), 0.4591836734693877);
     AssertEqual(gini(B), 0.5);
     AssertEqual(gini(C), gini(A));
     return true;
