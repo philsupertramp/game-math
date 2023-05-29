@@ -141,7 +141,7 @@ public:
     , _min_samples_per_split(min_samples_per_split)
     , _max_depth(max_depth) { }
 
-private:
+
   double impurity(const Matrix<double>& x) {
     switch(_decision_method) {
       case ImpurityMeasure::ENTROPY: return entropy(x);
@@ -203,6 +203,7 @@ private:
     return best_split;
   }
 
+private:
   /**
    * Method to recursively build decision tree nodes.
    *
@@ -217,8 +218,7 @@ private:
    */
   DecisionNode* build_tree(const Matrix<double>& X, const Matrix<double>& y, int depth = 0) {
     DecisionNode* out = (DecisionNode*)malloc(sizeof(DecisionNode));
-    // TODO: implement pruning methods
-    if(X.rows() >= _min_samples_per_split && depth <= _max_depth) {
+    if(X.rows() >= _min_samples_per_split && depth < _max_depth) {
       auto best = best_split(X, y);
       if(best.information_gain > 0) {
         auto left = build_tree(

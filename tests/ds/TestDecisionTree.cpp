@@ -35,6 +35,43 @@ class DecisionTreeTestCase : public Test
     return true;
   }
 
+  bool TestImpurity(){
+    auto clf = DecisionTree(1);
+    Matrix<double>A{{0,0,0,0,0,0,0,0,0,1,1,1,1,1}};
+    Matrix<double>B{{0,0,0,0,0,0,0,1,1,1,1,1,1,1}};
+    Matrix<double>C{{0,0,0,0,0,1,1,1,1,1,1,1,1,1}};
+
+    AssertEqual(clf.impurity(A), 0.4591836734693877);
+    AssertEqual(clf.impurity(B), 0.5);
+    AssertEqual(clf.impurity(C), clf.impurity(A));
+
+    return true;
+  }
+
+  bool TestInformationGain(){
+    auto clf = DecisionTree(1);
+    Matrix<double>A{{0,0,0,0,0,0,0,1,1,1,1,1,1,1}};
+    Matrix<double>B{{0,0,0,0,0,0,0}};
+    Matrix<double>C{{1,1,1,1,1,1,1}};
+
+    std::cout << "1: " << clf.information_gain(A, B, C) << std::endl;
+    AssertEqual(clf.information_gain(A, B, C), 0.5);
+
+    A = {{0,0,0,0,0,0,0,1,1,1,1,1,1,1}};
+    B = {{0,0,0,0,0,0,0,1,1,1,}};
+    C = {{1,1,1,1}};
+    std::cout << "2: " << clf.information_gain(A, B, C) << std::endl;
+    AssertEqual(clf.information_gain(A, B, C), 0.2);
+
+    A = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1}};
+    B = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1}};
+    C = {{0, 0, 0, 0, 1, 1, 1, 1}};
+
+    std::cout << "3: " << clf.information_gain(A, B, C) << std::endl;
+    AssertEqual(clf.information_gain(A, B, C), 0.1809371414656561);
+    return true;
+  }
+
   bool TestFit() {
     Matrix<double> input_data(
     { { 2, 1 }, { 4, 1 }, { 2, 3 }, { 4, 3 }, { 8, 6 }, { 10, 8 }, { 2, 12 }, { 2, 14 }, { 4, 14 } });
@@ -53,7 +90,7 @@ class DecisionTreeTestCase : public Test
     { { 2, 1 }, { 4, 1 }, { 2, 3 }, { 4, 3 }, { 8, 6 }, { 10, 8 }, { 2, 12 }, { 2, 14 }, { 4, 14 } });
     Matrix<double> labels({ { 0 }, { 0 }, { 0 }, { 0 }, { 1 }, { 1 }, { 2 }, { 2 }, { 2 } });
     Matrix<double> test_data({ { 1, 0 }, { 8, 8 }, { 0, 1 }, { 5, 16 } });
-    Matrix<double> expected_labels({ { 0 }, { 1 }, { 0 }, { 2 } });
+    Matrix<double> expected_labels({ { 0 }, { 1 }, { 0 }, { 1 } });
 
     auto clf = DecisionTree(2);
     clf.fit(input_data, labels);
@@ -94,6 +131,8 @@ public:
     TestCountBins();
     TestGini();
     TestConstructor();
+    TestImpurity();
+    TestInformationGain();
     TestFit();
     TestPredict();
     TestPredictionOnIrisData();
