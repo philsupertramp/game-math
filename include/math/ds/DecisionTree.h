@@ -32,7 +32,7 @@ double entropy(const Matrix<double>& in) {
 }
 
 Matrix<double> count_bins(const Matrix<double>& in) {
-  auto unique_values = unique(in.rows() > in.columns() ? in : in.Transpose());
+  auto unique_values = sort(unique(in.rows() > in.columns() ? in : in.Transpose()));
   auto bins          = zeros(unique_values.rows(), 2);
   for(size_t i = 0; i < unique_values.rows(); ++i) {
     auto label                       = unique_values(i, 0);

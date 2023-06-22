@@ -244,7 +244,7 @@ Matrix<size_t> where_value(const Matrix<T>& in, T value) {
  */
 template<typename T>
 Matrix<size_t> where_true(const Matrix<T>& in) {
-  return where_value(in, 0.0);
+  return where_value(in, 1.0);
 }
 /**
  * Evaluates elements of a given vector. Responds with indices of
@@ -255,7 +255,7 @@ Matrix<size_t> where_true(const Matrix<T>& in) {
  */
 template<typename T>
 Matrix<size_t> where_false(const Matrix<T>& in) {
-  return where_value(in, -1.0);
+  return where_value(in, 0.0);
 }
 
 
