@@ -219,22 +219,45 @@ const std::function<bool(T)>& condition, const Matrix<T>& in, const Matrix<T>& v
  * true values.
  *
  * @param in vector to evaluate in
- * @returns vector of indices where element has true value
+ * @return vector of indices where element has true value
  */
 template<typename T>
-Matrix<size_t> where_true(const Matrix<T>& in) {
+Matrix<size_t> where_value(const Matrix<T>& in, T value) {
   assert(in.IsVector());
   bool requires_transposition = in.rows() < in.columns();
   Matrix<size_t> out          = Matrix<size_t>(0, !requires_transposition ? in.rows() : in.columns(), 1);
   size_t found_vals           = 0;
   for(size_t i = 0; i < (!requires_transposition ? in.rows() : in.columns()); ++i) {
-    if(in(requires_transposition ? 0 : i, requires_transposition ? i : 0)) {
+    if(in(requires_transposition ? 0 : i, requires_transposition ? i : 0) == value) {
       out(found_vals, 0) = i;
       found_vals++;
     }
   }
   return requires_transposition ? out.GetSlice(0, found_vals - 1).Transpose() : out.GetSlice(0, found_vals - 1);
 }
+/**
+ * Evaluates elements of a given vector. Responds with indices of
+ * true values.
+ *
+ * @param in vector to evaluate in
+ * @return vector of indices where element has true value
+ */
+template<typename T>
+Matrix<size_t> where_true(const Matrix<T>& in) {
+  return where_value(in, 1.0);
+}
+/**
+ * Evaluates elements of a given vector. Responds with indices of
+ * true values.
+ *
+ * @param in vector to evaluate in
+ * @return vector of indices where element has true value
+ */
+template<typename T>
+Matrix<size_t> where_false(const Matrix<T>& in) {
+  return where_value(in, 0.0);
+}
+
 
 /**
  * Converts two input matrices into a vector of

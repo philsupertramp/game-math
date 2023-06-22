@@ -35,7 +35,7 @@ public:
    */
   explicit SGD(
   double _eta                                                                                   = 0.01,
-  int iter                                                                                      = 10,
+  size_t iter                                                                                   = 10,
   bool _shuffle                                                                                 = false,
   const std::function<double(const Matrix<double>&, const Matrix<double>&)>& update_weights_fun = nullptr,
   const std::function<Matrix<double>(const Matrix<double>&)>& netInputFun                       = nullptr)
@@ -44,6 +44,7 @@ public:
     , shuffle(_shuffle) {
     if(update_weights_fun != nullptr) { weight_update = update_weights_fun; }
     if(netInputFun != nullptr) { net_input_fun = netInputFun; }
+    cost = Matrix<double>(0.0, 0, 0);
   }
 
   /**

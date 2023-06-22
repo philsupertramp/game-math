@@ -204,6 +204,12 @@ public:
   [[nodiscard]] inline size_t elements() const { return _element_size; }
 
   /**
+   * getter for total number of elements inside matrix
+   * @returns number of matrix elements
+   */
+  [[nodiscard]] inline size_t elements_total() const {return _rows * _columns * _element_size; }
+
+  /**
    * Calculates Determinant
    * @returns
    */
