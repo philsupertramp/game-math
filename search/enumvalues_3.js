@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inf_0',['Inf',['../Probability_8h.html#a8c8648160cfcb34a69de946e4ad505b0af957246d1b62f3865a560d2d2ac4f784',1,'Probability.h']]]
+  ['gini_0',['GINI',['../DecisionTree_8h.html#ad27b83d37741cc5afd32dab8738e4a79ad98fff1a06cd7c914cb9c4776045a6c2',1,'DecisionTree.h']]]
 ];

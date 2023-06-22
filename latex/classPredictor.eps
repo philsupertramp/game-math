@@ -175,6 +175,7 @@ boxfont setfont
 1 boundaspect scale
 (Predictor) cw
 (Classifier) cw
+(DecisionTree) cw
 (Transformer) cw
 (ANNClassifier) cw
 (KNN) cw
@@ -198,8 +199,9 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (Predictor) 4.250000 3.000000 box
+ (Predictor) 3.500000 3.000000 box
  (Classifier) 2.500000 2.000000 box
+ (DecisionTree) 3.500000 2.000000 box
  (Transformer) 6.000000 2.000000 box
  (ANNClassifier) 1.500000 1.000000 box
  (KNN) 2.500000 1.000000 box
@@ -216,7 +218,7 @@ boundx scalefactor div boundy scalefactor div scale
 % ----- relations -----
 
 solid
-1 4.250000 2.250000 out
+1 3.500000 2.250000 out
 solid
 2.500000 6.000000 3.000000 conn
 solid
@@ -225,6 +227,8 @@ solid
 1 2.500000 1.250000 out
 solid
 1.500000 3.500000 2.000000 conn
+solid
+0 3.500000 2.750000 in
 solid
 0 6.000000 2.750000 in
 solid

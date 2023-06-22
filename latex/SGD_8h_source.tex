@@ -20,9 +20,9 @@
 \DoxyCodeLine{24 \textcolor{keyword}{public}:}
 \DoxyCodeLine{26   \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classSGD_a843697c86d1d89defc5b23e9847cdb4c}{cost}};}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{36   \textcolor{keyword}{explicit} \mbox{\hyperlink{classSGD_a3894459b6b5dc9805ba83e04e6e4c8c3}{SGD}}(}
+\DoxyCodeLine{36   \textcolor{keyword}{explicit} \mbox{\hyperlink{classSGD_aa9604ea5aecad681f674c24137d5b0c9}{SGD}}(}
 \DoxyCodeLine{37   \textcolor{keywordtype}{double} \_eta                                                                                   = 0.01,}
-\DoxyCodeLine{38   \textcolor{keywordtype}{int} iter                                                                                      = 10,}
+\DoxyCodeLine{38   \textcolor{keywordtype}{size\_t} iter                                                                                   = 10,}
 \DoxyCodeLine{39   \textcolor{keywordtype}{bool} \_shuffle                                                                                 = \textcolor{keyword}{false},}
 \DoxyCodeLine{40   \textcolor{keyword}{const} std::function<\textcolor{keywordtype}{double}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&)>\& update\_weights\_fun = \textcolor{keyword}{nullptr},}
 \DoxyCodeLine{41   \textcolor{keyword}{const} std::function<\mbox{\hyperlink{classMatrix}{Matrix<double>}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\&)>\& netInputFun                       = \textcolor{keyword}{nullptr})}
@@ -31,78 +31,79 @@
 \DoxyCodeLine{44     , \mbox{\hyperlink{classSGD_a3150c7954c208f5f57f7744196ec1fcc}{shuffle}}(\_shuffle) \{}
 \DoxyCodeLine{45     \textcolor{keywordflow}{if}(update\_weights\_fun != \textcolor{keyword}{nullptr}) \{ \mbox{\hyperlink{classSGD_a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3}{weight\_update}} = update\_weights\_fun; \}}
 \DoxyCodeLine{46     \textcolor{keywordflow}{if}(netInputFun != \textcolor{keyword}{nullptr}) \{ \mbox{\hyperlink{classSGD_a2de1cfda27c58fb5c9f3ef08b123ac97}{net\_input\_fun}} = netInputFun; \}}
-\DoxyCodeLine{47   \}}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{56   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSGD_ac1c260b0af030ec1016eb21c18a32952}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& weights) \{}
-\DoxyCodeLine{57     \mbox{\hyperlink{classSGD_a843697c86d1d89defc5b23e9847cdb4c}{cost}}       = \mbox{\hyperlink{classMatrix}{Matrix<double>}}(0, \mbox{\hyperlink{classSGD_a41e45e615afc99e5336bde58de5d1e02}{n\_iter}}, 1);}
-\DoxyCodeLine{58     \textcolor{keyword}{auto} xCopy = X;}
-\DoxyCodeLine{59     \textcolor{keyword}{auto} yCopy = y;}
-\DoxyCodeLine{60     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} iter = 0; iter < \mbox{\hyperlink{classSGD_a41e45e615afc99e5336bde58de5d1e02}{n\_iter}}; iter++) \{}
-\DoxyCodeLine{61       \textcolor{keywordflow}{if}(\mbox{\hyperlink{classSGD_a3150c7954c208f5f57f7744196ec1fcc}{shuffle}}) \{}
-\DoxyCodeLine{62         \textcolor{keyword}{auto} fooPair = \mbox{\hyperlink{classSGD_a62f02503e631b14ed152d226be446c00}{shuffleData}}(X, y);}
-\DoxyCodeLine{63         xCopy        = fooPair.first;}
-\DoxyCodeLine{64         yCopy        = fooPair.second;}
-\DoxyCodeLine{65       \}}
-\DoxyCodeLine{66       \textcolor{keywordtype}{double} costSum = 0;}
-\DoxyCodeLine{67       \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& elem : \mbox{\hyperlink{matrix__utils_8h_a98433477e0327bd2ee165374375275e1}{zip}}(xCopy, yCopy)) \{}
-\DoxyCodeLine{68         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classSGD_a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3}{weight\_update}} != \textcolor{keyword}{nullptr}) \{}
-\DoxyCodeLine{69           costSum += \mbox{\hyperlink{classSGD_a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3}{weight\_update}}(elem.first, elem.second);}
-\DoxyCodeLine{70         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{71           costSum += \mbox{\hyperlink{classSGD_a1d63550696ce2020c915db4a87412fde}{update\_weights}}(elem.first, elem.second, weights);}
-\DoxyCodeLine{72         \}}
-\DoxyCodeLine{73       \}}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{75       \mbox{\hyperlink{classSGD_a843697c86d1d89defc5b23e9847cdb4c}{cost}}(iter, 0) = costSum;}
-\DoxyCodeLine{76     \}}
-\DoxyCodeLine{77   \}}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{85   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSGD_a45c2d880b888167941d996ddf1b39b0b}{partial\_fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& weights)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{86     \textcolor{keywordflow}{if}(y.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() > 1) \{}
-\DoxyCodeLine{87       \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& elem : \mbox{\hyperlink{matrix__utils_8h_a98433477e0327bd2ee165374375275e1}{zip}}(X, y)) \{ \mbox{\hyperlink{classSGD_a1d63550696ce2020c915db4a87412fde}{update\_weights}}(elem.first, elem.second, weights); \}}
-\DoxyCodeLine{88     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{89       \mbox{\hyperlink{classSGD_a1d63550696ce2020c915db4a87412fde}{update\_weights}}(X, y, weights);}
-\DoxyCodeLine{90     \}}
-\DoxyCodeLine{91   \}}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{100   \textcolor{keywordtype}{double} \mbox{\hyperlink{classSGD_a1d63550696ce2020c915db4a87412fde}{update\_weights}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& xi, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& target, \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& weights)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{101     \textcolor{keyword}{auto} output = \mbox{\hyperlink{classMatrix}{Matrix<double>}}();}
-\DoxyCodeLine{102     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classSGD_a2de1cfda27c58fb5c9f3ef08b123ac97}{net\_input\_fun}} != \textcolor{keyword}{nullptr}) \{}
-\DoxyCodeLine{103       output = \mbox{\hyperlink{classSGD_a2de1cfda27c58fb5c9f3ef08b123ac97}{net\_input\_fun}}(xi);}
-\DoxyCodeLine{104     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{105       output = \mbox{\hyperlink{classSGD_a6e9a27e08c7e4e442b29ad8ca0729bcc}{netInput}}(xi, weights);}
-\DoxyCodeLine{106     \}}
-\DoxyCodeLine{107     \textcolor{keyword}{auto} error = target -\/ output;}
-\DoxyCodeLine{108     weights.\mbox{\hyperlink{classMatrix_a097ed201a1768090a524f621ee2d80a1}{SetRow}}(0, weights(0) + \mbox{\hyperlink{classSGD_ad45df4b7453474d02c8d7888dddcdcdf}{eta}} * error);}
-\DoxyCodeLine{109     \textcolor{keyword}{auto} delta = \mbox{\hyperlink{classSGD_ad45df4b7453474d02c8d7888dddcdcdf}{eta}} * (xi.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() * error);}
-\DoxyCodeLine{110     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < weights.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1; i++) \{ weights.\mbox{\hyperlink{classMatrix_a097ed201a1768090a524f621ee2d80a1}{SetRow}}(i + 1, weights(i + 1) + delta(i)); \}}
-\DoxyCodeLine{111     \textcolor{keywordflow}{return} ((error * error) * 0.5).sumElements() / (double)target.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
-\DoxyCodeLine{112   \}}
-\DoxyCodeLine{113 }
-\DoxyCodeLine{120   std::pair<Matrix<double>, \mbox{\hyperlink{classMatrix}{Matrix<double>}}>}
-\DoxyCodeLine{121   \mbox{\hyperlink{classSGD_a62f02503e631b14ed152d226be446c00}{shuffleData}}([[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, [[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y) \{}
-\DoxyCodeLine{122     \textcolor{keywordflow}{return} \{ X, y \};}
-\DoxyCodeLine{123   \}}
-\DoxyCodeLine{124 }
-\DoxyCodeLine{131   [[nodiscard]] \textcolor{keyword}{static} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classSGD_a6e9a27e08c7e4e442b29ad8ca0729bcc}{netInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& weights) \{}
-\DoxyCodeLine{132     \mbox{\hyperlink{classMatrix}{Matrix<double>}} A(0, weights.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1, weights.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
-\DoxyCodeLine{133     \mbox{\hyperlink{classMatrix}{Matrix<double>}} B(0, 1, weights.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
-\DoxyCodeLine{134     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < weights.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
-\DoxyCodeLine{135       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < weights.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
-\DoxyCodeLine{136         \textcolor{keywordflow}{if}(i == 0) \{}
-\DoxyCodeLine{137           B(i, j) = weights(i, j);}
-\DoxyCodeLine{138         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{139           A(i -\/ 1, j) = weights(i, j);}
-\DoxyCodeLine{140         \}}
-\DoxyCodeLine{141       \}}
-\DoxyCodeLine{142     \}}
-\DoxyCodeLine{143 }
-\DoxyCodeLine{144     \textcolor{comment}{// Note: since Matrix<T> will never allow Matrix-\/Scalar Addition}}
-\DoxyCodeLine{145     \textcolor{comment}{//       we need to create a vector of size of rows of the input}}
-\DoxyCodeLine{146     \textcolor{comment}{//       values (jeez, horrible sentence). Therefore we rescale}}
-\DoxyCodeLine{147     \textcolor{comment}{//       B and assign the bias to each element.}}
-\DoxyCodeLine{148     B = \mbox{\hyperlink{classMatrix}{Matrix<double>}}(B(0, 0), X.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1);}
-\DoxyCodeLine{149     \textcolor{keywordflow}{return} (X * A) + B;}
-\DoxyCodeLine{150   \}}
-\DoxyCodeLine{151 \};}
+\DoxyCodeLine{47     \mbox{\hyperlink{classSGD_a843697c86d1d89defc5b23e9847cdb4c}{cost}} = \mbox{\hyperlink{classMatrix}{Matrix<double>}}(0.0, 0, 0);}
+\DoxyCodeLine{48   \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{57   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSGD_ac1c260b0af030ec1016eb21c18a32952}{fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& weights) \{}
+\DoxyCodeLine{58     \mbox{\hyperlink{classSGD_a843697c86d1d89defc5b23e9847cdb4c}{cost}}       = \mbox{\hyperlink{classMatrix}{Matrix<double>}}(0, \mbox{\hyperlink{classSGD_a41e45e615afc99e5336bde58de5d1e02}{n\_iter}}, 1);}
+\DoxyCodeLine{59     \textcolor{keyword}{auto} xCopy = X;}
+\DoxyCodeLine{60     \textcolor{keyword}{auto} yCopy = y;}
+\DoxyCodeLine{61     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} iter = 0; iter < \mbox{\hyperlink{classSGD_a41e45e615afc99e5336bde58de5d1e02}{n\_iter}}; iter++) \{}
+\DoxyCodeLine{62       \textcolor{keywordflow}{if}(\mbox{\hyperlink{classSGD_a3150c7954c208f5f57f7744196ec1fcc}{shuffle}}) \{}
+\DoxyCodeLine{63         \textcolor{keyword}{auto} fooPair = \mbox{\hyperlink{classSGD_a62f02503e631b14ed152d226be446c00}{shuffleData}}(X, y);}
+\DoxyCodeLine{64         xCopy        = fooPair.first;}
+\DoxyCodeLine{65         yCopy        = fooPair.second;}
+\DoxyCodeLine{66       \}}
+\DoxyCodeLine{67       \textcolor{keywordtype}{double} costSum = 0;}
+\DoxyCodeLine{68       \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& elem : \mbox{\hyperlink{matrix__utils_8h_a98433477e0327bd2ee165374375275e1}{zip}}(xCopy, yCopy)) \{}
+\DoxyCodeLine{69         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classSGD_a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3}{weight\_update}} != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{70           costSum += \mbox{\hyperlink{classSGD_a8c2e2f3e7cd86bc70ff5ff4ffb58e7c3}{weight\_update}}(elem.first, elem.second);}
+\DoxyCodeLine{71         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{72           costSum += \mbox{\hyperlink{classSGD_a1d63550696ce2020c915db4a87412fde}{update\_weights}}(elem.first, elem.second, weights);}
+\DoxyCodeLine{73         \}}
+\DoxyCodeLine{74       \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76       \mbox{\hyperlink{classSGD_a843697c86d1d89defc5b23e9847cdb4c}{cost}}(iter, 0) = costSum;}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78   \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{86   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSGD_a45c2d880b888167941d996ddf1b39b0b}{partial\_fit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y, \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& weights)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{87     \textcolor{keywordflow}{if}(y.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() > 1) \{}
+\DoxyCodeLine{88       \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& elem : \mbox{\hyperlink{matrix__utils_8h_a98433477e0327bd2ee165374375275e1}{zip}}(X, y)) \{ \mbox{\hyperlink{classSGD_a1d63550696ce2020c915db4a87412fde}{update\_weights}}(elem.first, elem.second, weights); \}}
+\DoxyCodeLine{89     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{90       \mbox{\hyperlink{classSGD_a1d63550696ce2020c915db4a87412fde}{update\_weights}}(X, y, weights);}
+\DoxyCodeLine{91     \}}
+\DoxyCodeLine{92   \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{101   \textcolor{keywordtype}{double} \mbox{\hyperlink{classSGD_a1d63550696ce2020c915db4a87412fde}{update\_weights}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& xi, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& target, \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& weights)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{102     \textcolor{keyword}{auto} output = \mbox{\hyperlink{classMatrix}{Matrix<double>}}();}
+\DoxyCodeLine{103     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classSGD_a2de1cfda27c58fb5c9f3ef08b123ac97}{net\_input\_fun}} != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{104       output = \mbox{\hyperlink{classSGD_a2de1cfda27c58fb5c9f3ef08b123ac97}{net\_input\_fun}}(xi);}
+\DoxyCodeLine{105     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{106       output = \mbox{\hyperlink{classSGD_a6e9a27e08c7e4e442b29ad8ca0729bcc}{netInput}}(xi, weights);}
+\DoxyCodeLine{107     \}}
+\DoxyCodeLine{108     \textcolor{keyword}{auto} error = target -\/ output;}
+\DoxyCodeLine{109     weights.\mbox{\hyperlink{classMatrix_a097ed201a1768090a524f621ee2d80a1}{SetRow}}(0, weights(0) + \mbox{\hyperlink{classSGD_ad45df4b7453474d02c8d7888dddcdcdf}{eta}} * error);}
+\DoxyCodeLine{110     \textcolor{keyword}{auto} delta = \mbox{\hyperlink{classSGD_ad45df4b7453474d02c8d7888dddcdcdf}{eta}} * (xi.\mbox{\hyperlink{classMatrix_a054a03bcae4eb86d6f4ef84dc87840ef}{Transpose}}() * error);}
+\DoxyCodeLine{111     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < weights.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1; i++) \{ weights.\mbox{\hyperlink{classMatrix_a097ed201a1768090a524f621ee2d80a1}{SetRow}}(i + 1, weights(i + 1) + delta(i)); \}}
+\DoxyCodeLine{112     \textcolor{keywordflow}{return} ((error * error) * 0.5).sumElements() / (double)target.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}();}
+\DoxyCodeLine{113   \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{121   std::pair<Matrix<double>, \mbox{\hyperlink{classMatrix}{Matrix<double>}}>}
+\DoxyCodeLine{122   \mbox{\hyperlink{classSGD_a62f02503e631b14ed152d226be446c00}{shuffleData}}([[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, [[maybe\_unused]] \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& y) \{}
+\DoxyCodeLine{123     \textcolor{keywordflow}{return} \{ X, y \};}
+\DoxyCodeLine{124   \}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{132   [[nodiscard]] \textcolor{keyword}{static} \mbox{\hyperlink{classMatrix}{Matrix<double>}} \mbox{\hyperlink{classSGD_a6e9a27e08c7e4e442b29ad8ca0729bcc}{netInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& X, \textcolor{keyword}{const} \mbox{\hyperlink{classMatrix}{Matrix<double>}}\& weights) \{}
+\DoxyCodeLine{133     \mbox{\hyperlink{classMatrix}{Matrix<double>}} A(0, weights.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}() -\/ 1, weights.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{134     \mbox{\hyperlink{classMatrix}{Matrix<double>}} B(0, 1, weights.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}());}
+\DoxyCodeLine{135     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < weights.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(); i++) \{}
+\DoxyCodeLine{136       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} j = 0; j < weights.\mbox{\hyperlink{classMatrix_a710d9b6934a24229fe06789f65ed0571}{columns}}(); j++) \{}
+\DoxyCodeLine{137         \textcolor{keywordflow}{if}(i == 0) \{}
+\DoxyCodeLine{138           B(i, j) = weights(i, j);}
+\DoxyCodeLine{139         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{140           A(i -\/ 1, j) = weights(i, j);}
+\DoxyCodeLine{141         \}}
+\DoxyCodeLine{142       \}}
+\DoxyCodeLine{143     \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     \textcolor{comment}{// Note: since Matrix<T> will never allow Matrix-\/Scalar Addition}}
+\DoxyCodeLine{146     \textcolor{comment}{//       we need to create a vector of size of rows of the input}}
+\DoxyCodeLine{147     \textcolor{comment}{//       values (jeez, horrible sentence). Therefore we rescale}}
+\DoxyCodeLine{148     \textcolor{comment}{//       B and assign the bias to each element.}}
+\DoxyCodeLine{149     B = \mbox{\hyperlink{classMatrix}{Matrix<double>}}(B(0, 0), X.\mbox{\hyperlink{classMatrix_a5330adf02b284293259eb9f7c9acaa99}{rows}}(), 1);}
+\DoxyCodeLine{150     \textcolor{keywordflow}{return} (X * A) + B;}
+\DoxyCodeLine{151   \}}
+\DoxyCodeLine{152 \};}
 
 \end{DoxyCode}

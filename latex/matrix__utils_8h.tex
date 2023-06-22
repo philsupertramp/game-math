@@ -22,7 +22,11 @@
 \item 
 {\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{matrix__utils_8h_afb3f7de2743f10b710460feb9c0f9009}{where}} (const std\+::function$<$ bool(T)$>$ \&condition, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&in, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&val\+If\+True, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&val\+If\+False)
 \item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{matrix__utils_8h_ae294329feebecaabb007edfe6a36d830}{where\+\_\+value}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&in, T value)
+\item 
 {\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{matrix__utils_8h_a06d4149d83f11dbd6ae1ea8a51cdfa12}{where\+\_\+true}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&in)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{matrix__utils_8h_ad9e4f7e23e67730cd255288face8d8d3}{where\+\_\+false}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&in)
 \item 
 {\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ $>$ $>$ \mbox{\hyperlink{matrix__utils_8h_a98433477e0327bd2ee165374375275e1}{zip}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&a, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&b)
 \item 
@@ -475,12 +479,46 @@ Returns elements chosen from {\ttfamily val\+If\+True} or {\ttfamily val\+If\+Fa
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{TestMatrix_8cpp-example}{Test\+Matrix.\+cpp}}, and \mbox{\hyperlink{ds_2TestLogRegSGD_8cpp-example}{ds/\+Test\+Log\+Reg\+SGD.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{matrix__utils_8h_ad9e4f7e23e67730cd255288face8d8d3}\label{matrix__utils_8h_ad9e4f7e23e67730cd255288face8d8d3}} 
+\index{matrix\_utils.h@{matrix\_utils.h}!where\_false@{where\_false}}
+\index{where\_false@{where\_false}!matrix\_utils.h@{matrix\_utils.h}}
+\doxysubsubsection{\texorpdfstring{where\_false()}{where\_false()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ where\+\_\+false (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{in }\end{DoxyParamCaption})}
+
+Evaluates elements of a given vector. Responds with indices of true values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & vector to evaluate in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of indices where element has true value 
+\end{DoxyReturn}
 \mbox{\Hypertarget{matrix__utils_8h_a06d4149d83f11dbd6ae1ea8a51cdfa12}\label{matrix__utils_8h_a06d4149d83f11dbd6ae1ea8a51cdfa12}} 
 \index{matrix\_utils.h@{matrix\_utils.h}!where\_true@{where\_true}}
 \index{where\_true@{where\_true}!matrix\_utils.h@{matrix\_utils.h}}
 \doxysubsubsection{\texorpdfstring{where\_true()}{where\_true()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 \mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ where\+\_\+true (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{in }\end{DoxyParamCaption})}
+
+Evaluates elements of a given vector. Responds with indices of true values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & vector to evaluate in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of indices where element has true value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix__utils_8h_ae294329feebecaabb007edfe6a36d830}\label{matrix__utils_8h_ae294329feebecaabb007edfe6a36d830}} 
+\index{matrix\_utils.h@{matrix\_utils.h}!where\_value@{where\_value}}
+\index{where\_value@{where\_value}!matrix\_utils.h@{matrix\_utils.h}}
+\doxysubsubsection{\texorpdfstring{where\_value()}{where\_value()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ size\+\_\+t $>$ where\+\_\+value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{in,  }\item[{T}]{value }\end{DoxyParamCaption})}
 
 Evaluates elements of a given vector. Responds with indices of true values.
 

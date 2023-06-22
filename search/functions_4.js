@@ -1,18 +1,11 @@
 var searchData=
 [
-  ['elements_0',['elements',['../classMatrix.html#ac9d3a0fe5ce995cf6f997209f72199cc',1,'Matrix']]],
-  ['elementwisecompare_1',['elementWiseCompare',['../classMatrix.html#afecf4f1a91e8aa51df4b65cbc0ce621b',1,'Matrix']]],
-  ['elemmax_2',['elemMax',['../matrix__utils_8h.html#adf917f83162312bfe4a7a861c6f0cbcb',1,'matrix_utils.h']]],
-  ['elemmean_3',['elemMean',['../matrix__utils_8h.html#aaad7330b0e1e9c27b308a224210a14f9',1,'matrix_utils.h']]],
-  ['elemmin_4',['elemMin',['../matrix__utils_8h.html#a45d36755afc757808fcf8e6dc7a2c063',1,'matrix_utils.h']]],
-  ['endvalue_5',['endValue',['../Insurance_8h.html#af892d3aae9541cb537e1f5df275ef7d9',1,'Insurance.h']]],
-  ['endvalueofannuityinadvance_6',['endValueOfAnnuityInAdvance',['../Insurance_8h.html#ac0f07314aa361d844f287efcfbe46ed1',1,'Insurance.h']]],
-  ['endvalueofannuityinarrear_7',['endValueOfAnnuityInArrear',['../Insurance_8h.html#a2de394211d124f7a8f05041cf45547c7',1,'Insurance.h']]],
-  ['equation_8',['Equation',['../classEquation.html#a68511fc719250ed80f86c50de9136733',1,'Equation::Equation()'],['../classEquation.html#a35ed8dff1c0ccc38b4290afec957504c',1,'Equation::Equation(const char *val)'],['../classEquation.html#a35fa8e029070c8117fd30850fdd4a2ec',1,'Equation::Equation(const std::string &amp;val)']]],
-  ['equationparser_9',['EquationParser',['../classEquationParser.html#a3106187654a18dfc862c10b9077503c0',1,'EquationParser']]],
-  ['eval_5fspline_5fj_10',['eval_spline_j',['../classSpline.html#a239567877be8316c97f232161245fc2d',1,'Spline']]],
-  ['evaluate_11',['Evaluate',['../classSymbolic.html#a10604f97ee4fb6bc798987ba4d5daa1d',1,'Symbolic::Evaluate()'],['../classFunction.html#a519eb048f3d3431d14fee138fcae67a6',1,'Function::Evaluate()'],['../classOperator.html#ab60d42c50454ab1e8b21aabc03bd04e3',1,'Operator::Evaluate()'],['../classNumber.html#a907df4526da3ccb91b8faead20e6fb66',1,'Number::Evaluate()'],['../classMathNode.html#ac6689c4cc69071efbd524e0f2a7fe0f6',1,'MathNode::Evaluate()'],['../classNewtonBase.html#adc0ff93bb2460cac720680102a6ac83f',1,'NewtonBase::Evaluate()'],['../classLagrangeBase.html#ace572df22ab5e6cda086aec10cd3fbe4',1,'LagrangeBase::Evaluate()'],['../classMonomBase.html#ac8795cc57f64d4e834aefc6074388632',1,'MonomBase::Evaluate()'],['../classPolynomialBase.html#a7bbf28d9cc1bd42019c07c8af297563b',1,'PolynomialBase::Evaluate()']]],
-  ['expected_5fvalue_12',['expected_value',['../Probability_8h.html#af285d66de27e5f067cfb4d886fe67c5c',1,'Probability.h']]],
-  ['extractobjects_13',['extractObjects',['../classEquationParser.html#a636f9adde9cb56b19054bc4474c798bd',1,'EquationParser']]],
-  ['eye_14',['eye',['../numerics_2utils_8h.html#a9d6daf45f94f1c1f482d7abfdde9dd01',1,'utils.h']]]
+  ['dataset_0',['DataSet',['../classDataSet.html#a06a0a03f65d1ed5a3b9102242e761639',1,'DataSet::DataSet(const char *filePath, size_t inputCount, size_t outputCount)'],['../classDataSet.html#ad398cb9b594f7fc99ebec3e2fb227ebb',1,'DataSet::DataSet(size_t inputCount, size_t outputCount)']]],
+  ['decisionnode_1',['DecisionNode',['../classDecisionNode.html#a1b6aadd701a106ea0596806f3b0345d5',1,'DecisionNode::DecisionNode()'],['../classDecisionNode.html#a58abd8501fc1f0cc4d6895eeea605c17',1,'DecisionNode::DecisionNode(double val)'],['../classDecisionNode.html#a505bb5ac9db74e250341b0fda527bd12',1,'DecisionNode::DecisionNode(int feat, double thresh, double ig, DecisionNode *left, DecisionNode *right)']]],
+  ['decisiontree_2',['DecisionTree',['../classDecisionTree.html#af04b0eacf726e5ad4acb2a195c61aea6',1,'DecisionTree']]],
+  ['determinant_3',['Determinant',['../classMatrix.html#a5f91e3755bfb6eb7b8aa5d49d8fbadb2',1,'Matrix::Determinant()'],['../structmat2.html#a2392950377c4cbb451ea9d528632b9f9',1,'mat2::Determinant()'],['../structmat3.html#a9590c23f7a73fa134eefdfa3e7bbbece',1,'mat3::Determinant()'],['../structmat4.html#a923b473e059a635bdc17bbfb1a0e878d',1,'mat4::Determinant()']]],
+  ['diag_4',['diag',['../numerics_2utils_8h.html#a32df81a2d10f9099cacedbbd378873bb',1,'utils.h']]],
+  ['diag_5felements_5',['diag_elements',['../matrix__utils_8h.html#a2e19f18bb0d422da0e75d5d0f6753331',1,'matrix_utils.h']]],
+  ['discountfactor_6',['discountFactor',['../Insurance_8h.html#a7447721e5975127c235fe6daa2ce95f9',1,'Insurance.h']]],
+  ['distance_7',['distance',['../namespaceMath_1_1Utils.html#a0648d54048d8ebffd974f0bb280b10b4',1,'Math::Utils']]]
 ];

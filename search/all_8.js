@@ -20,7 +20,10 @@ var searchData=
   ['getoperator_17',['GetOperator',['../classEquationParser.html#a97f64a66f0f748f419bc432d1ca94f52',1,'EquationParser']]],
   ['getplotdatatypename_18',['GetPlotDataTypeName',['../Plot_8h.html#aabdee3e53fca620b2e7929e0f29d41b4',1,'Plot.h']]],
   ['getregex_19',['GetRegex',['../MathNode_8h.html#a85bcdf174a2e5f29fc70bab45310509c',1,'MathNode.h']]],
-  ['getslice_20',['GetSlice',['../classMatrix.html#a74deba042f505ff0640028b07c20778e',1,'Matrix::GetSlice(size_t rowStart) const'],['../classMatrix.html#a263c7a2f670ed338a4cc4050f248fcc5',1,'Matrix::GetSlice(size_t rowStart, size_t rowEnd) const'],['../classMatrix.html#a9272c91399245dfc1a9a7787760b7815',1,'Matrix::GetSlice(size_t rowStart, size_t rowEnd, size_t colStart) const'],['../classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b',1,'Matrix::GetSlice(size_t rowStart, size_t rowEnd, size_t colStart, size_t colEnd) const']]],
-  ['getslicesbyindex_21',['GetSlicesByIndex',['../classMatrix.html#acbab33bf55dbcfecea49053ccabed802',1,'Matrix']]],
-  ['getstring_22',['GetString',['../classEquation.html#a5e5434dd97f523734bd6dc41db0ea79a',1,'Equation::GetString()'],['../classMathNode.html#abb5b146cee0a672f8fac4f2fd64c2c5e',1,'MathNode::GetString()']]]
+  ['getrootnode_20',['GetRootNode',['../classDecisionTree.html#a569b48c520eb5b72a857170fccc791af',1,'DecisionTree']]],
+  ['getslice_21',['GetSlice',['../classMatrix.html#a48d5726de651f2cadce0255bd23b6b9b',1,'Matrix::GetSlice(size_t rowStart, size_t rowEnd, size_t colStart, size_t colEnd) const'],['../classMatrix.html#a9272c91399245dfc1a9a7787760b7815',1,'Matrix::GetSlice(size_t rowStart, size_t rowEnd, size_t colStart) const'],['../classMatrix.html#a263c7a2f670ed338a4cc4050f248fcc5',1,'Matrix::GetSlice(size_t rowStart, size_t rowEnd) const'],['../classMatrix.html#a74deba042f505ff0640028b07c20778e',1,'Matrix::GetSlice(size_t rowStart) const']]],
+  ['getslicesbyindex_22',['GetSlicesByIndex',['../classMatrix.html#acbab33bf55dbcfecea49053ccabed802',1,'Matrix']]],
+  ['getstring_23',['GetString',['../classEquation.html#a5e5434dd97f523734bd6dc41db0ea79a',1,'Equation::GetString()'],['../classMathNode.html#abb5b146cee0a672f8fac4f2fd64c2c5e',1,'MathNode::GetString()']]],
+  ['gini_24',['GINI',['../DecisionTree_8h.html#ad27b83d37741cc5afd32dab8738e4a79ad98fff1a06cd7c914cb9c4776045a6c2',1,'DecisionTree.h']]],
+  ['gini_25',['gini',['../DecisionTree_8h.html#ad2f2963dddf5d8c176992a23aedc3092',1,'DecisionTree.h']]]
 ];

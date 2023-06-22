@@ -34,9 +34,10 @@ var searchData=
   ['maxiters_31',['maxIters',['../classMandelbrot.html#a02ac592d77e906df905626032b9af8aa',1,'Mandelbrot']]],
   ['mean_32',['mean',['../matrix__utils_8h.html#a23bb7f728122a09c240223a4de6730a9',1,'matrix_utils.h']]],
   ['means_33',['means',['../classStandardScaler.html#a564e42e242489cbb290fa6061e9f4bba',1,'StandardScaler']]],
-  ['min_34',['min',['../matrix__utils_8h.html#a5864943a2ff7fa841eb1af250a9ed8c1',1,'min(const Matrix&lt; T &gt; &amp;mat, int axis):&#160;matrix_utils.h'],['../matrix__utils_8h.html#a4bb73e4029612f323f406f1ecfc2ed57',1,'min(const Matrix&lt; T &gt; &amp;mat):&#160;matrix_utils.h'],['../structPlotBoundary.html#a3a9ad8401fcf0035091fdc94c3f09c36',1,'PlotBoundary::min()'],['../classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#aba2880be0a668a8cfd01e99f4d084a62',1,'std::numeric_limits&lt; vec3&lt; T &gt; &gt;::min()']]],
-  ['min_5fval_35',['min_val',['../classMinMaxScaler.html#a093652a804c1b9abac66a90682826b26',1,'MinMaxScaler']]],
-  ['minmaxscaler_36',['MinMaxScaler',['../classMinMaxScaler.html',1,'MinMaxScaler'],['../classMinMaxScaler.html#a5a92384d12fdc77a5cd3b4f69709dae8',1,'MinMaxScaler::MinMaxScaler()']]],
-  ['monombase_37',['MonomBase',['../classMonomBase.html',1,'MonomBase'],['../classMonomBase.html#a47e7386045d2d95bf51b08e45dc316a1',1,'MonomBase::MonomBase()']]],
-  ['utils_38',['Utils',['../namespaceMath_1_1Utils.html',1,'Math']]]
+  ['measure_5fto_5fname_34',['measure_to_name',['../DecisionTree_8h.html#a8924d32b66e3d6d5ad60477dbb332eb4',1,'DecisionTree.h']]],
+  ['min_35',['min',['../matrix__utils_8h.html#a5864943a2ff7fa841eb1af250a9ed8c1',1,'min(const Matrix&lt; T &gt; &amp;mat, int axis):&#160;matrix_utils.h'],['../matrix__utils_8h.html#a4bb73e4029612f323f406f1ecfc2ed57',1,'min(const Matrix&lt; T &gt; &amp;mat):&#160;matrix_utils.h'],['../structPlotBoundary.html#a3a9ad8401fcf0035091fdc94c3f09c36',1,'PlotBoundary::min()'],['../classstd_1_1numeric__limits_3_01vec3_3_01T_01_4_01_4.html#aba2880be0a668a8cfd01e99f4d084a62',1,'std::numeric_limits&lt; vec3&lt; T &gt; &gt;::min()']]],
+  ['min_5fval_36',['min_val',['../classMinMaxScaler.html#a093652a804c1b9abac66a90682826b26',1,'MinMaxScaler']]],
+  ['minmaxscaler_37',['MinMaxScaler',['../classMinMaxScaler.html',1,'MinMaxScaler'],['../classMinMaxScaler.html#a5a92384d12fdc77a5cd3b4f69709dae8',1,'MinMaxScaler::MinMaxScaler()']]],
+  ['monombase_38',['MonomBase',['../classMonomBase.html',1,'MonomBase'],['../classMonomBase.html#a47e7386045d2d95bf51b08e45dc316a1',1,'MonomBase::MonomBase()']]],
+  ['utils_39',['Utils',['../namespaceMath_1_1Utils.html',1,'Math']]]
 ];

@@ -7,7 +7,7 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classSGD_a3894459b6b5dc9805ba83e04e6e4c8c3}{SGD}} (double \+\_\+eta=0.\+01, int iter=10, bool \+\_\+shuffle=false, const std\+::function$<$ double(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \&update\+\_\+weights\+\_\+fun=nullptr, const std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \&net\+Input\+Fun=nullptr)
+\mbox{\hyperlink{classSGD_aa9604ea5aecad681f674c24137d5b0c9}{SGD}} (double \+\_\+eta=0.\+01, size\+\_\+t iter=10, bool \+\_\+shuffle=false, const std\+::function$<$ double(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \&update\+\_\+weights\+\_\+fun=nullptr, const std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \&net\+Input\+Fun=nullptr)
 \item 
 void \mbox{\hyperlink{classSGD_ac1c260b0af030ec1016eb21c18a32952}{fit}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&X, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&y, \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&weights)
 \item 
@@ -46,11 +46,11 @@ std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \m
 Implements statistic gradient decent method to fit a model 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classSGD_a3894459b6b5dc9805ba83e04e6e4c8c3}\label{classSGD_a3894459b6b5dc9805ba83e04e6e4c8c3}} 
+\mbox{\Hypertarget{classSGD_aa9604ea5aecad681f674c24137d5b0c9}\label{classSGD_aa9604ea5aecad681f674c24137d5b0c9}} 
 \index{SGD@{SGD}!SGD@{SGD}}
 \index{SGD@{SGD}!SGD@{SGD}}
 \doxysubsubsection{\texorpdfstring{SGD()}{SGD()}}
-{\footnotesize\ttfamily SGD\+::\+SGD (\begin{DoxyParamCaption}\item[{double}]{\+\_\+eta = {\ttfamily 0.01},  }\item[{int}]{iter = {\ttfamily 10},  }\item[{bool}]{\+\_\+shuffle = {\ttfamily false},  }\item[{const std\+::function$<$ double(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \&}]{update\+\_\+weights\+\_\+fun = {\ttfamily nullptr},  }\item[{const std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \&}]{net\+Input\+Fun = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+{\footnotesize\ttfamily SGD\+::\+SGD (\begin{DoxyParamCaption}\item[{double}]{\+\_\+eta = {\ttfamily 0.01},  }\item[{size\+\_\+t}]{iter = {\ttfamily 10},  }\item[{bool}]{\+\_\+shuffle = {\ttfamily false},  }\item[{const std\+::function$<$ double(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \&}]{update\+\_\+weights\+\_\+fun = {\ttfamily nullptr},  }\item[{const std\+::function$<$ \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$(const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ double $>$ \&)$>$ \&}]{net\+Input\+Fun = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 default constructor 
 \begin{DoxyParams}{Parameters}

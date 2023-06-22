@@ -24,14 +24,15 @@ var searchData=
   ['connectiontype_5fnone_21',['ConnectionType_None',['../MathNode_8h.html#ac3957c9768ee90555a77588a75a747aba9eeffc9e32035844d6c1ceb772b7a69c',1,'MathNode.h']]],
   ['connectiontype_5fright_22',['ConnectionType_Right',['../MathNode_8h.html#ac3957c9768ee90555a77588a75a747aba39f57f9939ce7c3fe38fff24e2ac81d7',1,'MathNode.h']]],
   ['connectiontype_5funknown_23',['ConnectionType_Unknown',['../MathNode_8h.html#ac3957c9768ee90555a77588a75a747abaca47e3381d314ac9ecf94b7bf69f580f',1,'MathNode.h']]],
-  ['corr_24',['corr',['../Probability_8h.html#af74087de47f5c7871e972ae475185b30',1,'Probability.h']]],
-  ['corr_25',['Corr',['../matrix__utils_8h.html#a0a35c20e3d36bb16e1ae7e4dbaae29ce',1,'matrix_utils.h']]],
+  ['corr_24',['Corr',['../matrix__utils_8h.html#a0a35c20e3d36bb16e1ae7e4dbaae29ce',1,'matrix_utils.h']]],
+  ['corr_25',['corr',['../Probability_8h.html#af74087de47f5c7871e972ae475185b30',1,'Probability.h']]],
   ['cost_26',['cost',['../classSGD.html#a843697c86d1d89defc5b23e9847cdb4c',1,'SGD']]],
   ['costfunction_27',['costFunction',['../classLogRegSGD.html#a31bce949b842722348434559d7219586',1,'LogRegSGD::costFunction()'],['../classPerceptron.html#a8f136bf2a36d5a1b83fb02215cacb271',1,'Perceptron::costFunction()'],['../classANNClassifier.html#aa5a6c1d789eed4f0a6a501dc08e420ce',1,'ANNClassifier::costFunction()'],['../classAdalineSGD.html#a7a65df1059ac4b19e8c69c166f76caef',1,'AdalineSGD::costFunction()'],['../classAdalineGD.html#aacea8e107e27c97f9f87cd802187a056',1,'AdalineGD::costFunction()']]],
   ['costs_28',['costs',['../classClassifier.html#a8688dfb2318e40a7c2f3747b68c96bae',1,'Classifier']]],
   ['count_29',['count',['../structSet.html#a21819d28230d81776628a4d152a6fed0',1,'Set']]],
-  ['cov_30',['cov',['../Probability_8h.html#aca7f07a568ee49e5d34982dfd6d811db',1,'Probability.h']]],
-  ['createast_31',['createAST',['../classEquationParser.html#a2c458c39a4259accdf8dec7020b6ba8e',1,'EquationParser']]],
-  ['cross_32',['cross',['../structvec3.html#ad310687efba44948a2f567aba77f8ffb',1,'vec3']]],
-  ['curv_33',['curv',['../classSpline.html#a2603cfc14f821d936f3a68cff8d4dcf0',1,'Spline']]]
+  ['count_5fbins_30',['count_bins',['../DecisionTree_8h.html#ad071de4aa96571b2d3d4dc1e07211633',1,'DecisionTree.h']]],
+  ['cov_31',['cov',['../Probability_8h.html#aca7f07a568ee49e5d34982dfd6d811db',1,'Probability.h']]],
+  ['createast_32',['createAST',['../classEquationParser.html#a2c458c39a4259accdf8dec7020b6ba8e',1,'EquationParser']]],
+  ['cross_33',['cross',['../structvec3.html#ad310687efba44948a2f567aba77f8ffb',1,'vec3']]],
+  ['curv_34',['curv',['../classSpline.html#a2603cfc14f821d936f3a68cff8d4dcf0',1,'Spline']]]
 ];

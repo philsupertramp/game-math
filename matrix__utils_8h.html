@@ -118,9 +118,15 @@ Functions</h2></td></tr>
 <tr class="memitem:afb3f7de2743f10b710460feb9c0f9009"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:afb3f7de2743f10b710460feb9c0f9009"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix__utils_8h.html#afb3f7de2743f10b710460feb9c0f9009">where</a> (const std::function&lt; bool(T)&gt; &amp;condition, const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;in, const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;valIfTrue, const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;valIfFalse)</td></tr>
 <tr class="separator:afb3f7de2743f10b710460feb9c0f9009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae294329feebecaabb007edfe6a36d830"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae294329feebecaabb007edfe6a36d830"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; size_t &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix__utils_8h.html#ae294329feebecaabb007edfe6a36d830">where_value</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;in, T value)</td></tr>
+<tr class="separator:ae294329feebecaabb007edfe6a36d830"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06d4149d83f11dbd6ae1ea8a51cdfa12"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a06d4149d83f11dbd6ae1ea8a51cdfa12"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; size_t &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix__utils_8h.html#a06d4149d83f11dbd6ae1ea8a51cdfa12">where_true</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;in)</td></tr>
 <tr class="separator:a06d4149d83f11dbd6ae1ea8a51cdfa12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9e4f7e23e67730cd255288face8d8d3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad9e4f7e23e67730cd255288face8d8d3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classMatrix.html">Matrix</a>&lt; size_t &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix__utils_8h.html#ad9e4f7e23e67730cd255288face8d8d3">where_false</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;in)</td></tr>
+<tr class="separator:ad9e4f7e23e67730cd255288face8d8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98433477e0327bd2ee165374375275e1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a98433477e0327bd2ee165374375275e1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt;, <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix__utils_8h.html#a98433477e0327bd2ee165374375275e1">zip</a> (const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;a, const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;b)</td></tr>
 <tr class="separator:a98433477e0327bd2ee165374375275e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -952,6 +958,34 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="ad9e4f7e23e67730cd255288face8d8d3" name="ad9e4f7e23e67730cd255288face8d8d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9e4f7e23e67730cd255288face8d8d3">&#9670;&#160;</a></span>where_false()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt; size_t &gt; where_false </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Evaluates elements of a given vector. Responds with indices of true values.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>vector to evaluate in </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>vector of indices where element has true value </dd></dl>
+
+</div>
+</div>
 <a id="a06d4149d83f11dbd6ae1ea8a51cdfa12" name="a06d4149d83f11dbd6ae1ea8a51cdfa12"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a06d4149d83f11dbd6ae1ea8a51cdfa12">&#9670;&#160;</a></span>where_true()</h2>
 
@@ -966,6 +1000,44 @@ template&lt;typename T &gt; </div>
           <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>in</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Evaluates elements of a given vector. Responds with indices of true values.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>vector to evaluate in </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>vector of indices where element has true value </dd></dl>
+
+</div>
+</div>
+<a id="ae294329feebecaabb007edfe6a36d830" name="ae294329feebecaabb007edfe6a36d830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae294329feebecaabb007edfe6a36d830">&#9670;&#160;</a></span>where_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatrix.html">Matrix</a>&lt; size_t &gt; where_value </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatrix.html">Matrix</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
