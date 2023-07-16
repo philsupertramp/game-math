@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Matrix.h"
+#include <limits>
 
 /**
  * Helper utilities
@@ -135,25 +136,35 @@ Matrix<T> from_vptr(const T* value, MatrixDimension size) {
  * Search index of value with maximum value
  * **Caution!** This value does represent the index in a ongoing array.
  *
- * @tparam T
- * @param mat
- * @returns
+ * @tparam T value type of matrix elements
+ * @param mat the matrix to search in
+ * @param axis [optional] the axis to search in
+ * @returns argmax along given axis
  */
 template<typename T>
-size_t argmax(const Matrix<T>& mat) {
-  T maxVal        = std::numeric_limits<T>::min();
-  size_t maxIndex = -1;
-  for(size_t i = 0; i < mat.rows(); i++) {
-    for(size_t j = 0; j < mat.columns(); j++) {
-      for(size_t elem = 0; elem < mat.elements(); elem++) {
-        if(mat(i, j, elem) > maxVal) {
-          maxVal   = mat(i, j, elem);
-          maxIndex = elem + j * mat.elements() + i * mat.columns() * mat.elements();
+Matrix<size_t> argmax(const Matrix<T>& mat, int axis = -1) {
+  if(axis == -1){
+    T maxVal        = std::numeric_limits<T>::min();
+    Matrix<size_t> maxIndex(0, 1, 1);
+    for(size_t i = 0; i < mat.rows(); i++) {
+      for(size_t j = 0; j < mat.columns(); j++) {
+        for(size_t elem = 0; elem < mat.elements(); elem++) {
+          if(mat(i, j, elem) > maxVal) {
+            maxVal   = mat(i, j, elem);
+            maxIndex(0,0) = elem + j * mat.elements() + i * mat.columns() * mat.elements();
+          }
         }
       }
     }
+    return maxIndex;
+  }
+  auto is_rows = bool(axis == 0);
+  Matrix<size_t> maxIndex(0, is_rows ? mat.rows() : 1, is_rows ? 1 : mat.columns());
+  for(size_t i = 0; i < is_rows ? mat.rows() : mat.columns(); ++i){
+    maxIndex(is_rows ? i : 0, is_rows ? 0 : i) = argmax(mat.GetSlice(is_rows ? i : 0, is_rows ? i : mat.rows() - 1, is_rows ? 0 : i, is_rows ? mat.columns() - 1 : i))(0, 0);
   }
   return maxIndex;
+  
 }
 
 /**
@@ -483,4 +494,22 @@ Matrix<T> unique(const Matrix<T>& in, [[maybe_unused]] int axis = 0) {
     }
   }
   return out.GetSlice(0, found_vals - 1);
+}
+
+template<typename T>
+Matrix<T> exp(const Matrix<T>& in){
+  auto out = in;
+  for(size_t i = 0; i<in.elements_total();++i){
+    out._data[i] = std::exp(out._data[i]);
+  }
+  return out;
+}
+
+template<typename T>
+Matrix<T> square(const Matrix<T>& in){
+  Matrix<T> out = in;
+  for(size_t i = 0; i<in.elements_total();++i){
+    out._data[i] = out._data[i] * out._data[i];
+  }
+  return out;
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Matrix.h"
+#include "../matrix_utils.h"
 #include "../numerics/utils.h"
 #include "Predictor.h"
 #include <string>
@@ -237,7 +238,7 @@ private:
 
     // found leaf node
     auto bins = count_bins(y);
-    auto argmax_value = bins(argmax(bins.GetSlice(0, bins.rows() - 1, 1, 1)), 0);
+    auto argmax_value = bins(argmax(bins.GetSlice(0, bins.rows() - 1, 1, 1))(0,0), 0);
     out = new DecisionNode(argmax_value);
     return out;
   }
