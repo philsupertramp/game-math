@@ -337,7 +337,7 @@ class MatrixTestCase : public Test
   bool TestArgMinMax() {
     Matrix<int> A({ { 2, 3, 2, 2 }, { 2, 2, 1, 2 } });
     assert(argmin(A) == 6);
-    assert(argmax(A) == 1);
+    assert(argmax(A)(0,0) == 1);
     return true;
   }
 

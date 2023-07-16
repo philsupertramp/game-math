@@ -117,7 +117,7 @@ public:
    * @param X input values
    * @returns
    */
-  Matrix<double> netInput(const Matrix<double>& X) override { return Sigmoid(X * weights); }
+  Matrix<double> netInput(const Matrix<double>& X) override { return sigmoid(X * weights); }
 
   /**
    * activate given input

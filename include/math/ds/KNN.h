@@ -19,7 +19,7 @@
 
  *
  */
-
+#pragma once
 #include "../Matrix.h"
 #include "../matrix_utils.h"
 #include "../numerics/utils.h"
@@ -80,7 +80,7 @@ public:
         // O(N)
         gamma(k, 0) = yis.sumElements();
       }
-      predictions(i, 0) = argmax(gamma);
+      predictions.SetSlice(i, argmax(gamma));
     }
     return predictions;
   };
