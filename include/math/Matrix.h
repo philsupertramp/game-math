@@ -1055,6 +1055,28 @@ T elemMax(const Matrix<T>& mat, const size_t& elemIndex) {
     }
     return maxVal;
 }
+
+/**
+ * Min value from given element index in matrix
+ * @tparam T given datatype
+ * @param mat matrix to search in
+ * @param elemIndex index of element to compute max value of
+ * @return min value over all elements with given index
+ */
+template<typename T>
+T elemMin(const Matrix<T>& mat, const size_t& elemIndex) {
+    assert(mat.elements() - 1 >= elemIndex);
+    T minVal     = std::numeric_limits<T>::max();
+    size_t index = 0;
+    for(size_t i = 0; i < mat.rows(); i++) {
+        for(size_t j = 0; j < mat.columns(); j++) {
+            if(mat(i, j, elemIndex) < minVal) { minVal = mat(i, j, elemIndex); }
+            index++;
+        }
+    }
+    return minVal;
+}
+
 /**
  * Calculates element-mean
  * @tparam T given datatype

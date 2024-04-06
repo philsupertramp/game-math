@@ -16,7 +16,7 @@ public:
     //! initialize weights with random state
     int randomState;
     //! algorithmic object to represent fitting algorithm
-    SGD* sgd = nullptr;
+    SGD sgd;
 
 private:
     /**
@@ -89,16 +89,15 @@ public:
      * @return this
      */
     void fit(const Matrix<double>& X, const Matrix<double>& y) override {
-        if(sgd == nullptr) {
-            sgd = new SGD(
-            eta,
-            n_iter,
-            shuffle,
-            [this](const Matrix<double>& x, const Matrix<double>& y) { return this->update_weights(x, y); },
-            [this](const Matrix<double>& x) { return this->netInput(x); });
-        }
+        sgd = SGD(
+          eta,
+          n_iter,
+          shuffle,
+          [this](const Matrix<double>& x, const Matrix<double>& y) { return this->update_weights(x, y); },
+          [this](const Matrix<double>& x) { return this->netInput(x); }
+        );
         initialize_weights(X.columns());
-        sgd->fit(X, y, weights);
+        sgd.fit(X, y, weights);
     }
 
 
@@ -109,7 +108,7 @@ public:
      */
     void partial_fit(const Matrix<double>& X, const Matrix<double>& y) {
         if(!w_initialized) { initialize_weights(X.columns()); }
-        sgd->partial_fit(X, y, weights);
+        sgd.partial_fit(X, y, weights);
     }
 
     /**

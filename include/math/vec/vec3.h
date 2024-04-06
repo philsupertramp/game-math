@@ -3,6 +3,7 @@
 #include "vec4.h"
 #include <cmath>
 #include <ostream>
+#include <limits>
 
 /**
  * 3D vector representation

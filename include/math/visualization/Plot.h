@@ -280,9 +280,9 @@ private:
          * determines the boundaries of a array
          * returns: boundary(min, max)
          */
-        double startX = min(x);
+        double startX = elemMin(x, 0);
         //startX = startX - pow_(10, getExponent(startX) - 1);
-        double endX = max(x);
+        double endX = elemMax(x, 0);
         //endX = endX - pow_(10, getExponent(endX) - 1);
         PlotBoundary bond = { startX, endX };
         return bond;

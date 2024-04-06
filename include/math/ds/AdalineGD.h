@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Perceptron.h"
-#include "math/Matrix.h"
+#include "../Matrix.h"
 
 /**
  * Adaline neuron classifier using gradient decent method

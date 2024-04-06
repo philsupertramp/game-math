@@ -13,7 +13,7 @@ class NaturalSplineTestCase : public Test
         auto realX = linspace(-5, 5, 9);
         auto xi    = tschebyscheff(-5, 5, realX).Transpose();
         auto yi    = runge(xi);
-        auto x     = linspace(min(xi), max(xi), 33).Transpose();
+        auto x     = linspace(elemMin(xi, 0), elemMax(xi, 0), 33).Transpose();
         Spline spline(xi, yi);
         auto out                = spline(x);
         Matrix<double> expected = { { 0.0015974440894568689,
@@ -366,7 +366,7 @@ class NaturalSplineTestCase : public Test
         auto xi    = tschebyscheff(-5, 5, realX).Transpose();
         auto yi    = runge(xi);
         auto zi    = runge(yi);
-        auto x     = linspace(min(xi), max(xi), 33).Transpose();
+        auto x     = linspace(elemMin(xi, 0), elemMax(xi, 0), 33).Transpose();
         Spline spline(xi, yi, zi);
         auto out = spline(x);
 

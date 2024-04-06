@@ -114,7 +114,7 @@ public:
             if(Tx.rows() > 0) {
                 ti = Tx;
             } else {
-                ti = linspace(min(xi), max(xi), XI.rows()).Transpose();
+                ti = linspace(elemMin(xi, 0), elemMax(xi, 0), XI.rows()).Transpose();
             }
             auto s = Spline(ti, XI)(xi);
 
