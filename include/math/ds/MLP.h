@@ -75,17 +75,16 @@ public:
 
 
   void fit(const Matrix<double> &X, const Matrix<double> &y) override {
-
     for(size_t epoch = 0; epoch < epochs; ++epoch){
       int correct = 0;
       double running_loss = 0;
-      for(auto elem : zip(X, y)){
-        auto xi = elem.first;
-        auto yi = elem.second;
+      for(size_t elem = 0; elem < X.rows(); elem++) {
+        auto xi = X.GetSlice(elem);
+        auto yi = y.GetSlice(elem);
 
         auto out = xi.Transpose();
-        std::vector<Matrix<double>> hidden_values;
-        hidden_values.push_back(out);
+        std::vector<Matrix<double>> hidden_values(layers.size() + 1);
+        hidden_values.insert(hidden_values.begin(), out);
         for(auto layer : layers){
           out = (*activation_function)(layer.second + (layer.first * out));
           hidden_values.push_back(out);

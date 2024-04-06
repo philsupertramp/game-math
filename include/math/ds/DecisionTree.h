@@ -142,6 +142,10 @@ public:
     , _min_samples_per_split(min_samples_per_split)
     , _max_depth(max_depth) { }
 
+  ~DecisionTree(){
+      free_children(base_node);
+    }
+
 
   double impurity(const Matrix<double>& x) {
     switch(_decision_method) {
@@ -205,6 +209,21 @@ public:
   }
 
 private:
+  /**
+   * Method to recursively destruct a decision tree.
+   */
+  void free_children(DecisionNode* node){
+    if(node == nullptr || node->type == DecisionNodeType::LEAF) { return; }
+    if(node->left != nullptr){
+      free_children(node->left);
+      delete node->left;
+    }
+    if(node->right != nullptr){
+      free_children(node->right);
+      delete node->right;
+    }
+  }
+
   /**
    * Method to recursively build decision tree nodes.
    *

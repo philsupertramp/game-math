@@ -288,7 +288,8 @@ std::vector<std::pair<Matrix<T>, Matrix<T>>> zip(const Matrix<T>& a, const Matri
     for(size_t j = 0; j < a.columns(); j++) { subA(0, j) = a(i, j); }
     for(size_t j = 0; j < b.columns(); j++) { subB(0, j) = b(i, j); }
 
-    out[i] = { subA, subB };
+    auto outPair = std::pair<Matrix<T>, Matrix<T>>(subA, subB);
+    out.insert(out.begin() + i, outPair);
   }
   return out;
 }
