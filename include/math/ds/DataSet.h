@@ -124,7 +124,7 @@ struct Set {
    * Normalizes set by computing mean over all elements
    */
   void NormalizeSetMean() {
-    auto maxIndex = argmax(Input);
+    auto maxIndex = argmax(Input)(0,0);
     auto minIndex = argmin(Input);
     auto maxVal   = Input(int(maxIndex / Input.columns()), int(maxIndex % Input.columns()));
     auto minVal   = Input(int(minIndex / Input.columns()), int(minIndex % Input.columns()));

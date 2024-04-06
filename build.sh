@@ -68,8 +68,8 @@ test_command() {
   # Run test suite with or without coverage
   if [ ${WITH_COVERAGE:-0} == 1 ]; then
 	  COMMAND="${COMMAND} --coverage"
-	  lcov --zerocounters -f -d . ;
-    lcov -c -i --rc lcov_branch_coverage=1 --rc lcov_function_coverage=1 -o ../base.info --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\* --include \*/math/statistics/\* -d .;
+	  lcov --ignore-errors mismatch --zerocounters -f -d . ;
+    lcov -c --keep-going --ignore-errors mismatch --ignore-errors unused -i -rc branch_coverage=1 --rc function_coverage=1 -o ../base.info --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\* --include \*/math/statistics/\* -d .;
   fi
   if [ "${SPECIFIC_TEST:-0}" != "0" ]; then
       COMMAND="${COMMAND} -R ${SPECIFIC_TEST}"

@@ -77,7 +77,7 @@ public:
 
   inline mat2<T> Inverse() const {
     return mat2<T>(values[1][1], -values[0][1], -values[1][0], values[0][0])
-           * static_cast<T>(1 / (values[0][0] * values[1][1] - values[0][1] * values[1][0]));
+           * static_cast<T>(1. / (values[0][0] * values[1][1] - values[0][1] * values[1][0]));
   }
 
   /**

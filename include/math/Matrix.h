@@ -359,7 +359,7 @@ public:
    */
   Matrix<T> operator=(const Matrix<T>& other) {
     if(this != &other) {
-      if((this == NULL) || (_rows != other.rows() || _columns != other.columns())) {
+      if((_rows != other.rows() || _columns != other.columns())) {
         Resize(other.rows(), other.columns(), other.elements());
       }
       for(size_t i = 0; i < _rows * _columns * _element_size; ++i) { _data[i] = other._data[i]; }
@@ -702,12 +702,14 @@ private:
   //! number elements
   size_t _element_size = 0;
 
-  //! ongoing array representing data
-  T* _data = nullptr;
   //! total number of elements
   size_t _dataSize = 0;
   //!
   bool needsFree = false;
+public:
+  //! ongoing array representing data
+  T* _data = nullptr;
+
 };
 
 /**
@@ -747,6 +749,26 @@ inline Matrix<T> operator+(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   }
   return result;
 }
+
+
+template<typename T>
+Matrix<T> operator+(const T& lhs, const Matrix<T>& rhs){
+  auto result = rhs;
+  for(size_t i = 0; i < rhs.elements_total(); ++i){
+    result._data[i] += lhs;
+  }
+  return result;
+}
+
+template<typename T>
+Matrix<T> operator-(const T& lhs, const Matrix<T>& rhs){
+  auto result = rhs;
+  for(size_t i = 0; i < rhs.elements_total(); ++i){
+    result._data[i] -= lhs;
+  }
+  return result;
+}
+
 /**
  * Matrix-Subtraction
  * @tparam T

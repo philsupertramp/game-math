@@ -33,7 +33,7 @@
  *
  *
  */
-
+#pragma once
 #include "../matrix_utils.h"
 #include "../numerics/utils.h"
 #include "../utils.h"
