@@ -108,6 +108,12 @@ public:
     y = v.y;
     z = v.z;
   }
+  template<typename U>
+  explicit vec3(const vec3<U>& v) {
+    x = static_cast<T>(v.x);
+    y = static_cast<T>(v.y);
+    z = static_cast<T>(v.z);
+  }
   explicit vec3(const T* v) {
     x = *(v++);
     y = *(v++);
