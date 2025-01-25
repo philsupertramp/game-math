@@ -67,7 +67,6 @@ test_command() {
 
   # Run test suite with or without coverage
   if [ ${WITH_COVERAGE:-0} == 1 ]; then
-	  COMMAND="${COMMAND}"
 	  lcov --zerocounters -f -d . ;
 	  lcov -c -i --rc lcov_branch_coverage=1 --rc lcov_function_coverage=1 -o ../base.info -f --include \*/include/math/\* -d .;
   fi
