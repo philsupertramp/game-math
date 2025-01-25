@@ -3,8 +3,8 @@
 #include <cassert>
 #include <cmath>
 #include <iostream>
-#include <math/math.h>
 #include <math/Matrix.h>
+#include <math/math.h>
 
 #define TESTING_EPS 1e-8
 class Test

@@ -496,4 +496,3 @@ Matrix<double> eye(size_t rows, size_t columns) {
   for(size_t i = 0; i < rows && i < realCols; ++i) { out(i, i) = 1.0; }
   return out;
 }
-
