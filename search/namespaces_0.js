@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['integration_0',['integration',['../namespaceintegration.html',1,'']]]
+  ['math_0',['Math',['../namespaceMath.html',1,'']]],
+  ['math_3a_3autils_1',['Utils',['../namespaceMath_1_1Utils.html',1,'Math']]]
 ];

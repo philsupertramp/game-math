@@ -1,172 +1,172 @@
-\hypertarget{vec_2TestVec2_8cpp-example}{}\doxysection{vec/\+Test\+Vec2.\+cpp}
-This is an example on how to use the \mbox{\hyperlink{vec2_8h}{vec2.\+h}} file.
+\doxysection{vec/\+Test\+Vec2.\+cpp}
+\hypertarget{vec_2TestVec2_8cpp-example}{}\label{vec_2TestVec2_8cpp-example}This is an example on how to use the \doxylink{vec2_8h}{vec2.\+h} file.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../Test.h"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{math_8h}{math/math.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}../Test.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{math_8h}{math/math.h}}>}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
-\DoxyCodeLine{\textcolor{keyword}{class }Vec2TestCase : \textcolor{keyword}{public} Test}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{classMatrix}{Vec2TestCase}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classMatrix}{Test}}}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{  \textcolor{keywordtype}{bool} testInitialization() \{}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} foo;}
-\DoxyCodeLine{    assert(foo.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == (T)0);}
-\DoxyCodeLine{    assert(foo.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == (T)0);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testInitialization}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{foo}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo}}.x\ ==\ (\mbox{\hyperlink{classMatrix}{T}})0);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo}}.y\ ==\ (\mbox{\hyperlink{classMatrix}{T}})0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} foo2((T)1, (T)2);}
-\DoxyCodeLine{    assert(foo2.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == (T)1);}
-\DoxyCodeLine{    assert(foo2.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == (T)2);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{foo2}}((\mbox{\hyperlink{classMatrix}{T}})1,\ (\mbox{\hyperlink{classMatrix}{T}})2);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo2}}.x\ ==\ (\mbox{\hyperlink{classMatrix}{T}})1);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo2}}.y\ ==\ (\mbox{\hyperlink{classMatrix}{T}})2);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    T vals[2]   = \{ 2, 4 \};}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} vec = build\_vec2<T>((\textcolor{keywordtype}{void}*)vals);}
-\DoxyCodeLine{    assert(vec.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == (T)2);}
-\DoxyCodeLine{    assert(vec.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == (T)4);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{T}}\ \mbox{\hyperlink{classMatrix}{vals}}[2]\ \ \ =\ \{\ 2,\ 4\ \};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix}{vec}}\ =\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{build\_vec2<T>}}((\textcolor{keywordtype}{void}*)\mbox{\hyperlink{classMatrix}{vals}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{vec}}.x\ ==\ (\mbox{\hyperlink{classMatrix}{T}})2);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{vec}}.y\ ==\ (\mbox{\hyperlink{classMatrix}{T}})4);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{  \}}
-\DoxyCodeLine{  \textcolor{keywordtype}{bool} testAssignment() \{}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} foo;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testAssignment}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{foo}};}
 \DoxyCodeLine{}
-\DoxyCodeLine{    foo.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = (T)1;}
-\DoxyCodeLine{    foo.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = (T)2;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{foo}}.x\ =\ (\mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{T}})1;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{foo}}.y\ =\ (\mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{T}})2;}
 \DoxyCodeLine{}
-\DoxyCodeLine{    assert(foo.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == (T)1);}
-\DoxyCodeLine{    assert(foo.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == (T)2);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo}}.x\ ==\ (\mbox{\hyperlink{classMatrix}{T}})1);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo}}.y\ ==\ (\mbox{\hyperlink{classMatrix}{T}})2);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    foo[0] = (T)3;}
-\DoxyCodeLine{    foo[1] = (T)4;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{foo}}[0]\ =\ (\mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{T}})3;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{foo}}[1]\ =\ (\mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{T}})4;}
 \DoxyCodeLine{}
-\DoxyCodeLine{    assert(foo.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == (T)3);}
-\DoxyCodeLine{    assert(foo.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == (T)4);}
-\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{  \}}
-\DoxyCodeLine{  \textcolor{keywordtype}{bool} testMemberAccess() \{}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} foo;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo}}.x\ ==\ (\mbox{\hyperlink{classMatrix}{T}})3);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo}}.y\ ==\ (\mbox{\hyperlink{classMatrix}{T}})4);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testMemberAccess}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{foo}};}
 \DoxyCodeLine{}
-\DoxyCodeLine{    foo.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} = (T)1;}
-\DoxyCodeLine{    foo.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} = (T)2;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{foo}}.x\ =\ (\mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{T}})1;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{foo}}.y\ =\ (\mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{T}})2;}
 \DoxyCodeLine{}
-\DoxyCodeLine{    assert(foo[0] == 1);}
-\DoxyCodeLine{    assert(foo[1] == 2);}
-\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{  \}}
-\DoxyCodeLine{  \textcolor{keywordtype}{bool} testMisc() \{}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} foo(2, 2);}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} bar(2, -\/2);}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} baz(10, 0);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo}}[0]\ ==\ 1);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo}}[1]\ ==\ 2);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testMisc}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{foo}}(2,\ 2);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{bar}}(2,\ -\/2);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{baz}}(10,\ 0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    assert(foo.\mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}}() == 2.82842708f);}
-\DoxyCodeLine{    assert(bar.\mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}}() == 2.82842708f);}
-\DoxyCodeLine{    assert(baz.\mbox{\hyperlink{structvec2_a98b53c74527a746687775313f1774a63}{length}}() == 10.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{foo}}.length()\ ==\ 2.82842708f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{bar}}.length()\ ==\ 2.82842708f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{baz}}.length()\ ==\ 10.0f);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keywordflow}{if}(extended) \{}
-\DoxyCodeLine{      \mbox{\hyperlink{structvec2}{vec2<T>}} normFoo = foo.\mbox{\hyperlink{structvec2_a408d0ae10689bf49bf53fb63bf1696bc}{normalize}}();}
-\DoxyCodeLine{      \mbox{\hyperlink{structvec2}{vec2<T>}} normBar = bar.\mbox{\hyperlink{structvec2_a408d0ae10689bf49bf53fb63bf1696bc}{normalize}}();}
-\DoxyCodeLine{      \mbox{\hyperlink{structvec2}{vec2<T>}} normBaz = baz.\mbox{\hyperlink{structvec2_a408d0ae10689bf49bf53fb63bf1696bc}{normalize}}();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classMatrix}{extended}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix}{normFoo}}\ =\ \mbox{\hyperlink{classMatrix}{foo}}.normalize();}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix}{normBar}}\ =\ \mbox{\hyperlink{classMatrix}{bar}}.normalize();}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix}{normBaz}}\ =\ \mbox{\hyperlink{classMatrix}{baz}}.normalize();}
 \DoxyCodeLine{}
-\DoxyCodeLine{      \textcolor{comment}{// floating point precision 1e-\/7}}
-\DoxyCodeLine{      assert(normFoo.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} -\/ (T)0.70710679328816484f < 1e-\/7);}
-\DoxyCodeLine{      assert(normFoo.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} -\/ (T)0.70710679328816484f < 1e-\/7);}
-\DoxyCodeLine{      assert(normBar.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} -\/ (T)0.70710679328816484f < 1e-\/7);}
-\DoxyCodeLine{      assert(normBar.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} -\/ (T)-\/0.70710679328816484f < 1e-\/7);}
-\DoxyCodeLine{      assert(normBaz.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} -\/ (T)1.0f < 1e-\/7);}
-\DoxyCodeLine{      assert(normBaz.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} -\/ (T)0.0f < 1e-\/7);}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{  \}}
-\DoxyCodeLine{  \textcolor{keywordtype}{bool} testOperators() \{}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} foo(1, 1);}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} bar(1, -\/1);}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} baz(10, 0);}
-\DoxyCodeLine{    \textcolor{comment}{// +}}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} fooCopy = foo;}
-\DoxyCodeLine{    fooCopy += bar;}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == 2.0f);}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == 0.0f);}
-\DoxyCodeLine{    fooCopy = foo + bar;}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == 2.0f);}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == 0.0f);}
-\DoxyCodeLine{    fooCopy = foo;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ floating\ point\ precision\ 1e-\/7}}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{normFoo}}.x\ -\/\ (\mbox{\hyperlink{classMatrix}{T}})0.70710679328816484f\ <\ 1\mbox{\hyperlink{classMatrix}{e}}-\/7);}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{normFoo}}.y\ -\/\ (\mbox{\hyperlink{classMatrix}{T}})0.70710679328816484f\ <\ 1\mbox{\hyperlink{classMatrix}{e}}-\/7);}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{normBar}}.x\ -\/\ (\mbox{\hyperlink{classMatrix}{T}})0.70710679328816484f\ <\ 1\mbox{\hyperlink{classMatrix}{e}}-\/7);}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{normBar}}.y\ -\/\ (\mbox{\hyperlink{classMatrix}{T}})-\/0.70710679328816484f\ <\ 1\mbox{\hyperlink{classMatrix}{e}}-\/7);}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{normBaz}}.x\ -\/\ (\mbox{\hyperlink{classMatrix}{T}})1.0f\ <\ 1\mbox{\hyperlink{classMatrix}{e}}-\/7);}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{normBaz}}.y\ -\/\ (\mbox{\hyperlink{classMatrix}{T}})0.0f\ <\ 1\mbox{\hyperlink{classMatrix}{e}}-\/7);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testOperators}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{foo}}(1,\ 1);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{bar}}(1,\ -\/1);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{baz}}(10,\ 0);}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ +}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix}{fooCopy}}\ =\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{foo}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ +=\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{bar}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.x\ ==\ 2.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.y\ ==\ 0.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ =\ \mbox{\hyperlink{classMatrix}{foo}}\ +\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{bar}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.x\ ==\ 2.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.y\ ==\ 0.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ =\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{foo}};}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{comment}{// -\/}}
-\DoxyCodeLine{    fooCopy -\/= bar;}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == 0.0f);}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == 2.0f);}
-\DoxyCodeLine{    fooCopy = foo -\/ bar;}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == 0.0f);}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == 2.0f);}
-\DoxyCodeLine{    fooCopy = foo;}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ -\/}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ -\/=\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{bar}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.x\ ==\ 0.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.y\ ==\ 2.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ =\ \mbox{\hyperlink{classMatrix}{foo}}\ -\/\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{bar}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.x\ ==\ 0.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.y\ ==\ 2.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ =\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{foo}};}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{comment}{// *}}
-\DoxyCodeLine{    fooCopy *= 2.0f;}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == (T)2.0f);}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == (T)2.0f);}
-\DoxyCodeLine{    fooCopy = foo * 2.0f;}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == (T)2.0f);}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == (T)2.0f);}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ *}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ *=\ 2.0f;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.x\ ==\ (\mbox{\hyperlink{classMatrix}{T}})2.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.y\ ==\ (\mbox{\hyperlink{classMatrix}{T}})2.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ =\ \mbox{\hyperlink{classMatrix}{foo}}\ *\ 2.0f;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.x\ ==\ (\mbox{\hyperlink{classMatrix}{T}})2.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.y\ ==\ (\mbox{\hyperlink{classMatrix}{T}})2.0f);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keywordtype}{float} fooVal = foo * bar;}
-\DoxyCodeLine{    assert(fooVal == (T)0.0f);}
-\DoxyCodeLine{    fooVal = foo * baz;}
-\DoxyCodeLine{    assert(fooVal == (T)10.0f);}
-\DoxyCodeLine{    fooCopy = foo;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classMatrix}{fooVal}}\ =\ \mbox{\hyperlink{classMatrix}{foo}}\ *\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{bar}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooVal}}\ ==\ (\mbox{\hyperlink{classMatrix}{T}})0.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooVal}}\ =\ \mbox{\hyperlink{classMatrix}{foo}}\ *\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{baz}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooVal}}\ ==\ (\mbox{\hyperlink{classMatrix}{T}})10.0f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ =\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{foo}};}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{comment}{// /}}
-\DoxyCodeLine{    fooCopy /= 2.0f;}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == (T)0.5f);}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == (T)0.5f);}
-\DoxyCodeLine{    fooCopy = foo / 2.0f;}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_acbedc70458fbe177e24770b64267f07d}{x}} == (T)0.5f);}
-\DoxyCodeLine{    assert(fooCopy.\mbox{\hyperlink{structvec2_a74bc54c64e2e47307e3807b2f1c6436b}{y}} == (T)0.5f);}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ /}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ /=\ 2.0f;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.x\ ==\ (\mbox{\hyperlink{classMatrix}{T}})0.5f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.y\ ==\ (\mbox{\hyperlink{classMatrix}{T}})0.5f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{fooCopy}}\ =\ \mbox{\hyperlink{classMatrix}{foo}}\ /\ 2.0f;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.x\ ==\ (\mbox{\hyperlink{classMatrix}{T}})0.5f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{fooCopy}}.y\ ==\ (\mbox{\hyperlink{classMatrix}{T}})0.5f);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{comment}{// ostream<<}}
-\DoxyCodeLine{    \textcolor{comment}{//        std::cout << "{}vec2:\(\backslash\)n"{} << foo;}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ ostream<<}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ std::cout\ <<\ "{}vec2:\(\backslash\)n"{}\ <<\ foo;}}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{  \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{  \textcolor{keywordtype}{bool} testComparison() \{}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} a(1, 2);}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} b(1, 2);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testComparison}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{a}}(1,\ 2);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{b}}(1,\ 2);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    assert(a == b);}
-\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{  \}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{a}}\ ==\ \mbox{\hyperlink{classMatrix}{b}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{  \textcolor{keywordtype}{bool} testCast() \{}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<T>}} a(1, 2);}
-\DoxyCodeLine{    \mbox{\hyperlink{structvec2}{vec2<int>}} a2(1, 2);}
-\DoxyCodeLine{    \textcolor{keyword}{auto} b = \mbox{\hyperlink{structvec2}{vec2<int>}}(a);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testCast}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<T>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{a}}(1,\ 2);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix}{vec2<int>}}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{a2}}(1,\ 2);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classMatrix}{b}}\ =\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{vec2<int>}}(\mbox{\hyperlink{classMatrix}{a}});}
 \DoxyCodeLine{}
-\DoxyCodeLine{    assert(a2 == b);}
-\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{  \}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{assert}}(\mbox{\hyperlink{classMatrix}{a2}}\ ==\ \mbox{\hyperlink{classMatrix}{b}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}
-\DoxyCodeLine{  \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run() \{}
-\DoxyCodeLine{    testInitialization();}
-\DoxyCodeLine{    testAssignment();}
-\DoxyCodeLine{    testMemberAccess();}
-\DoxyCodeLine{    testMisc();}
-\DoxyCodeLine{    testOperators();}
-\DoxyCodeLine{    testComparison();}
-\DoxyCodeLine{    testCast();}
-\DoxyCodeLine{  \}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{run}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testInitialization}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testAssignment}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testMemberAccess}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testMisc}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testOperators}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testComparison}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{testCast}}();}
+\DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
-\DoxyCodeLine{  \textcolor{keyword}{auto} testCase = Vec2TestCase<int>();}
-\DoxyCodeLine{  testCase.run();}
-\DoxyCodeLine{  \textcolor{keyword}{auto} testCase2     = Vec2TestCase<float>();}
-\DoxyCodeLine{  testCase2.extended = \textcolor{keyword}{true};}
-\DoxyCodeLine{  testCase2.run();}
-\DoxyCodeLine{  \textcolor{keyword}{auto} testCase3     = Vec2TestCase<double>();}
-\DoxyCodeLine{  testCase3.extended = \textcolor{keyword}{true};}
-\DoxyCodeLine{  testCase3.run();}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classMatrix}{main}}()\ \{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classMatrix}{testCase}}\ =\ \mbox{\hyperlink{classMatrix}{Vec2TestCase<int>}}();}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classMatrix}{testCase}}.run();}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classMatrix}{testCase2}}\ \ \ \ \ =\ \mbox{\hyperlink{classMatrix}{Vec2TestCase<float>}}();}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classMatrix}{testCase2}}.extended\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classMatrix}{testCase2}}.run();}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classMatrix}{testCase3}}\ \ \ \ \ =\ \mbox{\hyperlink{classMatrix}{Vec2TestCase<double>}}();}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classMatrix}{testCase3}}.extended\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classMatrix}{testCase3}}.run();}
 \DoxyCodeLine{}
-\DoxyCodeLine{  \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
 \DoxyCodeLine{\}}
 
 \end{DoxyCodeInclude}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_3ctt_3estatistics_3c_2ftt_3e_20module_0',['&lt;tt&gt;statistics&lt;/tt&gt; module',['../md_include_math_statistics_README.html',1,'']]]
+  ['1_0',['Implementation 1)',['../index.html#autotoc_md9',1,'']]]
 ];

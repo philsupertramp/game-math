@@ -1,162 +1,88 @@
+\chapter{game-\/math}
+\hypertarget{index}{}\label{index}\index{game-\/math@{game-\/math}}
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
  \href{https://www.codefactor.io/repository/github/philsupertramp/game-math}{\texttt{ }}
 
 Mathematical library for game developers. ~\newline
- The library contains necessary elements of \mbox{\hyperlink{classMatrix}{Matrix}} Algebra to enable working in 2D and 3D space.\hypertarget{index_autotoc_md18}{}\doxysection{Current feature support}\label{index_autotoc_md18}
+ The library contains necessary elements of \doxylink{classMatrix}{Matrix} Algebra to enable working in 2D and 3D space.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Current feature support}{Current feature support}}\label{index_autotoc_md2}
 
 \begin{DoxyItemize}
-\item \mbox{\hyperlink{namespaceMath}{Math}}\+:
+\item \doxylink{namespaceMath}{Math}\+:
 \begin{DoxyItemize}
-\item 2,3,4-\/dimensional Matrix/\+Vector algebra (\mbox{\hyperlink{math_8h}{math.\+h}})
+\item 2,3,4-\/dimensional Matrix/\+Vector algebra (\doxylink{classMatrix_a58effd9020c6d066d0475d97ed78501d}{math.\+h})
+\item \doxylink{classMatrix}{Matrix} class with many implemented opterations
 \end{DoxyItemize}
 \item Game specific\+:
 \begin{DoxyItemize}
-\item 2D/3D Transformation utils to generate View/\+Transformation matrices in a 2D view space (utils.\+h)
+\item 2D/3D Transformation utils to generate View/\+Transformation matrices in a 2D view space (\doxylink{classMatrix_a58effd9020c6d066d0475d97ed78501d}{utils.\+h})
 \end{DoxyItemize}
-\item Numerical Methods (extension {\ttfamily numerics})
-\begin{DoxyItemize}
-\item Solver for initial value problems of (stiff) ordinary differential equations (ode.\+h)
-\begin{DoxyItemize}
-\item Unified class for solvers (\mbox{\hyperlink{classODESolver}{ODESolver}})
-\item Explicit Euler Method (\mbox{\hyperlink{ExplicitEuler_8h}{Explicit\+Euler.\+h}})
-\item Explicit 5 step Runge-\/\+Kutta-\/\+Method (\mbox{\hyperlink{ode45_8h}{ode45.\+h}})
-\item Trapezoid rule for odes (\mbox{\hyperlink{odeTrapez_8h}{ode\+Trapez.\+h}})
-\item Backward differential formula (\mbox{\hyperlink{odeBDF2_8h}{ode\+BDF2.\+h}})
-\end{DoxyItemize}
-\item Solver for systems of linear equations (\mbox{\hyperlink{gaussSeidel_8h}{gauss\+Seidel.\+h}})
-\item Gauss-\/\+Jordan method to calculate inverse matrices (\mbox{\hyperlink{gaussJordan_8h}{gauss\+Jordan.\+h}})
-\item QR-\/\+Decomposition of matrices (\mbox{\hyperlink{qr_8h}{qr.\+h}})
-\item Singular Value Decomposition (SVD) (\mbox{\hyperlink{svd_8h}{svd.\+h}})
-\item Fractals using numerical approximations (\mbox{\hyperlink{Fractals_8h}{Fractals.\+h}})
-\begin{DoxyItemize}
-\item \mbox{\hyperlink{classNewtonFractal}{Newton\+Fractal}}
-\item \mbox{\hyperlink{classMandelbrot}{Mandelbrot}}
-\end{DoxyItemize}
-\item Newton method to approximate the zero-\/value for a given function based on an initial value \mbox{\hyperlink{newton_8h}{newton.\+h}}
-\item \mbox{\hyperlink{classFunction}{Function}} Interpolation/\+Approximation
-\begin{DoxyItemize}
-\item 1D Interpolation
-\begin{DoxyItemize}
-\item Polynomial Interpolation (\mbox{\hyperlink{classPolynomialBase}{Polynomial\+Base}})
-\begin{DoxyItemize}
-\item \mbox{\hyperlink{classMonomBase}{Monom\+Base}}
-\item \mbox{\hyperlink{classLagrangeBase}{Lagrange\+Base}}
-\item \mbox{\hyperlink{classNewtonBase}{Newton\+Base}}
-\end{DoxyItemize}
-\item \mbox{\hyperlink{classSpline}{Spline}} Interpolation
-\begin{DoxyItemize}
-\item \mbox{\hyperlink{classSpline}{Spline}}\+: implements Natural cubic spline, as well as a B-\/\+Spline capable of interpolating 3D values
-\end{DoxyItemize}
-\end{DoxyItemize}
-\item 2D/3D Interpolation
-\begin{DoxyItemize}
-\item see \mbox{\hyperlink{classSpline}{Spline}}
-\end{DoxyItemize}
-\end{DoxyItemize}
-\item Differential calculus (\mbox{\hyperlink{Differentiation_8h}{Differentiation.\+h}})
-\item Numerical Integration (\mbox{\hyperlink{Integration_8h}{Integration.\+h}})
-\end{DoxyItemize}
-\item (classic) Statistics\+:
-\begin{DoxyItemize}
-\item \mbox{\hyperlink{Probability_8h}{Probability.\+h}}
-\item \mbox{\hyperlink{Insurance_8h}{Insurance.\+h}}
-\end{DoxyItemize}
-\item \mbox{\hyperlink{classPlot}{Plot}} support (uses/requires gnuplot see \mbox{\hyperlink{include_2math_2visualization_2README_8md}{include/math/visualization/\+README.\+md}} or \mbox{\hyperlink{Plot_8h}{Plot.\+h}})
-\item Data Science\+:
-\begin{DoxyItemize}
-\item Classification\+:
-\begin{DoxyItemize}
-\item \mbox{\hyperlink{classNCC}{NCC}}\+: Nearest Centroid \mbox{\hyperlink{classClassifier}{Classifier}} (linear classifier) (\mbox{\hyperlink{NCC_8h}{NCC.\+h}})
-\item \mbox{\hyperlink{classKNN}{KNN}}\+: K Nearest Neighbor \mbox{\hyperlink{classClassifier}{Classifier}} (non-\/linear classifier) (\mbox{\hyperlink{KNN_8h}{KNN.\+h}})
-\end{DoxyItemize}
-\item Neural networks
-\begin{DoxyItemize}
-\item Feed Forward NNs
-\begin{DoxyItemize}
-\item \mbox{\hyperlink{classPerceptron}{Perceptron}} classifier ({\ttfamily \mbox{\hyperlink{classPerceptron}{Perceptron}}})
-\item Adaline Neuron \mbox{\hyperlink{classClassifier}{Classifier}}
-\begin{DoxyItemize}
-\item using gradient decent method ({\ttfamily \mbox{\hyperlink{classAdalineGD}{Adaline\+GD}}})
-\item using statistics gradient decent method ({\ttfamily \mbox{\hyperlink{classAdalineSGD}{Adaline\+SGD}}})
-\end{DoxyItemize}
-\end{DoxyItemize}
-\end{DoxyItemize}
-\end{DoxyItemize}
-\end{DoxyItemize}\hypertarget{index_autotoc_md19}{}\doxysection{Benchmarks}\label{index_autotoc_md19}
+\item Sorting (insertion sort)
+\item \doxylink{classRandom}{Random} Number Generator
+\item String formatting
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Benchmarks}{Benchmarks}}\label{index_autotoc_md3}
 see {\ttfamily /benchmarks/\+README.md} 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Matrix<int>:}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 * operations. elapsed time: 0.160372s}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 \# operations. elapsed time: 0.0172873s}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 + operations. elapsed time: 0.145237s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ *\ operations.\ elapsed\ time:\ 0.160372s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ \#\ operations.\ elapsed\ time:\ 0.0172873s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ +\ operations.\ elapsed\ time:\ 0.145237s}
 \DoxyCodeLine{mat3<int>:}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 * operations. elapsed time: 4.3e-\/08s}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 + operations. elapsed time: 5e-\/08s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ *\ operations.\ elapsed\ time:\ 4.3e-\/08s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ +\ operations.\ elapsed\ time:\ 5e-\/08s}
 \DoxyCodeLine{Matrix<double>:}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 * operations. elapsed time: 0.132516s}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 \# operations. elapsed time: 0.00899579s}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 + operations. elapsed time: 0.152282s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ *\ operations.\ elapsed\ time:\ 0.132516s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ \#\ operations.\ elapsed\ time:\ 0.00899579s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ +\ operations.\ elapsed\ time:\ 0.152282s}
 \DoxyCodeLine{mat3<double>:}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 * operations. elapsed time: 5.2e-\/08s}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 + operations. elapsed time: 5e-\/08s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ *\ operations.\ elapsed\ time:\ 5.2e-\/08s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ +\ operations.\ elapsed\ time:\ 5e-\/08s}
 \DoxyCodeLine{Matrix<float>:}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 * operations. elapsed time: 0.186274s}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 \# operations. elapsed time: 0.00887903s}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 + operations. elapsed time: 0.146145s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ *\ operations.\ elapsed\ time:\ 0.186274s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ \#\ operations.\ elapsed\ time:\ 0.00887903s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ +\ operations.\ elapsed\ time:\ 0.146145s}
 \DoxyCodeLine{mat3<float>:}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 * operations. elapsed time: 7.1e-\/08s}
-\DoxyCodeLine{finished computation with 9 elements and 5000000 + operations. elapsed time: 8e-\/08s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ *\ operations.\ elapsed\ time:\ 7.1e-\/08s}
+\DoxyCodeLine{finished\ computation\ with\ 9\ elements\ and\ 5000000\ +\ operations.\ elapsed\ time:\ 8e-\/08s}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md20}{}\doxyparagraph{Build requirements}\label{index_autotoc_md20}
-{\ttfamily gcc, cmake, clang}\hypertarget{index_autotoc_md21}{}\doxysection{Installation}\label{index_autotoc_md21}
+\hypertarget{index_autotoc_md4}{}\doxyparagraph{\texorpdfstring{Build requirements}{Build requirements}}\label{index_autotoc_md4}
+{\ttfamily gcc, cmake, clang}\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{index_autotoc_md5}
 
 \begin{DoxyEnumerate}
-\item Download repository {\ttfamily git clone git@github.\+com\+:/philsupertramp/game-\/math}
+\item Download repository {\ttfamily git clone git@\doxylink{classMatrix_a58effd9020c6d066d0475d97ed78501d}{github.\+com\+:}/philsupertramp/game-\/math}
 \item Integration into your project
 \end{DoxyEnumerate}
 
-{\bfseries{Only CMake fully tested}} \hypertarget{index_autotoc_md22}{}\doxysubsubsection{cmake\+:}\label{index_autotoc_md22}
-in your {\ttfamily CMake\+Lists.\+txt} add 
+{\bfseries{Only CMake fully tested}} \hypertarget{index_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{cmake\+:}{cmake:}}\label{index_autotoc_md6}
+in your {\ttfamily \doxylink{classMatrix_a58effd9020c6d066d0475d97ed78501d}{CMake\+Lists.\+txt}} add 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{link\_libraries(math-\/lib)}
 \DoxyCodeLine{include\_directories(math/include)}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md23}{}\doxysection{Usage}\label{index_autotoc_md23}
-After linking the library correctly one is able to include the main header file {\ttfamily \mbox{\hyperlink{math_8h}{math.\+h}}} 
+\hypertarget{index_autotoc_md7}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_autotoc_md7}
+After linking the library correctly one is able to include the main header file {\ttfamily \doxylink{classMatrix_a58effd9020c6d066d0475d97ed78501d}{math.\+h}} 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{ \{c++\}}
-\DoxyCodeLine{\#include <math/math.h>}
+\DoxyCodeLine{\ ++}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{math_8h}{math/math.h}}>}}
 
 \end{DoxyCode}
  Although one can explicitly include parts 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{ \{c++\}}
-\DoxyCodeLine{\#include <math/vec/vec2.h>}
+\DoxyCodeLine{\ ++}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{vec2_8h}{math/vec/vec2.h}}>}}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md24}{}\doxysubsection{Extensions}\label{index_autotoc_md24}
-Currently there are two different implementations of matrices/vectors \hypertarget{index_autotoc_md25}{}\doxysubsubsection{Implementation 1)}\label{index_autotoc_md25}
+\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{Extensions}{Extensions}}\label{index_autotoc_md8}
+Currently there are two different implementations of matrices/vectors \hypertarget{index_autotoc_md9}{}\doxysubsubsection{\texorpdfstring{Implementation 1)}{Implementation 1)}}\label{index_autotoc_md9}
 Game dev oriented. 2, 3 and 4 dimensional vector/matrix implementations. ~\newline
- Tightly packed data to allow minimal memory usage. see {\ttfamily ./include/math/vec} and {\ttfamily ./include/math/mat} for implementation details.\hypertarget{index_autotoc_md26}{}\doxysubsubsection{Implementation 2)}\label{index_autotoc_md26}
-{\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}}\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} (see {\ttfamily ./include/math/\+Matrix.h}) represents a {\ttfamily m x n}-\/\mbox{\hyperlink{classMatrix}{Matrix}} of data of type {\ttfamily T}
+ Tightly packed data to allow minimal memory usage. see {\ttfamily ./include/math/vec} and {\ttfamily ./include/math/mat} for implementation details.\hypertarget{index_autotoc_md10}{}\doxysubsubsection{\texorpdfstring{Implementation 2)}{Implementation 2)}}\label{index_autotoc_md10}
+{\ttfamily \doxylink{classMatrix}{Matrix}\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} (see {\ttfamily ./include/math/\+Matrix.h}) represents a {\ttfamily m x n}-\/\doxylink{classMatrix}{Matrix} of data of type {\ttfamily T}
 
 a specific data science and numerics implementation. ~\newline
- Capable of Matrix-\/\+Vector and Matrix-\/\+Multiplication, it also contains data science specific algorithms and statistical methods.\hypertarget{index_autotoc_md27}{}\doxysection{Extensions}\label{index_autotoc_md27}
-The library is split into multiple content seperated module. Each module is nested in the root directory \href{/include/math}{\texttt{ {\ttfamily math/}}}. ~\newline
- Each sub-\/directory contains a README file with instructions how to use the module and if it has dependencies.\hypertarget{index_autotoc_md28}{}\doxysubsubsection{Adding extensions to library}\label{index_autotoc_md28}
-To activate modules use the {\ttfamily MATH\+\_\+\+EXTENSIONS} compile argument.
-
-Example build command adding {\ttfamily numerics} module and building test suite\+: 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{mkdir -\/p build}
-\DoxyCodeLine{cmake -\/DMATH\_EXTENSIONS=numerics -\/-\/build math/build -\/-\/ -\/j 3 .}
-
-\end{DoxyCode}
-\hypertarget{index_autotoc_md29}{}\doxysection{Development}\label{index_autotoc_md29}
-Feel free to contribute to the project!\hypertarget{index_autotoc_md30}{}\doxysubsubsection{How to contribute}\label{index_autotoc_md30}
+ Capable of Matrix-\/\+Vector and Matrix-\/\+Multiplication, it also contains data science specific algorithms and statistical methods.\hypertarget{index_autotoc_md11}{}\doxysection{\texorpdfstring{Development}{Development}}\label{index_autotoc_md11}
+Feel free to contribute to the project!\hypertarget{index_autotoc_md12}{}\doxysubsubsection{\texorpdfstring{How to contribute}{How to contribute}}\label{index_autotoc_md12}
 
 \begin{DoxyItemize}
 \item first time contributors
@@ -171,5 +97,5 @@ Feel free to contribute to the project!\hypertarget{index_autotoc_md30}{}\doxysu
 \end{DoxyItemize}
 
 {\bfseries{NOTE\+: please run {\ttfamily make lint} prior to submitting your code!}} ~\newline
- This requires {\ttfamily clang-\/format\texorpdfstring{$>$}{>}=11.\+0.\+0}\hypertarget{index_autotoc_md31}{}\doxysection{License}\label{index_autotoc_md31}
-The project is under {\ttfamily MIT}-\/License see {\ttfamily LICENSE} for more\hypertarget{index_autotoc_md32}{}\doxysubsection{Acknowledgements}\label{index_autotoc_md32}
+ This requires {\ttfamily clang-\/format\texorpdfstring{$>$}{>}=11.\+0.\+0}\hypertarget{index_autotoc_md13}{}\doxysection{\texorpdfstring{License}{License}}\label{index_autotoc_md13}
+The project is under {\ttfamily MIT}-\/License see {\ttfamily LICENSE} for more\hypertarget{index_autotoc_md14}{}\doxysubsection{\texorpdfstring{Acknowledgements}{Acknowledgements}}\label{index_autotoc_md14}

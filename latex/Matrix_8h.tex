@@ -1,7 +1,7 @@
-\hypertarget{Matrix_8h}{}\doxysection{include/math/\+Matrix.h File Reference}
-\label{Matrix_8h}\index{include/math/Matrix.h@{include/math/Matrix.h}}
-{\ttfamily \#include \char`\"{}Random.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}vec/vec3.\+h\char`\"{}}\newline
+\doxysection{include/math/\+Matrix.h File Reference}
+\hypertarget{Matrix_8h}{}\label{Matrix_8h}\index{include/math/Matrix.h@{include/math/Matrix.h}}
+{\ttfamily \#include "{}Random.\+h"{}}\newline
+{\ttfamily \#include "{}vec/vec3.\+h"{}}\newline
 {\ttfamily \#include $<$cassert$>$}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$cstdlib$>$}\newline
@@ -12,43 +12,43 @@
 {\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$type\+\_\+traits$>$}\newline
 {\ttfamily \#include $<$signal.\+h$>$}\newline
-\doxysubsection*{Classes}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structMatrixDimension}{Matrix\+Dimension}}
 \item 
 class \mbox{\hyperlink{classMatrix}{Matrix$<$ T $>$}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_ad6f7b6a6e98a07896691f00ff88a564d}{operator+}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+{\footnotesize template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{Matrix_8h_ad6f7b6a6e98a07896691f00ff88a564d}{operator+}} (\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{lhs}}, \mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{rhs}})
 \item 
-{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a562445dbcc377e4225f9cde553f1bc54}{operator-\/}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+{\footnotesize template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{Matrix_8h_a562445dbcc377e4225f9cde553f1bc54}{operator-\/}} (\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{lhs}}, \mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{rhs}})
 \item 
-{\footnotesize template$<$typename T , typename U $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a6a57f4e03f7bcda0c431b9f123ff6091}{operator/}} (U lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+{\footnotesize template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} , \mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{U}} $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{Matrix_8h_a6a57f4e03f7bcda0c431b9f123ff6091}{operator/}} (\mbox{\hyperlink{classMatrix}{U}} \mbox{\hyperlink{classMatrix}{lhs}}, \mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{rhs}})
 \item 
-{\footnotesize template$<$typename T , typename U $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_adcd694b82316f68f0771785c75bb0f73}{operator/}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&lhs, const U \&rhs)
+{\footnotesize template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} , \mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{U}} $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{Matrix_8h_adcd694b82316f68f0771785c75bb0f73}{operator/}} (\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{lhs}}, \mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{U}} \&\mbox{\hyperlink{classMatrix}{rhs}})
 \item 
-{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a81521a519e3567d98e9aa78dd837a058}{operator/}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+{\footnotesize template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{Matrix_8h_a81521a519e3567d98e9aa78dd837a058}{operator/}} (\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{lhs}}, \mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{rhs}})
 \item 
-{\footnotesize template$<$typename T , typename U $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a7603b1e2c1c9bff894d61310fdebc701}{operator$\ast$}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&lhs, const U \&rhs)
+{\footnotesize template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} , \mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{U}} $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{Matrix_8h_a7603b1e2c1c9bff894d61310fdebc701}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{lhs}}, \mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{U}} \&\mbox{\hyperlink{classMatrix}{rhs}})
 \item 
-{\footnotesize template$<$typename T , typename U $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a07f719e7555b5347806bac814888b35e}{operator$\ast$}} (U lambda, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&A)
+{\footnotesize template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} , \mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{U}} $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{Matrix_8h_a07f719e7555b5347806bac814888b35e}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{classMatrix}{U}} \mbox{\hyperlink{classMatrix}{lambda}}, \mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{A}})
 \item 
-{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{Matrix_8h_a03f4b5f7ccdfa3c9a4e67a2f8d685011}{operator$\ast$}} (const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&lhs, const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&rhs)
+{\footnotesize template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} $>$ }\\\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{Matrix_8h_a03f4b5f7ccdfa3c9a4e67a2f8d685011}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{lhs}}, \mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&\mbox{\hyperlink{classMatrix}{rhs}})
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{Matrix_8h_a03f4b5f7ccdfa3c9a4e67a2f8d685011}\label{Matrix_8h_a03f4b5f7ccdfa3c9a4e67a2f8d685011}} 
-\index{Matrix.h@{Matrix.h}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Matrix.h@{Matrix.h}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\Hypertarget{Matrix_8h_a03f4b5f7ccdfa3c9a4e67a2f8d685011}\label{Matrix_8h_a03f4b5f7ccdfa3c9a4e67a2f8d685011} 
+\index{Matrix.h@{Matrix.h}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{classMatrix}{operator}}\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{lhs,  }\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Regular Matrix-\/\+Matrix multiplication Calculates LHS $\ast$ RHS 
+Regular Matrix-\/\+Matrix multiplication Calculates LHS \texorpdfstring{$\ast$}{*} RHS 
 \begin{DoxyParams}{Parameters}
 {\em lhs} & \\
 \hline
@@ -58,14 +58,14 @@ Regular Matrix-\/\+Matrix multiplication Calculates LHS $\ast$ RHS
 \begin{DoxyReturn}{Returns}
 Rows x C result matrix 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Matrix_8h_a7603b1e2c1c9bff894d61310fdebc701}\label{Matrix_8h_a7603b1e2c1c9bff894d61310fdebc701}} 
-\index{Matrix.h@{Matrix.h}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Matrix.h@{Matrix.h}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const U \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\Hypertarget{Matrix_8h_a7603b1e2c1c9bff894d61310fdebc701}\label{Matrix_8h_a7603b1e2c1c9bff894d61310fdebc701} 
+\index{Matrix.h@{Matrix.h}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} , \mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{U}} $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{classMatrix}{operator}}\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{lhs,  }\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{U}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Simple \mbox{\hyperlink{classMatrix}{Matrix}} scalar multiplication 
+Simple \doxylink{classMatrix}{Matrix} scalar multiplication 
 \begin{DoxyParams}{Parameters}
 {\em lhs} & \\
 \hline
@@ -75,14 +75,14 @@ Simple \mbox{\hyperlink{classMatrix}{Matrix}} scalar multiplication
 \begin{DoxyReturn}{Returns}
 scaled matrix 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Matrix_8h_a07f719e7555b5347806bac814888b35e}\label{Matrix_8h_a07f719e7555b5347806bac814888b35e}} 
-\index{Matrix.h@{Matrix.h}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!Matrix.h@{Matrix.h}}
-\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{U}]{lambda,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{A }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\Hypertarget{Matrix_8h_a07f719e7555b5347806bac814888b35e}\label{Matrix_8h_a07f719e7555b5347806bac814888b35e} 
+\index{Matrix.h@{Matrix.h}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} , \mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{U}} $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{classMatrix}{operator}}\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{U}}}]{lambda,  }\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{A }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Simple \mbox{\hyperlink{classMatrix}{Matrix}} scalar multiplication 
+Simple \doxylink{classMatrix}{Matrix} scalar multiplication 
 \begin{DoxyParams}{Parameters}
 {\em lambda} & \\
 \hline
@@ -90,14 +90,14 @@ Simple \mbox{\hyperlink{classMatrix}{Matrix}} scalar multiplication
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-scaled matrix lambda $\ast$ A = B with B(i, j) = lambda $\ast$ A(i, j) 
+scaled matrix lambda \texorpdfstring{$\ast$}{*} A = B with B(i, j) = lambda \texorpdfstring{$\ast$}{*} A(i, j) 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Matrix_8h_ad6f7b6a6e98a07896691f00ff88a564d}\label{Matrix_8h_ad6f7b6a6e98a07896691f00ff88a564d}} 
+\Hypertarget{Matrix_8h_ad6f7b6a6e98a07896691f00ff88a564d}\label{Matrix_8h_ad6f7b6a6e98a07896691f00ff88a564d} 
 \index{Matrix.h@{Matrix.h}!operator+@{operator+}}
 \index{operator+@{operator+}!Matrix.h@{Matrix.h}}
 \doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{classMatrix}{operator}}+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{lhs,  }\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Extra operators Matrix-\/\+Addition 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -114,12 +114,12 @@ Extra operators Matrix-\/\+Addition
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Matrix_8h_a562445dbcc377e4225f9cde553f1bc54}\label{Matrix_8h_a562445dbcc377e4225f9cde553f1bc54}} 
+\Hypertarget{Matrix_8h_a562445dbcc377e4225f9cde553f1bc54}\label{Matrix_8h_a562445dbcc377e4225f9cde553f1bc54} 
 \index{Matrix.h@{Matrix.h}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!Matrix.h@{Matrix.h}}
 \doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{classMatrix}{operator}}-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{lhs,  }\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Matrix-\/\+Subtraction 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -136,12 +136,12 @@ Matrix-\/\+Subtraction
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Matrix_8h_a81521a519e3567d98e9aa78dd837a058}\label{Matrix_8h_a81521a519e3567d98e9aa78dd837a058}} 
+\Hypertarget{Matrix_8h_a81521a519e3567d98e9aa78dd837a058}\label{Matrix_8h_a81521a519e3567d98e9aa78dd837a058} 
 \index{Matrix.h@{Matrix.h}!operator/@{operator/}}
 \index{operator/@{operator/}!Matrix.h@{Matrix.h}}
 \doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{classMatrix}{operator}}/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{lhs,  }\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Matrix-\/\+Matrix division, element wise division if rhs is matrix. Row/\+Column-\/wise division for given rhs vector.
 
@@ -161,12 +161,12 @@ rhs vector\+: lhs\+: N x M rhs\+: 1 x M or M x 1 result\+: N x M
 {\em rhs} & matrix divisor @retrun matrix in dimension of given \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{Matrix_8h_adcd694b82316f68f0771785c75bb0f73}\label{Matrix_8h_adcd694b82316f68f0771785c75bb0f73}} 
+\Hypertarget{Matrix_8h_adcd694b82316f68f0771785c75bb0f73}\label{Matrix_8h_adcd694b82316f68f0771785c75bb0f73} 
 \index{Matrix.h@{Matrix.h}!operator/@{operator/}}
 \index{operator/@{operator/}!Matrix.h@{Matrix.h}}
 \doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{lhs,  }\item[{const U \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} , \mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{U}} $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{classMatrix}{operator}}/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{lhs,  }\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{U}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Element wise division of matrix elements with given scalar 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -183,12 +183,12 @@ Element wise division of matrix elements with given scalar
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{Matrix_8h_a6a57f4e03f7bcda0c431b9f123ff6091}\label{Matrix_8h_a6a57f4e03f7bcda0c431b9f123ff6091}} 
+\Hypertarget{Matrix_8h_a6a57f4e03f7bcda0c431b9f123ff6091}\label{Matrix_8h_a6a57f4e03f7bcda0c431b9f123ff6091} 
 \index{Matrix.h@{Matrix.h}!operator/@{operator/}}
 \index{operator/@{operator/}!Matrix.h@{Matrix.h}}
 \doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily template$<$typename T , typename U $>$ \\
-\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ operator/ (\begin{DoxyParamCaption}\item[{U}]{lhs,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{T}} , \mbox{\hyperlink{classMatrix}{typename}} \mbox{\hyperlink{classMatrix}{U}} $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \mbox{\hyperlink{classMatrix}{operator}}/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{U}}}]{lhs,  }\item[{\mbox{\hyperlink{classMatrix}{const}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ \mbox{\hyperlink{classMatrix}{T}} $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Scalar Matrix-\/division 
 \begin{DoxyTemplParams}{Template Parameters}
