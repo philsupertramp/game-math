@@ -7,49 +7,12 @@ The library contains necessary elements of Matrix Algebra to enable working in 2
 # Current feature support
 - Math:
   - 2,3,4-dimensional Matrix/Vector algebra (math.h)
+  - Matrix class with many implemented opterations
 - Game specific:
   - 2D/3D Transformation utils to generate View/Transformation matrices in a 2D view space (utils.h)
-- Numerical Methods (extension `numerics`)
-  - Solver for initial value problems of (stiff) ordinary differential equations (ode.h)
-    - Unified class for solvers (ODESolver)
-    - Explicit Euler Method (ExplicitEuler.h)
-    - Explicit 5 step Runge-Kutta-Method (ode45.h)
-    - Trapezoid rule for odes (odeTrapez.h)
-    - Backward differential formula (odeBDF2.h)
-  - Solver for systems of linear equations (gaussSeidel.h)
-  - Gauss-Jordan method to calculate inverse matrices (gaussJordan.h)
-  - QR-Decomposition of matrices (qr.h)
-  - Singular Value Decomposition (SVD) (svd.h)
-  - Fractals using numerical approximations (Fractals.h)
-    - NewtonFractal
-    - Mandelbrot
-  - Newton method to approximate the zero-value for a given function based on an initial value newton.h
-  - Function Interpolation/Approximation
-    - 1D Interpolation
-      - Polynomial Interpolation (PolynomialBase)
-        - MonomBase
-        - LagrangeBase
-        - NewtonBase
-      - Spline Interpolation
-        - Spline: implements Natural cubic spline, as well as a B-Spline capable of interpolating 3D values 
-    - 2D/3D Interpolation
-      - see Spline
-  - Differential calculus (Differentiation.h)
-  - Numerical Integration (Integration.h)
-- (classic) Statistics:
-  - Probability.h
-  - Insurance.h
-- Plot support (uses/requires gnuplot see include/math/visualization/README.md or Plot.h)
-- Data Science:
-  - Classification:
-    - NCC: Nearest Centroid Classifier (linear classifier) (NCC.h)
-    - KNN: K Nearest Neighbor Classifier (non-linear classifier) (KNN.h)
-  - Neural networks
-    - Feed Forward NNs
-      - Perceptron classifier (`Perceptron`)
-      - Adaline Neuron Classifier
-        - using gradient decent method (`AdalineGD`)
-        - using statistics gradient decent method (`AdalineSGD`)
+- Sorting (insertion sort)
+- Random Number Generator
+- String formatting
 
 # Benchmarks
 see `/benchmarks/README.md`
@@ -123,21 +86,6 @@ for implementation details.
 a specific data science and numerics implementation.  
 Capable of Matrix-Vector and Matrix-Multiplication, it also contains
 data science specific algorithms and statistical methods.
-
-# Extensions
-The library is split into multiple content seperated module.
-Each module is nested in the root directory [`math/`](/include/math).  
-Each sub-directory contains a README file with instructions how to use the module
-and if it has dependencies.
-
-### Adding extensions to library
-To activate modules use the `MATH_EXTENSIONS` compile argument.
-
-Example build command adding `numerics` module and building test suite:
-```
-mkdir -p build
-cmake -DMATH_EXTENSIONS=numerics --build math/build -- -j 3 .
-```
 
 # Development
 Feel free to contribute to the project!
