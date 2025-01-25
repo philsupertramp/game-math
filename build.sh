@@ -67,9 +67,8 @@ test_command() {
 
   # Run test suite with or without coverage
   if [ ${WITH_COVERAGE:-0} == 1 ]; then
-	  COMMAND="${COMMAND} --coverage"
 	  lcov --zerocounters -f -d . ;
-    lcov -c -i --rc lcov_branch_coverage=1 --rc lcov_function_coverage=1 -o ../base.info --include \*/include/math/\* --include \*/include/math/numerics\* --include \*/math/numerics/lin_alg\* --include \*/math/numerics/ode\* --include \*/math/statistics/\* -d .;
+	  lcov -c -i --rc lcov_branch_coverage=1 --rc lcov_function_coverage=1 -o ../base.info -f --include \*/include/math/\* -d .;
   fi
   if [ "${SPECIFIC_TEST:-0}" != "0" ]; then
       COMMAND="${COMMAND} -R ${SPECIFIC_TEST}"
@@ -87,7 +86,7 @@ echo "Options: ${BUILD_OPTIONS}"
 if [ ${TEST_ONLY} -eq 1 ]
 then
   cd ${DIR_NAME};
-  ctest --coverage --extra-verbose
+  ctest --extra-verbose
 else
   if [ ${CLEAR:-0} == 1 ]; then
     rm -rf ${DIR_NAME};

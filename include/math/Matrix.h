@@ -207,7 +207,7 @@ public:
    * getter for total number of elements inside matrix
    * @returns number of matrix elements
    */
-  [[nodiscard]] inline size_t elements_total() const {return _rows * _columns * _element_size; }
+  [[nodiscard]] inline size_t elements_total() const { return _rows * _columns * _element_size; }
 
   /**
    * Calculates Determinant
@@ -405,7 +405,7 @@ public:
         for(size_t p = 0; p < other.rows(); p++) {
           for(size_t q = 0; q < other.columns(); q++) {
             for(size_t elem = 0; elem < _element_size; ++elem) {
-              (*result)(m * other.rows() + p, n * other.columns() + q, elem) =
+              (*result)(m* other.rows() + p, n * other.columns() + q, elem) =
               _data[GetIndex(m, n, elem)] * other(p, q, elem);
             }
           }

@@ -4,7 +4,8 @@
 #include <math/Matrix.h>
 #include <math/math.h>
 
-#define NAMELOOKUP(a_typename) (std::strcmp(a_typename, "f") == 0 ? "float" : std::strcmp(a_typename, "d") == 0 ? "double" : "int")
+#define NAMELOOKUP(a_typename) \
+  (std::strcmp(a_typename, "f") == 0 ? "float" : std::strcmp(a_typename, "d") == 0 ? "double" : "int")
 
 
 class Timer
